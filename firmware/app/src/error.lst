@@ -1,0 +1,42 @@
+ARM GAS  /tmp/ccV1Zr6p.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"error.c"
+  15              		.section	.text.SYS_ThrowError,"ax",%progbits
+  16              		.align	1
+  17              		.global	SYS_ThrowError
+  18              		.thumb
+  19              		.thumb_func
+  21              	SYS_ThrowError:
+  22              		@ args = 0, pretend = 0, frame = 0
+  23              		@ frame_needed = 0, uses_anonymous_args = 0
+  24              		@ link register save eliminated.
+  25 0000 0228     		cmp	r0, #2
+  26 0002 00D1     		bne	.L5
+  27              	.L3:
+  28 0004 FEE7     		b	.L3
+  29              	.L5:
+  30 0006 7047     		bx	lr
+  32              		.ident	"GCC: (15:4.9.3+svn231177-1) 4.9.3 20150529 (prerelease)"
+ARM GAS  /tmp/ccV1Zr6p.s 			page 2
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 error.c
+     /tmp/ccV1Zr6p.s:16     .text.SYS_ThrowError:0000000000000000 $t
+     /tmp/ccV1Zr6p.s:21     .text.SYS_ThrowError:0000000000000000 SYS_ThrowError
+
+NO UNDEFINED SYMBOLS

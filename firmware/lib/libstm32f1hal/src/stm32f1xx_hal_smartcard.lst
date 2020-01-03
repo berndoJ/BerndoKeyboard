@@ -1,0 +1,1512 @@
+ARM GAS  /tmp/ccsVJElJ.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"stm32f1xx_hal_smartcard.c"
+  15              		.section	.text.SMARTCARD_DMATransmitCplt,"ax",%progbits
+  16              		.align	1
+  17              		.thumb
+  18              		.thumb_func
+  20              	SMARTCARD_DMATransmitCplt:
+  21              		@ args = 0, pretend = 0, frame = 0
+  22              		@ frame_needed = 0, uses_anonymous_args = 0
+  23              		@ link register save eliminated.
+  24 0000 436A     		ldr	r3, [r0, #36]
+  25 0002 0022     		movs	r2, #0
+  26 0004 DA86     		strh	r2, [r3, #54]	@ movhi
+  27 0006 1B68     		ldr	r3, [r3]
+  28 0008 5A69     		ldr	r2, [r3, #20]
+  29 000a 22F08002 		bic	r2, r2, #128
+  30 000e 5A61     		str	r2, [r3, #20]
+  31 0010 DA68     		ldr	r2, [r3, #12]
+  32 0012 42F04002 		orr	r2, r2, #64
+  33 0016 DA60     		str	r2, [r3, #12]
+  34 0018 7047     		bx	lr
+  36              		.section	.text.SMARTCARD_WaitOnFlagUntilTimeout.constprop.2,"ax",%progbits
+  37              		.align	1
+  38              		.thumb
+  39              		.thumb_func
+  41              	SMARTCARD_WaitOnFlagUntilTimeout.constprop.2:
+  42              		@ args = 0, pretend = 0, frame = 0
+  43              		@ frame_needed = 0, uses_anonymous_args = 0
+  44 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  45 0002 0446     		mov	r4, r0
+  46 0004 0E46     		mov	r6, r1
+  47 0006 1746     		mov	r7, r2
+  48 0008 1D46     		mov	r5, r3
+  49              	.L3:
+  50 000a 2368     		ldr	r3, [r4]
+  51              	.L4:
+  52 000c 1868     		ldr	r0, [r3]
+  53 000e 3040     		ands	r0, r0, r6
+  54 0010 B042     		cmp	r0, r6
+  55 0012 1BD0     		beq	.L12
+  56 0014 6A1C     		adds	r2, r5, #1
+  57 0016 F9D0     		beq	.L4
+  58 0018 95B9     		cbnz	r5, .L5
+  59              	.L7:
+  60 001a 2368     		ldr	r3, [r4]
+ARM GAS  /tmp/ccsVJElJ.s 			page 2
+
+
+  61 001c 0320     		movs	r0, #3
+  62 001e DA68     		ldr	r2, [r3, #12]
+  63 0020 22F08002 		bic	r2, r2, #128
+  64 0024 DA60     		str	r2, [r3, #12]
+  65 0026 DA68     		ldr	r2, [r3, #12]
+  66 0028 22F02002 		bic	r2, r2, #32
+  67 002c DA60     		str	r2, [r3, #12]
+  68 002e 2023     		movs	r3, #32
+  69 0030 84F84930 		strb	r3, [r4, #73]
+  70 0034 84F84A30 		strb	r3, [r4, #74]
+  71 0038 0023     		movs	r3, #0
+  72 003a 84F84830 		strb	r3, [r4, #72]
+  73 003e F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+  74              	.L5:
+  75 0040 FFF7FEFF 		bl	HAL_GetTick
+  76 0044 C01B     		subs	r0, r0, r7
+  77 0046 A842     		cmp	r0, r5
+  78 0048 DFD9     		bls	.L3
+  79 004a E6E7     		b	.L7
+  80              	.L12:
+  81 004c 0020     		movs	r0, #0
+  82 004e F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+  84              		.section	.text.HAL_SMARTCARD_MspInit,"ax",%progbits
+  85              		.align	1
+  86              		.weak	HAL_SMARTCARD_MspInit
+  87              		.thumb
+  88              		.thumb_func
+  90              	HAL_SMARTCARD_MspInit:
+  91              		@ args = 0, pretend = 0, frame = 0
+  92              		@ frame_needed = 0, uses_anonymous_args = 0
+  93              		@ link register save eliminated.
+  94 0000 7047     		bx	lr
+  96              		.section	.text.HAL_SMARTCARD_Init,"ax",%progbits
+  97              		.align	1
+  98              		.global	HAL_SMARTCARD_Init
+  99              		.thumb
+ 100              		.thumb_func
+ 102              	HAL_SMARTCARD_Init:
+ 103              		@ args = 0, pretend = 0, frame = 0
+ 104              		@ frame_needed = 0, uses_anonymous_args = 0
+ 105 0000 38B5     		push	{r3, r4, r5, lr}
+ 106 0002 0546     		mov	r5, r0
+ 107 0004 0028     		cmp	r0, #0
+ 108 0006 00F08480 		beq	.L19
+ 109 000a 90F84930 		ldrb	r3, [r0, #73]	@ zero_extendqisi2
+ 110 000e 03F0FF02 		and	r2, r3, #255
+ 111 0012 1BB9     		cbnz	r3, .L16
+ 112 0014 80F84820 		strb	r2, [r0, #72]
+ 113 0018 FFF7FEFF 		bl	HAL_SMARTCARD_MspInit
+ 114              	.L16:
+ 115 001c 2423     		movs	r3, #36
+ 116 001e 85F84930 		strb	r3, [r5, #73]
+ 117 0022 2B68     		ldr	r3, [r5]
+ 118 0024 A869     		ldr	r0, [r5, #24]
+ 119 0026 9A69     		ldr	r2, [r3, #24]
+ 120 0028 EC68     		ldr	r4, [r5, #12]
+ 121 002a 22F0FF01 		bic	r1, r2, #255
+ARM GAS  /tmp/ccsVJElJ.s 			page 3
+
+
+ 122 002e 6A6A     		ldr	r2, [r5, #36]
+ 123 0030 0A43     		orrs	r2, r2, r1
+ 124 0032 9A61     		str	r2, [r3, #24]
+ 125 0034 9A69     		ldr	r2, [r3, #24]
+ 126 0036 A96A     		ldr	r1, [r5, #40]
+ 127 0038 22F47F42 		bic	r2, r2, #65280
+ 128 003c 42EA0122 		orr	r2, r2, r1, lsl #8
+ 129 0040 9A61     		str	r2, [r3, #24]
+ 130 0042 DA68     		ldr	r2, [r3, #12]
+ 131 0044 22F00C02 		bic	r2, r2, #12
+ 132 0048 DA60     		str	r2, [r3, #12]
+ 133 004a 1A69     		ldr	r2, [r3, #16]
+ 134 004c 22F47061 		bic	r1, r2, #3840
+ 135 0050 EA69     		ldr	r2, [r5, #28]
+ 136 0052 0243     		orrs	r2, r2, r0
+ 137 0054 42F40060 		orr	r0, r2, #2048
+ 138 0058 2A6A     		ldr	r2, [r5, #32]
+ 139 005a 0243     		orrs	r2, r2, r0
+ 140 005c 2243     		orrs	r2, r2, r4
+ 141 005e 0A43     		orrs	r2, r2, r1
+ 142 0060 1A61     		str	r2, [r3, #16]
+ 143 0062 1A69     		ldr	r2, [r3, #16]
+ 144 0064 A968     		ldr	r1, [r5, #8]
+ 145 0066 22F44052 		bic	r2, r2, #12288
+ 146 006a 1443     		orrs	r4, r4, r2
+ 147 006c 1C61     		str	r4, [r3, #16]
+ 148 006e 2869     		ldr	r0, [r5, #16]
+ 149 0070 DA68     		ldr	r2, [r3, #12]
+ 150 0072 0843     		orrs	r0, r0, r1
+ 151 0074 6969     		ldr	r1, [r5, #20]
+ 152 0076 22F4B052 		bic	r2, r2, #5632
+ 153 007a 22F00C02 		bic	r2, r2, #12
+ 154 007e 0143     		orrs	r1, r1, r0
+ 155 0080 0A43     		orrs	r2, r2, r1
+ 156 0082 DA60     		str	r2, [r3, #12]
+ 157 0084 5A69     		ldr	r2, [r3, #20]
+ 158 0086 1924     		movs	r4, #25
+ 159 0088 22F44072 		bic	r2, r2, #768
+ 160 008c 5A61     		str	r2, [r3, #20]
+ 161 008e 224A     		ldr	r2, .L21
+ 162 0090 9342     		cmp	r3, r2
+ 163 0092 02D1     		bne	.L17
+ 164 0094 FFF7FEFF 		bl	HAL_RCC_GetPCLK2Freq
+ 165 0098 01E0     		b	.L20
+ 166              	.L17:
+ 167 009a FFF7FEFF 		bl	HAL_RCC_GetPCLK1Freq
+ 168              	.L20:
+ 169 009e 6043     		muls	r0, r4, r0
+ 170 00a0 6C68     		ldr	r4, [r5, #4]
+ 171 00a2 6423     		movs	r3, #100
+ 172 00a4 A400     		lsls	r4, r4, #2
+ 173 00a6 B0FBF4F0 		udiv	r0, r0, r4
+ 174 00aa B0FBF3F1 		udiv	r1, r0, r3
+ 175 00ae 03FB1100 		mls	r0, r3, r1, r0
+ 176 00b2 0001     		lsls	r0, r0, #4
+ 177 00b4 3230     		adds	r0, r0, #50
+ 178 00b6 B0FBF3F3 		udiv	r3, r0, r3
+ARM GAS  /tmp/ccsVJElJ.s 			page 4
+
+
+ 179 00ba 2A68     		ldr	r2, [r5]
+ 180 00bc DBB2     		uxtb	r3, r3
+ 181 00be 03EB0113 		add	r3, r3, r1, lsl #4
+ 182 00c2 9360     		str	r3, [r2, #8]
+ 183 00c4 2B68     		ldr	r3, [r5]
+ 184 00c6 0020     		movs	r0, #0
+ 185 00c8 1A69     		ldr	r2, [r3, #16]
+ 186 00ca 22F48042 		bic	r2, r2, #16384
+ 187 00ce 1A61     		str	r2, [r3, #16]
+ 188 00d0 5A69     		ldr	r2, [r3, #20]
+ 189 00d2 22F00A02 		bic	r2, r2, #10
+ 190 00d6 5A61     		str	r2, [r3, #20]
+ 191 00d8 DA68     		ldr	r2, [r3, #12]
+ 192 00da 42F48072 		orr	r2, r2, #256
+ 193 00de DA60     		str	r2, [r3, #12]
+ 194 00e0 5A69     		ldr	r2, [r3, #20]
+ 195 00e2 42F00102 		orr	r2, r2, #1
+ 196 00e6 5A61     		str	r2, [r3, #20]
+ 197 00e8 DA68     		ldr	r2, [r3, #12]
+ 198 00ea 42F40052 		orr	r2, r2, #8192
+ 199 00ee DA60     		str	r2, [r3, #12]
+ 200 00f0 5A69     		ldr	r2, [r3, #20]
+ 201 00f2 22F01001 		bic	r1, r2, #16
+ 202 00f6 EA6A     		ldr	r2, [r5, #44]
+ 203 00f8 0A43     		orrs	r2, r2, r1
+ 204 00fa 5A61     		str	r2, [r3, #20]
+ 205 00fc 5A69     		ldr	r2, [r3, #20]
+ 206 00fe 42F02002 		orr	r2, r2, #32
+ 207 0102 5A61     		str	r2, [r3, #20]
+ 208 0104 2023     		movs	r3, #32
+ 209 0106 E864     		str	r0, [r5, #76]
+ 210 0108 85F84930 		strb	r3, [r5, #73]
+ 211 010c 85F84A30 		strb	r3, [r5, #74]
+ 212 0110 38BD     		pop	{r3, r4, r5, pc}
+ 213              	.L19:
+ 214 0112 0120     		movs	r0, #1
+ 215 0114 38BD     		pop	{r3, r4, r5, pc}
+ 216              	.L22:
+ 217 0116 00BF     		.align	2
+ 218              	.L21:
+ 219 0118 00380140 		.word	1073821696
+ 221              		.section	.text.HAL_SMARTCARD_MspDeInit,"ax",%progbits
+ 222              		.align	1
+ 223              		.weak	HAL_SMARTCARD_MspDeInit
+ 224              		.thumb
+ 225              		.thumb_func
+ 227              	HAL_SMARTCARD_MspDeInit:
+ 228              		@ args = 0, pretend = 0, frame = 0
+ 229              		@ frame_needed = 0, uses_anonymous_args = 0
+ 230              		@ link register save eliminated.
+ 231 0000 7047     		bx	lr
+ 233              		.section	.text.HAL_SMARTCARD_DeInit,"ax",%progbits
+ 234              		.align	1
+ 235              		.global	HAL_SMARTCARD_DeInit
+ 236              		.thumb
+ 237              		.thumb_func
+ 239              	HAL_SMARTCARD_DeInit:
+ARM GAS  /tmp/ccsVJElJ.s 			page 5
+
+
+ 240              		@ args = 0, pretend = 0, frame = 0
+ 241              		@ frame_needed = 0, uses_anonymous_args = 0
+ 242 0000 10B5     		push	{r4, lr}
+ 243 0002 0446     		mov	r4, r0
+ 244 0004 90B1     		cbz	r0, .L26
+ 245 0006 0268     		ldr	r2, [r0]
+ 246 0008 2423     		movs	r3, #36
+ 247 000a 80F84930 		strb	r3, [r0, #73]
+ 248 000e D368     		ldr	r3, [r2, #12]
+ 249 0010 23F40053 		bic	r3, r3, #8192
+ 250 0014 D360     		str	r3, [r2, #12]
+ 251 0016 FFF7FEFF 		bl	HAL_SMARTCARD_MspDeInit
+ 252 001a 0020     		movs	r0, #0
+ 253 001c E064     		str	r0, [r4, #76]
+ 254 001e 84F84800 		strb	r0, [r4, #72]
+ 255 0022 84F84900 		strb	r0, [r4, #73]
+ 256 0026 84F84A00 		strb	r0, [r4, #74]
+ 257 002a 10BD     		pop	{r4, pc}
+ 258              	.L26:
+ 259 002c 0120     		movs	r0, #1
+ 260 002e 10BD     		pop	{r4, pc}
+ 262              		.section	.text.HAL_SMARTCARD_Transmit,"ax",%progbits
+ 263              		.align	1
+ 264              		.global	HAL_SMARTCARD_Transmit
+ 265              		.thumb
+ 266              		.thumb_func
+ 268              	HAL_SMARTCARD_Transmit:
+ 269              		@ args = 0, pretend = 0, frame = 0
+ 270              		@ frame_needed = 0, uses_anonymous_args = 0
+ 271 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 272 0004 1E46     		mov	r6, r3
+ 273 0006 90F84930 		ldrb	r3, [r0, #73]	@ zero_extendqisi2
+ 274 000a 0446     		mov	r4, r0
+ 275 000c 202B     		cmp	r3, #32
+ 276 000e 0D46     		mov	r5, r1
+ 277 0010 9046     		mov	r8, r2
+ 278 0012 40D1     		bne	.L36
+ 279 0014 0029     		cmp	r1, #0
+ 280 0016 3BD0     		beq	.L35
+ 281 0018 002A     		cmp	r2, #0
+ 282 001a 39D0     		beq	.L35
+ 283 001c 90F84830 		ldrb	r3, [r0, #72]	@ zero_extendqisi2
+ 284 0020 012B     		cmp	r3, #1
+ 285 0022 38D0     		beq	.L36
+ 286 0024 0123     		movs	r3, #1
+ 287 0026 80F84830 		strb	r3, [r0, #72]
+ 288 002a 0023     		movs	r3, #0
+ 289 002c C364     		str	r3, [r0, #76]
+ 290 002e 2123     		movs	r3, #33
+ 291 0030 80F84930 		strb	r3, [r0, #73]
+ 292 0034 FFF7FEFF 		bl	HAL_GetTick
+ 293 0038 0746     		mov	r7, r0
+ 294 003a A4F83480 		strh	r8, [r4, #52]	@ movhi
+ 295 003e A4F83680 		strh	r8, [r4, #54]	@ movhi
+ 296              	.L29:
+ 297 0042 E38E     		ldrh	r3, [r4, #54]
+ 298 0044 9BB2     		uxth	r3, r3
+ARM GAS  /tmp/ccsVJElJ.s 			page 6
+
+
+ 299 0046 A3B1     		cbz	r3, .L37
+ 300 0048 E38E     		ldrh	r3, [r4, #54]
+ 301 004a 2046     		mov	r0, r4
+ 302 004c 013B     		subs	r3, r3, #1
+ 303 004e 9BB2     		uxth	r3, r3
+ 304 0050 E386     		strh	r3, [r4, #54]	@ movhi
+ 305 0052 8021     		movs	r1, #128
+ 306 0054 3A46     		mov	r2, r7
+ 307 0056 3346     		mov	r3, r6
+ 308 0058 FFF7FEFF 		bl	SMARTCARD_WaitOnFlagUntilTimeout.constprop.2
+ 309 005c 10B1     		cbz	r0, .L30
+ 310              	.L32:
+ 311 005e 0320     		movs	r0, #3
+ 312 0060 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 313              	.L30:
+ 314 0064 35F8013B 		ldrh	r3, [r5], #1
+ 315 0068 2268     		ldr	r2, [r4]
+ 316 006a C3F30803 		ubfx	r3, r3, #0, #9
+ 317 006e 5360     		str	r3, [r2, #4]
+ 318 0070 E7E7     		b	.L29
+ 319              	.L37:
+ 320 0072 2046     		mov	r0, r4
+ 321 0074 4021     		movs	r1, #64
+ 322 0076 3A46     		mov	r2, r7
+ 323 0078 3346     		mov	r3, r6
+ 324 007a FFF7FEFF 		bl	SMARTCARD_WaitOnFlagUntilTimeout.constprop.2
+ 325 007e 0028     		cmp	r0, #0
+ 326 0080 EDD1     		bne	.L32
+ 327 0082 2023     		movs	r3, #32
+ 328 0084 84F84930 		strb	r3, [r4, #73]
+ 329 0088 84F84800 		strb	r0, [r4, #72]
+ 330 008c BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 331              	.L35:
+ 332 0090 0120     		movs	r0, #1
+ 333 0092 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 334              	.L36:
+ 335 0096 0220     		movs	r0, #2
+ 336 0098 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 338              		.section	.text.HAL_SMARTCARD_Receive,"ax",%progbits
+ 339              		.align	1
+ 340              		.global	HAL_SMARTCARD_Receive
+ 341              		.thumb
+ 342              		.thumb_func
+ 344              	HAL_SMARTCARD_Receive:
+ 345              		@ args = 0, pretend = 0, frame = 0
+ 346              		@ frame_needed = 0, uses_anonymous_args = 0
+ 347 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 348 0004 1E46     		mov	r6, r3
+ 349 0006 90F84A30 		ldrb	r3, [r0, #74]	@ zero_extendqisi2
+ 350 000a 0446     		mov	r4, r0
+ 351 000c 202B     		cmp	r3, #32
+ 352 000e 0D46     		mov	r5, r1
+ 353 0010 9046     		mov	r8, r2
+ 354 0012 32D1     		bne	.L45
+ 355 0014 71B3     		cbz	r1, .L44
+ 356 0016 6AB3     		cbz	r2, .L44
+ 357 0018 90F84830 		ldrb	r3, [r0, #72]	@ zero_extendqisi2
+ARM GAS  /tmp/ccsVJElJ.s 			page 7
+
+
+ 358 001c 012B     		cmp	r3, #1
+ 359 001e 2CD0     		beq	.L45
+ 360 0020 0123     		movs	r3, #1
+ 361 0022 80F84830 		strb	r3, [r0, #72]
+ 362 0026 0023     		movs	r3, #0
+ 363 0028 C364     		str	r3, [r0, #76]
+ 364 002a 2223     		movs	r3, #34
+ 365 002c 80F84A30 		strb	r3, [r0, #74]
+ 366 0030 FFF7FEFF 		bl	HAL_GetTick
+ 367 0034 0746     		mov	r7, r0
+ 368 0036 A4F83C80 		strh	r8, [r4, #60]	@ movhi
+ 369 003a A4F83E80 		strh	r8, [r4, #62]	@ movhi
+ 370              	.L40:
+ 371 003e E08F     		ldrh	r0, [r4, #62]
+ 372 0040 80B2     		uxth	r0, r0
+ 373 0042 80B1     		cbz	r0, .L47
+ 374 0044 E38F     		ldrh	r3, [r4, #62]
+ 375 0046 2046     		mov	r0, r4
+ 376 0048 013B     		subs	r3, r3, #1
+ 377 004a 9BB2     		uxth	r3, r3
+ 378 004c E387     		strh	r3, [r4, #62]	@ movhi
+ 379 004e 2021     		movs	r1, #32
+ 380 0050 3A46     		mov	r2, r7
+ 381 0052 3346     		mov	r3, r6
+ 382 0054 FFF7FEFF 		bl	SMARTCARD_WaitOnFlagUntilTimeout.constprop.2
+ 383 0058 90B9     		cbnz	r0, .L46
+ 384 005a 2368     		ldr	r3, [r4]
+ 385 005c 5B68     		ldr	r3, [r3, #4]
+ 386 005e DBB2     		uxtb	r3, r3
+ 387 0060 25F8013B 		strh	r3, [r5], #1	@ movhi
+ 388 0064 EBE7     		b	.L40
+ 389              	.L47:
+ 390 0066 2023     		movs	r3, #32
+ 391 0068 84F84A30 		strb	r3, [r4, #74]
+ 392 006c 84F84800 		strb	r0, [r4, #72]
+ 393 0070 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 394              	.L44:
+ 395 0074 0120     		movs	r0, #1
+ 396 0076 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 397              	.L45:
+ 398 007a 0220     		movs	r0, #2
+ 399 007c BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 400              	.L46:
+ 401 0080 0320     		movs	r0, #3
+ 402 0082 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 404              		.section	.text.HAL_SMARTCARD_Transmit_IT,"ax",%progbits
+ 405              		.align	1
+ 406              		.global	HAL_SMARTCARD_Transmit_IT
+ 407              		.thumb
+ 408              		.thumb_func
+ 410              	HAL_SMARTCARD_Transmit_IT:
+ 411              		@ args = 0, pretend = 0, frame = 0
+ 412              		@ frame_needed = 0, uses_anonymous_args = 0
+ 413              		@ link register save eliminated.
+ 414 0000 90F84930 		ldrb	r3, [r0, #73]	@ zero_extendqisi2
+ 415 0004 202B     		cmp	r3, #32
+ 416 0006 20D1     		bne	.L53
+ARM GAS  /tmp/ccsVJElJ.s 			page 8
+
+
+ 417 0008 E9B1     		cbz	r1, .L52
+ 418 000a E2B1     		cbz	r2, .L52
+ 419 000c 90F84830 		ldrb	r3, [r0, #72]	@ zero_extendqisi2
+ 420 0010 012B     		cmp	r3, #1
+ 421 0012 1AD0     		beq	.L53
+ 422 0014 C286     		strh	r2, [r0, #54]	@ movhi
+ 423 0016 8286     		strh	r2, [r0, #52]	@ movhi
+ 424 0018 0023     		movs	r3, #0
+ 425 001a 2122     		movs	r2, #33
+ 426 001c C364     		str	r3, [r0, #76]
+ 427 001e 80F84920 		strb	r2, [r0, #73]
+ 428 0022 0268     		ldr	r2, [r0]
+ 429 0024 0163     		str	r1, [r0, #48]
+ 430 0026 D168     		ldr	r1, [r2, #12]
+ 431 0028 80F84830 		strb	r3, [r0, #72]
+ 432 002c 41F48071 		orr	r1, r1, #256
+ 433 0030 D160     		str	r1, [r2, #12]
+ 434 0032 5169     		ldr	r1, [r2, #20]
+ 435 0034 1846     		mov	r0, r3
+ 436 0036 21F00101 		bic	r1, r1, #1
+ 437 003a 5161     		str	r1, [r2, #20]
+ 438 003c D168     		ldr	r1, [r2, #12]
+ 439 003e 41F08001 		orr	r1, r1, #128
+ 440 0042 D160     		str	r1, [r2, #12]
+ 441 0044 7047     		bx	lr
+ 442              	.L52:
+ 443 0046 0120     		movs	r0, #1
+ 444 0048 7047     		bx	lr
+ 445              	.L53:
+ 446 004a 0220     		movs	r0, #2
+ 447 004c 7047     		bx	lr
+ 449              		.section	.text.HAL_SMARTCARD_Receive_IT,"ax",%progbits
+ 450              		.align	1
+ 451              		.global	HAL_SMARTCARD_Receive_IT
+ 452              		.thumb
+ 453              		.thumb_func
+ 455              	HAL_SMARTCARD_Receive_IT:
+ 456              		@ args = 0, pretend = 0, frame = 0
+ 457              		@ frame_needed = 0, uses_anonymous_args = 0
+ 458              		@ link register save eliminated.
+ 459 0000 90F84A30 		ldrb	r3, [r0, #74]	@ zero_extendqisi2
+ 460 0004 202B     		cmp	r3, #32
+ 461 0006 1CD1     		bne	.L59
+ 462 0008 C9B1     		cbz	r1, .L58
+ 463 000a C2B1     		cbz	r2, .L58
+ 464 000c 90F84830 		ldrb	r3, [r0, #72]	@ zero_extendqisi2
+ 465 0010 012B     		cmp	r3, #1
+ 466 0012 16D0     		beq	.L59
+ 467 0014 C287     		strh	r2, [r0, #62]	@ movhi
+ 468 0016 8287     		strh	r2, [r0, #60]	@ movhi
+ 469 0018 0023     		movs	r3, #0
+ 470 001a 2222     		movs	r2, #34
+ 471 001c C364     		str	r3, [r0, #76]
+ 472 001e 80F84A20 		strb	r2, [r0, #74]
+ 473 0022 0268     		ldr	r2, [r0]
+ 474 0024 8163     		str	r1, [r0, #56]
+ 475 0026 D168     		ldr	r1, [r2, #12]
+ARM GAS  /tmp/ccsVJElJ.s 			page 9
+
+
+ 476 0028 80F84830 		strb	r3, [r0, #72]
+ 477 002c 41F49071 		orr	r1, r1, #288
+ 478 0030 D160     		str	r1, [r2, #12]
+ 479 0032 5169     		ldr	r1, [r2, #20]
+ 480 0034 1846     		mov	r0, r3
+ 481 0036 41F00101 		orr	r1, r1, #1
+ 482 003a 5161     		str	r1, [r2, #20]
+ 483 003c 7047     		bx	lr
+ 484              	.L58:
+ 485 003e 0120     		movs	r0, #1
+ 486 0040 7047     		bx	lr
+ 487              	.L59:
+ 488 0042 0220     		movs	r0, #2
+ 489 0044 7047     		bx	lr
+ 491              		.section	.text.HAL_SMARTCARD_Transmit_DMA,"ax",%progbits
+ 492              		.align	1
+ 493              		.global	HAL_SMARTCARD_Transmit_DMA
+ 494              		.thumb
+ 495              		.thumb_func
+ 497              	HAL_SMARTCARD_Transmit_DMA:
+ 498              		@ args = 0, pretend = 0, frame = 0
+ 499              		@ frame_needed = 0, uses_anonymous_args = 0
+ 500 0000 38B5     		push	{r3, r4, r5, lr}
+ 501 0002 0446     		mov	r4, r0
+ 502 0004 1346     		mov	r3, r2
+ 503 0006 94F84920 		ldrb	r2, [r4, #73]	@ zero_extendqisi2
+ 504 000a 202A     		cmp	r2, #32
+ 505 000c 28D1     		bne	.L65
+ 506 000e 29B3     		cbz	r1, .L64
+ 507 0010 23B3     		cbz	r3, .L64
+ 508 0012 94F84820 		ldrb	r2, [r4, #72]	@ zero_extendqisi2
+ 509 0016 012A     		cmp	r2, #1
+ 510 0018 22D0     		beq	.L65
+ 511 001a 0122     		movs	r2, #1
+ 512 001c 84F84820 		strb	r2, [r4, #72]
+ 513 0020 0025     		movs	r5, #0
+ 514 0022 2122     		movs	r2, #33
+ 515 0024 E386     		strh	r3, [r4, #54]	@ movhi
+ 516 0026 206C     		ldr	r0, [r4, #64]
+ 517 0028 E564     		str	r5, [r4, #76]
+ 518 002a 84F84920 		strb	r2, [r4, #73]
+ 519 002e 0D4A     		ldr	r2, .L66
+ 520 0030 A386     		strh	r3, [r4, #52]	@ movhi
+ 521 0032 2163     		str	r1, [r4, #48]
+ 522 0034 8262     		str	r2, [r0, #40]
+ 523 0036 0C4A     		ldr	r2, .L66+4
+ 524 0038 4563     		str	r5, [r0, #52]
+ 525 003a 0263     		str	r2, [r0, #48]
+ 526 003c 2268     		ldr	r2, [r4]
+ 527 003e 0432     		adds	r2, r2, #4
+ 528 0040 FFF7FEFF 		bl	HAL_DMA_Start_IT
+ 529 0044 2368     		ldr	r3, [r4]
+ 530 0046 6FF04002 		mvn	r2, #64
+ 531 004a 1A60     		str	r2, [r3]
+ 532 004c 5A69     		ldr	r2, [r3, #20]
+ 533 004e 84F84850 		strb	r5, [r4, #72]
+ 534 0052 42F08002 		orr	r2, r2, #128
+ARM GAS  /tmp/ccsVJElJ.s 			page 10
+
+
+ 535 0056 5A61     		str	r2, [r3, #20]
+ 536 0058 2846     		mov	r0, r5
+ 537 005a 38BD     		pop	{r3, r4, r5, pc}
+ 538              	.L64:
+ 539 005c 0120     		movs	r0, #1
+ 540 005e 38BD     		pop	{r3, r4, r5, pc}
+ 541              	.L65:
+ 542 0060 0220     		movs	r0, #2
+ 543 0062 38BD     		pop	{r3, r4, r5, pc}
+ 544              	.L67:
+ 545              		.align	2
+ 546              	.L66:
+ 547 0064 00000000 		.word	SMARTCARD_DMATransmitCplt
+ 548 0068 00000000 		.word	SMARTCARD_DMAError
+ 550              		.section	.text.HAL_SMARTCARD_Receive_DMA,"ax",%progbits
+ 551              		.align	1
+ 552              		.global	HAL_SMARTCARD_Receive_DMA
+ 553              		.thumb
+ 554              		.thumb_func
+ 556              	HAL_SMARTCARD_Receive_DMA:
+ 557              		@ args = 0, pretend = 0, frame = 8
+ 558              		@ frame_needed = 0, uses_anonymous_args = 0
+ 559 0000 1346     		mov	r3, r2
+ 560 0002 90F84A20 		ldrb	r2, [r0, #74]	@ zero_extendqisi2
+ 561 0006 73B5     		push	{r0, r1, r4, r5, r6, lr}
+ 562 0008 202A     		cmp	r2, #32
+ 563 000a 0446     		mov	r4, r0
+ 564 000c 0E46     		mov	r6, r1
+ 565 000e 36D1     		bne	.L73
+ 566 0010 0029     		cmp	r1, #0
+ 567 0012 32D0     		beq	.L72
+ 568 0014 002B     		cmp	r3, #0
+ 569 0016 30D0     		beq	.L72
+ 570 0018 90F84820 		ldrb	r2, [r0, #72]	@ zero_extendqisi2
+ 571 001c 012A     		cmp	r2, #1
+ 572 001e 2ED0     		beq	.L73
+ 573 0020 0122     		movs	r2, #1
+ 574 0022 80F84820 		strb	r2, [r0, #72]
+ 575 0026 0025     		movs	r5, #0
+ 576 0028 2222     		movs	r2, #34
+ 577 002a A163     		str	r1, [r4, #56]
+ 578 002c 8387     		strh	r3, [r0, #60]	@ movhi
+ 579 002e C564     		str	r5, [r0, #76]
+ 580 0030 80F84A20 		strb	r2, [r0, #74]
+ 581 0034 406C     		ldr	r0, [r0, #68]
+ 582 0036 134A     		ldr	r2, .L74
+ 583 0038 2168     		ldr	r1, [r4]
+ 584 003a 8262     		str	r2, [r0, #40]
+ 585 003c 124A     		ldr	r2, .L74+4
+ 586 003e 0431     		adds	r1, r1, #4
+ 587 0040 0263     		str	r2, [r0, #48]
+ 588 0042 226C     		ldr	r2, [r4, #64]
+ 589 0044 5563     		str	r5, [r2, #52]
+ 590 0046 3246     		mov	r2, r6
+ 591 0048 FFF7FEFF 		bl	HAL_DMA_Start_IT
+ 592 004c 2368     		ldr	r3, [r4]
+ 593 004e 0195     		str	r5, [sp, #4]
+ARM GAS  /tmp/ccsVJElJ.s 			page 11
+
+
+ 594 0050 1A68     		ldr	r2, [r3]
+ 595 0052 2846     		mov	r0, r5
+ 596 0054 0192     		str	r2, [sp, #4]
+ 597 0056 5A68     		ldr	r2, [r3, #4]
+ 598 0058 84F84850 		strb	r5, [r4, #72]
+ 599 005c 0192     		str	r2, [sp, #4]
+ 600 005e 019A     		ldr	r2, [sp, #4]
+ 601 0060 DA68     		ldr	r2, [r3, #12]
+ 602 0062 42F48072 		orr	r2, r2, #256
+ 603 0066 DA60     		str	r2, [r3, #12]
+ 604 0068 5A69     		ldr	r2, [r3, #20]
+ 605 006a 42F00102 		orr	r2, r2, #1
+ 606 006e 5A61     		str	r2, [r3, #20]
+ 607 0070 5A69     		ldr	r2, [r3, #20]
+ 608 0072 42F04002 		orr	r2, r2, #64
+ 609 0076 5A61     		str	r2, [r3, #20]
+ 610 0078 02E0     		b	.L69
+ 611              	.L72:
+ 612 007a 0120     		movs	r0, #1
+ 613 007c 00E0     		b	.L69
+ 614              	.L73:
+ 615 007e 0220     		movs	r0, #2
+ 616              	.L69:
+ 617 0080 02B0     		add	sp, sp, #8
+ 618              		@ sp needed
+ 619 0082 70BD     		pop	{r4, r5, r6, pc}
+ 620              	.L75:
+ 621              		.align	2
+ 622              	.L74:
+ 623 0084 00000000 		.word	SMARTCARD_DMAReceiveCplt
+ 624 0088 00000000 		.word	SMARTCARD_DMAError
+ 626              		.section	.text.HAL_SMARTCARD_Abort,"ax",%progbits
+ 627              		.align	1
+ 628              		.global	HAL_SMARTCARD_Abort
+ 629              		.thumb
+ 630              		.thumb_func
+ 632              	HAL_SMARTCARD_Abort:
+ 633              		@ args = 0, pretend = 0, frame = 0
+ 634              		@ frame_needed = 0, uses_anonymous_args = 0
+ 635 0000 0368     		ldr	r3, [r0]
+ 636 0002 10B5     		push	{r4, lr}
+ 637 0004 DA68     		ldr	r2, [r3, #12]
+ 638 0006 0446     		mov	r4, r0
+ 639 0008 22F4F072 		bic	r2, r2, #480
+ 640 000c DA60     		str	r2, [r3, #12]
+ 641 000e 5A69     		ldr	r2, [r3, #20]
+ 642 0010 22F00102 		bic	r2, r2, #1
+ 643 0014 5A61     		str	r2, [r3, #20]
+ 644 0016 5A69     		ldr	r2, [r3, #20]
+ 645 0018 1106     		lsls	r1, r2, #24
+ 646 001a 09D5     		bpl	.L78
+ 647 001c 5A69     		ldr	r2, [r3, #20]
+ 648 001e 006C     		ldr	r0, [r0, #64]
+ 649 0020 22F08002 		bic	r2, r2, #128
+ 650 0024 5A61     		str	r2, [r3, #20]
+ 651 0026 18B1     		cbz	r0, .L78
+ 652 0028 0023     		movs	r3, #0
+ARM GAS  /tmp/ccsVJElJ.s 			page 12
+
+
+ 653 002a 4363     		str	r3, [r0, #52]
+ 654 002c FFF7FEFF 		bl	HAL_DMA_Abort
+ 655              	.L78:
+ 656 0030 2368     		ldr	r3, [r4]
+ 657 0032 5A69     		ldr	r2, [r3, #20]
+ 658 0034 5206     		lsls	r2, r2, #25
+ 659 0036 09D5     		bpl	.L81
+ 660 0038 5A69     		ldr	r2, [r3, #20]
+ 661 003a 606C     		ldr	r0, [r4, #68]
+ 662 003c 22F04002 		bic	r2, r2, #64
+ 663 0040 5A61     		str	r2, [r3, #20]
+ 664 0042 18B1     		cbz	r0, .L81
+ 665 0044 0023     		movs	r3, #0
+ 666 0046 4363     		str	r3, [r0, #52]
+ 667 0048 FFF7FEFF 		bl	HAL_DMA_Abort
+ 668              	.L81:
+ 669 004c 0020     		movs	r0, #0
+ 670 004e 2023     		movs	r3, #32
+ 671 0050 E086     		strh	r0, [r4, #54]	@ movhi
+ 672 0052 E087     		strh	r0, [r4, #62]	@ movhi
+ 673 0054 E064     		str	r0, [r4, #76]
+ 674 0056 84F84A30 		strb	r3, [r4, #74]
+ 675 005a 84F84930 		strb	r3, [r4, #73]
+ 676 005e 10BD     		pop	{r4, pc}
+ 678              		.section	.text.HAL_SMARTCARD_AbortTransmit,"ax",%progbits
+ 679              		.align	1
+ 680              		.global	HAL_SMARTCARD_AbortTransmit
+ 681              		.thumb
+ 682              		.thumb_func
+ 684              	HAL_SMARTCARD_AbortTransmit:
+ 685              		@ args = 0, pretend = 0, frame = 0
+ 686              		@ frame_needed = 0, uses_anonymous_args = 0
+ 687 0000 0368     		ldr	r3, [r0]
+ 688 0002 10B5     		push	{r4, lr}
+ 689 0004 DA68     		ldr	r2, [r3, #12]
+ 690 0006 0446     		mov	r4, r0
+ 691 0008 22F0C002 		bic	r2, r2, #192
+ 692 000c DA60     		str	r2, [r3, #12]
+ 693 000e 5A69     		ldr	r2, [r3, #20]
+ 694 0010 1206     		lsls	r2, r2, #24
+ 695 0012 09D5     		bpl	.L91
+ 696 0014 5A69     		ldr	r2, [r3, #20]
+ 697 0016 006C     		ldr	r0, [r0, #64]
+ 698 0018 22F08002 		bic	r2, r2, #128
+ 699 001c 5A61     		str	r2, [r3, #20]
+ 700 001e 18B1     		cbz	r0, .L91
+ 701 0020 0023     		movs	r3, #0
+ 702 0022 4363     		str	r3, [r0, #52]
+ 703 0024 FFF7FEFF 		bl	HAL_DMA_Abort
+ 704              	.L91:
+ 705 0028 0020     		movs	r0, #0
+ 706 002a 2023     		movs	r3, #32
+ 707 002c E086     		strh	r0, [r4, #54]	@ movhi
+ 708 002e 84F84930 		strb	r3, [r4, #73]
+ 709 0032 10BD     		pop	{r4, pc}
+ 711              		.section	.text.HAL_SMARTCARD_AbortReceive,"ax",%progbits
+ 712              		.align	1
+ARM GAS  /tmp/ccsVJElJ.s 			page 13
+
+
+ 713              		.global	HAL_SMARTCARD_AbortReceive
+ 714              		.thumb
+ 715              		.thumb_func
+ 717              	HAL_SMARTCARD_AbortReceive:
+ 718              		@ args = 0, pretend = 0, frame = 0
+ 719              		@ frame_needed = 0, uses_anonymous_args = 0
+ 720 0000 0368     		ldr	r3, [r0]
+ 721 0002 10B5     		push	{r4, lr}
+ 722 0004 DA68     		ldr	r2, [r3, #12]
+ 723 0006 0446     		mov	r4, r0
+ 724 0008 22F49072 		bic	r2, r2, #288
+ 725 000c DA60     		str	r2, [r3, #12]
+ 726 000e 5A69     		ldr	r2, [r3, #20]
+ 727 0010 22F00102 		bic	r2, r2, #1
+ 728 0014 5A61     		str	r2, [r3, #20]
+ 729 0016 5A69     		ldr	r2, [r3, #20]
+ 730 0018 5206     		lsls	r2, r2, #25
+ 731 001a 09D5     		bpl	.L98
+ 732 001c 5A69     		ldr	r2, [r3, #20]
+ 733 001e 406C     		ldr	r0, [r0, #68]
+ 734 0020 22F04002 		bic	r2, r2, #64
+ 735 0024 5A61     		str	r2, [r3, #20]
+ 736 0026 18B1     		cbz	r0, .L98
+ 737 0028 0023     		movs	r3, #0
+ 738 002a 4363     		str	r3, [r0, #52]
+ 739 002c FFF7FEFF 		bl	HAL_DMA_Abort
+ 740              	.L98:
+ 741 0030 0020     		movs	r0, #0
+ 742 0032 2023     		movs	r3, #32
+ 743 0034 E087     		strh	r0, [r4, #62]	@ movhi
+ 744 0036 84F84A30 		strb	r3, [r4, #74]
+ 745 003a 10BD     		pop	{r4, pc}
+ 747              		.section	.text.HAL_SMARTCARD_TxCpltCallback,"ax",%progbits
+ 748              		.align	1
+ 749              		.weak	HAL_SMARTCARD_TxCpltCallback
+ 750              		.thumb
+ 751              		.thumb_func
+ 753              	HAL_SMARTCARD_TxCpltCallback:
+ 754              		@ args = 0, pretend = 0, frame = 0
+ 755              		@ frame_needed = 0, uses_anonymous_args = 0
+ 756              		@ link register save eliminated.
+ 757 0000 7047     		bx	lr
+ 759              		.section	.text.HAL_SMARTCARD_RxCpltCallback,"ax",%progbits
+ 760              		.align	1
+ 761              		.weak	HAL_SMARTCARD_RxCpltCallback
+ 762              		.thumb
+ 763              		.thumb_func
+ 765              	HAL_SMARTCARD_RxCpltCallback:
+ 766              		@ args = 0, pretend = 0, frame = 0
+ 767              		@ frame_needed = 0, uses_anonymous_args = 0
+ 768              		@ link register save eliminated.
+ 769 0000 7047     		bx	lr
+ 771              		.section	.text.SMARTCARD_DMAReceiveCplt,"ax",%progbits
+ 772              		.align	1
+ 773              		.thumb
+ 774              		.thumb_func
+ 776              	SMARTCARD_DMAReceiveCplt:
+ARM GAS  /tmp/ccsVJElJ.s 			page 14
+
+
+ 777              		@ args = 0, pretend = 0, frame = 0
+ 778              		@ frame_needed = 0, uses_anonymous_args = 0
+ 779 0000 406A     		ldr	r0, [r0, #36]
+ 780 0002 08B5     		push	{r3, lr}
+ 781 0004 0023     		movs	r3, #0
+ 782 0006 C387     		strh	r3, [r0, #62]	@ movhi
+ 783 0008 0368     		ldr	r3, [r0]
+ 784 000a DA68     		ldr	r2, [r3, #12]
+ 785 000c 22F49072 		bic	r2, r2, #288
+ 786 0010 DA60     		str	r2, [r3, #12]
+ 787 0012 5A69     		ldr	r2, [r3, #20]
+ 788 0014 22F00102 		bic	r2, r2, #1
+ 789 0018 5A61     		str	r2, [r3, #20]
+ 790 001a 5A69     		ldr	r2, [r3, #20]
+ 791 001c 22F04002 		bic	r2, r2, #64
+ 792 0020 5A61     		str	r2, [r3, #20]
+ 793 0022 2023     		movs	r3, #32
+ 794 0024 80F84A30 		strb	r3, [r0, #74]
+ 795 0028 FFF7FEFF 		bl	HAL_SMARTCARD_RxCpltCallback
+ 796 002c 08BD     		pop	{r3, pc}
+ 798              		.section	.text.SMARTCARD_Receive_IT,"ax",%progbits
+ 799              		.align	1
+ 800              		.thumb
+ 801              		.thumb_func
+ 803              	SMARTCARD_Receive_IT:
+ 804              		@ args = 0, pretend = 0, frame = 0
+ 805              		@ frame_needed = 0, uses_anonymous_args = 0
+ 806 0000 90F84A20 		ldrb	r2, [r0, #74]	@ zero_extendqisi2
+ 807 0004 10B5     		push	{r4, lr}
+ 808 0006 222A     		cmp	r2, #34
+ 809 0008 1DD1     		bne	.L108
+ 810 000a 0268     		ldr	r2, [r0]
+ 811 000c 816B     		ldr	r1, [r0, #56]
+ 812 000e 5468     		ldr	r4, [r2, #4]
+ 813 0010 E4B2     		uxtb	r4, r4
+ 814 0012 21F8014B 		strh	r4, [r1], #1	@ movhi
+ 815 0016 C48F     		ldrh	r4, [r0, #62]
+ 816 0018 8163     		str	r1, [r0, #56]
+ 817 001a 013C     		subs	r4, r4, #1
+ 818 001c A4B2     		uxth	r4, r4
+ 819 001e C487     		strh	r4, [r0, #62]	@ movhi
+ 820 0020 9CB9     		cbnz	r4, .L109
+ 821 0022 D168     		ldr	r1, [r2, #12]
+ 822 0024 21F02001 		bic	r1, r1, #32
+ 823 0028 D160     		str	r1, [r2, #12]
+ 824 002a D168     		ldr	r1, [r2, #12]
+ 825 002c 21F48071 		bic	r1, r1, #256
+ 826 0030 D160     		str	r1, [r2, #12]
+ 827 0032 5169     		ldr	r1, [r2, #20]
+ 828 0034 21F00101 		bic	r1, r1, #1
+ 829 0038 5161     		str	r1, [r2, #20]
+ 830 003a 2022     		movs	r2, #32
+ 831 003c 80F84A20 		strb	r2, [r0, #74]
+ 832 0040 FFF7FEFF 		bl	HAL_SMARTCARD_RxCpltCallback
+ 833 0044 01E0     		b	.L109
+ 834              	.L108:
+ 835 0046 0220     		movs	r0, #2
+ARM GAS  /tmp/ccsVJElJ.s 			page 15
+
+
+ 836 0048 10BD     		pop	{r4, pc}
+ 837              	.L109:
+ 838 004a 0020     		movs	r0, #0
+ 839 004c 10BD     		pop	{r4, pc}
+ 841              		.section	.text.HAL_SMARTCARD_ErrorCallback,"ax",%progbits
+ 842              		.align	1
+ 843              		.weak	HAL_SMARTCARD_ErrorCallback
+ 844              		.thumb
+ 845              		.thumb_func
+ 847              	HAL_SMARTCARD_ErrorCallback:
+ 848              		@ args = 0, pretend = 0, frame = 0
+ 849              		@ frame_needed = 0, uses_anonymous_args = 0
+ 850              		@ link register save eliminated.
+ 851 0000 7047     		bx	lr
+ 853              		.section	.text.SMARTCARD_DMAError,"ax",%progbits
+ 854              		.align	1
+ 855              		.thumb
+ 856              		.thumb_func
+ 858              	SMARTCARD_DMAError:
+ 859              		@ args = 0, pretend = 0, frame = 0
+ 860              		@ frame_needed = 0, uses_anonymous_args = 0
+ 861 0000 406A     		ldr	r0, [r0, #36]
+ 862 0002 08B5     		push	{r3, lr}
+ 863 0004 0023     		movs	r3, #0
+ 864 0006 C387     		strh	r3, [r0, #62]	@ movhi
+ 865 0008 C386     		strh	r3, [r0, #54]	@ movhi
+ 866 000a 1023     		movs	r3, #16
+ 867 000c C364     		str	r3, [r0, #76]
+ 868 000e 0368     		ldr	r3, [r0]
+ 869 0010 5A69     		ldr	r2, [r3, #20]
+ 870 0012 90F84910 		ldrb	r1, [r0, #73]	@ zero_extendqisi2
+ 871 0016 2129     		cmp	r1, #33
+ 872 0018 09D1     		bne	.L112
+ 873 001a 1106     		lsls	r1, r2, #24
+ 874 001c 41BF     		itttt	mi
+ 875 001e 2022     		movmi	r2, #32
+ 876 0020 80F84920 		strbmi	r2, [r0, #73]
+ 877 0024 DA68     		ldrmi	r2, [r3, #12]
+ 878 0026 22F0C002 		bicmi	r2, r2, #192
+ 879 002a 48BF     		it	mi
+ 880 002c DA60     		strmi	r2, [r3, #12]
+ 881              	.L112:
+ 882 002e 5A69     		ldr	r2, [r3, #20]
+ 883 0030 90F84A10 		ldrb	r1, [r0, #74]	@ zero_extendqisi2
+ 884 0034 2229     		cmp	r1, #34
+ 885 0036 0CD1     		bne	.L113
+ 886 0038 5206     		lsls	r2, r2, #25
+ 887 003a 0AD5     		bpl	.L113
+ 888 003c 2022     		movs	r2, #32
+ 889 003e 80F84A20 		strb	r2, [r0, #74]
+ 890 0042 DA68     		ldr	r2, [r3, #12]
+ 891 0044 22F49072 		bic	r2, r2, #288
+ 892 0048 DA60     		str	r2, [r3, #12]
+ 893 004a 5A69     		ldr	r2, [r3, #20]
+ 894 004c 22F00102 		bic	r2, r2, #1
+ 895 0050 5A61     		str	r2, [r3, #20]
+ 896              	.L113:
+ARM GAS  /tmp/ccsVJElJ.s 			page 16
+
+
+ 897 0052 FFF7FEFF 		bl	HAL_SMARTCARD_ErrorCallback
+ 898 0056 08BD     		pop	{r3, pc}
+ 900              		.section	.text.HAL_SMARTCARD_IRQHandler,"ax",%progbits
+ 901              		.align	1
+ 902              		.global	HAL_SMARTCARD_IRQHandler
+ 903              		.thumb
+ 904              		.thumb_func
+ 906              	HAL_SMARTCARD_IRQHandler:
+ 907              		@ args = 0, pretend = 0, frame = 0
+ 908              		@ frame_needed = 0, uses_anonymous_args = 0
+ 909 0000 0368     		ldr	r3, [r0]
+ 910 0002 70B5     		push	{r4, r5, r6, lr}
+ 911 0004 1A68     		ldr	r2, [r3]
+ 912 0006 0446     		mov	r4, r0
+ 913 0008 1607     		lsls	r6, r2, #28
+ 914 000a D968     		ldr	r1, [r3, #12]
+ 915 000c 5D69     		ldr	r5, [r3, #20]
+ 916 000e 07D1     		bne	.L121
+ 917 0010 9606     		lsls	r6, r2, #26
+ 918 0012 62D5     		bpl	.L122
+ 919 0014 8D06     		lsls	r5, r1, #26
+ 920 0016 60D5     		bpl	.L122
+ 921 0018 BDE87040 		pop	{r4, r5, r6, lr}
+ 922 001c FFF7FEBF 		b	SMARTCARD_Receive_IT
+ 923              	.L121:
+ 924 0020 15F00100 		ands	r0, r5, #1
+ 925 0024 02D1     		bne	.L123
+ 926 0026 11F4907F 		tst	r1, #288
+ 927 002a 56D0     		beq	.L122
+ 928              	.L123:
+ 929 002c D307     		lsls	r3, r2, #31
+ 930 002e 05D5     		bpl	.L124
+ 931 0030 CE05     		lsls	r6, r1, #23
+ 932 0032 42BF     		ittt	mi
+ 933 0034 E36C     		ldrmi	r3, [r4, #76]
+ 934 0036 43F00103 		orrmi	r3, r3, #1
+ 935 003a E364     		strmi	r3, [r4, #76]
+ 936              	.L124:
+ 937 003c 9507     		lsls	r5, r2, #30
+ 938 003e 04D5     		bpl	.L125
+ 939 0040 18B1     		cbz	r0, .L125
+ 940 0042 E36C     		ldr	r3, [r4, #76]
+ 941 0044 43F00403 		orr	r3, r3, #4
+ 942 0048 E364     		str	r3, [r4, #76]
+ 943              	.L125:
+ 944 004a 5307     		lsls	r3, r2, #29
+ 945 004c 04D5     		bpl	.L126
+ 946 004e 18B1     		cbz	r0, .L126
+ 947 0050 E36C     		ldr	r3, [r4, #76]
+ 948 0052 43F00203 		orr	r3, r3, #2
+ 949 0056 E364     		str	r3, [r4, #76]
+ 950              	.L126:
+ 951 0058 1607     		lsls	r6, r2, #28
+ 952 005a 04D5     		bpl	.L127
+ 953 005c 18B1     		cbz	r0, .L127
+ 954 005e E36C     		ldr	r3, [r4, #76]
+ 955 0060 43F00803 		orr	r3, r3, #8
+ARM GAS  /tmp/ccsVJElJ.s 			page 17
+
+
+ 956 0064 E364     		str	r3, [r4, #76]
+ 957              	.L127:
+ 958 0066 E36C     		ldr	r3, [r4, #76]
+ 959 0068 002B     		cmp	r3, #0
+ 960 006a 65D0     		beq	.L120
+ 961 006c 9506     		lsls	r5, r2, #26
+ 962 006e 04D5     		bpl	.L130
+ 963 0070 8806     		lsls	r0, r1, #26
+ 964 0072 02D5     		bpl	.L130
+ 965 0074 2046     		mov	r0, r4
+ 966 0076 FFF7FEFF 		bl	SMARTCARD_Receive_IT
+ 967              	.L130:
+ 968 007a 2368     		ldr	r3, [r4]
+ 969 007c 5A69     		ldr	r2, [r3, #20]
+ 970 007e E16C     		ldr	r1, [r4, #76]
+ 971 0080 0907     		lsls	r1, r1, #28
+ 972 0082 02D4     		bmi	.L131
+ 973 0084 12F04005 		ands	r5, r2, #64
+ 974 0088 22D0     		beq	.L132
+ 975              	.L131:
+ 976 008a 2022     		movs	r2, #32
+ 977 008c 84F84A20 		strb	r2, [r4, #74]
+ 978 0090 DA68     		ldr	r2, [r3, #12]
+ 979 0092 22F49072 		bic	r2, r2, #288
+ 980 0096 DA60     		str	r2, [r3, #12]
+ 981 0098 5A69     		ldr	r2, [r3, #20]
+ 982 009a 22F00102 		bic	r2, r2, #1
+ 983 009e 5A61     		str	r2, [r3, #20]
+ 984 00a0 5A69     		ldr	r2, [r3, #20]
+ 985 00a2 5206     		lsls	r2, r2, #25
+ 986 00a4 10D5     		bpl	.L133
+ 987 00a6 5A69     		ldr	r2, [r3, #20]
+ 988 00a8 606C     		ldr	r0, [r4, #68]
+ 989 00aa 22F04002 		bic	r2, r2, #64
+ 990 00ae 5A61     		str	r2, [r3, #20]
+ 991 00b0 50B1     		cbz	r0, .L133
+ 992 00b2 224B     		ldr	r3, .L196
+ 993 00b4 4363     		str	r3, [r0, #52]
+ 994 00b6 FFF7FEFF 		bl	HAL_DMA_Abort_IT
+ 995 00ba 0028     		cmp	r0, #0
+ 996 00bc 3CD0     		beq	.L120
+ 997 00be 606C     		ldr	r0, [r4, #68]
+ 998 00c0 BDE87040 		pop	{r4, r5, r6, lr}
+ 999 00c4 436B     		ldr	r3, [r0, #52]
+ 1000 00c6 1847     		bx	r3	@ indirect register sibling call
+ 1001              	.L133:
+ 1002 00c8 2046     		mov	r0, r4
+ 1003 00ca FFF7FEFF 		bl	HAL_SMARTCARD_ErrorCallback
+ 1004 00ce 70BD     		pop	{r4, r5, r6, pc}
+ 1005              	.L132:
+ 1006 00d0 2046     		mov	r0, r4
+ 1007 00d2 FFF7FEFF 		bl	HAL_SMARTCARD_ErrorCallback
+ 1008 00d6 E564     		str	r5, [r4, #76]
+ 1009 00d8 70BD     		pop	{r4, r5, r6, pc}
+ 1010              	.L122:
+ 1011 00da 1606     		lsls	r6, r2, #24
+ 1012 00dc 1AD5     		bpl	.L135
+ARM GAS  /tmp/ccsVJElJ.s 			page 18
+
+
+ 1013 00de 0D06     		lsls	r5, r1, #24
+ 1014 00e0 18D5     		bpl	.L135
+ 1015 00e2 94F84920 		ldrb	r2, [r4, #73]	@ zero_extendqisi2
+ 1016 00e6 212A     		cmp	r2, #33
+ 1017 00e8 26D1     		bne	.L120
+ 1018 00ea 226B     		ldr	r2, [r4, #48]
+ 1019 00ec 32F8011B 		ldrh	r1, [r2], #1
+ 1020 00f0 C1F30801 		ubfx	r1, r1, #0, #9
+ 1021 00f4 5960     		str	r1, [r3, #4]
+ 1022 00f6 2263     		str	r2, [r4, #48]
+ 1023 00f8 E28E     		ldrh	r2, [r4, #54]
+ 1024 00fa 013A     		subs	r2, r2, #1
+ 1025 00fc 92B2     		uxth	r2, r2
+ 1026 00fe E286     		strh	r2, [r4, #54]	@ movhi
+ 1027 0100 D2B9     		cbnz	r2, .L120
+ 1028 0102 DA68     		ldr	r2, [r3, #12]
+ 1029 0104 22F08002 		bic	r2, r2, #128
+ 1030 0108 DA60     		str	r2, [r3, #12]
+ 1031 010a DA68     		ldr	r2, [r3, #12]
+ 1032 010c 42F04002 		orr	r2, r2, #64
+ 1033 0110 DA60     		str	r2, [r3, #12]
+ 1034 0112 70BD     		pop	{r4, r5, r6, pc}
+ 1035              	.L135:
+ 1036 0114 5006     		lsls	r0, r2, #25
+ 1037 0116 0FD5     		bpl	.L120
+ 1038 0118 4A06     		lsls	r2, r1, #25
+ 1039 011a 0DD5     		bpl	.L120
+ 1040 011c DA68     		ldr	r2, [r3, #12]
+ 1041 011e 2046     		mov	r0, r4
+ 1042 0120 22F04002 		bic	r2, r2, #64
+ 1043 0124 DA60     		str	r2, [r3, #12]
+ 1044 0126 5A69     		ldr	r2, [r3, #20]
+ 1045 0128 22F00102 		bic	r2, r2, #1
+ 1046 012c 5A61     		str	r2, [r3, #20]
+ 1047 012e 2023     		movs	r3, #32
+ 1048 0130 84F84930 		strb	r3, [r4, #73]
+ 1049 0134 FFF7FEFF 		bl	HAL_SMARTCARD_TxCpltCallback
+ 1050              	.L120:
+ 1051 0138 70BD     		pop	{r4, r5, r6, pc}
+ 1052              	.L197:
+ 1053 013a 00BF     		.align	2
+ 1054              	.L196:
+ 1055 013c 00000000 		.word	SMARTCARD_DMAAbortOnError
+ 1057              		.section	.text.SMARTCARD_DMAAbortOnError,"ax",%progbits
+ 1058              		.align	1
+ 1059              		.thumb
+ 1060              		.thumb_func
+ 1062              	SMARTCARD_DMAAbortOnError:
+ 1063              		@ args = 0, pretend = 0, frame = 0
+ 1064              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1065 0000 08B5     		push	{r3, lr}
+ 1066 0002 406A     		ldr	r0, [r0, #36]
+ 1067 0004 0023     		movs	r3, #0
+ 1068 0006 C387     		strh	r3, [r0, #62]	@ movhi
+ 1069 0008 C386     		strh	r3, [r0, #54]	@ movhi
+ 1070 000a FFF7FEFF 		bl	HAL_SMARTCARD_ErrorCallback
+ 1071 000e 08BD     		pop	{r3, pc}
+ARM GAS  /tmp/ccsVJElJ.s 			page 19
+
+
+ 1073              		.section	.text.HAL_SMARTCARD_AbortCpltCallback,"ax",%progbits
+ 1074              		.align	1
+ 1075              		.weak	HAL_SMARTCARD_AbortCpltCallback
+ 1076              		.thumb
+ 1077              		.thumb_func
+ 1079              	HAL_SMARTCARD_AbortCpltCallback:
+ 1080              		@ args = 0, pretend = 0, frame = 0
+ 1081              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1082              		@ link register save eliminated.
+ 1083 0000 7047     		bx	lr
+ 1085              		.section	.text.HAL_SMARTCARD_Abort_IT,"ax",%progbits
+ 1086              		.align	1
+ 1087              		.global	HAL_SMARTCARD_Abort_IT
+ 1088              		.thumb
+ 1089              		.thumb_func
+ 1091              	HAL_SMARTCARD_Abort_IT:
+ 1092              		@ args = 0, pretend = 0, frame = 0
+ 1093              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1094 0000 0368     		ldr	r3, [r0]
+ 1095 0002 10B5     		push	{r4, lr}
+ 1096 0004 DA68     		ldr	r2, [r3, #12]
+ 1097 0006 0446     		mov	r4, r0
+ 1098 0008 22F4F072 		bic	r2, r2, #480
+ 1099 000c DA60     		str	r2, [r3, #12]
+ 1100 000e 5A69     		ldr	r2, [r3, #20]
+ 1101 0010 006C     		ldr	r0, [r0, #64]
+ 1102 0012 22F00102 		bic	r2, r2, #1
+ 1103 0016 5A61     		str	r2, [r3, #20]
+ 1104 0018 28B1     		cbz	r0, .L201
+ 1105 001a 5A69     		ldr	r2, [r3, #20]
+ 1106 001c 12F08002 		ands	r2, r2, #128
+ 1107 0020 18BF     		it	ne
+ 1108 0022 1E4A     		ldrne	r2, .L230
+ 1109 0024 4263     		str	r2, [r0, #52]
+ 1110              	.L201:
+ 1111 0026 616C     		ldr	r1, [r4, #68]
+ 1112 0028 29B1     		cbz	r1, .L203
+ 1113 002a 5A69     		ldr	r2, [r3, #20]
+ 1114 002c 12F04002 		ands	r2, r2, #64
+ 1115 0030 18BF     		it	ne
+ 1116 0032 1B4A     		ldrne	r2, .L230+4
+ 1117 0034 4A63     		str	r2, [r1, #52]
+ 1118              	.L203:
+ 1119 0036 5A69     		ldr	r2, [r3, #20]
+ 1120 0038 1206     		lsls	r2, r2, #24
+ 1121 003a 0AD5     		bpl	.L229
+ 1122 003c 5A69     		ldr	r2, [r3, #20]
+ 1123 003e 22F08002 		bic	r2, r2, #128
+ 1124 0042 5A61     		str	r2, [r3, #20]
+ 1125 0044 28B1     		cbz	r0, .L229
+ 1126 0046 FFF7FEFF 		bl	HAL_DMA_Abort_IT
+ 1127 004a 20B1     		cbz	r0, .L213
+ 1128 004c 236C     		ldr	r3, [r4, #64]
+ 1129 004e 0022     		movs	r2, #0
+ 1130 0050 5A63     		str	r2, [r3, #52]
+ 1131              	.L229:
+ 1132 0052 0123     		movs	r3, #1
+ARM GAS  /tmp/ccsVJElJ.s 			page 20
+
+
+ 1133 0054 00E0     		b	.L206
+ 1134              	.L213:
+ 1135 0056 0346     		mov	r3, r0
+ 1136              	.L206:
+ 1137 0058 2268     		ldr	r2, [r4]
+ 1138 005a 5169     		ldr	r1, [r2, #20]
+ 1139 005c 4906     		lsls	r1, r1, #25
+ 1140 005e 0CD5     		bpl	.L208
+ 1141 0060 5169     		ldr	r1, [r2, #20]
+ 1142 0062 606C     		ldr	r0, [r4, #68]
+ 1143 0064 21F04001 		bic	r1, r1, #64
+ 1144 0068 5161     		str	r1, [r2, #20]
+ 1145 006a 30B1     		cbz	r0, .L208
+ 1146 006c FFF7FEFF 		bl	HAL_DMA_Abort_IT
+ 1147 0070 88B1     		cbz	r0, .L210
+ 1148 0072 636C     		ldr	r3, [r4, #68]
+ 1149 0074 0022     		movs	r2, #0
+ 1150 0076 5A63     		str	r2, [r3, #52]
+ 1151 0078 01E0     		b	.L211
+ 1152              	.L208:
+ 1153 007a 012B     		cmp	r3, #1
+ 1154 007c 0BD1     		bne	.L210
+ 1155              	.L211:
+ 1156 007e 0023     		movs	r3, #0
+ 1157 0080 E386     		strh	r3, [r4, #54]	@ movhi
+ 1158 0082 E387     		strh	r3, [r4, #62]	@ movhi
+ 1159 0084 E364     		str	r3, [r4, #76]
+ 1160 0086 2023     		movs	r3, #32
+ 1161 0088 84F84930 		strb	r3, [r4, #73]
+ 1162 008c 2046     		mov	r0, r4
+ 1163 008e 84F84A30 		strb	r3, [r4, #74]
+ 1164 0092 FFF7FEFF 		bl	HAL_SMARTCARD_AbortCpltCallback
+ 1165              	.L210:
+ 1166 0096 0020     		movs	r0, #0
+ 1167 0098 10BD     		pop	{r4, pc}
+ 1168              	.L231:
+ 1169 009a 00BF     		.align	2
+ 1170              	.L230:
+ 1171 009c 00000000 		.word	SMARTCARD_DMATxAbortCallback
+ 1172 00a0 00000000 		.word	SMARTCARD_DMARxAbortCallback
+ 1174              		.section	.text.SMARTCARD_DMARxAbortCallback,"ax",%progbits
+ 1175              		.align	1
+ 1176              		.thumb
+ 1177              		.thumb_func
+ 1179              	SMARTCARD_DMARxAbortCallback:
+ 1180              		@ args = 0, pretend = 0, frame = 0
+ 1181              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1182 0000 406A     		ldr	r0, [r0, #36]
+ 1183 0002 08B5     		push	{r3, lr}
+ 1184 0004 426C     		ldr	r2, [r0, #68]
+ 1185 0006 0023     		movs	r3, #0
+ 1186 0008 5363     		str	r3, [r2, #52]
+ 1187 000a 026C     		ldr	r2, [r0, #64]
+ 1188 000c 0AB1     		cbz	r2, .L233
+ 1189 000e 526B     		ldr	r2, [r2, #52]
+ 1190 0010 4AB9     		cbnz	r2, .L232
+ 1191              	.L233:
+ARM GAS  /tmp/ccsVJElJ.s 			page 21
+
+
+ 1192 0012 C386     		strh	r3, [r0, #54]	@ movhi
+ 1193 0014 C387     		strh	r3, [r0, #62]	@ movhi
+ 1194 0016 C364     		str	r3, [r0, #76]
+ 1195 0018 2023     		movs	r3, #32
+ 1196 001a 80F84930 		strb	r3, [r0, #73]
+ 1197 001e 80F84A30 		strb	r3, [r0, #74]
+ 1198 0022 FFF7FEFF 		bl	HAL_SMARTCARD_AbortCpltCallback
+ 1199              	.L232:
+ 1200 0026 08BD     		pop	{r3, pc}
+ 1202              		.section	.text.SMARTCARD_DMATxAbortCallback,"ax",%progbits
+ 1203              		.align	1
+ 1204              		.thumb
+ 1205              		.thumb_func
+ 1207              	SMARTCARD_DMATxAbortCallback:
+ 1208              		@ args = 0, pretend = 0, frame = 0
+ 1209              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1210 0000 406A     		ldr	r0, [r0, #36]
+ 1211 0002 08B5     		push	{r3, lr}
+ 1212 0004 026C     		ldr	r2, [r0, #64]
+ 1213 0006 0023     		movs	r3, #0
+ 1214 0008 5363     		str	r3, [r2, #52]
+ 1215 000a 426C     		ldr	r2, [r0, #68]
+ 1216 000c 0AB1     		cbz	r2, .L239
+ 1217 000e 526B     		ldr	r2, [r2, #52]
+ 1218 0010 4AB9     		cbnz	r2, .L238
+ 1219              	.L239:
+ 1220 0012 C386     		strh	r3, [r0, #54]	@ movhi
+ 1221 0014 C387     		strh	r3, [r0, #62]	@ movhi
+ 1222 0016 C364     		str	r3, [r0, #76]
+ 1223 0018 2023     		movs	r3, #32
+ 1224 001a 80F84930 		strb	r3, [r0, #73]
+ 1225 001e 80F84A30 		strb	r3, [r0, #74]
+ 1226 0022 FFF7FEFF 		bl	HAL_SMARTCARD_AbortCpltCallback
+ 1227              	.L238:
+ 1228 0026 08BD     		pop	{r3, pc}
+ 1230              		.section	.text.HAL_SMARTCARD_AbortTransmitCpltCallback,"ax",%progbits
+ 1231              		.align	1
+ 1232              		.weak	HAL_SMARTCARD_AbortTransmitCpltCallback
+ 1233              		.thumb
+ 1234              		.thumb_func
+ 1236              	HAL_SMARTCARD_AbortTransmitCpltCallback:
+ 1237              		@ args = 0, pretend = 0, frame = 0
+ 1238              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1239              		@ link register save eliminated.
+ 1240 0000 7047     		bx	lr
+ 1242              		.section	.text.HAL_SMARTCARD_AbortTransmit_IT,"ax",%progbits
+ 1243              		.align	1
+ 1244              		.global	HAL_SMARTCARD_AbortTransmit_IT
+ 1245              		.thumb
+ 1246              		.thumb_func
+ 1248              	HAL_SMARTCARD_AbortTransmit_IT:
+ 1249              		@ args = 0, pretend = 0, frame = 0
+ 1250              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1251 0000 0368     		ldr	r3, [r0]
+ 1252 0002 10B5     		push	{r4, lr}
+ 1253 0004 DA68     		ldr	r2, [r3, #12]
+ 1254 0006 0446     		mov	r4, r0
+ARM GAS  /tmp/ccsVJElJ.s 			page 22
+
+
+ 1255 0008 22F0C002 		bic	r2, r2, #192
+ 1256 000c DA60     		str	r2, [r3, #12]
+ 1257 000e 5A69     		ldr	r2, [r3, #20]
+ 1258 0010 12F08002 		ands	r2, r2, #128
+ 1259 0014 11D0     		beq	.L246
+ 1260 0016 5A69     		ldr	r2, [r3, #20]
+ 1261 0018 22F08002 		bic	r2, r2, #128
+ 1262 001c 5A61     		str	r2, [r3, #20]
+ 1263 001e 036C     		ldr	r3, [r0, #64]
+ 1264 0020 4BB1     		cbz	r3, .L247
+ 1265 0022 0A4A     		ldr	r2, .L253
+ 1266 0024 1846     		mov	r0, r3
+ 1267 0026 5A63     		str	r2, [r3, #52]
+ 1268 0028 FFF7FEFF 		bl	HAL_DMA_Abort_IT
+ 1269 002c 58B1     		cbz	r0, .L248
+ 1270 002e 206C     		ldr	r0, [r4, #64]
+ 1271 0030 436B     		ldr	r3, [r0, #52]
+ 1272 0032 9847     		blx	r3
+ 1273 0034 07E0     		b	.L248
+ 1274              	.L247:
+ 1275 0036 C386     		strh	r3, [r0, #54]	@ movhi
+ 1276 0038 00E0     		b	.L252
+ 1277              	.L246:
+ 1278 003a C286     		strh	r2, [r0, #54]	@ movhi
+ 1279              	.L252:
+ 1280 003c 2023     		movs	r3, #32
+ 1281 003e 84F84930 		strb	r3, [r4, #73]
+ 1282 0042 FFF7FEFF 		bl	HAL_SMARTCARD_AbortTransmitCpltCallback
+ 1283              	.L248:
+ 1284 0046 0020     		movs	r0, #0
+ 1285 0048 10BD     		pop	{r4, pc}
+ 1286              	.L254:
+ 1287 004a 00BF     		.align	2
+ 1288              	.L253:
+ 1289 004c 00000000 		.word	SMARTCARD_DMATxOnlyAbortCallback
+ 1291              		.section	.text.SMARTCARD_DMATxOnlyAbortCallback,"ax",%progbits
+ 1292              		.align	1
+ 1293              		.thumb
+ 1294              		.thumb_func
+ 1296              	SMARTCARD_DMATxOnlyAbortCallback:
+ 1297              		@ args = 0, pretend = 0, frame = 0
+ 1298              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1299 0000 08B5     		push	{r3, lr}
+ 1300 0002 406A     		ldr	r0, [r0, #36]
+ 1301 0004 0023     		movs	r3, #0
+ 1302 0006 C386     		strh	r3, [r0, #54]	@ movhi
+ 1303 0008 2023     		movs	r3, #32
+ 1304 000a 80F84930 		strb	r3, [r0, #73]
+ 1305 000e FFF7FEFF 		bl	HAL_SMARTCARD_AbortTransmitCpltCallback
+ 1306 0012 08BD     		pop	{r3, pc}
+ 1308              		.section	.text.HAL_SMARTCARD_AbortReceiveCpltCallback,"ax",%progbits
+ 1309              		.align	1
+ 1310              		.weak	HAL_SMARTCARD_AbortReceiveCpltCallback
+ 1311              		.thumb
+ 1312              		.thumb_func
+ 1314              	HAL_SMARTCARD_AbortReceiveCpltCallback:
+ 1315              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  /tmp/ccsVJElJ.s 			page 23
+
+
+ 1316              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1317              		@ link register save eliminated.
+ 1318 0000 7047     		bx	lr
+ 1320              		.section	.text.HAL_SMARTCARD_AbortReceive_IT,"ax",%progbits
+ 1321              		.align	1
+ 1322              		.global	HAL_SMARTCARD_AbortReceive_IT
+ 1323              		.thumb
+ 1324              		.thumb_func
+ 1326              	HAL_SMARTCARD_AbortReceive_IT:
+ 1327              		@ args = 0, pretend = 0, frame = 0
+ 1328              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1329 0000 0368     		ldr	r3, [r0]
+ 1330 0002 10B5     		push	{r4, lr}
+ 1331 0004 DA68     		ldr	r2, [r3, #12]
+ 1332 0006 0446     		mov	r4, r0
+ 1333 0008 22F49072 		bic	r2, r2, #288
+ 1334 000c DA60     		str	r2, [r3, #12]
+ 1335 000e 5A69     		ldr	r2, [r3, #20]
+ 1336 0010 22F00102 		bic	r2, r2, #1
+ 1337 0014 5A61     		str	r2, [r3, #20]
+ 1338 0016 5A69     		ldr	r2, [r3, #20]
+ 1339 0018 12F04002 		ands	r2, r2, #64
+ 1340 001c 11D0     		beq	.L258
+ 1341 001e 5A69     		ldr	r2, [r3, #20]
+ 1342 0020 22F04002 		bic	r2, r2, #64
+ 1343 0024 5A61     		str	r2, [r3, #20]
+ 1344 0026 436C     		ldr	r3, [r0, #68]
+ 1345 0028 4BB1     		cbz	r3, .L259
+ 1346 002a 0A4A     		ldr	r2, .L265
+ 1347 002c 1846     		mov	r0, r3
+ 1348 002e 5A63     		str	r2, [r3, #52]
+ 1349 0030 FFF7FEFF 		bl	HAL_DMA_Abort_IT
+ 1350 0034 58B1     		cbz	r0, .L260
+ 1351 0036 606C     		ldr	r0, [r4, #68]
+ 1352 0038 436B     		ldr	r3, [r0, #52]
+ 1353 003a 9847     		blx	r3
+ 1354 003c 07E0     		b	.L260
+ 1355              	.L259:
+ 1356 003e C387     		strh	r3, [r0, #62]	@ movhi
+ 1357 0040 00E0     		b	.L264
+ 1358              	.L258:
+ 1359 0042 C287     		strh	r2, [r0, #62]	@ movhi
+ 1360              	.L264:
+ 1361 0044 2023     		movs	r3, #32
+ 1362 0046 84F84A30 		strb	r3, [r4, #74]
+ 1363 004a FFF7FEFF 		bl	HAL_SMARTCARD_AbortReceiveCpltCallback
+ 1364              	.L260:
+ 1365 004e 0020     		movs	r0, #0
+ 1366 0050 10BD     		pop	{r4, pc}
+ 1367              	.L266:
+ 1368 0052 00BF     		.align	2
+ 1369              	.L265:
+ 1370 0054 00000000 		.word	SMARTCARD_DMARxOnlyAbortCallback
+ 1372              		.section	.text.SMARTCARD_DMARxOnlyAbortCallback,"ax",%progbits
+ 1373              		.align	1
+ 1374              		.thumb
+ 1375              		.thumb_func
+ARM GAS  /tmp/ccsVJElJ.s 			page 24
+
+
+ 1377              	SMARTCARD_DMARxOnlyAbortCallback:
+ 1378              		@ args = 0, pretend = 0, frame = 0
+ 1379              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1380 0000 08B5     		push	{r3, lr}
+ 1381 0002 406A     		ldr	r0, [r0, #36]
+ 1382 0004 0023     		movs	r3, #0
+ 1383 0006 C387     		strh	r3, [r0, #62]	@ movhi
+ 1384 0008 2023     		movs	r3, #32
+ 1385 000a 80F84A30 		strb	r3, [r0, #74]
+ 1386 000e FFF7FEFF 		bl	HAL_SMARTCARD_AbortReceiveCpltCallback
+ 1387 0012 08BD     		pop	{r3, pc}
+ 1389              		.section	.text.HAL_SMARTCARD_GetState,"ax",%progbits
+ 1390              		.align	1
+ 1391              		.global	HAL_SMARTCARD_GetState
+ 1392              		.thumb
+ 1393              		.thumb_func
+ 1395              	HAL_SMARTCARD_GetState:
+ 1396              		@ args = 0, pretend = 0, frame = 0
+ 1397              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1398              		@ link register save eliminated.
+ 1399 0000 90F84930 		ldrb	r3, [r0, #73]	@ zero_extendqisi2
+ 1400 0004 90F84A00 		ldrb	r0, [r0, #74]	@ zero_extendqisi2
+ 1401 0008 1843     		orrs	r0, r0, r3
+ 1402 000a 7047     		bx	lr
+ 1404              		.section	.text.HAL_SMARTCARD_GetError,"ax",%progbits
+ 1405              		.align	1
+ 1406              		.global	HAL_SMARTCARD_GetError
+ 1407              		.thumb
+ 1408              		.thumb_func
+ 1410              	HAL_SMARTCARD_GetError:
+ 1411              		@ args = 0, pretend = 0, frame = 0
+ 1412              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1413              		@ link register save eliminated.
+ 1414 0000 C06C     		ldr	r0, [r0, #76]
+ 1415 0002 7047     		bx	lr
+ 1417              		.ident	"GCC: (15:4.9.3+svn231177-1) 4.9.3 20150529 (prerelease)"
+ARM GAS  /tmp/ccsVJElJ.s 			page 25
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32f1xx_hal_smartcard.c
+     /tmp/ccsVJElJ.s:16     .text.SMARTCARD_DMATransmitCplt:0000000000000000 $t
+     /tmp/ccsVJElJ.s:20     .text.SMARTCARD_DMATransmitCplt:0000000000000000 SMARTCARD_DMATransmitCplt
+     /tmp/ccsVJElJ.s:37     .text.SMARTCARD_WaitOnFlagUntilTimeout.constprop.2:0000000000000000 $t
+     /tmp/ccsVJElJ.s:41     .text.SMARTCARD_WaitOnFlagUntilTimeout.constprop.2:0000000000000000 SMARTCARD_WaitOnFlagUntilTimeout.constprop.2
+     /tmp/ccsVJElJ.s:85     .text.HAL_SMARTCARD_MspInit:0000000000000000 $t
+     /tmp/ccsVJElJ.s:90     .text.HAL_SMARTCARD_MspInit:0000000000000000 HAL_SMARTCARD_MspInit
+     /tmp/ccsVJElJ.s:97     .text.HAL_SMARTCARD_Init:0000000000000000 $t
+     /tmp/ccsVJElJ.s:102    .text.HAL_SMARTCARD_Init:0000000000000000 HAL_SMARTCARD_Init
+     /tmp/ccsVJElJ.s:219    .text.HAL_SMARTCARD_Init:0000000000000118 $d
+     /tmp/ccsVJElJ.s:222    .text.HAL_SMARTCARD_MspDeInit:0000000000000000 $t
+     /tmp/ccsVJElJ.s:227    .text.HAL_SMARTCARD_MspDeInit:0000000000000000 HAL_SMARTCARD_MspDeInit
+     /tmp/ccsVJElJ.s:234    .text.HAL_SMARTCARD_DeInit:0000000000000000 $t
+     /tmp/ccsVJElJ.s:239    .text.HAL_SMARTCARD_DeInit:0000000000000000 HAL_SMARTCARD_DeInit
+     /tmp/ccsVJElJ.s:263    .text.HAL_SMARTCARD_Transmit:0000000000000000 $t
+     /tmp/ccsVJElJ.s:268    .text.HAL_SMARTCARD_Transmit:0000000000000000 HAL_SMARTCARD_Transmit
+     /tmp/ccsVJElJ.s:339    .text.HAL_SMARTCARD_Receive:0000000000000000 $t
+     /tmp/ccsVJElJ.s:344    .text.HAL_SMARTCARD_Receive:0000000000000000 HAL_SMARTCARD_Receive
+     /tmp/ccsVJElJ.s:405    .text.HAL_SMARTCARD_Transmit_IT:0000000000000000 $t
+     /tmp/ccsVJElJ.s:410    .text.HAL_SMARTCARD_Transmit_IT:0000000000000000 HAL_SMARTCARD_Transmit_IT
+     /tmp/ccsVJElJ.s:450    .text.HAL_SMARTCARD_Receive_IT:0000000000000000 $t
+     /tmp/ccsVJElJ.s:455    .text.HAL_SMARTCARD_Receive_IT:0000000000000000 HAL_SMARTCARD_Receive_IT
+     /tmp/ccsVJElJ.s:492    .text.HAL_SMARTCARD_Transmit_DMA:0000000000000000 $t
+     /tmp/ccsVJElJ.s:497    .text.HAL_SMARTCARD_Transmit_DMA:0000000000000000 HAL_SMARTCARD_Transmit_DMA
+     /tmp/ccsVJElJ.s:547    .text.HAL_SMARTCARD_Transmit_DMA:0000000000000064 $d
+     /tmp/ccsVJElJ.s:858    .text.SMARTCARD_DMAError:0000000000000000 SMARTCARD_DMAError
+     /tmp/ccsVJElJ.s:551    .text.HAL_SMARTCARD_Receive_DMA:0000000000000000 $t
+     /tmp/ccsVJElJ.s:556    .text.HAL_SMARTCARD_Receive_DMA:0000000000000000 HAL_SMARTCARD_Receive_DMA
+     /tmp/ccsVJElJ.s:623    .text.HAL_SMARTCARD_Receive_DMA:0000000000000084 $d
+     /tmp/ccsVJElJ.s:776    .text.SMARTCARD_DMAReceiveCplt:0000000000000000 SMARTCARD_DMAReceiveCplt
+     /tmp/ccsVJElJ.s:627    .text.HAL_SMARTCARD_Abort:0000000000000000 $t
+     /tmp/ccsVJElJ.s:632    .text.HAL_SMARTCARD_Abort:0000000000000000 HAL_SMARTCARD_Abort
+     /tmp/ccsVJElJ.s:679    .text.HAL_SMARTCARD_AbortTransmit:0000000000000000 $t
+     /tmp/ccsVJElJ.s:684    .text.HAL_SMARTCARD_AbortTransmit:0000000000000000 HAL_SMARTCARD_AbortTransmit
+     /tmp/ccsVJElJ.s:712    .text.HAL_SMARTCARD_AbortReceive:0000000000000000 $t
+     /tmp/ccsVJElJ.s:717    .text.HAL_SMARTCARD_AbortReceive:0000000000000000 HAL_SMARTCARD_AbortReceive
+     /tmp/ccsVJElJ.s:748    .text.HAL_SMARTCARD_TxCpltCallback:0000000000000000 $t
+     /tmp/ccsVJElJ.s:753    .text.HAL_SMARTCARD_TxCpltCallback:0000000000000000 HAL_SMARTCARD_TxCpltCallback
+     /tmp/ccsVJElJ.s:760    .text.HAL_SMARTCARD_RxCpltCallback:0000000000000000 $t
+     /tmp/ccsVJElJ.s:765    .text.HAL_SMARTCARD_RxCpltCallback:0000000000000000 HAL_SMARTCARD_RxCpltCallback
+     /tmp/ccsVJElJ.s:772    .text.SMARTCARD_DMAReceiveCplt:0000000000000000 $t
+     /tmp/ccsVJElJ.s:799    .text.SMARTCARD_Receive_IT:0000000000000000 $t
+     /tmp/ccsVJElJ.s:803    .text.SMARTCARD_Receive_IT:0000000000000000 SMARTCARD_Receive_IT
+     /tmp/ccsVJElJ.s:842    .text.HAL_SMARTCARD_ErrorCallback:0000000000000000 $t
+     /tmp/ccsVJElJ.s:847    .text.HAL_SMARTCARD_ErrorCallback:0000000000000000 HAL_SMARTCARD_ErrorCallback
+     /tmp/ccsVJElJ.s:854    .text.SMARTCARD_DMAError:0000000000000000 $t
+     /tmp/ccsVJElJ.s:901    .text.HAL_SMARTCARD_IRQHandler:0000000000000000 $t
+     /tmp/ccsVJElJ.s:906    .text.HAL_SMARTCARD_IRQHandler:0000000000000000 HAL_SMARTCARD_IRQHandler
+     /tmp/ccsVJElJ.s:1055   .text.HAL_SMARTCARD_IRQHandler:000000000000013c $d
+     /tmp/ccsVJElJ.s:1062   .text.SMARTCARD_DMAAbortOnError:0000000000000000 SMARTCARD_DMAAbortOnError
+     /tmp/ccsVJElJ.s:1058   .text.SMARTCARD_DMAAbortOnError:0000000000000000 $t
+     /tmp/ccsVJElJ.s:1074   .text.HAL_SMARTCARD_AbortCpltCallback:0000000000000000 $t
+     /tmp/ccsVJElJ.s:1079   .text.HAL_SMARTCARD_AbortCpltCallback:0000000000000000 HAL_SMARTCARD_AbortCpltCallback
+     /tmp/ccsVJElJ.s:1086   .text.HAL_SMARTCARD_Abort_IT:0000000000000000 $t
+     /tmp/ccsVJElJ.s:1091   .text.HAL_SMARTCARD_Abort_IT:0000000000000000 HAL_SMARTCARD_Abort_IT
+     /tmp/ccsVJElJ.s:1171   .text.HAL_SMARTCARD_Abort_IT:000000000000009c $d
+ARM GAS  /tmp/ccsVJElJ.s 			page 26
+
+
+     /tmp/ccsVJElJ.s:1207   .text.SMARTCARD_DMATxAbortCallback:0000000000000000 SMARTCARD_DMATxAbortCallback
+     /tmp/ccsVJElJ.s:1179   .text.SMARTCARD_DMARxAbortCallback:0000000000000000 SMARTCARD_DMARxAbortCallback
+     /tmp/ccsVJElJ.s:1175   .text.SMARTCARD_DMARxAbortCallback:0000000000000000 $t
+     /tmp/ccsVJElJ.s:1203   .text.SMARTCARD_DMATxAbortCallback:0000000000000000 $t
+     /tmp/ccsVJElJ.s:1231   .text.HAL_SMARTCARD_AbortTransmitCpltCallback:0000000000000000 $t
+     /tmp/ccsVJElJ.s:1236   .text.HAL_SMARTCARD_AbortTransmitCpltCallback:0000000000000000 HAL_SMARTCARD_AbortTransmitCpltCallback
+     /tmp/ccsVJElJ.s:1243   .text.HAL_SMARTCARD_AbortTransmit_IT:0000000000000000 $t
+     /tmp/ccsVJElJ.s:1248   .text.HAL_SMARTCARD_AbortTransmit_IT:0000000000000000 HAL_SMARTCARD_AbortTransmit_IT
+     /tmp/ccsVJElJ.s:1289   .text.HAL_SMARTCARD_AbortTransmit_IT:000000000000004c $d
+     /tmp/ccsVJElJ.s:1296   .text.SMARTCARD_DMATxOnlyAbortCallback:0000000000000000 SMARTCARD_DMATxOnlyAbortCallback
+     /tmp/ccsVJElJ.s:1292   .text.SMARTCARD_DMATxOnlyAbortCallback:0000000000000000 $t
+     /tmp/ccsVJElJ.s:1309   .text.HAL_SMARTCARD_AbortReceiveCpltCallback:0000000000000000 $t
+     /tmp/ccsVJElJ.s:1314   .text.HAL_SMARTCARD_AbortReceiveCpltCallback:0000000000000000 HAL_SMARTCARD_AbortReceiveCpltCallback
+     /tmp/ccsVJElJ.s:1321   .text.HAL_SMARTCARD_AbortReceive_IT:0000000000000000 $t
+     /tmp/ccsVJElJ.s:1326   .text.HAL_SMARTCARD_AbortReceive_IT:0000000000000000 HAL_SMARTCARD_AbortReceive_IT
+     /tmp/ccsVJElJ.s:1370   .text.HAL_SMARTCARD_AbortReceive_IT:0000000000000054 $d
+     /tmp/ccsVJElJ.s:1377   .text.SMARTCARD_DMARxOnlyAbortCallback:0000000000000000 SMARTCARD_DMARxOnlyAbortCallback
+     /tmp/ccsVJElJ.s:1373   .text.SMARTCARD_DMARxOnlyAbortCallback:0000000000000000 $t
+     /tmp/ccsVJElJ.s:1390   .text.HAL_SMARTCARD_GetState:0000000000000000 $t
+     /tmp/ccsVJElJ.s:1395   .text.HAL_SMARTCARD_GetState:0000000000000000 HAL_SMARTCARD_GetState
+     /tmp/ccsVJElJ.s:1405   .text.HAL_SMARTCARD_GetError:0000000000000000 $t
+     /tmp/ccsVJElJ.s:1410   .text.HAL_SMARTCARD_GetError:0000000000000000 HAL_SMARTCARD_GetError
+
+UNDEFINED SYMBOLS
+HAL_GetTick
+HAL_RCC_GetPCLK2Freq
+HAL_RCC_GetPCLK1Freq
+HAL_DMA_Start_IT
+HAL_DMA_Abort
+HAL_DMA_Abort_IT

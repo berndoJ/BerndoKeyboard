@@ -1,0 +1,1471 @@
+ARM GAS  /tmp/ccAoES3h.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"stm32f1xx_ll_sdmmc.c"
+  15              		.section	.text.SDMMC_GetCmdResp2,"ax",%progbits
+  16              		.align	1
+  17              		.thumb
+  18              		.thumb_func
+  20              	SDMMC_GetCmdResp2:
+  21              		@ args = 0, pretend = 0, frame = 0
+  22              		@ frame_needed = 0, uses_anonymous_args = 0
+  23              		@ link register save eliminated.
+  24 0000 124B     		ldr	r3, .L14
+  25 0002 4FF4FA51 		mov	r1, #8000
+  26 0006 1B68     		ldr	r3, [r3]
+  27 0008 0246     		mov	r2, r0
+  28 000a B3FBF1F1 		udiv	r1, r3, r1
+  29 000e 41F28833 		movw	r3, #5000
+  30 0012 4B43     		muls	r3, r1, r3
+  31              	.L2:
+  32 0014 13F1FF33 		adds	r3, r3, #-1
+  33 0018 15D3     		bcc	.L7
+  34 001a 516B     		ldr	r1, [r2, #52]
+  35 001c 11F0450F 		tst	r1, #69
+  36 0020 F8D0     		beq	.L2
+  37 0022 0905     		lsls	r1, r1, #20
+  38 0024 F6D4     		bmi	.L2
+  39 0026 536B     		ldr	r3, [r2, #52]
+  40 0028 5B07     		lsls	r3, r3, #29
+  41 002a 01D5     		bpl	.L5
+  42 002c 0423     		movs	r3, #4
+  43 002e 04E0     		b	.L12
+  44              	.L5:
+  45 0030 536B     		ldr	r3, [r2, #52]
+  46 0032 13F00100 		ands	r0, r3, #1
+  47 0036 03D0     		beq	.L6
+  48 0038 0123     		movs	r3, #1
+  49              	.L12:
+  50 003a 9363     		str	r3, [r2, #56]
+  51 003c 1846     		mov	r0, r3
+  52 003e 7047     		bx	lr
+  53              	.L6:
+  54 0040 C523     		movs	r3, #197
+  55 0042 9363     		str	r3, [r2, #56]
+  56 0044 7047     		bx	lr
+  57              	.L7:
+  58 0046 4FF00040 		mov	r0, #-2147483648
+ARM GAS  /tmp/ccAoES3h.s 			page 2
+
+
+  59 004a 7047     		bx	lr
+  60              	.L15:
+  61              		.align	2
+  62              	.L14:
+  63 004c 00000000 		.word	SystemCoreClock
+  65              		.section	.text.SDMMC_GetCmdResp3,"ax",%progbits
+  66              		.align	1
+  67              		.thumb
+  68              		.thumb_func
+  70              	SDMMC_GetCmdResp3:
+  71              		@ args = 0, pretend = 0, frame = 0
+  72              		@ frame_needed = 0, uses_anonymous_args = 0
+  73              		@ link register save eliminated.
+  74 0000 104B     		ldr	r3, .L26
+  75 0002 4FF4FA51 		mov	r1, #8000
+  76 0006 1B68     		ldr	r3, [r3]
+  77 0008 0246     		mov	r2, r0
+  78 000a B3FBF1F1 		udiv	r1, r3, r1
+  79 000e 41F28833 		movw	r3, #5000
+  80 0012 4B43     		muls	r3, r1, r3
+  81              	.L17:
+  82 0014 13F1FF33 		adds	r3, r3, #-1
+  83 0018 10D3     		bcc	.L21
+  84 001a 516B     		ldr	r1, [r2, #52]
+  85 001c 11F0450F 		tst	r1, #69
+  86 0020 F8D0     		beq	.L17
+  87 0022 0905     		lsls	r1, r1, #20
+  88 0024 F6D4     		bmi	.L17
+  89 0026 536B     		ldr	r3, [r2, #52]
+  90 0028 13F00400 		ands	r0, r3, #4
+  91 002c 17BF     		itett	ne
+  92 002e 0423     		movne	r3, #4
+  93 0030 C523     		moveq	r3, #197
+  94 0032 1846     		movne	r0, r3
+  95 0034 9363     		strne	r3, [r2, #56]
+  96 0036 08BF     		it	eq
+  97 0038 9363     		streq	r3, [r2, #56]
+  98 003a 7047     		bx	lr
+  99              	.L21:
+ 100 003c 4FF00040 		mov	r0, #-2147483648
+ 101 0040 7047     		bx	lr
+ 102              	.L27:
+ 103 0042 00BF     		.align	2
+ 104              	.L26:
+ 105 0044 00000000 		.word	SystemCoreClock
+ 107              		.section	.text.SDMMC_GetCmdResp1,"ax",%progbits
+ 108              		.align	1
+ 109              		.thumb
+ 110              		.thumb_func
+ 112              	SDMMC_GetCmdResp1:
+ 113              		@ args = 0, pretend = 0, frame = 0
+ 114              		@ frame_needed = 0, uses_anonymous_args = 0
+ 115 0000 444B     		ldr	r3, .L63
+ 116 0002 10B5     		push	{r4, lr}
+ 117 0004 1B68     		ldr	r3, [r3]
+ 118 0006 4FF4FA54 		mov	r4, #8000
+ 119 000a B3FBF4F3 		udiv	r3, r3, r4
+ARM GAS  /tmp/ccAoES3h.s 			page 3
+
+
+ 120 000e 5A43     		muls	r2, r3, r2
+ 121              	.L29:
+ 122 0010 002A     		cmp	r2, #0
+ 123 0012 48D0     		beq	.L34
+ 124 0014 436B     		ldr	r3, [r0, #52]
+ 125 0016 13F0450F 		tst	r3, #69
+ 126 001a 01D1     		bne	.L62
+ 127              	.L31:
+ 128 001c 013A     		subs	r2, r2, #1
+ 129 001e F7E7     		b	.L29
+ 130              	.L62:
+ 131 0020 1C05     		lsls	r4, r3, #20
+ 132 0022 FBD4     		bmi	.L31
+ 133 0024 436B     		ldr	r3, [r0, #52]
+ 134 0026 5B07     		lsls	r3, r3, #29
+ 135 0028 01D5     		bpl	.L32
+ 136 002a 0423     		movs	r3, #4
+ 137 002c 03E0     		b	.L61
+ 138              	.L32:
+ 139 002e 436B     		ldr	r3, [r0, #52]
+ 140 0030 DC07     		lsls	r4, r3, #31
+ 141 0032 03D5     		bpl	.L33
+ 142 0034 0123     		movs	r3, #1
+ 143              	.L61:
+ 144 0036 8363     		str	r3, [r0, #56]
+ 145 0038 1846     		mov	r0, r3
+ 146 003a 10BD     		pop	{r4, pc}
+ 147              	.L33:
+ 148 003c C523     		movs	r3, #197
+ 149 003e 8363     		str	r3, [r0, #56]
+ 150 0040 0369     		ldr	r3, [r0, #16]
+ 151 0042 DBB2     		uxtb	r3, r3
+ 152 0044 8B42     		cmp	r3, r1
+ 153 0046 31D1     		bne	.L35
+ 154 0048 4369     		ldr	r3, [r0, #20]
+ 155 004a 3348     		ldr	r0, .L63+4
+ 156 004c 1840     		ands	r0, r0, r3
+ 157 004e 0028     		cmp	r0, #0
+ 158 0050 5ED0     		beq	.L30
+ 159 0052 002B     		cmp	r3, #0
+ 160 0054 2CDB     		blt	.L36
+ 161 0056 5A00     		lsls	r2, r3, #1
+ 162 0058 2DD4     		bmi	.L37
+ 163 005a 9C00     		lsls	r4, r3, #2
+ 164 005c 2DD4     		bmi	.L38
+ 165 005e D900     		lsls	r1, r3, #3
+ 166 0060 2DD4     		bmi	.L39
+ 167 0062 1A01     		lsls	r2, r3, #4
+ 168 0064 2ED4     		bmi	.L40
+ 169 0066 5C01     		lsls	r4, r3, #5
+ 170 0068 2FD4     		bmi	.L41
+ 171 006a D901     		lsls	r1, r3, #7
+ 172 006c 30D4     		bmi	.L42
+ 173 006e 1A02     		lsls	r2, r3, #8
+ 174 0070 31D4     		bmi	.L43
+ 175 0072 5C02     		lsls	r4, r3, #9
+ 176 0074 32D4     		bmi	.L44
+ARM GAS  /tmp/ccAoES3h.s 			page 4
+
+
+ 177 0076 9902     		lsls	r1, r3, #10
+ 178 0078 33D4     		bmi	.L45
+ 179 007a DA02     		lsls	r2, r3, #11
+ 180 007c 34D4     		bmi	.L46
+ 181 007e 5C03     		lsls	r4, r3, #13
+ 182 0080 35D4     		bmi	.L47
+ 183 0082 9903     		lsls	r1, r3, #14
+ 184 0084 36D4     		bmi	.L48
+ 185 0086 DA03     		lsls	r2, r3, #15
+ 186 0088 37D4     		bmi	.L49
+ 187 008a 1C04     		lsls	r4, r3, #16
+ 188 008c 38D4     		bmi	.L50
+ 189 008e 5904     		lsls	r1, r3, #17
+ 190 0090 39D4     		bmi	.L51
+ 191 0092 9A04     		lsls	r2, r3, #18
+ 192 0094 3AD4     		bmi	.L52
+ 193 0096 13F0080F 		tst	r3, #8
+ 194 009a 14BF     		ite	ne
+ 195 009c 4FF40000 		movne	r0, #8388608
+ 196 00a0 4FF48030 		moveq	r0, #65536
+ 197 00a4 10BD     		pop	{r4, pc}
+ 198              	.L34:
+ 199 00a6 4FF00040 		mov	r0, #-2147483648
+ 200 00aa 10BD     		pop	{r4, pc}
+ 201              	.L35:
+ 202 00ac 0120     		movs	r0, #1
+ 203 00ae 10BD     		pop	{r4, pc}
+ 204              	.L36:
+ 205 00b0 4FF00070 		mov	r0, #33554432
+ 206 00b4 10BD     		pop	{r4, pc}
+ 207              	.L37:
+ 208 00b6 4020     		movs	r0, #64
+ 209 00b8 10BD     		pop	{r4, pc}
+ 210              	.L38:
+ 211 00ba 8020     		movs	r0, #128
+ 212 00bc 10BD     		pop	{r4, pc}
+ 213              	.L39:
+ 214 00be 4FF48070 		mov	r0, #256
+ 215 00c2 10BD     		pop	{r4, pc}
+ 216              	.L40:
+ 217 00c4 4FF40070 		mov	r0, #512
+ 218 00c8 10BD     		pop	{r4, pc}
+ 219              	.L41:
+ 220 00ca 4FF48060 		mov	r0, #1024
+ 221 00ce 10BD     		pop	{r4, pc}
+ 222              	.L42:
+ 223 00d0 4FF40060 		mov	r0, #2048
+ 224 00d4 10BD     		pop	{r4, pc}
+ 225              	.L43:
+ 226 00d6 4FF48050 		mov	r0, #4096
+ 227 00da 10BD     		pop	{r4, pc}
+ 228              	.L44:
+ 229 00dc 4FF40050 		mov	r0, #8192
+ 230 00e0 10BD     		pop	{r4, pc}
+ 231              	.L45:
+ 232 00e2 4FF48040 		mov	r0, #16384
+ 233 00e6 10BD     		pop	{r4, pc}
+ARM GAS  /tmp/ccAoES3h.s 			page 5
+
+
+ 234              	.L46:
+ 235 00e8 4FF40040 		mov	r0, #32768
+ 236 00ec 10BD     		pop	{r4, pc}
+ 237              	.L47:
+ 238 00ee 4FF40030 		mov	r0, #131072
+ 239 00f2 10BD     		pop	{r4, pc}
+ 240              	.L48:
+ 241 00f4 4FF48020 		mov	r0, #262144
+ 242 00f8 10BD     		pop	{r4, pc}
+ 243              	.L49:
+ 244 00fa 4FF40020 		mov	r0, #524288
+ 245 00fe 10BD     		pop	{r4, pc}
+ 246              	.L50:
+ 247 0100 4FF48010 		mov	r0, #1048576
+ 248 0104 10BD     		pop	{r4, pc}
+ 249              	.L51:
+ 250 0106 4FF40010 		mov	r0, #2097152
+ 251 010a 10BD     		pop	{r4, pc}
+ 252              	.L52:
+ 253 010c 4FF48000 		mov	r0, #4194304
+ 254              	.L30:
+ 255 0110 10BD     		pop	{r4, pc}
+ 256              	.L64:
+ 257 0112 00BF     		.align	2
+ 258              	.L63:
+ 259 0114 00000000 		.word	SystemCoreClock
+ 260 0118 08E0FFFD 		.word	-33562616
+ 262              		.section	.text.SDIO_Init,"ax",%progbits
+ 263              		.align	1
+ 264              		.global	SDIO_Init
+ 265              		.thumb
+ 266              		.thumb_func
+ 268              	SDIO_Init:
+ 269              		@ args = 28, pretend = 16, frame = 0
+ 270              		@ frame_needed = 0, uses_anonymous_args = 0
+ 271 0000 84B0     		sub	sp, sp, #16
+ 272 0002 10B5     		push	{r4, lr}
+ 273 0004 03AC     		add	r4, sp, #12
+ 274 0006 84E80E00 		stmia	r4, {r1, r2, r3}
+ 275 000a 0B46     		mov	r3, r1
+ 276 000c 0499     		ldr	r1, [sp, #16]
+ 277 000e 4268     		ldr	r2, [r0, #4]
+ 278 0010 1943     		orrs	r1, r1, r3
+ 279 0012 059B     		ldr	r3, [sp, #20]
+ 280 0014 1943     		orrs	r1, r1, r3
+ 281 0016 069B     		ldr	r3, [sp, #24]
+ 282 0018 1943     		orrs	r1, r1, r3
+ 283 001a 079B     		ldr	r3, [sp, #28]
+ 284 001c 1943     		orrs	r1, r1, r3
+ 285 001e 089B     		ldr	r3, [sp, #32]
+ 286 0020 BDE81040 		pop	{r4, lr}
+ 287 0024 1943     		orrs	r1, r1, r3
+ 288 0026 22F4FD43 		bic	r3, r2, #32384
+ 289 002a 23F07F03 		bic	r3, r3, #127
+ 290 002e 0B43     		orrs	r3, r3, r1
+ 291 0030 4360     		str	r3, [r0, #4]
+ 292 0032 04B0     		add	sp, sp, #16
+ARM GAS  /tmp/ccAoES3h.s 			page 6
+
+
+ 293 0034 0020     		movs	r0, #0
+ 294 0036 7047     		bx	lr
+ 296              		.section	.text.SDIO_ReadFIFO,"ax",%progbits
+ 297              		.align	1
+ 298              		.global	SDIO_ReadFIFO
+ 299              		.thumb
+ 300              		.thumb_func
+ 302              	SDIO_ReadFIFO:
+ 303              		@ args = 0, pretend = 0, frame = 0
+ 304              		@ frame_needed = 0, uses_anonymous_args = 0
+ 305              		@ link register save eliminated.
+ 306 0000 D0F88000 		ldr	r0, [r0, #128]
+ 307 0004 7047     		bx	lr
+ 309              		.section	.text.SDIO_WriteFIFO,"ax",%progbits
+ 310              		.align	1
+ 311              		.global	SDIO_WriteFIFO
+ 312              		.thumb
+ 313              		.thumb_func
+ 315              	SDIO_WriteFIFO:
+ 316              		@ args = 0, pretend = 0, frame = 0
+ 317              		@ frame_needed = 0, uses_anonymous_args = 0
+ 318              		@ link register save eliminated.
+ 319 0000 0B68     		ldr	r3, [r1]
+ 320 0002 C0F88030 		str	r3, [r0, #128]
+ 321 0006 0020     		movs	r0, #0
+ 322 0008 7047     		bx	lr
+ 324              		.section	.text.SDIO_PowerState_ON,"ax",%progbits
+ 325              		.align	1
+ 326              		.global	SDIO_PowerState_ON
+ 327              		.thumb
+ 328              		.thumb_func
+ 330              	SDIO_PowerState_ON:
+ 331              		@ args = 0, pretend = 0, frame = 0
+ 332              		@ frame_needed = 0, uses_anonymous_args = 0
+ 333 0000 08B5     		push	{r3, lr}
+ 334 0002 0323     		movs	r3, #3
+ 335 0004 0360     		str	r3, [r0]
+ 336 0006 0220     		movs	r0, #2
+ 337 0008 FFF7FEFF 		bl	HAL_Delay
+ 338 000c 0020     		movs	r0, #0
+ 339 000e 08BD     		pop	{r3, pc}
+ 341              		.section	.text.SDIO_PowerState_OFF,"ax",%progbits
+ 342              		.align	1
+ 343              		.global	SDIO_PowerState_OFF
+ 344              		.thumb
+ 345              		.thumb_func
+ 347              	SDIO_PowerState_OFF:
+ 348              		@ args = 0, pretend = 0, frame = 0
+ 349              		@ frame_needed = 0, uses_anonymous_args = 0
+ 350              		@ link register save eliminated.
+ 351 0000 0023     		movs	r3, #0
+ 352 0002 0360     		str	r3, [r0]
+ 353 0004 1846     		mov	r0, r3
+ 354 0006 7047     		bx	lr
+ 356              		.section	.text.SDIO_GetPowerState,"ax",%progbits
+ 357              		.align	1
+ 358              		.global	SDIO_GetPowerState
+ARM GAS  /tmp/ccAoES3h.s 			page 7
+
+
+ 359              		.thumb
+ 360              		.thumb_func
+ 362              	SDIO_GetPowerState:
+ 363              		@ args = 0, pretend = 0, frame = 0
+ 364              		@ frame_needed = 0, uses_anonymous_args = 0
+ 365              		@ link register save eliminated.
+ 366 0000 0068     		ldr	r0, [r0]
+ 367 0002 00F00300 		and	r0, r0, #3
+ 368 0006 7047     		bx	lr
+ 370              		.section	.text.SDIO_SendCommand,"ax",%progbits
+ 371              		.align	1
+ 372              		.global	SDIO_SendCommand
+ 373              		.thumb
+ 374              		.thumb_func
+ 376              	SDIO_SendCommand:
+ 377              		@ args = 0, pretend = 0, frame = 0
+ 378              		@ frame_needed = 0, uses_anonymous_args = 0
+ 379 0000 0B68     		ldr	r3, [r1]
+ 380 0002 10B5     		push	{r4, lr}
+ 381 0004 8360     		str	r3, [r0, #8]
+ 382 0006 8C68     		ldr	r4, [r1, #8]
+ 383 0008 4B68     		ldr	r3, [r1, #4]
+ 384 000a C268     		ldr	r2, [r0, #12]
+ 385 000c 1C43     		orrs	r4, r4, r3
+ 386 000e CB68     		ldr	r3, [r1, #12]
+ 387 0010 0969     		ldr	r1, [r1, #16]
+ 388 0012 2343     		orrs	r3, r3, r4
+ 389 0014 1943     		orrs	r1, r1, r3
+ 390 0016 22F47F63 		bic	r3, r2, #4080
+ 391 001a 23F00F03 		bic	r3, r3, #15
+ 392 001e 0B43     		orrs	r3, r3, r1
+ 393 0020 C360     		str	r3, [r0, #12]
+ 394 0022 0020     		movs	r0, #0
+ 395 0024 10BD     		pop	{r4, pc}
+ 397              		.section	.text.SDIO_GetCommandResponse,"ax",%progbits
+ 398              		.align	1
+ 399              		.global	SDIO_GetCommandResponse
+ 400              		.thumb
+ 401              		.thumb_func
+ 403              	SDIO_GetCommandResponse:
+ 404              		@ args = 0, pretend = 0, frame = 0
+ 405              		@ frame_needed = 0, uses_anonymous_args = 0
+ 406              		@ link register save eliminated.
+ 407 0000 0069     		ldr	r0, [r0, #16]
+ 408 0002 C0B2     		uxtb	r0, r0
+ 409 0004 7047     		bx	lr
+ 411              		.section	.text.SDIO_GetResponse,"ax",%progbits
+ 412              		.align	1
+ 413              		.global	SDIO_GetResponse
+ 414              		.thumb
+ 415              		.thumb_func
+ 417              	SDIO_GetResponse:
+ 418              		@ args = 0, pretend = 0, frame = 0
+ 419              		@ frame_needed = 0, uses_anonymous_args = 0
+ 420              		@ link register save eliminated.
+ 421 0000 1430     		adds	r0, r0, #20
+ 422 0002 0858     		ldr	r0, [r1, r0]
+ARM GAS  /tmp/ccAoES3h.s 			page 8
+
+
+ 423 0004 7047     		bx	lr
+ 425              		.section	.text.SDIO_ConfigData,"ax",%progbits
+ 426              		.align	1
+ 427              		.global	SDIO_ConfigData
+ 428              		.thumb
+ 429              		.thumb_func
+ 431              	SDIO_ConfigData:
+ 432              		@ args = 0, pretend = 0, frame = 0
+ 433              		@ frame_needed = 0, uses_anonymous_args = 0
+ 434 0000 0B68     		ldr	r3, [r1]
+ 435 0002 10B5     		push	{r4, lr}
+ 436 0004 8A68     		ldr	r2, [r1, #8]
+ 437 0006 CC68     		ldr	r4, [r1, #12]
+ 438 0008 4362     		str	r3, [r0, #36]
+ 439 000a 4B68     		ldr	r3, [r1, #4]
+ 440 000c 1443     		orrs	r4, r4, r2
+ 441 000e 0A69     		ldr	r2, [r1, #16]
+ 442 0010 8362     		str	r3, [r0, #40]
+ 443 0012 C36A     		ldr	r3, [r0, #44]
+ 444 0014 1443     		orrs	r4, r4, r2
+ 445 0016 4A69     		ldr	r2, [r1, #20]
+ 446 0018 23F0F703 		bic	r3, r3, #247
+ 447 001c 2243     		orrs	r2, r2, r4
+ 448 001e 1343     		orrs	r3, r3, r2
+ 449 0020 C362     		str	r3, [r0, #44]
+ 450 0022 0020     		movs	r0, #0
+ 451 0024 10BD     		pop	{r4, pc}
+ 453              		.section	.text.SDIO_GetDataCounter,"ax",%progbits
+ 454              		.align	1
+ 455              		.global	SDIO_GetDataCounter
+ 456              		.thumb
+ 457              		.thumb_func
+ 459              	SDIO_GetDataCounter:
+ 460              		@ args = 0, pretend = 0, frame = 0
+ 461              		@ frame_needed = 0, uses_anonymous_args = 0
+ 462              		@ link register save eliminated.
+ 463 0000 006B     		ldr	r0, [r0, #48]
+ 464 0002 7047     		bx	lr
+ 466              		.section	.text.SDIO_GetFIFOCount,"ax",%progbits
+ 467              		.align	1
+ 468              		.global	SDIO_GetFIFOCount
+ 469              		.thumb
+ 470              		.thumb_func
+ 472              	SDIO_GetFIFOCount:
+ 473              		@ args = 0, pretend = 0, frame = 0
+ 474              		@ frame_needed = 0, uses_anonymous_args = 0
+ 475              		@ link register save eliminated.
+ 476 0000 D0F88000 		ldr	r0, [r0, #128]
+ 477 0004 7047     		bx	lr
+ 479              		.section	.text.SDIO_SetSDMMCReadWaitMode,"ax",%progbits
+ 480              		.align	1
+ 481              		.global	SDIO_SetSDMMCReadWaitMode
+ 482              		.thumb
+ 483              		.thumb_func
+ 485              	SDIO_SetSDMMCReadWaitMode:
+ 486              		@ args = 0, pretend = 0, frame = 0
+ 487              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /tmp/ccAoES3h.s 			page 9
+
+
+ 488              		@ link register save eliminated.
+ 489 0000 C36A     		ldr	r3, [r0, #44]
+ 490 0002 23F48063 		bic	r3, r3, #1024
+ 491 0006 1943     		orrs	r1, r1, r3
+ 492 0008 C162     		str	r1, [r0, #44]
+ 493 000a 0020     		movs	r0, #0
+ 494 000c 7047     		bx	lr
+ 496              		.section	.text.SDMMC_CmdBlockLength,"ax",%progbits
+ 497              		.align	1
+ 498              		.global	SDMMC_CmdBlockLength
+ 499              		.thumb
+ 500              		.thumb_func
+ 502              	SDMMC_CmdBlockLength:
+ 503              		@ args = 0, pretend = 0, frame = 24
+ 504              		@ frame_needed = 0, uses_anonymous_args = 0
+ 505 0000 30B5     		push	{r4, r5, lr}
+ 506 0002 0546     		mov	r5, r0
+ 507 0004 87B0     		sub	sp, sp, #28
+ 508 0006 4023     		movs	r3, #64
+ 509 0008 0393     		str	r3, [sp, #12]
+ 510 000a 0023     		movs	r3, #0
+ 511 000c 0191     		str	r1, [sp, #4]
+ 512 000e 1024     		movs	r4, #16
+ 513 0010 0493     		str	r3, [sp, #16]
+ 514 0012 01A9     		add	r1, sp, #4
+ 515 0014 4FF48063 		mov	r3, #1024
+ 516 0018 0593     		str	r3, [sp, #20]
+ 517 001a 0294     		str	r4, [sp, #8]
+ 518 001c FFF7FEFF 		bl	SDIO_SendCommand
+ 519 0020 2846     		mov	r0, r5
+ 520 0022 2146     		mov	r1, r4
+ 521 0024 41F28832 		movw	r2, #5000
+ 522 0028 FFF7FEFF 		bl	SDMMC_GetCmdResp1
+ 523 002c 07B0     		add	sp, sp, #28
+ 524              		@ sp needed
+ 525 002e 30BD     		pop	{r4, r5, pc}
+ 527              		.section	.text.SDMMC_CmdReadSingleBlock,"ax",%progbits
+ 528              		.align	1
+ 529              		.global	SDMMC_CmdReadSingleBlock
+ 530              		.thumb
+ 531              		.thumb_func
+ 533              	SDMMC_CmdReadSingleBlock:
+ 534              		@ args = 0, pretend = 0, frame = 24
+ 535              		@ frame_needed = 0, uses_anonymous_args = 0
+ 536 0000 30B5     		push	{r4, r5, lr}
+ 537 0002 0546     		mov	r5, r0
+ 538 0004 87B0     		sub	sp, sp, #28
+ 539 0006 4023     		movs	r3, #64
+ 540 0008 0393     		str	r3, [sp, #12]
+ 541 000a 0023     		movs	r3, #0
+ 542 000c 0191     		str	r1, [sp, #4]
+ 543 000e 1124     		movs	r4, #17
+ 544 0010 0493     		str	r3, [sp, #16]
+ 545 0012 01A9     		add	r1, sp, #4
+ 546 0014 4FF48063 		mov	r3, #1024
+ 547 0018 0593     		str	r3, [sp, #20]
+ 548 001a 0294     		str	r4, [sp, #8]
+ARM GAS  /tmp/ccAoES3h.s 			page 10
+
+
+ 549 001c FFF7FEFF 		bl	SDIO_SendCommand
+ 550 0020 2846     		mov	r0, r5
+ 551 0022 2146     		mov	r1, r4
+ 552 0024 41F28832 		movw	r2, #5000
+ 553 0028 FFF7FEFF 		bl	SDMMC_GetCmdResp1
+ 554 002c 07B0     		add	sp, sp, #28
+ 555              		@ sp needed
+ 556 002e 30BD     		pop	{r4, r5, pc}
+ 558              		.section	.text.SDMMC_CmdReadMultiBlock,"ax",%progbits
+ 559              		.align	1
+ 560              		.global	SDMMC_CmdReadMultiBlock
+ 561              		.thumb
+ 562              		.thumb_func
+ 564              	SDMMC_CmdReadMultiBlock:
+ 565              		@ args = 0, pretend = 0, frame = 24
+ 566              		@ frame_needed = 0, uses_anonymous_args = 0
+ 567 0000 30B5     		push	{r4, r5, lr}
+ 568 0002 0546     		mov	r5, r0
+ 569 0004 87B0     		sub	sp, sp, #28
+ 570 0006 4023     		movs	r3, #64
+ 571 0008 0393     		str	r3, [sp, #12]
+ 572 000a 0023     		movs	r3, #0
+ 573 000c 0191     		str	r1, [sp, #4]
+ 574 000e 1224     		movs	r4, #18
+ 575 0010 0493     		str	r3, [sp, #16]
+ 576 0012 01A9     		add	r1, sp, #4
+ 577 0014 4FF48063 		mov	r3, #1024
+ 578 0018 0593     		str	r3, [sp, #20]
+ 579 001a 0294     		str	r4, [sp, #8]
+ 580 001c FFF7FEFF 		bl	SDIO_SendCommand
+ 581 0020 2846     		mov	r0, r5
+ 582 0022 2146     		mov	r1, r4
+ 583 0024 41F28832 		movw	r2, #5000
+ 584 0028 FFF7FEFF 		bl	SDMMC_GetCmdResp1
+ 585 002c 07B0     		add	sp, sp, #28
+ 586              		@ sp needed
+ 587 002e 30BD     		pop	{r4, r5, pc}
+ 589              		.section	.text.SDMMC_CmdWriteSingleBlock,"ax",%progbits
+ 590              		.align	1
+ 591              		.global	SDMMC_CmdWriteSingleBlock
+ 592              		.thumb
+ 593              		.thumb_func
+ 595              	SDMMC_CmdWriteSingleBlock:
+ 596              		@ args = 0, pretend = 0, frame = 24
+ 597              		@ frame_needed = 0, uses_anonymous_args = 0
+ 598 0000 30B5     		push	{r4, r5, lr}
+ 599 0002 0546     		mov	r5, r0
+ 600 0004 87B0     		sub	sp, sp, #28
+ 601 0006 4023     		movs	r3, #64
+ 602 0008 0393     		str	r3, [sp, #12]
+ 603 000a 0023     		movs	r3, #0
+ 604 000c 0191     		str	r1, [sp, #4]
+ 605 000e 1824     		movs	r4, #24
+ 606 0010 0493     		str	r3, [sp, #16]
+ 607 0012 01A9     		add	r1, sp, #4
+ 608 0014 4FF48063 		mov	r3, #1024
+ 609 0018 0593     		str	r3, [sp, #20]
+ARM GAS  /tmp/ccAoES3h.s 			page 11
+
+
+ 610 001a 0294     		str	r4, [sp, #8]
+ 611 001c FFF7FEFF 		bl	SDIO_SendCommand
+ 612 0020 2846     		mov	r0, r5
+ 613 0022 2146     		mov	r1, r4
+ 614 0024 41F28832 		movw	r2, #5000
+ 615 0028 FFF7FEFF 		bl	SDMMC_GetCmdResp1
+ 616 002c 07B0     		add	sp, sp, #28
+ 617              		@ sp needed
+ 618 002e 30BD     		pop	{r4, r5, pc}
+ 620              		.section	.text.SDMMC_CmdWriteMultiBlock,"ax",%progbits
+ 621              		.align	1
+ 622              		.global	SDMMC_CmdWriteMultiBlock
+ 623              		.thumb
+ 624              		.thumb_func
+ 626              	SDMMC_CmdWriteMultiBlock:
+ 627              		@ args = 0, pretend = 0, frame = 24
+ 628              		@ frame_needed = 0, uses_anonymous_args = 0
+ 629 0000 30B5     		push	{r4, r5, lr}
+ 630 0002 0546     		mov	r5, r0
+ 631 0004 87B0     		sub	sp, sp, #28
+ 632 0006 4023     		movs	r3, #64
+ 633 0008 0393     		str	r3, [sp, #12]
+ 634 000a 0023     		movs	r3, #0
+ 635 000c 0191     		str	r1, [sp, #4]
+ 636 000e 1924     		movs	r4, #25
+ 637 0010 0493     		str	r3, [sp, #16]
+ 638 0012 01A9     		add	r1, sp, #4
+ 639 0014 4FF48063 		mov	r3, #1024
+ 640 0018 0593     		str	r3, [sp, #20]
+ 641 001a 0294     		str	r4, [sp, #8]
+ 642 001c FFF7FEFF 		bl	SDIO_SendCommand
+ 643 0020 2846     		mov	r0, r5
+ 644 0022 2146     		mov	r1, r4
+ 645 0024 41F28832 		movw	r2, #5000
+ 646 0028 FFF7FEFF 		bl	SDMMC_GetCmdResp1
+ 647 002c 07B0     		add	sp, sp, #28
+ 648              		@ sp needed
+ 649 002e 30BD     		pop	{r4, r5, pc}
+ 651              		.section	.text.SDMMC_CmdSDEraseStartAdd,"ax",%progbits
+ 652              		.align	1
+ 653              		.global	SDMMC_CmdSDEraseStartAdd
+ 654              		.thumb
+ 655              		.thumb_func
+ 657              	SDMMC_CmdSDEraseStartAdd:
+ 658              		@ args = 0, pretend = 0, frame = 24
+ 659              		@ frame_needed = 0, uses_anonymous_args = 0
+ 660 0000 30B5     		push	{r4, r5, lr}
+ 661 0002 0546     		mov	r5, r0
+ 662 0004 87B0     		sub	sp, sp, #28
+ 663 0006 4023     		movs	r3, #64
+ 664 0008 0393     		str	r3, [sp, #12]
+ 665 000a 0023     		movs	r3, #0
+ 666 000c 0191     		str	r1, [sp, #4]
+ 667 000e 2024     		movs	r4, #32
+ 668 0010 0493     		str	r3, [sp, #16]
+ 669 0012 01A9     		add	r1, sp, #4
+ 670 0014 4FF48063 		mov	r3, #1024
+ARM GAS  /tmp/ccAoES3h.s 			page 12
+
+
+ 671 0018 0593     		str	r3, [sp, #20]
+ 672 001a 0294     		str	r4, [sp, #8]
+ 673 001c FFF7FEFF 		bl	SDIO_SendCommand
+ 674 0020 2846     		mov	r0, r5
+ 675 0022 2146     		mov	r1, r4
+ 676 0024 41F28832 		movw	r2, #5000
+ 677 0028 FFF7FEFF 		bl	SDMMC_GetCmdResp1
+ 678 002c 07B0     		add	sp, sp, #28
+ 679              		@ sp needed
+ 680 002e 30BD     		pop	{r4, r5, pc}
+ 682              		.section	.text.SDMMC_CmdSDEraseEndAdd,"ax",%progbits
+ 683              		.align	1
+ 684              		.global	SDMMC_CmdSDEraseEndAdd
+ 685              		.thumb
+ 686              		.thumb_func
+ 688              	SDMMC_CmdSDEraseEndAdd:
+ 689              		@ args = 0, pretend = 0, frame = 24
+ 690              		@ frame_needed = 0, uses_anonymous_args = 0
+ 691 0000 30B5     		push	{r4, r5, lr}
+ 692 0002 0546     		mov	r5, r0
+ 693 0004 87B0     		sub	sp, sp, #28
+ 694 0006 4023     		movs	r3, #64
+ 695 0008 0393     		str	r3, [sp, #12]
+ 696 000a 0023     		movs	r3, #0
+ 697 000c 0191     		str	r1, [sp, #4]
+ 698 000e 2124     		movs	r4, #33
+ 699 0010 0493     		str	r3, [sp, #16]
+ 700 0012 01A9     		add	r1, sp, #4
+ 701 0014 4FF48063 		mov	r3, #1024
+ 702 0018 0593     		str	r3, [sp, #20]
+ 703 001a 0294     		str	r4, [sp, #8]
+ 704 001c FFF7FEFF 		bl	SDIO_SendCommand
+ 705 0020 2846     		mov	r0, r5
+ 706 0022 2146     		mov	r1, r4
+ 707 0024 41F28832 		movw	r2, #5000
+ 708 0028 FFF7FEFF 		bl	SDMMC_GetCmdResp1
+ 709 002c 07B0     		add	sp, sp, #28
+ 710              		@ sp needed
+ 711 002e 30BD     		pop	{r4, r5, pc}
+ 713              		.section	.text.SDMMC_CmdEraseStartAdd,"ax",%progbits
+ 714              		.align	1
+ 715              		.global	SDMMC_CmdEraseStartAdd
+ 716              		.thumb
+ 717              		.thumb_func
+ 719              	SDMMC_CmdEraseStartAdd:
+ 720              		@ args = 0, pretend = 0, frame = 24
+ 721              		@ frame_needed = 0, uses_anonymous_args = 0
+ 722 0000 30B5     		push	{r4, r5, lr}
+ 723 0002 0546     		mov	r5, r0
+ 724 0004 87B0     		sub	sp, sp, #28
+ 725 0006 4023     		movs	r3, #64
+ 726 0008 0393     		str	r3, [sp, #12]
+ 727 000a 0023     		movs	r3, #0
+ 728 000c 0191     		str	r1, [sp, #4]
+ 729 000e 2324     		movs	r4, #35
+ 730 0010 0493     		str	r3, [sp, #16]
+ 731 0012 01A9     		add	r1, sp, #4
+ARM GAS  /tmp/ccAoES3h.s 			page 13
+
+
+ 732 0014 4FF48063 		mov	r3, #1024
+ 733 0018 0593     		str	r3, [sp, #20]
+ 734 001a 0294     		str	r4, [sp, #8]
+ 735 001c FFF7FEFF 		bl	SDIO_SendCommand
+ 736 0020 2846     		mov	r0, r5
+ 737 0022 2146     		mov	r1, r4
+ 738 0024 41F28832 		movw	r2, #5000
+ 739 0028 FFF7FEFF 		bl	SDMMC_GetCmdResp1
+ 740 002c 07B0     		add	sp, sp, #28
+ 741              		@ sp needed
+ 742 002e 30BD     		pop	{r4, r5, pc}
+ 744              		.section	.text.SDMMC_CmdEraseEndAdd,"ax",%progbits
+ 745              		.align	1
+ 746              		.global	SDMMC_CmdEraseEndAdd
+ 747              		.thumb
+ 748              		.thumb_func
+ 750              	SDMMC_CmdEraseEndAdd:
+ 751              		@ args = 0, pretend = 0, frame = 24
+ 752              		@ frame_needed = 0, uses_anonymous_args = 0
+ 753 0000 30B5     		push	{r4, r5, lr}
+ 754 0002 0546     		mov	r5, r0
+ 755 0004 87B0     		sub	sp, sp, #28
+ 756 0006 4023     		movs	r3, #64
+ 757 0008 0393     		str	r3, [sp, #12]
+ 758 000a 0023     		movs	r3, #0
+ 759 000c 0191     		str	r1, [sp, #4]
+ 760 000e 2424     		movs	r4, #36
+ 761 0010 0493     		str	r3, [sp, #16]
+ 762 0012 01A9     		add	r1, sp, #4
+ 763 0014 4FF48063 		mov	r3, #1024
+ 764 0018 0593     		str	r3, [sp, #20]
+ 765 001a 0294     		str	r4, [sp, #8]
+ 766 001c FFF7FEFF 		bl	SDIO_SendCommand
+ 767 0020 2846     		mov	r0, r5
+ 768 0022 2146     		mov	r1, r4
+ 769 0024 41F28832 		movw	r2, #5000
+ 770 0028 FFF7FEFF 		bl	SDMMC_GetCmdResp1
+ 771 002c 07B0     		add	sp, sp, #28
+ 772              		@ sp needed
+ 773 002e 30BD     		pop	{r4, r5, pc}
+ 775              		.section	.text.SDMMC_CmdErase,"ax",%progbits
+ 776              		.align	1
+ 777              		.global	SDMMC_CmdErase
+ 778              		.thumb
+ 779              		.thumb_func
+ 781              	SDMMC_CmdErase:
+ 782              		@ args = 0, pretend = 0, frame = 24
+ 783              		@ frame_needed = 0, uses_anonymous_args = 0
+ 784 0000 30B5     		push	{r4, r5, lr}
+ 785 0002 0546     		mov	r5, r0
+ 786 0004 87B0     		sub	sp, sp, #28
+ 787 0006 0023     		movs	r3, #0
+ 788 0008 0193     		str	r3, [sp, #4]
+ 789 000a 2624     		movs	r4, #38
+ 790 000c 4022     		movs	r2, #64
+ 791 000e 0493     		str	r3, [sp, #16]
+ 792 0010 01A9     		add	r1, sp, #4
+ARM GAS  /tmp/ccAoES3h.s 			page 14
+
+
+ 793 0012 4FF48063 		mov	r3, #1024
+ 794 0016 0392     		str	r2, [sp, #12]
+ 795 0018 0593     		str	r3, [sp, #20]
+ 796 001a 0294     		str	r4, [sp, #8]
+ 797 001c FFF7FEFF 		bl	SDIO_SendCommand
+ 798 0020 2846     		mov	r0, r5
+ 799 0022 2146     		mov	r1, r4
+ 800 0024 4FF21862 		movw	r2, #63000
+ 801 0028 FFF7FEFF 		bl	SDMMC_GetCmdResp1
+ 802 002c 07B0     		add	sp, sp, #28
+ 803              		@ sp needed
+ 804 002e 30BD     		pop	{r4, r5, pc}
+ 806              		.section	.text.SDMMC_CmdStopTransfer,"ax",%progbits
+ 807              		.align	1
+ 808              		.global	SDMMC_CmdStopTransfer
+ 809              		.thumb
+ 810              		.thumb_func
+ 812              	SDMMC_CmdStopTransfer:
+ 813              		@ args = 0, pretend = 0, frame = 24
+ 814              		@ frame_needed = 0, uses_anonymous_args = 0
+ 815 0000 30B5     		push	{r4, r5, lr}
+ 816 0002 0546     		mov	r5, r0
+ 817 0004 87B0     		sub	sp, sp, #28
+ 818 0006 0023     		movs	r3, #0
+ 819 0008 0193     		str	r3, [sp, #4]
+ 820 000a 0C24     		movs	r4, #12
+ 821 000c 4022     		movs	r2, #64
+ 822 000e 0493     		str	r3, [sp, #16]
+ 823 0010 01A9     		add	r1, sp, #4
+ 824 0012 4FF48063 		mov	r3, #1024
+ 825 0016 0392     		str	r2, [sp, #12]
+ 826 0018 0593     		str	r3, [sp, #20]
+ 827 001a 0294     		str	r4, [sp, #8]
+ 828 001c FFF7FEFF 		bl	SDIO_SendCommand
+ 829 0020 2846     		mov	r0, r5
+ 830 0022 2146     		mov	r1, r4
+ 831 0024 024A     		ldr	r2, .L89
+ 832 0026 FFF7FEFF 		bl	SDMMC_GetCmdResp1
+ 833 002a 07B0     		add	sp, sp, #28
+ 834              		@ sp needed
+ 835 002c 30BD     		pop	{r4, r5, pc}
+ 836              	.L90:
+ 837 002e 00BF     		.align	2
+ 838              	.L89:
+ 839 0030 00E1F505 		.word	100000000
+ 841              		.section	.text.SDMMC_CmdSelDesel,"ax",%progbits
+ 842              		.align	1
+ 843              		.global	SDMMC_CmdSelDesel
+ 844              		.thumb
+ 845              		.thumb_func
+ 847              	SDMMC_CmdSelDesel:
+ 848              		@ args = 0, pretend = 0, frame = 24
+ 849              		@ frame_needed = 0, uses_anonymous_args = 0
+ 850 0000 30B5     		push	{r4, r5, lr}
+ 851 0002 0546     		mov	r5, r0
+ 852 0004 87B0     		sub	sp, sp, #28
+ 853 0006 4023     		movs	r3, #64
+ARM GAS  /tmp/ccAoES3h.s 			page 15
+
+
+ 854 0008 0393     		str	r3, [sp, #12]
+ 855 000a 0023     		movs	r3, #0
+ 856 000c 0724     		movs	r4, #7
+ 857 000e 0493     		str	r3, [sp, #16]
+ 858 0010 01A9     		add	r1, sp, #4
+ 859 0012 4FF48063 		mov	r3, #1024
+ 860 0016 0192     		str	r2, [sp, #4]
+ 861 0018 0593     		str	r3, [sp, #20]
+ 862 001a 0294     		str	r4, [sp, #8]
+ 863 001c FFF7FEFF 		bl	SDIO_SendCommand
+ 864 0020 2846     		mov	r0, r5
+ 865 0022 2146     		mov	r1, r4
+ 866 0024 41F28832 		movw	r2, #5000
+ 867 0028 FFF7FEFF 		bl	SDMMC_GetCmdResp1
+ 868 002c 07B0     		add	sp, sp, #28
+ 869              		@ sp needed
+ 870 002e 30BD     		pop	{r4, r5, pc}
+ 872              		.section	.text.SDMMC_CmdGoIdleState,"ax",%progbits
+ 873              		.align	1
+ 874              		.global	SDMMC_CmdGoIdleState
+ 875              		.thumb
+ 876              		.thumb_func
+ 878              	SDMMC_CmdGoIdleState:
+ 879              		@ args = 0, pretend = 0, frame = 24
+ 880              		@ frame_needed = 0, uses_anonymous_args = 0
+ 881 0000 10B5     		push	{r4, lr}
+ 882 0002 0023     		movs	r3, #0
+ 883 0004 86B0     		sub	sp, sp, #24
+ 884 0006 0193     		str	r3, [sp, #4]
+ 885 0008 0293     		str	r3, [sp, #8]
+ 886 000a 0393     		str	r3, [sp, #12]
+ 887 000c 0493     		str	r3, [sp, #16]
+ 888 000e 01A9     		add	r1, sp, #4
+ 889 0010 4FF48063 		mov	r3, #1024
+ 890 0014 0593     		str	r3, [sp, #20]
+ 891 0016 0446     		mov	r4, r0
+ 892 0018 FFF7FEFF 		bl	SDIO_SendCommand
+ 893 001c 0B4B     		ldr	r3, .L99
+ 894 001e 4FF4FA52 		mov	r2, #8000
+ 895 0022 1B68     		ldr	r3, [r3]
+ 896 0024 B3FBF2F2 		udiv	r2, r3, r2
+ 897 0028 41F28833 		movw	r3, #5000
+ 898 002c 5343     		muls	r3, r2, r3
+ 899              	.L94:
+ 900 002e 13F1FF33 		adds	r3, r3, #-1
+ 901 0032 06D3     		bcc	.L95
+ 902 0034 626B     		ldr	r2, [r4, #52]
+ 903 0036 1206     		lsls	r2, r2, #24
+ 904 0038 F9D5     		bpl	.L94
+ 905 003a C523     		movs	r3, #197
+ 906 003c A363     		str	r3, [r4, #56]
+ 907 003e 0020     		movs	r0, #0
+ 908 0040 01E0     		b	.L93
+ 909              	.L95:
+ 910 0042 4FF00040 		mov	r0, #-2147483648
+ 911              	.L93:
+ 912 0046 06B0     		add	sp, sp, #24
+ARM GAS  /tmp/ccAoES3h.s 			page 16
+
+
+ 913              		@ sp needed
+ 914 0048 10BD     		pop	{r4, pc}
+ 915              	.L100:
+ 916 004a 00BF     		.align	2
+ 917              	.L99:
+ 918 004c 00000000 		.word	SystemCoreClock
+ 920              		.section	.text.SDMMC_CmdOperCond,"ax",%progbits
+ 921              		.align	1
+ 922              		.global	SDMMC_CmdOperCond
+ 923              		.thumb
+ 924              		.thumb_func
+ 926              	SDMMC_CmdOperCond:
+ 927              		@ args = 0, pretend = 0, frame = 24
+ 928              		@ frame_needed = 0, uses_anonymous_args = 0
+ 929 0000 10B5     		push	{r4, lr}
+ 930 0002 4FF4D573 		mov	r3, #426
+ 931 0006 86B0     		sub	sp, sp, #24
+ 932 0008 0193     		str	r3, [sp, #4]
+ 933 000a 0823     		movs	r3, #8
+ 934 000c 0293     		str	r3, [sp, #8]
+ 935 000e 4023     		movs	r3, #64
+ 936 0010 0393     		str	r3, [sp, #12]
+ 937 0012 0023     		movs	r3, #0
+ 938 0014 0493     		str	r3, [sp, #16]
+ 939 0016 01A9     		add	r1, sp, #4
+ 940 0018 4FF48063 		mov	r3, #1024
+ 941 001c 0593     		str	r3, [sp, #20]
+ 942 001e 0446     		mov	r4, r0
+ 943 0020 FFF7FEFF 		bl	SDIO_SendCommand
+ 944 0024 144B     		ldr	r3, .L116
+ 945 0026 4FF4FA52 		mov	r2, #8000
+ 946 002a 1B68     		ldr	r3, [r3]
+ 947 002c B3FBF2F2 		udiv	r2, r3, r2
+ 948 0030 41F28833 		movw	r3, #5000
+ 949 0034 5343     		muls	r3, r2, r3
+ 950              	.L102:
+ 951 0036 13F1FF33 		adds	r3, r3, #-1
+ 952 003a 19D3     		bcc	.L107
+ 953 003c 626B     		ldr	r2, [r4, #52]
+ 954 003e 12F0450F 		tst	r2, #69
+ 955 0042 F8D0     		beq	.L102
+ 956 0044 1205     		lsls	r2, r2, #20
+ 957 0046 F6D4     		bmi	.L102
+ 958 0048 636B     		ldr	r3, [r4, #52]
+ 959 004a 5B07     		lsls	r3, r3, #29
+ 960 004c 01D5     		bpl	.L105
+ 961 004e 0420     		movs	r0, #4
+ 962 0050 04E0     		b	.L115
+ 963              	.L105:
+ 964 0052 636B     		ldr	r3, [r4, #52]
+ 965 0054 13F00103 		ands	r3, r3, #1
+ 966 0058 02D0     		beq	.L106
+ 967 005a 0120     		movs	r0, #1
+ 968              	.L115:
+ 969 005c A063     		str	r0, [r4, #56]
+ 970 005e 09E0     		b	.L103
+ 971              	.L106:
+ARM GAS  /tmp/ccAoES3h.s 			page 17
+
+
+ 972 0060 606B     		ldr	r0, [r4, #52]
+ 973 0062 10F04000 		ands	r0, r0, #64
+ 974 0066 05D0     		beq	.L103
+ 975 0068 4022     		movs	r2, #64
+ 976 006a A263     		str	r2, [r4, #56]
+ 977 006c 1846     		mov	r0, r3
+ 978 006e 01E0     		b	.L103
+ 979              	.L107:
+ 980 0070 4FF00040 		mov	r0, #-2147483648
+ 981              	.L103:
+ 982 0074 06B0     		add	sp, sp, #24
+ 983              		@ sp needed
+ 984 0076 10BD     		pop	{r4, pc}
+ 985              	.L117:
+ 986              		.align	2
+ 987              	.L116:
+ 988 0078 00000000 		.word	SystemCoreClock
+ 990              		.section	.text.SDMMC_CmdAppCommand,"ax",%progbits
+ 991              		.align	1
+ 992              		.global	SDMMC_CmdAppCommand
+ 993              		.thumb
+ 994              		.thumb_func
+ 996              	SDMMC_CmdAppCommand:
+ 997              		@ args = 0, pretend = 0, frame = 24
+ 998              		@ frame_needed = 0, uses_anonymous_args = 0
+ 999 0000 30B5     		push	{r4, r5, lr}
+ 1000 0002 0546     		mov	r5, r0
+ 1001 0004 87B0     		sub	sp, sp, #28
+ 1002 0006 4023     		movs	r3, #64
+ 1003 0008 0393     		str	r3, [sp, #12]
+ 1004 000a 0023     		movs	r3, #0
+ 1005 000c 0191     		str	r1, [sp, #4]
+ 1006 000e 3724     		movs	r4, #55
+ 1007 0010 0493     		str	r3, [sp, #16]
+ 1008 0012 01A9     		add	r1, sp, #4
+ 1009 0014 4FF48063 		mov	r3, #1024
+ 1010 0018 0593     		str	r3, [sp, #20]
+ 1011 001a 0294     		str	r4, [sp, #8]
+ 1012 001c FFF7FEFF 		bl	SDIO_SendCommand
+ 1013 0020 2846     		mov	r0, r5
+ 1014 0022 2146     		mov	r1, r4
+ 1015 0024 41F28832 		movw	r2, #5000
+ 1016 0028 FFF7FEFF 		bl	SDMMC_GetCmdResp1
+ 1017 002c 07B0     		add	sp, sp, #28
+ 1018              		@ sp needed
+ 1019 002e 30BD     		pop	{r4, r5, pc}
+ 1021              		.section	.text.SDMMC_CmdAppOperCommand,"ax",%progbits
+ 1022              		.align	1
+ 1023              		.global	SDMMC_CmdAppOperCommand
+ 1024              		.thumb
+ 1025              		.thumb_func
+ 1027              	SDMMC_CmdAppOperCommand:
+ 1028              		@ args = 0, pretend = 0, frame = 24
+ 1029              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1030 0000 10B5     		push	{r4, lr}
+ 1031 0002 0446     		mov	r4, r0
+ 1032 0004 86B0     		sub	sp, sp, #24
+ARM GAS  /tmp/ccAoES3h.s 			page 18
+
+
+ 1033 0006 2923     		movs	r3, #41
+ 1034 0008 0293     		str	r3, [sp, #8]
+ 1035 000a 41F00041 		orr	r1, r1, #-2147483648
+ 1036 000e 4023     		movs	r3, #64
+ 1037 0010 0393     		str	r3, [sp, #12]
+ 1038 0012 41F48011 		orr	r1, r1, #1048576
+ 1039 0016 0023     		movs	r3, #0
+ 1040 0018 0191     		str	r1, [sp, #4]
+ 1041 001a 0493     		str	r3, [sp, #16]
+ 1042 001c 01A9     		add	r1, sp, #4
+ 1043 001e 4FF48063 		mov	r3, #1024
+ 1044 0022 0593     		str	r3, [sp, #20]
+ 1045 0024 FFF7FEFF 		bl	SDIO_SendCommand
+ 1046 0028 2046     		mov	r0, r4
+ 1047 002a FFF7FEFF 		bl	SDMMC_GetCmdResp3
+ 1048 002e 06B0     		add	sp, sp, #24
+ 1049              		@ sp needed
+ 1050 0030 10BD     		pop	{r4, pc}
+ 1052              		.section	.text.SDMMC_CmdBusWidth,"ax",%progbits
+ 1053              		.align	1
+ 1054              		.global	SDMMC_CmdBusWidth
+ 1055              		.thumb
+ 1056              		.thumb_func
+ 1058              	SDMMC_CmdBusWidth:
+ 1059              		@ args = 0, pretend = 0, frame = 24
+ 1060              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1061 0000 30B5     		push	{r4, r5, lr}
+ 1062 0002 0546     		mov	r5, r0
+ 1063 0004 87B0     		sub	sp, sp, #28
+ 1064 0006 4023     		movs	r3, #64
+ 1065 0008 0393     		str	r3, [sp, #12]
+ 1066 000a 0023     		movs	r3, #0
+ 1067 000c 0191     		str	r1, [sp, #4]
+ 1068 000e 0624     		movs	r4, #6
+ 1069 0010 0493     		str	r3, [sp, #16]
+ 1070 0012 01A9     		add	r1, sp, #4
+ 1071 0014 4FF48063 		mov	r3, #1024
+ 1072 0018 0593     		str	r3, [sp, #20]
+ 1073 001a 0294     		str	r4, [sp, #8]
+ 1074 001c FFF7FEFF 		bl	SDIO_SendCommand
+ 1075 0020 2846     		mov	r0, r5
+ 1076 0022 2146     		mov	r1, r4
+ 1077 0024 41F28832 		movw	r2, #5000
+ 1078 0028 FFF7FEFF 		bl	SDMMC_GetCmdResp1
+ 1079 002c 07B0     		add	sp, sp, #28
+ 1080              		@ sp needed
+ 1081 002e 30BD     		pop	{r4, r5, pc}
+ 1083              		.section	.text.SDMMC_CmdSendSCR,"ax",%progbits
+ 1084              		.align	1
+ 1085              		.global	SDMMC_CmdSendSCR
+ 1086              		.thumb
+ 1087              		.thumb_func
+ 1089              	SDMMC_CmdSendSCR:
+ 1090              		@ args = 0, pretend = 0, frame = 24
+ 1091              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1092 0000 30B5     		push	{r4, r5, lr}
+ 1093 0002 0546     		mov	r5, r0
+ARM GAS  /tmp/ccAoES3h.s 			page 19
+
+
+ 1094 0004 87B0     		sub	sp, sp, #28
+ 1095 0006 0023     		movs	r3, #0
+ 1096 0008 0193     		str	r3, [sp, #4]
+ 1097 000a 3324     		movs	r4, #51
+ 1098 000c 4022     		movs	r2, #64
+ 1099 000e 0493     		str	r3, [sp, #16]
+ 1100 0010 01A9     		add	r1, sp, #4
+ 1101 0012 4FF48063 		mov	r3, #1024
+ 1102 0016 0392     		str	r2, [sp, #12]
+ 1103 0018 0593     		str	r3, [sp, #20]
+ 1104 001a 0294     		str	r4, [sp, #8]
+ 1105 001c FFF7FEFF 		bl	SDIO_SendCommand
+ 1106 0020 2846     		mov	r0, r5
+ 1107 0022 2146     		mov	r1, r4
+ 1108 0024 41F28832 		movw	r2, #5000
+ 1109 0028 FFF7FEFF 		bl	SDMMC_GetCmdResp1
+ 1110 002c 07B0     		add	sp, sp, #28
+ 1111              		@ sp needed
+ 1112 002e 30BD     		pop	{r4, r5, pc}
+ 1114              		.section	.text.SDMMC_CmdSendCID,"ax",%progbits
+ 1115              		.align	1
+ 1116              		.global	SDMMC_CmdSendCID
+ 1117              		.thumb
+ 1118              		.thumb_func
+ 1120              	SDMMC_CmdSendCID:
+ 1121              		@ args = 0, pretend = 0, frame = 24
+ 1122              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1123 0000 10B5     		push	{r4, lr}
+ 1124 0002 0446     		mov	r4, r0
+ 1125 0004 86B0     		sub	sp, sp, #24
+ 1126 0006 0023     		movs	r3, #0
+ 1127 0008 0222     		movs	r2, #2
+ 1128 000a 0193     		str	r3, [sp, #4]
+ 1129 000c 0292     		str	r2, [sp, #8]
+ 1130 000e 0493     		str	r3, [sp, #16]
+ 1131 0010 C022     		movs	r2, #192
+ 1132 0012 4FF48063 		mov	r3, #1024
+ 1133 0016 01A9     		add	r1, sp, #4
+ 1134 0018 0392     		str	r2, [sp, #12]
+ 1135 001a 0593     		str	r3, [sp, #20]
+ 1136 001c FFF7FEFF 		bl	SDIO_SendCommand
+ 1137 0020 2046     		mov	r0, r4
+ 1138 0022 FFF7FEFF 		bl	SDMMC_GetCmdResp2
+ 1139 0026 06B0     		add	sp, sp, #24
+ 1140              		@ sp needed
+ 1141 0028 10BD     		pop	{r4, pc}
+ 1143              		.section	.text.SDMMC_CmdSendCSD,"ax",%progbits
+ 1144              		.align	1
+ 1145              		.global	SDMMC_CmdSendCSD
+ 1146              		.thumb
+ 1147              		.thumb_func
+ 1149              	SDMMC_CmdSendCSD:
+ 1150              		@ args = 0, pretend = 0, frame = 24
+ 1151              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1152 0000 10B5     		push	{r4, lr}
+ 1153 0002 0446     		mov	r4, r0
+ 1154 0004 86B0     		sub	sp, sp, #24
+ARM GAS  /tmp/ccAoES3h.s 			page 20
+
+
+ 1155 0006 0923     		movs	r3, #9
+ 1156 0008 0293     		str	r3, [sp, #8]
+ 1157 000a C023     		movs	r3, #192
+ 1158 000c 0393     		str	r3, [sp, #12]
+ 1159 000e 0023     		movs	r3, #0
+ 1160 0010 0191     		str	r1, [sp, #4]
+ 1161 0012 0493     		str	r3, [sp, #16]
+ 1162 0014 01A9     		add	r1, sp, #4
+ 1163 0016 4FF48063 		mov	r3, #1024
+ 1164 001a 0593     		str	r3, [sp, #20]
+ 1165 001c FFF7FEFF 		bl	SDIO_SendCommand
+ 1166 0020 2046     		mov	r0, r4
+ 1167 0022 FFF7FEFF 		bl	SDMMC_GetCmdResp2
+ 1168 0026 06B0     		add	sp, sp, #24
+ 1169              		@ sp needed
+ 1170 0028 10BD     		pop	{r4, pc}
+ 1172              		.section	.text.SDMMC_CmdSetRelAdd,"ax",%progbits
+ 1173              		.align	1
+ 1174              		.global	SDMMC_CmdSetRelAdd
+ 1175              		.thumb
+ 1176              		.thumb_func
+ 1178              	SDMMC_CmdSetRelAdd:
+ 1179              		@ args = 0, pretend = 0, frame = 24
+ 1180              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1181 0000 30B5     		push	{r4, r5, lr}
+ 1182 0002 0023     		movs	r3, #0
+ 1183 0004 87B0     		sub	sp, sp, #28
+ 1184 0006 0322     		movs	r2, #3
+ 1185 0008 0193     		str	r3, [sp, #4]
+ 1186 000a 0292     		str	r2, [sp, #8]
+ 1187 000c 0493     		str	r3, [sp, #16]
+ 1188 000e 4022     		movs	r2, #64
+ 1189 0010 4FF48063 		mov	r3, #1024
+ 1190 0014 0D46     		mov	r5, r1
+ 1191 0016 01A9     		add	r1, sp, #4
+ 1192 0018 0392     		str	r2, [sp, #12]
+ 1193 001a 0593     		str	r3, [sp, #20]
+ 1194 001c 0446     		mov	r4, r0
+ 1195 001e FFF7FEFF 		bl	SDIO_SendCommand
+ 1196 0022 1E4B     		ldr	r3, .L140
+ 1197 0024 4FF4FA52 		mov	r2, #8000
+ 1198 0028 1B68     		ldr	r3, [r3]
+ 1199 002a B3FBF2F2 		udiv	r2, r3, r2
+ 1200 002e 41F28833 		movw	r3, #5000
+ 1201 0032 5343     		muls	r3, r2, r3
+ 1202              	.L125:
+ 1203 0034 13F1FF33 		adds	r3, r3, #-1
+ 1204 0038 27D3     		bcc	.L131
+ 1205 003a 626B     		ldr	r2, [r4, #52]
+ 1206 003c 12F0450F 		tst	r2, #69
+ 1207 0040 F8D0     		beq	.L125
+ 1208 0042 1205     		lsls	r2, r2, #20
+ 1209 0044 F6D4     		bmi	.L125
+ 1210 0046 636B     		ldr	r3, [r4, #52]
+ 1211 0048 5807     		lsls	r0, r3, #29
+ 1212 004a 01D5     		bpl	.L128
+ 1213 004c 0420     		movs	r0, #4
+ARM GAS  /tmp/ccAoES3h.s 			page 21
+
+
+ 1214 004e 03E0     		b	.L139
+ 1215              	.L128:
+ 1216 0050 636B     		ldr	r3, [r4, #52]
+ 1217 0052 D907     		lsls	r1, r3, #31
+ 1218 0054 02D5     		bpl	.L129
+ 1219 0056 0120     		movs	r0, #1
+ 1220              	.L139:
+ 1221 0058 A063     		str	r0, [r4, #56]
+ 1222 005a 1DE0     		b	.L126
+ 1223              	.L129:
+ 1224 005c 2369     		ldr	r3, [r4, #16]
+ 1225 005e DBB2     		uxtb	r3, r3
+ 1226 0060 032B     		cmp	r3, #3
+ 1227 0062 15D1     		bne	.L132
+ 1228 0064 C523     		movs	r3, #197
+ 1229 0066 A363     		str	r3, [r4, #56]
+ 1230 0068 6369     		ldr	r3, [r4, #20]
+ 1231 006a 13F46040 		ands	r0, r3, #57344
+ 1232 006e 02D1     		bne	.L130
+ 1233 0070 1B0C     		lsrs	r3, r3, #16
+ 1234 0072 2B80     		strh	r3, [r5]	@ movhi
+ 1235 0074 10E0     		b	.L126
+ 1236              	.L130:
+ 1237 0076 5A04     		lsls	r2, r3, #17
+ 1238 0078 0CD4     		bmi	.L133
+ 1239 007a 13F4004F 		tst	r3, #32768
+ 1240 007e 14BF     		ite	ne
+ 1241 0080 4FF48050 		movne	r0, #4096
+ 1242 0084 4FF48030 		moveq	r0, #65536
+ 1243 0088 06E0     		b	.L126
+ 1244              	.L131:
+ 1245 008a 4FF00040 		mov	r0, #-2147483648
+ 1246 008e 03E0     		b	.L126
+ 1247              	.L132:
+ 1248 0090 0120     		movs	r0, #1
+ 1249 0092 01E0     		b	.L126
+ 1250              	.L133:
+ 1251 0094 4FF40050 		mov	r0, #8192
+ 1252              	.L126:
+ 1253 0098 07B0     		add	sp, sp, #28
+ 1254              		@ sp needed
+ 1255 009a 30BD     		pop	{r4, r5, pc}
+ 1256              	.L141:
+ 1257              		.align	2
+ 1258              	.L140:
+ 1259 009c 00000000 		.word	SystemCoreClock
+ 1261              		.section	.text.SDMMC_CmdSendStatus,"ax",%progbits
+ 1262              		.align	1
+ 1263              		.global	SDMMC_CmdSendStatus
+ 1264              		.thumb
+ 1265              		.thumb_func
+ 1267              	SDMMC_CmdSendStatus:
+ 1268              		@ args = 0, pretend = 0, frame = 24
+ 1269              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1270 0000 30B5     		push	{r4, r5, lr}
+ 1271 0002 0546     		mov	r5, r0
+ 1272 0004 87B0     		sub	sp, sp, #28
+ARM GAS  /tmp/ccAoES3h.s 			page 22
+
+
+ 1273 0006 4023     		movs	r3, #64
+ 1274 0008 0393     		str	r3, [sp, #12]
+ 1275 000a 0023     		movs	r3, #0
+ 1276 000c 0191     		str	r1, [sp, #4]
+ 1277 000e 0D24     		movs	r4, #13
+ 1278 0010 0493     		str	r3, [sp, #16]
+ 1279 0012 01A9     		add	r1, sp, #4
+ 1280 0014 4FF48063 		mov	r3, #1024
+ 1281 0018 0593     		str	r3, [sp, #20]
+ 1282 001a 0294     		str	r4, [sp, #8]
+ 1283 001c FFF7FEFF 		bl	SDIO_SendCommand
+ 1284 0020 2846     		mov	r0, r5
+ 1285 0022 2146     		mov	r1, r4
+ 1286 0024 41F28832 		movw	r2, #5000
+ 1287 0028 FFF7FEFF 		bl	SDMMC_GetCmdResp1
+ 1288 002c 07B0     		add	sp, sp, #28
+ 1289              		@ sp needed
+ 1290 002e 30BD     		pop	{r4, r5, pc}
+ 1292              		.section	.text.SDMMC_CmdStatusRegister,"ax",%progbits
+ 1293              		.align	1
+ 1294              		.global	SDMMC_CmdStatusRegister
+ 1295              		.thumb
+ 1296              		.thumb_func
+ 1298              	SDMMC_CmdStatusRegister:
+ 1299              		@ args = 0, pretend = 0, frame = 24
+ 1300              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1301 0000 30B5     		push	{r4, r5, lr}
+ 1302 0002 0546     		mov	r5, r0
+ 1303 0004 87B0     		sub	sp, sp, #28
+ 1304 0006 0023     		movs	r3, #0
+ 1305 0008 0193     		str	r3, [sp, #4]
+ 1306 000a 0D24     		movs	r4, #13
+ 1307 000c 4022     		movs	r2, #64
+ 1308 000e 0493     		str	r3, [sp, #16]
+ 1309 0010 01A9     		add	r1, sp, #4
+ 1310 0012 4FF48063 		mov	r3, #1024
+ 1311 0016 0392     		str	r2, [sp, #12]
+ 1312 0018 0593     		str	r3, [sp, #20]
+ 1313 001a 0294     		str	r4, [sp, #8]
+ 1314 001c FFF7FEFF 		bl	SDIO_SendCommand
+ 1315 0020 2846     		mov	r0, r5
+ 1316 0022 2146     		mov	r1, r4
+ 1317 0024 41F28832 		movw	r2, #5000
+ 1318 0028 FFF7FEFF 		bl	SDMMC_GetCmdResp1
+ 1319 002c 07B0     		add	sp, sp, #28
+ 1320              		@ sp needed
+ 1321 002e 30BD     		pop	{r4, r5, pc}
+ 1323              		.section	.text.SDMMC_CmdOpCondition,"ax",%progbits
+ 1324              		.align	1
+ 1325              		.global	SDMMC_CmdOpCondition
+ 1326              		.thumb
+ 1327              		.thumb_func
+ 1329              	SDMMC_CmdOpCondition:
+ 1330              		@ args = 0, pretend = 0, frame = 24
+ 1331              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1332 0000 10B5     		push	{r4, lr}
+ 1333 0002 0446     		mov	r4, r0
+ARM GAS  /tmp/ccAoES3h.s 			page 23
+
+
+ 1334 0004 86B0     		sub	sp, sp, #24
+ 1335 0006 0123     		movs	r3, #1
+ 1336 0008 0293     		str	r3, [sp, #8]
+ 1337 000a 4023     		movs	r3, #64
+ 1338 000c 0393     		str	r3, [sp, #12]
+ 1339 000e 0023     		movs	r3, #0
+ 1340 0010 0191     		str	r1, [sp, #4]
+ 1341 0012 0493     		str	r3, [sp, #16]
+ 1342 0014 01A9     		add	r1, sp, #4
+ 1343 0016 4FF48063 		mov	r3, #1024
+ 1344 001a 0593     		str	r3, [sp, #20]
+ 1345 001c FFF7FEFF 		bl	SDIO_SendCommand
+ 1346 0020 2046     		mov	r0, r4
+ 1347 0022 FFF7FEFF 		bl	SDMMC_GetCmdResp3
+ 1348 0026 06B0     		add	sp, sp, #24
+ 1349              		@ sp needed
+ 1350 0028 10BD     		pop	{r4, pc}
+ 1352              		.section	.text.SDMMC_CmdSwitch,"ax",%progbits
+ 1353              		.align	1
+ 1354              		.global	SDMMC_CmdSwitch
+ 1355              		.thumb
+ 1356              		.thumb_func
+ 1358              	SDMMC_CmdSwitch:
+ 1359              		@ args = 0, pretend = 0, frame = 24
+ 1360              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1361 0000 30B5     		push	{r4, r5, lr}
+ 1362 0002 0546     		mov	r5, r0
+ 1363 0004 87B0     		sub	sp, sp, #28
+ 1364 0006 4023     		movs	r3, #64
+ 1365 0008 0393     		str	r3, [sp, #12]
+ 1366 000a 0023     		movs	r3, #0
+ 1367 000c 0191     		str	r1, [sp, #4]
+ 1368 000e 0624     		movs	r4, #6
+ 1369 0010 0493     		str	r3, [sp, #16]
+ 1370 0012 01A9     		add	r1, sp, #4
+ 1371 0014 4FF48063 		mov	r3, #1024
+ 1372 0018 0593     		str	r3, [sp, #20]
+ 1373 001a 0294     		str	r4, [sp, #8]
+ 1374 001c FFF7FEFF 		bl	SDIO_SendCommand
+ 1375 0020 2846     		mov	r0, r5
+ 1376 0022 2146     		mov	r1, r4
+ 1377 0024 41F28832 		movw	r2, #5000
+ 1378 0028 FFF7FEFF 		bl	SDMMC_GetCmdResp1
+ 1379 002c 07B0     		add	sp, sp, #28
+ 1380              		@ sp needed
+ 1381 002e 30BD     		pop	{r4, r5, pc}
+ 1383              		.ident	"GCC: (15:4.9.3+svn231177-1) 4.9.3 20150529 (prerelease)"
+ARM GAS  /tmp/ccAoES3h.s 			page 24
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32f1xx_ll_sdmmc.c
+     /tmp/ccAoES3h.s:16     .text.SDMMC_GetCmdResp2:0000000000000000 $t
+     /tmp/ccAoES3h.s:20     .text.SDMMC_GetCmdResp2:0000000000000000 SDMMC_GetCmdResp2
+     /tmp/ccAoES3h.s:63     .text.SDMMC_GetCmdResp2:000000000000004c $d
+     /tmp/ccAoES3h.s:66     .text.SDMMC_GetCmdResp3:0000000000000000 $t
+     /tmp/ccAoES3h.s:70     .text.SDMMC_GetCmdResp3:0000000000000000 SDMMC_GetCmdResp3
+     /tmp/ccAoES3h.s:105    .text.SDMMC_GetCmdResp3:0000000000000044 $d
+     /tmp/ccAoES3h.s:108    .text.SDMMC_GetCmdResp1:0000000000000000 $t
+     /tmp/ccAoES3h.s:112    .text.SDMMC_GetCmdResp1:0000000000000000 SDMMC_GetCmdResp1
+     /tmp/ccAoES3h.s:259    .text.SDMMC_GetCmdResp1:0000000000000114 $d
+     /tmp/ccAoES3h.s:263    .text.SDIO_Init:0000000000000000 $t
+     /tmp/ccAoES3h.s:268    .text.SDIO_Init:0000000000000000 SDIO_Init
+     /tmp/ccAoES3h.s:297    .text.SDIO_ReadFIFO:0000000000000000 $t
+     /tmp/ccAoES3h.s:302    .text.SDIO_ReadFIFO:0000000000000000 SDIO_ReadFIFO
+     /tmp/ccAoES3h.s:310    .text.SDIO_WriteFIFO:0000000000000000 $t
+     /tmp/ccAoES3h.s:315    .text.SDIO_WriteFIFO:0000000000000000 SDIO_WriteFIFO
+     /tmp/ccAoES3h.s:325    .text.SDIO_PowerState_ON:0000000000000000 $t
+     /tmp/ccAoES3h.s:330    .text.SDIO_PowerState_ON:0000000000000000 SDIO_PowerState_ON
+     /tmp/ccAoES3h.s:342    .text.SDIO_PowerState_OFF:0000000000000000 $t
+     /tmp/ccAoES3h.s:347    .text.SDIO_PowerState_OFF:0000000000000000 SDIO_PowerState_OFF
+     /tmp/ccAoES3h.s:357    .text.SDIO_GetPowerState:0000000000000000 $t
+     /tmp/ccAoES3h.s:362    .text.SDIO_GetPowerState:0000000000000000 SDIO_GetPowerState
+     /tmp/ccAoES3h.s:371    .text.SDIO_SendCommand:0000000000000000 $t
+     /tmp/ccAoES3h.s:376    .text.SDIO_SendCommand:0000000000000000 SDIO_SendCommand
+     /tmp/ccAoES3h.s:398    .text.SDIO_GetCommandResponse:0000000000000000 $t
+     /tmp/ccAoES3h.s:403    .text.SDIO_GetCommandResponse:0000000000000000 SDIO_GetCommandResponse
+     /tmp/ccAoES3h.s:412    .text.SDIO_GetResponse:0000000000000000 $t
+     /tmp/ccAoES3h.s:417    .text.SDIO_GetResponse:0000000000000000 SDIO_GetResponse
+     /tmp/ccAoES3h.s:426    .text.SDIO_ConfigData:0000000000000000 $t
+     /tmp/ccAoES3h.s:431    .text.SDIO_ConfigData:0000000000000000 SDIO_ConfigData
+     /tmp/ccAoES3h.s:454    .text.SDIO_GetDataCounter:0000000000000000 $t
+     /tmp/ccAoES3h.s:459    .text.SDIO_GetDataCounter:0000000000000000 SDIO_GetDataCounter
+     /tmp/ccAoES3h.s:467    .text.SDIO_GetFIFOCount:0000000000000000 $t
+     /tmp/ccAoES3h.s:472    .text.SDIO_GetFIFOCount:0000000000000000 SDIO_GetFIFOCount
+     /tmp/ccAoES3h.s:480    .text.SDIO_SetSDMMCReadWaitMode:0000000000000000 $t
+     /tmp/ccAoES3h.s:485    .text.SDIO_SetSDMMCReadWaitMode:0000000000000000 SDIO_SetSDMMCReadWaitMode
+     /tmp/ccAoES3h.s:497    .text.SDMMC_CmdBlockLength:0000000000000000 $t
+     /tmp/ccAoES3h.s:502    .text.SDMMC_CmdBlockLength:0000000000000000 SDMMC_CmdBlockLength
+     /tmp/ccAoES3h.s:528    .text.SDMMC_CmdReadSingleBlock:0000000000000000 $t
+     /tmp/ccAoES3h.s:533    .text.SDMMC_CmdReadSingleBlock:0000000000000000 SDMMC_CmdReadSingleBlock
+     /tmp/ccAoES3h.s:559    .text.SDMMC_CmdReadMultiBlock:0000000000000000 $t
+     /tmp/ccAoES3h.s:564    .text.SDMMC_CmdReadMultiBlock:0000000000000000 SDMMC_CmdReadMultiBlock
+     /tmp/ccAoES3h.s:590    .text.SDMMC_CmdWriteSingleBlock:0000000000000000 $t
+     /tmp/ccAoES3h.s:595    .text.SDMMC_CmdWriteSingleBlock:0000000000000000 SDMMC_CmdWriteSingleBlock
+     /tmp/ccAoES3h.s:621    .text.SDMMC_CmdWriteMultiBlock:0000000000000000 $t
+     /tmp/ccAoES3h.s:626    .text.SDMMC_CmdWriteMultiBlock:0000000000000000 SDMMC_CmdWriteMultiBlock
+     /tmp/ccAoES3h.s:652    .text.SDMMC_CmdSDEraseStartAdd:0000000000000000 $t
+     /tmp/ccAoES3h.s:657    .text.SDMMC_CmdSDEraseStartAdd:0000000000000000 SDMMC_CmdSDEraseStartAdd
+     /tmp/ccAoES3h.s:683    .text.SDMMC_CmdSDEraseEndAdd:0000000000000000 $t
+     /tmp/ccAoES3h.s:688    .text.SDMMC_CmdSDEraseEndAdd:0000000000000000 SDMMC_CmdSDEraseEndAdd
+     /tmp/ccAoES3h.s:714    .text.SDMMC_CmdEraseStartAdd:0000000000000000 $t
+     /tmp/ccAoES3h.s:719    .text.SDMMC_CmdEraseStartAdd:0000000000000000 SDMMC_CmdEraseStartAdd
+     /tmp/ccAoES3h.s:745    .text.SDMMC_CmdEraseEndAdd:0000000000000000 $t
+     /tmp/ccAoES3h.s:750    .text.SDMMC_CmdEraseEndAdd:0000000000000000 SDMMC_CmdEraseEndAdd
+     /tmp/ccAoES3h.s:776    .text.SDMMC_CmdErase:0000000000000000 $t
+     /tmp/ccAoES3h.s:781    .text.SDMMC_CmdErase:0000000000000000 SDMMC_CmdErase
+ARM GAS  /tmp/ccAoES3h.s 			page 25
+
+
+     /tmp/ccAoES3h.s:807    .text.SDMMC_CmdStopTransfer:0000000000000000 $t
+     /tmp/ccAoES3h.s:812    .text.SDMMC_CmdStopTransfer:0000000000000000 SDMMC_CmdStopTransfer
+     /tmp/ccAoES3h.s:839    .text.SDMMC_CmdStopTransfer:0000000000000030 $d
+     /tmp/ccAoES3h.s:842    .text.SDMMC_CmdSelDesel:0000000000000000 $t
+     /tmp/ccAoES3h.s:847    .text.SDMMC_CmdSelDesel:0000000000000000 SDMMC_CmdSelDesel
+     /tmp/ccAoES3h.s:873    .text.SDMMC_CmdGoIdleState:0000000000000000 $t
+     /tmp/ccAoES3h.s:878    .text.SDMMC_CmdGoIdleState:0000000000000000 SDMMC_CmdGoIdleState
+     /tmp/ccAoES3h.s:918    .text.SDMMC_CmdGoIdleState:000000000000004c $d
+     /tmp/ccAoES3h.s:921    .text.SDMMC_CmdOperCond:0000000000000000 $t
+     /tmp/ccAoES3h.s:926    .text.SDMMC_CmdOperCond:0000000000000000 SDMMC_CmdOperCond
+     /tmp/ccAoES3h.s:988    .text.SDMMC_CmdOperCond:0000000000000078 $d
+     /tmp/ccAoES3h.s:991    .text.SDMMC_CmdAppCommand:0000000000000000 $t
+     /tmp/ccAoES3h.s:996    .text.SDMMC_CmdAppCommand:0000000000000000 SDMMC_CmdAppCommand
+     /tmp/ccAoES3h.s:1022   .text.SDMMC_CmdAppOperCommand:0000000000000000 $t
+     /tmp/ccAoES3h.s:1027   .text.SDMMC_CmdAppOperCommand:0000000000000000 SDMMC_CmdAppOperCommand
+     /tmp/ccAoES3h.s:1053   .text.SDMMC_CmdBusWidth:0000000000000000 $t
+     /tmp/ccAoES3h.s:1058   .text.SDMMC_CmdBusWidth:0000000000000000 SDMMC_CmdBusWidth
+     /tmp/ccAoES3h.s:1084   .text.SDMMC_CmdSendSCR:0000000000000000 $t
+     /tmp/ccAoES3h.s:1089   .text.SDMMC_CmdSendSCR:0000000000000000 SDMMC_CmdSendSCR
+     /tmp/ccAoES3h.s:1115   .text.SDMMC_CmdSendCID:0000000000000000 $t
+     /tmp/ccAoES3h.s:1120   .text.SDMMC_CmdSendCID:0000000000000000 SDMMC_CmdSendCID
+     /tmp/ccAoES3h.s:1144   .text.SDMMC_CmdSendCSD:0000000000000000 $t
+     /tmp/ccAoES3h.s:1149   .text.SDMMC_CmdSendCSD:0000000000000000 SDMMC_CmdSendCSD
+     /tmp/ccAoES3h.s:1173   .text.SDMMC_CmdSetRelAdd:0000000000000000 $t
+     /tmp/ccAoES3h.s:1178   .text.SDMMC_CmdSetRelAdd:0000000000000000 SDMMC_CmdSetRelAdd
+     /tmp/ccAoES3h.s:1259   .text.SDMMC_CmdSetRelAdd:000000000000009c $d
+     /tmp/ccAoES3h.s:1262   .text.SDMMC_CmdSendStatus:0000000000000000 $t
+     /tmp/ccAoES3h.s:1267   .text.SDMMC_CmdSendStatus:0000000000000000 SDMMC_CmdSendStatus
+     /tmp/ccAoES3h.s:1293   .text.SDMMC_CmdStatusRegister:0000000000000000 $t
+     /tmp/ccAoES3h.s:1298   .text.SDMMC_CmdStatusRegister:0000000000000000 SDMMC_CmdStatusRegister
+     /tmp/ccAoES3h.s:1324   .text.SDMMC_CmdOpCondition:0000000000000000 $t
+     /tmp/ccAoES3h.s:1329   .text.SDMMC_CmdOpCondition:0000000000000000 SDMMC_CmdOpCondition
+     /tmp/ccAoES3h.s:1353   .text.SDMMC_CmdSwitch:0000000000000000 $t
+     /tmp/ccAoES3h.s:1358   .text.SDMMC_CmdSwitch:0000000000000000 SDMMC_CmdSwitch
+
+UNDEFINED SYMBOLS
+SystemCoreClock
+HAL_Delay

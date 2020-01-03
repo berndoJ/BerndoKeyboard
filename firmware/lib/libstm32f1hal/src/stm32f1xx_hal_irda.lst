@@ -1,0 +1,1819 @@
+ARM GAS  /tmp/cciongL1.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"stm32f1xx_hal_irda.c"
+  15              		.section	.text.IRDA_EndRxTransfer,"ax",%progbits
+  16              		.align	1
+  17              		.thumb
+  18              		.thumb_func
+  20              	IRDA_EndRxTransfer:
+  21              		@ args = 0, pretend = 0, frame = 0
+  22              		@ frame_needed = 0, uses_anonymous_args = 0
+  23              		@ link register save eliminated.
+  24 0000 0368     		ldr	r3, [r0]
+  25 0002 DA68     		ldr	r2, [r3, #12]
+  26 0004 22F49072 		bic	r2, r2, #288
+  27 0008 DA60     		str	r2, [r3, #12]
+  28 000a 5A69     		ldr	r2, [r3, #20]
+  29 000c 22F00102 		bic	r2, r2, #1
+  30 0010 5A61     		str	r2, [r3, #20]
+  31 0012 2023     		movs	r3, #32
+  32 0014 80F83630 		strb	r3, [r0, #54]
+  33 0018 7047     		bx	lr
+  35              		.section	.text.IRDA_WaitOnFlagUntilTimeout.constprop.2,"ax",%progbits
+  36              		.align	1
+  37              		.thumb
+  38              		.thumb_func
+  40              	IRDA_WaitOnFlagUntilTimeout.constprop.2:
+  41              		@ args = 0, pretend = 0, frame = 0
+  42              		@ frame_needed = 0, uses_anonymous_args = 0
+  43 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  44 0002 0446     		mov	r4, r0
+  45 0004 0E46     		mov	r6, r1
+  46 0006 1746     		mov	r7, r2
+  47 0008 1D46     		mov	r5, r3
+  48              	.L3:
+  49 000a 2368     		ldr	r3, [r4]
+  50              	.L4:
+  51 000c 1868     		ldr	r0, [r3]
+  52 000e 3040     		ands	r0, r0, r6
+  53 0010 B042     		cmp	r0, r6
+  54 0012 1BD0     		beq	.L12
+  55 0014 6A1C     		adds	r2, r5, #1
+  56 0016 F9D0     		beq	.L4
+  57 0018 95B9     		cbnz	r5, .L5
+  58              	.L7:
+  59 001a 2368     		ldr	r3, [r4]
+  60 001c 0320     		movs	r0, #3
+ARM GAS  /tmp/cciongL1.s 			page 2
+
+
+  61 001e DA68     		ldr	r2, [r3, #12]
+  62 0020 22F4D072 		bic	r2, r2, #416
+  63 0024 DA60     		str	r2, [r3, #12]
+  64 0026 5A69     		ldr	r2, [r3, #20]
+  65 0028 22F00102 		bic	r2, r2, #1
+  66 002c 5A61     		str	r2, [r3, #20]
+  67 002e 2023     		movs	r3, #32
+  68 0030 84F83530 		strb	r3, [r4, #53]
+  69 0034 84F83630 		strb	r3, [r4, #54]
+  70 0038 0023     		movs	r3, #0
+  71 003a 84F83430 		strb	r3, [r4, #52]
+  72 003e F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+  73              	.L5:
+  74 0040 FFF7FEFF 		bl	HAL_GetTick
+  75 0044 C01B     		subs	r0, r0, r7
+  76 0046 A842     		cmp	r0, r5
+  77 0048 DFD9     		bls	.L3
+  78 004a E6E7     		b	.L7
+  79              	.L12:
+  80 004c 0020     		movs	r0, #0
+  81 004e F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+  83              		.section	.text.HAL_IRDA_MspInit,"ax",%progbits
+  84              		.align	1
+  85              		.weak	HAL_IRDA_MspInit
+  86              		.thumb
+  87              		.thumb_func
+  89              	HAL_IRDA_MspInit:
+  90              		@ args = 0, pretend = 0, frame = 0
+  91              		@ frame_needed = 0, uses_anonymous_args = 0
+  92              		@ link register save eliminated.
+  93 0000 7047     		bx	lr
+  95              		.section	.text.HAL_IRDA_Init,"ax",%progbits
+  96              		.align	1
+  97              		.global	HAL_IRDA_Init
+  98              		.thumb
+  99              		.thumb_func
+ 101              	HAL_IRDA_Init:
+ 102              		@ args = 0, pretend = 0, frame = 0
+ 103              		@ frame_needed = 0, uses_anonymous_args = 0
+ 104 0000 38B5     		push	{r3, r4, r5, lr}
+ 105 0002 0446     		mov	r4, r0
+ 106 0004 0028     		cmp	r0, #0
+ 107 0006 69D0     		beq	.L19
+ 108 0008 90F83530 		ldrb	r3, [r0, #53]	@ zero_extendqisi2
+ 109 000c 03F0FF02 		and	r2, r3, #255
+ 110 0010 1BB9     		cbnz	r3, .L16
+ 111 0012 80F83420 		strb	r2, [r0, #52]
+ 112 0016 FFF7FEFF 		bl	HAL_IRDA_MspInit
+ 113              	.L16:
+ 114 001a 2423     		movs	r3, #36
+ 115 001c 84F83530 		strb	r3, [r4, #53]
+ 116 0020 2368     		ldr	r3, [r4]
+ 117 0022 DA68     		ldr	r2, [r3, #12]
+ 118 0024 22F40052 		bic	r2, r2, #8192
+ 119 0028 DA60     		str	r2, [r3, #12]
+ 120 002a 1A69     		ldr	r2, [r3, #16]
+ 121 002c 22F44052 		bic	r2, r2, #12288
+ARM GAS  /tmp/cciongL1.s 			page 3
+
+
+ 122 0030 1A61     		str	r2, [r3, #16]
+ 123 0032 DA68     		ldr	r2, [r3, #12]
+ 124 0034 22F4B052 		bic	r2, r2, #5632
+ 125 0038 22F00C02 		bic	r2, r2, #12
+ 126 003c DA60     		str	r2, [r3, #12]
+ 127 003e D968     		ldr	r1, [r3, #12]
+ 128 0040 A268     		ldr	r2, [r4, #8]
+ 129 0042 1143     		orrs	r1, r1, r2
+ 130 0044 E268     		ldr	r2, [r4, #12]
+ 131 0046 1143     		orrs	r1, r1, r2
+ 132 0048 2269     		ldr	r2, [r4, #16]
+ 133 004a 0A43     		orrs	r2, r2, r1
+ 134 004c DA60     		str	r2, [r3, #12]
+ 135 004e 5A69     		ldr	r2, [r3, #20]
+ 136 0050 22F44072 		bic	r2, r2, #768
+ 137 0054 5A61     		str	r2, [r3, #20]
+ 138 0056 224A     		ldr	r2, .L21
+ 139 0058 9342     		cmp	r3, r2
+ 140 005a 02D1     		bne	.L17
+ 141 005c FFF7FEFF 		bl	HAL_RCC_GetPCLK2Freq
+ 142 0060 01E0     		b	.L20
+ 143              	.L17:
+ 144 0062 FFF7FEFF 		bl	HAL_RCC_GetPCLK1Freq
+ 145              	.L20:
+ 146 0066 1923     		movs	r3, #25
+ 147 0068 5843     		muls	r0, r3, r0
+ 148 006a 6368     		ldr	r3, [r4, #4]
+ 149 006c 6422     		movs	r2, #100
+ 150 006e 9B00     		lsls	r3, r3, #2
+ 151 0070 B0FBF3F0 		udiv	r0, r0, r3
+ 152 0074 B0FBF2F3 		udiv	r3, r0, r2
+ 153 0078 02FB1300 		mls	r0, r2, r3, r0
+ 154 007c 0001     		lsls	r0, r0, #4
+ 155 007e 3230     		adds	r0, r0, #50
+ 156 0080 B0FBF2F2 		udiv	r2, r0, r2
+ 157 0084 2568     		ldr	r5, [r4]
+ 158 0086 D2B2     		uxtb	r2, r2
+ 159 0088 A968     		ldr	r1, [r5, #8]
+ 160 008a 02EB0313 		add	r3, r2, r3, lsl #4
+ 161 008e 0B43     		orrs	r3, r3, r1
+ 162 0090 AB60     		str	r3, [r5, #8]
+ 163 0092 2368     		ldr	r3, [r4]
+ 164 0094 0020     		movs	r0, #0
+ 165 0096 1A69     		ldr	r2, [r3, #16]
+ 166 0098 22F4F042 		bic	r2, r2, #30720
+ 167 009c 1A61     		str	r2, [r3, #16]
+ 168 009e 5A69     		ldr	r2, [r3, #20]
+ 169 00a0 22F02802 		bic	r2, r2, #40
+ 170 00a4 5A61     		str	r2, [r3, #20]
+ 171 00a6 DA68     		ldr	r2, [r3, #12]
+ 172 00a8 42F40052 		orr	r2, r2, #8192
+ 173 00ac DA60     		str	r2, [r3, #12]
+ 174 00ae 9A69     		ldr	r2, [r3, #24]
+ 175 00b0 217D     		ldrb	r1, [r4, #20]	@ zero_extendqisi2
+ 176 00b2 22F0FF02 		bic	r2, r2, #255
+ 177 00b6 0A43     		orrs	r2, r2, r1
+ 178 00b8 9A61     		str	r2, [r3, #24]
+ARM GAS  /tmp/cciongL1.s 			page 4
+
+
+ 179 00ba 5A69     		ldr	r2, [r3, #20]
+ 180 00bc 22F00401 		bic	r1, r2, #4
+ 181 00c0 A269     		ldr	r2, [r4, #24]
+ 182 00c2 0A43     		orrs	r2, r2, r1
+ 183 00c4 5A61     		str	r2, [r3, #20]
+ 184 00c6 5A69     		ldr	r2, [r3, #20]
+ 185 00c8 42F00202 		orr	r2, r2, #2
+ 186 00cc 5A61     		str	r2, [r3, #20]
+ 187 00ce 2023     		movs	r3, #32
+ 188 00d0 A063     		str	r0, [r4, #56]
+ 189 00d2 84F83530 		strb	r3, [r4, #53]
+ 190 00d6 84F83630 		strb	r3, [r4, #54]
+ 191 00da 38BD     		pop	{r3, r4, r5, pc}
+ 192              	.L19:
+ 193 00dc 0120     		movs	r0, #1
+ 194 00de 38BD     		pop	{r3, r4, r5, pc}
+ 195              	.L22:
+ 196              		.align	2
+ 197              	.L21:
+ 198 00e0 00380140 		.word	1073821696
+ 200              		.section	.text.HAL_IRDA_MspDeInit,"ax",%progbits
+ 201              		.align	1
+ 202              		.weak	HAL_IRDA_MspDeInit
+ 203              		.thumb
+ 204              		.thumb_func
+ 206              	HAL_IRDA_MspDeInit:
+ 207              		@ args = 0, pretend = 0, frame = 0
+ 208              		@ frame_needed = 0, uses_anonymous_args = 0
+ 209              		@ link register save eliminated.
+ 210 0000 7047     		bx	lr
+ 212              		.section	.text.HAL_IRDA_DeInit,"ax",%progbits
+ 213              		.align	1
+ 214              		.global	HAL_IRDA_DeInit
+ 215              		.thumb
+ 216              		.thumb_func
+ 218              	HAL_IRDA_DeInit:
+ 219              		@ args = 0, pretend = 0, frame = 0
+ 220              		@ frame_needed = 0, uses_anonymous_args = 0
+ 221 0000 10B5     		push	{r4, lr}
+ 222 0002 0446     		mov	r4, r0
+ 223 0004 90B1     		cbz	r0, .L26
+ 224 0006 0268     		ldr	r2, [r0]
+ 225 0008 2423     		movs	r3, #36
+ 226 000a 80F83530 		strb	r3, [r0, #53]
+ 227 000e D368     		ldr	r3, [r2, #12]
+ 228 0010 23F40053 		bic	r3, r3, #8192
+ 229 0014 D360     		str	r3, [r2, #12]
+ 230 0016 FFF7FEFF 		bl	HAL_IRDA_MspDeInit
+ 231 001a 0020     		movs	r0, #0
+ 232 001c A063     		str	r0, [r4, #56]
+ 233 001e 84F83400 		strb	r0, [r4, #52]
+ 234 0022 84F83500 		strb	r0, [r4, #53]
+ 235 0026 84F83600 		strb	r0, [r4, #54]
+ 236 002a 10BD     		pop	{r4, pc}
+ 237              	.L26:
+ 238 002c 0120     		movs	r0, #1
+ 239 002e 10BD     		pop	{r4, pc}
+ARM GAS  /tmp/cciongL1.s 			page 5
+
+
+ 241              		.section	.text.HAL_IRDA_Transmit,"ax",%progbits
+ 242              		.align	1
+ 243              		.global	HAL_IRDA_Transmit
+ 244              		.thumb
+ 245              		.thumb_func
+ 247              	HAL_IRDA_Transmit:
+ 248              		@ args = 0, pretend = 0, frame = 0
+ 249              		@ frame_needed = 0, uses_anonymous_args = 0
+ 250 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 251 0004 1E46     		mov	r6, r3
+ 252 0006 90F83530 		ldrb	r3, [r0, #53]	@ zero_extendqisi2
+ 253 000a 0446     		mov	r4, r0
+ 254 000c 202B     		cmp	r3, #32
+ 255 000e 0D46     		mov	r5, r1
+ 256 0010 9046     		mov	r8, r2
+ 257 0012 4FD1     		bne	.L39
+ 258 0014 0029     		cmp	r1, #0
+ 259 0016 4AD0     		beq	.L38
+ 260 0018 002A     		cmp	r2, #0
+ 261 001a 48D0     		beq	.L38
+ 262 001c 90F83430 		ldrb	r3, [r0, #52]	@ zero_extendqisi2
+ 263 0020 012B     		cmp	r3, #1
+ 264 0022 47D0     		beq	.L39
+ 265 0024 0123     		movs	r3, #1
+ 266 0026 80F83430 		strb	r3, [r0, #52]
+ 267 002a 0023     		movs	r3, #0
+ 268 002c 8363     		str	r3, [r0, #56]
+ 269 002e 2123     		movs	r3, #33
+ 270 0030 80F83530 		strb	r3, [r0, #53]
+ 271 0034 FFF7FEFF 		bl	HAL_GetTick
+ 272 0038 0746     		mov	r7, r0
+ 273 003a A4F82080 		strh	r8, [r4, #32]	@ movhi
+ 274 003e A4F82280 		strh	r8, [r4, #34]	@ movhi
+ 275              	.L29:
+ 276 0042 638C     		ldrh	r3, [r4, #34]
+ 277 0044 9BB2     		uxth	r3, r3
+ 278 0046 1BB3     		cbz	r3, .L41
+ 279 0048 638C     		ldrh	r3, [r4, #34]
+ 280 004a 2046     		mov	r0, r4
+ 281 004c 013B     		subs	r3, r3, #1
+ 282 004e 9BB2     		uxth	r3, r3
+ 283 0050 6384     		strh	r3, [r4, #34]	@ movhi
+ 284 0052 A368     		ldr	r3, [r4, #8]
+ 285 0054 8021     		movs	r1, #128
+ 286 0056 B3F5805F 		cmp	r3, #4096
+ 287 005a 3A46     		mov	r2, r7
+ 288 005c 3346     		mov	r3, r6
+ 289 005e 0ED1     		bne	.L30
+ 290 0060 FFF7FEFF 		bl	IRDA_WaitOnFlagUntilTimeout.constprop.2
+ 291 0064 10B1     		cbz	r0, .L31
+ 292              	.L34:
+ 293 0066 0320     		movs	r0, #3
+ 294 0068 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 295              	.L31:
+ 296 006c 2B88     		ldrh	r3, [r5]
+ 297 006e 2268     		ldr	r2, [r4]
+ 298 0070 C3F30803 		ubfx	r3, r3, #0, #9
+ARM GAS  /tmp/cciongL1.s 			page 6
+
+
+ 299 0074 5360     		str	r3, [r2, #4]
+ 300 0076 E368     		ldr	r3, [r4, #12]
+ 301 0078 43B9     		cbnz	r3, .L40
+ 302 007a 0235     		adds	r5, r5, #2
+ 303 007c E1E7     		b	.L29
+ 304              	.L30:
+ 305 007e FFF7FEFF 		bl	IRDA_WaitOnFlagUntilTimeout.constprop.2
+ 306 0082 0028     		cmp	r0, #0
+ 307 0084 EFD1     		bne	.L34
+ 308 0086 2368     		ldr	r3, [r4]
+ 309 0088 2A78     		ldrb	r2, [r5]	@ zero_extendqisi2
+ 310 008a 5A60     		str	r2, [r3, #4]
+ 311              	.L40:
+ 312 008c 0135     		adds	r5, r5, #1
+ 313 008e D8E7     		b	.L29
+ 314              	.L41:
+ 315 0090 2046     		mov	r0, r4
+ 316 0092 4021     		movs	r1, #64
+ 317 0094 3A46     		mov	r2, r7
+ 318 0096 3346     		mov	r3, r6
+ 319 0098 FFF7FEFF 		bl	IRDA_WaitOnFlagUntilTimeout.constprop.2
+ 320 009c 0028     		cmp	r0, #0
+ 321 009e E2D1     		bne	.L34
+ 322 00a0 2023     		movs	r3, #32
+ 323 00a2 84F83530 		strb	r3, [r4, #53]
+ 324 00a6 84F83400 		strb	r0, [r4, #52]
+ 325 00aa BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 326              	.L38:
+ 327 00ae 0120     		movs	r0, #1
+ 328 00b0 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 329              	.L39:
+ 330 00b4 0220     		movs	r0, #2
+ 331 00b6 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 333              		.section	.text.HAL_IRDA_Receive,"ax",%progbits
+ 334              		.align	1
+ 335              		.global	HAL_IRDA_Receive
+ 336              		.thumb
+ 337              		.thumb_func
+ 339              	HAL_IRDA_Receive:
+ 340              		@ args = 0, pretend = 0, frame = 0
+ 341              		@ frame_needed = 0, uses_anonymous_args = 0
+ 342 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 343 0004 1F46     		mov	r7, r3
+ 344 0006 90F83630 		ldrb	r3, [r0, #54]	@ zero_extendqisi2
+ 345 000a 0446     		mov	r4, r0
+ 346 000c 202B     		cmp	r3, #32
+ 347 000e 0D46     		mov	r5, r1
+ 348 0010 9046     		mov	r8, r2
+ 349 0012 50D1     		bne	.L55
+ 350 0014 0029     		cmp	r1, #0
+ 351 0016 4BD0     		beq	.L54
+ 352 0018 002A     		cmp	r2, #0
+ 353 001a 49D0     		beq	.L54
+ 354 001c 90F83430 		ldrb	r3, [r0, #52]	@ zero_extendqisi2
+ 355 0020 012B     		cmp	r3, #1
+ 356 0022 48D0     		beq	.L55
+ 357 0024 0123     		movs	r3, #1
+ARM GAS  /tmp/cciongL1.s 			page 7
+
+
+ 358 0026 80F83430 		strb	r3, [r0, #52]
+ 359 002a 0023     		movs	r3, #0
+ 360 002c 8363     		str	r3, [r0, #56]
+ 361 002e 2223     		movs	r3, #34
+ 362 0030 80F83630 		strb	r3, [r0, #54]
+ 363 0034 FFF7FEFF 		bl	HAL_GetTick
+ 364 0038 0646     		mov	r6, r0
+ 365 003a A4F82880 		strh	r8, [r4, #40]	@ movhi
+ 366 003e A4F82A80 		strh	r8, [r4, #42]	@ movhi
+ 367              	.L44:
+ 368 0042 608D     		ldrh	r0, [r4, #42]
+ 369 0044 80B2     		uxth	r0, r0
+ 370 0046 60B3     		cbz	r0, .L57
+ 371 0048 638D     		ldrh	r3, [r4, #42]
+ 372 004a 2046     		mov	r0, r4
+ 373 004c 013B     		subs	r3, r3, #1
+ 374 004e 9BB2     		uxth	r3, r3
+ 375 0050 6385     		strh	r3, [r4, #42]	@ movhi
+ 376 0052 A368     		ldr	r3, [r4, #8]
+ 377 0054 2021     		movs	r1, #32
+ 378 0056 B3F5805F 		cmp	r3, #4096
+ 379 005a 3246     		mov	r2, r6
+ 380 005c 3B46     		mov	r3, r7
+ 381 005e 12D1     		bne	.L45
+ 382 0060 FFF7FEFF 		bl	IRDA_WaitOnFlagUntilTimeout.constprop.2
+ 383 0064 10B1     		cbz	r0, .L46
+ 384              	.L49:
+ 385 0066 0320     		movs	r0, #3
+ 386 0068 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 387              	.L46:
+ 388 006c 2368     		ldr	r3, [r4]
+ 389 006e E268     		ldr	r2, [r4, #12]
+ 390 0070 5B68     		ldr	r3, [r3, #4]
+ 391 0072 22B9     		cbnz	r2, .L47
+ 392 0074 C3F30803 		ubfx	r3, r3, #0, #9
+ 393 0078 25F8023B 		strh	r3, [r5], #2	@ movhi
+ 394 007c E1E7     		b	.L44
+ 395              	.L47:
+ 396 007e DBB2     		uxtb	r3, r3
+ 397 0080 25F8013B 		strh	r3, [r5], #1	@ movhi
+ 398 0084 DDE7     		b	.L44
+ 399              	.L45:
+ 400 0086 FFF7FEFF 		bl	IRDA_WaitOnFlagUntilTimeout.constprop.2
+ 401 008a 0028     		cmp	r0, #0
+ 402 008c EBD1     		bne	.L49
+ 403 008e 2368     		ldr	r3, [r4]
+ 404 0090 E168     		ldr	r1, [r4, #12]
+ 405 0092 6A1C     		adds	r2, r5, #1
+ 406 0094 5B68     		ldr	r3, [r3, #4]
+ 407 0096 09B1     		cbz	r1, .L56
+ 408 0098 03F07F03 		and	r3, r3, #127
+ 409              	.L56:
+ 410 009c 2B70     		strb	r3, [r5]
+ 411 009e 1546     		mov	r5, r2
+ 412 00a0 CFE7     		b	.L44
+ 413              	.L57:
+ 414 00a2 2023     		movs	r3, #32
+ARM GAS  /tmp/cciongL1.s 			page 8
+
+
+ 415 00a4 84F83630 		strb	r3, [r4, #54]
+ 416 00a8 84F83400 		strb	r0, [r4, #52]
+ 417 00ac BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 418              	.L54:
+ 419 00b0 0120     		movs	r0, #1
+ 420 00b2 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 421              	.L55:
+ 422 00b6 0220     		movs	r0, #2
+ 423 00b8 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 425              		.section	.text.HAL_IRDA_Transmit_IT,"ax",%progbits
+ 426              		.align	1
+ 427              		.global	HAL_IRDA_Transmit_IT
+ 428              		.thumb
+ 429              		.thumb_func
+ 431              	HAL_IRDA_Transmit_IT:
+ 432              		@ args = 0, pretend = 0, frame = 0
+ 433              		@ frame_needed = 0, uses_anonymous_args = 0
+ 434              		@ link register save eliminated.
+ 435 0000 90F83530 		ldrb	r3, [r0, #53]	@ zero_extendqisi2
+ 436 0004 202B     		cmp	r3, #32
+ 437 0006 18D1     		bne	.L63
+ 438 0008 A9B1     		cbz	r1, .L62
+ 439 000a A2B1     		cbz	r2, .L62
+ 440 000c 90F83430 		ldrb	r3, [r0, #52]	@ zero_extendqisi2
+ 441 0010 012B     		cmp	r3, #1
+ 442 0012 12D0     		beq	.L63
+ 443 0014 4284     		strh	r2, [r0, #34]	@ movhi
+ 444 0016 C161     		str	r1, [r0, #28]
+ 445 0018 0284     		strh	r2, [r0, #32]	@ movhi
+ 446 001a 0023     		movs	r3, #0
+ 447 001c 0168     		ldr	r1, [r0]
+ 448 001e 2122     		movs	r2, #33
+ 449 0020 8363     		str	r3, [r0, #56]
+ 450 0022 80F83520 		strb	r2, [r0, #53]
+ 451 0026 CA68     		ldr	r2, [r1, #12]
+ 452 0028 80F83430 		strb	r3, [r0, #52]
+ 453 002c 42F08002 		orr	r2, r2, #128
+ 454 0030 CA60     		str	r2, [r1, #12]
+ 455 0032 1846     		mov	r0, r3
+ 456 0034 7047     		bx	lr
+ 457              	.L62:
+ 458 0036 0120     		movs	r0, #1
+ 459 0038 7047     		bx	lr
+ 460              	.L63:
+ 461 003a 0220     		movs	r0, #2
+ 462 003c 7047     		bx	lr
+ 464              		.section	.text.HAL_IRDA_Receive_IT,"ax",%progbits
+ 465              		.align	1
+ 466              		.global	HAL_IRDA_Receive_IT
+ 467              		.thumb
+ 468              		.thumb_func
+ 470              	HAL_IRDA_Receive_IT:
+ 471              		@ args = 0, pretend = 0, frame = 0
+ 472              		@ frame_needed = 0, uses_anonymous_args = 0
+ 473              		@ link register save eliminated.
+ 474 0000 90F83630 		ldrb	r3, [r0, #54]	@ zero_extendqisi2
+ 475 0004 202B     		cmp	r3, #32
+ARM GAS  /tmp/cciongL1.s 			page 9
+
+
+ 476 0006 1CD1     		bne	.L69
+ 477 0008 C9B1     		cbz	r1, .L68
+ 478 000a C2B1     		cbz	r2, .L68
+ 479 000c 90F83430 		ldrb	r3, [r0, #52]	@ zero_extendqisi2
+ 480 0010 012B     		cmp	r3, #1
+ 481 0012 16D0     		beq	.L69
+ 482 0014 4285     		strh	r2, [r0, #42]	@ movhi
+ 483 0016 0285     		strh	r2, [r0, #40]	@ movhi
+ 484 0018 0023     		movs	r3, #0
+ 485 001a 2222     		movs	r2, #34
+ 486 001c 8363     		str	r3, [r0, #56]
+ 487 001e 80F83620 		strb	r2, [r0, #54]
+ 488 0022 0268     		ldr	r2, [r0]
+ 489 0024 4162     		str	r1, [r0, #36]
+ 490 0026 D168     		ldr	r1, [r2, #12]
+ 491 0028 80F83430 		strb	r3, [r0, #52]
+ 492 002c 41F49071 		orr	r1, r1, #288
+ 493 0030 D160     		str	r1, [r2, #12]
+ 494 0032 5169     		ldr	r1, [r2, #20]
+ 495 0034 1846     		mov	r0, r3
+ 496 0036 41F00101 		orr	r1, r1, #1
+ 497 003a 5161     		str	r1, [r2, #20]
+ 498 003c 7047     		bx	lr
+ 499              	.L68:
+ 500 003e 0120     		movs	r0, #1
+ 501 0040 7047     		bx	lr
+ 502              	.L69:
+ 503 0042 0220     		movs	r0, #2
+ 504 0044 7047     		bx	lr
+ 506              		.section	.text.HAL_IRDA_Transmit_DMA,"ax",%progbits
+ 507              		.align	1
+ 508              		.global	HAL_IRDA_Transmit_DMA
+ 509              		.thumb
+ 510              		.thumb_func
+ 512              	HAL_IRDA_Transmit_DMA:
+ 513              		@ args = 0, pretend = 0, frame = 0
+ 514              		@ frame_needed = 0, uses_anonymous_args = 0
+ 515 0000 38B5     		push	{r3, r4, r5, lr}
+ 516 0002 0446     		mov	r4, r0
+ 517 0004 1346     		mov	r3, r2
+ 518 0006 94F83520 		ldrb	r2, [r4, #53]	@ zero_extendqisi2
+ 519 000a 202A     		cmp	r2, #32
+ 520 000c 2AD1     		bne	.L75
+ 521 000e 39B3     		cbz	r1, .L74
+ 522 0010 33B3     		cbz	r3, .L74
+ 523 0012 94F83420 		ldrb	r2, [r4, #52]	@ zero_extendqisi2
+ 524 0016 012A     		cmp	r2, #1
+ 525 0018 24D0     		beq	.L75
+ 526 001a 0122     		movs	r2, #1
+ 527 001c 84F83420 		strb	r2, [r4, #52]
+ 528 0020 0025     		movs	r5, #0
+ 529 0022 2122     		movs	r2, #33
+ 530 0024 6384     		strh	r3, [r4, #34]	@ movhi
+ 531 0026 E06A     		ldr	r0, [r4, #44]
+ 532 0028 A563     		str	r5, [r4, #56]
+ 533 002a 84F83520 		strb	r2, [r4, #53]
+ 534 002e 0E4A     		ldr	r2, .L76
+ARM GAS  /tmp/cciongL1.s 			page 10
+
+
+ 535 0030 2384     		strh	r3, [r4, #32]	@ movhi
+ 536 0032 E161     		str	r1, [r4, #28]
+ 537 0034 8262     		str	r2, [r0, #40]
+ 538 0036 0D4A     		ldr	r2, .L76+4
+ 539 0038 4563     		str	r5, [r0, #52]
+ 540 003a C262     		str	r2, [r0, #44]
+ 541 003c 0C4A     		ldr	r2, .L76+8
+ 542 003e 0263     		str	r2, [r0, #48]
+ 543 0040 2268     		ldr	r2, [r4]
+ 544 0042 0432     		adds	r2, r2, #4
+ 545 0044 FFF7FEFF 		bl	HAL_DMA_Start_IT
+ 546 0048 2368     		ldr	r3, [r4]
+ 547 004a 6FF04002 		mvn	r2, #64
+ 548 004e 1A60     		str	r2, [r3]
+ 549 0050 5A69     		ldr	r2, [r3, #20]
+ 550 0052 84F83450 		strb	r5, [r4, #52]
+ 551 0056 42F08002 		orr	r2, r2, #128
+ 552 005a 5A61     		str	r2, [r3, #20]
+ 553 005c 2846     		mov	r0, r5
+ 554 005e 38BD     		pop	{r3, r4, r5, pc}
+ 555              	.L74:
+ 556 0060 0120     		movs	r0, #1
+ 557 0062 38BD     		pop	{r3, r4, r5, pc}
+ 558              	.L75:
+ 559 0064 0220     		movs	r0, #2
+ 560 0066 38BD     		pop	{r3, r4, r5, pc}
+ 561              	.L77:
+ 562              		.align	2
+ 563              	.L76:
+ 564 0068 00000000 		.word	IRDA_DMATransmitCplt
+ 565 006c 00000000 		.word	IRDA_DMATransmitHalfCplt
+ 566 0070 00000000 		.word	IRDA_DMAError
+ 568              		.section	.text.HAL_IRDA_Receive_DMA,"ax",%progbits
+ 569              		.align	1
+ 570              		.global	HAL_IRDA_Receive_DMA
+ 571              		.thumb
+ 572              		.thumb_func
+ 574              	HAL_IRDA_Receive_DMA:
+ 575              		@ args = 0, pretend = 0, frame = 8
+ 576              		@ frame_needed = 0, uses_anonymous_args = 0
+ 577 0000 1346     		mov	r3, r2
+ 578 0002 90F83620 		ldrb	r2, [r0, #54]	@ zero_extendqisi2
+ 579 0006 73B5     		push	{r0, r1, r4, r5, r6, lr}
+ 580 0008 202A     		cmp	r2, #32
+ 581 000a 0546     		mov	r5, r0
+ 582 000c 0E46     		mov	r6, r1
+ 583 000e 37D1     		bne	.L83
+ 584 0010 0029     		cmp	r1, #0
+ 585 0012 33D0     		beq	.L82
+ 586 0014 002B     		cmp	r3, #0
+ 587 0016 31D0     		beq	.L82
+ 588 0018 90F83420 		ldrb	r2, [r0, #52]	@ zero_extendqisi2
+ 589 001c 012A     		cmp	r2, #1
+ 590 001e 2FD0     		beq	.L83
+ 591 0020 0122     		movs	r2, #1
+ 592 0022 80F83420 		strb	r2, [r0, #52]
+ 593 0026 0024     		movs	r4, #0
+ARM GAS  /tmp/cciongL1.s 			page 11
+
+
+ 594 0028 2222     		movs	r2, #34
+ 595 002a 6962     		str	r1, [r5, #36]
+ 596 002c 0385     		strh	r3, [r0, #40]	@ movhi
+ 597 002e 8463     		str	r4, [r0, #56]
+ 598 0030 80F83620 		strb	r2, [r0, #54]
+ 599 0034 006B     		ldr	r0, [r0, #48]
+ 600 0036 144A     		ldr	r2, .L84
+ 601 0038 2968     		ldr	r1, [r5]
+ 602 003a 8262     		str	r2, [r0, #40]
+ 603 003c 134A     		ldr	r2, .L84+4
+ 604 003e 4463     		str	r4, [r0, #52]
+ 605 0040 C262     		str	r2, [r0, #44]
+ 606 0042 134A     		ldr	r2, .L84+8
+ 607 0044 0431     		adds	r1, r1, #4
+ 608 0046 0263     		str	r2, [r0, #48]
+ 609 0048 3246     		mov	r2, r6
+ 610 004a FFF7FEFF 		bl	HAL_DMA_Start_IT
+ 611 004e 2B68     		ldr	r3, [r5]
+ 612 0050 0194     		str	r4, [sp, #4]
+ 613 0052 1A68     		ldr	r2, [r3]
+ 614 0054 2046     		mov	r0, r4
+ 615 0056 0192     		str	r2, [sp, #4]
+ 616 0058 5A68     		ldr	r2, [r3, #4]
+ 617 005a 85F83440 		strb	r4, [r5, #52]
+ 618 005e 0192     		str	r2, [sp, #4]
+ 619 0060 019A     		ldr	r2, [sp, #4]
+ 620 0062 DA68     		ldr	r2, [r3, #12]
+ 621 0064 42F48072 		orr	r2, r2, #256
+ 622 0068 DA60     		str	r2, [r3, #12]
+ 623 006a 5A69     		ldr	r2, [r3, #20]
+ 624 006c 42F00102 		orr	r2, r2, #1
+ 625 0070 5A61     		str	r2, [r3, #20]
+ 626 0072 5A69     		ldr	r2, [r3, #20]
+ 627 0074 42F04002 		orr	r2, r2, #64
+ 628 0078 5A61     		str	r2, [r3, #20]
+ 629 007a 02E0     		b	.L79
+ 630              	.L82:
+ 631 007c 0120     		movs	r0, #1
+ 632 007e 00E0     		b	.L79
+ 633              	.L83:
+ 634 0080 0220     		movs	r0, #2
+ 635              	.L79:
+ 636 0082 02B0     		add	sp, sp, #8
+ 637              		@ sp needed
+ 638 0084 70BD     		pop	{r4, r5, r6, pc}
+ 639              	.L85:
+ 640 0086 00BF     		.align	2
+ 641              	.L84:
+ 642 0088 00000000 		.word	IRDA_DMAReceiveCplt
+ 643 008c 00000000 		.word	IRDA_DMAReceiveHalfCplt
+ 644 0090 00000000 		.word	IRDA_DMAError
+ 646              		.section	.text.HAL_IRDA_DMAPause,"ax",%progbits
+ 647              		.align	1
+ 648              		.global	HAL_IRDA_DMAPause
+ 649              		.thumb
+ 650              		.thumb_func
+ 652              	HAL_IRDA_DMAPause:
+ARM GAS  /tmp/cciongL1.s 			page 12
+
+
+ 653              		@ args = 0, pretend = 0, frame = 0
+ 654              		@ frame_needed = 0, uses_anonymous_args = 0
+ 655              		@ link register save eliminated.
+ 656 0000 90F83430 		ldrb	r3, [r0, #52]	@ zero_extendqisi2
+ 657 0004 012B     		cmp	r3, #1
+ 658 0006 26D0     		beq	.L90
+ 659 0008 0123     		movs	r3, #1
+ 660 000a 80F83430 		strb	r3, [r0, #52]
+ 661 000e 0368     		ldr	r3, [r0]
+ 662 0010 5A69     		ldr	r2, [r3, #20]
+ 663 0012 90F83510 		ldrb	r1, [r0, #53]	@ zero_extendqisi2
+ 664 0016 2129     		cmp	r1, #33
+ 665 0018 05D1     		bne	.L88
+ 666 001a 1106     		lsls	r1, r2, #24
+ 667 001c 42BF     		ittt	mi
+ 668 001e 5A69     		ldrmi	r2, [r3, #20]
+ 669 0020 22F08002 		bicmi	r2, r2, #128
+ 670 0024 5A61     		strmi	r2, [r3, #20]
+ 671              	.L88:
+ 672 0026 5A69     		ldr	r2, [r3, #20]
+ 673 0028 90F83610 		ldrb	r1, [r0, #54]	@ zero_extendqisi2
+ 674 002c 2229     		cmp	r1, #34
+ 675 002e 0DD1     		bne	.L89
+ 676 0030 5206     		lsls	r2, r2, #25
+ 677 0032 0BD5     		bpl	.L89
+ 678 0034 DA68     		ldr	r2, [r3, #12]
+ 679 0036 22F48072 		bic	r2, r2, #256
+ 680 003a DA60     		str	r2, [r3, #12]
+ 681 003c 5A69     		ldr	r2, [r3, #20]
+ 682 003e 22F00102 		bic	r2, r2, #1
+ 683 0042 5A61     		str	r2, [r3, #20]
+ 684 0044 5A69     		ldr	r2, [r3, #20]
+ 685 0046 22F04002 		bic	r2, r2, #64
+ 686 004a 5A61     		str	r2, [r3, #20]
+ 687              	.L89:
+ 688 004c 0023     		movs	r3, #0
+ 689 004e 80F83430 		strb	r3, [r0, #52]
+ 690 0052 1846     		mov	r0, r3
+ 691 0054 7047     		bx	lr
+ 692              	.L90:
+ 693 0056 0220     		movs	r0, #2
+ 694 0058 7047     		bx	lr
+ 696              		.section	.text.HAL_IRDA_DMAResume,"ax",%progbits
+ 697              		.align	1
+ 698              		.global	HAL_IRDA_DMAResume
+ 699              		.thumb
+ 700              		.thumb_func
+ 702              	HAL_IRDA_DMAResume:
+ 703              		@ args = 0, pretend = 0, frame = 8
+ 704              		@ frame_needed = 0, uses_anonymous_args = 0
+ 705              		@ link register save eliminated.
+ 706 0000 90F83430 		ldrb	r3, [r0, #52]	@ zero_extendqisi2
+ 707 0004 82B0     		sub	sp, sp, #8
+ 708 0006 012B     		cmp	r3, #1
+ 709 0008 28D0     		beq	.L101
+ 710 000a 0123     		movs	r3, #1
+ 711 000c 80F83430 		strb	r3, [r0, #52]
+ARM GAS  /tmp/cciongL1.s 			page 13
+
+
+ 712 0010 90F83530 		ldrb	r3, [r0, #53]	@ zero_extendqisi2
+ 713 0014 212B     		cmp	r3, #33
+ 714 0016 01BF     		itttt	eq
+ 715 0018 0268     		ldreq	r2, [r0]
+ 716 001a 5369     		ldreq	r3, [r2, #20]
+ 717 001c 43F08003 		orreq	r3, r3, #128
+ 718 0020 5361     		streq	r3, [r2, #20]
+ 719 0022 90F83630 		ldrb	r3, [r0, #54]	@ zero_extendqisi2
+ 720 0026 222B     		cmp	r3, #34
+ 721 0028 13D1     		bne	.L100
+ 722 002a 0023     		movs	r3, #0
+ 723 002c 0193     		str	r3, [sp, #4]
+ 724 002e 0368     		ldr	r3, [r0]
+ 725 0030 1A68     		ldr	r2, [r3]
+ 726 0032 0192     		str	r2, [sp, #4]
+ 727 0034 5A68     		ldr	r2, [r3, #4]
+ 728 0036 0192     		str	r2, [sp, #4]
+ 729 0038 019A     		ldr	r2, [sp, #4]
+ 730 003a DA68     		ldr	r2, [r3, #12]
+ 731 003c 42F48072 		orr	r2, r2, #256
+ 732 0040 DA60     		str	r2, [r3, #12]
+ 733 0042 5A69     		ldr	r2, [r3, #20]
+ 734 0044 42F00102 		orr	r2, r2, #1
+ 735 0048 5A61     		str	r2, [r3, #20]
+ 736 004a 5A69     		ldr	r2, [r3, #20]
+ 737 004c 42F04002 		orr	r2, r2, #64
+ 738 0050 5A61     		str	r2, [r3, #20]
+ 739              	.L100:
+ 740 0052 0023     		movs	r3, #0
+ 741 0054 80F83430 		strb	r3, [r0, #52]
+ 742 0058 1846     		mov	r0, r3
+ 743 005a 00E0     		b	.L98
+ 744              	.L101:
+ 745 005c 0220     		movs	r0, #2
+ 746              	.L98:
+ 747 005e 02B0     		add	sp, sp, #8
+ 748              		@ sp needed
+ 749 0060 7047     		bx	lr
+ 751              		.section	.text.HAL_IRDA_DMAStop,"ax",%progbits
+ 752              		.align	1
+ 753              		.global	HAL_IRDA_DMAStop
+ 754              		.thumb
+ 755              		.thumb_func
+ 757              	HAL_IRDA_DMAStop:
+ 758              		@ args = 0, pretend = 0, frame = 0
+ 759              		@ frame_needed = 0, uses_anonymous_args = 0
+ 760 0000 0368     		ldr	r3, [r0]
+ 761 0002 10B5     		push	{r4, lr}
+ 762 0004 5A69     		ldr	r2, [r3, #20]
+ 763 0006 90F83510 		ldrb	r1, [r0, #53]	@ zero_extendqisi2
+ 764 000a 0446     		mov	r4, r0
+ 765 000c 2129     		cmp	r1, #33
+ 766 000e 11D1     		bne	.L103
+ 767 0010 1106     		lsls	r1, r2, #24
+ 768 0012 0FD5     		bpl	.L103
+ 769 0014 5A69     		ldr	r2, [r3, #20]
+ 770 0016 C06A     		ldr	r0, [r0, #44]
+ARM GAS  /tmp/cciongL1.s 			page 14
+
+
+ 771 0018 22F08002 		bic	r2, r2, #128
+ 772 001c 5A61     		str	r2, [r3, #20]
+ 773 001e 08B1     		cbz	r0, .L104
+ 774 0020 FFF7FEFF 		bl	HAL_DMA_Abort
+ 775              	.L104:
+ 776 0024 2268     		ldr	r2, [r4]
+ 777 0026 D368     		ldr	r3, [r2, #12]
+ 778 0028 23F0C003 		bic	r3, r3, #192
+ 779 002c D360     		str	r3, [r2, #12]
+ 780 002e 2023     		movs	r3, #32
+ 781 0030 84F83530 		strb	r3, [r4, #53]
+ 782              	.L103:
+ 783 0034 2368     		ldr	r3, [r4]
+ 784 0036 5A69     		ldr	r2, [r3, #20]
+ 785 0038 94F83610 		ldrb	r1, [r4, #54]	@ zero_extendqisi2
+ 786 003c 2229     		cmp	r1, #34
+ 787 003e 0CD1     		bne	.L105
+ 788 0040 5206     		lsls	r2, r2, #25
+ 789 0042 0AD5     		bpl	.L105
+ 790 0044 5A69     		ldr	r2, [r3, #20]
+ 791 0046 206B     		ldr	r0, [r4, #48]
+ 792 0048 22F04002 		bic	r2, r2, #64
+ 793 004c 5A61     		str	r2, [r3, #20]
+ 794 004e 08B1     		cbz	r0, .L106
+ 795 0050 FFF7FEFF 		bl	HAL_DMA_Abort
+ 796              	.L106:
+ 797 0054 2046     		mov	r0, r4
+ 798 0056 FFF7FEFF 		bl	IRDA_EndRxTransfer
+ 799              	.L105:
+ 800 005a 0020     		movs	r0, #0
+ 801 005c 10BD     		pop	{r4, pc}
+ 803              		.section	.text.HAL_IRDA_Abort,"ax",%progbits
+ 804              		.align	1
+ 805              		.global	HAL_IRDA_Abort
+ 806              		.thumb
+ 807              		.thumb_func
+ 809              	HAL_IRDA_Abort:
+ 810              		@ args = 0, pretend = 0, frame = 0
+ 811              		@ frame_needed = 0, uses_anonymous_args = 0
+ 812 0000 0368     		ldr	r3, [r0]
+ 813 0002 10B5     		push	{r4, lr}
+ 814 0004 DA68     		ldr	r2, [r3, #12]
+ 815 0006 0446     		mov	r4, r0
+ 816 0008 22F4F072 		bic	r2, r2, #480
+ 817 000c DA60     		str	r2, [r3, #12]
+ 818 000e 5A69     		ldr	r2, [r3, #20]
+ 819 0010 22F00102 		bic	r2, r2, #1
+ 820 0014 5A61     		str	r2, [r3, #20]
+ 821 0016 5A69     		ldr	r2, [r3, #20]
+ 822 0018 1106     		lsls	r1, r2, #24
+ 823 001a 09D5     		bpl	.L121
+ 824 001c 5A69     		ldr	r2, [r3, #20]
+ 825 001e C06A     		ldr	r0, [r0, #44]
+ 826 0020 22F08002 		bic	r2, r2, #128
+ 827 0024 5A61     		str	r2, [r3, #20]
+ 828 0026 18B1     		cbz	r0, .L121
+ 829 0028 0023     		movs	r3, #0
+ARM GAS  /tmp/cciongL1.s 			page 15
+
+
+ 830 002a 4363     		str	r3, [r0, #52]
+ 831 002c FFF7FEFF 		bl	HAL_DMA_Abort
+ 832              	.L121:
+ 833 0030 2368     		ldr	r3, [r4]
+ 834 0032 5A69     		ldr	r2, [r3, #20]
+ 835 0034 5206     		lsls	r2, r2, #25
+ 836 0036 09D5     		bpl	.L124
+ 837 0038 5A69     		ldr	r2, [r3, #20]
+ 838 003a 206B     		ldr	r0, [r4, #48]
+ 839 003c 22F04002 		bic	r2, r2, #64
+ 840 0040 5A61     		str	r2, [r3, #20]
+ 841 0042 18B1     		cbz	r0, .L124
+ 842 0044 0023     		movs	r3, #0
+ 843 0046 4363     		str	r3, [r0, #52]
+ 844 0048 FFF7FEFF 		bl	HAL_DMA_Abort
+ 845              	.L124:
+ 846 004c 0020     		movs	r0, #0
+ 847 004e 2023     		movs	r3, #32
+ 848 0050 6084     		strh	r0, [r4, #34]	@ movhi
+ 849 0052 6085     		strh	r0, [r4, #42]	@ movhi
+ 850 0054 A063     		str	r0, [r4, #56]
+ 851 0056 84F83630 		strb	r3, [r4, #54]
+ 852 005a 84F83530 		strb	r3, [r4, #53]
+ 853 005e 10BD     		pop	{r4, pc}
+ 855              		.section	.text.HAL_IRDA_AbortTransmit,"ax",%progbits
+ 856              		.align	1
+ 857              		.global	HAL_IRDA_AbortTransmit
+ 858              		.thumb
+ 859              		.thumb_func
+ 861              	HAL_IRDA_AbortTransmit:
+ 862              		@ args = 0, pretend = 0, frame = 0
+ 863              		@ frame_needed = 0, uses_anonymous_args = 0
+ 864 0000 0368     		ldr	r3, [r0]
+ 865 0002 10B5     		push	{r4, lr}
+ 866 0004 DA68     		ldr	r2, [r3, #12]
+ 867 0006 0446     		mov	r4, r0
+ 868 0008 22F0C002 		bic	r2, r2, #192
+ 869 000c DA60     		str	r2, [r3, #12]
+ 870 000e 5A69     		ldr	r2, [r3, #20]
+ 871 0010 1206     		lsls	r2, r2, #24
+ 872 0012 09D5     		bpl	.L134
+ 873 0014 5A69     		ldr	r2, [r3, #20]
+ 874 0016 C06A     		ldr	r0, [r0, #44]
+ 875 0018 22F08002 		bic	r2, r2, #128
+ 876 001c 5A61     		str	r2, [r3, #20]
+ 877 001e 18B1     		cbz	r0, .L134
+ 878 0020 0023     		movs	r3, #0
+ 879 0022 4363     		str	r3, [r0, #52]
+ 880 0024 FFF7FEFF 		bl	HAL_DMA_Abort
+ 881              	.L134:
+ 882 0028 0020     		movs	r0, #0
+ 883 002a 2023     		movs	r3, #32
+ 884 002c 6084     		strh	r0, [r4, #34]	@ movhi
+ 885 002e 84F83530 		strb	r3, [r4, #53]
+ 886 0032 10BD     		pop	{r4, pc}
+ 888              		.section	.text.HAL_IRDA_AbortReceive,"ax",%progbits
+ 889              		.align	1
+ARM GAS  /tmp/cciongL1.s 			page 16
+
+
+ 890              		.global	HAL_IRDA_AbortReceive
+ 891              		.thumb
+ 892              		.thumb_func
+ 894              	HAL_IRDA_AbortReceive:
+ 895              		@ args = 0, pretend = 0, frame = 0
+ 896              		@ frame_needed = 0, uses_anonymous_args = 0
+ 897 0000 0368     		ldr	r3, [r0]
+ 898 0002 10B5     		push	{r4, lr}
+ 899 0004 DA68     		ldr	r2, [r3, #12]
+ 900 0006 0446     		mov	r4, r0
+ 901 0008 22F49072 		bic	r2, r2, #288
+ 902 000c DA60     		str	r2, [r3, #12]
+ 903 000e 5A69     		ldr	r2, [r3, #20]
+ 904 0010 22F00102 		bic	r2, r2, #1
+ 905 0014 5A61     		str	r2, [r3, #20]
+ 906 0016 5A69     		ldr	r2, [r3, #20]
+ 907 0018 5206     		lsls	r2, r2, #25
+ 908 001a 09D5     		bpl	.L141
+ 909 001c 5A69     		ldr	r2, [r3, #20]
+ 910 001e 006B     		ldr	r0, [r0, #48]
+ 911 0020 22F04002 		bic	r2, r2, #64
+ 912 0024 5A61     		str	r2, [r3, #20]
+ 913 0026 18B1     		cbz	r0, .L141
+ 914 0028 0023     		movs	r3, #0
+ 915 002a 4363     		str	r3, [r0, #52]
+ 916 002c FFF7FEFF 		bl	HAL_DMA_Abort
+ 917              	.L141:
+ 918 0030 0020     		movs	r0, #0
+ 919 0032 2023     		movs	r3, #32
+ 920 0034 6085     		strh	r0, [r4, #42]	@ movhi
+ 921 0036 84F83630 		strb	r3, [r4, #54]
+ 922 003a 10BD     		pop	{r4, pc}
+ 924              		.section	.text.HAL_IRDA_TxCpltCallback,"ax",%progbits
+ 925              		.align	1
+ 926              		.weak	HAL_IRDA_TxCpltCallback
+ 927              		.thumb
+ 928              		.thumb_func
+ 930              	HAL_IRDA_TxCpltCallback:
+ 931              		@ args = 0, pretend = 0, frame = 0
+ 932              		@ frame_needed = 0, uses_anonymous_args = 0
+ 933              		@ link register save eliminated.
+ 934 0000 7047     		bx	lr
+ 936              		.section	.text.IRDA_DMATransmitCplt,"ax",%progbits
+ 937              		.align	1
+ 938              		.thumb
+ 939              		.thumb_func
+ 941              	IRDA_DMATransmitCplt:
+ 942              		@ args = 0, pretend = 0, frame = 0
+ 943              		@ frame_needed = 0, uses_anonymous_args = 0
+ 944 0000 08B5     		push	{r3, lr}
+ 945 0002 0368     		ldr	r3, [r0]
+ 946 0004 426A     		ldr	r2, [r0, #36]
+ 947 0006 1B68     		ldr	r3, [r3]
+ 948 0008 13F02003 		ands	r3, r3, #32
+ 949 000c 0AD1     		bne	.L148
+ 950 000e 5384     		strh	r3, [r2, #34]	@ movhi
+ 951 0010 1368     		ldr	r3, [r2]
+ARM GAS  /tmp/cciongL1.s 			page 17
+
+
+ 952 0012 5A69     		ldr	r2, [r3, #20]
+ 953 0014 22F08002 		bic	r2, r2, #128
+ 954 0018 5A61     		str	r2, [r3, #20]
+ 955 001a DA68     		ldr	r2, [r3, #12]
+ 956 001c 42F04002 		orr	r2, r2, #64
+ 957 0020 DA60     		str	r2, [r3, #12]
+ 958 0022 08BD     		pop	{r3, pc}
+ 959              	.L148:
+ 960 0024 1046     		mov	r0, r2
+ 961 0026 FFF7FEFF 		bl	HAL_IRDA_TxCpltCallback
+ 962 002a 08BD     		pop	{r3, pc}
+ 964              		.section	.text.HAL_IRDA_TxHalfCpltCallback,"ax",%progbits
+ 965              		.align	1
+ 966              		.weak	HAL_IRDA_TxHalfCpltCallback
+ 967              		.thumb
+ 968              		.thumb_func
+ 970              	HAL_IRDA_TxHalfCpltCallback:
+ 971              		@ args = 0, pretend = 0, frame = 0
+ 972              		@ frame_needed = 0, uses_anonymous_args = 0
+ 973              		@ link register save eliminated.
+ 974 0000 7047     		bx	lr
+ 976              		.section	.text.IRDA_DMATransmitHalfCplt,"ax",%progbits
+ 977              		.align	1
+ 978              		.thumb
+ 979              		.thumb_func
+ 981              	IRDA_DMATransmitHalfCplt:
+ 982              		@ args = 0, pretend = 0, frame = 0
+ 983              		@ frame_needed = 0, uses_anonymous_args = 0
+ 984 0000 08B5     		push	{r3, lr}
+ 985 0002 406A     		ldr	r0, [r0, #36]
+ 986 0004 FFF7FEFF 		bl	HAL_IRDA_TxHalfCpltCallback
+ 987 0008 08BD     		pop	{r3, pc}
+ 989              		.section	.text.HAL_IRDA_RxCpltCallback,"ax",%progbits
+ 990              		.align	1
+ 991              		.weak	HAL_IRDA_RxCpltCallback
+ 992              		.thumb
+ 993              		.thumb_func
+ 995              	HAL_IRDA_RxCpltCallback:
+ 996              		@ args = 0, pretend = 0, frame = 0
+ 997              		@ frame_needed = 0, uses_anonymous_args = 0
+ 998              		@ link register save eliminated.
+ 999 0000 7047     		bx	lr
+ 1001              		.section	.text.IRDA_DMAReceiveCplt,"ax",%progbits
+ 1002              		.align	1
+ 1003              		.thumb
+ 1004              		.thumb_func
+ 1006              	IRDA_DMAReceiveCplt:
+ 1007              		@ args = 0, pretend = 0, frame = 0
+ 1008              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1009 0000 08B5     		push	{r3, lr}
+ 1010 0002 0368     		ldr	r3, [r0]
+ 1011 0004 426A     		ldr	r2, [r0, #36]
+ 1012 0006 1B68     		ldr	r3, [r3]
+ 1013 0008 13F02003 		ands	r3, r3, #32
+ 1014 000c 10D1     		bne	.L154
+ 1015 000e 5385     		strh	r3, [r2, #42]	@ movhi
+ 1016 0010 1368     		ldr	r3, [r2]
+ARM GAS  /tmp/cciongL1.s 			page 18
+
+
+ 1017 0012 D968     		ldr	r1, [r3, #12]
+ 1018 0014 21F48071 		bic	r1, r1, #256
+ 1019 0018 D960     		str	r1, [r3, #12]
+ 1020 001a 5969     		ldr	r1, [r3, #20]
+ 1021 001c 21F00101 		bic	r1, r1, #1
+ 1022 0020 5961     		str	r1, [r3, #20]
+ 1023 0022 5969     		ldr	r1, [r3, #20]
+ 1024 0024 21F04001 		bic	r1, r1, #64
+ 1025 0028 5961     		str	r1, [r3, #20]
+ 1026 002a 2023     		movs	r3, #32
+ 1027 002c 82F83630 		strb	r3, [r2, #54]
+ 1028              	.L154:
+ 1029 0030 1046     		mov	r0, r2
+ 1030 0032 FFF7FEFF 		bl	HAL_IRDA_RxCpltCallback
+ 1031 0036 08BD     		pop	{r3, pc}
+ 1033              		.section	.text.IRDA_Receive_IT,"ax",%progbits
+ 1034              		.align	1
+ 1035              		.thumb
+ 1036              		.thumb_func
+ 1038              	IRDA_Receive_IT:
+ 1039              		@ args = 0, pretend = 0, frame = 0
+ 1040              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1041 0000 90F83630 		ldrb	r3, [r0, #54]	@ zero_extendqisi2
+ 1042 0004 10B5     		push	{r4, lr}
+ 1043 0006 222B     		cmp	r3, #34
+ 1044 0008 34D1     		bne	.L161
+ 1045 000a 0368     		ldr	r3, [r0]
+ 1046 000c C168     		ldr	r1, [r0, #12]
+ 1047 000e 5A68     		ldr	r2, [r3, #4]
+ 1048 0010 8368     		ldr	r3, [r0, #8]
+ 1049 0012 B3F5805F 		cmp	r3, #4096
+ 1050 0016 436A     		ldr	r3, [r0, #36]
+ 1051 0018 0BD1     		bne	.L157
+ 1052 001a 92B2     		uxth	r2, r2
+ 1053 001c 21B9     		cbnz	r1, .L158
+ 1054 001e C2F30802 		ubfx	r2, r2, #0, #9
+ 1055 0022 23F8022B 		strh	r2, [r3], #2	@ movhi
+ 1056 0026 02E0     		b	.L163
+ 1057              	.L158:
+ 1058 0028 D2B2     		uxtb	r2, r2
+ 1059 002a 23F8012B 		strh	r2, [r3], #1	@ movhi
+ 1060              	.L163:
+ 1061 002e 4362     		str	r3, [r0, #36]
+ 1062 0030 08E0     		b	.L159
+ 1063              	.L157:
+ 1064 0032 11B9     		cbnz	r1, .L160
+ 1065 0034 591C     		adds	r1, r3, #1
+ 1066 0036 4162     		str	r1, [r0, #36]
+ 1067 0038 03E0     		b	.L164
+ 1068              	.L160:
+ 1069 003a 591C     		adds	r1, r3, #1
+ 1070 003c 4162     		str	r1, [r0, #36]
+ 1071 003e 02F07F02 		and	r2, r2, #127
+ 1072              	.L164:
+ 1073 0042 1A70     		strb	r2, [r3]
+ 1074              	.L159:
+ 1075 0044 448D     		ldrh	r4, [r0, #42]
+ARM GAS  /tmp/cciongL1.s 			page 19
+
+
+ 1076 0046 013C     		subs	r4, r4, #1
+ 1077 0048 A4B2     		uxth	r4, r4
+ 1078 004a 4485     		strh	r4, [r0, #42]	@ movhi
+ 1079 004c A4B9     		cbnz	r4, .L162
+ 1080 004e 0368     		ldr	r3, [r0]
+ 1081 0050 DA68     		ldr	r2, [r3, #12]
+ 1082 0052 22F02002 		bic	r2, r2, #32
+ 1083 0056 DA60     		str	r2, [r3, #12]
+ 1084 0058 DA68     		ldr	r2, [r3, #12]
+ 1085 005a 22F48072 		bic	r2, r2, #256
+ 1086 005e DA60     		str	r2, [r3, #12]
+ 1087 0060 5A69     		ldr	r2, [r3, #20]
+ 1088 0062 22F00102 		bic	r2, r2, #1
+ 1089 0066 5A61     		str	r2, [r3, #20]
+ 1090 0068 2023     		movs	r3, #32
+ 1091 006a 80F83630 		strb	r3, [r0, #54]
+ 1092 006e FFF7FEFF 		bl	HAL_IRDA_RxCpltCallback
+ 1093 0072 01E0     		b	.L162
+ 1094              	.L161:
+ 1095 0074 0220     		movs	r0, #2
+ 1096 0076 10BD     		pop	{r4, pc}
+ 1097              	.L162:
+ 1098 0078 0020     		movs	r0, #0
+ 1099 007a 10BD     		pop	{r4, pc}
+ 1101              		.section	.text.HAL_IRDA_RxHalfCpltCallback,"ax",%progbits
+ 1102              		.align	1
+ 1103              		.weak	HAL_IRDA_RxHalfCpltCallback
+ 1104              		.thumb
+ 1105              		.thumb_func
+ 1107              	HAL_IRDA_RxHalfCpltCallback:
+ 1108              		@ args = 0, pretend = 0, frame = 0
+ 1109              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1110              		@ link register save eliminated.
+ 1111 0000 7047     		bx	lr
+ 1113              		.section	.text.IRDA_DMAReceiveHalfCplt,"ax",%progbits
+ 1114              		.align	1
+ 1115              		.thumb
+ 1116              		.thumb_func
+ 1118              	IRDA_DMAReceiveHalfCplt:
+ 1119              		@ args = 0, pretend = 0, frame = 0
+ 1120              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1121 0000 08B5     		push	{r3, lr}
+ 1122 0002 406A     		ldr	r0, [r0, #36]
+ 1123 0004 FFF7FEFF 		bl	HAL_IRDA_RxHalfCpltCallback
+ 1124 0008 08BD     		pop	{r3, pc}
+ 1126              		.section	.text.HAL_IRDA_ErrorCallback,"ax",%progbits
+ 1127              		.align	1
+ 1128              		.weak	HAL_IRDA_ErrorCallback
+ 1129              		.thumb
+ 1130              		.thumb_func
+ 1132              	HAL_IRDA_ErrorCallback:
+ 1133              		@ args = 0, pretend = 0, frame = 0
+ 1134              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1135              		@ link register save eliminated.
+ 1136 0000 7047     		bx	lr
+ 1138              		.section	.text.IRDA_DMAError,"ax",%progbits
+ 1139              		.align	1
+ARM GAS  /tmp/cciongL1.s 			page 20
+
+
+ 1140              		.thumb
+ 1141              		.thumb_func
+ 1143              	IRDA_DMAError:
+ 1144              		@ args = 0, pretend = 0, frame = 0
+ 1145              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1146 0000 10B5     		push	{r4, lr}
+ 1147 0002 446A     		ldr	r4, [r0, #36]
+ 1148 0004 2368     		ldr	r3, [r4]
+ 1149 0006 5A69     		ldr	r2, [r3, #20]
+ 1150 0008 94F83510 		ldrb	r1, [r4, #53]	@ zero_extendqisi2
+ 1151 000c 2129     		cmp	r1, #33
+ 1152 000e 0AD1     		bne	.L169
+ 1153 0010 1206     		lsls	r2, r2, #24
+ 1154 0012 08D5     		bpl	.L169
+ 1155 0014 0022     		movs	r2, #0
+ 1156 0016 6284     		strh	r2, [r4, #34]	@ movhi
+ 1157 0018 DA68     		ldr	r2, [r3, #12]
+ 1158 001a 22F0C002 		bic	r2, r2, #192
+ 1159 001e DA60     		str	r2, [r3, #12]
+ 1160 0020 2022     		movs	r2, #32
+ 1161 0022 84F83520 		strb	r2, [r4, #53]
+ 1162              	.L169:
+ 1163 0026 5B69     		ldr	r3, [r3, #20]
+ 1164 0028 94F83620 		ldrb	r2, [r4, #54]	@ zero_extendqisi2
+ 1165 002c 222A     		cmp	r2, #34
+ 1166 002e 06D1     		bne	.L170
+ 1167 0030 5B06     		lsls	r3, r3, #25
+ 1168 0032 04D5     		bpl	.L170
+ 1169 0034 0023     		movs	r3, #0
+ 1170 0036 6385     		strh	r3, [r4, #42]	@ movhi
+ 1171 0038 2046     		mov	r0, r4
+ 1172 003a FFF7FEFF 		bl	IRDA_EndRxTransfer
+ 1173              	.L170:
+ 1174 003e A36B     		ldr	r3, [r4, #56]
+ 1175 0040 2046     		mov	r0, r4
+ 1176 0042 43F01003 		orr	r3, r3, #16
+ 1177 0046 A363     		str	r3, [r4, #56]
+ 1178 0048 FFF7FEFF 		bl	HAL_IRDA_ErrorCallback
+ 1179 004c 10BD     		pop	{r4, pc}
+ 1181              		.section	.text.HAL_IRDA_IRQHandler,"ax",%progbits
+ 1182              		.align	1
+ 1183              		.global	HAL_IRDA_IRQHandler
+ 1184              		.thumb
+ 1185              		.thumb_func
+ 1187              	HAL_IRDA_IRQHandler:
+ 1188              		@ args = 0, pretend = 0, frame = 0
+ 1189              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1190 0000 0368     		ldr	r3, [r0]
+ 1191 0002 70B5     		push	{r4, r5, r6, lr}
+ 1192 0004 1A68     		ldr	r2, [r3]
+ 1193 0006 0446     		mov	r4, r0
+ 1194 0008 1607     		lsls	r6, r2, #28
+ 1195 000a D968     		ldr	r1, [r3, #12]
+ 1196 000c 5D69     		ldr	r5, [r3, #20]
+ 1197 000e 07D1     		bne	.L178
+ 1198 0010 9606     		lsls	r6, r2, #26
+ 1199 0012 5AD5     		bpl	.L179
+ARM GAS  /tmp/cciongL1.s 			page 21
+
+
+ 1200 0014 8D06     		lsls	r5, r1, #26
+ 1201 0016 58D5     		bpl	.L179
+ 1202 0018 BDE87040 		pop	{r4, r5, r6, lr}
+ 1203 001c FFF7FEBF 		b	IRDA_Receive_IT
+ 1204              	.L178:
+ 1205 0020 15F00100 		ands	r0, r5, #1
+ 1206 0024 02D1     		bne	.L180
+ 1207 0026 11F4907F 		tst	r1, #288
+ 1208 002a 4ED0     		beq	.L179
+ 1209              	.L180:
+ 1210 002c D307     		lsls	r3, r2, #31
+ 1211 002e 05D5     		bpl	.L181
+ 1212 0030 CE05     		lsls	r6, r1, #23
+ 1213 0032 42BF     		ittt	mi
+ 1214 0034 A36B     		ldrmi	r3, [r4, #56]
+ 1215 0036 43F00103 		orrmi	r3, r3, #1
+ 1216 003a A363     		strmi	r3, [r4, #56]
+ 1217              	.L181:
+ 1218 003c 5507     		lsls	r5, r2, #29
+ 1219 003e 04D5     		bpl	.L182
+ 1220 0040 18B1     		cbz	r0, .L182
+ 1221 0042 A36B     		ldr	r3, [r4, #56]
+ 1222 0044 43F00203 		orr	r3, r3, #2
+ 1223 0048 A363     		str	r3, [r4, #56]
+ 1224              	.L182:
+ 1225 004a 9307     		lsls	r3, r2, #30
+ 1226 004c 04D5     		bpl	.L183
+ 1227 004e 18B1     		cbz	r0, .L183
+ 1228 0050 A36B     		ldr	r3, [r4, #56]
+ 1229 0052 43F00403 		orr	r3, r3, #4
+ 1230 0056 A363     		str	r3, [r4, #56]
+ 1231              	.L183:
+ 1232 0058 1607     		lsls	r6, r2, #28
+ 1233 005a 04D5     		bpl	.L184
+ 1234 005c 18B1     		cbz	r0, .L184
+ 1235 005e A36B     		ldr	r3, [r4, #56]
+ 1236 0060 43F00803 		orr	r3, r3, #8
+ 1237 0064 A363     		str	r3, [r4, #56]
+ 1238              	.L184:
+ 1239 0066 A36B     		ldr	r3, [r4, #56]
+ 1240 0068 002B     		cmp	r3, #0
+ 1241 006a 6AD0     		beq	.L177
+ 1242 006c 9506     		lsls	r5, r2, #26
+ 1243 006e 04D5     		bpl	.L187
+ 1244 0070 8806     		lsls	r0, r1, #26
+ 1245 0072 02D5     		bpl	.L187
+ 1246 0074 2046     		mov	r0, r4
+ 1247 0076 FFF7FEFF 		bl	IRDA_Receive_IT
+ 1248              	.L187:
+ 1249 007a 2368     		ldr	r3, [r4]
+ 1250 007c 2046     		mov	r0, r4
+ 1251 007e 5B69     		ldr	r3, [r3, #20]
+ 1252 0080 A26B     		ldr	r2, [r4, #56]
+ 1253 0082 1107     		lsls	r1, r2, #28
+ 1254 0084 02D4     		bmi	.L188
+ 1255 0086 13F04005 		ands	r5, r3, #64
+ 1256 008a 1AD0     		beq	.L189
+ARM GAS  /tmp/cciongL1.s 			page 22
+
+
+ 1257              	.L188:
+ 1258 008c FFF7FEFF 		bl	IRDA_EndRxTransfer
+ 1259 0090 2368     		ldr	r3, [r4]
+ 1260 0092 5A69     		ldr	r2, [r3, #20]
+ 1261 0094 5206     		lsls	r2, r2, #25
+ 1262 0096 10D5     		bpl	.L190
+ 1263 0098 5A69     		ldr	r2, [r3, #20]
+ 1264 009a 206B     		ldr	r0, [r4, #48]
+ 1265 009c 22F04002 		bic	r2, r2, #64
+ 1266 00a0 5A61     		str	r2, [r3, #20]
+ 1267 00a2 50B1     		cbz	r0, .L190
+ 1268 00a4 274B     		ldr	r3, .L257
+ 1269 00a6 4363     		str	r3, [r0, #52]
+ 1270 00a8 FFF7FEFF 		bl	HAL_DMA_Abort_IT
+ 1271 00ac 0028     		cmp	r0, #0
+ 1272 00ae 48D0     		beq	.L177
+ 1273 00b0 206B     		ldr	r0, [r4, #48]
+ 1274 00b2 BDE87040 		pop	{r4, r5, r6, lr}
+ 1275 00b6 436B     		ldr	r3, [r0, #52]
+ 1276 00b8 1847     		bx	r3	@ indirect register sibling call
+ 1277              	.L190:
+ 1278 00ba 2046     		mov	r0, r4
+ 1279 00bc FFF7FEFF 		bl	HAL_IRDA_ErrorCallback
+ 1280 00c0 70BD     		pop	{r4, r5, r6, pc}
+ 1281              	.L189:
+ 1282 00c2 FFF7FEFF 		bl	HAL_IRDA_ErrorCallback
+ 1283 00c6 A563     		str	r5, [r4, #56]
+ 1284 00c8 70BD     		pop	{r4, r5, r6, pc}
+ 1285              	.L179:
+ 1286 00ca 1606     		lsls	r6, r2, #24
+ 1287 00cc 27D5     		bpl	.L192
+ 1288 00ce 0D06     		lsls	r5, r1, #24
+ 1289 00d0 25D5     		bpl	.L192
+ 1290 00d2 94F83520 		ldrb	r2, [r4, #53]	@ zero_extendqisi2
+ 1291 00d6 212A     		cmp	r2, #33
+ 1292 00d8 33D1     		bne	.L177
+ 1293 00da A268     		ldr	r2, [r4, #8]
+ 1294 00dc B2F5805F 		cmp	r2, #4096
+ 1295 00e0 E269     		ldr	r2, [r4, #28]
+ 1296 00e2 0AD1     		bne	.L193
+ 1297 00e4 1188     		ldrh	r1, [r2]
+ 1298 00e6 C1F30801 		ubfx	r1, r1, #0, #9
+ 1299 00ea 5960     		str	r1, [r3, #4]
+ 1300 00ec E168     		ldr	r1, [r4, #12]
+ 1301 00ee 09B9     		cbnz	r1, .L194
+ 1302 00f0 0232     		adds	r2, r2, #2
+ 1303 00f2 00E0     		b	.L256
+ 1304              	.L194:
+ 1305 00f4 0132     		adds	r2, r2, #1
+ 1306              	.L256:
+ 1307 00f6 E261     		str	r2, [r4, #28]
+ 1308 00f8 03E0     		b	.L195
+ 1309              	.L193:
+ 1310 00fa 511C     		adds	r1, r2, #1
+ 1311 00fc E161     		str	r1, [r4, #28]
+ 1312 00fe 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 1313 0100 5A60     		str	r2, [r3, #4]
+ARM GAS  /tmp/cciongL1.s 			page 23
+
+
+ 1314              	.L195:
+ 1315 0102 628C     		ldrh	r2, [r4, #34]
+ 1316 0104 013A     		subs	r2, r2, #1
+ 1317 0106 92B2     		uxth	r2, r2
+ 1318 0108 6284     		strh	r2, [r4, #34]	@ movhi
+ 1319 010a D2B9     		cbnz	r2, .L177
+ 1320 010c DA68     		ldr	r2, [r3, #12]
+ 1321 010e 22F08002 		bic	r2, r2, #128
+ 1322 0112 DA60     		str	r2, [r3, #12]
+ 1323 0114 DA68     		ldr	r2, [r3, #12]
+ 1324 0116 42F04002 		orr	r2, r2, #64
+ 1325 011a DA60     		str	r2, [r3, #12]
+ 1326 011c 70BD     		pop	{r4, r5, r6, pc}
+ 1327              	.L192:
+ 1328 011e 5006     		lsls	r0, r2, #25
+ 1329 0120 0FD5     		bpl	.L177
+ 1330 0122 4A06     		lsls	r2, r1, #25
+ 1331 0124 0DD5     		bpl	.L177
+ 1332 0126 DA68     		ldr	r2, [r3, #12]
+ 1333 0128 2046     		mov	r0, r4
+ 1334 012a 22F04002 		bic	r2, r2, #64
+ 1335 012e DA60     		str	r2, [r3, #12]
+ 1336 0130 5A69     		ldr	r2, [r3, #20]
+ 1337 0132 22F00102 		bic	r2, r2, #1
+ 1338 0136 5A61     		str	r2, [r3, #20]
+ 1339 0138 2023     		movs	r3, #32
+ 1340 013a 84F83530 		strb	r3, [r4, #53]
+ 1341 013e FFF7FEFF 		bl	HAL_IRDA_TxCpltCallback
+ 1342              	.L177:
+ 1343 0142 70BD     		pop	{r4, r5, r6, pc}
+ 1344              	.L258:
+ 1345              		.align	2
+ 1346              	.L257:
+ 1347 0144 00000000 		.word	IRDA_DMAAbortOnError
+ 1349              		.section	.text.IRDA_DMAAbortOnError,"ax",%progbits
+ 1350              		.align	1
+ 1351              		.thumb
+ 1352              		.thumb_func
+ 1354              	IRDA_DMAAbortOnError:
+ 1355              		@ args = 0, pretend = 0, frame = 0
+ 1356              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1357 0000 08B5     		push	{r3, lr}
+ 1358 0002 406A     		ldr	r0, [r0, #36]
+ 1359 0004 0023     		movs	r3, #0
+ 1360 0006 4385     		strh	r3, [r0, #42]	@ movhi
+ 1361 0008 4384     		strh	r3, [r0, #34]	@ movhi
+ 1362 000a FFF7FEFF 		bl	HAL_IRDA_ErrorCallback
+ 1363 000e 08BD     		pop	{r3, pc}
+ 1365              		.section	.text.HAL_IRDA_AbortCpltCallback,"ax",%progbits
+ 1366              		.align	1
+ 1367              		.weak	HAL_IRDA_AbortCpltCallback
+ 1368              		.thumb
+ 1369              		.thumb_func
+ 1371              	HAL_IRDA_AbortCpltCallback:
+ 1372              		@ args = 0, pretend = 0, frame = 0
+ 1373              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1374              		@ link register save eliminated.
+ARM GAS  /tmp/cciongL1.s 			page 24
+
+
+ 1375 0000 7047     		bx	lr
+ 1377              		.section	.text.HAL_IRDA_Abort_IT,"ax",%progbits
+ 1378              		.align	1
+ 1379              		.global	HAL_IRDA_Abort_IT
+ 1380              		.thumb
+ 1381              		.thumb_func
+ 1383              	HAL_IRDA_Abort_IT:
+ 1384              		@ args = 0, pretend = 0, frame = 0
+ 1385              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1386 0000 0368     		ldr	r3, [r0]
+ 1387 0002 10B5     		push	{r4, lr}
+ 1388 0004 DA68     		ldr	r2, [r3, #12]
+ 1389 0006 0446     		mov	r4, r0
+ 1390 0008 22F4F072 		bic	r2, r2, #480
+ 1391 000c DA60     		str	r2, [r3, #12]
+ 1392 000e 5A69     		ldr	r2, [r3, #20]
+ 1393 0010 C06A     		ldr	r0, [r0, #44]
+ 1394 0012 22F00102 		bic	r2, r2, #1
+ 1395 0016 5A61     		str	r2, [r3, #20]
+ 1396 0018 28B1     		cbz	r0, .L262
+ 1397 001a 5A69     		ldr	r2, [r3, #20]
+ 1398 001c 12F08002 		ands	r2, r2, #128
+ 1399 0020 18BF     		it	ne
+ 1400 0022 1E4A     		ldrne	r2, .L291
+ 1401 0024 4263     		str	r2, [r0, #52]
+ 1402              	.L262:
+ 1403 0026 216B     		ldr	r1, [r4, #48]
+ 1404 0028 29B1     		cbz	r1, .L264
+ 1405 002a 5A69     		ldr	r2, [r3, #20]
+ 1406 002c 12F04002 		ands	r2, r2, #64
+ 1407 0030 18BF     		it	ne
+ 1408 0032 1B4A     		ldrne	r2, .L291+4
+ 1409 0034 4A63     		str	r2, [r1, #52]
+ 1410              	.L264:
+ 1411 0036 5A69     		ldr	r2, [r3, #20]
+ 1412 0038 1206     		lsls	r2, r2, #24
+ 1413 003a 0AD5     		bpl	.L290
+ 1414 003c 5A69     		ldr	r2, [r3, #20]
+ 1415 003e 22F08002 		bic	r2, r2, #128
+ 1416 0042 5A61     		str	r2, [r3, #20]
+ 1417 0044 28B1     		cbz	r0, .L290
+ 1418 0046 FFF7FEFF 		bl	HAL_DMA_Abort_IT
+ 1419 004a 20B1     		cbz	r0, .L274
+ 1420 004c E36A     		ldr	r3, [r4, #44]
+ 1421 004e 0022     		movs	r2, #0
+ 1422 0050 5A63     		str	r2, [r3, #52]
+ 1423              	.L290:
+ 1424 0052 0123     		movs	r3, #1
+ 1425 0054 00E0     		b	.L267
+ 1426              	.L274:
+ 1427 0056 0346     		mov	r3, r0
+ 1428              	.L267:
+ 1429 0058 2268     		ldr	r2, [r4]
+ 1430 005a 5169     		ldr	r1, [r2, #20]
+ 1431 005c 4906     		lsls	r1, r1, #25
+ 1432 005e 0CD5     		bpl	.L269
+ 1433 0060 5169     		ldr	r1, [r2, #20]
+ARM GAS  /tmp/cciongL1.s 			page 25
+
+
+ 1434 0062 206B     		ldr	r0, [r4, #48]
+ 1435 0064 21F04001 		bic	r1, r1, #64
+ 1436 0068 5161     		str	r1, [r2, #20]
+ 1437 006a 30B1     		cbz	r0, .L269
+ 1438 006c FFF7FEFF 		bl	HAL_DMA_Abort_IT
+ 1439 0070 88B1     		cbz	r0, .L271
+ 1440 0072 236B     		ldr	r3, [r4, #48]
+ 1441 0074 0022     		movs	r2, #0
+ 1442 0076 5A63     		str	r2, [r3, #52]
+ 1443 0078 01E0     		b	.L272
+ 1444              	.L269:
+ 1445 007a 012B     		cmp	r3, #1
+ 1446 007c 0BD1     		bne	.L271
+ 1447              	.L272:
+ 1448 007e 0023     		movs	r3, #0
+ 1449 0080 6384     		strh	r3, [r4, #34]	@ movhi
+ 1450 0082 6385     		strh	r3, [r4, #42]	@ movhi
+ 1451 0084 A363     		str	r3, [r4, #56]
+ 1452 0086 2023     		movs	r3, #32
+ 1453 0088 84F83530 		strb	r3, [r4, #53]
+ 1454 008c 2046     		mov	r0, r4
+ 1455 008e 84F83630 		strb	r3, [r4, #54]
+ 1456 0092 FFF7FEFF 		bl	HAL_IRDA_AbortCpltCallback
+ 1457              	.L271:
+ 1458 0096 0020     		movs	r0, #0
+ 1459 0098 10BD     		pop	{r4, pc}
+ 1460              	.L292:
+ 1461 009a 00BF     		.align	2
+ 1462              	.L291:
+ 1463 009c 00000000 		.word	IRDA_DMATxAbortCallback
+ 1464 00a0 00000000 		.word	IRDA_DMARxAbortCallback
+ 1466              		.section	.text.IRDA_DMARxAbortCallback,"ax",%progbits
+ 1467              		.align	1
+ 1468              		.thumb
+ 1469              		.thumb_func
+ 1471              	IRDA_DMARxAbortCallback:
+ 1472              		@ args = 0, pretend = 0, frame = 0
+ 1473              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1474 0000 406A     		ldr	r0, [r0, #36]
+ 1475 0002 08B5     		push	{r3, lr}
+ 1476 0004 026B     		ldr	r2, [r0, #48]
+ 1477 0006 0023     		movs	r3, #0
+ 1478 0008 5363     		str	r3, [r2, #52]
+ 1479 000a C26A     		ldr	r2, [r0, #44]
+ 1480 000c 0AB1     		cbz	r2, .L294
+ 1481 000e 526B     		ldr	r2, [r2, #52]
+ 1482 0010 4AB9     		cbnz	r2, .L293
+ 1483              	.L294:
+ 1484 0012 4384     		strh	r3, [r0, #34]	@ movhi
+ 1485 0014 4385     		strh	r3, [r0, #42]	@ movhi
+ 1486 0016 8363     		str	r3, [r0, #56]
+ 1487 0018 2023     		movs	r3, #32
+ 1488 001a 80F83530 		strb	r3, [r0, #53]
+ 1489 001e 80F83630 		strb	r3, [r0, #54]
+ 1490 0022 FFF7FEFF 		bl	HAL_IRDA_AbortCpltCallback
+ 1491              	.L293:
+ 1492 0026 08BD     		pop	{r3, pc}
+ARM GAS  /tmp/cciongL1.s 			page 26
+
+
+ 1494              		.section	.text.IRDA_DMATxAbortCallback,"ax",%progbits
+ 1495              		.align	1
+ 1496              		.thumb
+ 1497              		.thumb_func
+ 1499              	IRDA_DMATxAbortCallback:
+ 1500              		@ args = 0, pretend = 0, frame = 0
+ 1501              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1502 0000 406A     		ldr	r0, [r0, #36]
+ 1503 0002 08B5     		push	{r3, lr}
+ 1504 0004 C26A     		ldr	r2, [r0, #44]
+ 1505 0006 0023     		movs	r3, #0
+ 1506 0008 5363     		str	r3, [r2, #52]
+ 1507 000a 026B     		ldr	r2, [r0, #48]
+ 1508 000c 0AB1     		cbz	r2, .L300
+ 1509 000e 526B     		ldr	r2, [r2, #52]
+ 1510 0010 4AB9     		cbnz	r2, .L299
+ 1511              	.L300:
+ 1512 0012 4384     		strh	r3, [r0, #34]	@ movhi
+ 1513 0014 4385     		strh	r3, [r0, #42]	@ movhi
+ 1514 0016 8363     		str	r3, [r0, #56]
+ 1515 0018 2023     		movs	r3, #32
+ 1516 001a 80F83530 		strb	r3, [r0, #53]
+ 1517 001e 80F83630 		strb	r3, [r0, #54]
+ 1518 0022 FFF7FEFF 		bl	HAL_IRDA_AbortCpltCallback
+ 1519              	.L299:
+ 1520 0026 08BD     		pop	{r3, pc}
+ 1522              		.section	.text.HAL_IRDA_AbortTransmitCpltCallback,"ax",%progbits
+ 1523              		.align	1
+ 1524              		.weak	HAL_IRDA_AbortTransmitCpltCallback
+ 1525              		.thumb
+ 1526              		.thumb_func
+ 1528              	HAL_IRDA_AbortTransmitCpltCallback:
+ 1529              		@ args = 0, pretend = 0, frame = 0
+ 1530              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1531              		@ link register save eliminated.
+ 1532 0000 7047     		bx	lr
+ 1534              		.section	.text.HAL_IRDA_AbortTransmit_IT,"ax",%progbits
+ 1535              		.align	1
+ 1536              		.global	HAL_IRDA_AbortTransmit_IT
+ 1537              		.thumb
+ 1538              		.thumb_func
+ 1540              	HAL_IRDA_AbortTransmit_IT:
+ 1541              		@ args = 0, pretend = 0, frame = 0
+ 1542              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1543 0000 0368     		ldr	r3, [r0]
+ 1544 0002 10B5     		push	{r4, lr}
+ 1545 0004 DA68     		ldr	r2, [r3, #12]
+ 1546 0006 0446     		mov	r4, r0
+ 1547 0008 22F0C002 		bic	r2, r2, #192
+ 1548 000c DA60     		str	r2, [r3, #12]
+ 1549 000e 5A69     		ldr	r2, [r3, #20]
+ 1550 0010 12F08002 		ands	r2, r2, #128
+ 1551 0014 11D0     		beq	.L307
+ 1552 0016 5A69     		ldr	r2, [r3, #20]
+ 1553 0018 22F08002 		bic	r2, r2, #128
+ 1554 001c 5A61     		str	r2, [r3, #20]
+ 1555 001e C36A     		ldr	r3, [r0, #44]
+ARM GAS  /tmp/cciongL1.s 			page 27
+
+
+ 1556 0020 4BB1     		cbz	r3, .L308
+ 1557 0022 0A4A     		ldr	r2, .L314
+ 1558 0024 1846     		mov	r0, r3
+ 1559 0026 5A63     		str	r2, [r3, #52]
+ 1560 0028 FFF7FEFF 		bl	HAL_DMA_Abort_IT
+ 1561 002c 58B1     		cbz	r0, .L309
+ 1562 002e E06A     		ldr	r0, [r4, #44]
+ 1563 0030 436B     		ldr	r3, [r0, #52]
+ 1564 0032 9847     		blx	r3
+ 1565 0034 07E0     		b	.L309
+ 1566              	.L308:
+ 1567 0036 4384     		strh	r3, [r0, #34]	@ movhi
+ 1568 0038 00E0     		b	.L313
+ 1569              	.L307:
+ 1570 003a 4284     		strh	r2, [r0, #34]	@ movhi
+ 1571              	.L313:
+ 1572 003c 2023     		movs	r3, #32
+ 1573 003e 84F83530 		strb	r3, [r4, #53]
+ 1574 0042 FFF7FEFF 		bl	HAL_IRDA_AbortTransmitCpltCallback
+ 1575              	.L309:
+ 1576 0046 0020     		movs	r0, #0
+ 1577 0048 10BD     		pop	{r4, pc}
+ 1578              	.L315:
+ 1579 004a 00BF     		.align	2
+ 1580              	.L314:
+ 1581 004c 00000000 		.word	IRDA_DMATxOnlyAbortCallback
+ 1583              		.section	.text.IRDA_DMATxOnlyAbortCallback,"ax",%progbits
+ 1584              		.align	1
+ 1585              		.thumb
+ 1586              		.thumb_func
+ 1588              	IRDA_DMATxOnlyAbortCallback:
+ 1589              		@ args = 0, pretend = 0, frame = 0
+ 1590              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1591 0000 08B5     		push	{r3, lr}
+ 1592 0002 406A     		ldr	r0, [r0, #36]
+ 1593 0004 0023     		movs	r3, #0
+ 1594 0006 4384     		strh	r3, [r0, #34]	@ movhi
+ 1595 0008 2023     		movs	r3, #32
+ 1596 000a 80F83530 		strb	r3, [r0, #53]
+ 1597 000e FFF7FEFF 		bl	HAL_IRDA_AbortTransmitCpltCallback
+ 1598 0012 08BD     		pop	{r3, pc}
+ 1600              		.section	.text.HAL_IRDA_AbortReceiveCpltCallback,"ax",%progbits
+ 1601              		.align	1
+ 1602              		.weak	HAL_IRDA_AbortReceiveCpltCallback
+ 1603              		.thumb
+ 1604              		.thumb_func
+ 1606              	HAL_IRDA_AbortReceiveCpltCallback:
+ 1607              		@ args = 0, pretend = 0, frame = 0
+ 1608              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1609              		@ link register save eliminated.
+ 1610 0000 7047     		bx	lr
+ 1612              		.section	.text.HAL_IRDA_AbortReceive_IT,"ax",%progbits
+ 1613              		.align	1
+ 1614              		.global	HAL_IRDA_AbortReceive_IT
+ 1615              		.thumb
+ 1616              		.thumb_func
+ 1618              	HAL_IRDA_AbortReceive_IT:
+ARM GAS  /tmp/cciongL1.s 			page 28
+
+
+ 1619              		@ args = 0, pretend = 0, frame = 0
+ 1620              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1621 0000 0368     		ldr	r3, [r0]
+ 1622 0002 10B5     		push	{r4, lr}
+ 1623 0004 DA68     		ldr	r2, [r3, #12]
+ 1624 0006 0446     		mov	r4, r0
+ 1625 0008 22F49072 		bic	r2, r2, #288
+ 1626 000c DA60     		str	r2, [r3, #12]
+ 1627 000e 5A69     		ldr	r2, [r3, #20]
+ 1628 0010 22F00102 		bic	r2, r2, #1
+ 1629 0014 5A61     		str	r2, [r3, #20]
+ 1630 0016 5A69     		ldr	r2, [r3, #20]
+ 1631 0018 12F04002 		ands	r2, r2, #64
+ 1632 001c 11D0     		beq	.L319
+ 1633 001e 5A69     		ldr	r2, [r3, #20]
+ 1634 0020 22F04002 		bic	r2, r2, #64
+ 1635 0024 5A61     		str	r2, [r3, #20]
+ 1636 0026 036B     		ldr	r3, [r0, #48]
+ 1637 0028 4BB1     		cbz	r3, .L320
+ 1638 002a 0A4A     		ldr	r2, .L326
+ 1639 002c 1846     		mov	r0, r3
+ 1640 002e 5A63     		str	r2, [r3, #52]
+ 1641 0030 FFF7FEFF 		bl	HAL_DMA_Abort_IT
+ 1642 0034 58B1     		cbz	r0, .L321
+ 1643 0036 206B     		ldr	r0, [r4, #48]
+ 1644 0038 436B     		ldr	r3, [r0, #52]
+ 1645 003a 9847     		blx	r3
+ 1646 003c 07E0     		b	.L321
+ 1647              	.L320:
+ 1648 003e 4385     		strh	r3, [r0, #42]	@ movhi
+ 1649 0040 00E0     		b	.L325
+ 1650              	.L319:
+ 1651 0042 4285     		strh	r2, [r0, #42]	@ movhi
+ 1652              	.L325:
+ 1653 0044 2023     		movs	r3, #32
+ 1654 0046 84F83630 		strb	r3, [r4, #54]
+ 1655 004a FFF7FEFF 		bl	HAL_IRDA_AbortReceiveCpltCallback
+ 1656              	.L321:
+ 1657 004e 0020     		movs	r0, #0
+ 1658 0050 10BD     		pop	{r4, pc}
+ 1659              	.L327:
+ 1660 0052 00BF     		.align	2
+ 1661              	.L326:
+ 1662 0054 00000000 		.word	IRDA_DMARxOnlyAbortCallback
+ 1664              		.section	.text.IRDA_DMARxOnlyAbortCallback,"ax",%progbits
+ 1665              		.align	1
+ 1666              		.thumb
+ 1667              		.thumb_func
+ 1669              	IRDA_DMARxOnlyAbortCallback:
+ 1670              		@ args = 0, pretend = 0, frame = 0
+ 1671              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1672 0000 08B5     		push	{r3, lr}
+ 1673 0002 406A     		ldr	r0, [r0, #36]
+ 1674 0004 0023     		movs	r3, #0
+ 1675 0006 4385     		strh	r3, [r0, #42]	@ movhi
+ 1676 0008 2023     		movs	r3, #32
+ 1677 000a 80F83630 		strb	r3, [r0, #54]
+ARM GAS  /tmp/cciongL1.s 			page 29
+
+
+ 1678 000e FFF7FEFF 		bl	HAL_IRDA_AbortReceiveCpltCallback
+ 1679 0012 08BD     		pop	{r3, pc}
+ 1681              		.section	.text.HAL_IRDA_GetState,"ax",%progbits
+ 1682              		.align	1
+ 1683              		.global	HAL_IRDA_GetState
+ 1684              		.thumb
+ 1685              		.thumb_func
+ 1687              	HAL_IRDA_GetState:
+ 1688              		@ args = 0, pretend = 0, frame = 0
+ 1689              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1690              		@ link register save eliminated.
+ 1691 0000 90F83530 		ldrb	r3, [r0, #53]	@ zero_extendqisi2
+ 1692 0004 90F83600 		ldrb	r0, [r0, #54]	@ zero_extendqisi2
+ 1693 0008 1843     		orrs	r0, r0, r3
+ 1694 000a 7047     		bx	lr
+ 1696              		.section	.text.HAL_IRDA_GetError,"ax",%progbits
+ 1697              		.align	1
+ 1698              		.global	HAL_IRDA_GetError
+ 1699              		.thumb
+ 1700              		.thumb_func
+ 1702              	HAL_IRDA_GetError:
+ 1703              		@ args = 0, pretend = 0, frame = 0
+ 1704              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1705              		@ link register save eliminated.
+ 1706 0000 806B     		ldr	r0, [r0, #56]
+ 1707 0002 7047     		bx	lr
+ 1709              		.ident	"GCC: (15:4.9.3+svn231177-1) 4.9.3 20150529 (prerelease)"
+ARM GAS  /tmp/cciongL1.s 			page 30
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32f1xx_hal_irda.c
+     /tmp/cciongL1.s:16     .text.IRDA_EndRxTransfer:0000000000000000 $t
+     /tmp/cciongL1.s:20     .text.IRDA_EndRxTransfer:0000000000000000 IRDA_EndRxTransfer
+     /tmp/cciongL1.s:36     .text.IRDA_WaitOnFlagUntilTimeout.constprop.2:0000000000000000 $t
+     /tmp/cciongL1.s:40     .text.IRDA_WaitOnFlagUntilTimeout.constprop.2:0000000000000000 IRDA_WaitOnFlagUntilTimeout.constprop.2
+     /tmp/cciongL1.s:84     .text.HAL_IRDA_MspInit:0000000000000000 $t
+     /tmp/cciongL1.s:89     .text.HAL_IRDA_MspInit:0000000000000000 HAL_IRDA_MspInit
+     /tmp/cciongL1.s:96     .text.HAL_IRDA_Init:0000000000000000 $t
+     /tmp/cciongL1.s:101    .text.HAL_IRDA_Init:0000000000000000 HAL_IRDA_Init
+     /tmp/cciongL1.s:198    .text.HAL_IRDA_Init:00000000000000e0 $d
+     /tmp/cciongL1.s:201    .text.HAL_IRDA_MspDeInit:0000000000000000 $t
+     /tmp/cciongL1.s:206    .text.HAL_IRDA_MspDeInit:0000000000000000 HAL_IRDA_MspDeInit
+     /tmp/cciongL1.s:213    .text.HAL_IRDA_DeInit:0000000000000000 $t
+     /tmp/cciongL1.s:218    .text.HAL_IRDA_DeInit:0000000000000000 HAL_IRDA_DeInit
+     /tmp/cciongL1.s:242    .text.HAL_IRDA_Transmit:0000000000000000 $t
+     /tmp/cciongL1.s:247    .text.HAL_IRDA_Transmit:0000000000000000 HAL_IRDA_Transmit
+     /tmp/cciongL1.s:334    .text.HAL_IRDA_Receive:0000000000000000 $t
+     /tmp/cciongL1.s:339    .text.HAL_IRDA_Receive:0000000000000000 HAL_IRDA_Receive
+     /tmp/cciongL1.s:426    .text.HAL_IRDA_Transmit_IT:0000000000000000 $t
+     /tmp/cciongL1.s:431    .text.HAL_IRDA_Transmit_IT:0000000000000000 HAL_IRDA_Transmit_IT
+     /tmp/cciongL1.s:465    .text.HAL_IRDA_Receive_IT:0000000000000000 $t
+     /tmp/cciongL1.s:470    .text.HAL_IRDA_Receive_IT:0000000000000000 HAL_IRDA_Receive_IT
+     /tmp/cciongL1.s:507    .text.HAL_IRDA_Transmit_DMA:0000000000000000 $t
+     /tmp/cciongL1.s:512    .text.HAL_IRDA_Transmit_DMA:0000000000000000 HAL_IRDA_Transmit_DMA
+     /tmp/cciongL1.s:564    .text.HAL_IRDA_Transmit_DMA:0000000000000068 $d
+     /tmp/cciongL1.s:941    .text.IRDA_DMATransmitCplt:0000000000000000 IRDA_DMATransmitCplt
+     /tmp/cciongL1.s:981    .text.IRDA_DMATransmitHalfCplt:0000000000000000 IRDA_DMATransmitHalfCplt
+     /tmp/cciongL1.s:1143   .text.IRDA_DMAError:0000000000000000 IRDA_DMAError
+     /tmp/cciongL1.s:569    .text.HAL_IRDA_Receive_DMA:0000000000000000 $t
+     /tmp/cciongL1.s:574    .text.HAL_IRDA_Receive_DMA:0000000000000000 HAL_IRDA_Receive_DMA
+     /tmp/cciongL1.s:642    .text.HAL_IRDA_Receive_DMA:0000000000000088 $d
+     /tmp/cciongL1.s:1006   .text.IRDA_DMAReceiveCplt:0000000000000000 IRDA_DMAReceiveCplt
+     /tmp/cciongL1.s:1118   .text.IRDA_DMAReceiveHalfCplt:0000000000000000 IRDA_DMAReceiveHalfCplt
+     /tmp/cciongL1.s:647    .text.HAL_IRDA_DMAPause:0000000000000000 $t
+     /tmp/cciongL1.s:652    .text.HAL_IRDA_DMAPause:0000000000000000 HAL_IRDA_DMAPause
+     /tmp/cciongL1.s:697    .text.HAL_IRDA_DMAResume:0000000000000000 $t
+     /tmp/cciongL1.s:702    .text.HAL_IRDA_DMAResume:0000000000000000 HAL_IRDA_DMAResume
+     /tmp/cciongL1.s:752    .text.HAL_IRDA_DMAStop:0000000000000000 $t
+     /tmp/cciongL1.s:757    .text.HAL_IRDA_DMAStop:0000000000000000 HAL_IRDA_DMAStop
+     /tmp/cciongL1.s:804    .text.HAL_IRDA_Abort:0000000000000000 $t
+     /tmp/cciongL1.s:809    .text.HAL_IRDA_Abort:0000000000000000 HAL_IRDA_Abort
+     /tmp/cciongL1.s:856    .text.HAL_IRDA_AbortTransmit:0000000000000000 $t
+     /tmp/cciongL1.s:861    .text.HAL_IRDA_AbortTransmit:0000000000000000 HAL_IRDA_AbortTransmit
+     /tmp/cciongL1.s:889    .text.HAL_IRDA_AbortReceive:0000000000000000 $t
+     /tmp/cciongL1.s:894    .text.HAL_IRDA_AbortReceive:0000000000000000 HAL_IRDA_AbortReceive
+     /tmp/cciongL1.s:925    .text.HAL_IRDA_TxCpltCallback:0000000000000000 $t
+     /tmp/cciongL1.s:930    .text.HAL_IRDA_TxCpltCallback:0000000000000000 HAL_IRDA_TxCpltCallback
+     /tmp/cciongL1.s:937    .text.IRDA_DMATransmitCplt:0000000000000000 $t
+     /tmp/cciongL1.s:965    .text.HAL_IRDA_TxHalfCpltCallback:0000000000000000 $t
+     /tmp/cciongL1.s:970    .text.HAL_IRDA_TxHalfCpltCallback:0000000000000000 HAL_IRDA_TxHalfCpltCallback
+     /tmp/cciongL1.s:977    .text.IRDA_DMATransmitHalfCplt:0000000000000000 $t
+     /tmp/cciongL1.s:990    .text.HAL_IRDA_RxCpltCallback:0000000000000000 $t
+     /tmp/cciongL1.s:995    .text.HAL_IRDA_RxCpltCallback:0000000000000000 HAL_IRDA_RxCpltCallback
+     /tmp/cciongL1.s:1002   .text.IRDA_DMAReceiveCplt:0000000000000000 $t
+     /tmp/cciongL1.s:1034   .text.IRDA_Receive_IT:0000000000000000 $t
+     /tmp/cciongL1.s:1038   .text.IRDA_Receive_IT:0000000000000000 IRDA_Receive_IT
+ARM GAS  /tmp/cciongL1.s 			page 31
+
+
+     /tmp/cciongL1.s:1102   .text.HAL_IRDA_RxHalfCpltCallback:0000000000000000 $t
+     /tmp/cciongL1.s:1107   .text.HAL_IRDA_RxHalfCpltCallback:0000000000000000 HAL_IRDA_RxHalfCpltCallback
+     /tmp/cciongL1.s:1114   .text.IRDA_DMAReceiveHalfCplt:0000000000000000 $t
+     /tmp/cciongL1.s:1127   .text.HAL_IRDA_ErrorCallback:0000000000000000 $t
+     /tmp/cciongL1.s:1132   .text.HAL_IRDA_ErrorCallback:0000000000000000 HAL_IRDA_ErrorCallback
+     /tmp/cciongL1.s:1139   .text.IRDA_DMAError:0000000000000000 $t
+     /tmp/cciongL1.s:1182   .text.HAL_IRDA_IRQHandler:0000000000000000 $t
+     /tmp/cciongL1.s:1187   .text.HAL_IRDA_IRQHandler:0000000000000000 HAL_IRDA_IRQHandler
+     /tmp/cciongL1.s:1347   .text.HAL_IRDA_IRQHandler:0000000000000144 $d
+     /tmp/cciongL1.s:1354   .text.IRDA_DMAAbortOnError:0000000000000000 IRDA_DMAAbortOnError
+     /tmp/cciongL1.s:1350   .text.IRDA_DMAAbortOnError:0000000000000000 $t
+     /tmp/cciongL1.s:1366   .text.HAL_IRDA_AbortCpltCallback:0000000000000000 $t
+     /tmp/cciongL1.s:1371   .text.HAL_IRDA_AbortCpltCallback:0000000000000000 HAL_IRDA_AbortCpltCallback
+     /tmp/cciongL1.s:1378   .text.HAL_IRDA_Abort_IT:0000000000000000 $t
+     /tmp/cciongL1.s:1383   .text.HAL_IRDA_Abort_IT:0000000000000000 HAL_IRDA_Abort_IT
+     /tmp/cciongL1.s:1463   .text.HAL_IRDA_Abort_IT:000000000000009c $d
+     /tmp/cciongL1.s:1499   .text.IRDA_DMATxAbortCallback:0000000000000000 IRDA_DMATxAbortCallback
+     /tmp/cciongL1.s:1471   .text.IRDA_DMARxAbortCallback:0000000000000000 IRDA_DMARxAbortCallback
+     /tmp/cciongL1.s:1467   .text.IRDA_DMARxAbortCallback:0000000000000000 $t
+     /tmp/cciongL1.s:1495   .text.IRDA_DMATxAbortCallback:0000000000000000 $t
+     /tmp/cciongL1.s:1523   .text.HAL_IRDA_AbortTransmitCpltCallback:0000000000000000 $t
+     /tmp/cciongL1.s:1528   .text.HAL_IRDA_AbortTransmitCpltCallback:0000000000000000 HAL_IRDA_AbortTransmitCpltCallback
+     /tmp/cciongL1.s:1535   .text.HAL_IRDA_AbortTransmit_IT:0000000000000000 $t
+     /tmp/cciongL1.s:1540   .text.HAL_IRDA_AbortTransmit_IT:0000000000000000 HAL_IRDA_AbortTransmit_IT
+     /tmp/cciongL1.s:1581   .text.HAL_IRDA_AbortTransmit_IT:000000000000004c $d
+     /tmp/cciongL1.s:1588   .text.IRDA_DMATxOnlyAbortCallback:0000000000000000 IRDA_DMATxOnlyAbortCallback
+     /tmp/cciongL1.s:1584   .text.IRDA_DMATxOnlyAbortCallback:0000000000000000 $t
+     /tmp/cciongL1.s:1601   .text.HAL_IRDA_AbortReceiveCpltCallback:0000000000000000 $t
+     /tmp/cciongL1.s:1606   .text.HAL_IRDA_AbortReceiveCpltCallback:0000000000000000 HAL_IRDA_AbortReceiveCpltCallback
+     /tmp/cciongL1.s:1613   .text.HAL_IRDA_AbortReceive_IT:0000000000000000 $t
+     /tmp/cciongL1.s:1618   .text.HAL_IRDA_AbortReceive_IT:0000000000000000 HAL_IRDA_AbortReceive_IT
+     /tmp/cciongL1.s:1662   .text.HAL_IRDA_AbortReceive_IT:0000000000000054 $d
+     /tmp/cciongL1.s:1669   .text.IRDA_DMARxOnlyAbortCallback:0000000000000000 IRDA_DMARxOnlyAbortCallback
+     /tmp/cciongL1.s:1665   .text.IRDA_DMARxOnlyAbortCallback:0000000000000000 $t
+     /tmp/cciongL1.s:1682   .text.HAL_IRDA_GetState:0000000000000000 $t
+     /tmp/cciongL1.s:1687   .text.HAL_IRDA_GetState:0000000000000000 HAL_IRDA_GetState
+     /tmp/cciongL1.s:1697   .text.HAL_IRDA_GetError:0000000000000000 $t
+     /tmp/cciongL1.s:1702   .text.HAL_IRDA_GetError:0000000000000000 HAL_IRDA_GetError
+
+UNDEFINED SYMBOLS
+HAL_GetTick
+HAL_RCC_GetPCLK2Freq
+HAL_RCC_GetPCLK1Freq
+HAL_DMA_Start_IT
+HAL_DMA_Abort
+HAL_DMA_Abort_IT
