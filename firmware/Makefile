@@ -12,7 +12,7 @@
 #         This project uses the recursive-make build architecture.
 # ------------------------------------------------------------------------------
  
-PROJECTNAME = PROJECT_TEMPLATE_NAME
+PROJECTNAME = BerndoKeyboard-Firmware
 BINNAME     = $(PROJECTNAME)
 
 FLASH_FOLDER = flash
@@ -25,9 +25,10 @@ GCC_SIZE   = arm-none-eabi-size
 # --- MODULES AND LIBRARIES ---
 
 LIB_STM32F1HAL = lib/libstm32f1hal
+LIB_PCA9555    = lib/libpca9555
 MAIN_APP       = app
 
-SUBMODULES = $(MAIN_APP) $(LIB_STM32F1HAL)
+SUBMODULES = $(MAIN_APP) $(LIB_STM32F1HAL) $(LIB_PCA9555)
 
 .PHONY: $(SUBMODULES)
 
@@ -47,6 +48,10 @@ clean:
 .PHONY: rebuild
 rebuild: clean all
 
+.PHONY: doc
+doc:
+	@doxygen Doxyfile
+
 # --- RECURSIVE TARGET ---
 
 $(SUBMODULES):
@@ -54,7 +59,7 @@ $(SUBMODULES):
 
 # --- DEPENDENCIES ---
 
-$(MAIN_APP): $(LIB_STM32F1HAL)
+$(MAIN_APP): $(LIB_STM32F1HAL) $(LIB_PCA9555)
 
 # --- FILE MANAGEMENT ---
 

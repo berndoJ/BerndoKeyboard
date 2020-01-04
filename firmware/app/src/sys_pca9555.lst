@@ -1,0 +1,181 @@
+ARM GAS  /tmp/ccRQ9T78.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"sys_pca9555.c"
+  15              		.section	.text._SYS_PCA9555_I2C_Read_Func,"ax",%progbits
+  16              		.align	1
+  17              		.thumb
+  18              		.thumb_func
+  20              	_SYS_PCA9555_I2C_Read_Func:
+  21              		@ args = 0, pretend = 0, frame = 0
+  22              		@ frame_needed = 0, uses_anonymous_args = 0
+  23 0000 0C4B     		ldr	r3, .L5
+  24 0002 73B5     		push	{r0, r1, r4, r5, r6, lr}
+  25 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  26 0006 0E46     		mov	r6, r1
+  27 0008 012B     		cmp	r3, #1
+  28 000a 1546     		mov	r5, r2
+  29 000c 0ED1     		bne	.L3
+  30 000e 1046     		mov	r0, r2
+  31 0010 FFF7FEFF 		bl	malloc
+  32 0014 0446     		mov	r4, r0
+  33 0016 0A23     		movs	r3, #10
+  34 0018 0093     		str	r3, [sp]
+  35 001a 074B     		ldr	r3, .L5+4
+  36 001c 3146     		mov	r1, r6
+  37 001e 1868     		ldr	r0, [r3]
+  38 0020 2246     		mov	r2, r4
+  39 0022 2B46     		mov	r3, r5
+  40 0024 FFF7FEFF 		bl	HAL_I2C_Master_Receive
+  41 0028 2046     		mov	r0, r4
+  42 002a 00E0     		b	.L2
+  43              	.L3:
+  44 002c 0020     		movs	r0, #0
+  45              	.L2:
+  46 002e 02B0     		add	sp, sp, #8
+  47              		@ sp needed
+  48 0030 70BD     		pop	{r4, r5, r6, pc}
+  49              	.L6:
+  50 0032 00BF     		.align	2
+  51              	.L5:
+  52 0034 00000000 		.word	hw_i2c1_init_status
+  53 0038 00000000 		.word	hw_i2c1_handle
+  55              		.section	.text._SYS_PCA9555_I2C_Write_Func,"ax",%progbits
+  56              		.align	1
+  57              		.thumb
+  58              		.thumb_func
+  60              	_SYS_PCA9555_I2C_Write_Func:
+ARM GAS  /tmp/ccRQ9T78.s 			page 2
+
+
+  61              		@ args = 0, pretend = 0, frame = 0
+  62              		@ frame_needed = 0, uses_anonymous_args = 0
+  63 0000 13B5     		push	{r0, r1, r4, lr}
+  64 0002 1446     		mov	r4, r2
+  65 0004 064A     		ldr	r2, .L9
+  66 0006 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+  67 0008 012A     		cmp	r2, #1
+  68 000a 07D1     		bne	.L7
+  69 000c 0A22     		movs	r2, #10
+  70 000e 0092     		str	r2, [sp]
+  71 0010 044A     		ldr	r2, .L9+4
+  72 0012 1068     		ldr	r0, [r2]
+  73 0014 1A46     		mov	r2, r3
+  74 0016 2346     		mov	r3, r4
+  75 0018 FFF7FEFF 		bl	HAL_I2C_Master_Transmit
+  76              	.L7:
+  77 001c 02B0     		add	sp, sp, #8
+  78              		@ sp needed
+  79 001e 10BD     		pop	{r4, pc}
+  80              	.L10:
+  81              		.align	2
+  82              	.L9:
+  83 0020 00000000 		.word	hw_i2c1_init_status
+  84 0024 00000000 		.word	hw_i2c1_handle
+  86              		.section	.text.SYS_PCA9555_Init,"ax",%progbits
+  87              		.align	1
+  88              		.global	SYS_PCA9555_Init
+  89              		.thumb
+  90              		.thumb_func
+  92              	SYS_PCA9555_Init:
+  93              		@ args = 0, pretend = 0, frame = 0
+  94              		@ frame_needed = 0, uses_anonymous_args = 0
+  95 0000 10B5     		push	{r4, lr}
+  96 0002 0820     		movs	r0, #8
+  97 0004 FFF7FEFF 		bl	malloc
+  98 0008 144A     		ldr	r2, .L12
+  99 000a 1060     		str	r0, [r2]
+ 100 000c 144A     		ldr	r2, .L12+4
+ 101 000e 0260     		str	r2, [r0]
+ 102 0010 144A     		ldr	r2, .L12+8
+ 103 0012 4260     		str	r2, [r0, #4]
+ 104 0014 FFF7FEFF 		bl	PCA9555_LibInit
+ 105 0018 0820     		movs	r0, #8
+ 106 001a FFF7FEFF 		bl	malloc
+ 107 001e 124B     		ldr	r3, .L12+12
+ 108 0020 0446     		mov	r4, r0
+ 109 0022 1860     		str	r0, [r3]
+ 110 0024 0820     		movs	r0, #8
+ 111 0026 FFF7FEFF 		bl	malloc
+ 112 002a 104B     		ldr	r3, .L12+16
+ 113 002c 0121     		movs	r1, #1
+ 114 002e 1860     		str	r0, [r3]
+ 115 0030 2023     		movs	r3, #32
+ 116 0032 0022     		movs	r2, #0
+ 117 0034 2170     		strb	r1, [r4]
+ 118 0036 6370     		strb	r3, [r4, #1]
+ 119 0038 0170     		strb	r1, [r0]
+ARM GAS  /tmp/ccRQ9T78.s 			page 3
+
+
+ 120 003a FF23     		movs	r3, #255
+ 121 003c 2121     		movs	r1, #33
+ 122 003e 2371     		strb	r3, [r4, #4]
+ 123 0040 E371     		strb	r3, [r4, #7]
+ 124 0042 E270     		strb	r2, [r4, #3]
+ 125 0044 A271     		strb	r2, [r4, #6]
+ 126 0046 A370     		strb	r3, [r4, #2]
+ 127 0048 6371     		strb	r3, [r4, #5]
+ 128 004a 4170     		strb	r1, [r0, #1]
+ 129 004c 0371     		strb	r3, [r0, #4]
+ 130 004e C371     		strb	r3, [r0, #7]
+ 131 0050 C270     		strb	r2, [r0, #3]
+ 132 0052 8271     		strb	r2, [r0, #6]
+ 133 0054 8370     		strb	r3, [r0, #2]
+ 134 0056 4371     		strb	r3, [r0, #5]
+ 135 0058 10BD     		pop	{r4, pc}
+ 136              	.L13:
+ 137 005a 00BF     		.align	2
+ 138              	.L12:
+ 139 005c 00000000 		.word	.LANCHOR0
+ 140 0060 00000000 		.word	_SYS_PCA9555_I2C_Write_Func
+ 141 0064 00000000 		.word	_SYS_PCA9555_I2C_Read_Func
+ 142 0068 00000000 		.word	hw_portex0_handle
+ 143 006c 00000000 		.word	hw_portex1_handle
+ 145              		.comm	hw_portex1_handle,4,4
+ 146              		.comm	hw_portex0_handle,4,4
+ 147              		.section	.bss._pca9555_lib_cfg,"aw",%nobits
+ 148              		.align	2
+ 149              		.set	.LANCHOR0,. + 0
+ 152              	_pca9555_lib_cfg:
+ 153 0000 00000000 		.space	4
+ 154              		.ident	"GCC: (15:4.9.3+svn231177-1) 4.9.3 20150529 (prerelease)"
+ARM GAS  /tmp/ccRQ9T78.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 sys_pca9555.c
+     /tmp/ccRQ9T78.s:16     .text._SYS_PCA9555_I2C_Read_Func:0000000000000000 $t
+     /tmp/ccRQ9T78.s:20     .text._SYS_PCA9555_I2C_Read_Func:0000000000000000 _SYS_PCA9555_I2C_Read_Func
+     /tmp/ccRQ9T78.s:52     .text._SYS_PCA9555_I2C_Read_Func:0000000000000034 $d
+     /tmp/ccRQ9T78.s:56     .text._SYS_PCA9555_I2C_Write_Func:0000000000000000 $t
+     /tmp/ccRQ9T78.s:60     .text._SYS_PCA9555_I2C_Write_Func:0000000000000000 _SYS_PCA9555_I2C_Write_Func
+     /tmp/ccRQ9T78.s:83     .text._SYS_PCA9555_I2C_Write_Func:0000000000000020 $d
+     /tmp/ccRQ9T78.s:87     .text.SYS_PCA9555_Init:0000000000000000 $t
+     /tmp/ccRQ9T78.s:92     .text.SYS_PCA9555_Init:0000000000000000 SYS_PCA9555_Init
+     /tmp/ccRQ9T78.s:139    .text.SYS_PCA9555_Init:000000000000005c $d
+                            *COM*:0000000000000004 hw_portex0_handle
+                            *COM*:0000000000000004 hw_portex1_handle
+     /tmp/ccRQ9T78.s:148    .bss._pca9555_lib_cfg:0000000000000000 $d
+     /tmp/ccRQ9T78.s:152    .bss._pca9555_lib_cfg:0000000000000000 _pca9555_lib_cfg
+
+UNDEFINED SYMBOLS
+malloc
+HAL_I2C_Master_Receive
+hw_i2c1_init_status
+hw_i2c1_handle
+HAL_I2C_Master_Transmit
+PCA9555_LibInit

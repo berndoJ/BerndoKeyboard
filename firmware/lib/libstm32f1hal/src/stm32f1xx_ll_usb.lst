@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccPJpsOI.s 			page 1
+ARM GAS  /tmp/cc7olXpt.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccPJpsOI.s 			page 1
   60 0004 23F47C53 		bic	r3, r3, #16128
   61 0008 5B04     		lsls	r3, r3, #17
   62 000a 5B0C     		lsrs	r3, r3, #17
-ARM GAS  /tmp/ccPJpsOI.s 			page 2
+ARM GAS  /tmp/cc7olXpt.s 			page 2
 
 
   63 000c A0F84030 		strh	r3, [r0, #64]	@ movhi
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccPJpsOI.s 			page 1
  124              		.thumb
  125              		.thumb_func
  127              	USB_FlushTxFifo:
-ARM GAS  /tmp/ccPJpsOI.s 			page 3
+ARM GAS  /tmp/cc7olXpt.s 			page 3
 
 
  128              		@ args = 0, pretend = 0, frame = 0
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccPJpsOI.s 			page 1
  186 0038 0120     		movs	r0, #1
  187              	.L10:
  188 003a 42F40042 		orr	r2, r2, #32768
-ARM GAS  /tmp/ccPJpsOI.s 			page 4
+ARM GAS  /tmp/cc7olXpt.s 			page 4
 
 
  189 003e 42F08002 		orr	r2, r2, #128
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccPJpsOI.s 			page 1
  243 00dc 92B2     		uxth	r2, r2
  244 00de E252     		strh	r2, [r4, r3]	@ movhi
  245 00e0 B3F85020 		ldrh	r2, [r3, #80]
-ARM GAS  /tmp/ccPJpsOI.s 			page 5
+ARM GAS  /tmp/cc7olXpt.s 			page 5
 
 
  246 00e4 0C78     		ldrb	r4, [r1]	@ zero_extendqisi2
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccPJpsOI.s 			page 1
  300              	.L16:
  301 0168 33F82620 		ldrh	r2, [r3, r6, lsl #2]
  302 016c 22F4F872 		bic	r2, r2, #496
-ARM GAS  /tmp/ccPJpsOI.s 			page 6
+ARM GAS  /tmp/cc7olXpt.s 			page 6
 
 
  303 0170 1205     		lsls	r2, r2, #20
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccPJpsOI.s 			page 1
  357 020a 120D     		lsrs	r2, r2, #20
  358 020c 42F40042 		orr	r2, r2, #32768
  359 0210 42F0C002 		orr	r2, r2, #192
-ARM GAS  /tmp/ccPJpsOI.s 			page 7
+ARM GAS  /tmp/cc7olXpt.s 			page 7
 
 
  360 0214 23F82420 		strh	r2, [r3, r4, lsl #2]	@ movhi
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccPJpsOI.s 			page 1
  414 02b0 1DBF     		ittte	ne
  415 02b2 22F4E042 		bicne	r2, r2, #28672
  416 02b6 22F04002 		bicne	r2, r2, #64
-ARM GAS  /tmp/ccPJpsOI.s 			page 8
+ARM GAS  /tmp/cc7olXpt.s 			page 8
 
 
  417 02ba 1204     		lslne	r2, r2, #16
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccPJpsOI.s 			page 1
  473 0048 42F08002 		orr	r2, r2, #128
  474 004c 20F82320 		strh	r2, [r0, r3, lsl #2]	@ movhi
  475 0050 7FE0     		b	.L93
-ARM GAS  /tmp/ccPJpsOI.s 			page 9
+ARM GAS  /tmp/cc7olXpt.s 			page 9
 
 
  476              	.L64:
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccPJpsOI.s 			page 1
  530 00e8 22F0F002 		bic	r2, r2, #240
  531 00ec 1205     		lsls	r2, r2, #20
  532 00ee 120D     		lsrs	r2, r2, #20
-ARM GAS  /tmp/ccPJpsOI.s 			page 10
+ARM GAS  /tmp/cc7olXpt.s 			page 10
 
 
  533 00f0 42F44042 		orr	r2, r2, #49152
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccPJpsOI.s 			page 1
  589 0002 7047     		bx	lr
  591              		.section	.text.USB_ReadPacket,"ax",%progbits
  592              		.align	1
-ARM GAS  /tmp/ccPJpsOI.s 			page 11
+ARM GAS  /tmp/cc7olXpt.s 			page 11
 
 
  593              		.global	USB_ReadPacket
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccPJpsOI.s 			page 1
  652 0008 0A78     		ldrb	r2, [r1]	@ zero_extendqisi2
  653 000a F3B1     		cbz	r3, .L104
  654 000c 30F82230 		ldrh	r3, [r0, r2, lsl #2]
-ARM GAS  /tmp/ccPJpsOI.s 			page 12
+ARM GAS  /tmp/cc7olXpt.s 			page 12
 
 
  655 0010 5B06     		lsls	r3, r3, #25
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccPJpsOI.s 			page 1
  711              		@ frame_needed = 0, uses_anonymous_args = 0
  712              		@ link register save eliminated.
  713 0000 0346     		mov	r3, r0
-ARM GAS  /tmp/ccPJpsOI.s 			page 13
+ARM GAS  /tmp/cc7olXpt.s 			page 13
 
 
  714 0002 0122     		movs	r2, #1
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccPJpsOI.s 			page 1
  776 0004 80B2     		uxth	r0, r0
  777 0006 7047     		bx	lr
  779              		.section	.text.USB_ReadDevAllOutEpInterrupt,"ax",%progbits
-ARM GAS  /tmp/ccPJpsOI.s 			page 14
+ARM GAS  /tmp/cc7olXpt.s 			page 14
 
 
  780              		.align	1
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccPJpsOI.s 			page 1
  844              		.align	1
  845              		.global	USB_EP0_OutStart
  846              		.thumb
-ARM GAS  /tmp/ccPJpsOI.s 			page 15
+ARM GAS  /tmp/cc7olXpt.s 			page 15
 
 
  847              		.thumb_func
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccPJpsOI.s 			page 1
  908 0014 01F10201 		add	r1, r1, #2
  909 0018 08D0     		beq	.L135
  910 001a 11F8014C 		ldrb	r4, [r1, #-1]	@ zero_extendqisi2
-ARM GAS  /tmp/ccPJpsOI.s 			page 16
+ARM GAS  /tmp/cc7olXpt.s 			page 16
 
 
  911 001e 11F8020C 		ldrb	r0, [r1, #-2]	@ zero_extendqisi2
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccPJpsOI.s 			page 1
  967 005c 15BF     		itete	ne
  968 005e 02F20C42 		addwne	r2, r2, #1036
  969 0062 02F20442 		addweq	r2, r2, #1028
-ARM GAS  /tmp/ccPJpsOI.s 			page 17
+ARM GAS  /tmp/cc7olXpt.s 			page 17
 
 
  970 0066 9B18     		addne	r3, r3, r2
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccPJpsOI.s 			page 1
  1024 00ea 01EB0211 		add	r1, r1, r2, lsl #4
  1025 00ee 4BB9     		cbnz	r3, .L155
  1026 00f0 625A     		ldrh	r2, [r4, r1]
-ARM GAS  /tmp/ccPJpsOI.s 			page 18
+ARM GAS  /tmp/cc7olXpt.s 			page 18
 
 
  1027 00f2 22F4F842 		bic	r2, r2, #31744
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccPJpsOI.s 			page 1
  1081 0166 08E0     		b	.L177
  1082              	.L161:
  1083 0168 5909     		lsrs	r1, r3, #5
-ARM GAS  /tmp/ccPJpsOI.s 			page 19
+ARM GAS  /tmp/cc7olXpt.s 			page 19
 
 
  1084 016a DB06     		lsls	r3, r3, #27
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccPJpsOI.s 			page 1
  1140 001e 00F8024C 		strb	r4, [r0, #-2]
  1141 0022 240A     		lsrs	r4, r4, #8
  1142 0024 00F8014C 		strb	r4, [r0, #-1]
-ARM GAS  /tmp/ccPJpsOI.s 			page 20
+ARM GAS  /tmp/cc7olXpt.s 			page 20
 
 
  1143 0028 F3E7     		b	.L189
@@ -1149,75 +1149,75 @@ ARM GAS  /tmp/ccPJpsOI.s 			page 1
  1148 0032 01F81530 		strbmi	r3, [r1, r5, lsl #1]
  1149 0036 F0BD     		pop	{r4, r5, r6, r7, pc}
  1151              		.ident	"GCC: (15:4.9.3+svn231177-1) 4.9.3 20150529 (prerelease)"
-ARM GAS  /tmp/ccPJpsOI.s 			page 21
+ARM GAS  /tmp/cc7olXpt.s 			page 21
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f1xx_ll_usb.c
-     /tmp/ccPJpsOI.s:16     .text.USB_CoreInit:0000000000000000 $t
-     /tmp/ccPJpsOI.s:21     .text.USB_CoreInit:0000000000000000 USB_CoreInit
-     /tmp/ccPJpsOI.s:33     .text.USB_EnableGlobalInt:0000000000000000 $t
-     /tmp/ccPJpsOI.s:38     .text.USB_EnableGlobalInt:0000000000000000 USB_EnableGlobalInt
-     /tmp/ccPJpsOI.s:50     .text.USB_DisableGlobalInt:0000000000000000 $t
-     /tmp/ccPJpsOI.s:55     .text.USB_DisableGlobalInt:0000000000000000 USB_DisableGlobalInt
-     /tmp/ccPJpsOI.s:68     .text.USB_SetCurrentMode:0000000000000000 $t
-     /tmp/ccPJpsOI.s:73     .text.USB_SetCurrentMode:0000000000000000 USB_SetCurrentMode
-     /tmp/ccPJpsOI.s:81     .text.USB_DevInit:0000000000000000 $t
-     /tmp/ccPJpsOI.s:86     .text.USB_DevInit:0000000000000000 USB_DevInit
-     /tmp/ccPJpsOI.s:109    .text.USB_SetDevSpeed:0000000000000000 $t
-     /tmp/ccPJpsOI.s:114    .text.USB_SetDevSpeed:0000000000000000 USB_SetDevSpeed
-     /tmp/ccPJpsOI.s:122    .text.USB_FlushTxFifo:0000000000000000 $t
-     /tmp/ccPJpsOI.s:127    .text.USB_FlushTxFifo:0000000000000000 USB_FlushTxFifo
-     /tmp/ccPJpsOI.s:135    .text.USB_FlushRxFifo:0000000000000000 $t
-     /tmp/ccPJpsOI.s:140    .text.USB_FlushRxFifo:0000000000000000 USB_FlushRxFifo
-     /tmp/ccPJpsOI.s:148    .text.USB_ActivateEndpoint:0000000000000000 $t
-     /tmp/ccPJpsOI.s:153    .text.USB_ActivateEndpoint:0000000000000000 USB_ActivateEndpoint
-     /tmp/ccPJpsOI.s:169    .text.USB_ActivateEndpoint:0000000000000020 $d
-     /tmp/ccPJpsOI.s:173    .text.USB_ActivateEndpoint:0000000000000024 $t
-     /tmp/ccPJpsOI.s:439    .text.USB_DeactivateEndpoint:0000000000000000 $t
-     /tmp/ccPJpsOI.s:444    .text.USB_DeactivateEndpoint:0000000000000000 USB_DeactivateEndpoint
-     /tmp/ccPJpsOI.s:579    .text.USB_WritePacket:0000000000000000 $t
-     /tmp/ccPJpsOI.s:584    .text.USB_WritePacket:0000000000000000 USB_WritePacket
-     /tmp/ccPJpsOI.s:592    .text.USB_ReadPacket:0000000000000000 $t
-     /tmp/ccPJpsOI.s:597    .text.USB_ReadPacket:0000000000000000 USB_ReadPacket
-     /tmp/ccPJpsOI.s:605    .text.USB_EPSetStall:0000000000000000 $t
-     /tmp/ccPJpsOI.s:610    .text.USB_EPSetStall:0000000000000000 USB_EPSetStall
-     /tmp/ccPJpsOI.s:639    .text.USB_EPClearStall:0000000000000000 $t
-     /tmp/ccPJpsOI.s:644    .text.USB_EPClearStall:0000000000000000 USB_EPClearStall
-     /tmp/ccPJpsOI.s:704    .text.USB_StopDevice:0000000000000000 $t
-     /tmp/ccPJpsOI.s:709    .text.USB_StopDevice:0000000000000000 USB_StopDevice
-     /tmp/ccPJpsOI.s:723    .text.USB_SetDevAddress:0000000000000000 $t
-     /tmp/ccPJpsOI.s:728    .text.USB_SetDevAddress:0000000000000000 USB_SetDevAddress
-     /tmp/ccPJpsOI.s:740    .text.USB_DevConnect:0000000000000000 $t
-     /tmp/ccPJpsOI.s:745    .text.USB_DevConnect:0000000000000000 USB_DevConnect
-     /tmp/ccPJpsOI.s:753    .text.USB_DevDisconnect:0000000000000000 $t
-     /tmp/ccPJpsOI.s:758    .text.USB_DevDisconnect:0000000000000000 USB_DevDisconnect
-     /tmp/ccPJpsOI.s:766    .text.USB_ReadInterrupts:0000000000000000 $t
-     /tmp/ccPJpsOI.s:771    .text.USB_ReadInterrupts:0000000000000000 USB_ReadInterrupts
-     /tmp/ccPJpsOI.s:780    .text.USB_ReadDevAllOutEpInterrupt:0000000000000000 $t
-     /tmp/ccPJpsOI.s:785    .text.USB_ReadDevAllOutEpInterrupt:0000000000000000 USB_ReadDevAllOutEpInterrupt
-     /tmp/ccPJpsOI.s:793    .text.USB_ReadDevAllInEpInterrupt:0000000000000000 $t
-     /tmp/ccPJpsOI.s:798    .text.USB_ReadDevAllInEpInterrupt:0000000000000000 USB_ReadDevAllInEpInterrupt
-     /tmp/ccPJpsOI.s:806    .text.USB_ReadDevOutEPInterrupt:0000000000000000 $t
-     /tmp/ccPJpsOI.s:811    .text.USB_ReadDevOutEPInterrupt:0000000000000000 USB_ReadDevOutEPInterrupt
-     /tmp/ccPJpsOI.s:819    .text.USB_ReadDevInEPInterrupt:0000000000000000 $t
-     /tmp/ccPJpsOI.s:824    .text.USB_ReadDevInEPInterrupt:0000000000000000 USB_ReadDevInEPInterrupt
-     /tmp/ccPJpsOI.s:832    .text.USB_ClearInterrupts:0000000000000000 $t
-     /tmp/ccPJpsOI.s:837    .text.USB_ClearInterrupts:0000000000000000 USB_ClearInterrupts
-     /tmp/ccPJpsOI.s:844    .text.USB_EP0_OutStart:0000000000000000 $t
-     /tmp/ccPJpsOI.s:849    .text.USB_EP0_OutStart:0000000000000000 USB_EP0_OutStart
-     /tmp/ccPJpsOI.s:857    .text.USB_ActivateRemoteWakeup:0000000000000000 $t
-     /tmp/ccPJpsOI.s:862    .text.USB_ActivateRemoteWakeup:0000000000000000 USB_ActivateRemoteWakeup
-     /tmp/ccPJpsOI.s:874    .text.USB_DeActivateRemoteWakeup:0000000000000000 $t
-ARM GAS  /tmp/ccPJpsOI.s 			page 22
+     /tmp/cc7olXpt.s:16     .text.USB_CoreInit:0000000000000000 $t
+     /tmp/cc7olXpt.s:21     .text.USB_CoreInit:0000000000000000 USB_CoreInit
+     /tmp/cc7olXpt.s:33     .text.USB_EnableGlobalInt:0000000000000000 $t
+     /tmp/cc7olXpt.s:38     .text.USB_EnableGlobalInt:0000000000000000 USB_EnableGlobalInt
+     /tmp/cc7olXpt.s:50     .text.USB_DisableGlobalInt:0000000000000000 $t
+     /tmp/cc7olXpt.s:55     .text.USB_DisableGlobalInt:0000000000000000 USB_DisableGlobalInt
+     /tmp/cc7olXpt.s:68     .text.USB_SetCurrentMode:0000000000000000 $t
+     /tmp/cc7olXpt.s:73     .text.USB_SetCurrentMode:0000000000000000 USB_SetCurrentMode
+     /tmp/cc7olXpt.s:81     .text.USB_DevInit:0000000000000000 $t
+     /tmp/cc7olXpt.s:86     .text.USB_DevInit:0000000000000000 USB_DevInit
+     /tmp/cc7olXpt.s:109    .text.USB_SetDevSpeed:0000000000000000 $t
+     /tmp/cc7olXpt.s:114    .text.USB_SetDevSpeed:0000000000000000 USB_SetDevSpeed
+     /tmp/cc7olXpt.s:122    .text.USB_FlushTxFifo:0000000000000000 $t
+     /tmp/cc7olXpt.s:127    .text.USB_FlushTxFifo:0000000000000000 USB_FlushTxFifo
+     /tmp/cc7olXpt.s:135    .text.USB_FlushRxFifo:0000000000000000 $t
+     /tmp/cc7olXpt.s:140    .text.USB_FlushRxFifo:0000000000000000 USB_FlushRxFifo
+     /tmp/cc7olXpt.s:148    .text.USB_ActivateEndpoint:0000000000000000 $t
+     /tmp/cc7olXpt.s:153    .text.USB_ActivateEndpoint:0000000000000000 USB_ActivateEndpoint
+     /tmp/cc7olXpt.s:169    .text.USB_ActivateEndpoint:0000000000000020 $d
+     /tmp/cc7olXpt.s:173    .text.USB_ActivateEndpoint:0000000000000024 $t
+     /tmp/cc7olXpt.s:439    .text.USB_DeactivateEndpoint:0000000000000000 $t
+     /tmp/cc7olXpt.s:444    .text.USB_DeactivateEndpoint:0000000000000000 USB_DeactivateEndpoint
+     /tmp/cc7olXpt.s:579    .text.USB_WritePacket:0000000000000000 $t
+     /tmp/cc7olXpt.s:584    .text.USB_WritePacket:0000000000000000 USB_WritePacket
+     /tmp/cc7olXpt.s:592    .text.USB_ReadPacket:0000000000000000 $t
+     /tmp/cc7olXpt.s:597    .text.USB_ReadPacket:0000000000000000 USB_ReadPacket
+     /tmp/cc7olXpt.s:605    .text.USB_EPSetStall:0000000000000000 $t
+     /tmp/cc7olXpt.s:610    .text.USB_EPSetStall:0000000000000000 USB_EPSetStall
+     /tmp/cc7olXpt.s:639    .text.USB_EPClearStall:0000000000000000 $t
+     /tmp/cc7olXpt.s:644    .text.USB_EPClearStall:0000000000000000 USB_EPClearStall
+     /tmp/cc7olXpt.s:704    .text.USB_StopDevice:0000000000000000 $t
+     /tmp/cc7olXpt.s:709    .text.USB_StopDevice:0000000000000000 USB_StopDevice
+     /tmp/cc7olXpt.s:723    .text.USB_SetDevAddress:0000000000000000 $t
+     /tmp/cc7olXpt.s:728    .text.USB_SetDevAddress:0000000000000000 USB_SetDevAddress
+     /tmp/cc7olXpt.s:740    .text.USB_DevConnect:0000000000000000 $t
+     /tmp/cc7olXpt.s:745    .text.USB_DevConnect:0000000000000000 USB_DevConnect
+     /tmp/cc7olXpt.s:753    .text.USB_DevDisconnect:0000000000000000 $t
+     /tmp/cc7olXpt.s:758    .text.USB_DevDisconnect:0000000000000000 USB_DevDisconnect
+     /tmp/cc7olXpt.s:766    .text.USB_ReadInterrupts:0000000000000000 $t
+     /tmp/cc7olXpt.s:771    .text.USB_ReadInterrupts:0000000000000000 USB_ReadInterrupts
+     /tmp/cc7olXpt.s:780    .text.USB_ReadDevAllOutEpInterrupt:0000000000000000 $t
+     /tmp/cc7olXpt.s:785    .text.USB_ReadDevAllOutEpInterrupt:0000000000000000 USB_ReadDevAllOutEpInterrupt
+     /tmp/cc7olXpt.s:793    .text.USB_ReadDevAllInEpInterrupt:0000000000000000 $t
+     /tmp/cc7olXpt.s:798    .text.USB_ReadDevAllInEpInterrupt:0000000000000000 USB_ReadDevAllInEpInterrupt
+     /tmp/cc7olXpt.s:806    .text.USB_ReadDevOutEPInterrupt:0000000000000000 $t
+     /tmp/cc7olXpt.s:811    .text.USB_ReadDevOutEPInterrupt:0000000000000000 USB_ReadDevOutEPInterrupt
+     /tmp/cc7olXpt.s:819    .text.USB_ReadDevInEPInterrupt:0000000000000000 $t
+     /tmp/cc7olXpt.s:824    .text.USB_ReadDevInEPInterrupt:0000000000000000 USB_ReadDevInEPInterrupt
+     /tmp/cc7olXpt.s:832    .text.USB_ClearInterrupts:0000000000000000 $t
+     /tmp/cc7olXpt.s:837    .text.USB_ClearInterrupts:0000000000000000 USB_ClearInterrupts
+     /tmp/cc7olXpt.s:844    .text.USB_EP0_OutStart:0000000000000000 $t
+     /tmp/cc7olXpt.s:849    .text.USB_EP0_OutStart:0000000000000000 USB_EP0_OutStart
+     /tmp/cc7olXpt.s:857    .text.USB_ActivateRemoteWakeup:0000000000000000 $t
+     /tmp/cc7olXpt.s:862    .text.USB_ActivateRemoteWakeup:0000000000000000 USB_ActivateRemoteWakeup
+     /tmp/cc7olXpt.s:874    .text.USB_DeActivateRemoteWakeup:0000000000000000 $t
+ARM GAS  /tmp/cc7olXpt.s 			page 22
 
 
-     /tmp/ccPJpsOI.s:879    .text.USB_DeActivateRemoteWakeup:0000000000000000 USB_DeActivateRemoteWakeup
-     /tmp/ccPJpsOI.s:892    .text.USB_WritePMA:0000000000000000 $t
-     /tmp/ccPJpsOI.s:897    .text.USB_WritePMA:0000000000000000 USB_WritePMA
-     /tmp/ccPJpsOI.s:919    .text.USB_EPStartXfer:0000000000000000 $t
-     /tmp/ccPJpsOI.s:924    .text.USB_EPStartXfer:0000000000000000 USB_EPStartXfer
-     /tmp/ccPJpsOI.s:1119   .text.USB_ReadPMA:0000000000000000 $t
-     /tmp/ccPJpsOI.s:1124   .text.USB_ReadPMA:0000000000000000 USB_ReadPMA
+     /tmp/cc7olXpt.s:879    .text.USB_DeActivateRemoteWakeup:0000000000000000 USB_DeActivateRemoteWakeup
+     /tmp/cc7olXpt.s:892    .text.USB_WritePMA:0000000000000000 $t
+     /tmp/cc7olXpt.s:897    .text.USB_WritePMA:0000000000000000 USB_WritePMA
+     /tmp/cc7olXpt.s:919    .text.USB_EPStartXfer:0000000000000000 $t
+     /tmp/cc7olXpt.s:924    .text.USB_EPStartXfer:0000000000000000 USB_EPStartXfer
+     /tmp/cc7olXpt.s:1119   .text.USB_ReadPMA:0000000000000000 $t
+     /tmp/cc7olXpt.s:1124   .text.USB_ReadPMA:0000000000000000 USB_ReadPMA
 
 NO UNDEFINED SYMBOLS

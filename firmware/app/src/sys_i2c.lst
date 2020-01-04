@@ -1,0 +1,101 @@
+ARM GAS  /tmp/cccGhfF8.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"sys_i2c.c"
+  15              		.section	.text.SYS_I2C_Init,"ax",%progbits
+  16              		.align	1
+  17              		.global	SYS_I2C_Init
+  18              		.thumb
+  19              		.thumb_func
+  21              	SYS_I2C_Init:
+  22              		@ args = 0, pretend = 0, frame = 0
+  23              		@ frame_needed = 0, uses_anonymous_args = 0
+  24 0000 10B5     		push	{r4, lr}
+  25 0002 5420     		movs	r0, #84
+  26 0004 FFF7FEFF 		bl	malloc
+  27 0008 0F4A     		ldr	r2, .L4
+  28 000a DFF850E0 		ldr	lr, .L4+20
+  29 000e 1060     		str	r0, [r2]
+  30 0010 0E4A     		ldr	r2, .L4+4
+  31 0012 0124     		movs	r4, #1
+  32 0014 80E80440 		stmia	r0, {r2, lr}
+  33 0018 4FF48041 		mov	r1, #16384
+  34 001c 0022     		movs	r2, #0
+  35 001e 8260     		str	r2, [r0, #8]
+  36 0020 C260     		str	r2, [r0, #12]
+  37 0022 8461     		str	r4, [r0, #24]
+  38 0024 0161     		str	r1, [r0, #16]
+  39 0026 4261     		str	r2, [r0, #20]
+  40 0028 C261     		str	r2, [r0, #28]
+  41 002a 0262     		str	r2, [r0, #32]
+  42 002c FFF7FEFF 		bl	HAL_I2C_Init
+  43 0030 38B1     		cbz	r0, .L2
+  44 0032 BDE81040 		pop	{r4, lr}
+  45 0036 0220     		movs	r0, #2
+  46 0038 1721     		movs	r1, #23
+  47 003a 054A     		ldr	r2, .L4+8
+  48 003c 054B     		ldr	r3, .L4+12
+  49 003e FFF7FEBF 		b	SYS_ThrowError
+  50              	.L2:
+  51 0042 054B     		ldr	r3, .L4+16
+  52 0044 1C70     		strb	r4, [r3]
+  53 0046 10BD     		pop	{r4, pc}
+  54              	.L5:
+  55              		.align	2
+  56              	.L4:
+  57 0048 00000000 		.word	hw_i2c1_handle
+  58 004c 00540040 		.word	1073763328
+ARM GAS  /tmp/cccGhfF8.s 			page 2
+
+
+  59 0050 00000000 		.word	.LC0
+  60 0054 0E000000 		.word	.LC1
+  61 0058 00000000 		.word	.LANCHOR0
+  62 005c A0860100 		.word	100000
+  64              		.global	hw_i2c1_init_status
+  65              		.comm	hw_i2c1_handle,4,4
+  66              		.section	.rodata.str1.1,"aMS",%progbits,1
+  67              	.LC0:
+  68 0000 7372632F 		.ascii	"src/sys_i2c.c\000"
+  68      7379735F 
+  68      6932632E 
+  68      6300
+  69              	.LC1:
+  70 000e 49324331 		.ascii	"I2C1 INIT FAIL\000"
+  70      20494E49 
+  70      54204641 
+  70      494C00
+  71              		.section	.bss.hw_i2c1_init_status,"aw",%nobits
+  72              		.set	.LANCHOR0,. + 0
+  75              	hw_i2c1_init_status:
+  76 0000 00       		.space	1
+  77              		.ident	"GCC: (15:4.9.3+svn231177-1) 4.9.3 20150529 (prerelease)"
+ARM GAS  /tmp/cccGhfF8.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 sys_i2c.c
+     /tmp/cccGhfF8.s:16     .text.SYS_I2C_Init:0000000000000000 $t
+     /tmp/cccGhfF8.s:21     .text.SYS_I2C_Init:0000000000000000 SYS_I2C_Init
+     /tmp/cccGhfF8.s:57     .text.SYS_I2C_Init:0000000000000048 $d
+                            *COM*:0000000000000004 hw_i2c1_handle
+     /tmp/cccGhfF8.s:75     .bss.hw_i2c1_init_status:0000000000000000 hw_i2c1_init_status
+     /tmp/cccGhfF8.s:76     .bss.hw_i2c1_init_status:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+malloc
+HAL_I2C_Init
+SYS_ThrowError

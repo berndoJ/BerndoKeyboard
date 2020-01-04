@@ -1,0 +1,493 @@
+ARM GAS  /tmp/ccB7uxMW.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"pca9555.c"
+  15              		.section	.text._PCA9555_ReadRegister,"ax",%progbits
+  16              		.align	1
+  17              		.thumb
+  18              		.thumb_func
+  20              	_PCA9555_ReadRegister:
+  21              		@ args = 0, pretend = 0, frame = 8
+  22              		@ frame_needed = 0, uses_anonymous_args = 0
+  23 0000 73B5     		push	{r0, r1, r4, r5, r6, lr}
+  24 0002 0446     		mov	r4, r0
+  25 0004 02AB     		add	r3, sp, #8
+  26 0006 03F8011D 		strb	r1, [r3, #-1]!
+  27 000a 4178     		ldrb	r1, [r0, #1]	@ zero_extendqisi2
+  28 000c 074E     		ldr	r6, .L2
+  29 000e 4900     		lsls	r1, r1, #1
+  30 0010 0131     		adds	r1, r1, #1
+  31 0012 3568     		ldr	r5, [r6]
+  32 0014 0078     		ldrb	r0, [r0]	@ zero_extendqisi2
+  33 0016 C9B2     		uxtb	r1, r1
+  34 0018 0122     		movs	r2, #1
+  35 001a A847     		blx	r5
+  36 001c 7368     		ldr	r3, [r6, #4]
+  37 001e 2078     		ldrb	r0, [r4]	@ zero_extendqisi2
+  38 0020 6178     		ldrb	r1, [r4, #1]	@ zero_extendqisi2
+  39 0022 0122     		movs	r2, #1
+  40 0024 9847     		blx	r3
+  41 0026 0078     		ldrb	r0, [r0]	@ zero_extendqisi2
+  42 0028 02B0     		add	sp, sp, #8
+  43              		@ sp needed
+  44 002a 70BD     		pop	{r4, r5, r6, pc}
+  45              	.L3:
+  46              		.align	2
+  47              	.L2:
+  48 002c 00000000 		.word	.LANCHOR0
+  50              		.section	.text._PCA9555_WriteRegister.isra.0,"ax",%progbits
+  51              		.align	1
+  52              		.thumb
+  53              		.thumb_func
+  55              	_PCA9555_WriteRegister.isra.0:
+  56              		@ args = 0, pretend = 0, frame = 8
+  57              		@ frame_needed = 0, uses_anonymous_args = 0
+  58 0000 13B5     		push	{r0, r1, r4, lr}
+  59 0002 8DF80530 		strb	r3, [sp, #5]
+  60 0006 064B     		ldr	r3, .L5
+ARM GAS  /tmp/ccB7uxMW.s 			page 2
+
+
+  61 0008 4900     		lsls	r1, r1, #1
+  62 000a 8DF80420 		strb	r2, [sp, #4]
+  63 000e 1C68     		ldr	r4, [r3]
+  64 0010 01F0FE01 		and	r1, r1, #254
+  65 0014 0222     		movs	r2, #2
+  66 0016 01AB     		add	r3, sp, #4
+  67 0018 A047     		blx	r4
+  68 001a 02B0     		add	sp, sp, #8
+  69              		@ sp needed
+  70 001c 10BD     		pop	{r4, pc}
+  71              	.L6:
+  72 001e 00BF     		.align	2
+  73              	.L5:
+  74 0020 00000000 		.word	.LANCHOR0
+  76              		.section	.text._PCA9555_UpdateCfgRegisterFromBuf,"ax",%progbits
+  77              		.align	1
+  78              		.thumb
+  79              		.thumb_func
+  81              	_PCA9555_UpdateCfgRegisterFromBuf:
+  82              		@ args = 0, pretend = 0, frame = 0
+  83              		@ frame_needed = 0, uses_anonymous_args = 0
+  84              		@ link register save eliminated.
+  85 0000 0346     		mov	r3, r0
+  86 0002 11B1     		cbz	r1, .L9
+  87 0004 0129     		cmp	r1, #1
+  88 0006 05D0     		beq	.L10
+  89 0008 7047     		bx	lr
+  90              	.L9:
+  91 000a 5978     		ldrb	r1, [r3, #1]	@ zero_extendqisi2
+  92 000c 0078     		ldrb	r0, [r0]	@ zero_extendqisi2
+  93 000e 0622     		movs	r2, #6
+  94 0010 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+  95 0012 03E0     		b	.L12
+  96              	.L10:
+  97 0014 5978     		ldrb	r1, [r3, #1]	@ zero_extendqisi2
+  98 0016 0078     		ldrb	r0, [r0]	@ zero_extendqisi2
+  99 0018 5B79     		ldrb	r3, [r3, #5]	@ zero_extendqisi2
+ 100 001a 0722     		movs	r2, #7
+ 101              	.L12:
+ 102 001c FFF7FEBF 		b	_PCA9555_WriteRegister.isra.0
+ 104              		.section	.text._PCA9555_UpdateInvRegisterFromBuf,"ax",%progbits
+ 105              		.align	1
+ 106              		.thumb
+ 107              		.thumb_func
+ 109              	_PCA9555_UpdateInvRegisterFromBuf:
+ 110              		@ args = 0, pretend = 0, frame = 0
+ 111              		@ frame_needed = 0, uses_anonymous_args = 0
+ 112              		@ link register save eliminated.
+ 113 0000 0346     		mov	r3, r0
+ 114 0002 11B1     		cbz	r1, .L16
+ 115 0004 0129     		cmp	r1, #1
+ 116 0006 05D0     		beq	.L17
+ 117 0008 7047     		bx	lr
+ 118              	.L16:
+ 119 000a 5978     		ldrb	r1, [r3, #1]	@ zero_extendqisi2
+ 120 000c 0078     		ldrb	r0, [r0]	@ zero_extendqisi2
+ 121 000e 0422     		movs	r2, #4
+ARM GAS  /tmp/ccB7uxMW.s 			page 3
+
+
+ 122 0010 DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+ 123 0012 03E0     		b	.L19
+ 124              	.L17:
+ 125 0014 5978     		ldrb	r1, [r3, #1]	@ zero_extendqisi2
+ 126 0016 0078     		ldrb	r0, [r0]	@ zero_extendqisi2
+ 127 0018 9B79     		ldrb	r3, [r3, #6]	@ zero_extendqisi2
+ 128 001a 0522     		movs	r2, #5
+ 129              	.L19:
+ 130 001c FFF7FEBF 		b	_PCA9555_WriteRegister.isra.0
+ 132              		.section	.text._PCA9555_UpdateStateRegisterFromBuf,"ax",%progbits
+ 133              		.align	1
+ 134              		.thumb
+ 135              		.thumb_func
+ 137              	_PCA9555_UpdateStateRegisterFromBuf:
+ 138              		@ args = 0, pretend = 0, frame = 0
+ 139              		@ frame_needed = 0, uses_anonymous_args = 0
+ 140              		@ link register save eliminated.
+ 141 0000 0346     		mov	r3, r0
+ 142 0002 11B1     		cbz	r1, .L22
+ 143 0004 0129     		cmp	r1, #1
+ 144 0006 05D0     		beq	.L23
+ 145 0008 7047     		bx	lr
+ 146              	.L22:
+ 147 000a 5978     		ldrb	r1, [r3, #1]	@ zero_extendqisi2
+ 148 000c 0078     		ldrb	r0, [r0]	@ zero_extendqisi2
+ 149 000e 0222     		movs	r2, #2
+ 150 0010 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+ 151 0012 03E0     		b	.L25
+ 152              	.L23:
+ 153 0014 5978     		ldrb	r1, [r3, #1]	@ zero_extendqisi2
+ 154 0016 0078     		ldrb	r0, [r0]	@ zero_extendqisi2
+ 155 0018 DB79     		ldrb	r3, [r3, #7]	@ zero_extendqisi2
+ 156 001a 0322     		movs	r2, #3
+ 157              	.L25:
+ 158 001c FFF7FEBF 		b	_PCA9555_WriteRegister.isra.0
+ 160              		.section	.text.PCA9555_LibInit,"ax",%progbits
+ 161              		.align	1
+ 162              		.global	PCA9555_LibInit
+ 163              		.thumb
+ 164              		.thumb_func
+ 166              	PCA9555_LibInit:
+ 167              		@ args = 0, pretend = 0, frame = 0
+ 168              		@ frame_needed = 0, uses_anonymous_args = 0
+ 169              		@ link register save eliminated.
+ 170 0000 024B     		ldr	r3, .L27
+ 171 0002 03C8     		ldmia	r0, {r0, r1}
+ 172 0004 83E80300 		stmia	r3, {r0, r1}
+ 173 0008 7047     		bx	lr
+ 174              	.L28:
+ 175 000a 00BF     		.align	2
+ 176              	.L27:
+ 177 000c 00000000 		.word	.LANCHOR0
+ 179              		.section	.text.PCA9555_WritePin,"ax",%progbits
+ 180              		.align	1
+ 181              		.global	PCA9555_WritePin
+ 182              		.thumb
+ 183              		.thumb_func
+ARM GAS  /tmp/ccB7uxMW.s 			page 4
+
+
+ 185              	PCA9555_WritePin:
+ 186              		@ args = 0, pretend = 0, frame = 0
+ 187              		@ frame_needed = 0, uses_anonymous_args = 0
+ 188              		@ link register save eliminated.
+ 189 0000 0129     		cmp	r1, #1
+ 190 0002 23D8     		bhi	.L29
+ 191 0004 072A     		cmp	r2, #7
+ 192 0006 21D8     		bhi	.L29
+ 193 0008 0129     		cmp	r1, #1
+ 194 000a 0ED0     		beq	.L32
+ 195 000c 13B1     		cbz	r3, .L33
+ 196 000e 012B     		cmp	r3, #1
+ 197 0010 06D0     		beq	.L34
+ 198 0012 7047     		bx	lr
+ 199              	.L33:
+ 200 0014 0123     		movs	r3, #1
+ 201 0016 9340     		lsls	r3, r3, r2
+ 202 0018 0279     		ldrb	r2, [r0, #4]	@ zero_extendqisi2
+ 203 001a 22EA0303 		bic	r3, r2, r3
+ 204 001e 02E0     		b	.L38
+ 205              	.L34:
+ 206 0020 9340     		lsls	r3, r3, r2
+ 207 0022 0279     		ldrb	r2, [r0, #4]	@ zero_extendqisi2
+ 208 0024 1343     		orrs	r3, r3, r2
+ 209              	.L38:
+ 210 0026 0371     		strb	r3, [r0, #4]
+ 211 0028 0EE0     		b	.L35
+ 212              	.L32:
+ 213 002a 13B1     		cbz	r3, .L36
+ 214 002c 012B     		cmp	r3, #1
+ 215 002e 06D0     		beq	.L37
+ 216 0030 7047     		bx	lr
+ 217              	.L36:
+ 218 0032 C379     		ldrb	r3, [r0, #7]	@ zero_extendqisi2
+ 219 0034 01FA02F2 		lsl	r2, r1, r2
+ 220 0038 23EA0203 		bic	r3, r3, r2
+ 221 003c 03E0     		b	.L39
+ 222              	.L37:
+ 223 003e C379     		ldrb	r3, [r0, #7]	@ zero_extendqisi2
+ 224 0040 01FA02F2 		lsl	r2, r1, r2
+ 225 0044 1343     		orrs	r3, r3, r2
+ 226              	.L39:
+ 227 0046 C371     		strb	r3, [r0, #7]
+ 228              	.L35:
+ 229 0048 FFF7FEBF 		b	_PCA9555_UpdateStateRegisterFromBuf
+ 230              	.L29:
+ 231 004c 7047     		bx	lr
+ 233              		.section	.text.PCA9555_WritePort,"ax",%progbits
+ 234              		.align	1
+ 235              		.global	PCA9555_WritePort
+ 236              		.thumb
+ 237              		.thumb_func
+ 239              	PCA9555_WritePort:
+ 240              		@ args = 0, pretend = 0, frame = 0
+ 241              		@ frame_needed = 0, uses_anonymous_args = 0
+ 242              		@ link register save eliminated.
+ 243 0000 11B1     		cbz	r1, .L42
+ARM GAS  /tmp/ccB7uxMW.s 			page 5
+
+
+ 244 0002 0129     		cmp	r1, #1
+ 245 0004 02D0     		beq	.L43
+ 246 0006 7047     		bx	lr
+ 247              	.L42:
+ 248 0008 0271     		strb	r2, [r0, #4]
+ 249 000a 00E0     		b	.L44
+ 250              	.L43:
+ 251 000c C271     		strb	r2, [r0, #7]
+ 252              	.L44:
+ 253 000e FFF7FEBF 		b	_PCA9555_UpdateStateRegisterFromBuf
+ 255              		.section	.text.PCA9555_ReadPin,"ax",%progbits
+ 256              		.align	1
+ 257              		.global	PCA9555_ReadPin
+ 258              		.thumb
+ 259              		.thumb_func
+ 261              	PCA9555_ReadPin:
+ 262              		@ args = 0, pretend = 0, frame = 0
+ 263              		@ frame_needed = 0, uses_anonymous_args = 0
+ 264 0000 072A     		cmp	r2, #7
+ 265 0002 10B5     		push	{r4, lr}
+ 266 0004 1446     		mov	r4, r2
+ 267 0006 08D8     		bhi	.L53
+ 268 0008 09B1     		cbz	r1, .L49
+ 269 000a 0129     		cmp	r1, #1
+ 270 000c 05D1     		bne	.L53
+ 271              	.L49:
+ 272 000e FFF7FEFF 		bl	_PCA9555_ReadRegister
+ 273 0012 2041     		asrs	r0, r0, r4
+ 274 0014 00F00100 		and	r0, r0, #1
+ 275 0018 10BD     		pop	{r4, pc}
+ 276              	.L53:
+ 277 001a 0020     		movs	r0, #0
+ 278 001c 10BD     		pop	{r4, pc}
+ 280              		.section	.text.PCA9555_ReadPort,"ax",%progbits
+ 281              		.align	1
+ 282              		.global	PCA9555_ReadPort
+ 283              		.thumb
+ 284              		.thumb_func
+ 286              	PCA9555_ReadPort:
+ 287              		@ args = 0, pretend = 0, frame = 0
+ 288              		@ frame_needed = 0, uses_anonymous_args = 0
+ 289              		@ link register save eliminated.
+ 290 0000 09B1     		cbz	r1, .L57
+ 291 0002 0129     		cmp	r1, #1
+ 292 0004 01D1     		bne	.L59
+ 293              	.L57:
+ 294 0006 FFF7FEBF 		b	_PCA9555_ReadRegister
+ 295              	.L59:
+ 296 000a 0020     		movs	r0, #0
+ 297 000c 7047     		bx	lr
+ 299              		.section	.text.PCA9555_ConfigPinMode,"ax",%progbits
+ 300              		.align	1
+ 301              		.global	PCA9555_ConfigPinMode
+ 302              		.thumb
+ 303              		.thumb_func
+ 305              	PCA9555_ConfigPinMode:
+ 306              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  /tmp/ccB7uxMW.s 			page 6
+
+
+ 307              		@ frame_needed = 0, uses_anonymous_args = 0
+ 308              		@ link register save eliminated.
+ 309 0000 0129     		cmp	r1, #1
+ 310 0002 23D8     		bhi	.L60
+ 311 0004 072A     		cmp	r2, #7
+ 312 0006 21D8     		bhi	.L60
+ 313 0008 0129     		cmp	r1, #1
+ 314 000a 0ED0     		beq	.L63
+ 315 000c 13B1     		cbz	r3, .L64
+ 316 000e 012B     		cmp	r3, #1
+ 317 0010 06D0     		beq	.L65
+ 318 0012 7047     		bx	lr
+ 319              	.L64:
+ 320 0014 0123     		movs	r3, #1
+ 321 0016 9340     		lsls	r3, r3, r2
+ 322 0018 8278     		ldrb	r2, [r0, #2]	@ zero_extendqisi2
+ 323 001a 22EA0303 		bic	r3, r2, r3
+ 324 001e 02E0     		b	.L69
+ 325              	.L65:
+ 326 0020 9340     		lsls	r3, r3, r2
+ 327 0022 8278     		ldrb	r2, [r0, #2]	@ zero_extendqisi2
+ 328 0024 1343     		orrs	r3, r3, r2
+ 329              	.L69:
+ 330 0026 8370     		strb	r3, [r0, #2]
+ 331 0028 0EE0     		b	.L66
+ 332              	.L63:
+ 333 002a 13B1     		cbz	r3, .L67
+ 334 002c 012B     		cmp	r3, #1
+ 335 002e 06D0     		beq	.L68
+ 336 0030 7047     		bx	lr
+ 337              	.L67:
+ 338 0032 4379     		ldrb	r3, [r0, #5]	@ zero_extendqisi2
+ 339 0034 01FA02F2 		lsl	r2, r1, r2
+ 340 0038 23EA0203 		bic	r3, r3, r2
+ 341 003c 03E0     		b	.L70
+ 342              	.L68:
+ 343 003e 4379     		ldrb	r3, [r0, #5]	@ zero_extendqisi2
+ 344 0040 01FA02F2 		lsl	r2, r1, r2
+ 345 0044 1343     		orrs	r3, r3, r2
+ 346              	.L70:
+ 347 0046 4371     		strb	r3, [r0, #5]
+ 348              	.L66:
+ 349 0048 FFF7FEBF 		b	_PCA9555_UpdateCfgRegisterFromBuf
+ 350              	.L60:
+ 351 004c 7047     		bx	lr
+ 353              		.section	.text.PCA9555_ConfigPortPinMode,"ax",%progbits
+ 354              		.align	1
+ 355              		.global	PCA9555_ConfigPortPinMode
+ 356              		.thumb
+ 357              		.thumb_func
+ 359              	PCA9555_ConfigPortPinMode:
+ 360              		@ args = 0, pretend = 0, frame = 0
+ 361              		@ frame_needed = 0, uses_anonymous_args = 0
+ 362              		@ link register save eliminated.
+ 363 0000 11B1     		cbz	r1, .L73
+ 364 0002 0129     		cmp	r1, #1
+ 365 0004 02D0     		beq	.L74
+ARM GAS  /tmp/ccB7uxMW.s 			page 7
+
+
+ 366 0006 7047     		bx	lr
+ 367              	.L73:
+ 368 0008 8270     		strb	r2, [r0, #2]
+ 369 000a 00E0     		b	.L75
+ 370              	.L74:
+ 371 000c 4271     		strb	r2, [r0, #5]
+ 372              	.L75:
+ 373 000e FFF7FEBF 		b	_PCA9555_UpdateCfgRegisterFromBuf
+ 375              		.section	.text.PCA9555_ConfigPinInputInversion,"ax",%progbits
+ 376              		.align	1
+ 377              		.global	PCA9555_ConfigPinInputInversion
+ 378              		.thumb
+ 379              		.thumb_func
+ 381              	PCA9555_ConfigPinInputInversion:
+ 382              		@ args = 0, pretend = 0, frame = 0
+ 383              		@ frame_needed = 0, uses_anonymous_args = 0
+ 384              		@ link register save eliminated.
+ 385 0000 0129     		cmp	r1, #1
+ 386 0002 23D8     		bhi	.L77
+ 387 0004 072A     		cmp	r2, #7
+ 388 0006 21D8     		bhi	.L77
+ 389 0008 0129     		cmp	r1, #1
+ 390 000a 0ED0     		beq	.L80
+ 391 000c 13B1     		cbz	r3, .L81
+ 392 000e 012B     		cmp	r3, #1
+ 393 0010 06D0     		beq	.L82
+ 394 0012 7047     		bx	lr
+ 395              	.L81:
+ 396 0014 0123     		movs	r3, #1
+ 397 0016 9340     		lsls	r3, r3, r2
+ 398 0018 C278     		ldrb	r2, [r0, #3]	@ zero_extendqisi2
+ 399 001a 22EA0303 		bic	r3, r2, r3
+ 400 001e 02E0     		b	.L86
+ 401              	.L82:
+ 402 0020 9340     		lsls	r3, r3, r2
+ 403 0022 C278     		ldrb	r2, [r0, #3]	@ zero_extendqisi2
+ 404 0024 1343     		orrs	r3, r3, r2
+ 405              	.L86:
+ 406 0026 C370     		strb	r3, [r0, #3]
+ 407 0028 0EE0     		b	.L83
+ 408              	.L80:
+ 409 002a 13B1     		cbz	r3, .L84
+ 410 002c 012B     		cmp	r3, #1
+ 411 002e 06D0     		beq	.L85
+ 412 0030 7047     		bx	lr
+ 413              	.L84:
+ 414 0032 8379     		ldrb	r3, [r0, #6]	@ zero_extendqisi2
+ 415 0034 01FA02F2 		lsl	r2, r1, r2
+ 416 0038 23EA0203 		bic	r3, r3, r2
+ 417 003c 03E0     		b	.L87
+ 418              	.L85:
+ 419 003e 8379     		ldrb	r3, [r0, #6]	@ zero_extendqisi2
+ 420 0040 01FA02F2 		lsl	r2, r1, r2
+ 421 0044 1343     		orrs	r3, r3, r2
+ 422              	.L87:
+ 423 0046 8371     		strb	r3, [r0, #6]
+ 424              	.L83:
+ARM GAS  /tmp/ccB7uxMW.s 			page 8
+
+
+ 425 0048 FFF7FEBF 		b	_PCA9555_UpdateInvRegisterFromBuf
+ 426              	.L77:
+ 427 004c 7047     		bx	lr
+ 429              		.section	.text.PCA9555_ConfigPortPinInputInversion,"ax",%progbits
+ 430              		.align	1
+ 431              		.global	PCA9555_ConfigPortPinInputInversion
+ 432              		.thumb
+ 433              		.thumb_func
+ 435              	PCA9555_ConfigPortPinInputInversion:
+ 436              		@ args = 0, pretend = 0, frame = 0
+ 437              		@ frame_needed = 0, uses_anonymous_args = 0
+ 438              		@ link register save eliminated.
+ 439 0000 11B1     		cbz	r1, .L90
+ 440 0002 0129     		cmp	r1, #1
+ 441 0004 02D0     		beq	.L91
+ 442 0006 7047     		bx	lr
+ 443              	.L90:
+ 444 0008 C270     		strb	r2, [r0, #3]
+ 445 000a 00E0     		b	.L92
+ 446              	.L91:
+ 447 000c 8271     		strb	r2, [r0, #6]
+ 448              	.L92:
+ 449 000e FFF7FEBF 		b	_PCA9555_UpdateInvRegisterFromBuf
+ 451              		.section	.bss._lib_cfg,"aw",%nobits
+ 452              		.align	2
+ 453              		.set	.LANCHOR0,. + 0
+ 456              	_lib_cfg:
+ 457 0000 00000000 		.space	8
+ 457      00000000 
+ 458              		.ident	"GCC: (15:4.9.3+svn231177-1) 4.9.3 20150529 (prerelease)"
+ARM GAS  /tmp/ccB7uxMW.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 pca9555.c
+     /tmp/ccB7uxMW.s:16     .text._PCA9555_ReadRegister:0000000000000000 $t
+     /tmp/ccB7uxMW.s:20     .text._PCA9555_ReadRegister:0000000000000000 _PCA9555_ReadRegister
+     /tmp/ccB7uxMW.s:48     .text._PCA9555_ReadRegister:000000000000002c $d
+     /tmp/ccB7uxMW.s:51     .text._PCA9555_WriteRegister.isra.0:0000000000000000 $t
+     /tmp/ccB7uxMW.s:55     .text._PCA9555_WriteRegister.isra.0:0000000000000000 _PCA9555_WriteRegister.isra.0
+     /tmp/ccB7uxMW.s:74     .text._PCA9555_WriteRegister.isra.0:0000000000000020 $d
+     /tmp/ccB7uxMW.s:77     .text._PCA9555_UpdateCfgRegisterFromBuf:0000000000000000 $t
+     /tmp/ccB7uxMW.s:81     .text._PCA9555_UpdateCfgRegisterFromBuf:0000000000000000 _PCA9555_UpdateCfgRegisterFromBuf
+     /tmp/ccB7uxMW.s:105    .text._PCA9555_UpdateInvRegisterFromBuf:0000000000000000 $t
+     /tmp/ccB7uxMW.s:109    .text._PCA9555_UpdateInvRegisterFromBuf:0000000000000000 _PCA9555_UpdateInvRegisterFromBuf
+     /tmp/ccB7uxMW.s:133    .text._PCA9555_UpdateStateRegisterFromBuf:0000000000000000 $t
+     /tmp/ccB7uxMW.s:137    .text._PCA9555_UpdateStateRegisterFromBuf:0000000000000000 _PCA9555_UpdateStateRegisterFromBuf
+     /tmp/ccB7uxMW.s:161    .text.PCA9555_LibInit:0000000000000000 $t
+     /tmp/ccB7uxMW.s:166    .text.PCA9555_LibInit:0000000000000000 PCA9555_LibInit
+     /tmp/ccB7uxMW.s:177    .text.PCA9555_LibInit:000000000000000c $d
+     /tmp/ccB7uxMW.s:180    .text.PCA9555_WritePin:0000000000000000 $t
+     /tmp/ccB7uxMW.s:185    .text.PCA9555_WritePin:0000000000000000 PCA9555_WritePin
+     /tmp/ccB7uxMW.s:234    .text.PCA9555_WritePort:0000000000000000 $t
+     /tmp/ccB7uxMW.s:239    .text.PCA9555_WritePort:0000000000000000 PCA9555_WritePort
+     /tmp/ccB7uxMW.s:256    .text.PCA9555_ReadPin:0000000000000000 $t
+     /tmp/ccB7uxMW.s:261    .text.PCA9555_ReadPin:0000000000000000 PCA9555_ReadPin
+     /tmp/ccB7uxMW.s:281    .text.PCA9555_ReadPort:0000000000000000 $t
+     /tmp/ccB7uxMW.s:286    .text.PCA9555_ReadPort:0000000000000000 PCA9555_ReadPort
+     /tmp/ccB7uxMW.s:300    .text.PCA9555_ConfigPinMode:0000000000000000 $t
+     /tmp/ccB7uxMW.s:305    .text.PCA9555_ConfigPinMode:0000000000000000 PCA9555_ConfigPinMode
+     /tmp/ccB7uxMW.s:354    .text.PCA9555_ConfigPortPinMode:0000000000000000 $t
+     /tmp/ccB7uxMW.s:359    .text.PCA9555_ConfigPortPinMode:0000000000000000 PCA9555_ConfigPortPinMode
+     /tmp/ccB7uxMW.s:376    .text.PCA9555_ConfigPinInputInversion:0000000000000000 $t
+     /tmp/ccB7uxMW.s:381    .text.PCA9555_ConfigPinInputInversion:0000000000000000 PCA9555_ConfigPinInputInversion
+     /tmp/ccB7uxMW.s:430    .text.PCA9555_ConfigPortPinInputInversion:0000000000000000 $t
+     /tmp/ccB7uxMW.s:435    .text.PCA9555_ConfigPortPinInputInversion:0000000000000000 PCA9555_ConfigPortPinInputInversion
+     /tmp/ccB7uxMW.s:452    .bss._lib_cfg:0000000000000000 $d
+     /tmp/ccB7uxMW.s:456    .bss._lib_cfg:0000000000000000 _lib_cfg
+
+NO UNDEFINED SYMBOLS

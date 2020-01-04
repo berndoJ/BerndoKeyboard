@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccV1Zr6p.s 			page 1
+ARM GAS  /tmp/ccpraSRC.s 			page 1
 
 
    1              		.syntax unified
@@ -23,20 +23,36 @@ ARM GAS  /tmp/ccV1Zr6p.s 			page 1
   21              	SYS_ThrowError:
   22              		@ args = 0, pretend = 0, frame = 0
   23              		@ frame_needed = 0, uses_anonymous_args = 0
-  24              		@ link register save eliminated.
-  25 0000 0228     		cmp	r0, #2
-  26 0002 00D1     		bne	.L5
-  27              	.L3:
-  28 0004 FEE7     		b	.L3
-  29              	.L5:
-  30 0006 7047     		bx	lr
-  32              		.ident	"GCC: (15:4.9.3+svn231177-1) 4.9.3 20150529 (prerelease)"
-ARM GAS  /tmp/ccV1Zr6p.s 			page 2
+  24 0000 0228     		cmp	r0, #2
+  25 0002 08B5     		push	{r3, lr}
+  26 0004 08D1     		bne	.L5
+  27 0006 054B     		ldr	r3, .L8
+  28 0008 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+  29 000a 012A     		cmp	r2, #1
+  30 000c 03D1     		bne	.L4
+  31 000e 0448     		ldr	r0, .L8+4
+  32 0010 1021     		movs	r1, #16
+  33 0012 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  34              	.L4:
+  35              	.L6:
+  36 0016 FEE7     		b	.L6
+  37              	.L5:
+  38 0018 08BD     		pop	{r3, pc}
+  39              	.L9:
+  40 001a 00BF     		.align	2
+  41              	.L8:
+  42 001c 00000000 		.word	hw_gpio_init_status
+  43 0020 00080140 		.word	1073809408
+  45              		.ident	"GCC: (15:4.9.3+svn231177-1) 4.9.3 20150529 (prerelease)"
+ARM GAS  /tmp/ccpraSRC.s 			page 2
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 error.c
-     /tmp/ccV1Zr6p.s:16     .text.SYS_ThrowError:0000000000000000 $t
-     /tmp/ccV1Zr6p.s:21     .text.SYS_ThrowError:0000000000000000 SYS_ThrowError
+     /tmp/ccpraSRC.s:16     .text.SYS_ThrowError:0000000000000000 $t
+     /tmp/ccpraSRC.s:21     .text.SYS_ThrowError:0000000000000000 SYS_ThrowError
+     /tmp/ccpraSRC.s:42     .text.SYS_ThrowError:000000000000001c $d
 
-NO UNDEFINED SYMBOLS
+UNDEFINED SYMBOLS
+HAL_GPIO_WritePin
+hw_gpio_init_status

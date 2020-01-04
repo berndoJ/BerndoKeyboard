@@ -1,0 +1,116 @@
+\hypertarget{md_app_docfiles_platforminfo_autotoc_md0}{}\doxysection{Brief}\label{md_app_docfiles_platforminfo_autotoc_md0}
+This page contains information about the hardware platform this software (firmware) will run on. The firmware itself runs on a S\+T\+M32\+F103\+R\+E\+T6 microcontroller, containing an A\+RM Cortex-\/\+M3 processor core. This chip is implemented on an Intelli\+Module-\/\+Alpha controller board, which plugs into the main P\+CB of the platform. The main P\+CB is a backplane connecting the keyboard switches together into a matrix. This matrix is read by the firmware and sent to the U\+SB host.\hypertarget{md_app_docfiles_platforminfo_autotoc_md1}{}\doxysection{Interfaces}\label{md_app_docfiles_platforminfo_autotoc_md1}
+\hypertarget{md_app_docfiles_platforminfo_autotoc_md2}{}\doxysubsection{I2C}\label{md_app_docfiles_platforminfo_autotoc_md2}
+
+\begin{DoxyItemize}
+\item {\bfseries{I2\+C1}}~\newline
+ Used for communication between the main microcontroller and the I2C port expander chips which control the probe-\/lines of the keyboard matrix. The connected devices are listed below\+:
+\begin{DoxyItemize}
+\item {\bfseries{P\+O\+R\+T\+E\+X\+\_\+0}}~\newline
+ {\itshape Device\+: P\+C\+A9555\+PW,118}~\newline
+ {\itshape I2\+C-\/\+Bus Address\+: {\ttfamily 0x20}}~\newline
+ This device connects to the keyboard matrix probe lines 0 to 15.~\newline
+ The following table shows the connections of the port expander\+: \tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Port Expander IO }&\cellcolor{\tableheadbgcolor}\textbf{ Signal  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Port Expander IO }&\cellcolor{\tableheadbgcolor}\textbf{ Signal  }\\\cline{1-2}
+\endhead
+I\+O0\+\_\+0 &K\+B\+M\+\_\+\+P\+R\+O\+B\+E\+\_\+0  \\\cline{1-2}
+I\+O0\+\_\+1 &K\+B\+M\+\_\+\+P\+R\+O\+B\+E\+\_\+1  \\\cline{1-2}
+I\+O0\+\_\+2 &K\+B\+M\+\_\+\+P\+R\+O\+B\+E\+\_\+2  \\\cline{1-2}
+I\+O0\+\_\+3 &K\+B\+M\+\_\+\+P\+R\+O\+B\+E\+\_\+3  \\\cline{1-2}
+I\+O0\+\_\+4 &K\+B\+M\+\_\+\+P\+R\+O\+B\+E\+\_\+4  \\\cline{1-2}
+I\+O0\+\_\+5 &K\+B\+M\+\_\+\+P\+R\+O\+B\+E\+\_\+5  \\\cline{1-2}
+I\+O0\+\_\+6 &K\+B\+M\+\_\+\+P\+R\+O\+B\+E\+\_\+6  \\\cline{1-2}
+I\+O0\+\_\+7 &K\+B\+M\+\_\+\+P\+R\+O\+B\+E\+\_\+7  \\\cline{1-2}
+I\+O1\+\_\+0 &K\+B\+M\+\_\+\+P\+R\+O\+B\+E\+\_\+8  \\\cline{1-2}
+I\+O1\+\_\+1 &K\+B\+M\+\_\+\+P\+R\+O\+B\+E\+\_\+9  \\\cline{1-2}
+I\+O1\+\_\+2 &K\+B\+M\+\_\+\+P\+R\+O\+B\+E\+\_\+10  \\\cline{1-2}
+I\+O1\+\_\+3 &K\+B\+M\+\_\+\+P\+R\+O\+B\+E\+\_\+11  \\\cline{1-2}
+I\+O1\+\_\+4 &K\+B\+M\+\_\+\+P\+R\+O\+B\+E\+\_\+12  \\\cline{1-2}
+I\+O1\+\_\+5 &K\+B\+M\+\_\+\+P\+R\+O\+B\+E\+\_\+13  \\\cline{1-2}
+I\+O1\+\_\+6 &K\+B\+M\+\_\+\+P\+R\+O\+B\+E\+\_\+14  \\\cline{1-2}
+I\+O1\+\_\+7 &K\+B\+M\+\_\+\+P\+R\+O\+B\+E\+\_\+15  \\\cline{1-2}
+\end{longtabu}
+
+\item {\bfseries{P\+O\+R\+T\+E\+X\+\_\+1}}~\newline
+ {\itshape Device\+: P\+C\+A9555\+PW,118}~\newline
+ {\itshape I2\+C-\/\+Bus Address\+: {\ttfamily 0x21}}~\newline
+ This device connects to the keyboard matrix probe lines 16 to 21.~\newline
+ The following table shows the connections of the port expander\+: \tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Port Expander IO }&\cellcolor{\tableheadbgcolor}\textbf{ Signal  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Port Expander IO }&\cellcolor{\tableheadbgcolor}\textbf{ Signal  }\\\cline{1-2}
+\endhead
+I\+O0\+\_\+0 &K\+B\+M\+\_\+\+P\+R\+O\+B\+E\+\_\+16  \\\cline{1-2}
+I\+O0\+\_\+1 &K\+B\+M\+\_\+\+P\+R\+O\+B\+E\+\_\+17  \\\cline{1-2}
+I\+O0\+\_\+2 &K\+B\+M\+\_\+\+P\+R\+O\+B\+E\+\_\+18  \\\cline{1-2}
+I\+O0\+\_\+3 &K\+B\+M\+\_\+\+P\+R\+O\+B\+E\+\_\+19  \\\cline{1-2}
+I\+O0\+\_\+4 &K\+B\+M\+\_\+\+P\+R\+O\+B\+E\+\_\+20  \\\cline{1-2}
+I\+O0\+\_\+5 &K\+B\+M\+\_\+\+P\+R\+O\+B\+E\+\_\+21  \\\cline{1-2}
+I\+O0\+\_\+6 &{\itshape Not Connected}  \\\cline{1-2}
+I\+O0\+\_\+7 &{\itshape Not Connected}  \\\cline{1-2}
+I\+O1\+\_\+0 &{\itshape Not Connected}  \\\cline{1-2}
+I\+O1\+\_\+1 &{\itshape Not Connected}  \\\cline{1-2}
+I\+O1\+\_\+2 &{\itshape Not Connected}  \\\cline{1-2}
+I\+O1\+\_\+3 &{\itshape Not Connected}  \\\cline{1-2}
+I\+O1\+\_\+4 &{\itshape Not Connected}  \\\cline{1-2}
+I\+O1\+\_\+5 &{\itshape Not Connected}  \\\cline{1-2}
+I\+O1\+\_\+6 &{\itshape Not Connected}  \\\cline{1-2}
+I\+O1\+\_\+7 &{\itshape Not Connected}  \\\cline{1-2}
+\end{longtabu}
+
+\item {\bfseries{E\+E\+P\+R\+O\+M\+\_\+0}}~\newline
+ {\itshape Device\+: C\+A\+T24\+C512\+W\+I-\/\+G\+T3}~\newline
+ {\itshape Size\+: 512kb (64k x 8) (64k\+Byte)}~\newline
+ {\itshape I2\+C-\/\+Bus Address\+: {\ttfamily 0x50}}~\newline
+ This device sits on the Intelli\+Module-\/\+Alpha controller board and is a general-\/purpose E\+E\+P\+R\+OM. It is used to save the keyboard matrix configuration.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_app_docfiles_platforminfo_autotoc_md3}{}\doxysubsection{U(\+S)\+A\+RT}\label{md_app_docfiles_platforminfo_autotoc_md3}
+
+\begin{DoxyItemize}
+\item {\bfseries{U\+S\+A\+R\+T1}}~\newline
+ Used as a serial debug connection port. This port directly connects to the debug header and is used by the firmware to output debug messages. This port is configured to use the baud rate 115200 by default.
+\end{DoxyItemize}\hypertarget{md_app_docfiles_platforminfo_autotoc_md4}{}\doxysection{G\+P\+I\+Os}\label{md_app_docfiles_platforminfo_autotoc_md4}
+The following table shows the hardware-\/mapping of the processor\textquotesingle{}s G\+P\+IO pins/ports\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Pin Name }&\cellcolor{\tableheadbgcolor}\textbf{ Direction }&\cellcolor{\tableheadbgcolor}\textbf{ Pull-\/\+Resistor Config }&\cellcolor{\tableheadbgcolor}\textbf{ Signal  }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Pin Name }&\cellcolor{\tableheadbgcolor}\textbf{ Direction }&\cellcolor{\tableheadbgcolor}\textbf{ Pull-\/\+Resistor Config }&\cellcolor{\tableheadbgcolor}\textbf{ Signal  }\\\cline{1-4}
+\endhead
+P\+C12 &Input &None &K\+B\+M\+\_\+\+D\+A\+T\+A\+\_\+0  \\\cline{1-4}
+P\+C11 &Input &None &K\+B\+M\+\_\+\+D\+A\+T\+A\+\_\+1  \\\cline{1-4}
+P\+C10 &Input &None &K\+B\+M\+\_\+\+D\+A\+T\+A\+\_\+2  \\\cline{1-4}
+P\+C9 &Input &None &K\+B\+M\+\_\+\+D\+A\+T\+A\+\_\+3  \\\cline{1-4}
+P\+C8 &Input &None &K\+B\+M\+\_\+\+D\+A\+T\+A\+\_\+4  \\\cline{1-4}
+P\+C4 &Input &None &K\+B\+M\+\_\+\+D\+A\+T\+A\+\_\+5  \\\cline{1-4}
+P\+C5 &Input &None &K\+B\+M\+\_\+\+D\+A\+T\+A\+\_\+6  \\\cline{1-4}
+P\+C7 &Output (P\+WM) &None &L\+E\+D\+\_\+\+D\+A\+T\+A\+\_\+\+IN  \\\cline{1-4}
+P\+D2 &Input &None &P\+R\+O\+B\+E\+\_\+\+P\+O\+R\+T\+\_\+\+E\+X\+P\+\_\+\+I\+N\+Tn  \\\cline{1-4}
+P\+B0 &Output &None &U\+S\+E\+R\+\_\+\+L\+E\+D\+\_\+0  \\\cline{1-4}
+P\+B1 &Output &None &U\+S\+E\+R\+\_\+\+L\+E\+D\+\_\+1  \\\cline{1-4}
+P\+B2 &Output &None &U\+S\+E\+R\+\_\+\+L\+E\+D\+\_\+2  \\\cline{1-4}
+P\+A4 &Output &None &E\+R\+R\+O\+R\+\_\+\+L\+ED  \\\cline{1-4}
+P\+A8 &Input &None &H\+W\+B\+I\+T0  \\\cline{1-4}
+P\+B8 &Input &None &H\+W\+B\+I\+T1  \\\cline{1-4}
+P\+B9 &Input &None &H\+W\+B\+I\+T2  \\\cline{1-4}
+P\+B12 &Input &None &H\+W\+B\+I\+T3  \\\cline{1-4}
+P\+C6 &Input &None &H\+W\+B\+I\+T4  \\\cline{1-4}
+P\+B5 &Output &None &E\+E\+P\+R\+O\+M\+\_\+\+WP  \\\cline{1-4}
+\end{longtabu}

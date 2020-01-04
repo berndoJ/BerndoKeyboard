@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc6cBeRe.s 			page 1
+ARM GAS  /tmp/ccrqwS93.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cc6cBeRe.s 			page 1
   58 0038 271D     		adds	r7, r4, #4
   59 003a 97E80E00 		ldmia	r7, {r1, r2, r3}
   60 003e 55F8100B 		ldr	r0, [r5], #16
-ARM GAS  /tmp/cc6cBeRe.s 			page 2
+ARM GAS  /tmp/ccrqwS93.s 			page 2
 
 
   61 0042 FFF7FEFF 		bl	USB_CoreInit
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cc6cBeRe.s 			page 1
  115 00c4 2068     		ldr	r0, [r4]
  116 00c6 FFF7FEFF 		bl	USB_DevInit
  117 00ca 0123     		movs	r3, #1
-ARM GAS  /tmp/cc6cBeRe.s 			page 3
+ARM GAS  /tmp/ccrqwS93.s 			page 3
 
 
  118 00cc 0546     		mov	r5, r0
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cc6cBeRe.s 			page 1
  176 002c 10BD     		pop	{r4, pc}
  178              		.section	.text.HAL_PCD_Stop,"ax",%progbits
  179              		.align	1
-ARM GAS  /tmp/cc6cBeRe.s 			page 4
+ARM GAS  /tmp/ccrqwS93.s 			page 4
 
 
  180              		.global	HAL_PCD_Stop
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cc6cBeRe.s 			page 1
  237 0020 10BD     		pop	{r4, pc}
  239              		.section	.text.HAL_PCD_DataOutStageCallback,"ax",%progbits
  240              		.align	1
-ARM GAS  /tmp/cc6cBeRe.s 			page 5
+ARM GAS  /tmp/ccrqwS93.s 			page 5
 
 
  241              		.weak	HAL_PCD_DataOutStageCallback
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cc6cBeRe.s 			page 1
  306              		@ args = 0, pretend = 0, frame = 0
  307              		@ frame_needed = 0, uses_anonymous_args = 0
  308              		@ link register save eliminated.
-ARM GAS  /tmp/cc6cBeRe.s 			page 6
+ARM GAS  /tmp/ccrqwS93.s 			page 6
 
 
  309 0000 7047     		bx	lr
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cc6cBeRe.s 			page 1
  374              		.thumb
  375              		.thumb_func
  377              	HAL_PCD_DevConnect:
-ARM GAS  /tmp/cc6cBeRe.s 			page 7
+ARM GAS  /tmp/ccrqwS93.s 			page 7
 
 
  378              		@ args = 0, pretend = 0, frame = 0
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cc6cBeRe.s 			page 1
  436 0008 0446     		mov	r4, r0
  437 000a 0BD0     		beq	.L45
  438 000c 0122     		movs	r2, #1
-ARM GAS  /tmp/cc6cBeRe.s 			page 8
+ARM GAS  /tmp/ccrqwS93.s 			page 8
 
 
  439 000e 80F82822 		strb	r2, [r0, #552]
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cc6cBeRe.s 			page 1
  495 0058 FFF7FEFF 		bl	USB_ActivateEndpoint
  496 005c 0020     		movs	r0, #0
  497 005e 84F82802 		strb	r0, [r4, #552]
-ARM GAS  /tmp/cc6cBeRe.s 			page 9
+ARM GAS  /tmp/ccrqwS93.s 			page 9
 
 
  498 0062 70BD     		pop	{r4, r5, r6, pc}
@@ -538,7 +538,7 @@ ARM GAS  /tmp/cc6cBeRe.s 			page 1
  556 0004 01F00701 		and	r1, r1, #7
  557 0008 4C01     		lsls	r4, r1, #5
  558 000a 2044     		add	r0, r0, r4
-ARM GAS  /tmp/cc6cBeRe.s 			page 10
+ARM GAS  /tmp/ccrqwS93.s 			page 10
 
 
  559 000c 0025     		movs	r5, #0
@@ -598,7 +598,7 @@ ARM GAS  /tmp/cc6cBeRe.s 			page 1
  618              		.thumb
  619              		.thumb_func
  621              	HAL_PCD_IRQHandler:
-ARM GAS  /tmp/cc6cBeRe.s 			page 11
+ARM GAS  /tmp/ccrqwS93.s 			page 11
 
 
  622              		@ args = 0, pretend = 0, frame = 0
@@ -658,7 +658,7 @@ ARM GAS  /tmp/cc6cBeRe.s 			page 1
  676 0092 FFF7FEFF 		bl	HAL_PCD_DataInStageCallback
  677 0096 94F82430 		ldrb	r3, [r4, #36]	@ zero_extendqisi2
  678 009a 33B9     		cbnz	r3, .L146
-ARM GAS  /tmp/cc6cBeRe.s 			page 12
+ARM GAS  /tmp/ccrqwS93.s 			page 12
 
 
  679              	.L127:
@@ -718,7 +718,7 @@ ARM GAS  /tmp/cc6cBeRe.s 			page 1
  733 012e 03EBC203 		add	r3, r3, r2, lsl #3
  734 0132 00EB4303 		add	r3, r0, r3, lsl #1
  735 0136 B3F80C34 		ldrh	r3, [r3, #1036]
-ARM GAS  /tmp/cc6cBeRe.s 			page 13
+ARM GAS  /tmp/ccrqwS93.s 			page 13
 
 
  736 013a C3F30903 		ubfx	r3, r3, #0, #10
@@ -778,7 +778,7 @@ ARM GAS  /tmp/cc6cBeRe.s 			page 1
  790 01c8 83F44053 		eor	r3, r3, #12288
  791 01cc 43F40043 		orr	r3, r3, #32768
  792 01d0 43F08003 		orr	r3, r3, #128
-ARM GAS  /tmp/cc6cBeRe.s 			page 14
+ARM GAS  /tmp/ccrqwS93.s 			page 14
 
 
  793 01d4 0B80     		strh	r3, [r1]	@ movhi
@@ -838,7 +838,7 @@ ARM GAS  /tmp/cc6cBeRe.s 			page 1
  847 0276 2B46     		mov	r3, r5
  848 0278 FFF7FEFF 		bl	USB_ReadPMA
  849              	.L84:
-ARM GAS  /tmp/cc6cBeRe.s 			page 15
+ARM GAS  /tmp/ccrqwS93.s 			page 15
 
 
  850 027c E319     		adds	r3, r4, r7
@@ -898,7 +898,7 @@ ARM GAS  /tmp/cc6cBeRe.s 			page 1
  904 031c C2F30902 		ubfx	r2, r2, #0, #10
  905 0320 336C     		ldr	r3, [r6, #64]
  906 0322 7264     		str	r2, [r6, #68]
-ARM GAS  /tmp/cc6cBeRe.s 			page 16
+ARM GAS  /tmp/ccrqwS93.s 			page 16
 
 
  907 0324 0A44     		add	r2, r2, r1
@@ -958,7 +958,7 @@ ARM GAS  /tmp/cc6cBeRe.s 			page 1
  961 03b6 1B04     		lsls	r3, r3, #16
  962 03b8 1B0C     		lsrs	r3, r3, #16
  963 03ba A2F84430 		strh	r3, [r2, #68]	@ movhi
-ARM GAS  /tmp/cc6cBeRe.s 			page 17
+ARM GAS  /tmp/ccrqwS93.s 			page 17
 
 
  964              	.L92:
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/cc6cBeRe.s 			page 1
  1018 0452 44BF     		itt	mi
  1019 0454 1B0C     		lsrmi	r3, r3, #16
  1020 0456 A2F84430 		strhmi	r3, [r2, #68]	@ movhi
-ARM GAS  /tmp/cc6cBeRe.s 			page 18
+ARM GAS  /tmp/ccrqwS93.s 			page 18
 
 
  1021 045a BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/cc6cBeRe.s 			page 1
  1078              		.section	.text.HAL_PCD_EP_ClrStall,"ax",%progbits
  1079              		.align	1
  1080              		.global	HAL_PCD_EP_ClrStall
-ARM GAS  /tmp/cc6cBeRe.s 			page 19
+ARM GAS  /tmp/ccrqwS93.s 			page 19
 
 
  1081              		.thumb
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/cc6cBeRe.s 			page 1
  1138 0000 90F82832 		ldrb	r3, [r0, #552]	@ zero_extendqisi2
  1139 0004 10B5     		push	{r4, lr}
  1140 0006 012B     		cmp	r3, #1
-ARM GAS  /tmp/cc6cBeRe.s 			page 20
+ARM GAS  /tmp/ccrqwS93.s 			page 20
 
 
  1141 0008 0446     		mov	r4, r0
@@ -1194,78 +1194,78 @@ ARM GAS  /tmp/cc6cBeRe.s 			page 1
  1197 0000 90F82902 		ldrb	r0, [r0, #553]	@ zero_extendqisi2
  1198 0004 7047     		bx	lr
  1200              		.ident	"GCC: (15:4.9.3+svn231177-1) 4.9.3 20150529 (prerelease)"
-ARM GAS  /tmp/cc6cBeRe.s 			page 21
+ARM GAS  /tmp/ccrqwS93.s 			page 21
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f1xx_hal_pcd.c
-     /tmp/cc6cBeRe.s:16     .text.HAL_PCD_MspInit:0000000000000000 $t
-     /tmp/cc6cBeRe.s:21     .text.HAL_PCD_MspInit:0000000000000000 HAL_PCD_MspInit
-     /tmp/cc6cBeRe.s:28     .text.HAL_PCD_Init:0000000000000000 $t
-     /tmp/cc6cBeRe.s:33     .text.HAL_PCD_Init:0000000000000000 HAL_PCD_Init
-     /tmp/cc6cBeRe.s:139    .text.HAL_PCD_MspDeInit:0000000000000000 $t
-     /tmp/cc6cBeRe.s:144    .text.HAL_PCD_MspDeInit:0000000000000000 HAL_PCD_MspDeInit
-     /tmp/cc6cBeRe.s:151    .text.HAL_PCD_Start:0000000000000000 $t
-     /tmp/cc6cBeRe.s:156    .text.HAL_PCD_Start:0000000000000000 HAL_PCD_Start
-     /tmp/cc6cBeRe.s:179    .text.HAL_PCD_Stop:0000000000000000 $t
-     /tmp/cc6cBeRe.s:184    .text.HAL_PCD_Stop:0000000000000000 HAL_PCD_Stop
-     /tmp/cc6cBeRe.s:216    .text.HAL_PCD_DeInit:0000000000000000 $t
-     /tmp/cc6cBeRe.s:221    .text.HAL_PCD_DeInit:0000000000000000 HAL_PCD_DeInit
-     /tmp/cc6cBeRe.s:240    .text.HAL_PCD_DataOutStageCallback:0000000000000000 $t
-     /tmp/cc6cBeRe.s:245    .text.HAL_PCD_DataOutStageCallback:0000000000000000 HAL_PCD_DataOutStageCallback
-     /tmp/cc6cBeRe.s:252    .text.HAL_PCD_DataInStageCallback:0000000000000000 $t
-     /tmp/cc6cBeRe.s:257    .text.HAL_PCD_DataInStageCallback:0000000000000000 HAL_PCD_DataInStageCallback
-     /tmp/cc6cBeRe.s:264    .text.HAL_PCD_SetupStageCallback:0000000000000000 $t
-     /tmp/cc6cBeRe.s:269    .text.HAL_PCD_SetupStageCallback:0000000000000000 HAL_PCD_SetupStageCallback
-     /tmp/cc6cBeRe.s:276    .text.HAL_PCD_SOFCallback:0000000000000000 $t
-     /tmp/cc6cBeRe.s:281    .text.HAL_PCD_SOFCallback:0000000000000000 HAL_PCD_SOFCallback
-     /tmp/cc6cBeRe.s:288    .text.HAL_PCD_ResetCallback:0000000000000000 $t
-     /tmp/cc6cBeRe.s:293    .text.HAL_PCD_ResetCallback:0000000000000000 HAL_PCD_ResetCallback
-     /tmp/cc6cBeRe.s:300    .text.HAL_PCD_SuspendCallback:0000000000000000 $t
-     /tmp/cc6cBeRe.s:305    .text.HAL_PCD_SuspendCallback:0000000000000000 HAL_PCD_SuspendCallback
-     /tmp/cc6cBeRe.s:312    .text.HAL_PCD_ResumeCallback:0000000000000000 $t
-     /tmp/cc6cBeRe.s:317    .text.HAL_PCD_ResumeCallback:0000000000000000 HAL_PCD_ResumeCallback
-     /tmp/cc6cBeRe.s:324    .text.HAL_PCD_ISOOUTIncompleteCallback:0000000000000000 $t
-     /tmp/cc6cBeRe.s:329    .text.HAL_PCD_ISOOUTIncompleteCallback:0000000000000000 HAL_PCD_ISOOUTIncompleteCallback
-     /tmp/cc6cBeRe.s:336    .text.HAL_PCD_ISOINIncompleteCallback:0000000000000000 $t
-     /tmp/cc6cBeRe.s:341    .text.HAL_PCD_ISOINIncompleteCallback:0000000000000000 HAL_PCD_ISOINIncompleteCallback
-     /tmp/cc6cBeRe.s:348    .text.HAL_PCD_ConnectCallback:0000000000000000 $t
-     /tmp/cc6cBeRe.s:353    .text.HAL_PCD_ConnectCallback:0000000000000000 HAL_PCD_ConnectCallback
-     /tmp/cc6cBeRe.s:360    .text.HAL_PCD_DisconnectCallback:0000000000000000 $t
-     /tmp/cc6cBeRe.s:365    .text.HAL_PCD_DisconnectCallback:0000000000000000 HAL_PCD_DisconnectCallback
-     /tmp/cc6cBeRe.s:372    .text.HAL_PCD_DevConnect:0000000000000000 $t
-     /tmp/cc6cBeRe.s:377    .text.HAL_PCD_DevConnect:0000000000000000 HAL_PCD_DevConnect
-     /tmp/cc6cBeRe.s:398    .text.HAL_PCD_DevDisconnect:0000000000000000 $t
-     /tmp/cc6cBeRe.s:403    .text.HAL_PCD_DevDisconnect:0000000000000000 HAL_PCD_DevDisconnect
-     /tmp/cc6cBeRe.s:425    .text.HAL_PCD_SetAddress:0000000000000000 $t
-     /tmp/cc6cBeRe.s:430    .text.HAL_PCD_SetAddress:0000000000000000 HAL_PCD_SetAddress
-     /tmp/cc6cBeRe.s:451    .text.HAL_PCD_EP_Open:0000000000000000 $t
-     /tmp/cc6cBeRe.s:456    .text.HAL_PCD_EP_Open:0000000000000000 HAL_PCD_EP_Open
-     /tmp/cc6cBeRe.s:504    .text.HAL_PCD_EP_Close:0000000000000000 $t
-     /tmp/cc6cBeRe.s:509    .text.HAL_PCD_EP_Close:0000000000000000 HAL_PCD_EP_Close
-     /tmp/cc6cBeRe.s:546    .text.HAL_PCD_EP_Receive:0000000000000000 $t
-     /tmp/cc6cBeRe.s:551    .text.HAL_PCD_EP_Receive:0000000000000000 HAL_PCD_EP_Receive
-     /tmp/cc6cBeRe.s:573    .text.HAL_PCD_EP_GetRxCount:0000000000000000 $t
-     /tmp/cc6cBeRe.s:578    .text.HAL_PCD_EP_GetRxCount:0000000000000000 HAL_PCD_EP_GetRxCount
-     /tmp/cc6cBeRe.s:588    .text.HAL_PCD_EP_Transmit:0000000000000000 $t
-     /tmp/cc6cBeRe.s:593    .text.HAL_PCD_EP_Transmit:0000000000000000 HAL_PCD_EP_Transmit
-     /tmp/cc6cBeRe.s:616    .text.HAL_PCD_IRQHandler:0000000000000000 $t
-     /tmp/cc6cBeRe.s:621    .text.HAL_PCD_IRQHandler:0000000000000000 HAL_PCD_IRQHandler
-     /tmp/cc6cBeRe.s:1024   .text.HAL_PCD_EP_SetStall:0000000000000000 $t
-     /tmp/cc6cBeRe.s:1029   .text.HAL_PCD_EP_SetStall:0000000000000000 HAL_PCD_EP_SetStall
-     /tmp/cc6cBeRe.s:1079   .text.HAL_PCD_EP_ClrStall:0000000000000000 $t
-ARM GAS  /tmp/cc6cBeRe.s 			page 22
+     /tmp/ccrqwS93.s:16     .text.HAL_PCD_MspInit:0000000000000000 $t
+     /tmp/ccrqwS93.s:21     .text.HAL_PCD_MspInit:0000000000000000 HAL_PCD_MspInit
+     /tmp/ccrqwS93.s:28     .text.HAL_PCD_Init:0000000000000000 $t
+     /tmp/ccrqwS93.s:33     .text.HAL_PCD_Init:0000000000000000 HAL_PCD_Init
+     /tmp/ccrqwS93.s:139    .text.HAL_PCD_MspDeInit:0000000000000000 $t
+     /tmp/ccrqwS93.s:144    .text.HAL_PCD_MspDeInit:0000000000000000 HAL_PCD_MspDeInit
+     /tmp/ccrqwS93.s:151    .text.HAL_PCD_Start:0000000000000000 $t
+     /tmp/ccrqwS93.s:156    .text.HAL_PCD_Start:0000000000000000 HAL_PCD_Start
+     /tmp/ccrqwS93.s:179    .text.HAL_PCD_Stop:0000000000000000 $t
+     /tmp/ccrqwS93.s:184    .text.HAL_PCD_Stop:0000000000000000 HAL_PCD_Stop
+     /tmp/ccrqwS93.s:216    .text.HAL_PCD_DeInit:0000000000000000 $t
+     /tmp/ccrqwS93.s:221    .text.HAL_PCD_DeInit:0000000000000000 HAL_PCD_DeInit
+     /tmp/ccrqwS93.s:240    .text.HAL_PCD_DataOutStageCallback:0000000000000000 $t
+     /tmp/ccrqwS93.s:245    .text.HAL_PCD_DataOutStageCallback:0000000000000000 HAL_PCD_DataOutStageCallback
+     /tmp/ccrqwS93.s:252    .text.HAL_PCD_DataInStageCallback:0000000000000000 $t
+     /tmp/ccrqwS93.s:257    .text.HAL_PCD_DataInStageCallback:0000000000000000 HAL_PCD_DataInStageCallback
+     /tmp/ccrqwS93.s:264    .text.HAL_PCD_SetupStageCallback:0000000000000000 $t
+     /tmp/ccrqwS93.s:269    .text.HAL_PCD_SetupStageCallback:0000000000000000 HAL_PCD_SetupStageCallback
+     /tmp/ccrqwS93.s:276    .text.HAL_PCD_SOFCallback:0000000000000000 $t
+     /tmp/ccrqwS93.s:281    .text.HAL_PCD_SOFCallback:0000000000000000 HAL_PCD_SOFCallback
+     /tmp/ccrqwS93.s:288    .text.HAL_PCD_ResetCallback:0000000000000000 $t
+     /tmp/ccrqwS93.s:293    .text.HAL_PCD_ResetCallback:0000000000000000 HAL_PCD_ResetCallback
+     /tmp/ccrqwS93.s:300    .text.HAL_PCD_SuspendCallback:0000000000000000 $t
+     /tmp/ccrqwS93.s:305    .text.HAL_PCD_SuspendCallback:0000000000000000 HAL_PCD_SuspendCallback
+     /tmp/ccrqwS93.s:312    .text.HAL_PCD_ResumeCallback:0000000000000000 $t
+     /tmp/ccrqwS93.s:317    .text.HAL_PCD_ResumeCallback:0000000000000000 HAL_PCD_ResumeCallback
+     /tmp/ccrqwS93.s:324    .text.HAL_PCD_ISOOUTIncompleteCallback:0000000000000000 $t
+     /tmp/ccrqwS93.s:329    .text.HAL_PCD_ISOOUTIncompleteCallback:0000000000000000 HAL_PCD_ISOOUTIncompleteCallback
+     /tmp/ccrqwS93.s:336    .text.HAL_PCD_ISOINIncompleteCallback:0000000000000000 $t
+     /tmp/ccrqwS93.s:341    .text.HAL_PCD_ISOINIncompleteCallback:0000000000000000 HAL_PCD_ISOINIncompleteCallback
+     /tmp/ccrqwS93.s:348    .text.HAL_PCD_ConnectCallback:0000000000000000 $t
+     /tmp/ccrqwS93.s:353    .text.HAL_PCD_ConnectCallback:0000000000000000 HAL_PCD_ConnectCallback
+     /tmp/ccrqwS93.s:360    .text.HAL_PCD_DisconnectCallback:0000000000000000 $t
+     /tmp/ccrqwS93.s:365    .text.HAL_PCD_DisconnectCallback:0000000000000000 HAL_PCD_DisconnectCallback
+     /tmp/ccrqwS93.s:372    .text.HAL_PCD_DevConnect:0000000000000000 $t
+     /tmp/ccrqwS93.s:377    .text.HAL_PCD_DevConnect:0000000000000000 HAL_PCD_DevConnect
+     /tmp/ccrqwS93.s:398    .text.HAL_PCD_DevDisconnect:0000000000000000 $t
+     /tmp/ccrqwS93.s:403    .text.HAL_PCD_DevDisconnect:0000000000000000 HAL_PCD_DevDisconnect
+     /tmp/ccrqwS93.s:425    .text.HAL_PCD_SetAddress:0000000000000000 $t
+     /tmp/ccrqwS93.s:430    .text.HAL_PCD_SetAddress:0000000000000000 HAL_PCD_SetAddress
+     /tmp/ccrqwS93.s:451    .text.HAL_PCD_EP_Open:0000000000000000 $t
+     /tmp/ccrqwS93.s:456    .text.HAL_PCD_EP_Open:0000000000000000 HAL_PCD_EP_Open
+     /tmp/ccrqwS93.s:504    .text.HAL_PCD_EP_Close:0000000000000000 $t
+     /tmp/ccrqwS93.s:509    .text.HAL_PCD_EP_Close:0000000000000000 HAL_PCD_EP_Close
+     /tmp/ccrqwS93.s:546    .text.HAL_PCD_EP_Receive:0000000000000000 $t
+     /tmp/ccrqwS93.s:551    .text.HAL_PCD_EP_Receive:0000000000000000 HAL_PCD_EP_Receive
+     /tmp/ccrqwS93.s:573    .text.HAL_PCD_EP_GetRxCount:0000000000000000 $t
+     /tmp/ccrqwS93.s:578    .text.HAL_PCD_EP_GetRxCount:0000000000000000 HAL_PCD_EP_GetRxCount
+     /tmp/ccrqwS93.s:588    .text.HAL_PCD_EP_Transmit:0000000000000000 $t
+     /tmp/ccrqwS93.s:593    .text.HAL_PCD_EP_Transmit:0000000000000000 HAL_PCD_EP_Transmit
+     /tmp/ccrqwS93.s:616    .text.HAL_PCD_IRQHandler:0000000000000000 $t
+     /tmp/ccrqwS93.s:621    .text.HAL_PCD_IRQHandler:0000000000000000 HAL_PCD_IRQHandler
+     /tmp/ccrqwS93.s:1024   .text.HAL_PCD_EP_SetStall:0000000000000000 $t
+     /tmp/ccrqwS93.s:1029   .text.HAL_PCD_EP_SetStall:0000000000000000 HAL_PCD_EP_SetStall
+     /tmp/ccrqwS93.s:1079   .text.HAL_PCD_EP_ClrStall:0000000000000000 $t
+ARM GAS  /tmp/ccrqwS93.s 			page 22
 
 
-     /tmp/cc6cBeRe.s:1084   .text.HAL_PCD_EP_ClrStall:0000000000000000 HAL_PCD_EP_ClrStall
-     /tmp/cc6cBeRe.s:1130   .text.HAL_PCD_EP_Flush:0000000000000000 $t
-     /tmp/cc6cBeRe.s:1135   .text.HAL_PCD_EP_Flush:0000000000000000 HAL_PCD_EP_Flush
-     /tmp/cc6cBeRe.s:1162   .text.HAL_PCD_ActivateRemoteWakeup:0000000000000000 $t
-     /tmp/cc6cBeRe.s:1167   .text.HAL_PCD_ActivateRemoteWakeup:0000000000000000 HAL_PCD_ActivateRemoteWakeup
-     /tmp/cc6cBeRe.s:1175   .text.HAL_PCD_DeActivateRemoteWakeup:0000000000000000 $t
-     /tmp/cc6cBeRe.s:1180   .text.HAL_PCD_DeActivateRemoteWakeup:0000000000000000 HAL_PCD_DeActivateRemoteWakeup
-     /tmp/cc6cBeRe.s:1188   .text.HAL_PCD_GetState:0000000000000000 $t
-     /tmp/cc6cBeRe.s:1193   .text.HAL_PCD_GetState:0000000000000000 HAL_PCD_GetState
+     /tmp/ccrqwS93.s:1084   .text.HAL_PCD_EP_ClrStall:0000000000000000 HAL_PCD_EP_ClrStall
+     /tmp/ccrqwS93.s:1130   .text.HAL_PCD_EP_Flush:0000000000000000 $t
+     /tmp/ccrqwS93.s:1135   .text.HAL_PCD_EP_Flush:0000000000000000 HAL_PCD_EP_Flush
+     /tmp/ccrqwS93.s:1162   .text.HAL_PCD_ActivateRemoteWakeup:0000000000000000 $t
+     /tmp/ccrqwS93.s:1167   .text.HAL_PCD_ActivateRemoteWakeup:0000000000000000 HAL_PCD_ActivateRemoteWakeup
+     /tmp/ccrqwS93.s:1175   .text.HAL_PCD_DeActivateRemoteWakeup:0000000000000000 $t
+     /tmp/ccrqwS93.s:1180   .text.HAL_PCD_DeActivateRemoteWakeup:0000000000000000 HAL_PCD_DeActivateRemoteWakeup
+     /tmp/ccrqwS93.s:1188   .text.HAL_PCD_GetState:0000000000000000 $t
+     /tmp/ccrqwS93.s:1193   .text.HAL_PCD_GetState:0000000000000000 HAL_PCD_GetState
 
 UNDEFINED SYMBOLS
 USB_DisableGlobalInt

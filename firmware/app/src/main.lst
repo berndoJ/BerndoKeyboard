@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cccZsg2d.s 			page 1
+ARM GAS  /tmp/ccNqDhZe.s 			page 1
 
 
    1              		.syntax unified
@@ -27,17 +27,42 @@ ARM GAS  /tmp/cccZsg2d.s 			page 1
   25 0000 08B5     		push	{r3, lr}
   26 0002 FFF7FEFF 		bl	HAL_Init
   27 0006 FFF7FEFF 		bl	SYS_Clock_Init
-  28              	.L2:
-  29 000a FEE7     		b	.L2
-  31              		.ident	"GCC: (15:4.9.3+svn231177-1) 4.9.3 20150529 (prerelease)"
-ARM GAS  /tmp/cccZsg2d.s 			page 2
+  28 000a FFF7FEFF 		bl	SYS_GPIO_Init
+  29 000e FFF7FEFF 		bl	SYS_Init
+  30 0012 FFF7FEFF 		bl	SYS_I2C_Init
+  31              	.L2:
+  32 0016 6420     		movs	r0, #100
+  33 0018 FFF7FEFF 		bl	HAL_Delay
+  34 001c 0121     		movs	r1, #1
+  35 001e 0A46     		mov	r2, r1
+  36 0020 0548     		ldr	r0, .L4
+  37 0022 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  38 0026 6420     		movs	r0, #100
+  39 0028 FFF7FEFF 		bl	HAL_Delay
+  40 002c 0248     		ldr	r0, .L4
+  41 002e 0121     		movs	r1, #1
+  42 0030 0022     		movs	r2, #0
+  43 0032 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  44 0036 EEE7     		b	.L2
+  45              	.L5:
+  46              		.align	2
+  47              	.L4:
+  48 0038 000C0140 		.word	1073810432
+  50              		.ident	"GCC: (15:4.9.3+svn231177-1) 4.9.3 20150529 (prerelease)"
+ARM GAS  /tmp/ccNqDhZe.s 			page 2
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-     /tmp/cccZsg2d.s:16     .text.startup.main:0000000000000000 $t
-     /tmp/cccZsg2d.s:21     .text.startup.main:0000000000000000 main
+     /tmp/ccNqDhZe.s:16     .text.startup.main:0000000000000000 $t
+     /tmp/ccNqDhZe.s:21     .text.startup.main:0000000000000000 main
+     /tmp/ccNqDhZe.s:48     .text.startup.main:0000000000000038 $d
 
 UNDEFINED SYMBOLS
 HAL_Init
 SYS_Clock_Init
+SYS_GPIO_Init
+SYS_Init
+SYS_I2C_Init
+HAL_Delay
+HAL_GPIO_WritePin

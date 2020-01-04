@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccZFeEW1.s 			page 1
+ARM GAS  /tmp/ccEsfx9Q.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccZFeEW1.s 			page 1
   58 0038 FFF7FEFF 		bl	FSMC_NORSRAM_Extended_Timing_Init
   59 003c 2268     		ldr	r2, [r4]
   60 003e A168     		ldr	r1, [r4, #8]
-ARM GAS  /tmp/ccZFeEW1.s 			page 2
+ARM GAS  /tmp/ccEsfx9Q.s 			page 2
 
 
   61 0040 0020     		movs	r0, #0
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccZFeEW1.s 			page 1
  121              		@ frame_needed = 0, uses_anonymous_args = 0
  122              		@ link register save eliminated.
  123 0000 7047     		bx	lr
-ARM GAS  /tmp/ccZFeEW1.s 			page 3
+ARM GAS  /tmp/ccEsfx9Q.s 			page 3
 
 
  125              		.section	.text.HAL_NOR_Read_ID,"ax",%progbits
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccZFeEW1.s 			page 1
  180 0066 012D     		cmp	r5, #1
  181 0068 0CBF     		ite	eq
  182 006a 03F25455 		addweq	r5, r3, #1364
-ARM GAS  /tmp/ccZFeEW1.s 			page 4
+ARM GAS  /tmp/ccEsfx9Q.s 			page 4
 
 
  183 006e 03F2AA25 		addwne	r5, r3, #682
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccZFeEW1.s 			page 1
  237 00d4 00000000 		.word	.LANCHOR0
  239              		.section	.text.HAL_NOR_ReturnToReadMode,"ax",%progbits
  240              		.align	1
-ARM GAS  /tmp/ccZFeEW1.s 			page 5
+ARM GAS  /tmp/ccEsfx9Q.s 			page 5
 
 
  241              		.global	HAL_NOR_ReturnToReadMode
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccZFeEW1.s 			page 1
  296              	.L47:
  297 0064 1846     		mov	r0, r3
  298 0066 7047     		bx	lr
-ARM GAS  /tmp/ccZFeEW1.s 			page 6
+ARM GAS  /tmp/ccEsfx9Q.s 			page 6
 
 
  300              		.section	.text.HAL_NOR_Read,"ax",%progbits
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccZFeEW1.s 			page 1
  355 0066 012E     		cmp	r6, #1
  356 0068 0CBF     		ite	eq
  357 006a 03F25456 		addweq	r6, r3, #1364
-ARM GAS  /tmp/ccZFeEW1.s 			page 7
+ARM GAS  /tmp/ccEsfx9Q.s 			page 7
 
 
  358 006e 03F2AA26 		addwne	r6, r3, #682
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccZFeEW1.s 			page 1
  414 001a 012B     		cmp	r3, #1
  415 001c 4FF00203 		mov	r3, #2
  416 0020 42D0     		beq	.L86
-ARM GAS  /tmp/ccZFeEW1.s 			page 8
+ARM GAS  /tmp/ccEsfx9Q.s 			page 8
 
 
  417 0022 80F84130 		strb	r3, [r0, #65]
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccZFeEW1.s 			page 1
  471 0092 BFF34F8F 		dsb 0xF
  472              	@ 0 "" 2
  473              		.thumb
-ARM GAS  /tmp/ccZFeEW1.s 			page 9
+ARM GAS  /tmp/ccEsfx9Q.s 			page 9
 
 
  474 0096 0123     		movs	r3, #1
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccZFeEW1.s 			page 1
  530              	.L95:
  531 004a 1D4E     		ldr	r6, .L114
  532 004c 4FF0AA0E 		mov	lr, #170
-ARM GAS  /tmp/ccZFeEW1.s 			page 10
+ARM GAS  /tmp/ccEsfx9Q.s 			page 10
 
 
  533 0050 3768     		ldr	r7, [r6]
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccZFeEW1.s 			page 1
  587              	.L115:
  588 00be 00BF     		.align	2
  589              	.L114:
-ARM GAS  /tmp/ccZFeEW1.s 			page 11
+ARM GAS  /tmp/ccEsfx9Q.s 			page 11
 
 
  590 00c0 00000000 		.word	.LANCHOR0
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccZFeEW1.s 			page 1
  646 006e 2F68     		ldr	r7, [r5]
  647 0070 4FF0550C 		mov	ip, #85
  648 0074 012F     		cmp	r7, #1
-ARM GAS  /tmp/ccZFeEW1.s 			page 12
+ARM GAS  /tmp/ccEsfx9Q.s 			page 12
 
 
  649 0076 0CBF     		ite	eq
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccZFeEW1.s 			page 1
  703 00e0 F0BD     		pop	{r4, r5, r6, r7, pc}
  704              	.L130:
  705 00e2 0120     		movs	r0, #1
-ARM GAS  /tmp/ccZFeEW1.s 			page 13
+ARM GAS  /tmp/ccEsfx9Q.s 			page 13
 
 
  706 00e4 F0BD     		pop	{r4, r5, r6, r7, pc}
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccZFeEW1.s 			page 1
  762              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
  763 005e BFF34F8F 		dsb 0xF
  764              	@ 0 "" 2
-ARM GAS  /tmp/ccZFeEW1.s 			page 14
+ARM GAS  /tmp/ccEsfx9Q.s 			page 14
 
 
  765              		.thumb
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccZFeEW1.s 			page 1
  819 00ca 80F84030 		strb	r3, [r0, #64]
  820 00ce 01E0     		b	.L153
  821              	.L152:
-ARM GAS  /tmp/ccZFeEW1.s 			page 15
+ARM GAS  /tmp/ccEsfx9Q.s 			page 15
 
 
  822 00d0 0120     		movs	r0, #1
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccZFeEW1.s 			page 1
  878 005c 0C80     		strh	r4, [r1]	@ movhi
  879              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
  880 005e BFF34F8F 		dsb 0xF
-ARM GAS  /tmp/ccZFeEW1.s 			page 16
+ARM GAS  /tmp/ccEsfx9Q.s 			page 16
 
 
  881              	@ 0 "" 2
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccZFeEW1.s 			page 1
  935 00cc BFF34F8F 		dsb 0xF
  936              	@ 0 "" 2
  937              		.thumb
-ARM GAS  /tmp/ccZFeEW1.s 			page 17
+ARM GAS  /tmp/ccEsfx9Q.s 			page 17
 
 
  938 00d0 0123     		movs	r3, #1
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccZFeEW1.s 			page 1
  994              	.L185:
  995 004a 1B4C     		ldr	r4, .L205
  996 004c 9826     		movs	r6, #152
-ARM GAS  /tmp/ccZFeEW1.s 			page 18
+ARM GAS  /tmp/ccEsfx9Q.s 			page 18
 
 
  997 004e 2568     		ldr	r5, [r4]
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccZFeEW1.s 			page 1
  1052              		.global	HAL_NOR_WriteOperation_Enable
  1053              		.thumb
  1054              		.thumb_func
-ARM GAS  /tmp/ccZFeEW1.s 			page 19
+ARM GAS  /tmp/ccEsfx9Q.s 			page 19
 
 
  1056              	HAL_NOR_WriteOperation_Enable:
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccZFeEW1.s 			page 1
  1112              	.L213:
  1113 0036 0120     		movs	r0, #1
  1114              	.L212:
-ARM GAS  /tmp/ccZFeEW1.s 			page 20
+ARM GAS  /tmp/ccEsfx9Q.s 			page 20
 
 
  1115 0038 10BD     		pop	{r4, pc}
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccZFeEW1.s 			page 1
  1173 004a 00F04000 		and	r0, r0, #64
  1174 004e 80B2     		uxth	r0, r0
  1175 0050 18BF     		it	ne
-ARM GAS  /tmp/ccZFeEW1.s 			page 21
+ARM GAS  /tmp/ccEsfx9Q.s 			page 21
 
 
  1176 0052 0124     		movne	r4, #1
@@ -1219,58 +1219,58 @@ ARM GAS  /tmp/ccZFeEW1.s 			page 1
  1194              	uwNORMemoryDataWidth:
  1195 0000 00000000 		.space	4
  1196              		.ident	"GCC: (15:4.9.3+svn231177-1) 4.9.3 20150529 (prerelease)"
-ARM GAS  /tmp/ccZFeEW1.s 			page 22
+ARM GAS  /tmp/ccEsfx9Q.s 			page 22
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f1xx_hal_nor.c
-     /tmp/ccZFeEW1.s:16     .text.HAL_NOR_MspInit:0000000000000000 $t
-     /tmp/ccZFeEW1.s:21     .text.HAL_NOR_MspInit:0000000000000000 HAL_NOR_MspInit
-     /tmp/ccZFeEW1.s:28     .text.HAL_NOR_Init:0000000000000000 $t
-     /tmp/ccZFeEW1.s:33     .text.HAL_NOR_Init:0000000000000000 HAL_NOR_Init
-     /tmp/ccZFeEW1.s:80     .text.HAL_NOR_Init:0000000000000068 $d
-     /tmp/ccZFeEW1.s:83     .text.HAL_NOR_MspDeInit:0000000000000000 $t
-     /tmp/ccZFeEW1.s:88     .text.HAL_NOR_MspDeInit:0000000000000000 HAL_NOR_MspDeInit
-     /tmp/ccZFeEW1.s:95     .text.HAL_NOR_DeInit:0000000000000000 $t
-     /tmp/ccZFeEW1.s:100    .text.HAL_NOR_DeInit:0000000000000000 HAL_NOR_DeInit
-     /tmp/ccZFeEW1.s:114    .text.HAL_NOR_MspWait:0000000000000000 $t
-     /tmp/ccZFeEW1.s:119    .text.HAL_NOR_MspWait:0000000000000000 HAL_NOR_MspWait
-     /tmp/ccZFeEW1.s:126    .text.HAL_NOR_Read_ID:0000000000000000 $t
-     /tmp/ccZFeEW1.s:131    .text.HAL_NOR_Read_ID:0000000000000000 HAL_NOR_Read_ID
-     /tmp/ccZFeEW1.s:237    .text.HAL_NOR_Read_ID:00000000000000d4 $d
-     /tmp/ccZFeEW1.s:240    .text.HAL_NOR_ReturnToReadMode:0000000000000000 $t
-     /tmp/ccZFeEW1.s:245    .text.HAL_NOR_ReturnToReadMode:0000000000000000 HAL_NOR_ReturnToReadMode
-     /tmp/ccZFeEW1.s:301    .text.HAL_NOR_Read:0000000000000000 $t
-     /tmp/ccZFeEW1.s:306    .text.HAL_NOR_Read:0000000000000000 HAL_NOR_Read
-     /tmp/ccZFeEW1.s:393    .text.HAL_NOR_Read:00000000000000ac $d
-     /tmp/ccZFeEW1.s:396    .text.HAL_NOR_Program:0000000000000000 $t
-     /tmp/ccZFeEW1.s:401    .text.HAL_NOR_Program:0000000000000000 HAL_NOR_Program
-     /tmp/ccZFeEW1.s:488    .text.HAL_NOR_Program:00000000000000ac $d
-     /tmp/ccZFeEW1.s:491    .text.HAL_NOR_ReadBuffer:0000000000000000 $t
-     /tmp/ccZFeEW1.s:496    .text.HAL_NOR_ReadBuffer:0000000000000000 HAL_NOR_ReadBuffer
-     /tmp/ccZFeEW1.s:590    .text.HAL_NOR_ReadBuffer:00000000000000c0 $d
-     /tmp/ccZFeEW1.s:593    .text.HAL_NOR_ProgramBuffer:0000000000000000 $t
-     /tmp/ccZFeEW1.s:598    .text.HAL_NOR_ProgramBuffer:0000000000000000 HAL_NOR_ProgramBuffer
-     /tmp/ccZFeEW1.s:713    .text.HAL_NOR_ProgramBuffer:00000000000000ec $d
-     /tmp/ccZFeEW1.s:716    .text.HAL_NOR_Erase_Block:0000000000000000 $t
-     /tmp/ccZFeEW1.s:721    .text.HAL_NOR_Erase_Block:0000000000000000 HAL_NOR_Erase_Block
-     /tmp/ccZFeEW1.s:830    .text.HAL_NOR_Erase_Block:00000000000000d8 $d
-     /tmp/ccZFeEW1.s:833    .text.HAL_NOR_Erase_Chip:0000000000000000 $t
-     /tmp/ccZFeEW1.s:838    .text.HAL_NOR_Erase_Chip:0000000000000000 HAL_NOR_Erase_Chip
-     /tmp/ccZFeEW1.s:952    .text.HAL_NOR_Erase_Chip:00000000000000e8 $d
-     /tmp/ccZFeEW1.s:955    .text.HAL_NOR_Read_CFI:0000000000000000 $t
-     /tmp/ccZFeEW1.s:960    .text.HAL_NOR_Read_CFI:0000000000000000 HAL_NOR_Read_CFI
-     /tmp/ccZFeEW1.s:1048   .text.HAL_NOR_Read_CFI:00000000000000b8 $d
-     /tmp/ccZFeEW1.s:1051   .text.HAL_NOR_WriteOperation_Enable:0000000000000000 $t
-     /tmp/ccZFeEW1.s:1056   .text.HAL_NOR_WriteOperation_Enable:0000000000000000 HAL_NOR_WriteOperation_Enable
-     /tmp/ccZFeEW1.s:1084   .text.HAL_NOR_WriteOperation_Disable:0000000000000000 $t
-     /tmp/ccZFeEW1.s:1089   .text.HAL_NOR_WriteOperation_Disable:0000000000000000 HAL_NOR_WriteOperation_Disable
-     /tmp/ccZFeEW1.s:1118   .text.HAL_NOR_GetState:0000000000000000 $t
-     /tmp/ccZFeEW1.s:1123   .text.HAL_NOR_GetState:0000000000000000 HAL_NOR_GetState
-     /tmp/ccZFeEW1.s:1131   .text.HAL_NOR_GetStatus:0000000000000000 $t
-     /tmp/ccZFeEW1.s:1136   .text.HAL_NOR_GetStatus:0000000000000000 HAL_NOR_GetStatus
-     /tmp/ccZFeEW1.s:1190   .bss.uwNORMemoryDataWidth:0000000000000000 $d
-     /tmp/ccZFeEW1.s:1194   .bss.uwNORMemoryDataWidth:0000000000000000 uwNORMemoryDataWidth
+     /tmp/ccEsfx9Q.s:16     .text.HAL_NOR_MspInit:0000000000000000 $t
+     /tmp/ccEsfx9Q.s:21     .text.HAL_NOR_MspInit:0000000000000000 HAL_NOR_MspInit
+     /tmp/ccEsfx9Q.s:28     .text.HAL_NOR_Init:0000000000000000 $t
+     /tmp/ccEsfx9Q.s:33     .text.HAL_NOR_Init:0000000000000000 HAL_NOR_Init
+     /tmp/ccEsfx9Q.s:80     .text.HAL_NOR_Init:0000000000000068 $d
+     /tmp/ccEsfx9Q.s:83     .text.HAL_NOR_MspDeInit:0000000000000000 $t
+     /tmp/ccEsfx9Q.s:88     .text.HAL_NOR_MspDeInit:0000000000000000 HAL_NOR_MspDeInit
+     /tmp/ccEsfx9Q.s:95     .text.HAL_NOR_DeInit:0000000000000000 $t
+     /tmp/ccEsfx9Q.s:100    .text.HAL_NOR_DeInit:0000000000000000 HAL_NOR_DeInit
+     /tmp/ccEsfx9Q.s:114    .text.HAL_NOR_MspWait:0000000000000000 $t
+     /tmp/ccEsfx9Q.s:119    .text.HAL_NOR_MspWait:0000000000000000 HAL_NOR_MspWait
+     /tmp/ccEsfx9Q.s:126    .text.HAL_NOR_Read_ID:0000000000000000 $t
+     /tmp/ccEsfx9Q.s:131    .text.HAL_NOR_Read_ID:0000000000000000 HAL_NOR_Read_ID
+     /tmp/ccEsfx9Q.s:237    .text.HAL_NOR_Read_ID:00000000000000d4 $d
+     /tmp/ccEsfx9Q.s:240    .text.HAL_NOR_ReturnToReadMode:0000000000000000 $t
+     /tmp/ccEsfx9Q.s:245    .text.HAL_NOR_ReturnToReadMode:0000000000000000 HAL_NOR_ReturnToReadMode
+     /tmp/ccEsfx9Q.s:301    .text.HAL_NOR_Read:0000000000000000 $t
+     /tmp/ccEsfx9Q.s:306    .text.HAL_NOR_Read:0000000000000000 HAL_NOR_Read
+     /tmp/ccEsfx9Q.s:393    .text.HAL_NOR_Read:00000000000000ac $d
+     /tmp/ccEsfx9Q.s:396    .text.HAL_NOR_Program:0000000000000000 $t
+     /tmp/ccEsfx9Q.s:401    .text.HAL_NOR_Program:0000000000000000 HAL_NOR_Program
+     /tmp/ccEsfx9Q.s:488    .text.HAL_NOR_Program:00000000000000ac $d
+     /tmp/ccEsfx9Q.s:491    .text.HAL_NOR_ReadBuffer:0000000000000000 $t
+     /tmp/ccEsfx9Q.s:496    .text.HAL_NOR_ReadBuffer:0000000000000000 HAL_NOR_ReadBuffer
+     /tmp/ccEsfx9Q.s:590    .text.HAL_NOR_ReadBuffer:00000000000000c0 $d
+     /tmp/ccEsfx9Q.s:593    .text.HAL_NOR_ProgramBuffer:0000000000000000 $t
+     /tmp/ccEsfx9Q.s:598    .text.HAL_NOR_ProgramBuffer:0000000000000000 HAL_NOR_ProgramBuffer
+     /tmp/ccEsfx9Q.s:713    .text.HAL_NOR_ProgramBuffer:00000000000000ec $d
+     /tmp/ccEsfx9Q.s:716    .text.HAL_NOR_Erase_Block:0000000000000000 $t
+     /tmp/ccEsfx9Q.s:721    .text.HAL_NOR_Erase_Block:0000000000000000 HAL_NOR_Erase_Block
+     /tmp/ccEsfx9Q.s:830    .text.HAL_NOR_Erase_Block:00000000000000d8 $d
+     /tmp/ccEsfx9Q.s:833    .text.HAL_NOR_Erase_Chip:0000000000000000 $t
+     /tmp/ccEsfx9Q.s:838    .text.HAL_NOR_Erase_Chip:0000000000000000 HAL_NOR_Erase_Chip
+     /tmp/ccEsfx9Q.s:952    .text.HAL_NOR_Erase_Chip:00000000000000e8 $d
+     /tmp/ccEsfx9Q.s:955    .text.HAL_NOR_Read_CFI:0000000000000000 $t
+     /tmp/ccEsfx9Q.s:960    .text.HAL_NOR_Read_CFI:0000000000000000 HAL_NOR_Read_CFI
+     /tmp/ccEsfx9Q.s:1048   .text.HAL_NOR_Read_CFI:00000000000000b8 $d
+     /tmp/ccEsfx9Q.s:1051   .text.HAL_NOR_WriteOperation_Enable:0000000000000000 $t
+     /tmp/ccEsfx9Q.s:1056   .text.HAL_NOR_WriteOperation_Enable:0000000000000000 HAL_NOR_WriteOperation_Enable
+     /tmp/ccEsfx9Q.s:1084   .text.HAL_NOR_WriteOperation_Disable:0000000000000000 $t
+     /tmp/ccEsfx9Q.s:1089   .text.HAL_NOR_WriteOperation_Disable:0000000000000000 HAL_NOR_WriteOperation_Disable
+     /tmp/ccEsfx9Q.s:1118   .text.HAL_NOR_GetState:0000000000000000 $t
+     /tmp/ccEsfx9Q.s:1123   .text.HAL_NOR_GetState:0000000000000000 HAL_NOR_GetState
+     /tmp/ccEsfx9Q.s:1131   .text.HAL_NOR_GetStatus:0000000000000000 $t
+     /tmp/ccEsfx9Q.s:1136   .text.HAL_NOR_GetStatus:0000000000000000 HAL_NOR_GetStatus
+     /tmp/ccEsfx9Q.s:1190   .bss.uwNORMemoryDataWidth:0000000000000000 $d
+     /tmp/ccEsfx9Q.s:1194   .bss.uwNORMemoryDataWidth:0000000000000000 uwNORMemoryDataWidth
 
 UNDEFINED SYMBOLS
 FSMC_NORSRAM_Init
@@ -1279,7 +1279,7 @@ FSMC_NORSRAM_Extended_Timing_Init
 FSMC_NORSRAM_DeInit
 FSMC_NORSRAM_WriteOperation_Enable
 FSMC_NORSRAM_WriteOperation_Disable
-ARM GAS  /tmp/ccZFeEW1.s 			page 23
+ARM GAS  /tmp/ccEsfx9Q.s 			page 23
 
 
 HAL_GetTick

@@ -1,0 +1,144 @@
+\hypertarget{sys__gpio_8h}{}\doxysection{app/inc/sys\+\_\+gpio.h File Reference}
+\label{sys__gpio_8h}\index{app/inc/sys\_gpio.h@{app/inc/sys\_gpio.h}}
+
+
+G\+P\+IO configuration and initialisation module.  
+
+
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_af529b05924a94163c23b97f00ce5018e}\label{sys__gpio_8h_af529b05924a94163c23b97f00ce5018e}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+K\+B\+M\+\_\+\+D\+A\+T\+A\+\_\+0\+\_\+\+P\+O\+RT}~G\+P\+I\+OC
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_a4dd114513416cdcf8d6f2d91b5cb445b}\label{sys__gpio_8h_a4dd114513416cdcf8d6f2d91b5cb445b}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+K\+B\+M\+\_\+\+D\+A\+T\+A\+\_\+0\+\_\+\+P\+IN}~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+12
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_af903c8daf7ea8d3298be9128fab18ce8}\label{sys__gpio_8h_af903c8daf7ea8d3298be9128fab18ce8}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+K\+B\+M\+\_\+\+D\+A\+T\+A\+\_\+1\+\_\+\+P\+O\+RT}~G\+P\+I\+OC
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_afb9ede30908661170371e13fa77b87ed}\label{sys__gpio_8h_afb9ede30908661170371e13fa77b87ed}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+K\+B\+M\+\_\+\+D\+A\+T\+A\+\_\+1\+\_\+\+P\+IN}~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+11
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_aa8aa265ccdae2acf86b6ac31681dfd3f}\label{sys__gpio_8h_aa8aa265ccdae2acf86b6ac31681dfd3f}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+K\+B\+M\+\_\+\+D\+A\+T\+A\+\_\+2\+\_\+\+P\+O\+RT}~G\+P\+I\+OC
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_a44fcd0b908d4f18237c3595260abd48e}\label{sys__gpio_8h_a44fcd0b908d4f18237c3595260abd48e}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+K\+B\+M\+\_\+\+D\+A\+T\+A\+\_\+2\+\_\+\+P\+IN}~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+10
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_a403524534a62584510a88f6b10b4f4e6}\label{sys__gpio_8h_a403524534a62584510a88f6b10b4f4e6}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+K\+B\+M\+\_\+\+D\+A\+T\+A\+\_\+3\+\_\+\+P\+O\+RT}~G\+P\+I\+OC
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_a5a30d8bb3c98558ce03ebab773eea79b}\label{sys__gpio_8h_a5a30d8bb3c98558ce03ebab773eea79b}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+K\+B\+M\+\_\+\+D\+A\+T\+A\+\_\+3\+\_\+\+P\+IN}~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+9
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_ab89161bbd7e970ea316f23738647170d}\label{sys__gpio_8h_ab89161bbd7e970ea316f23738647170d}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+K\+B\+M\+\_\+\+D\+A\+T\+A\+\_\+4\+\_\+\+P\+O\+RT}~G\+P\+I\+OC
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_a60e7129e0913258e5d786fbd0e2ec614}\label{sys__gpio_8h_a60e7129e0913258e5d786fbd0e2ec614}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+K\+B\+M\+\_\+\+D\+A\+T\+A\+\_\+4\+\_\+\+P\+IN}~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+8
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_a4a3c922b43829f8e6a0c523fb6aa5f43}\label{sys__gpio_8h_a4a3c922b43829f8e6a0c523fb6aa5f43}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+K\+B\+M\+\_\+\+D\+A\+T\+A\+\_\+5\+\_\+\+P\+O\+RT}~G\+P\+I\+OC
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_a0569756c09995a05ffc12da57a8cd332}\label{sys__gpio_8h_a0569756c09995a05ffc12da57a8cd332}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+K\+B\+M\+\_\+\+D\+A\+T\+A\+\_\+5\+\_\+\+P\+IN}~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+4
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_ac3343786951c26b9981fa31895bf56b6}\label{sys__gpio_8h_ac3343786951c26b9981fa31895bf56b6}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+K\+B\+M\+\_\+\+D\+A\+T\+A\+\_\+6\+\_\+\+P\+O\+RT}~G\+P\+I\+OC
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_aaca693b314a8159ff3e365de32f6a5a6}\label{sys__gpio_8h_aaca693b314a8159ff3e365de32f6a5a6}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+K\+B\+M\+\_\+\+D\+A\+T\+A\+\_\+6\+\_\+\+P\+IN}~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+5
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_a96c0882cd91a5813b513c13483c38f82}\label{sys__gpio_8h_a96c0882cd91a5813b513c13483c38f82}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+L\+E\+D\+\_\+\+D\+A\+T\+A\+\_\+\+P\+O\+RT}~G\+P\+I\+OC
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_af93c090a515db679fa71b749a8a900c8}\label{sys__gpio_8h_af93c090a515db679fa71b749a8a900c8}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+L\+E\+D\+\_\+\+D\+A\+T\+A\+\_\+\+P\+IN}~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+7
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_a4c02533a8ca8d0c88cb33a3fa36d4d0b}\label{sys__gpio_8h_a4c02533a8ca8d0c88cb33a3fa36d4d0b}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+P\+O\+R\+T\+E\+X01\+\_\+\+I\+N\+T\+\_\+\+P\+O\+RT}~G\+P\+I\+OD
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_a3f304b8a8385eeaf3b401826b40c0f56}\label{sys__gpio_8h_a3f304b8a8385eeaf3b401826b40c0f56}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+P\+O\+R\+T\+E\+X01\+\_\+\+I\+N\+T\+\_\+\+P\+IN}~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+2
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_adeba93380b4842967e018c6660976a11}\label{sys__gpio_8h_adeba93380b4842967e018c6660976a11}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+U\+S\+E\+R\+\_\+\+L\+E\+D\+\_\+0\+\_\+\+P\+O\+RT}~G\+P\+I\+OB
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_a7e12d2fb3542e4fafd353b5a6797acef}\label{sys__gpio_8h_a7e12d2fb3542e4fafd353b5a6797acef}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+U\+S\+E\+R\+\_\+\+L\+E\+D\+\_\+0\+\_\+\+P\+IN}~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+0
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_a4f3c36f62c0b533cfdf1b7ba36f13048}\label{sys__gpio_8h_a4f3c36f62c0b533cfdf1b7ba36f13048}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+U\+S\+E\+R\+\_\+\+L\+E\+D\+\_\+1\+\_\+\+P\+O\+RT}~G\+P\+I\+OB
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_ab9243a921ed497751ac392e0b2b96568}\label{sys__gpio_8h_ab9243a921ed497751ac392e0b2b96568}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+U\+S\+E\+R\+\_\+\+L\+E\+D\+\_\+1\+\_\+\+P\+IN}~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+1
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_a2d6884928b63b5a211e1fb5b1101f227}\label{sys__gpio_8h_a2d6884928b63b5a211e1fb5b1101f227}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+U\+S\+E\+R\+\_\+\+L\+E\+D\+\_\+2\+\_\+\+P\+O\+RT}~G\+P\+I\+OB
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_a1ace8254d2c145736ef6bfc66e43c853}\label{sys__gpio_8h_a1ace8254d2c145736ef6bfc66e43c853}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+U\+S\+E\+R\+\_\+\+L\+E\+D\+\_\+2\+\_\+\+P\+IN}~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+2
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_a101822c936f502b015567b80c3312c1b}\label{sys__gpio_8h_a101822c936f502b015567b80c3312c1b}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+L\+E\+D\+\_\+\+P\+O\+RT}~G\+P\+I\+OA
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_a34ea5acb54d7e900867d269dad61c478}\label{sys__gpio_8h_a34ea5acb54d7e900867d269dad61c478}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+L\+E\+D\+\_\+\+P\+IN}~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+4
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_ab130cb91e544df772ecf4b457119ef52}\label{sys__gpio_8h_ab130cb91e544df772ecf4b457119ef52}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+H\+W\+B\+I\+T\+\_\+0\+\_\+\+P\+O\+RT}~G\+P\+I\+OA
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_aae1acba2e0690fbcfcd65e1cc1229414}\label{sys__gpio_8h_aae1acba2e0690fbcfcd65e1cc1229414}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+H\+W\+B\+I\+T\+\_\+0\+\_\+\+P\+IN}~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+8
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_ada4cb646c3645f54d3d54e942fc42a4f}\label{sys__gpio_8h_ada4cb646c3645f54d3d54e942fc42a4f}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+H\+W\+B\+I\+T\+\_\+1\+\_\+\+P\+O\+RT}~G\+P\+I\+OB
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_a0dc70e74cd0fadc54b12981a2ffc0608}\label{sys__gpio_8h_a0dc70e74cd0fadc54b12981a2ffc0608}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+H\+W\+B\+I\+T\+\_\+1\+\_\+\+P\+IN}~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+8
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_af96ce880a1e6c5d4a1b236c2650eb03f}\label{sys__gpio_8h_af96ce880a1e6c5d4a1b236c2650eb03f}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+H\+W\+B\+I\+T\+\_\+2\+\_\+\+P\+O\+RT}~G\+P\+I\+OB
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_a979cdc8be62f72f7a34a7ece3d53be83}\label{sys__gpio_8h_a979cdc8be62f72f7a34a7ece3d53be83}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+H\+W\+B\+I\+T\+\_\+2\+\_\+\+P\+IN}~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+9
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_a843431ce663baa11c5e13dabd386ea16}\label{sys__gpio_8h_a843431ce663baa11c5e13dabd386ea16}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+H\+W\+B\+I\+T\+\_\+3\+\_\+\+P\+O\+RT}~G\+P\+I\+OB
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_af6de7768d272bab9a99d6bd0ba3aae01}\label{sys__gpio_8h_af6de7768d272bab9a99d6bd0ba3aae01}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+H\+W\+B\+I\+T\+\_\+3\+\_\+\+P\+IN}~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+12
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_a5e19e8a9c8f0cd8a12e8c63b9f3ae55e}\label{sys__gpio_8h_a5e19e8a9c8f0cd8a12e8c63b9f3ae55e}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+H\+W\+B\+I\+T\+\_\+4\+\_\+\+P\+O\+RT}~G\+P\+I\+OC
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_ade88689387bf417aff43a80dd27ea551}\label{sys__gpio_8h_ade88689387bf417aff43a80dd27ea551}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+H\+W\+B\+I\+T\+\_\+4\+\_\+\+P\+IN}~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+6
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_a9033dd95cc5fb2833b8d6a313f310161}\label{sys__gpio_8h_a9033dd95cc5fb2833b8d6a313f310161}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+W\+P\+\_\+\+P\+O\+RT}~G\+P\+I\+OB
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_a4f4cb00e5cb07c7059f3115cde2d7f98}\label{sys__gpio_8h_a4f4cb00e5cb07c7059f3115cde2d7f98}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+W\+P\+\_\+\+P\+IN}~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+5
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{sys__gpio_8h_a11dad4d0eba8645e70c39ae81bea333c}\label{sys__gpio_8h_a11dad4d0eba8645e70c39ae81bea333c}} 
+void \mbox{\hyperlink{sys__gpio_8h_a11dad4d0eba8645e70c39ae81bea333c}{S\+Y\+S\+\_\+\+G\+P\+I\+O\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em Initialises the G\+P\+IO registers of the microcontroller to match the platform hardware. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+G\+P\+IO configuration and initialisation module. 
+
+\begin{DoxyDate}{Date}
+03.\+01.\+2020
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Johannes Berndorfer (berndoJ) 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2020 by Johannes Berndorfer (berndoJ) 
+\end{DoxyCopyright}

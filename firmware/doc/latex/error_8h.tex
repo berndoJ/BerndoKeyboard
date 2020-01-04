@@ -1,0 +1,86 @@
+\hypertarget{error_8h}{}\doxysection{app/inc/error.h File Reference}
+\label{error_8h}\index{app/inc/error.h@{app/inc/error.h}}
+
+
+Provides a simple and unified interface for handling different types of errors in the application.  
+
+
+{\ttfamily \#include \char`\"{}stdint.\+h\char`\"{}}\newline
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{error_8h_a98b8a2d6f209fe4d3ea7b35299cf542b}{S\+Y\+S\+\_\+\+Error\+Type\+\_\+t}} \{ \mbox{\hyperlink{error_8h_a98b8a2d6f209fe4d3ea7b35299cf542ba810f07c8c62b7958375a5699bfa0ce82}{S\+Y\+S\+E\+R\+R\+\_\+\+W\+A\+R\+N\+I\+NG}} = 0, 
+\mbox{\hyperlink{error_8h_a98b8a2d6f209fe4d3ea7b35299cf542ba88adaf3ee45184ba9cc169594c2bc133}{S\+Y\+S\+E\+R\+R\+\_\+\+E\+R\+R\+OR}} = 1, 
+\mbox{\hyperlink{error_8h_a98b8a2d6f209fe4d3ea7b35299cf542ba6b3d98dfbdd1e8ad8a851743110ac407}{S\+Y\+S\+E\+R\+R\+\_\+\+F\+A\+T\+A\+L\+\_\+\+E\+R\+R\+OR}} = 2
+ \}
+\begin{DoxyCompactList}\small\item\em Used to specify the type of an error. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{error_8h_ac2baf15d8e5915064de531cc7fd581e4}{S\+Y\+S\+\_\+\+Throw\+Error}} (\mbox{\hyperlink{error_8h_a98b8a2d6f209fe4d3ea7b35299cf542b}{S\+Y\+S\+\_\+\+Error\+Type\+\_\+t}} err\+\_\+type, uint32\+\_\+t line\+\_\+number, const char $\ast$file\+\_\+name, const char $\ast$err\+\_\+msg)
+\begin{DoxyCompactList}\small\item\em Throws an error. The effects of this function are determined by the type of error thrown. (err\+\_\+type parameter) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides a simple and unified interface for handling different types of errors in the application. 
+
+\begin{DoxyDate}{Date}
+03.\+01.\+2020
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Johannes Berndorfer (berndoJ) 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2020 by Johannes Berndorfer (berndoJ) 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{error_8h_a98b8a2d6f209fe4d3ea7b35299cf542b}\label{error_8h_a98b8a2d6f209fe4d3ea7b35299cf542b}} 
+\index{error.h@{error.h}!SYS\_ErrorType\_t@{SYS\_ErrorType\_t}}
+\index{SYS\_ErrorType\_t@{SYS\_ErrorType\_t}!error.h@{error.h}}
+\doxysubsubsection{\texorpdfstring{SYS\_ErrorType\_t}{SYS\_ErrorType\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{error_8h_a98b8a2d6f209fe4d3ea7b35299cf542b}{S\+Y\+S\+\_\+\+Error\+Type\+\_\+t}}}
+
+
+
+Used to specify the type of an error. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SYSERR\_WARNING@{SYSERR\_WARNING}!error.h@{error.h}}\index{error.h@{error.h}!SYSERR\_WARNING@{SYSERR\_WARNING}}}\mbox{\Hypertarget{error_8h_a98b8a2d6f209fe4d3ea7b35299cf542ba810f07c8c62b7958375a5699bfa0ce82}\label{error_8h_a98b8a2d6f209fe4d3ea7b35299cf542ba810f07c8c62b7958375a5699bfa0ce82}} 
+S\+Y\+S\+E\+R\+R\+\_\+\+W\+A\+R\+N\+I\+NG&A warning leads to the output of the warning message to the correct debug interfaces, but will not stop the execution of the program. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SYSERR\_ERROR@{SYSERR\_ERROR}!error.h@{error.h}}\index{error.h@{error.h}!SYSERR\_ERROR@{SYSERR\_ERROR}}}\mbox{\Hypertarget{error_8h_a98b8a2d6f209fe4d3ea7b35299cf542ba88adaf3ee45184ba9cc169594c2bc133}\label{error_8h_a98b8a2d6f209fe4d3ea7b35299cf542ba88adaf3ee45184ba9cc169594c2bc133}} 
+S\+Y\+S\+E\+R\+R\+\_\+\+E\+R\+R\+OR&A normal error has the same effect of a warning, but the message printed to the debug interfaces is labeled as an error. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SYSERR\_FATAL\_ERROR@{SYSERR\_FATAL\_ERROR}!error.h@{error.h}}\index{error.h@{error.h}!SYSERR\_FATAL\_ERROR@{SYSERR\_FATAL\_ERROR}}}\mbox{\Hypertarget{error_8h_a98b8a2d6f209fe4d3ea7b35299cf542ba6b3d98dfbdd1e8ad8a851743110ac407}\label{error_8h_a98b8a2d6f209fe4d3ea7b35299cf542ba6b3d98dfbdd1e8ad8a851743110ac407}} 
+S\+Y\+S\+E\+R\+R\+\_\+\+F\+A\+T\+A\+L\+\_\+\+E\+R\+R\+OR&A fatal error leads to the same message of a normal error, but will halt the execution of the program. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{error_8h_ac2baf15d8e5915064de531cc7fd581e4}\label{error_8h_ac2baf15d8e5915064de531cc7fd581e4}} 
+\index{error.h@{error.h}!SYS\_ThrowError@{SYS\_ThrowError}}
+\index{SYS\_ThrowError@{SYS\_ThrowError}!error.h@{error.h}}
+\doxysubsubsection{\texorpdfstring{SYS\_ThrowError()}{SYS\_ThrowError()}}
+{\footnotesize\ttfamily void S\+Y\+S\+\_\+\+Throw\+Error (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{error_8h_a98b8a2d6f209fe4d3ea7b35299cf542b}{S\+Y\+S\+\_\+\+Error\+Type\+\_\+t}}}]{err\+\_\+type,  }\item[{uint32\+\_\+t}]{line\+\_\+number,  }\item[{const char $\ast$}]{file\+\_\+name,  }\item[{const char $\ast$}]{err\+\_\+msg }\end{DoxyParamCaption})}
+
+
+
+Throws an error. The effects of this function are determined by the type of error thrown. (err\+\_\+type parameter) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em err\+\_\+type} & The type of error thrown. \\
+\hline
+{\em line\+\_\+number} & The line number the error occurred in. (Usually {\ttfamily \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+}) \\
+\hline
+{\em file\+\_\+name} & The name of the file in which the error occurred in. (Usually {\ttfamily \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+}) \\
+\hline
+{\em err\+\_\+msg} & The error message to print to the debug interface(s). \\
+\hline
+\end{DoxyParams}

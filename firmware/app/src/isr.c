@@ -1,5 +1,5 @@
 #include "isr.h"
-#include "main.h"
+#include "stm32f1xx_hal.h"
 
 void NMI_Handler(void)
 {

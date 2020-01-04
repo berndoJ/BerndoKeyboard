@@ -27,10 +27,13 @@ LINKER_SCRIPT_FILENAME = STM32F103XE_FLASH.ld
 
 # --- LINKED LIBRARIES ---
 LLIB_STM32F1HAL = $(LIB_FOLDER)/libstm32f1hal
+LLIB_PCA9555    = $(LIB_FOLDER)/libpca9555
 
-LLIB_DIRS = -L $(LLIB_STM32F1HAL)/bin
+LLIB_DIRS =  -L $(LLIB_STM32F1HAL)/bin
+LLIB_DIRS += -L $(LLIB_PCA9555)/bin
 
-LLIBS  = -lstm32f1hal
+LLIBS  = -lpca9555
+LLIBS += -lstm32f1hal
 LLIBS += -lc
 LLIBS += -lm
 LLIBS += -lnosys
@@ -41,6 +44,10 @@ C_SOURCES += mcu_init.c
 C_SOURCES += isr.c
 C_SOURCES += error.c
 C_SOURCES += sys_clock.c
+C_SOURCES += sys_gpio.c
+C_SOURCES += sys_init.c
+C_SOURCES += sys_pca9555.c
+C_SOURCES += sys_i2c.c
 
 ASM_SOURCES = startup_stm32f103xe.s
 
@@ -56,6 +63,7 @@ INC_DIRS  = -I ./inc
 INC_DIRS += -I $(LLIB_STM32F1HAL)/inc
 INC_DIRS += -I $(LLIB_STM32F1HAL)/config
 INC_DIRS += -I $(LLIB_STM32F1HAL)/cmsis/inc
+INC_DIRS += -I $(LLIB_PCA9555)/inc
 
 # --- TOOLCHAIN COMMANDS ---
 GCC_PREFIX = arm-none-eabi-

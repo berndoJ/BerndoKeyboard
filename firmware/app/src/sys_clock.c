@@ -1,6 +1,6 @@
 #include "sys_clock.h"
 #include "error.h"
-#include "com.h"
+#include "stm32f1xx_hal.h"
 
 void SYS_Clock_Init(void)
 {
