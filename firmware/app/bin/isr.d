@@ -1,4 +1,5 @@
-bin/isr.o: src/isr.c inc/isr.h ../lib/libstm32f1hal/inc/stm32f1xx_hal.h \
+bin/isr.o: src/isr.c inc/isr.h inc/sys_timer.h inc/sys_def.h \
+ ../lib/libstm32f1hal/inc/stm32f1xx_hal.h \
  ../lib/libstm32f1hal/config/stm32f1xx_hal_conf.h \
  ../lib/libstm32f1hal/inc/stm32f1xx_hal_rcc.h \
  ../lib/libstm32f1hal/inc/stm32f1xx_hal_def.h \
@@ -54,6 +55,10 @@ bin/isr.o: src/isr.c inc/isr.h ../lib/libstm32f1hal/inc/stm32f1xx_hal.h \
  ../lib/libstm32f1hal/inc/stm32f1xx_hal_mmc.h
 
 inc/isr.h:
+
+inc/sys_timer.h:
+
+inc/sys_def.h:
 
 ../lib/libstm32f1hal/inc/stm32f1xx_hal.h:
 

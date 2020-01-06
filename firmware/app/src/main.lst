@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccNqDhZe.s 			page 1
+ARM GAS  /tmp/ccA35EoT.s 			page 1
 
 
    1              		.syntax unified
@@ -21,48 +21,206 @@ ARM GAS  /tmp/ccNqDhZe.s 			page 1
   18              		.thumb
   19              		.thumb_func
   21              	main:
-  22              		@ Volatile: function does not return.
-  23              		@ args = 0, pretend = 0, frame = 0
-  24              		@ frame_needed = 0, uses_anonymous_args = 0
-  25 0000 08B5     		push	{r3, lr}
-  26 0002 FFF7FEFF 		bl	HAL_Init
-  27 0006 FFF7FEFF 		bl	SYS_Clock_Init
-  28 000a FFF7FEFF 		bl	SYS_GPIO_Init
-  29 000e FFF7FEFF 		bl	SYS_Init
-  30 0012 FFF7FEFF 		bl	SYS_I2C_Init
-  31              	.L2:
-  32 0016 6420     		movs	r0, #100
-  33 0018 FFF7FEFF 		bl	HAL_Delay
-  34 001c 0121     		movs	r1, #1
-  35 001e 0A46     		mov	r2, r1
-  36 0020 0548     		ldr	r0, .L4
-  37 0022 FFF7FEFF 		bl	HAL_GPIO_WritePin
-  38 0026 6420     		movs	r0, #100
-  39 0028 FFF7FEFF 		bl	HAL_Delay
-  40 002c 0248     		ldr	r0, .L4
-  41 002e 0121     		movs	r1, #1
-  42 0030 0022     		movs	r2, #0
-  43 0032 FFF7FEFF 		bl	HAL_GPIO_WritePin
-  44 0036 EEE7     		b	.L2
-  45              	.L5:
-  46              		.align	2
-  47              	.L4:
-  48 0038 000C0140 		.word	1073810432
-  50              		.ident	"GCC: (15:4.9.3+svn231177-1) 4.9.3 20150529 (prerelease)"
-ARM GAS  /tmp/ccNqDhZe.s 			page 2
+  22              		@ args = 0, pretend = 0, frame = 8
+  23              		@ frame_needed = 0, uses_anonymous_args = 0
+  24 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+  25 0002 414D     		ldr	r5, .L8
+  26 0004 87B0     		sub	sp, sp, #28
+  27 0006 FFF7FEFF 		bl	HAL_Init
+  28 000a FFF7FEFF 		bl	SYS_Clock_Init
+  29 000e FFF7FEFF 		bl	SYS_GPIO_Init
+  30 0012 FFF7FEFF 		bl	SYS_DMA_Init
+  31 0016 FFF7FEFF 		bl	SYS_Init
+  32 001a FFF7FEFF 		bl	SYS_I2C_Init
+  33 001e FFF7FEFF 		bl	SYS_USART_Init
+  34 0022 FFF7FEFF 		bl	SYS_Timer_Init
+  35 0026 FFF7FEFF 		bl	SYS_PostPortInit
+  36 002a FFF7FEFF 		bl	SYS_PCA9555_Init
+  37 002e FFF7FEFF 		bl	SYS_WS2812_Init
+  38 0032 FFF7FEFF 		bl	SYS_PostLibInit
+  39 0036 3549     		ldr	r1, .L8+4
+  40 0038 2F22     		movs	r2, #47
+  41 003a 0A23     		movs	r3, #10
+  42 003c 2868     		ldr	r0, [r5]
+  43 003e FFF7FEFF 		bl	HAL_UART_Transmit
+  44 0042 FFF7FEFF 		bl	SYS_HWB_Read
+  45 0046 2820     		movs	r0, #40
+  46 0048 FFF7FEFF 		bl	malloc
+  47 004c 304B     		ldr	r3, .L8+8
+  48 004e 3149     		ldr	r1, .L8+12
+  49 0050 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  50 0052 0446     		mov	r4, r0
+  51 0054 C3F38002 		ubfx	r2, r3, #2, #1
+  52 0058 0092     		str	r2, [sp]
+  53 005a C3F3C002 		ubfx	r2, r3, #3, #1
+  54 005e 0192     		str	r2, [sp, #4]
+  55 0060 C3F30012 		ubfx	r2, r3, #4, #1
+  56 0064 0292     		str	r2, [sp, #8]
+  57 0066 03F00102 		and	r2, r3, #1
+  58 006a C3F34003 		ubfx	r3, r3, #1, #1
+ARM GAS  /tmp/ccA35EoT.s 			page 2
+
+
+  59 006e FFF7FEFF 		bl	sprintf
+  60 0072 2146     		mov	r1, r4
+  61 0074 C2B2     		uxtb	r2, r0
+  62 0076 0A23     		movs	r3, #10
+  63 0078 2868     		ldr	r0, [r5]
+  64 007a FFF7FEFF 		bl	HAL_UART_Transmit
+  65 007e 2046     		mov	r0, r4
+  66 0080 FFF7FEFF 		bl	free
+  67 0084 0024     		movs	r4, #0
+  68 0086 FF23     		movs	r3, #255
+  69 0088 234D     		ldr	r5, .L8+16
+  70 008a 8DF81430 		strb	r3, [sp, #20]
+  71 008e 8DF81540 		strb	r4, [sp, #21]
+  72 0092 8DF81640 		strb	r4, [sp, #22]
+  73 0096 0599     		ldr	r1, [sp, #20]
+  74 0098 2868     		ldr	r0, [r5]
+  75 009a FFF7FEFF 		bl	NP32_SetAllLEDs_RGB
+  76 009e 2868     		ldr	r0, [r5]
+  77 00a0 1E4D     		ldr	r5, .L8+20
+  78 00a2 FFF7FEFF 		bl	NP32_Update
+  79 00a6 1E4E     		ldr	r6, .L8+24
+  80 00a8 2868     		ldr	r0, [r5]
+  81 00aa 2146     		mov	r1, r4
+  82 00ac 2246     		mov	r2, r4
+  83 00ae FFF7FEFF 		bl	PCA9555_ConfigPortPinMode
+  84 00b2 2868     		ldr	r0, [r5]
+  85 00b4 0121     		movs	r1, #1
+  86 00b6 2246     		mov	r2, r4
+  87 00b8 FFF7FEFF 		bl	PCA9555_ConfigPortPinMode
+  88 00bc 3068     		ldr	r0, [r6]
+  89 00be 2146     		mov	r1, r4
+  90 00c0 2246     		mov	r2, r4
+  91 00c2 FFF7FEFF 		bl	PCA9555_ConfigPortPinMode
+  92 00c6 3068     		ldr	r0, [r6]
+  93 00c8 0121     		movs	r1, #1
+  94 00ca 2246     		mov	r2, r4
+  95 00cc FFF7FEFF 		bl	PCA9555_ConfigPortPinMode
+  96              	.L3:
+  97 00d0 0134     		adds	r4, r4, #1
+  98 00d2 E4B2     		uxtb	r4, r4
+  99 00d4 6420     		movs	r0, #100
+ 100 00d6 FFF7FEFF 		bl	HAL_Delay
+ 101 00da E608     		lsrs	r6, r4, #3
+ 102 00dc 04F00707 		and	r7, r4, #7
+ 103 00e0 02D0     		beq	.L2
+ 104 00e2 072F     		cmp	r7, #7
+ 105 00e4 08BF     		it	eq
+ 106 00e6 0024     		moveq	r4, #0
+ 107              	.L2:
+ 108 00e8 B6FA86F1 		clz	r1, r6
+ 109 00ec 2868     		ldr	r0, [r5]
+ 110 00ee 4909     		lsrs	r1, r1, #5
+ 111 00f0 0022     		movs	r2, #0
+ 112 00f2 FFF7FEFF 		bl	PCA9555_WritePort
+ 113 00f6 0122     		movs	r2, #1
+ 114 00f8 BA40     		lsls	r2, r2, r7
+ 115 00fa 2868     		ldr	r0, [r5]
+ARM GAS  /tmp/ccA35EoT.s 			page 3
+
+
+ 116 00fc 3146     		mov	r1, r6
+ 117 00fe D2B2     		uxtb	r2, r2
+ 118 0100 FFF7FEFF 		bl	PCA9555_WritePort
+ 119 0104 E4E7     		b	.L3
+ 120              	.L9:
+ 121 0106 00BF     		.align	2
+ 122              	.L8:
+ 123 0108 00000000 		.word	hw_uart1_handle
+ 124 010c 00000000 		.word	.LC0
+ 125 0110 00000000 		.word	sys_hwbyte
+ 126 0114 30000000 		.word	.LC1
+ 127 0118 00000000 		.word	hw_ws2812_handle
+ 128 011c 00000000 		.word	hw_portex0_handle
+ 129 0120 00000000 		.word	hw_portex1_handle
+ 131              		.section	.text.HAL_MspInit,"ax",%progbits
+ 132              		.align	1
+ 133              		.global	HAL_MspInit
+ 134              		.thumb
+ 135              		.thumb_func
+ 137              	HAL_MspInit:
+ 138              		@ args = 0, pretend = 0, frame = 8
+ 139              		@ frame_needed = 0, uses_anonymous_args = 0
+ 140              		@ link register save eliminated.
+ 141 0000 0A4B     		ldr	r3, .L11
+ 142 0002 82B0     		sub	sp, sp, #8
+ 143 0004 9A69     		ldr	r2, [r3, #24]
+ 144 0006 42F00102 		orr	r2, r2, #1
+ 145 000a 9A61     		str	r2, [r3, #24]
+ 146 000c 9A69     		ldr	r2, [r3, #24]
+ 147 000e 02F00102 		and	r2, r2, #1
+ 148 0012 0092     		str	r2, [sp]
+ 149 0014 009A     		ldr	r2, [sp]
+ 150 0016 DA69     		ldr	r2, [r3, #28]
+ 151 0018 42F08052 		orr	r2, r2, #268435456
+ 152 001c DA61     		str	r2, [r3, #28]
+ 153 001e DB69     		ldr	r3, [r3, #28]
+ 154 0020 03F08053 		and	r3, r3, #268435456
+ 155 0024 0193     		str	r3, [sp, #4]
+ 156 0026 019B     		ldr	r3, [sp, #4]
+ 157 0028 02B0     		add	sp, sp, #8
+ 158              		@ sp needed
+ 159 002a 7047     		bx	lr
+ 160              	.L12:
+ 161              		.align	2
+ 162              	.L11:
+ 163 002c 00100240 		.word	1073876992
+ 165              		.section	.rodata.str1.1,"aMS",%progbits,1
+ 166              	.LC0:
+ 167 0000 5B424B46 		.ascii	"[BKF] System init complete. Starting firmware.\012\000"
+ 167      5D205379 
+ 167      7374656D 
+ 167      20696E69 
+ 167      7420636F 
+ 168              	.LC1:
+ 169 0030 5B424B46 		.ascii	"[BKF] Read hwbits: [%d][%d][%d][%d][%d]\012\000"
+ 169      5D205265 
+ 169      61642068 
+ARM GAS  /tmp/ccA35EoT.s 			page 4
+
+
+ 169      77626974 
+ 169      733A205B 
+ 170              		.ident	"GCC: (15:4.9.3+svn231177-1) 4.9.3 20150529 (prerelease)"
+ARM GAS  /tmp/ccA35EoT.s 			page 5
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-     /tmp/ccNqDhZe.s:16     .text.startup.main:0000000000000000 $t
-     /tmp/ccNqDhZe.s:21     .text.startup.main:0000000000000000 main
-     /tmp/ccNqDhZe.s:48     .text.startup.main:0000000000000038 $d
+     /tmp/ccA35EoT.s:16     .text.startup.main:0000000000000000 $t
+     /tmp/ccA35EoT.s:21     .text.startup.main:0000000000000000 main
+     /tmp/ccA35EoT.s:123    .text.startup.main:0000000000000108 $d
+     /tmp/ccA35EoT.s:132    .text.HAL_MspInit:0000000000000000 $t
+     /tmp/ccA35EoT.s:137    .text.HAL_MspInit:0000000000000000 HAL_MspInit
+     /tmp/ccA35EoT.s:163    .text.HAL_MspInit:000000000000002c $d
 
 UNDEFINED SYMBOLS
 HAL_Init
 SYS_Clock_Init
 SYS_GPIO_Init
+SYS_DMA_Init
 SYS_Init
 SYS_I2C_Init
+SYS_USART_Init
+SYS_Timer_Init
+SYS_PostPortInit
+SYS_PCA9555_Init
+SYS_WS2812_Init
+SYS_PostLibInit
+HAL_UART_Transmit
+SYS_HWB_Read
+malloc
+sprintf
+free
+NP32_SetAllLEDs_RGB
+NP32_Update
+PCA9555_ConfigPortPinMode
 HAL_Delay
-HAL_GPIO_WritePin
+PCA9555_WritePort
+hw_uart1_handle
+sys_hwbyte
+hw_ws2812_handle
+hw_portex0_handle
+hw_portex1_handle

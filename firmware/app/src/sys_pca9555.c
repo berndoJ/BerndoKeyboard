@@ -4,7 +4,9 @@
 #include <stdlib.h>
 
 PCA9555_Handle_t* hw_portex0_handle;
+SYS_InitStatus_t hw_portex0_init_status = SYS_INIT_STATUS_NOT_INITIALISED;
 PCA9555_Handle_t* hw_portex1_handle;
+SYS_InitStatus_t hw_portex1_init_status = SYS_INIT_STATUS_NOT_INITIALISED;
 
 static PCA9555_LibConfig_t* _pca9555_lib_cfg;
 
@@ -40,6 +42,9 @@ void SYS_PCA9555_Init(void)
     hw_portex1_handle->Port1_InputInversion_Buffer = 0x00;
     hw_portex1_handle->Port0_PinMode_Buffer = 0xff;
     hw_portex1_handle->Port1_PinMode_Buffer = 0xff;
+
+    hw_portex0_init_status = SYS_INIT_STATUS_INITIALISED;
+    hw_portex1_init_status = SYS_INIT_STATUS_INITIALISED;
 }
 
 static void _SYS_PCA9555_I2C_Write_Func(uint8_t port_id, uint8_t device_address, uint8_t len, uint8_t *buf)

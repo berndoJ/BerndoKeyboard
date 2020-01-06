@@ -28,11 +28,14 @@ LINKER_SCRIPT_FILENAME = STM32F103XE_FLASH.ld
 # --- LINKED LIBRARIES ---
 LLIB_STM32F1HAL = $(LIB_FOLDER)/libstm32f1hal
 LLIB_PCA9555    = $(LIB_FOLDER)/libpca9555
+LLIB_NEOPIXEL32 = $(LIB_FOLDER)/libneopixel32
 
 LLIB_DIRS =  -L $(LLIB_STM32F1HAL)/bin
 LLIB_DIRS += -L $(LLIB_PCA9555)/bin
+LLIB_DIRS += -L $(LLIB_NEOPIXEL32)/bin
 
 LLIBS  = -lpca9555
+LLIBS += -lneopixel32
 LLIBS += -lstm32f1hal
 LLIBS += -lc
 LLIBS += -lm
@@ -48,6 +51,11 @@ C_SOURCES += sys_gpio.c
 C_SOURCES += sys_init.c
 C_SOURCES += sys_pca9555.c
 C_SOURCES += sys_i2c.c
+C_SOURCES += sys_usart.c
+C_SOURCES += sys_hwb.c
+C_SOURCES += sys_timer.c
+C_SOURCES += sys_ws2812.c
+C_SOURCES += sys_dma.c
 
 ASM_SOURCES = startup_stm32f103xe.s
 
@@ -64,6 +72,7 @@ INC_DIRS += -I $(LLIB_STM32F1HAL)/inc
 INC_DIRS += -I $(LLIB_STM32F1HAL)/config
 INC_DIRS += -I $(LLIB_STM32F1HAL)/cmsis/inc
 INC_DIRS += -I $(LLIB_PCA9555)/inc
+INC_DIRS += -I $(LLIB_NEOPIXEL32)/inc
 
 # --- TOOLCHAIN COMMANDS ---
 GCC_PREFIX = arm-none-eabi-

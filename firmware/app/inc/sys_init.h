@@ -18,4 +18,15 @@
  */
 void SYS_Init(void);
 
+/**
+ * \brief Initialisation function that gets called after all ports have been initialised and configured by the main
+ *        function.
+ */
+void SYS_PostPortInit(void);
+
+/**
+ * \brief Initialisation function that gets called after all libs have been initialised by the main function.
+ */ 
+void SYS_PostLibInit(void);
+
 #endif // __SYS_INIT_H

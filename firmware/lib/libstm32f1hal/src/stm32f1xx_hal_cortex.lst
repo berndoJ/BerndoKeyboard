@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccR5guOM.s 			page 1
+ARM GAS  /tmp/ccSsq1i0.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccR5guOM.s 			page 1
   58 0014 0425     		movcs	r5, #4
   59 0016 062C     		cmp	r4, #6
   60 0018 8CBF     		ite	hi
-ARM GAS  /tmp/ccR5guOM.s 			page 2
+ARM GAS  /tmp/ccSsq1i0.s 			page 2
 
 
   61 001a 033B     		subhi	r3, r3, #3
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccR5guOM.s 			page 1
  118              		.global	HAL_NVIC_DisableIRQ
  119              		.thumb
  120              		.thumb_func
-ARM GAS  /tmp/ccR5guOM.s 			page 3
+ARM GAS  /tmp/ccSsq1i0.s 			page 3
 
 
  122              	HAL_NVIC_DisableIRQ:
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccR5guOM.s 			page 1
  178              		.thumb
  179 0018 FDE7     		b	.L21
  180              	.L23:
-ARM GAS  /tmp/ccR5guOM.s 			page 4
+ARM GAS  /tmp/ccSsq1i0.s 			page 4
 
 
  181 001a 00BF     		.align	2
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccR5guOM.s 			page 1
  240              		.thumb
  241              		.thumb_func
  243              	HAL_NVIC_GetPriority:
-ARM GAS  /tmp/ccR5guOM.s 			page 5
+ARM GAS  /tmp/ccSsq1i0.s 			page 5
 
 
  244              		@ args = 0, pretend = 0, frame = 0
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccR5guOM.s 			page 1
  300 0010 4033     		adds	r3, r3, #64
  301 0012 41F82320 		str	r2, [r1, r3, lsl #2]
  302              	.L40:
-ARM GAS  /tmp/ccR5guOM.s 			page 6
+ARM GAS  /tmp/ccSsq1i0.s 			page 6
 
 
  303 0016 7047     		bx	lr
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccR5guOM.s 			page 1
  362              		.section	.text.HAL_NVIC_GetActive,"ax",%progbits
  363              		.align	1
  364              		.global	HAL_NVIC_GetActive
-ARM GAS  /tmp/ccR5guOM.s 			page 7
+ARM GAS  /tmp/ccSsq1i0.s 			page 7
 
 
  365              		.thumb
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccR5guOM.s 			page 1
  425              		.align	1
  426              		.global	HAL_SYSTICK_IRQHandler
  427              		.thumb
-ARM GAS  /tmp/ccR5guOM.s 			page 8
+ARM GAS  /tmp/ccSsq1i0.s 			page 8
 
 
  428              		.thumb_func
@@ -429,53 +429,53 @@ ARM GAS  /tmp/ccR5guOM.s 			page 1
  434 0002 FFF7FEFF 		bl	HAL_SYSTICK_Callback
  435 0006 08BD     		pop	{r3, pc}
  437              		.ident	"GCC: (15:4.9.3+svn231177-1) 4.9.3 20150529 (prerelease)"
-ARM GAS  /tmp/ccR5guOM.s 			page 9
+ARM GAS  /tmp/ccSsq1i0.s 			page 9
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f1xx_hal_cortex.c
-     /tmp/ccR5guOM.s:16     .text.HAL_NVIC_SetPriorityGrouping:0000000000000000 $t
-     /tmp/ccR5guOM.s:21     .text.HAL_NVIC_SetPriorityGrouping:0000000000000000 HAL_NVIC_SetPriorityGrouping
-     /tmp/ccR5guOM.s:39     .text.HAL_NVIC_SetPriorityGrouping:0000000000000020 $d
-     /tmp/ccR5guOM.s:42     .text.HAL_NVIC_SetPriority:0000000000000000 $t
-     /tmp/ccR5guOM.s:47     .text.HAL_NVIC_SetPriority:0000000000000000 HAL_NVIC_SetPriority
-     /tmp/ccR5guOM.s:88     .text.HAL_NVIC_SetPriority:0000000000000058 $d
-     /tmp/ccR5guOM.s:92     .text.HAL_NVIC_EnableIRQ:0000000000000000 $t
-     /tmp/ccR5guOM.s:97     .text.HAL_NVIC_EnableIRQ:0000000000000000 HAL_NVIC_EnableIRQ
-     /tmp/ccR5guOM.s:114    .text.HAL_NVIC_EnableIRQ:0000000000000018 $d
-     /tmp/ccR5guOM.s:117    .text.HAL_NVIC_DisableIRQ:0000000000000000 $t
-     /tmp/ccR5guOM.s:122    .text.HAL_NVIC_DisableIRQ:0000000000000000 HAL_NVIC_DisableIRQ
-     /tmp/ccR5guOM.s:147    .text.HAL_NVIC_DisableIRQ:0000000000000020 $d
-     /tmp/ccR5guOM.s:150    .text.HAL_NVIC_SystemReset:0000000000000000 $t
-     /tmp/ccR5guOM.s:155    .text.HAL_NVIC_SystemReset:0000000000000000 HAL_NVIC_SystemReset
-     /tmp/ccR5guOM.s:183    .text.HAL_NVIC_SystemReset:000000000000001c $d
-     /tmp/ccR5guOM.s:187    .text.HAL_SYSTICK_Config:0000000000000000 $t
-     /tmp/ccR5guOM.s:192    .text.HAL_SYSTICK_Config:0000000000000000 HAL_SYSTICK_Config
-     /tmp/ccR5guOM.s:215    .text.HAL_SYSTICK_Config:0000000000000024 $d
-     /tmp/ccR5guOM.s:219    .text.HAL_NVIC_GetPriorityGrouping:0000000000000000 $t
-     /tmp/ccR5guOM.s:224    .text.HAL_NVIC_GetPriorityGrouping:0000000000000000 HAL_NVIC_GetPriorityGrouping
-     /tmp/ccR5guOM.s:235    .text.HAL_NVIC_GetPriorityGrouping:000000000000000c $d
-     /tmp/ccR5guOM.s:238    .text.HAL_NVIC_GetPriority:0000000000000000 $t
-     /tmp/ccR5guOM.s:243    .text.HAL_NVIC_GetPriority:0000000000000000 HAL_NVIC_GetPriority
-     /tmp/ccR5guOM.s:281    .text.HAL_NVIC_GetPriority:0000000000000050 $d
-     /tmp/ccR5guOM.s:284    .text.HAL_NVIC_SetPendingIRQ:0000000000000000 $t
-     /tmp/ccR5guOM.s:289    .text.HAL_NVIC_SetPendingIRQ:0000000000000000 HAL_NVIC_SetPendingIRQ
-     /tmp/ccR5guOM.s:307    .text.HAL_NVIC_SetPendingIRQ:0000000000000018 $d
-     /tmp/ccR5guOM.s:310    .text.HAL_NVIC_GetPendingIRQ:0000000000000000 $t
-     /tmp/ccR5guOM.s:315    .text.HAL_NVIC_GetPendingIRQ:0000000000000000 HAL_NVIC_GetPendingIRQ
-     /tmp/ccR5guOM.s:334    .text.HAL_NVIC_GetPendingIRQ:0000000000000020 $d
-     /tmp/ccR5guOM.s:337    .text.HAL_NVIC_ClearPendingIRQ:0000000000000000 $t
-     /tmp/ccR5guOM.s:342    .text.HAL_NVIC_ClearPendingIRQ:0000000000000000 HAL_NVIC_ClearPendingIRQ
-     /tmp/ccR5guOM.s:360    .text.HAL_NVIC_ClearPendingIRQ:0000000000000018 $d
-     /tmp/ccR5guOM.s:363    .text.HAL_NVIC_GetActive:0000000000000000 $t
-     /tmp/ccR5guOM.s:368    .text.HAL_NVIC_GetActive:0000000000000000 HAL_NVIC_GetActive
-     /tmp/ccR5guOM.s:387    .text.HAL_NVIC_GetActive:0000000000000020 $d
-     /tmp/ccR5guOM.s:390    .text.HAL_SYSTICK_CLKSourceConfig:0000000000000000 $t
-     /tmp/ccR5guOM.s:395    .text.HAL_SYSTICK_CLKSourceConfig:0000000000000000 HAL_SYSTICK_CLKSourceConfig
-     /tmp/ccR5guOM.s:410    .text.HAL_SYSTICK_CLKSourceConfig:0000000000000014 $d
-     /tmp/ccR5guOM.s:413    .text.HAL_SYSTICK_Callback:0000000000000000 $t
-     /tmp/ccR5guOM.s:418    .text.HAL_SYSTICK_Callback:0000000000000000 HAL_SYSTICK_Callback
-     /tmp/ccR5guOM.s:425    .text.HAL_SYSTICK_IRQHandler:0000000000000000 $t
-     /tmp/ccR5guOM.s:430    .text.HAL_SYSTICK_IRQHandler:0000000000000000 HAL_SYSTICK_IRQHandler
+     /tmp/ccSsq1i0.s:16     .text.HAL_NVIC_SetPriorityGrouping:0000000000000000 $t
+     /tmp/ccSsq1i0.s:21     .text.HAL_NVIC_SetPriorityGrouping:0000000000000000 HAL_NVIC_SetPriorityGrouping
+     /tmp/ccSsq1i0.s:39     .text.HAL_NVIC_SetPriorityGrouping:0000000000000020 $d
+     /tmp/ccSsq1i0.s:42     .text.HAL_NVIC_SetPriority:0000000000000000 $t
+     /tmp/ccSsq1i0.s:47     .text.HAL_NVIC_SetPriority:0000000000000000 HAL_NVIC_SetPriority
+     /tmp/ccSsq1i0.s:88     .text.HAL_NVIC_SetPriority:0000000000000058 $d
+     /tmp/ccSsq1i0.s:92     .text.HAL_NVIC_EnableIRQ:0000000000000000 $t
+     /tmp/ccSsq1i0.s:97     .text.HAL_NVIC_EnableIRQ:0000000000000000 HAL_NVIC_EnableIRQ
+     /tmp/ccSsq1i0.s:114    .text.HAL_NVIC_EnableIRQ:0000000000000018 $d
+     /tmp/ccSsq1i0.s:117    .text.HAL_NVIC_DisableIRQ:0000000000000000 $t
+     /tmp/ccSsq1i0.s:122    .text.HAL_NVIC_DisableIRQ:0000000000000000 HAL_NVIC_DisableIRQ
+     /tmp/ccSsq1i0.s:147    .text.HAL_NVIC_DisableIRQ:0000000000000020 $d
+     /tmp/ccSsq1i0.s:150    .text.HAL_NVIC_SystemReset:0000000000000000 $t
+     /tmp/ccSsq1i0.s:155    .text.HAL_NVIC_SystemReset:0000000000000000 HAL_NVIC_SystemReset
+     /tmp/ccSsq1i0.s:183    .text.HAL_NVIC_SystemReset:000000000000001c $d
+     /tmp/ccSsq1i0.s:187    .text.HAL_SYSTICK_Config:0000000000000000 $t
+     /tmp/ccSsq1i0.s:192    .text.HAL_SYSTICK_Config:0000000000000000 HAL_SYSTICK_Config
+     /tmp/ccSsq1i0.s:215    .text.HAL_SYSTICK_Config:0000000000000024 $d
+     /tmp/ccSsq1i0.s:219    .text.HAL_NVIC_GetPriorityGrouping:0000000000000000 $t
+     /tmp/ccSsq1i0.s:224    .text.HAL_NVIC_GetPriorityGrouping:0000000000000000 HAL_NVIC_GetPriorityGrouping
+     /tmp/ccSsq1i0.s:235    .text.HAL_NVIC_GetPriorityGrouping:000000000000000c $d
+     /tmp/ccSsq1i0.s:238    .text.HAL_NVIC_GetPriority:0000000000000000 $t
+     /tmp/ccSsq1i0.s:243    .text.HAL_NVIC_GetPriority:0000000000000000 HAL_NVIC_GetPriority
+     /tmp/ccSsq1i0.s:281    .text.HAL_NVIC_GetPriority:0000000000000050 $d
+     /tmp/ccSsq1i0.s:284    .text.HAL_NVIC_SetPendingIRQ:0000000000000000 $t
+     /tmp/ccSsq1i0.s:289    .text.HAL_NVIC_SetPendingIRQ:0000000000000000 HAL_NVIC_SetPendingIRQ
+     /tmp/ccSsq1i0.s:307    .text.HAL_NVIC_SetPendingIRQ:0000000000000018 $d
+     /tmp/ccSsq1i0.s:310    .text.HAL_NVIC_GetPendingIRQ:0000000000000000 $t
+     /tmp/ccSsq1i0.s:315    .text.HAL_NVIC_GetPendingIRQ:0000000000000000 HAL_NVIC_GetPendingIRQ
+     /tmp/ccSsq1i0.s:334    .text.HAL_NVIC_GetPendingIRQ:0000000000000020 $d
+     /tmp/ccSsq1i0.s:337    .text.HAL_NVIC_ClearPendingIRQ:0000000000000000 $t
+     /tmp/ccSsq1i0.s:342    .text.HAL_NVIC_ClearPendingIRQ:0000000000000000 HAL_NVIC_ClearPendingIRQ
+     /tmp/ccSsq1i0.s:360    .text.HAL_NVIC_ClearPendingIRQ:0000000000000018 $d
+     /tmp/ccSsq1i0.s:363    .text.HAL_NVIC_GetActive:0000000000000000 $t
+     /tmp/ccSsq1i0.s:368    .text.HAL_NVIC_GetActive:0000000000000000 HAL_NVIC_GetActive
+     /tmp/ccSsq1i0.s:387    .text.HAL_NVIC_GetActive:0000000000000020 $d
+     /tmp/ccSsq1i0.s:390    .text.HAL_SYSTICK_CLKSourceConfig:0000000000000000 $t
+     /tmp/ccSsq1i0.s:395    .text.HAL_SYSTICK_CLKSourceConfig:0000000000000000 HAL_SYSTICK_CLKSourceConfig
+     /tmp/ccSsq1i0.s:410    .text.HAL_SYSTICK_CLKSourceConfig:0000000000000014 $d
+     /tmp/ccSsq1i0.s:413    .text.HAL_SYSTICK_Callback:0000000000000000 $t
+     /tmp/ccSsq1i0.s:418    .text.HAL_SYSTICK_Callback:0000000000000000 HAL_SYSTICK_Callback
+     /tmp/ccSsq1i0.s:425    .text.HAL_SYSTICK_IRQHandler:0000000000000000 $t
+     /tmp/ccSsq1i0.s:430    .text.HAL_SYSTICK_IRQHandler:0000000000000000 HAL_SYSTICK_IRQHandler
 
 NO UNDEFINED SYMBOLS

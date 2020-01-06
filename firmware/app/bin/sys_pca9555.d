@@ -1,5 +1,5 @@
-bin/sys_pca9555.o: src/sys_pca9555.c inc/sys_pca9555.h \
- ../lib/libpca9555/inc/pca9555.h inc/sys_i2c.h inc/sys_def.h \
+bin/sys_pca9555.o: src/sys_pca9555.c inc/sys_pca9555.h inc/sys_def.h \
+ ../lib/libpca9555/inc/pca9555.h inc/sys_i2c.h \
  ../lib/libstm32f1hal/inc/stm32f1xx_hal.h \
  ../lib/libstm32f1hal/config/stm32f1xx_hal_conf.h \
  ../lib/libstm32f1hal/inc/stm32f1xx_hal_rcc.h \
@@ -57,11 +57,11 @@ bin/sys_pca9555.o: src/sys_pca9555.c inc/sys_pca9555.h \
 
 inc/sys_pca9555.h:
 
+inc/sys_def.h:
+
 ../lib/libpca9555/inc/pca9555.h:
 
 inc/sys_i2c.h:
-
-inc/sys_def.h:
 
 ../lib/libstm32f1hal/inc/stm32f1xx_hal.h:
 

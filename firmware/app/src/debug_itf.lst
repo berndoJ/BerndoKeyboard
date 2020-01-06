@@ -1,0 +1,62 @@
+ARM GAS  /tmp/cc3eUTtO.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"debug_itf.c"
+  15              		.section	.text.fputc,"ax",%progbits
+  16              		.align	1
+  17              		.global	fputc
+  18              		.thumb
+  19              		.thumb_func
+  21              	fputc:
+  22              		@ args = 0, pretend = 0, frame = 8
+  23              		@ frame_needed = 0, uses_anonymous_args = 0
+  24 0000 07B5     		push	{r0, r1, r2, lr}
+  25 0002 074B     		ldr	r3, .L4
+  26 0004 0190     		str	r0, [sp, #4]
+  27 0006 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+  28 0008 012A     		cmp	r2, #1
+  29 000a 05D1     		bne	.L2
+  30 000c 054B     		ldr	r3, .L4+4
+  31 000e 01A9     		add	r1, sp, #4
+  32 0010 1868     		ldr	r0, [r3]
+  33 0012 6423     		movs	r3, #100
+  34 0014 FFF7FEFF 		bl	HAL_UART_Transmit
+  35              	.L2:
+  36 0018 0198     		ldr	r0, [sp, #4]
+  37 001a 03B0     		add	sp, sp, #12
+  38              		@ sp needed
+  39 001c 5DF804FB 		ldr	pc, [sp], #4
+  40              	.L5:
+  41              		.align	2
+  42              	.L4:
+  43 0020 00000000 		.word	hw_uart1_init_status
+  44 0024 00000000 		.word	hw_uart1_handle
+  46              		.comm	__stdout,104,4
+  47              		.ident	"GCC: (15:4.9.3+svn231177-1) 4.9.3 20150529 (prerelease)"
+ARM GAS  /tmp/cc3eUTtO.s 			page 2
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 debug_itf.c
+     /tmp/cc3eUTtO.s:16     .text.fputc:0000000000000000 $t
+     /tmp/cc3eUTtO.s:21     .text.fputc:0000000000000000 fputc
+     /tmp/cc3eUTtO.s:43     .text.fputc:0000000000000020 $d
+                            *COM*:0000000000000068 __stdout
+
+UNDEFINED SYMBOLS
+HAL_UART_Transmit
+hw_uart1_init_status
+hw_uart1_handle

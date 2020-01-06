@@ -21,7 +21,7 @@
 /**
  * \brief Handle for the I2C1 port.
  */
-extern I2C_HandleTypeDef* hw_i2c1_handle;
+extern I2C_HandleTypeDef *hw_i2c1_handle;
 
 /**
  * \brief Initialisation status for the I2C1 port.

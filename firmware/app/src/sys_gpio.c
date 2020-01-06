@@ -62,8 +62,6 @@ static void _SYS_GPIO_InitPortC(void)
 
     __HAL_RCC_GPIOC_CLK_ENABLE();
 
-    //! TODO: Configure PC7 (LED_DATA) for PWM...
-
     port_init.Pin = GPIO_KBM_DATA_0_PIN | GPIO_KBM_DATA_1_PIN | GPIO_KBM_DATA_2_PIN | GPIO_KBM_DATA_3_PIN |
                     GPIO_KBM_DATA_4_PIN | GPIO_KBM_DATA_5_PIN | GPIO_KBM_DATA_6_PIN | GPIO_HWBIT_4_PIN;
     port_init.Mode = GPIO_MODE_INPUT;
@@ -77,8 +75,6 @@ static void _SYS_GPIO_InitPortD(void)
     GPIO_InitTypeDef port_init = {0};
 
     __HAL_RCC_GPIOD_CLK_ENABLE();
-
-    //! TODO: Configure PC7 (LED_DATA) for PWM...
 
     port_init.Pin = GPIO_PORTEX01_INT_PIN;
     port_init.Mode = GPIO_MODE_INPUT;

@@ -1,6 +1,8 @@
 #include "sys_init.h"
 #include "sys_gpio.h"
+#include "sys_usart.h"
 #include "stm32f1xx_hal.h"
+#include <stdint.h>
 
 void SYS_Init(void)
 {
@@ -14,4 +16,14 @@ void SYS_Init(void)
     HAL_GPIO_WritePin(GPIO_USER_LED_1_PORT, GPIO_USER_LED_1_PIN, GPIO_PIN_RESET);
     HAL_GPIO_WritePin(GPIO_USER_LED_2_PORT, GPIO_USER_LED_2_PIN, GPIO_PIN_RESET);
     HAL_GPIO_WritePin(GPIO_ERROR_LED_PORT, GPIO_ERROR_LED_PIN, GPIO_PIN_RESET);
+}
+
+void SYS_PostPortInit(void)
+{
+    HAL_UART_Transmit(hw_uart1_handle, (uint8_t*)"[BKF] System HW-Init complete.\n", 31, 10);
+}
+
+void SYS_PostLibInit(void)
+{
+
 }
