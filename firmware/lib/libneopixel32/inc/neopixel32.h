@@ -79,7 +79,7 @@ struct __NP32_Instance
 {
     uint16_t LED_Count; /**< The count of LEDs in the array this instance represents. */
 
-    struct __NP32_RGB *LED_Col_Buffer; /**< The pointer to the LED colour buffer, which holds the values of all LEDs in
+    NP32_RGB_t *LED_Col_Buffer; /**< The pointer to the LED colour buffer, which holds the values of all LEDs in
                                               the LED array this instance represents.*/
 
     uint8_t LED_Disable_Flag; /**< This flag enables (if set to 1) the LED disable mode. In this mode, the colour buffer
