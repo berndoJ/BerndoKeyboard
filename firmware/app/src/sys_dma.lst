@@ -1,59 +1,58 @@
-ARM GAS  /tmp/ccRpMZJs.s 			page 1
+ARM GAS  /tmp/ccq4gOw7.s 			page 1
 
 
-   1              		.syntax unified
-   2              		.cpu cortex-m3
-   3              		.fpu softvfp
-   4              		.eabi_attribute 20, 1
-   5              		.eabi_attribute 21, 1
-   6              		.eabi_attribute 23, 3
-   7              		.eabi_attribute 24, 1
-   8              		.eabi_attribute 25, 1
-   9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 4
-  11              		.eabi_attribute 34, 1
-  12              		.eabi_attribute 18, 4
-  13              		.thumb
-  14              		.file	"sys_dma.c"
-  15              		.section	.text.SYS_DMA_Init,"ax",%progbits
-  16              		.align	1
-  17              		.global	SYS_DMA_Init
-  18              		.thumb
-  19              		.thumb_func
-  21              	SYS_DMA_Init:
-  22              		@ args = 0, pretend = 0, frame = 8
-  23              		@ frame_needed = 0, uses_anonymous_args = 0
-  24 0000 0A4B     		ldr	r3, .L2
-  25 0002 07B5     		push	{r0, r1, r2, lr}
-  26 0004 5A69     		ldr	r2, [r3, #20]
-  27 0006 0121     		movs	r1, #1
-  28 0008 42F00102 		orr	r2, r2, #1
-  29 000c 5A61     		str	r2, [r3, #20]
-  30 000e 5B69     		ldr	r3, [r3, #20]
-  31 0010 0022     		movs	r2, #0
-  32 0012 03F00103 		and	r3, r3, #1
-  33 0016 0193     		str	r3, [sp, #4]
-  34 0018 0D20     		movs	r0, #13
-  35 001a 019B     		ldr	r3, [sp, #4]
-  36 001c FFF7FEFF 		bl	HAL_NVIC_SetPriority
-  37 0020 0D20     		movs	r0, #13
-  38 0022 FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
-  39 0026 03B0     		add	sp, sp, #12
-  40              		@ sp needed
-  41 0028 5DF804FB 		ldr	pc, [sp], #4
-  42              	.L3:
-  43              		.align	2
-  44              	.L2:
-  45 002c 00100240 		.word	1073876992
-  47              		.ident	"GCC: (15:4.9.3+svn231177-1) 4.9.3 20150529 (prerelease)"
-ARM GAS  /tmp/ccRpMZJs.s 			page 2
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 4
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"sys_dma.c"
+  12              		.section	.text.SYS_DMA_Init,"ax",%progbits
+  13              		.align	1
+  14              		.global	SYS_DMA_Init
+  15              		.syntax unified
+  16              		.thumb
+  17              		.thumb_func
+  18              		.fpu softvfp
+  20              	SYS_DMA_Init:
+  21              		@ args = 0, pretend = 0, frame = 8
+  22              		@ frame_needed = 0, uses_anonymous_args = 0
+  23 0000 0A4B     		ldr	r3, .L2
+  24 0002 07B5     		push	{r0, r1, r2, lr}
+  25 0004 5A69     		ldr	r2, [r3, #20]
+  26 0006 0121     		movs	r1, #1
+  27 0008 42F00102 		orr	r2, r2, #1
+  28 000c 5A61     		str	r2, [r3, #20]
+  29 000e 5B69     		ldr	r3, [r3, #20]
+  30 0010 0022     		movs	r2, #0
+  31 0012 03F00103 		and	r3, r3, #1
+  32 0016 0193     		str	r3, [sp, #4]
+  33 0018 0D20     		movs	r0, #13
+  34 001a 019B     		ldr	r3, [sp, #4]
+  35 001c FFF7FEFF 		bl	HAL_NVIC_SetPriority
+  36 0020 0D20     		movs	r0, #13
+  37 0022 FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+  38 0026 03B0     		add	sp, sp, #12
+  39              		@ sp needed
+  40 0028 5DF804FB 		ldr	pc, [sp], #4
+  41              	.L3:
+  42              		.align	2
+  43              	.L2:
+  44 002c 00100240 		.word	1073876992
+  46              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
+ARM GAS  /tmp/ccq4gOw7.s 			page 2
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 sys_dma.c
-     /tmp/ccRpMZJs.s:16     .text.SYS_DMA_Init:0000000000000000 $t
-     /tmp/ccRpMZJs.s:21     .text.SYS_DMA_Init:0000000000000000 SYS_DMA_Init
-     /tmp/ccRpMZJs.s:45     .text.SYS_DMA_Init:000000000000002c $d
+     /tmp/ccq4gOw7.s:13     .text.SYS_DMA_Init:0000000000000000 $t
+     /tmp/ccq4gOw7.s:20     .text.SYS_DMA_Init:0000000000000000 SYS_DMA_Init
+     /tmp/ccq4gOw7.s:44     .text.SYS_DMA_Init:000000000000002c $d
 
 UNDEFINED SYMBOLS
 HAL_NVIC_SetPriority

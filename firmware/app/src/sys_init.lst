@@ -1,125 +1,128 @@
-ARM GAS  /tmp/ccmM5xWE.s 			page 1
+ARM GAS  /tmp/ccvax7bL.s 			page 1
 
 
-   1              		.syntax unified
-   2              		.cpu cortex-m3
-   3              		.fpu softvfp
-   4              		.eabi_attribute 20, 1
-   5              		.eabi_attribute 21, 1
-   6              		.eabi_attribute 23, 3
-   7              		.eabi_attribute 24, 1
-   8              		.eabi_attribute 25, 1
-   9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 4
-  11              		.eabi_attribute 34, 1
-  12              		.eabi_attribute 18, 4
-  13              		.thumb
-  14              		.file	"sys_init.c"
-  15              		.section	.text.SYS_Init,"ax",%progbits
-  16              		.align	1
-  17              		.global	SYS_Init
-  18              		.thumb
-  19              		.thumb_func
-  21              	SYS_Init:
-  22              		@ args = 0, pretend = 0, frame = 0
-  23              		@ frame_needed = 0, uses_anonymous_args = 0
-  24 0000 38B5     		push	{r3, r4, r5, lr}
-  25 0002 174C     		ldr	r4, .L2
-  26 0004 0121     		movs	r1, #1
-  27 0006 2046     		mov	r0, r4
-  28 0008 0A46     		mov	r2, r1
-  29 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
-  30 000e 154D     		ldr	r5, .L2+4
-  31 0010 2046     		mov	r0, r4
-  32 0012 0221     		movs	r1, #2
-  33 0014 0122     		movs	r2, #1
-  34 0016 FFF7FEFF 		bl	HAL_GPIO_WritePin
-  35 001a 2046     		mov	r0, r4
-  36 001c 0421     		movs	r1, #4
-  37 001e 0122     		movs	r2, #1
-  38 0020 FFF7FEFF 		bl	HAL_GPIO_WritePin
-  39 0024 2846     		mov	r0, r5
-  40 0026 1021     		movs	r1, #16
-  41 0028 0122     		movs	r2, #1
-  42 002a FFF7FEFF 		bl	HAL_GPIO_WritePin
-  43 002e C820     		movs	r0, #200
-  44 0030 FFF7FEFF 		bl	HAL_Delay
-  45 0034 2046     		mov	r0, r4
-  46 0036 0121     		movs	r1, #1
-  47 0038 0022     		movs	r2, #0
-  48 003a FFF7FEFF 		bl	HAL_GPIO_WritePin
-  49 003e 2046     		mov	r0, r4
-  50 0040 0221     		movs	r1, #2
-  51 0042 0022     		movs	r2, #0
-  52 0044 FFF7FEFF 		bl	HAL_GPIO_WritePin
-  53 0048 2046     		mov	r0, r4
-  54 004a 0421     		movs	r1, #4
-  55 004c 0022     		movs	r2, #0
-  56 004e FFF7FEFF 		bl	HAL_GPIO_WritePin
-  57 0052 2846     		mov	r0, r5
-  58 0054 BDE83840 		pop	{r3, r4, r5, lr}
-ARM GAS  /tmp/ccmM5xWE.s 			page 2
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 4
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"sys_init.c"
+  12              		.section	.text.SYS_Init,"ax",%progbits
+  13              		.align	1
+  14              		.global	SYS_Init
+  15              		.syntax unified
+  16              		.thumb
+  17              		.thumb_func
+  18              		.fpu softvfp
+  20              	SYS_Init:
+  21              		@ args = 0, pretend = 0, frame = 0
+  22              		@ frame_needed = 0, uses_anonymous_args = 0
+  23 0000 0122     		movs	r2, #1
+  24 0002 38B5     		push	{r3, r4, r5, lr}
+  25 0004 164C     		ldr	r4, .L2
+  26 0006 1146     		mov	r1, r2
+  27 0008 2046     		mov	r0, r4
+  28 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
+  29 000e 154D     		ldr	r5, .L2+4
+  30 0010 2046     		mov	r0, r4
+  31 0012 0122     		movs	r2, #1
+  32 0014 0221     		movs	r1, #2
+  33 0016 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  34 001a 2046     		mov	r0, r4
+  35 001c 0122     		movs	r2, #1
+  36 001e 0421     		movs	r1, #4
+  37 0020 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  38 0024 0122     		movs	r2, #1
+  39 0026 1021     		movs	r1, #16
+  40 0028 2846     		mov	r0, r5
+  41 002a FFF7FEFF 		bl	HAL_GPIO_WritePin
+  42 002e C820     		movs	r0, #200
+  43 0030 FFF7FEFF 		bl	HAL_Delay
+  44 0034 2046     		mov	r0, r4
+  45 0036 0022     		movs	r2, #0
+  46 0038 0121     		movs	r1, #1
+  47 003a FFF7FEFF 		bl	HAL_GPIO_WritePin
+  48 003e 2046     		mov	r0, r4
+  49 0040 0022     		movs	r2, #0
+  50 0042 0221     		movs	r1, #2
+  51 0044 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  52 0048 2046     		mov	r0, r4
+  53 004a 0022     		movs	r2, #0
+  54 004c 0421     		movs	r1, #4
+  55 004e FFF7FEFF 		bl	HAL_GPIO_WritePin
+  56 0052 2846     		mov	r0, r5
+  57 0054 BDE83840 		pop	{r3, r4, r5, lr}
+  58 0058 0022     		movs	r2, #0
+ARM GAS  /tmp/ccvax7bL.s 			page 2
 
 
-  59 0058 1021     		movs	r1, #16
-  60 005a 0022     		movs	r2, #0
-  61 005c FFF7FEBF 		b	HAL_GPIO_WritePin
-  62              	.L3:
-  63              		.align	2
-  64              	.L2:
-  65 0060 000C0140 		.word	1073810432
-  66 0064 00080140 		.word	1073809408
-  68              		.section	.text.SYS_PostPortInit,"ax",%progbits
-  69              		.align	1
-  70              		.global	SYS_PostPortInit
+  59 005a 1021     		movs	r1, #16
+  60 005c FFF7FEBF 		b	HAL_GPIO_WritePin
+  61              	.L3:
+  62              		.align	2
+  63              	.L2:
+  64 0060 000C0140 		.word	1073810432
+  65 0064 00080140 		.word	1073809408
+  67              		.section	.text.SYS_PostPortInit,"ax",%progbits
+  68              		.align	1
+  69              		.global	SYS_PostPortInit
+  70              		.syntax unified
   71              		.thumb
   72              		.thumb_func
-  74              	SYS_PostPortInit:
-  75              		@ args = 0, pretend = 0, frame = 0
-  76              		@ frame_needed = 0, uses_anonymous_args = 0
-  77              		@ link register save eliminated.
-  78 0000 034B     		ldr	r3, .L5
-  79 0002 0449     		ldr	r1, .L5+4
-  80 0004 1868     		ldr	r0, [r3]
-  81 0006 1F22     		movs	r2, #31
-  82 0008 0A23     		movs	r3, #10
-  83 000a FFF7FEBF 		b	HAL_UART_Transmit
-  84              	.L6:
-  85 000e 00BF     		.align	2
-  86              	.L5:
-  87 0010 00000000 		.word	hw_uart1_handle
-  88 0014 00000000 		.word	.LC0
-  90              		.section	.text.SYS_PostLibInit,"ax",%progbits
-  91              		.align	1
-  92              		.global	SYS_PostLibInit
-  93              		.thumb
-  94              		.thumb_func
-  96              	SYS_PostLibInit:
-  97              		@ args = 0, pretend = 0, frame = 0
-  98              		@ frame_needed = 0, uses_anonymous_args = 0
-  99              		@ link register save eliminated.
- 100 0000 7047     		bx	lr
- 102              		.section	.rodata.str1.1,"aMS",%progbits,1
- 103              	.LC0:
- 104 0000 5B424B46 		.ascii	"[BKF] System HW-Init complete.\012\000"
- 104      5D205379 
- 104      7374656D 
- 104      2048572D 
- 104      496E6974 
- 105              		.ident	"GCC: (15:4.9.3+svn231177-1) 4.9.3 20150529 (prerelease)"
-ARM GAS  /tmp/ccmM5xWE.s 			page 3
+  73              		.fpu softvfp
+  75              	SYS_PostPortInit:
+  76              		@ args = 0, pretend = 0, frame = 0
+  77              		@ frame_needed = 0, uses_anonymous_args = 0
+  78              		@ link register save eliminated.
+  79 0000 0348     		ldr	r0, .L5
+  80 0002 0A23     		movs	r3, #10
+  81 0004 1F22     		movs	r2, #31
+  82 0006 0349     		ldr	r1, .L5+4
+  83 0008 0068     		ldr	r0, [r0]
+  84 000a FFF7FEBF 		b	HAL_UART_Transmit
+  85              	.L6:
+  86 000e 00BF     		.align	2
+  87              	.L5:
+  88 0010 00000000 		.word	hw_uart1_handle
+  89 0014 00000000 		.word	.LC0
+  91              		.section	.text.SYS_PostLibInit,"ax",%progbits
+  92              		.align	1
+  93              		.global	SYS_PostLibInit
+  94              		.syntax unified
+  95              		.thumb
+  96              		.thumb_func
+  97              		.fpu softvfp
+  99              	SYS_PostLibInit:
+ 100              		@ args = 0, pretend = 0, frame = 0
+ 101              		@ frame_needed = 0, uses_anonymous_args = 0
+ 102              		@ link register save eliminated.
+ 103 0000 7047     		bx	lr
+ 105              		.section	.rodata.SYS_PostPortInit.str1.1,"aMS",%progbits,1
+ 106              	.LC0:
+ 107 0000 5B424B46 		.ascii	"[BKF] System HW-Init complete.\012\000"
+ 107      5D205379 
+ 107      7374656D 
+ 107      2048572D 
+ 107      496E6974 
+ 108              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
+ARM GAS  /tmp/ccvax7bL.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 sys_init.c
-     /tmp/ccmM5xWE.s:16     .text.SYS_Init:0000000000000000 $t
-     /tmp/ccmM5xWE.s:21     .text.SYS_Init:0000000000000000 SYS_Init
-     /tmp/ccmM5xWE.s:65     .text.SYS_Init:0000000000000060 $d
-     /tmp/ccmM5xWE.s:69     .text.SYS_PostPortInit:0000000000000000 $t
-     /tmp/ccmM5xWE.s:74     .text.SYS_PostPortInit:0000000000000000 SYS_PostPortInit
-     /tmp/ccmM5xWE.s:87     .text.SYS_PostPortInit:0000000000000010 $d
-     /tmp/ccmM5xWE.s:91     .text.SYS_PostLibInit:0000000000000000 $t
-     /tmp/ccmM5xWE.s:96     .text.SYS_PostLibInit:0000000000000000 SYS_PostLibInit
+     /tmp/ccvax7bL.s:13     .text.SYS_Init:0000000000000000 $t
+     /tmp/ccvax7bL.s:20     .text.SYS_Init:0000000000000000 SYS_Init
+     /tmp/ccvax7bL.s:64     .text.SYS_Init:0000000000000060 $d
+     /tmp/ccvax7bL.s:68     .text.SYS_PostPortInit:0000000000000000 $t
+     /tmp/ccvax7bL.s:75     .text.SYS_PostPortInit:0000000000000000 SYS_PostPortInit
+     /tmp/ccvax7bL.s:88     .text.SYS_PostPortInit:0000000000000010 $d
+     /tmp/ccvax7bL.s:92     .text.SYS_PostLibInit:0000000000000000 $t
+     /tmp/ccvax7bL.s:99     .text.SYS_PostLibInit:0000000000000000 SYS_PostLibInit
 
 UNDEFINED SYMBOLS
 HAL_GPIO_WritePin

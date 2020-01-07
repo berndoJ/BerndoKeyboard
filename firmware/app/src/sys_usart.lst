@@ -1,192 +1,195 @@
-ARM GAS  /tmp/ccQgsE83.s 			page 1
+ARM GAS  /tmp/ccWUIRFb.s 			page 1
 
 
-   1              		.syntax unified
-   2              		.cpu cortex-m3
-   3              		.fpu softvfp
-   4              		.eabi_attribute 20, 1
-   5              		.eabi_attribute 21, 1
-   6              		.eabi_attribute 23, 3
-   7              		.eabi_attribute 24, 1
-   8              		.eabi_attribute 25, 1
-   9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 4
-  11              		.eabi_attribute 34, 1
-  12              		.eabi_attribute 18, 4
-  13              		.thumb
-  14              		.file	"sys_usart.c"
-  15              		.section	.text._SYS_USART1_MspDeInitCallback,"ax",%progbits
-  16              		.align	1
-  17              		.thumb
-  18              		.thumb_func
-  20              	_SYS_USART1_MspDeInitCallback:
-  21              		@ args = 0, pretend = 0, frame = 0
-  22              		@ frame_needed = 0, uses_anonymous_args = 0
-  23              		@ link register save eliminated.
-  24 0000 044A     		ldr	r2, .L2
-  25 0002 0548     		ldr	r0, .L2+4
-  26 0004 9369     		ldr	r3, [r2, #24]
-  27 0006 4FF4C061 		mov	r1, #1536
-  28 000a 23F48043 		bic	r3, r3, #16384
-  29 000e 9361     		str	r3, [r2, #24]
-  30 0010 FFF7FEBF 		b	HAL_GPIO_DeInit
-  31              	.L3:
-  32              		.align	2
-  33              	.L2:
-  34 0014 00100240 		.word	1073876992
-  35 0018 00080140 		.word	1073809408
-  37              		.section	.text._SYS_USART1_MspInitCallback,"ax",%progbits
-  38              		.align	1
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 4
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"sys_usart.c"
+  12              		.section	.text._SYS_USART1_MspDeInitCallback,"ax",%progbits
+  13              		.align	1
+  14              		.syntax unified
+  15              		.thumb
+  16              		.thumb_func
+  17              		.fpu softvfp
+  19              	_SYS_USART1_MspDeInitCallback:
+  20              		@ args = 0, pretend = 0, frame = 0
+  21              		@ frame_needed = 0, uses_anonymous_args = 0
+  22              		@ link register save eliminated.
+  23 0000 044A     		ldr	r2, .L2
+  24 0002 4FF4C061 		mov	r1, #1536
+  25 0006 9369     		ldr	r3, [r2, #24]
+  26 0008 0348     		ldr	r0, .L2+4
+  27 000a 23F48043 		bic	r3, r3, #16384
+  28 000e 9361     		str	r3, [r2, #24]
+  29 0010 FFF7FEBF 		b	HAL_GPIO_DeInit
+  30              	.L3:
+  31              		.align	2
+  32              	.L2:
+  33 0014 00100240 		.word	1073876992
+  34 0018 00080140 		.word	1073809408
+  36              		.section	.text._SYS_USART1_MspInitCallback,"ax",%progbits
+  37              		.align	1
+  38              		.syntax unified
   39              		.thumb
   40              		.thumb_func
-  42              	_SYS_USART1_MspInitCallback:
-  43              		@ args = 0, pretend = 0, frame = 24
-  44              		@ frame_needed = 0, uses_anonymous_args = 0
-  45 0000 10B5     		push	{r4, lr}
-  46 0002 86B0     		sub	sp, sp, #24
-  47 0004 02A8     		add	r0, sp, #8
-  48 0006 0021     		movs	r1, #0
-  49 0008 1022     		movs	r2, #16
-  50 000a FFF7FEFF 		bl	memset
-  51 000e 154B     		ldr	r3, .L5
-  52 0010 154C     		ldr	r4, .L5+4
-  53 0012 9A69     		ldr	r2, [r3, #24]
-  54 0014 2046     		mov	r0, r4
-  55 0016 42F48042 		orr	r2, r2, #16384
-  56 001a 9A61     		str	r2, [r3, #24]
-  57 001c 9A69     		ldr	r2, [r3, #24]
-  58 001e 02A9     		add	r1, sp, #8
-  59 0020 02F48042 		and	r2, r2, #16384
-  60 0024 0092     		str	r2, [sp]
-ARM GAS  /tmp/ccQgsE83.s 			page 2
+  41              		.fpu softvfp
+  43              	_SYS_USART1_MspInitCallback:
+  44              		@ args = 0, pretend = 0, frame = 24
+  45              		@ frame_needed = 0, uses_anonymous_args = 0
+  46 0000 10B5     		push	{r4, lr}
+  47 0002 86B0     		sub	sp, sp, #24
+  48 0004 1022     		movs	r2, #16
+  49 0006 0021     		movs	r1, #0
+  50 0008 02A8     		add	r0, sp, #8
+  51 000a FFF7FEFF 		bl	memset
+  52 000e 154B     		ldr	r3, .L5
+  53 0010 154C     		ldr	r4, .L5+4
+  54 0012 9A69     		ldr	r2, [r3, #24]
+  55 0014 02A9     		add	r1, sp, #8
+  56 0016 42F48042 		orr	r2, r2, #16384
+  57 001a 9A61     		str	r2, [r3, #24]
+  58 001c 9A69     		ldr	r2, [r3, #24]
+  59 001e 2046     		mov	r0, r4
+  60 0020 02F48042 		and	r2, r2, #16384
+ARM GAS  /tmp/ccWUIRFb.s 			page 2
 
 
-  61 0026 009A     		ldr	r2, [sp]
-  62 0028 9A69     		ldr	r2, [r3, #24]
-  63 002a 42F00402 		orr	r2, r2, #4
-  64 002e 9A61     		str	r2, [r3, #24]
-  65 0030 9B69     		ldr	r3, [r3, #24]
-  66 0032 03F00403 		and	r3, r3, #4
-  67 0036 0193     		str	r3, [sp, #4]
-  68 0038 019B     		ldr	r3, [sp, #4]
-  69 003a 4FF40073 		mov	r3, #512
-  70 003e 0293     		str	r3, [sp, #8]
-  71 0040 0223     		movs	r3, #2
-  72 0042 0393     		str	r3, [sp, #12]
-  73 0044 0323     		movs	r3, #3
-  74 0046 0593     		str	r3, [sp, #20]
-  75 0048 FFF7FEFF 		bl	HAL_GPIO_Init
-  76 004c 4FF48063 		mov	r3, #1024
-  77 0050 0293     		str	r3, [sp, #8]
-  78 0052 2046     		mov	r0, r4
-  79 0054 0023     		movs	r3, #0
-  80 0056 02A9     		add	r1, sp, #8
-  81 0058 0393     		str	r3, [sp, #12]
-  82 005a 0493     		str	r3, [sp, #16]
-  83 005c FFF7FEFF 		bl	HAL_GPIO_Init
-  84 0060 06B0     		add	sp, sp, #24
-  85              		@ sp needed
-  86 0062 10BD     		pop	{r4, pc}
-  87              	.L6:
-  88              		.align	2
-  89              	.L5:
-  90 0064 00100240 		.word	1073876992
-  91 0068 00080140 		.word	1073809408
-  93              		.section	.text.SYS_USART_Init,"ax",%progbits
-  94              		.align	1
-  95              		.global	SYS_USART_Init
-  96              		.thumb
-  97              		.thumb_func
-  99              	SYS_USART_Init:
- 100              		@ args = 0, pretend = 0, frame = 0
- 101              		@ frame_needed = 0, uses_anonymous_args = 0
- 102 0000 1148     		ldr	r0, .L10
- 103 0002 124B     		ldr	r3, .L10+4
- 104 0004 10B5     		push	{r4, lr}
- 105 0006 1860     		str	r0, [r3]
- 106 0008 114B     		ldr	r3, .L10+8
- 107 000a 4FF4E134 		mov	r4, #115200
- 108 000e 80E81800 		stmia	r0, {r3, r4}
- 109 0012 0023     		movs	r3, #0
- 110 0014 8360     		str	r3, [r0, #8]
- 111 0016 C360     		str	r3, [r0, #12]
- 112 0018 0361     		str	r3, [r0, #16]
- 113 001a 8361     		str	r3, [r0, #24]
- 114 001c C361     		str	r3, [r0, #28]
- 115 001e 0D4B     		ldr	r3, .L10+12
- 116 0020 0C22     		movs	r2, #12
- 117 0022 4366     		str	r3, [r0, #100]
- 118 0024 0C4B     		ldr	r3, .L10+16
- 119 0026 4261     		str	r2, [r0, #20]
-ARM GAS  /tmp/ccQgsE83.s 			page 3
+  61 0024 0092     		str	r2, [sp]
+  62 0026 009A     		ldr	r2, [sp]
+  63 0028 9A69     		ldr	r2, [r3, #24]
+  64 002a 42F00402 		orr	r2, r2, #4
+  65 002e 9A61     		str	r2, [r3, #24]
+  66 0030 9B69     		ldr	r3, [r3, #24]
+  67 0032 03F00403 		and	r3, r3, #4
+  68 0036 0193     		str	r3, [sp, #4]
+  69 0038 019B     		ldr	r3, [sp, #4]
+  70 003a 4FF40073 		mov	r3, #512
+  71 003e 0293     		str	r3, [sp, #8]
+  72 0040 0223     		movs	r3, #2
+  73 0042 0393     		str	r3, [sp, #12]
+  74 0044 0323     		movs	r3, #3
+  75 0046 0593     		str	r3, [sp, #20]
+  76 0048 FFF7FEFF 		bl	HAL_GPIO_Init
+  77 004c 4FF48063 		mov	r3, #1024
+  78 0050 0293     		str	r3, [sp, #8]
+  79 0052 0023     		movs	r3, #0
+  80 0054 02A9     		add	r1, sp, #8
+  81 0056 2046     		mov	r0, r4
+  82 0058 0393     		str	r3, [sp, #12]
+  83 005a 0493     		str	r3, [sp, #16]
+  84 005c FFF7FEFF 		bl	HAL_GPIO_Init
+  85 0060 06B0     		add	sp, sp, #24
+  86              		@ sp needed
+  87 0062 10BD     		pop	{r4, pc}
+  88              	.L6:
+  89              		.align	2
+  90              	.L5:
+  91 0064 00100240 		.word	1073876992
+  92 0068 00080140 		.word	1073809408
+  94              		.section	.text.SYS_USART_Init,"ax",%progbits
+  95              		.align	1
+  96              		.global	SYS_USART_Init
+  97              		.syntax unified
+  98              		.thumb
+  99              		.thumb_func
+ 100              		.fpu softvfp
+ 102              	SYS_USART_Init:
+ 103              		@ args = 0, pretend = 0, frame = 0
+ 104              		@ frame_needed = 0, uses_anonymous_args = 0
+ 105 0000 10B5     		push	{r4, lr}
+ 106 0002 4FF4E134 		mov	r4, #115200
+ 107 0006 1048     		ldr	r0, .L9
+ 108 0008 104B     		ldr	r3, .L9+4
+ 109 000a 0C22     		movs	r2, #12
+ 110 000c 1860     		str	r0, [r3]
+ 111 000e 104B     		ldr	r3, .L9+8
+ 112 0010 4261     		str	r2, [r0, #20]
+ 113 0012 80E81800 		stm	r0, {r3, r4}
+ 114 0016 0023     		movs	r3, #0
+ 115 0018 8360     		str	r3, [r0, #8]
+ 116 001a C360     		str	r3, [r0, #12]
+ 117 001c 0361     		str	r3, [r0, #16]
+ 118 001e 8361     		str	r3, [r0, #24]
+ 119 0020 C361     		str	r3, [r0, #28]
+ARM GAS  /tmp/ccWUIRFb.s 			page 3
 
 
- 120 0028 8366     		str	r3, [r0, #104]
- 121 002a FFF7FEFF 		bl	HAL_UART_Init
- 122 002e 38B1     		cbz	r0, .L8
- 123 0030 BDE81040 		pop	{r4, lr}
- 124 0034 0220     		movs	r0, #2
- 125 0036 1D21     		movs	r1, #29
- 126 0038 084A     		ldr	r2, .L10+20
- 127 003a 094B     		ldr	r3, .L10+24
- 128 003c FFF7FEBF 		b	SYS_ThrowError
- 129              	.L8:
- 130 0040 084B     		ldr	r3, .L10+28
- 131 0042 0122     		movs	r2, #1
- 132 0044 1A70     		strb	r2, [r3]
- 133 0046 10BD     		pop	{r4, pc}
- 134              	.L11:
- 135              		.align	2
- 136              	.L10:
- 137 0048 00000000 		.word	.LANCHOR0
- 138 004c 00000000 		.word	hw_uart1_handle
- 139 0050 00380140 		.word	1073821696
- 140 0054 00000000 		.word	_SYS_USART1_MspInitCallback
- 141 0058 00000000 		.word	_SYS_USART1_MspDeInitCallback
- 142 005c 00000000 		.word	.LC0
- 143 0060 10000000 		.word	.LC1
- 144 0064 00000000 		.word	hw_uart1_init_status
- 146              		.comm	hw_uart1_init_status,1,1
- 147              		.comm	hw_uart1_handle,4,4
- 148              		.section	.rodata.str1.1,"aMS",%progbits,1
- 149              	.LC0:
- 150 0000 7372632F 		.ascii	"src/sys_usart.c\000"
- 150      7379735F 
- 150      75736172 
- 150      742E6300 
- 151              	.LC1:
- 152 0010 55415254 		.ascii	"UART1 INIT FAIL\000"
- 152      3120494E 
- 152      49542046 
- 152      41494C00 
- 153              		.section	.bss._hw_uart1_handle,"aw",%nobits
- 154              		.align	2
- 155              		.set	.LANCHOR0,. + 0
- 158              	_hw_uart1_handle:
- 159 0000 00000000 		.space	108
- 159      00000000 
- 159      00000000 
- 159      00000000 
- 159      00000000 
- 160              		.ident	"GCC: (15:4.9.3+svn231177-1) 4.9.3 20150529 (prerelease)"
-ARM GAS  /tmp/ccQgsE83.s 			page 4
+ 120 0022 0C4B     		ldr	r3, .L9+12
+ 121 0024 4366     		str	r3, [r0, #100]
+ 122 0026 0C4B     		ldr	r3, .L9+16
+ 123 0028 8366     		str	r3, [r0, #104]
+ 124 002a FFF7FEFF 		bl	HAL_UART_Init
+ 125 002e 38B1     		cbz	r0, .L8
+ 126 0030 BDE81040 		pop	{r4, lr}
+ 127 0034 094B     		ldr	r3, .L9+20
+ 128 0036 0A4A     		ldr	r2, .L9+24
+ 129 0038 1D21     		movs	r1, #29
+ 130 003a 0220     		movs	r0, #2
+ 131 003c FFF7FEBF 		b	SYS_ThrowError
+ 132              	.L8:
+ 133 0040 0122     		movs	r2, #1
+ 134 0042 084B     		ldr	r3, .L9+28
+ 135 0044 1A70     		strb	r2, [r3]
+ 136 0046 10BD     		pop	{r4, pc}
+ 137              	.L10:
+ 138              		.align	2
+ 139              	.L9:
+ 140 0048 00000000 		.word	.LANCHOR0
+ 141 004c 00000000 		.word	hw_uart1_handle
+ 142 0050 00380140 		.word	1073821696
+ 143 0054 00000000 		.word	_SYS_USART1_MspInitCallback
+ 144 0058 00000000 		.word	_SYS_USART1_MspDeInitCallback
+ 145 005c 00000000 		.word	.LC0
+ 146 0060 10000000 		.word	.LC1
+ 147 0064 00000000 		.word	hw_uart1_init_status
+ 149              		.comm	hw_uart1_init_status,1,1
+ 150              		.comm	hw_uart1_handle,4,4
+ 151              		.section	.bss._hw_uart1_handle,"aw",%nobits
+ 152              		.align	2
+ 153              		.set	.LANCHOR0,. + 0
+ 156              	_hw_uart1_handle:
+ 157 0000 00000000 		.space	108
+ 157      00000000 
+ 157      00000000 
+ 157      00000000 
+ 157      00000000 
+ 158              		.section	.rodata.SYS_USART_Init.str1.1,"aMS",%progbits,1
+ 159              	.LC0:
+ 160 0000 55415254 		.ascii	"UART1 INIT FAIL\000"
+ 160      3120494E 
+ 160      49542046 
+ 160      41494C00 
+ 161              	.LC1:
+ 162 0010 7372632F 		.ascii	"src/sys_usart.c\000"
+ 162      7379735F 
+ 162      75736172 
+ 162      742E6300 
+ 163              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
+ARM GAS  /tmp/ccWUIRFb.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 sys_usart.c
-     /tmp/ccQgsE83.s:16     .text._SYS_USART1_MspDeInitCallback:0000000000000000 $t
-     /tmp/ccQgsE83.s:20     .text._SYS_USART1_MspDeInitCallback:0000000000000000 _SYS_USART1_MspDeInitCallback
-     /tmp/ccQgsE83.s:34     .text._SYS_USART1_MspDeInitCallback:0000000000000014 $d
-     /tmp/ccQgsE83.s:38     .text._SYS_USART1_MspInitCallback:0000000000000000 $t
-     /tmp/ccQgsE83.s:42     .text._SYS_USART1_MspInitCallback:0000000000000000 _SYS_USART1_MspInitCallback
-     /tmp/ccQgsE83.s:90     .text._SYS_USART1_MspInitCallback:0000000000000064 $d
-     /tmp/ccQgsE83.s:94     .text.SYS_USART_Init:0000000000000000 $t
-     /tmp/ccQgsE83.s:99     .text.SYS_USART_Init:0000000000000000 SYS_USART_Init
-     /tmp/ccQgsE83.s:137    .text.SYS_USART_Init:0000000000000048 $d
+     /tmp/ccWUIRFb.s:13     .text._SYS_USART1_MspDeInitCallback:0000000000000000 $t
+     /tmp/ccWUIRFb.s:19     .text._SYS_USART1_MspDeInitCallback:0000000000000000 _SYS_USART1_MspDeInitCallback
+     /tmp/ccWUIRFb.s:33     .text._SYS_USART1_MspDeInitCallback:0000000000000014 $d
+     /tmp/ccWUIRFb.s:37     .text._SYS_USART1_MspInitCallback:0000000000000000 $t
+     /tmp/ccWUIRFb.s:43     .text._SYS_USART1_MspInitCallback:0000000000000000 _SYS_USART1_MspInitCallback
+     /tmp/ccWUIRFb.s:91     .text._SYS_USART1_MspInitCallback:0000000000000064 $d
+     /tmp/ccWUIRFb.s:95     .text.SYS_USART_Init:0000000000000000 $t
+     /tmp/ccWUIRFb.s:102    .text.SYS_USART_Init:0000000000000000 SYS_USART_Init
+     /tmp/ccWUIRFb.s:140    .text.SYS_USART_Init:0000000000000048 $d
                             *COM*:0000000000000004 hw_uart1_handle
                             *COM*:0000000000000001 hw_uart1_init_status
-     /tmp/ccQgsE83.s:154    .bss._hw_uart1_handle:0000000000000000 $d
-     /tmp/ccQgsE83.s:158    .bss._hw_uart1_handle:0000000000000000 _hw_uart1_handle
+     /tmp/ccWUIRFb.s:152    .bss._hw_uart1_handle:0000000000000000 $d
+     /tmp/ccWUIRFb.s:156    .bss._hw_uart1_handle:0000000000000000 _hw_uart1_handle
 
 UNDEFINED SYMBOLS
 HAL_GPIO_DeInit

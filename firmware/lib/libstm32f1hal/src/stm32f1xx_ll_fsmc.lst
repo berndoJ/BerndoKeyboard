@@ -1,83 +1,83 @@
-ARM GAS  /tmp/ccQObybn.s 			page 1
+ARM GAS  /tmp/ccduyQy3.s 			page 1
 
 
-   1              		.syntax unified
-   2              		.cpu cortex-m3
-   3              		.fpu softvfp
-   4              		.eabi_attribute 20, 1
-   5              		.eabi_attribute 21, 1
-   6              		.eabi_attribute 23, 3
-   7              		.eabi_attribute 24, 1
-   8              		.eabi_attribute 25, 1
-   9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 4
-  11              		.eabi_attribute 34, 1
-  12              		.eabi_attribute 18, 4
-  13              		.thumb
-  14              		.file	"stm32f1xx_ll_fsmc.c"
-  15              		.section	.text.FSMC_NORSRAM_Init,"ax",%progbits
-  16              		.align	1
-  17              		.global	FSMC_NORSRAM_Init
-  18              		.thumb
-  19              		.thumb_func
-  21              	FSMC_NORSRAM_Init:
-  22              		@ args = 0, pretend = 0, frame = 0
-  23              		@ frame_needed = 0, uses_anonymous_args = 0
-  24 0000 0A68     		ldr	r2, [r1]
-  25 0002 70B5     		push	{r4, r5, r6, lr}
-  26 0004 50F82230 		ldr	r3, [r0, r2, lsl #2]
-  27 0008 8D68     		ldr	r5, [r1, #8]
-  28 000a 23F00103 		bic	r3, r3, #1
-  29 000e 40F82230 		str	r3, [r0, r2, lsl #2]
-  30 0012 4B68     		ldr	r3, [r1, #4]
-  31 0014 082D     		cmp	r5, #8
-  32 0016 45EA0305 		orr	r5, r5, r3
-  33 001a CB68     		ldr	r3, [r1, #12]
-  34 001c 50F82260 		ldr	r6, [r0, r2, lsl #2]
-  35 0020 45EA0305 		orr	r5, r5, r3
-  36 0024 0B69     		ldr	r3, [r1, #16]
-  37 0026 08BF     		it	eq
-  38 0028 4024     		moveq	r4, #64
-  39 002a 45EA0305 		orr	r5, r5, r3
-  40 002e 4B69     		ldr	r3, [r1, #20]
-  41 0030 18BF     		it	ne
-  42 0032 0024     		movne	r4, #0
-  43 0034 1D43     		orrs	r5, r5, r3
-  44 0036 8B69     		ldr	r3, [r1, #24]
-  45 0038 1D43     		orrs	r5, r5, r3
-  46 003a CB69     		ldr	r3, [r1, #28]
-  47 003c 1D43     		orrs	r5, r5, r3
-  48 003e 0B6A     		ldr	r3, [r1, #32]
-  49 0040 1D43     		orrs	r5, r5, r3
-  50 0042 4B6A     		ldr	r3, [r1, #36]
-  51 0044 1D43     		orrs	r5, r5, r3
-  52 0046 8B6A     		ldr	r3, [r1, #40]
-  53 0048 1D43     		orrs	r5, r5, r3
-  54 004a CB6A     		ldr	r3, [r1, #44]
-  55 004c 1D43     		orrs	r5, r5, r3
-  56 004e 0B6B     		ldr	r3, [r1, #48]
-  57 0050 496B     		ldr	r1, [r1, #52]
-  58 0052 2B43     		orrs	r3, r3, r5
-ARM GAS  /tmp/ccQObybn.s 			page 2
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 4
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"stm32f1xx_ll_fsmc.c"
+  12              		.section	.text.FSMC_NORSRAM_Init,"ax",%progbits
+  13              		.align	1
+  14              		.global	FSMC_NORSRAM_Init
+  15              		.syntax unified
+  16              		.thumb
+  17              		.thumb_func
+  18              		.fpu softvfp
+  20              	FSMC_NORSRAM_Init:
+  21              		@ args = 0, pretend = 0, frame = 0
+  22              		@ frame_needed = 0, uses_anonymous_args = 0
+  23 0000 0A68     		ldr	r2, [r1]
+  24 0002 70B5     		push	{r4, r5, r6, lr}
+  25 0004 50F82230 		ldr	r3, [r0, r2, lsl #2]
+  26 0008 4E68     		ldr	r6, [r1, #4]
+  27 000a 23F00103 		bic	r3, r3, #1
+  28 000e 40F82230 		str	r3, [r0, r2, lsl #2]
+  29 0012 8B68     		ldr	r3, [r1, #8]
+  30 0014 50F82250 		ldr	r5, [r0, r2, lsl #2]
+  31 0018 082B     		cmp	r3, #8
+  32 001a 0CBF     		ite	eq
+  33 001c 4024     		moveq	r4, #64
+  34 001e 0024     		movne	r4, #0
+  35 0020 3343     		orrs	r3, r3, r6
+  36 0022 CE68     		ldr	r6, [r1, #12]
+  37 0024 3343     		orrs	r3, r3, r6
+  38 0026 0E69     		ldr	r6, [r1, #16]
+  39 0028 3343     		orrs	r3, r3, r6
+  40 002a 4E69     		ldr	r6, [r1, #20]
+  41 002c 3343     		orrs	r3, r3, r6
+  42 002e 8E69     		ldr	r6, [r1, #24]
+  43 0030 3343     		orrs	r3, r3, r6
+  44 0032 CE69     		ldr	r6, [r1, #28]
+  45 0034 3343     		orrs	r3, r3, r6
+  46 0036 0E6A     		ldr	r6, [r1, #32]
+  47 0038 3343     		orrs	r3, r3, r6
+  48 003a 4E6A     		ldr	r6, [r1, #36]
+  49 003c 3343     		orrs	r3, r3, r6
+  50 003e 8E6A     		ldr	r6, [r1, #40]
+  51 0040 3343     		orrs	r3, r3, r6
+  52 0042 CE6A     		ldr	r6, [r1, #44]
+  53 0044 3343     		orrs	r3, r3, r6
+  54 0046 0E6B     		ldr	r6, [r1, #48]
+  55 0048 496B     		ldr	r1, [r1, #52]
+  56 004a 3343     		orrs	r3, r3, r6
+  57 004c 0B43     		orrs	r3, r3, r1
+  58 004e 0449     		ldr	r1, .L4
+ARM GAS  /tmp/ccduyQy3.s 			page 2
 
 
-  59 0054 1943     		orrs	r1, r1, r3
-  60 0056 044B     		ldr	r3, .L4
-  61 0058 3340     		ands	r3, r3, r6
-  62 005a 0B43     		orrs	r3, r3, r1
-  63 005c 2343     		orrs	r3, r3, r4
-  64 005e 40F82230 		str	r3, [r0, r2, lsl #2]
-  65 0062 0020     		movs	r0, #0
-  66 0064 70BD     		pop	{r4, r5, r6, pc}
-  67              	.L5:
-  68 0066 00BF     		.align	2
-  69              	.L4:
-  70 0068 8000F0FF 		.word	-1048448
-  72              		.section	.text.FSMC_NORSRAM_DeInit,"ax",%progbits
-  73              		.align	1
-  74              		.global	FSMC_NORSRAM_DeInit
-  75              		.thumb
-  76              		.thumb_func
+  59 0050 2940     		ands	r1, r1, r5
+  60 0052 0B43     		orrs	r3, r3, r1
+  61 0054 2343     		orrs	r3, r3, r4
+  62 0056 40F82230 		str	r3, [r0, r2, lsl #2]
+  63 005a 0020     		movs	r0, #0
+  64 005c 70BD     		pop	{r4, r5, r6, pc}
+  65              	.L5:
+  66 005e 00BF     		.align	2
+  67              	.L4:
+  68 0060 8000F0FF 		.word	-1048448
+  70              		.section	.text.FSMC_NORSRAM_DeInit,"ax",%progbits
+  71              		.align	1
+  72              		.global	FSMC_NORSRAM_DeInit
+  73              		.syntax unified
+  74              		.thumb
+  75              		.thumb_func
+  76              		.fpu softvfp
   78              	FSMC_NORSRAM_DeInit:
   79              		@ args = 0, pretend = 0, frame = 0
   80              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -86,520 +86,548 @@ ARM GAS  /tmp/ccQObybn.s 			page 1
   83 0006 23F00103 		bic	r3, r3, #1
   84 000a 00EB8204 		add	r4, r0, r2, lsl #2
   85 000e 40F82230 		str	r3, [r0, r2, lsl #2]
-  86 0012 1AB9     		cbnz	r2, .L7
+  86 0012 4AB9     		cbnz	r2, .L7
   87 0014 43F2DB03 		movw	r3, #12507
   88 0018 0360     		str	r3, [r0]
-  89 001a 03E0     		b	.L8
-  90              	.L7:
-  91 001c 43F2D203 		movw	r3, #12498
-  92 0020 40F82230 		str	r3, [r0, r2, lsl #2]
-  93              	.L8:
-  94 0024 6FF07043 		mvn	r3, #-268435456
-  95 0028 6360     		str	r3, [r4, #4]
-  96 002a 0020     		movs	r0, #0
-  97 002c 41F82230 		str	r3, [r1, r2, lsl #2]
-  98 0030 10BD     		pop	{r4, pc}
+  89              	.L8:
+  90 001a 6FF07043 		mvn	r3, #-268435456
+  91 001e 0020     		movs	r0, #0
+  92 0020 6360     		str	r3, [r4, #4]
+  93 0022 41F82230 		str	r3, [r1, r2, lsl #2]
+  94 0026 10BD     		pop	{r4, pc}
+  95              	.L7:
+  96 0028 43F2D203 		movw	r3, #12498
+  97 002c 40F82230 		str	r3, [r0, r2, lsl #2]
+  98 0030 F3E7     		b	.L8
  100              		.section	.text.FSMC_NORSRAM_Timing_Init,"ax",%progbits
  101              		.align	1
  102              		.global	FSMC_NORSRAM_Timing_Init
- 103              		.thumb
- 104              		.thumb_func
- 106              	FSMC_NORSRAM_Timing_Init:
- 107              		@ args = 0, pretend = 0, frame = 0
- 108              		@ frame_needed = 0, uses_anonymous_args = 0
- 109 0000 70B5     		push	{r4, r5, r6, lr}
- 110 0002 0B68     		ldr	r3, [r1]
- 111 0004 8C69     		ldr	r4, [r1, #24]
- 112 0006 CD68     		ldr	r5, [r1, #12]
- 113 0008 2343     		orrs	r3, r3, r4
- 114 000a 4C68     		ldr	r4, [r1, #4]
- 115 000c 00EB8202 		add	r2, r0, r2, lsl #2
- 116 0010 43EA0413 		orr	r3, r3, r4, lsl #4
- 117 0014 8C68     		ldr	r4, [r1, #8]
- 118 0016 5668     		ldr	r6, [r2, #4]
- 119 0018 43EA0424 		orr	r4, r3, r4, lsl #8
-ARM GAS  /tmp/ccQObybn.s 			page 3
+ 103              		.syntax unified
+ 104              		.thumb
+ 105              		.thumb_func
+ 106              		.fpu softvfp
+ 108              	FSMC_NORSRAM_Timing_Init:
+ 109              		@ args = 0, pretend = 0, frame = 0
+ 110              		@ frame_needed = 0, uses_anonymous_args = 0
+ 111 0000 00EB8202 		add	r2, r0, r2, lsl #2
+ 112 0004 0B68     		ldr	r3, [r1]
+ 113 0006 8869     		ldr	r0, [r1, #24]
+ 114 0008 10B5     		push	{r4, lr}
+ 115 000a 0343     		orrs	r3, r3, r0
+ 116 000c 4868     		ldr	r0, [r1, #4]
+ 117 000e 5468     		ldr	r4, [r2, #4]
+ 118 0010 43EA0013 		orr	r3, r3, r0, lsl #4
+ 119 0014 8868     		ldr	r0, [r1, #8]
+ARM GAS  /tmp/ccduyQy3.s 			page 3
 
 
- 120 001c 0B69     		ldr	r3, [r1, #16]
- 121 001e 44EA0545 		orr	r5, r4, r5, lsl #16
- 122 0022 013B     		subs	r3, r3, #1
- 123 0024 45EA0354 		orr	r4, r5, r3, lsl #20
- 124 0028 4B69     		ldr	r3, [r1, #20]
- 125 002a 06F04041 		and	r1, r6, #-1073741824
- 126 002e 023B     		subs	r3, r3, #2
- 127 0030 44EA0363 		orr	r3, r4, r3, lsl #24
- 128 0034 0B43     		orrs	r3, r3, r1
- 129 0036 5360     		str	r3, [r2, #4]
- 130 0038 0020     		movs	r0, #0
- 131 003a 70BD     		pop	{r4, r5, r6, pc}
- 133              		.section	.text.FSMC_NORSRAM_Extended_Timing_Init,"ax",%progbits
- 134              		.align	1
- 135              		.global	FSMC_NORSRAM_Extended_Timing_Init
- 136              		.thumb
- 137              		.thumb_func
- 139              	FSMC_NORSRAM_Extended_Timing_Init:
- 140              		@ args = 0, pretend = 0, frame = 0
- 141              		@ frame_needed = 0, uses_anonymous_args = 0
- 142 0000 B3F5804F 		cmp	r3, #16384
- 143 0004 30B5     		push	{r4, r5, lr}
- 144 0006 11D1     		bne	.L12
- 145 0008 8D69     		ldr	r5, [r1, #24]
- 146 000a 0B68     		ldr	r3, [r1]
- 147 000c 50F82240 		ldr	r4, [r0, r2, lsl #2]
- 148 0010 2B43     		orrs	r3, r3, r5
- 149 0012 4D68     		ldr	r5, [r1, #4]
- 150 0014 43EA0513 		orr	r3, r3, r5, lsl #4
- 151 0018 8D68     		ldr	r5, [r1, #8]
- 152 001a C968     		ldr	r1, [r1, #12]
- 153 001c 43EA0523 		orr	r3, r3, r5, lsl #8
- 154 0020 43EA0143 		orr	r3, r3, r1, lsl #16
- 155 0024 0449     		ldr	r1, .L15
- 156 0026 2140     		ands	r1, r1, r4
- 157 0028 0B43     		orrs	r3, r3, r1
- 158 002a 01E0     		b	.L14
- 159              	.L12:
- 160 002c 6FF07043 		mvn	r3, #-268435456
- 161              	.L14:
- 162 0030 40F82230 		str	r3, [r0, r2, lsl #2]
- 163 0034 0020     		movs	r0, #0
- 164 0036 30BD     		pop	{r4, r5, pc}
- 165              	.L16:
- 166              		.align	2
- 167              	.L15:
- 168 0038 0000F0CF 		.word	-806354944
- 170              		.section	.text.FSMC_NORSRAM_WriteOperation_Enable,"ax",%progbits
- 171              		.align	1
- 172              		.global	FSMC_NORSRAM_WriteOperation_Enable
- 173              		.thumb
- 174              		.thumb_func
- 176              	FSMC_NORSRAM_WriteOperation_Enable:
- 177              		@ args = 0, pretend = 0, frame = 0
- 178              		@ frame_needed = 0, uses_anonymous_args = 0
- 179              		@ link register save eliminated.
- 180 0000 50F82130 		ldr	r3, [r0, r1, lsl #2]
-ARM GAS  /tmp/ccQObybn.s 			page 4
+ 120 0016 43EA0023 		orr	r3, r3, r0, lsl #8
+ 121 001a C868     		ldr	r0, [r1, #12]
+ 122 001c 43EA0043 		orr	r3, r3, r0, lsl #16
+ 123 0020 0869     		ldr	r0, [r1, #16]
+ 124 0022 4969     		ldr	r1, [r1, #20]
+ 125 0024 0138     		subs	r0, r0, #1
+ 126 0026 43EA0053 		orr	r3, r3, r0, lsl #20
+ 127 002a 0239     		subs	r1, r1, #2
+ 128 002c 43EA0163 		orr	r3, r3, r1, lsl #24
+ 129 0030 04F04041 		and	r1, r4, #-1073741824
+ 130 0034 0B43     		orrs	r3, r3, r1
+ 131 0036 5360     		str	r3, [r2, #4]
+ 132 0038 0020     		movs	r0, #0
+ 133 003a 10BD     		pop	{r4, pc}
+ 135              		.section	.text.FSMC_NORSRAM_Extended_Timing_Init,"ax",%progbits
+ 136              		.align	1
+ 137              		.global	FSMC_NORSRAM_Extended_Timing_Init
+ 138              		.syntax unified
+ 139              		.thumb
+ 140              		.thumb_func
+ 141              		.fpu softvfp
+ 143              	FSMC_NORSRAM_Extended_Timing_Init:
+ 144              		@ args = 0, pretend = 0, frame = 0
+ 145              		@ frame_needed = 0, uses_anonymous_args = 0
+ 146 0000 B3F5804F 		cmp	r3, #16384
+ 147 0004 30B5     		push	{r4, r5, lr}
+ 148 0006 14D1     		bne	.L11
+ 149 0008 8D69     		ldr	r5, [r1, #24]
+ 150 000a 0B68     		ldr	r3, [r1]
+ 151 000c 50F82240 		ldr	r4, [r0, r2, lsl #2]
+ 152 0010 2B43     		orrs	r3, r3, r5
+ 153 0012 4D68     		ldr	r5, [r1, #4]
+ 154 0014 43EA0513 		orr	r3, r3, r5, lsl #4
+ 155 0018 8D68     		ldr	r5, [r1, #8]
+ 156 001a C968     		ldr	r1, [r1, #12]
+ 157 001c 43EA0523 		orr	r3, r3, r5, lsl #8
+ 158 0020 43EA0143 		orr	r3, r3, r1, lsl #16
+ 159 0024 0449     		ldr	r1, .L14
+ 160 0026 2140     		ands	r1, r1, r4
+ 161 0028 0B43     		orrs	r3, r3, r1
+ 162              	.L13:
+ 163 002a 40F82230 		str	r3, [r0, r2, lsl #2]
+ 164 002e 0020     		movs	r0, #0
+ 165 0030 30BD     		pop	{r4, r5, pc}
+ 166              	.L11:
+ 167 0032 6FF07043 		mvn	r3, #-268435456
+ 168 0036 F8E7     		b	.L13
+ 169              	.L15:
+ 170              		.align	2
+ 171              	.L14:
+ 172 0038 0000F0CF 		.word	-806354944
+ 174              		.section	.text.FSMC_NORSRAM_WriteOperation_Enable,"ax",%progbits
+ 175              		.align	1
+ 176              		.global	FSMC_NORSRAM_WriteOperation_Enable
+ 177              		.syntax unified
+ 178              		.thumb
+ 179              		.thumb_func
+ARM GAS  /tmp/ccduyQy3.s 			page 4
 
 
- 181 0004 43F48053 		orr	r3, r3, #4096
- 182 0008 40F82130 		str	r3, [r0, r1, lsl #2]
- 183 000c 0020     		movs	r0, #0
- 184 000e 7047     		bx	lr
- 186              		.section	.text.FSMC_NORSRAM_WriteOperation_Disable,"ax",%progbits
- 187              		.align	1
- 188              		.global	FSMC_NORSRAM_WriteOperation_Disable
- 189              		.thumb
- 190              		.thumb_func
- 192              	FSMC_NORSRAM_WriteOperation_Disable:
- 193              		@ args = 0, pretend = 0, frame = 0
- 194              		@ frame_needed = 0, uses_anonymous_args = 0
- 195              		@ link register save eliminated.
- 196 0000 50F82130 		ldr	r3, [r0, r1, lsl #2]
- 197 0004 23F48053 		bic	r3, r3, #4096
- 198 0008 40F82130 		str	r3, [r0, r1, lsl #2]
- 199 000c 0020     		movs	r0, #0
- 200 000e 7047     		bx	lr
- 202              		.section	.text.FSMC_NAND_Init,"ax",%progbits
- 203              		.align	1
- 204              		.global	FSMC_NAND_Init
- 205              		.thumb
- 206              		.thumb_func
- 208              	FSMC_NAND_Init:
- 209              		@ args = 0, pretend = 0, frame = 0
- 210              		@ frame_needed = 0, uses_anonymous_args = 0
- 211 0000 0B68     		ldr	r3, [r1]
- 212 0002 0A1D     		adds	r2, r1, #4
- 213 0004 102B     		cmp	r3, #16
- 214 0006 F0B5     		push	{r4, r5, r6, r7, lr}
- 215 0008 2CCA     		ldmia	r2, {r2, r3, r5}
- 216 000a 0C69     		ldr	r4, [r1, #16]
- 217 000c 4F69     		ldr	r7, [r1, #20]
- 218 000e 8E69     		ldr	r6, [r1, #24]
- 219 0010 11D1     		bne	.L20
- 220 0012 1343     		orrs	r3, r3, r2
- 221 0014 43F00802 		orr	r2, r3, #8
- 222 0018 2A43     		orrs	r2, r2, r5
- 223 001a 42EA0401 		orr	r1, r2, r4
- 224 001e D0F800E0 		ldr	lr, [r0]
- 225 0022 0E4C     		ldr	r4, .L22
- 226 0024 0EEA0404 		and	r4, lr, r4
- 227 0028 0C43     		orrs	r4, r4, r1
- 228 002a 44EA4724 		orr	r4, r4, r7, lsl #9
- 229 002e 44EA4631 		orr	r1, r4, r6, lsl #13
- 230 0032 0160     		str	r1, [r0]
- 231 0034 0FE0     		b	.L21
- 232              	.L20:
- 233 0036 1343     		orrs	r3, r3, r2
- 234 0038 D0F820E0 		ldr	lr, [r0, #32]
- 235 003c 43F00803 		orr	r3, r3, #8
- 236 0040 0649     		ldr	r1, .L22
- 237 0042 2B43     		orrs	r3, r3, r5
- 238 0044 0EEA0101 		and	r1, lr, r1
- 239 0048 2343     		orrs	r3, r3, r4
- 240 004a 0B43     		orrs	r3, r3, r1
- 241 004c 43EA4721 		orr	r1, r3, r7, lsl #9
-ARM GAS  /tmp/ccQObybn.s 			page 5
+ 180              		.fpu softvfp
+ 182              	FSMC_NORSRAM_WriteOperation_Enable:
+ 183              		@ args = 0, pretend = 0, frame = 0
+ 184              		@ frame_needed = 0, uses_anonymous_args = 0
+ 185              		@ link register save eliminated.
+ 186 0000 50F82130 		ldr	r3, [r0, r1, lsl #2]
+ 187 0004 43F48053 		orr	r3, r3, #4096
+ 188 0008 40F82130 		str	r3, [r0, r1, lsl #2]
+ 189 000c 0020     		movs	r0, #0
+ 190 000e 7047     		bx	lr
+ 192              		.section	.text.FSMC_NORSRAM_WriteOperation_Disable,"ax",%progbits
+ 193              		.align	1
+ 194              		.global	FSMC_NORSRAM_WriteOperation_Disable
+ 195              		.syntax unified
+ 196              		.thumb
+ 197              		.thumb_func
+ 198              		.fpu softvfp
+ 200              	FSMC_NORSRAM_WriteOperation_Disable:
+ 201              		@ args = 0, pretend = 0, frame = 0
+ 202              		@ frame_needed = 0, uses_anonymous_args = 0
+ 203              		@ link register save eliminated.
+ 204 0000 50F82130 		ldr	r3, [r0, r1, lsl #2]
+ 205 0004 23F48053 		bic	r3, r3, #4096
+ 206 0008 40F82130 		str	r3, [r0, r1, lsl #2]
+ 207 000c 0020     		movs	r0, #0
+ 208 000e 7047     		bx	lr
+ 210              		.section	.text.FSMC_NAND_Init,"ax",%progbits
+ 211              		.align	1
+ 212              		.global	FSMC_NAND_Init
+ 213              		.syntax unified
+ 214              		.thumb
+ 215              		.thumb_func
+ 216              		.fpu softvfp
+ 218              	FSMC_NAND_Init:
+ 219              		@ args = 0, pretend = 0, frame = 0
+ 220              		@ frame_needed = 0, uses_anonymous_args = 0
+ 221 0000 0B68     		ldr	r3, [r1]
+ 222 0002 F0B5     		push	{r4, r5, r6, r7, lr}
+ 223 0004 102B     		cmp	r3, #16
+ 224 0006 8F68     		ldr	r7, [r1, #8]
+ 225 0008 4B68     		ldr	r3, [r1, #4]
+ 226 000a CE68     		ldr	r6, [r1, #12]
+ 227 000c 0D69     		ldr	r5, [r1, #16]
+ 228 000e 4C69     		ldr	r4, [r1, #20]
+ 229 0010 DFF844E0 		ldr	lr, .L21
+ 230 0014 8969     		ldr	r1, [r1, #24]
+ 231 0016 10D1     		bne	.L19
+ 232 0018 0268     		ldr	r2, [r0]
+ 233 001a 02EA0E02 		and	r2, r2, lr
+ 234 001e 1A43     		orrs	r2, r2, r3
+ 235 0020 42F00802 		orr	r2, r2, #8
+ 236 0024 3A43     		orrs	r2, r2, r7
+ 237 0026 42EA0603 		orr	r3, r2, r6
+ 238 002a 2B43     		orrs	r3, r3, r5
+ 239 002c 43EA4423 		orr	r3, r3, r4, lsl #9
+ 240 0030 43EA4133 		orr	r3, r3, r1, lsl #13
+ 241 0034 0360     		str	r3, [r0]
+ARM GAS  /tmp/ccduyQy3.s 			page 5
 
 
- 242 0050 41EA4631 		orr	r1, r1, r6, lsl #13
- 243 0054 0162     		str	r1, [r0, #32]
- 244              	.L21:
- 245 0056 0020     		movs	r0, #0
- 246 0058 F0BD     		pop	{r4, r5, r6, r7, pc}
- 247              	.L23:
- 248 005a 00BF     		.align	2
- 249              	.L22:
- 250 005c 8101F0FF 		.word	-1048191
- 252              		.section	.text.FSMC_NAND_CommonSpace_Timing_Init,"ax",%progbits
- 253              		.align	1
- 254              		.global	FSMC_NAND_CommonSpace_Timing_Init
- 255              		.thumb
- 256              		.thumb_func
- 258              	FSMC_NAND_CommonSpace_Timing_Init:
- 259              		@ args = 0, pretend = 0, frame = 0
- 260              		@ frame_needed = 0, uses_anonymous_args = 0
- 261 0000 102A     		cmp	r2, #16
- 262 0002 30B5     		push	{r4, r5, lr}
- 263 0004 8C68     		ldr	r4, [r1, #8]
- 264 0006 08BF     		it	eq
- 265 0008 8268     		ldreq	r2, [r0, #8]
- 266 000a 4D68     		ldr	r5, [r1, #4]
- 267 000c 0B68     		ldr	r3, [r1]
- 268 000e 0CBF     		ite	eq
- 269 0010 2204     		lsleq	r2, r4, #16
- 270 0012 2404     		lslne	r4, r4, #16
- 271 0014 C968     		ldr	r1, [r1, #12]
- 272 0016 0DBF     		iteet	eq
- 273 0018 42EA0522 		orreq	r2, r2, r5, lsl #8
- 274 001c 44EA0524 		orrne	r4, r4, r5, lsl #8
- 275 0020 2343     		orrne	r3, r3, r4
- 276 0022 1A43     		orreq	r2, r2, r3
- 277 0024 0DBF     		iteet	eq
- 278 0026 42EA0163 		orreq	r3, r2, r1, lsl #24
- 279 002a 43EA0163 		orrne	r3, r3, r1, lsl #24
- 280 002e 826A     		ldrne	r2, [r0, #40]
- 281 0030 8360     		streq	r3, [r0, #8]
- 282 0032 18BF     		it	ne
- 283 0034 8362     		strne	r3, [r0, #40]
- 284 0036 0020     		movs	r0, #0
- 285 0038 30BD     		pop	{r4, r5, pc}
- 287              		.section	.text.FSMC_NAND_AttributeSpace_Timing_Init,"ax",%progbits
- 288              		.align	1
- 289              		.global	FSMC_NAND_AttributeSpace_Timing_Init
- 290              		.thumb
- 291              		.thumb_func
- 293              	FSMC_NAND_AttributeSpace_Timing_Init:
- 294              		@ args = 0, pretend = 0, frame = 0
- 295              		@ frame_needed = 0, uses_anonymous_args = 0
- 296 0000 102A     		cmp	r2, #16
- 297 0002 30B5     		push	{r4, r5, lr}
- 298 0004 8C68     		ldr	r4, [r1, #8]
- 299 0006 08BF     		it	eq
- 300 0008 C268     		ldreq	r2, [r0, #12]
- 301 000a 4D68     		ldr	r5, [r1, #4]
- 302 000c 0B68     		ldr	r3, [r1]
-ARM GAS  /tmp/ccQObybn.s 			page 6
+ 242              	.L20:
+ 243 0036 0020     		movs	r0, #0
+ 244 0038 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 245              	.L19:
+ 246 003a 026A     		ldr	r2, [r0, #32]
+ 247 003c 02EA0E02 		and	r2, r2, lr
+ 248 0040 1343     		orrs	r3, r3, r2
+ 249 0042 43F00803 		orr	r3, r3, #8
+ 250 0046 3B43     		orrs	r3, r3, r7
+ 251 0048 3343     		orrs	r3, r3, r6
+ 252 004a 2B43     		orrs	r3, r3, r5
+ 253 004c 43EA4423 		orr	r3, r3, r4, lsl #9
+ 254 0050 43EA4133 		orr	r3, r3, r1, lsl #13
+ 255 0054 0362     		str	r3, [r0, #32]
+ 256 0056 EEE7     		b	.L20
+ 257              	.L22:
+ 258              		.align	2
+ 259              	.L21:
+ 260 0058 8101F0FF 		.word	-1048191
+ 262              		.section	.text.FSMC_NAND_CommonSpace_Timing_Init,"ax",%progbits
+ 263              		.align	1
+ 264              		.global	FSMC_NAND_CommonSpace_Timing_Init
+ 265              		.syntax unified
+ 266              		.thumb
+ 267              		.thumb_func
+ 268              		.fpu softvfp
+ 270              	FSMC_NAND_CommonSpace_Timing_Init:
+ 271              		@ args = 0, pretend = 0, frame = 0
+ 272              		@ frame_needed = 0, uses_anonymous_args = 0
+ 273 0000 102A     		cmp	r2, #16
+ 274 0002 30B5     		push	{r4, r5, lr}
+ 275 0004 8B68     		ldr	r3, [r1, #8]
+ 276 0006 4D68     		ldr	r5, [r1, #4]
+ 277 0008 0C68     		ldr	r4, [r1]
+ 278 000a CA68     		ldr	r2, [r1, #12]
+ 279 000c 09D1     		bne	.L24
+ 280 000e 1B04     		lsls	r3, r3, #16
+ 281 0010 43EA0523 		orr	r3, r3, r5, lsl #8
+ 282 0014 2343     		orrs	r3, r3, r4
+ 283 0016 43EA0263 		orr	r3, r3, r2, lsl #24
+ 284 001a 8168     		ldr	r1, [r0, #8]
+ 285 001c 8360     		str	r3, [r0, #8]
+ 286              	.L25:
+ 287 001e 0020     		movs	r0, #0
+ 288 0020 30BD     		pop	{r4, r5, pc}
+ 289              	.L24:
+ 290 0022 1B04     		lsls	r3, r3, #16
+ 291 0024 43EA0523 		orr	r3, r3, r5, lsl #8
+ 292 0028 2343     		orrs	r3, r3, r4
+ 293 002a 43EA0263 		orr	r3, r3, r2, lsl #24
+ 294 002e 816A     		ldr	r1, [r0, #40]
+ 295 0030 8362     		str	r3, [r0, #40]
+ 296 0032 F4E7     		b	.L25
+ 298              		.section	.text.FSMC_NAND_AttributeSpace_Timing_Init,"ax",%progbits
+ 299              		.align	1
+ 300              		.global	FSMC_NAND_AttributeSpace_Timing_Init
+ 301              		.syntax unified
+ARM GAS  /tmp/ccduyQy3.s 			page 6
 
 
- 303 000e 0CBF     		ite	eq
- 304 0010 2204     		lsleq	r2, r4, #16
- 305 0012 2404     		lslne	r4, r4, #16
- 306 0014 C968     		ldr	r1, [r1, #12]
- 307 0016 0DBF     		iteet	eq
- 308 0018 42EA0522 		orreq	r2, r2, r5, lsl #8
- 309 001c 44EA0524 		orrne	r4, r4, r5, lsl #8
- 310 0020 2343     		orrne	r3, r3, r4
- 311 0022 1A43     		orreq	r2, r2, r3
- 312 0024 0DBF     		iteet	eq
- 313 0026 42EA0163 		orreq	r3, r2, r1, lsl #24
- 314 002a 43EA0163 		orrne	r3, r3, r1, lsl #24
- 315 002e C26A     		ldrne	r2, [r0, #44]
- 316 0030 C360     		streq	r3, [r0, #12]
- 317 0032 18BF     		it	ne
- 318 0034 C362     		strne	r3, [r0, #44]
- 319 0036 0020     		movs	r0, #0
- 320 0038 30BD     		pop	{r4, r5, pc}
- 322              		.section	.text.FSMC_NAND_DeInit,"ax",%progbits
- 323              		.align	1
- 324              		.global	FSMC_NAND_DeInit
- 325              		.thumb
- 326              		.thumb_func
- 328              	FSMC_NAND_DeInit:
- 329              		@ args = 0, pretend = 0, frame = 0
- 330              		@ frame_needed = 0, uses_anonymous_args = 0
- 331              		@ link register save eliminated.
- 332 0000 1029     		cmp	r1, #16
- 333 0002 4FF01802 		mov	r2, #24
- 334 0006 0BD1     		bne	.L31
- 335 0008 0368     		ldr	r3, [r0]
- 336 000a 23F00403 		bic	r3, r3, #4
- 337 000e 0360     		str	r3, [r0]
- 338 0010 4023     		movs	r3, #64
- 339 0012 0260     		str	r2, [r0]
- 340 0014 4360     		str	r3, [r0, #4]
- 341 0016 4FF0FC33 		mov	r3, #-50529028
- 342 001a 8360     		str	r3, [r0, #8]
- 343 001c C360     		str	r3, [r0, #12]
- 344 001e 0AE0     		b	.L32
- 345              	.L31:
- 346 0020 036A     		ldr	r3, [r0, #32]
- 347 0022 23F00403 		bic	r3, r3, #4
- 348 0026 0362     		str	r3, [r0, #32]
- 349 0028 4023     		movs	r3, #64
- 350 002a 0262     		str	r2, [r0, #32]
- 351 002c 4362     		str	r3, [r0, #36]
- 352 002e 4FF0FC33 		mov	r3, #-50529028
- 353 0032 8362     		str	r3, [r0, #40]
- 354 0034 C362     		str	r3, [r0, #44]
- 355              	.L32:
- 356 0036 0020     		movs	r0, #0
- 357 0038 7047     		bx	lr
- 359              		.section	.text.FSMC_NAND_ECC_Enable,"ax",%progbits
- 360              		.align	1
- 361              		.global	FSMC_NAND_ECC_Enable
- 362              		.thumb
-ARM GAS  /tmp/ccQObybn.s 			page 7
+ 302              		.thumb
+ 303              		.thumb_func
+ 304              		.fpu softvfp
+ 306              	FSMC_NAND_AttributeSpace_Timing_Init:
+ 307              		@ args = 0, pretend = 0, frame = 0
+ 308              		@ frame_needed = 0, uses_anonymous_args = 0
+ 309 0000 102A     		cmp	r2, #16
+ 310 0002 30B5     		push	{r4, r5, lr}
+ 311 0004 8B68     		ldr	r3, [r1, #8]
+ 312 0006 4D68     		ldr	r5, [r1, #4]
+ 313 0008 0C68     		ldr	r4, [r1]
+ 314 000a CA68     		ldr	r2, [r1, #12]
+ 315 000c 09D1     		bne	.L27
+ 316 000e 1B04     		lsls	r3, r3, #16
+ 317 0010 43EA0523 		orr	r3, r3, r5, lsl #8
+ 318 0014 2343     		orrs	r3, r3, r4
+ 319 0016 43EA0263 		orr	r3, r3, r2, lsl #24
+ 320 001a C168     		ldr	r1, [r0, #12]
+ 321 001c C360     		str	r3, [r0, #12]
+ 322              	.L28:
+ 323 001e 0020     		movs	r0, #0
+ 324 0020 30BD     		pop	{r4, r5, pc}
+ 325              	.L27:
+ 326 0022 1B04     		lsls	r3, r3, #16
+ 327 0024 43EA0523 		orr	r3, r3, r5, lsl #8
+ 328 0028 2343     		orrs	r3, r3, r4
+ 329 002a 43EA0263 		orr	r3, r3, r2, lsl #24
+ 330 002e C16A     		ldr	r1, [r0, #44]
+ 331 0030 C362     		str	r3, [r0, #44]
+ 332 0032 F4E7     		b	.L28
+ 334              		.section	.text.FSMC_NAND_DeInit,"ax",%progbits
+ 335              		.align	1
+ 336              		.global	FSMC_NAND_DeInit
+ 337              		.syntax unified
+ 338              		.thumb
+ 339              		.thumb_func
+ 340              		.fpu softvfp
+ 342              	FSMC_NAND_DeInit:
+ 343              		@ args = 0, pretend = 0, frame = 0
+ 344              		@ frame_needed = 0, uses_anonymous_args = 0
+ 345              		@ link register save eliminated.
+ 346 0000 1029     		cmp	r1, #16
+ 347 0002 4FF01802 		mov	r2, #24
+ 348 0006 0CD1     		bne	.L30
+ 349 0008 0368     		ldr	r3, [r0]
+ 350 000a 23F00403 		bic	r3, r3, #4
+ 351 000e 0360     		str	r3, [r0]
+ 352 0010 4023     		movs	r3, #64
+ 353 0012 0260     		str	r2, [r0]
+ 354 0014 4360     		str	r3, [r0, #4]
+ 355 0016 4FF0FC33 		mov	r3, #-50529028
+ 356 001a 8360     		str	r3, [r0, #8]
+ 357 001c C360     		str	r3, [r0, #12]
+ 358              	.L31:
+ 359 001e 0020     		movs	r0, #0
+ 360 0020 7047     		bx	lr
+ 361              	.L30:
+ARM GAS  /tmp/ccduyQy3.s 			page 7
 
 
- 363              		.thumb_func
- 365              	FSMC_NAND_ECC_Enable:
- 366              		@ args = 0, pretend = 0, frame = 0
- 367              		@ frame_needed = 0, uses_anonymous_args = 0
- 368              		@ link register save eliminated.
- 369 0000 1029     		cmp	r1, #16
- 370 0002 0BBF     		itete	eq
- 371 0004 0368     		ldreq	r3, [r0]
- 372 0006 036A     		ldrne	r3, [r0, #32]
- 373 0008 43F04003 		orreq	r3, r3, #64
- 374 000c 43F04003 		orrne	r3, r3, #64
- 375 0010 0CBF     		ite	eq
- 376 0012 0360     		streq	r3, [r0]
- 377 0014 0362     		strne	r3, [r0, #32]
- 378 0016 0020     		movs	r0, #0
- 379 0018 7047     		bx	lr
- 381              		.section	.text.FSMC_NAND_ECC_Disable,"ax",%progbits
- 382              		.align	1
- 383              		.global	FSMC_NAND_ECC_Disable
- 384              		.thumb
- 385              		.thumb_func
- 387              	FSMC_NAND_ECC_Disable:
- 388              		@ args = 0, pretend = 0, frame = 0
- 389              		@ frame_needed = 0, uses_anonymous_args = 0
- 390              		@ link register save eliminated.
- 391 0000 1029     		cmp	r1, #16
- 392 0002 0BBF     		itete	eq
- 393 0004 0368     		ldreq	r3, [r0]
- 394 0006 036A     		ldrne	r3, [r0, #32]
- 395 0008 23F04003 		biceq	r3, r3, #64
- 396 000c 23F04003 		bicne	r3, r3, #64
- 397 0010 0CBF     		ite	eq
- 398 0012 0360     		streq	r3, [r0]
- 399 0014 0362     		strne	r3, [r0, #32]
- 400 0016 0020     		movs	r0, #0
- 401 0018 7047     		bx	lr
- 403              		.section	.text.FSMC_NAND_GetECC,"ax",%progbits
- 404              		.align	1
- 405              		.global	FSMC_NAND_GetECC
- 406              		.thumb
- 407              		.thumb_func
- 409              	FSMC_NAND_GetECC:
- 410              		@ args = 0, pretend = 0, frame = 0
- 411              		@ frame_needed = 0, uses_anonymous_args = 0
- 412 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
- 413 0004 0446     		mov	r4, r0
- 414 0006 0D46     		mov	r5, r1
- 415 0008 1646     		mov	r6, r2
- 416 000a 1F46     		mov	r7, r3
- 417 000c FFF7FEFF 		bl	HAL_GetTick
- 418 0010 8046     		mov	r8, r0
- 419              	.L41:
- 420 0012 102E     		cmp	r6, #16
- 421 0014 0CBF     		ite	eq
- 422 0016 6068     		ldreq	r0, [r4, #4]
- 423 0018 606A     		ldrne	r0, [r4, #36]
- 424 001a 80F04000 		eor	r0, r0, #64
-ARM GAS  /tmp/ccQObybn.s 			page 8
+ 362 0022 036A     		ldr	r3, [r0, #32]
+ 363 0024 23F00403 		bic	r3, r3, #4
+ 364 0028 0362     		str	r3, [r0, #32]
+ 365 002a 4023     		movs	r3, #64
+ 366 002c 0262     		str	r2, [r0, #32]
+ 367 002e 4362     		str	r3, [r0, #36]
+ 368 0030 4FF0FC33 		mov	r3, #-50529028
+ 369 0034 8362     		str	r3, [r0, #40]
+ 370 0036 C362     		str	r3, [r0, #44]
+ 371 0038 F1E7     		b	.L31
+ 373              		.section	.text.FSMC_NAND_ECC_Enable,"ax",%progbits
+ 374              		.align	1
+ 375              		.global	FSMC_NAND_ECC_Enable
+ 376              		.syntax unified
+ 377              		.thumb
+ 378              		.thumb_func
+ 379              		.fpu softvfp
+ 381              	FSMC_NAND_ECC_Enable:
+ 382              		@ args = 0, pretend = 0, frame = 0
+ 383              		@ frame_needed = 0, uses_anonymous_args = 0
+ 384              		@ link register save eliminated.
+ 385 0000 1029     		cmp	r1, #16
+ 386 0002 0BBF     		itete	eq
+ 387 0004 0368     		ldreq	r3, [r0]
+ 388 0006 036A     		ldrne	r3, [r0, #32]
+ 389 0008 43F04003 		orreq	r3, r3, #64
+ 390 000c 43F04003 		orrne	r3, r3, #64
+ 391 0010 0CBF     		ite	eq
+ 392 0012 0360     		streq	r3, [r0]
+ 393 0014 0362     		strne	r3, [r0, #32]
+ 394 0016 0020     		movs	r0, #0
+ 395 0018 7047     		bx	lr
+ 397              		.section	.text.FSMC_NAND_ECC_Disable,"ax",%progbits
+ 398              		.align	1
+ 399              		.global	FSMC_NAND_ECC_Disable
+ 400              		.syntax unified
+ 401              		.thumb
+ 402              		.thumb_func
+ 403              		.fpu softvfp
+ 405              	FSMC_NAND_ECC_Disable:
+ 406              		@ args = 0, pretend = 0, frame = 0
+ 407              		@ frame_needed = 0, uses_anonymous_args = 0
+ 408              		@ link register save eliminated.
+ 409 0000 1029     		cmp	r1, #16
+ 410 0002 0BBF     		itete	eq
+ 411 0004 0368     		ldreq	r3, [r0]
+ 412 0006 036A     		ldrne	r3, [r0, #32]
+ 413 0008 23F04003 		biceq	r3, r3, #64
+ 414 000c 23F04003 		bicne	r3, r3, #64
+ 415 0010 0CBF     		ite	eq
+ 416 0012 0360     		streq	r3, [r0]
+ 417 0014 0362     		strne	r3, [r0, #32]
+ 418 0016 0020     		movs	r0, #0
+ 419 0018 7047     		bx	lr
+ 421              		.section	.text.FSMC_NAND_GetECC,"ax",%progbits
+ 422              		.align	1
+ 423              		.global	FSMC_NAND_GetECC
+ARM GAS  /tmp/ccduyQy3.s 			page 8
 
 
- 425 001e C0F38010 		ubfx	r0, r0, #6, #1
- 426 0022 50B1     		cbz	r0, .L53
- 427 0024 7B1C     		adds	r3, r7, #1
- 428 0026 F4D0     		beq	.L41
- 429 0028 FFF7FEFF 		bl	HAL_GetTick
- 430 002c C8EB0000 		rsb	r0, r8, r0
- 431 0030 B842     		cmp	r0, r7
- 432 0032 09D8     		bhi	.L48
- 433 0034 002F     		cmp	r7, #0
- 434 0036 ECD1     		bne	.L41
- 435 0038 06E0     		b	.L48
- 436              	.L53:
- 437 003a 102E     		cmp	r6, #16
- 438 003c 0CBF     		ite	eq
- 439 003e 6369     		ldreq	r3, [r4, #20]
- 440 0040 636B     		ldrne	r3, [r4, #52]
- 441 0042 2B60     		str	r3, [r5]
- 442 0044 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 443              	.L48:
- 444 0048 0320     		movs	r0, #3
- 445 004a BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 447              		.section	.text.FSMC_PCCARD_Init,"ax",%progbits
- 448              		.align	1
- 449              		.global	FSMC_PCCARD_Init
- 450              		.thumb
- 451              		.thumb_func
- 453              	FSMC_PCCARD_Init:
- 454              		@ args = 0, pretend = 0, frame = 0
- 455              		@ frame_needed = 0, uses_anonymous_args = 0
- 456 0000 0268     		ldr	r2, [r0]
- 457 0002 0B68     		ldr	r3, [r1]
- 458 0004 10B5     		push	{r4, lr}
- 459 0006 43F01004 		orr	r4, r3, #16
- 460 000a 22F4FF33 		bic	r3, r2, #130560
- 461 000e 23F03A03 		bic	r3, r3, #58
- 462 0012 4A68     		ldr	r2, [r1, #4]
- 463 0014 2343     		orrs	r3, r3, r4
- 464 0016 43EA4223 		orr	r3, r3, r2, lsl #9
- 465 001a 8A68     		ldr	r2, [r1, #8]
- 466 001c 43EA4233 		orr	r3, r3, r2, lsl #13
- 467 0020 0360     		str	r3, [r0]
- 468 0022 0020     		movs	r0, #0
- 469 0024 10BD     		pop	{r4, pc}
- 471              		.section	.text.FSMC_PCCARD_CommonSpace_Timing_Init,"ax",%progbits
- 472              		.align	1
- 473              		.global	FSMC_PCCARD_CommonSpace_Timing_Init
- 474              		.thumb
- 475              		.thumb_func
- 477              	FSMC_PCCARD_CommonSpace_Timing_Init:
- 478              		@ args = 0, pretend = 0, frame = 0
- 479              		@ frame_needed = 0, uses_anonymous_args = 0
- 480              		@ link register save eliminated.
- 481 0000 8A68     		ldr	r2, [r1, #8]
- 482 0002 8368     		ldr	r3, [r0, #8]
- 483 0004 4B68     		ldr	r3, [r1, #4]
- 484 0006 1204     		lsls	r2, r2, #16
- 485 0008 42EA0322 		orr	r2, r2, r3, lsl #8
-ARM GAS  /tmp/ccQObybn.s 			page 9
+ 424              		.syntax unified
+ 425              		.thumb
+ 426              		.thumb_func
+ 427              		.fpu softvfp
+ 429              	FSMC_NAND_GetECC:
+ 430              		@ args = 0, pretend = 0, frame = 0
+ 431              		@ frame_needed = 0, uses_anonymous_args = 0
+ 432 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 433 0004 0446     		mov	r4, r0
+ 434 0006 0D46     		mov	r5, r1
+ 435 0008 1646     		mov	r6, r2
+ 436 000a 1F46     		mov	r7, r3
+ 437 000c FFF7FEFF 		bl	HAL_GetTick
+ 438 0010 8046     		mov	r8, r0
+ 439              	.L40:
+ 440 0012 102E     		cmp	r6, #16
+ 441 0014 0CBF     		ite	eq
+ 442 0016 6068     		ldreq	r0, [r4, #4]
+ 443 0018 606A     		ldrne	r0, [r4, #36]
+ 444 001a 80F04000 		eor	r0, r0, #64
+ 445 001e C0F38010 		ubfx	r0, r0, #6, #1
+ 446 0022 30B9     		cbnz	r0, .L44
+ 447 0024 102E     		cmp	r6, #16
+ 448 0026 0CBF     		ite	eq
+ 449 0028 6369     		ldreq	r3, [r4, #20]
+ 450 002a 636B     		ldrne	r3, [r4, #52]
+ 451 002c 2B60     		str	r3, [r5]
+ 452 002e BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 453              	.L44:
+ 454 0032 7B1C     		adds	r3, r7, #1
+ 455 0034 EDD0     		beq	.L40
+ 456 0036 FFF7FEFF 		bl	HAL_GetTick
+ 457 003a A0EB0800 		sub	r0, r0, r8
+ 458 003e 8742     		cmp	r7, r0
+ 459 0040 01D3     		bcc	.L47
+ 460 0042 002F     		cmp	r7, #0
+ 461 0044 E5D1     		bne	.L40
+ 462              	.L47:
+ 463 0046 0320     		movs	r0, #3
+ 464 0048 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 466              		.section	.text.FSMC_PCCARD_Init,"ax",%progbits
+ 467              		.align	1
+ 468              		.global	FSMC_PCCARD_Init
+ 469              		.syntax unified
+ 470              		.thumb
+ 471              		.thumb_func
+ 472              		.fpu softvfp
+ 474              	FSMC_PCCARD_Init:
+ 475              		@ args = 0, pretend = 0, frame = 0
+ 476              		@ frame_needed = 0, uses_anonymous_args = 0
+ 477 0000 0268     		ldr	r2, [r0]
+ 478 0002 10B5     		push	{r4, lr}
+ 479 0004 91E81800 		ldm	r1, {r3, r4}
+ 480 0008 8968     		ldr	r1, [r1, #8]
+ 481 000a 43F01003 		orr	r3, r3, #16
+ 482 000e 43EA4423 		orr	r3, r3, r4, lsl #9
+ 483 0012 22F4FF32 		bic	r2, r2, #130560
+ARM GAS  /tmp/ccduyQy3.s 			page 9
 
 
- 486 000c 0B68     		ldr	r3, [r1]
- 487 000e 1343     		orrs	r3, r3, r2
- 488 0010 CA68     		ldr	r2, [r1, #12]
- 489 0012 43EA0263 		orr	r3, r3, r2, lsl #24
- 490 0016 8360     		str	r3, [r0, #8]
- 491 0018 0020     		movs	r0, #0
- 492 001a 7047     		bx	lr
- 494              		.section	.text.FSMC_PCCARD_AttributeSpace_Timing_Init,"ax",%progbits
- 495              		.align	1
- 496              		.global	FSMC_PCCARD_AttributeSpace_Timing_Init
- 497              		.thumb
- 498              		.thumb_func
- 500              	FSMC_PCCARD_AttributeSpace_Timing_Init:
- 501              		@ args = 0, pretend = 0, frame = 0
- 502              		@ frame_needed = 0, uses_anonymous_args = 0
- 503              		@ link register save eliminated.
- 504 0000 8A68     		ldr	r2, [r1, #8]
- 505 0002 C368     		ldr	r3, [r0, #12]
- 506 0004 4B68     		ldr	r3, [r1, #4]
- 507 0006 1204     		lsls	r2, r2, #16
- 508 0008 42EA0322 		orr	r2, r2, r3, lsl #8
- 509 000c 0B68     		ldr	r3, [r1]
- 510 000e 1343     		orrs	r3, r3, r2
- 511 0010 CA68     		ldr	r2, [r1, #12]
- 512 0012 43EA0263 		orr	r3, r3, r2, lsl #24
- 513 0016 C360     		str	r3, [r0, #12]
- 514 0018 0020     		movs	r0, #0
- 515 001a 7047     		bx	lr
- 517              		.section	.text.FSMC_PCCARD_IOSpace_Timing_Init,"ax",%progbits
- 518              		.align	1
- 519              		.global	FSMC_PCCARD_IOSpace_Timing_Init
+ 484 0016 43EA4133 		orr	r3, r3, r1, lsl #13
+ 485 001a 22F03A02 		bic	r2, r2, #58
+ 486 001e 1343     		orrs	r3, r3, r2
+ 487 0020 0360     		str	r3, [r0]
+ 488 0022 0020     		movs	r0, #0
+ 489 0024 10BD     		pop	{r4, pc}
+ 491              		.section	.text.FSMC_PCCARD_CommonSpace_Timing_Init,"ax",%progbits
+ 492              		.align	1
+ 493              		.global	FSMC_PCCARD_CommonSpace_Timing_Init
+ 494              		.syntax unified
+ 495              		.thumb
+ 496              		.thumb_func
+ 497              		.fpu softvfp
+ 499              	FSMC_PCCARD_CommonSpace_Timing_Init:
+ 500              		@ args = 0, pretend = 0, frame = 0
+ 501              		@ frame_needed = 0, uses_anonymous_args = 0
+ 502              		@ link register save eliminated.
+ 503 0000 8368     		ldr	r3, [r0, #8]
+ 504 0002 8B68     		ldr	r3, [r1, #8]
+ 505 0004 4A68     		ldr	r2, [r1, #4]
+ 506 0006 1B04     		lsls	r3, r3, #16
+ 507 0008 43EA0223 		orr	r3, r3, r2, lsl #8
+ 508 000c 0A68     		ldr	r2, [r1]
+ 509 000e 1343     		orrs	r3, r3, r2
+ 510 0010 CA68     		ldr	r2, [r1, #12]
+ 511 0012 43EA0263 		orr	r3, r3, r2, lsl #24
+ 512 0016 8360     		str	r3, [r0, #8]
+ 513 0018 0020     		movs	r0, #0
+ 514 001a 7047     		bx	lr
+ 516              		.section	.text.FSMC_PCCARD_AttributeSpace_Timing_Init,"ax",%progbits
+ 517              		.align	1
+ 518              		.global	FSMC_PCCARD_AttributeSpace_Timing_Init
+ 519              		.syntax unified
  520              		.thumb
  521              		.thumb_func
- 523              	FSMC_PCCARD_IOSpace_Timing_Init:
- 524              		@ args = 0, pretend = 0, frame = 0
- 525              		@ frame_needed = 0, uses_anonymous_args = 0
- 526              		@ link register save eliminated.
- 527 0000 8A68     		ldr	r2, [r1, #8]
- 528 0002 0369     		ldr	r3, [r0, #16]
- 529 0004 4B68     		ldr	r3, [r1, #4]
- 530 0006 1204     		lsls	r2, r2, #16
- 531 0008 42EA0322 		orr	r2, r2, r3, lsl #8
- 532 000c 0B68     		ldr	r3, [r1]
- 533 000e 1343     		orrs	r3, r3, r2
- 534 0010 CA68     		ldr	r2, [r1, #12]
- 535 0012 43EA0263 		orr	r3, r3, r2, lsl #24
- 536 0016 0361     		str	r3, [r0, #16]
- 537 0018 0020     		movs	r0, #0
- 538 001a 7047     		bx	lr
- 540              		.section	.text.FSMC_PCCARD_DeInit,"ax",%progbits
- 541              		.align	1
- 542              		.global	FSMC_PCCARD_DeInit
- 543              		.thumb
- 544              		.thumb_func
- 546              	FSMC_PCCARD_DeInit:
- 547              		@ args = 0, pretend = 0, frame = 0
- 548              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccQObybn.s 			page 10
+ 522              		.fpu softvfp
+ 524              	FSMC_PCCARD_AttributeSpace_Timing_Init:
+ 525              		@ args = 0, pretend = 0, frame = 0
+ 526              		@ frame_needed = 0, uses_anonymous_args = 0
+ 527              		@ link register save eliminated.
+ 528 0000 C368     		ldr	r3, [r0, #12]
+ 529 0002 8B68     		ldr	r3, [r1, #8]
+ 530 0004 4A68     		ldr	r2, [r1, #4]
+ 531 0006 1B04     		lsls	r3, r3, #16
+ 532 0008 43EA0223 		orr	r3, r3, r2, lsl #8
+ 533 000c 0A68     		ldr	r2, [r1]
+ 534 000e 1343     		orrs	r3, r3, r2
+ 535 0010 CA68     		ldr	r2, [r1, #12]
+ 536 0012 43EA0263 		orr	r3, r3, r2, lsl #24
+ 537 0016 C360     		str	r3, [r0, #12]
+ 538 0018 0020     		movs	r0, #0
+ 539 001a 7047     		bx	lr
+ 541              		.section	.text.FSMC_PCCARD_IOSpace_Timing_Init,"ax",%progbits
+ 542              		.align	1
+ 543              		.global	FSMC_PCCARD_IOSpace_Timing_Init
+ 544              		.syntax unified
+ 545              		.thumb
+ARM GAS  /tmp/ccduyQy3.s 			page 10
 
 
- 549              		@ link register save eliminated.
- 550 0000 0368     		ldr	r3, [r0]
- 551 0002 23F00403 		bic	r3, r3, #4
- 552 0006 0360     		str	r3, [r0]
- 553 0008 1823     		movs	r3, #24
- 554 000a 0360     		str	r3, [r0]
- 555 000c 4023     		movs	r3, #64
- 556 000e 4360     		str	r3, [r0, #4]
- 557 0010 4FF0FC33 		mov	r3, #-50529028
- 558 0014 8360     		str	r3, [r0, #8]
- 559 0016 C360     		str	r3, [r0, #12]
- 560 0018 0361     		str	r3, [r0, #16]
- 561 001a 0020     		movs	r0, #0
- 562 001c 7047     		bx	lr
- 564              		.ident	"GCC: (15:4.9.3+svn231177-1) 4.9.3 20150529 (prerelease)"
-ARM GAS  /tmp/ccQObybn.s 			page 11
+ 546              		.thumb_func
+ 547              		.fpu softvfp
+ 549              	FSMC_PCCARD_IOSpace_Timing_Init:
+ 550              		@ args = 0, pretend = 0, frame = 0
+ 551              		@ frame_needed = 0, uses_anonymous_args = 0
+ 552              		@ link register save eliminated.
+ 553 0000 0369     		ldr	r3, [r0, #16]
+ 554 0002 8B68     		ldr	r3, [r1, #8]
+ 555 0004 4A68     		ldr	r2, [r1, #4]
+ 556 0006 1B04     		lsls	r3, r3, #16
+ 557 0008 43EA0223 		orr	r3, r3, r2, lsl #8
+ 558 000c 0A68     		ldr	r2, [r1]
+ 559 000e 1343     		orrs	r3, r3, r2
+ 560 0010 CA68     		ldr	r2, [r1, #12]
+ 561 0012 43EA0263 		orr	r3, r3, r2, lsl #24
+ 562 0016 0361     		str	r3, [r0, #16]
+ 563 0018 0020     		movs	r0, #0
+ 564 001a 7047     		bx	lr
+ 566              		.section	.text.FSMC_PCCARD_DeInit,"ax",%progbits
+ 567              		.align	1
+ 568              		.global	FSMC_PCCARD_DeInit
+ 569              		.syntax unified
+ 570              		.thumb
+ 571              		.thumb_func
+ 572              		.fpu softvfp
+ 574              	FSMC_PCCARD_DeInit:
+ 575              		@ args = 0, pretend = 0, frame = 0
+ 576              		@ frame_needed = 0, uses_anonymous_args = 0
+ 577              		@ link register save eliminated.
+ 578 0000 0368     		ldr	r3, [r0]
+ 579 0002 23F00403 		bic	r3, r3, #4
+ 580 0006 0360     		str	r3, [r0]
+ 581 0008 1823     		movs	r3, #24
+ 582 000a 0360     		str	r3, [r0]
+ 583 000c 4023     		movs	r3, #64
+ 584 000e 4360     		str	r3, [r0, #4]
+ 585 0010 4FF0FC33 		mov	r3, #-50529028
+ 586 0014 8360     		str	r3, [r0, #8]
+ 587 0016 C360     		str	r3, [r0, #12]
+ 588 0018 0361     		str	r3, [r0, #16]
+ 589 001a 0020     		movs	r0, #0
+ 590 001c 7047     		bx	lr
+ 592              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
+ARM GAS  /tmp/ccduyQy3.s 			page 11
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f1xx_ll_fsmc.c
-     /tmp/ccQObybn.s:16     .text.FSMC_NORSRAM_Init:0000000000000000 $t
-     /tmp/ccQObybn.s:21     .text.FSMC_NORSRAM_Init:0000000000000000 FSMC_NORSRAM_Init
-     /tmp/ccQObybn.s:70     .text.FSMC_NORSRAM_Init:0000000000000068 $d
-     /tmp/ccQObybn.s:73     .text.FSMC_NORSRAM_DeInit:0000000000000000 $t
-     /tmp/ccQObybn.s:78     .text.FSMC_NORSRAM_DeInit:0000000000000000 FSMC_NORSRAM_DeInit
-     /tmp/ccQObybn.s:101    .text.FSMC_NORSRAM_Timing_Init:0000000000000000 $t
-     /tmp/ccQObybn.s:106    .text.FSMC_NORSRAM_Timing_Init:0000000000000000 FSMC_NORSRAM_Timing_Init
-     /tmp/ccQObybn.s:134    .text.FSMC_NORSRAM_Extended_Timing_Init:0000000000000000 $t
-     /tmp/ccQObybn.s:139    .text.FSMC_NORSRAM_Extended_Timing_Init:0000000000000000 FSMC_NORSRAM_Extended_Timing_Init
-     /tmp/ccQObybn.s:168    .text.FSMC_NORSRAM_Extended_Timing_Init:0000000000000038 $d
-     /tmp/ccQObybn.s:171    .text.FSMC_NORSRAM_WriteOperation_Enable:0000000000000000 $t
-     /tmp/ccQObybn.s:176    .text.FSMC_NORSRAM_WriteOperation_Enable:0000000000000000 FSMC_NORSRAM_WriteOperation_Enable
-     /tmp/ccQObybn.s:187    .text.FSMC_NORSRAM_WriteOperation_Disable:0000000000000000 $t
-     /tmp/ccQObybn.s:192    .text.FSMC_NORSRAM_WriteOperation_Disable:0000000000000000 FSMC_NORSRAM_WriteOperation_Disable
-     /tmp/ccQObybn.s:203    .text.FSMC_NAND_Init:0000000000000000 $t
-     /tmp/ccQObybn.s:208    .text.FSMC_NAND_Init:0000000000000000 FSMC_NAND_Init
-     /tmp/ccQObybn.s:250    .text.FSMC_NAND_Init:000000000000005c $d
-     /tmp/ccQObybn.s:253    .text.FSMC_NAND_CommonSpace_Timing_Init:0000000000000000 $t
-     /tmp/ccQObybn.s:258    .text.FSMC_NAND_CommonSpace_Timing_Init:0000000000000000 FSMC_NAND_CommonSpace_Timing_Init
-     /tmp/ccQObybn.s:288    .text.FSMC_NAND_AttributeSpace_Timing_Init:0000000000000000 $t
-     /tmp/ccQObybn.s:293    .text.FSMC_NAND_AttributeSpace_Timing_Init:0000000000000000 FSMC_NAND_AttributeSpace_Timing_Init
-     /tmp/ccQObybn.s:323    .text.FSMC_NAND_DeInit:0000000000000000 $t
-     /tmp/ccQObybn.s:328    .text.FSMC_NAND_DeInit:0000000000000000 FSMC_NAND_DeInit
-     /tmp/ccQObybn.s:360    .text.FSMC_NAND_ECC_Enable:0000000000000000 $t
-     /tmp/ccQObybn.s:365    .text.FSMC_NAND_ECC_Enable:0000000000000000 FSMC_NAND_ECC_Enable
-     /tmp/ccQObybn.s:382    .text.FSMC_NAND_ECC_Disable:0000000000000000 $t
-     /tmp/ccQObybn.s:387    .text.FSMC_NAND_ECC_Disable:0000000000000000 FSMC_NAND_ECC_Disable
-     /tmp/ccQObybn.s:404    .text.FSMC_NAND_GetECC:0000000000000000 $t
-     /tmp/ccQObybn.s:409    .text.FSMC_NAND_GetECC:0000000000000000 FSMC_NAND_GetECC
-     /tmp/ccQObybn.s:448    .text.FSMC_PCCARD_Init:0000000000000000 $t
-     /tmp/ccQObybn.s:453    .text.FSMC_PCCARD_Init:0000000000000000 FSMC_PCCARD_Init
-     /tmp/ccQObybn.s:472    .text.FSMC_PCCARD_CommonSpace_Timing_Init:0000000000000000 $t
-     /tmp/ccQObybn.s:477    .text.FSMC_PCCARD_CommonSpace_Timing_Init:0000000000000000 FSMC_PCCARD_CommonSpace_Timing_Init
-     /tmp/ccQObybn.s:495    .text.FSMC_PCCARD_AttributeSpace_Timing_Init:0000000000000000 $t
-     /tmp/ccQObybn.s:500    .text.FSMC_PCCARD_AttributeSpace_Timing_Init:0000000000000000 FSMC_PCCARD_AttributeSpace_Timing_Init
-     /tmp/ccQObybn.s:518    .text.FSMC_PCCARD_IOSpace_Timing_Init:0000000000000000 $t
-     /tmp/ccQObybn.s:523    .text.FSMC_PCCARD_IOSpace_Timing_Init:0000000000000000 FSMC_PCCARD_IOSpace_Timing_Init
-     /tmp/ccQObybn.s:541    .text.FSMC_PCCARD_DeInit:0000000000000000 $t
-     /tmp/ccQObybn.s:546    .text.FSMC_PCCARD_DeInit:0000000000000000 FSMC_PCCARD_DeInit
+     /tmp/ccduyQy3.s:13     .text.FSMC_NORSRAM_Init:0000000000000000 $t
+     /tmp/ccduyQy3.s:20     .text.FSMC_NORSRAM_Init:0000000000000000 FSMC_NORSRAM_Init
+     /tmp/ccduyQy3.s:68     .text.FSMC_NORSRAM_Init:0000000000000060 $d
+     /tmp/ccduyQy3.s:71     .text.FSMC_NORSRAM_DeInit:0000000000000000 $t
+     /tmp/ccduyQy3.s:78     .text.FSMC_NORSRAM_DeInit:0000000000000000 FSMC_NORSRAM_DeInit
+     /tmp/ccduyQy3.s:101    .text.FSMC_NORSRAM_Timing_Init:0000000000000000 $t
+     /tmp/ccduyQy3.s:108    .text.FSMC_NORSRAM_Timing_Init:0000000000000000 FSMC_NORSRAM_Timing_Init
+     /tmp/ccduyQy3.s:136    .text.FSMC_NORSRAM_Extended_Timing_Init:0000000000000000 $t
+     /tmp/ccduyQy3.s:143    .text.FSMC_NORSRAM_Extended_Timing_Init:0000000000000000 FSMC_NORSRAM_Extended_Timing_Init
+     /tmp/ccduyQy3.s:172    .text.FSMC_NORSRAM_Extended_Timing_Init:0000000000000038 $d
+     /tmp/ccduyQy3.s:175    .text.FSMC_NORSRAM_WriteOperation_Enable:0000000000000000 $t
+     /tmp/ccduyQy3.s:182    .text.FSMC_NORSRAM_WriteOperation_Enable:0000000000000000 FSMC_NORSRAM_WriteOperation_Enable
+     /tmp/ccduyQy3.s:193    .text.FSMC_NORSRAM_WriteOperation_Disable:0000000000000000 $t
+     /tmp/ccduyQy3.s:200    .text.FSMC_NORSRAM_WriteOperation_Disable:0000000000000000 FSMC_NORSRAM_WriteOperation_Disable
+     /tmp/ccduyQy3.s:211    .text.FSMC_NAND_Init:0000000000000000 $t
+     /tmp/ccduyQy3.s:218    .text.FSMC_NAND_Init:0000000000000000 FSMC_NAND_Init
+     /tmp/ccduyQy3.s:260    .text.FSMC_NAND_Init:0000000000000058 $d
+     /tmp/ccduyQy3.s:263    .text.FSMC_NAND_CommonSpace_Timing_Init:0000000000000000 $t
+     /tmp/ccduyQy3.s:270    .text.FSMC_NAND_CommonSpace_Timing_Init:0000000000000000 FSMC_NAND_CommonSpace_Timing_Init
+     /tmp/ccduyQy3.s:299    .text.FSMC_NAND_AttributeSpace_Timing_Init:0000000000000000 $t
+     /tmp/ccduyQy3.s:306    .text.FSMC_NAND_AttributeSpace_Timing_Init:0000000000000000 FSMC_NAND_AttributeSpace_Timing_Init
+     /tmp/ccduyQy3.s:335    .text.FSMC_NAND_DeInit:0000000000000000 $t
+     /tmp/ccduyQy3.s:342    .text.FSMC_NAND_DeInit:0000000000000000 FSMC_NAND_DeInit
+     /tmp/ccduyQy3.s:374    .text.FSMC_NAND_ECC_Enable:0000000000000000 $t
+     /tmp/ccduyQy3.s:381    .text.FSMC_NAND_ECC_Enable:0000000000000000 FSMC_NAND_ECC_Enable
+     /tmp/ccduyQy3.s:398    .text.FSMC_NAND_ECC_Disable:0000000000000000 $t
+     /tmp/ccduyQy3.s:405    .text.FSMC_NAND_ECC_Disable:0000000000000000 FSMC_NAND_ECC_Disable
+     /tmp/ccduyQy3.s:422    .text.FSMC_NAND_GetECC:0000000000000000 $t
+     /tmp/ccduyQy3.s:429    .text.FSMC_NAND_GetECC:0000000000000000 FSMC_NAND_GetECC
+     /tmp/ccduyQy3.s:467    .text.FSMC_PCCARD_Init:0000000000000000 $t
+     /tmp/ccduyQy3.s:474    .text.FSMC_PCCARD_Init:0000000000000000 FSMC_PCCARD_Init
+     /tmp/ccduyQy3.s:492    .text.FSMC_PCCARD_CommonSpace_Timing_Init:0000000000000000 $t
+     /tmp/ccduyQy3.s:499    .text.FSMC_PCCARD_CommonSpace_Timing_Init:0000000000000000 FSMC_PCCARD_CommonSpace_Timing_Init
+     /tmp/ccduyQy3.s:517    .text.FSMC_PCCARD_AttributeSpace_Timing_Init:0000000000000000 $t
+     /tmp/ccduyQy3.s:524    .text.FSMC_PCCARD_AttributeSpace_Timing_Init:0000000000000000 FSMC_PCCARD_AttributeSpace_Timing_Init
+     /tmp/ccduyQy3.s:542    .text.FSMC_PCCARD_IOSpace_Timing_Init:0000000000000000 $t
+     /tmp/ccduyQy3.s:549    .text.FSMC_PCCARD_IOSpace_Timing_Init:0000000000000000 FSMC_PCCARD_IOSpace_Timing_Init
+     /tmp/ccduyQy3.s:567    .text.FSMC_PCCARD_DeInit:0000000000000000 $t
+     /tmp/ccduyQy3.s:574    .text.FSMC_PCCARD_DeInit:0000000000000000 FSMC_PCCARD_DeInit
 
 UNDEFINED SYMBOLS
 HAL_GetTick

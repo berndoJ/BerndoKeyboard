@@ -1,1276 +1,1372 @@
-ARM GAS  /tmp/ccPlkNs4.s 			page 1
+ARM GAS  /tmp/ccKWzf4l.s 			page 1
 
 
-   1              		.syntax unified
-   2              		.cpu cortex-m3
-   3              		.fpu softvfp
-   4              		.eabi_attribute 20, 1
-   5              		.eabi_attribute 21, 1
-   6              		.eabi_attribute 23, 3
-   7              		.eabi_attribute 24, 1
-   8              		.eabi_attribute 25, 1
-   9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 4
-  11              		.eabi_attribute 34, 1
-  12              		.eabi_attribute 18, 4
-  13              		.thumb
-  14              		.file	"stm32f1xx_hal_nor.c"
-  15              		.section	.text.HAL_NOR_MspInit,"ax",%progbits
-  16              		.align	1
-  17              		.weak	HAL_NOR_MspInit
-  18              		.thumb
-  19              		.thumb_func
-  21              	HAL_NOR_MspInit:
-  22              		@ args = 0, pretend = 0, frame = 0
-  23              		@ frame_needed = 0, uses_anonymous_args = 0
-  24              		@ link register save eliminated.
-  25 0000 7047     		bx	lr
-  27              		.section	.text.HAL_NOR_Init,"ax",%progbits
-  28              		.align	1
-  29              		.global	HAL_NOR_Init
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 4
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"stm32f1xx_hal_nor.c"
+  12              		.section	.text.HAL_NOR_MspInit,"ax",%progbits
+  13              		.align	1
+  14              		.weak	HAL_NOR_MspInit
+  15              		.syntax unified
+  16              		.thumb
+  17              		.thumb_func
+  18              		.fpu softvfp
+  20              	HAL_NOR_MspInit:
+  21              		@ args = 0, pretend = 0, frame = 0
+  22              		@ frame_needed = 0, uses_anonymous_args = 0
+  23              		@ link register save eliminated.
+  24 0000 7047     		bx	lr
+  26              		.section	.text.HAL_NOR_Init,"ax",%progbits
+  27              		.align	1
+  28              		.global	HAL_NOR_Init
+  29              		.syntax unified
   30              		.thumb
   31              		.thumb_func
-  33              	HAL_NOR_Init:
-  34              		@ args = 0, pretend = 0, frame = 0
-  35              		@ frame_needed = 0, uses_anonymous_args = 0
-  36 0000 70B5     		push	{r4, r5, r6, lr}
-  37 0002 0E46     		mov	r6, r1
-  38 0004 1546     		mov	r5, r2
-  39 0006 0446     		mov	r4, r0
-  40 0008 58B3     		cbz	r0, .L7
-  41 000a 90F84130 		ldrb	r3, [r0, #65]	@ zero_extendqisi2
-  42 000e 03F0FF02 		and	r2, r3, #255
-  43 0012 1BB9     		cbnz	r3, .L4
-  44 0014 80F84020 		strb	r2, [r0, #64]
-  45 0018 FFF7FEFF 		bl	HAL_NOR_MspInit
-  46              	.L4:
-  47 001c 04F10801 		add	r1, r4, #8
-  48 0020 2068     		ldr	r0, [r4]
-  49 0022 FFF7FEFF 		bl	FSMC_NORSRAM_Init
-  50 0026 3146     		mov	r1, r6
-  51 0028 A268     		ldr	r2, [r4, #8]
-  52 002a 2068     		ldr	r0, [r4]
-  53 002c FFF7FEFF 		bl	FSMC_NORSRAM_Timing_Init
-  54 0030 2946     		mov	r1, r5
-  55 0032 A268     		ldr	r2, [r4, #8]
-  56 0034 236B     		ldr	r3, [r4, #48]
-  57 0036 6068     		ldr	r0, [r4, #4]
-  58 0038 FFF7FEFF 		bl	FSMC_NORSRAM_Extended_Timing_Init
-  59 003c 2268     		ldr	r2, [r4]
-  60 003e A168     		ldr	r1, [r4, #8]
-ARM GAS  /tmp/ccPlkNs4.s 			page 2
+  32              		.fpu softvfp
+  34              	HAL_NOR_Init:
+  35              		@ args = 0, pretend = 0, frame = 0
+  36              		@ frame_needed = 0, uses_anonymous_args = 0
+  37 0000 70B5     		push	{r4, r5, r6, lr}
+  38 0002 0E46     		mov	r6, r1
+  39 0004 1546     		mov	r5, r2
+  40 0006 0446     		mov	r4, r0
+  41 0008 58B3     		cbz	r0, .L7
+  42 000a 90F84130 		ldrb	r3, [r0, #65]	@ zero_extendqisi2
+  43 000e 03F0FF02 		and	r2, r3, #255
+  44 0012 1BB9     		cbnz	r3, .L4
+  45 0014 80F84020 		strb	r2, [r0, #64]
+  46 0018 FFF7FEFF 		bl	HAL_NOR_MspInit
+  47              	.L4:
+  48 001c 04F10801 		add	r1, r4, #8
+  49 0020 2068     		ldr	r0, [r4]
+  50 0022 FFF7FEFF 		bl	FSMC_NORSRAM_Init
+  51 0026 A268     		ldr	r2, [r4, #8]
+  52 0028 3146     		mov	r1, r6
+  53 002a 2068     		ldr	r0, [r4]
+  54 002c FFF7FEFF 		bl	FSMC_NORSRAM_Timing_Init
+  55 0030 236B     		ldr	r3, [r4, #48]
+  56 0032 A268     		ldr	r2, [r4, #8]
+  57 0034 2946     		mov	r1, r5
+  58 0036 6068     		ldr	r0, [r4, #4]
+  59 0038 FFF7FEFF 		bl	FSMC_NORSRAM_Extended_Timing_Init
+  60 003c A168     		ldr	r1, [r4, #8]
+ARM GAS  /tmp/ccKWzf4l.s 			page 2
 
 
-  61 0040 0020     		movs	r0, #0
-  62 0042 52F82130 		ldr	r3, [r2, r1, lsl #2]
-  63 0046 43F00103 		orr	r3, r3, #1
-  64 004a 42F82130 		str	r3, [r2, r1, lsl #2]
-  65 004e 6369     		ldr	r3, [r4, #20]
-  66 0050 054A     		ldr	r2, .L9
-  67 0052 002B     		cmp	r3, #0
-  68 0054 18BF     		it	ne
-  69 0056 0123     		movne	r3, #1
-  70 0058 1360     		str	r3, [r2]
-  71 005a 0123     		movs	r3, #1
-  72 005c 84F84130 		strb	r3, [r4, #65]
-  73 0060 70BD     		pop	{r4, r5, r6, pc}
-  74              	.L7:
-  75 0062 0120     		movs	r0, #1
-  76 0064 70BD     		pop	{r4, r5, r6, pc}
-  77              	.L10:
-  78 0066 00BF     		.align	2
-  79              	.L9:
-  80 0068 00000000 		.word	.LANCHOR0
-  82              		.section	.text.HAL_NOR_MspDeInit,"ax",%progbits
-  83              		.align	1
-  84              		.weak	HAL_NOR_MspDeInit
-  85              		.thumb
-  86              		.thumb_func
-  88              	HAL_NOR_MspDeInit:
-  89              		@ args = 0, pretend = 0, frame = 0
-  90              		@ frame_needed = 0, uses_anonymous_args = 0
-  91              		@ link register save eliminated.
-  92 0000 7047     		bx	lr
-  94              		.section	.text.HAL_NOR_DeInit,"ax",%progbits
-  95              		.align	1
-  96              		.global	HAL_NOR_DeInit
-  97              		.thumb
-  98              		.thumb_func
- 100              	HAL_NOR_DeInit:
- 101              		@ args = 0, pretend = 0, frame = 0
- 102              		@ frame_needed = 0, uses_anonymous_args = 0
- 103 0000 10B5     		push	{r4, lr}
- 104 0002 0446     		mov	r4, r0
- 105 0004 FFF7FEFF 		bl	HAL_NOR_MspDeInit
- 106 0008 94E80700 		ldmia	r4, {r0, r1, r2}
- 107 000c FFF7FEFF 		bl	FSMC_NORSRAM_DeInit
- 108 0010 0020     		movs	r0, #0
- 109 0012 84F84100 		strb	r0, [r4, #65]
- 110 0016 84F84000 		strb	r0, [r4, #64]
- 111 001a 10BD     		pop	{r4, pc}
- 113              		.section	.text.HAL_NOR_MspWait,"ax",%progbits
- 114              		.align	1
- 115              		.weak	HAL_NOR_MspWait
- 116              		.thumb
- 117              		.thumb_func
- 119              	HAL_NOR_MspWait:
- 120              		@ args = 0, pretend = 0, frame = 0
- 121              		@ frame_needed = 0, uses_anonymous_args = 0
- 122              		@ link register save eliminated.
- 123 0000 7047     		bx	lr
-ARM GAS  /tmp/ccPlkNs4.s 			page 3
+  61 003e 2268     		ldr	r2, [r4]
+  62 0040 0020     		movs	r0, #0
+  63 0042 52F82130 		ldr	r3, [r2, r1, lsl #2]
+  64 0046 43F00103 		orr	r3, r3, #1
+  65 004a 42F82130 		str	r3, [r2, r1, lsl #2]
+  66 004e 0122     		movs	r2, #1
+  67 0050 6369     		ldr	r3, [r4, #20]
+  68 0052 0549     		ldr	r1, .L8
+  69 0054 002B     		cmp	r3, #0
+  70 0056 18BF     		it	ne
+  71 0058 1346     		movne	r3, r2
+  72 005a 84F84120 		strb	r2, [r4, #65]
+  73 005e 0B60     		str	r3, [r1]
+  74 0060 70BD     		pop	{r4, r5, r6, pc}
+  75              	.L7:
+  76 0062 0120     		movs	r0, #1
+  77 0064 70BD     		pop	{r4, r5, r6, pc}
+  78              	.L9:
+  79 0066 00BF     		.align	2
+  80              	.L8:
+  81 0068 00000000 		.word	.LANCHOR0
+  83              		.section	.text.HAL_NOR_MspDeInit,"ax",%progbits
+  84              		.align	1
+  85              		.weak	HAL_NOR_MspDeInit
+  86              		.syntax unified
+  87              		.thumb
+  88              		.thumb_func
+  89              		.fpu softvfp
+  91              	HAL_NOR_MspDeInit:
+  92              		@ args = 0, pretend = 0, frame = 0
+  93              		@ frame_needed = 0, uses_anonymous_args = 0
+  94              		@ link register save eliminated.
+  95 0000 7047     		bx	lr
+  97              		.section	.text.HAL_NOR_DeInit,"ax",%progbits
+  98              		.align	1
+  99              		.global	HAL_NOR_DeInit
+ 100              		.syntax unified
+ 101              		.thumb
+ 102              		.thumb_func
+ 103              		.fpu softvfp
+ 105              	HAL_NOR_DeInit:
+ 106              		@ args = 0, pretend = 0, frame = 0
+ 107              		@ frame_needed = 0, uses_anonymous_args = 0
+ 108 0000 10B5     		push	{r4, lr}
+ 109 0002 0446     		mov	r4, r0
+ 110 0004 FFF7FEFF 		bl	HAL_NOR_MspDeInit
+ 111 0008 94E80700 		ldm	r4, {r0, r1, r2}
+ 112 000c FFF7FEFF 		bl	FSMC_NORSRAM_DeInit
+ 113 0010 0020     		movs	r0, #0
+ 114 0012 84F84100 		strb	r0, [r4, #65]
+ 115 0016 84F84000 		strb	r0, [r4, #64]
+ 116 001a 10BD     		pop	{r4, pc}
+ 118              		.section	.text.HAL_NOR_MspWait,"ax",%progbits
+ 119              		.align	1
+ 120              		.weak	HAL_NOR_MspWait
+ 121              		.syntax unified
+ 122              		.thumb
+ARM GAS  /tmp/ccKWzf4l.s 			page 3
 
 
- 125              		.section	.text.HAL_NOR_Read_ID,"ax",%progbits
- 126              		.align	1
- 127              		.global	HAL_NOR_Read_ID
- 128              		.thumb
- 129              		.thumb_func
- 131              	HAL_NOR_Read_ID:
- 132              		@ args = 0, pretend = 0, frame = 0
- 133              		@ frame_needed = 0, uses_anonymous_args = 0
- 134 0000 90F84120 		ldrb	r2, [r0, #65]	@ zero_extendqisi2
- 135 0004 70B5     		push	{r4, r5, r6, lr}
- 136 0006 D2B2     		uxtb	r2, r2
- 137 0008 022A     		cmp	r2, #2
- 138 000a 5DD0     		beq	.L30
- 139 000c 012A     		cmp	r2, #1
- 140 000e 01D0     		beq	.L16
- 141 0010 042A     		cmp	r2, #4
- 142 0012 5BD1     		bne	.L31
- 143              	.L16:
- 144 0014 90F84030 		ldrb	r3, [r0, #64]	@ zero_extendqisi2
- 145 0018 012B     		cmp	r3, #1
- 146 001a 4FF00203 		mov	r3, #2
- 147 001e 57D0     		beq	.L32
- 148 0020 80F84130 		strb	r3, [r0, #65]
- 149 0024 8368     		ldr	r3, [r0, #8]
- 150 0026 0124     		movs	r4, #1
- 151 0028 80F84040 		strb	r4, [r0, #64]
- 152 002c 43B1     		cbz	r3, .L33
- 153 002e 022B     		cmp	r3, #2
- 154 0030 09D0     		beq	.L34
- 155 0032 042B     		cmp	r3, #4
- 156 0034 0CBF     		ite	eq
- 157 0036 4FF0D043 		moveq	r3, #1744830464
- 158 003a 4FF0D843 		movne	r3, #1811939328
- 159 003e 04E0     		b	.L17
- 160              	.L33:
- 161 0040 4FF0C043 		mov	r3, #1610612736
- 162 0044 01E0     		b	.L17
- 163              	.L34:
- 164 0046 4FF0C843 		mov	r3, #1677721600
- 165              	.L17:
- 166 004a 224C     		ldr	r4, .L39
- 167 004c AA26     		movs	r6, #170
- 168 004e 2568     		ldr	r5, [r4]
- 169 0050 012D     		cmp	r5, #1
- 170 0052 0CBF     		ite	eq
- 171 0054 03F6AA25 		addweq	r5, r3, #2730
- 172 0058 03F25555 		addwne	r5, r3, #1365
- 173 005c 2E80     		strh	r6, [r5]	@ movhi
- 174              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
- 175 005e BFF34F8F 		dsb 0xF
- 176              	@ 0 "" 2
- 177              		.thumb
- 178 0062 2568     		ldr	r5, [r4]
- 179 0064 5526     		movs	r6, #85
- 180 0066 012D     		cmp	r5, #1
- 181 0068 0CBF     		ite	eq
- 182 006a 03F25455 		addweq	r5, r3, #1364
-ARM GAS  /tmp/ccPlkNs4.s 			page 4
+ 123              		.thumb_func
+ 124              		.fpu softvfp
+ 126              	HAL_NOR_MspWait:
+ 127              		@ args = 0, pretend = 0, frame = 0
+ 128              		@ frame_needed = 0, uses_anonymous_args = 0
+ 129              		@ link register save eliminated.
+ 130 0000 7047     		bx	lr
+ 132              		.section	.text.HAL_NOR_Read_ID,"ax",%progbits
+ 133              		.align	1
+ 134              		.global	HAL_NOR_Read_ID
+ 135              		.syntax unified
+ 136              		.thumb
+ 137              		.thumb_func
+ 138              		.fpu softvfp
+ 140              	HAL_NOR_Read_ID:
+ 141              		@ args = 0, pretend = 0, frame = 0
+ 142              		@ frame_needed = 0, uses_anonymous_args = 0
+ 143 0000 90F84120 		ldrb	r2, [r0, #65]	@ zero_extendqisi2
+ 144 0004 70B5     		push	{r4, r5, r6, lr}
+ 145 0006 D2B2     		uxtb	r2, r2
+ 146 0008 022A     		cmp	r2, #2
+ 147 000a 5FD0     		beq	.L29
+ 148 000c 012A     		cmp	r2, #1
+ 149 000e 01D0     		beq	.L15
+ 150 0010 042A     		cmp	r2, #4
+ 151 0012 5DD1     		bne	.L30
+ 152              	.L15:
+ 153 0014 90F84030 		ldrb	r3, [r0, #64]	@ zero_extendqisi2
+ 154 0018 012B     		cmp	r3, #1
+ 155 001a 4FF00203 		mov	r3, #2
+ 156 001e 4DD0     		beq	.L31
+ 157 0020 0124     		movs	r4, #1
+ 158 0022 80F84130 		strb	r3, [r0, #65]
+ 159 0026 8368     		ldr	r3, [r0, #8]
+ 160 0028 80F84040 		strb	r4, [r0, #64]
+ 161 002c 002B     		cmp	r3, #0
+ 162 002e 47D0     		beq	.L32
+ 163 0030 022B     		cmp	r3, #2
+ 164 0032 48D0     		beq	.L33
+ 165 0034 042B     		cmp	r3, #4
+ 166 0036 0CBF     		ite	eq
+ 167 0038 4FF0D043 		moveq	r3, #1744830464
+ 168 003c 4FF0D843 		movne	r3, #1811939328
+ 169              	.L16:
+ 170 0040 AA26     		movs	r6, #170
+ 171 0042 244C     		ldr	r4, .L38
+ 172 0044 2568     		ldr	r5, [r4]
+ 173 0046 012D     		cmp	r5, #1
+ 174 0048 0CBF     		ite	eq
+ 175 004a 03F6AA25 		addweq	r5, r3, #2730
+ 176 004e 03F25555 		addwne	r5, r3, #1365
+ 177 0052 2E80     		strh	r6, [r5]	@ movhi
+ 178              		.syntax unified
+ 179              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
+ 180 0054 BFF34F8F 		dsb 0xF
+ 181              	@ 0 "" 2
+ 182              		.thumb
+ARM GAS  /tmp/ccKWzf4l.s 			page 4
 
 
- 183 006e 03F2AA25 		addwne	r5, r3, #682
- 184 0072 2E80     		strh	r6, [r5]	@ movhi
- 185              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
- 186 0074 BFF34F8F 		dsb 0xF
- 187              	@ 0 "" 2
- 188              		.thumb
- 189 0078 2568     		ldr	r5, [r4]
- 190 007a 9026     		movs	r6, #144
- 191 007c 012D     		cmp	r5, #1
- 192 007e 0CBF     		ite	eq
- 193 0080 03F6AA25 		addweq	r5, r3, #2730
- 194 0084 03F25555 		addwne	r5, r3, #1365
- 195 0088 2E80     		strh	r6, [r5]	@ movhi
- 196              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
- 197 008a BFF34F8F 		dsb 0xF
- 198              	@ 0 "" 2
- 199              		.thumb
- 200 008e 2468     		ldr	r4, [r4]
- 201 0090 1D88     		ldrh	r5, [r3]
- 202 0092 012C     		cmp	r4, #1
- 203 0094 0D80     		strh	r5, [r1]	@ movhi
- 204 0096 0CBF     		ite	eq
- 205 0098 9D1C     		addeq	r5, r3, #2
- 206 009a 5D1C     		addne	r5, r3, #1
- 207 009c 2D88     		ldrh	r5, [r5]
- 208 009e 012C     		cmp	r4, #1
- 209 00a0 4D80     		strh	r5, [r1, #2]	@ movhi
- 210 00a2 0CBF     		ite	eq
- 211 00a4 03F11C05 		addeq	r5, r3, #28
- 212 00a8 03F10E05 		addne	r5, r3, #14
- 213 00ac 2D88     		ldrh	r5, [r5]
- 214 00ae 012C     		cmp	r4, #1
- 215 00b0 8D80     		strh	r5, [r1, #4]	@ movhi
- 216 00b2 0CBF     		ite	eq
- 217 00b4 1E33     		addeq	r3, r3, #30
- 218 00b6 0F33     		addne	r3, r3, #15
- 219 00b8 1B88     		ldrh	r3, [r3]
- 220 00ba CB80     		strh	r3, [r1, #6]	@ movhi
- 221 00bc 0023     		movs	r3, #0
- 222 00be 80F84120 		strb	r2, [r0, #65]
- 223 00c2 80F84030 		strb	r3, [r0, #64]
- 224 00c6 03E0     		b	.L32
- 225              	.L30:
- 226 00c8 1046     		mov	r0, r2
- 227 00ca 70BD     		pop	{r4, r5, r6, pc}
- 228              	.L31:
- 229 00cc 0120     		movs	r0, #1
- 230 00ce 70BD     		pop	{r4, r5, r6, pc}
- 231              	.L32:
- 232 00d0 1846     		mov	r0, r3
- 233 00d2 70BD     		pop	{r4, r5, r6, pc}
- 234              	.L40:
- 235              		.align	2
- 236              	.L39:
- 237 00d4 00000000 		.word	.LANCHOR0
- 239              		.section	.text.HAL_NOR_ReturnToReadMode,"ax",%progbits
- 240              		.align	1
-ARM GAS  /tmp/ccPlkNs4.s 			page 5
+ 183              		.syntax unified
+ 184 0058 5526     		movs	r6, #85
+ 185 005a 2568     		ldr	r5, [r4]
+ 186 005c 012D     		cmp	r5, #1
+ 187 005e 0CBF     		ite	eq
+ 188 0060 03F25455 		addweq	r5, r3, #1364
+ 189 0064 03F2AA25 		addwne	r5, r3, #682
+ 190 0068 2E80     		strh	r6, [r5]	@ movhi
+ 191              		.syntax unified
+ 192              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
+ 193 006a BFF34F8F 		dsb 0xF
+ 194              	@ 0 "" 2
+ 195              		.thumb
+ 196              		.syntax unified
+ 197 006e 9026     		movs	r6, #144
+ 198 0070 2568     		ldr	r5, [r4]
+ 199 0072 012D     		cmp	r5, #1
+ 200 0074 0CBF     		ite	eq
+ 201 0076 03F6AA25 		addweq	r5, r3, #2730
+ 202 007a 03F25555 		addwne	r5, r3, #1365
+ 203 007e 2E80     		strh	r6, [r5]	@ movhi
+ 204              		.syntax unified
+ 205              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
+ 206 0080 BFF34F8F 		dsb 0xF
+ 207              	@ 0 "" 2
+ 208              		.thumb
+ 209              		.syntax unified
+ 210 0084 2468     		ldr	r4, [r4]
+ 211 0086 1D88     		ldrh	r5, [r3]
+ 212 0088 012C     		cmp	r4, #1
+ 213 008a 0D80     		strh	r5, [r1]	@ movhi
+ 214 008c 0CBF     		ite	eq
+ 215 008e 9D1C     		addeq	r5, r3, #2
+ 216 0090 5D1C     		addne	r5, r3, #1
+ 217 0092 2D88     		ldrh	r5, [r5]
+ 218 0094 012C     		cmp	r4, #1
+ 219 0096 4D80     		strh	r5, [r1, #2]	@ movhi
+ 220 0098 0CBF     		ite	eq
+ 221 009a 03F11C05 		addeq	r5, r3, #28
+ 222 009e 03F10E05 		addne	r5, r3, #14
+ 223 00a2 2D88     		ldrh	r5, [r5]
+ 224 00a4 012C     		cmp	r4, #1
+ 225 00a6 8D80     		strh	r5, [r1, #4]	@ movhi
+ 226 00a8 0CBF     		ite	eq
+ 227 00aa 1E33     		addeq	r3, r3, #30
+ 228 00ac 0F33     		addne	r3, r3, #15
+ 229 00ae 1B88     		ldrh	r3, [r3]
+ 230 00b0 CB80     		strh	r3, [r1, #6]	@ movhi
+ 231 00b2 0023     		movs	r3, #0
+ 232 00b4 80F84120 		strb	r2, [r0, #65]
+ 233 00b8 80F84030 		strb	r3, [r0, #64]
+ 234              	.L31:
+ 235 00bc 1846     		mov	r0, r3
+ 236 00be 70BD     		pop	{r4, r5, r6, pc}
+ 237              	.L32:
+ 238 00c0 4FF0C043 		mov	r3, #1610612736
+ 239 00c4 BCE7     		b	.L16
+ARM GAS  /tmp/ccKWzf4l.s 			page 5
 
 
- 241              		.global	HAL_NOR_ReturnToReadMode
- 242              		.thumb
- 243              		.thumb_func
- 245              	HAL_NOR_ReturnToReadMode:
- 246              		@ args = 0, pretend = 0, frame = 0
- 247              		@ frame_needed = 0, uses_anonymous_args = 0
- 248              		@ link register save eliminated.
- 249 0000 90F84120 		ldrb	r2, [r0, #65]	@ zero_extendqisi2
- 250 0004 D2B2     		uxtb	r2, r2
- 251 0006 022A     		cmp	r2, #2
- 252 0008 28D0     		beq	.L45
- 253 000a 012A     		cmp	r2, #1
- 254 000c 01D0     		beq	.L43
- 255 000e 042A     		cmp	r2, #4
- 256 0010 26D1     		bne	.L46
- 257              	.L43:
- 258 0012 90F84030 		ldrb	r3, [r0, #64]	@ zero_extendqisi2
- 259 0016 012B     		cmp	r3, #1
- 260 0018 4FF00203 		mov	r3, #2
- 261 001c 22D0     		beq	.L47
- 262 001e 80F84130 		strb	r3, [r0, #65]
- 263 0022 8368     		ldr	r3, [r0, #8]
- 264 0024 0121     		movs	r1, #1
- 265 0026 80F84010 		strb	r1, [r0, #64]
- 266 002a 43B1     		cbz	r3, .L48
- 267 002c 022B     		cmp	r3, #2
- 268 002e 09D0     		beq	.L49
- 269 0030 042B     		cmp	r3, #4
- 270 0032 0CBF     		ite	eq
- 271 0034 4FF0D043 		moveq	r3, #1744830464
- 272 0038 4FF0D843 		movne	r3, #1811939328
- 273 003c 04E0     		b	.L44
- 274              	.L48:
- 275 003e 4FF0C043 		mov	r3, #1610612736
- 276 0042 01E0     		b	.L44
- 277              	.L49:
- 278 0044 4FF0C843 		mov	r3, #1677721600
- 279              	.L44:
- 280 0048 F021     		movs	r1, #240
- 281 004a 1980     		strh	r1, [r3]	@ movhi
- 282              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
- 283 004c BFF34F8F 		dsb 0xF
- 284              	@ 0 "" 2
- 285              		.thumb
- 286 0050 0023     		movs	r3, #0
- 287 0052 80F84120 		strb	r2, [r0, #65]
- 288 0056 80F84030 		strb	r3, [r0, #64]
- 289 005a 03E0     		b	.L47
- 290              	.L45:
- 291 005c 1046     		mov	r0, r2
- 292 005e 7047     		bx	lr
- 293              	.L46:
- 294 0060 0120     		movs	r0, #1
- 295 0062 7047     		bx	lr
- 296              	.L47:
- 297 0064 1846     		mov	r0, r3
- 298 0066 7047     		bx	lr
-ARM GAS  /tmp/ccPlkNs4.s 			page 6
+ 240              	.L33:
+ 241 00c6 4FF0C843 		mov	r3, #1677721600
+ 242 00ca B9E7     		b	.L16
+ 243              	.L29:
+ 244 00cc 1046     		mov	r0, r2
+ 245 00ce 70BD     		pop	{r4, r5, r6, pc}
+ 246              	.L30:
+ 247 00d0 0120     		movs	r0, #1
+ 248 00d2 70BD     		pop	{r4, r5, r6, pc}
+ 249              	.L39:
+ 250              		.align	2
+ 251              	.L38:
+ 252 00d4 00000000 		.word	.LANCHOR0
+ 254              		.section	.text.HAL_NOR_ReturnToReadMode,"ax",%progbits
+ 255              		.align	1
+ 256              		.global	HAL_NOR_ReturnToReadMode
+ 257              		.syntax unified
+ 258              		.thumb
+ 259              		.thumb_func
+ 260              		.fpu softvfp
+ 262              	HAL_NOR_ReturnToReadMode:
+ 263              		@ args = 0, pretend = 0, frame = 0
+ 264              		@ frame_needed = 0, uses_anonymous_args = 0
+ 265              		@ link register save eliminated.
+ 266 0000 90F84120 		ldrb	r2, [r0, #65]	@ zero_extendqisi2
+ 267 0004 D2B2     		uxtb	r2, r2
+ 268 0006 022A     		cmp	r2, #2
+ 269 0008 29D0     		beq	.L44
+ 270 000a 012A     		cmp	r2, #1
+ 271 000c 01D0     		beq	.L42
+ 272 000e 042A     		cmp	r2, #4
+ 273 0010 27D1     		bne	.L45
+ 274              	.L42:
+ 275 0012 90F84030 		ldrb	r3, [r0, #64]	@ zero_extendqisi2
+ 276 0016 012B     		cmp	r3, #1
+ 277 0018 4FF00203 		mov	r3, #2
+ 278 001c 17D0     		beq	.L46
+ 279 001e 0121     		movs	r1, #1
+ 280 0020 80F84130 		strb	r3, [r0, #65]
+ 281 0024 8368     		ldr	r3, [r0, #8]
+ 282 0026 80F84010 		strb	r1, [r0, #64]
+ 283 002a 93B1     		cbz	r3, .L47
+ 284 002c 022B     		cmp	r3, #2
+ 285 002e 13D0     		beq	.L48
+ 286 0030 042B     		cmp	r3, #4
+ 287 0032 0CBF     		ite	eq
+ 288 0034 4FF0D043 		moveq	r3, #1744830464
+ 289 0038 4FF0D843 		movne	r3, #1811939328
+ 290              	.L43:
+ 291 003c F021     		movs	r1, #240
+ 292 003e 1980     		strh	r1, [r3]	@ movhi
+ 293              		.syntax unified
+ 294              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
+ 295 0040 BFF34F8F 		dsb 0xF
+ 296              	@ 0 "" 2
+ 297              		.thumb
+ 298              		.syntax unified
+ARM GAS  /tmp/ccKWzf4l.s 			page 6
 
 
- 300              		.section	.text.HAL_NOR_Read,"ax",%progbits
- 301              		.align	1
- 302              		.global	HAL_NOR_Read
- 303              		.thumb
- 304              		.thumb_func
- 306              	HAL_NOR_Read:
- 307              		@ args = 0, pretend = 0, frame = 0
- 308              		@ frame_needed = 0, uses_anonymous_args = 0
- 309 0000 F0B5     		push	{r4, r5, r6, r7, lr}
- 310 0002 90F84140 		ldrb	r4, [r0, #65]	@ zero_extendqisi2
- 311 0006 E4B2     		uxtb	r4, r4
- 312 0008 022C     		cmp	r4, #2
- 313 000a 48D0     		beq	.L64
- 314 000c 012C     		cmp	r4, #1
- 315 000e 01D0     		beq	.L56
- 316 0010 042C     		cmp	r4, #4
- 317 0012 46D1     		bne	.L65
- 318              	.L56:
- 319 0014 90F84030 		ldrb	r3, [r0, #64]	@ zero_extendqisi2
- 320 0018 012B     		cmp	r3, #1
- 321 001a 4FF00203 		mov	r3, #2
- 322 001e 42D0     		beq	.L66
- 323 0020 80F84130 		strb	r3, [r0, #65]
- 324 0024 8368     		ldr	r3, [r0, #8]
- 325 0026 0125     		movs	r5, #1
- 326 0028 80F84050 		strb	r5, [r0, #64]
- 327 002c 43B1     		cbz	r3, .L67
- 328 002e 022B     		cmp	r3, #2
- 329 0030 09D0     		beq	.L68
- 330 0032 042B     		cmp	r3, #4
- 331 0034 0CBF     		ite	eq
- 332 0036 4FF0D043 		moveq	r3, #1744830464
- 333 003a 4FF0D843 		movne	r3, #1811939328
- 334 003e 04E0     		b	.L57
- 335              	.L67:
- 336 0040 4FF0C043 		mov	r3, #1610612736
- 337 0044 01E0     		b	.L57
- 338              	.L68:
- 339 0046 4FF0C843 		mov	r3, #1677721600
- 340              	.L57:
- 341 004a 184D     		ldr	r5, .L73
- 342 004c AA27     		movs	r7, #170
- 343 004e 2E68     		ldr	r6, [r5]
- 344 0050 012E     		cmp	r6, #1
- 345 0052 0CBF     		ite	eq
- 346 0054 03F6AA26 		addweq	r6, r3, #2730
- 347 0058 03F25556 		addwne	r6, r3, #1365
- 348 005c 3780     		strh	r7, [r6]	@ movhi
- 349              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
- 350 005e BFF34F8F 		dsb 0xF
- 351              	@ 0 "" 2
- 352              		.thumb
- 353 0062 2E68     		ldr	r6, [r5]
- 354 0064 5527     		movs	r7, #85
- 355 0066 012E     		cmp	r6, #1
- 356 0068 0CBF     		ite	eq
- 357 006a 03F25456 		addweq	r6, r3, #1364
-ARM GAS  /tmp/ccPlkNs4.s 			page 7
+ 299 0044 0023     		movs	r3, #0
+ 300 0046 80F84120 		strb	r2, [r0, #65]
+ 301 004a 80F84030 		strb	r3, [r0, #64]
+ 302              	.L46:
+ 303 004e 1846     		mov	r0, r3
+ 304 0050 7047     		bx	lr
+ 305              	.L47:
+ 306 0052 4FF0C043 		mov	r3, #1610612736
+ 307 0056 F1E7     		b	.L43
+ 308              	.L48:
+ 309 0058 4FF0C843 		mov	r3, #1677721600
+ 310 005c EEE7     		b	.L43
+ 311              	.L44:
+ 312 005e 1046     		mov	r0, r2
+ 313 0060 7047     		bx	lr
+ 314              	.L45:
+ 315 0062 0120     		movs	r0, #1
+ 316 0064 7047     		bx	lr
+ 318              		.section	.text.HAL_NOR_Read,"ax",%progbits
+ 319              		.align	1
+ 320              		.global	HAL_NOR_Read
+ 321              		.syntax unified
+ 322              		.thumb
+ 323              		.thumb_func
+ 324              		.fpu softvfp
+ 326              	HAL_NOR_Read:
+ 327              		@ args = 0, pretend = 0, frame = 0
+ 328              		@ frame_needed = 0, uses_anonymous_args = 0
+ 329 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 330 0002 90F84140 		ldrb	r4, [r0, #65]	@ zero_extendqisi2
+ 331 0006 E4B2     		uxtb	r4, r4
+ 332 0008 022C     		cmp	r4, #2
+ 333 000a 4BD0     		beq	.L63
+ 334 000c 012C     		cmp	r4, #1
+ 335 000e 01D0     		beq	.L55
+ 336 0010 042C     		cmp	r4, #4
+ 337 0012 49D1     		bne	.L64
+ 338              	.L55:
+ 339 0014 90F84030 		ldrb	r3, [r0, #64]	@ zero_extendqisi2
+ 340 0018 012B     		cmp	r3, #1
+ 341 001a 4FF00203 		mov	r3, #2
+ 342 001e 39D0     		beq	.L65
+ 343 0020 0125     		movs	r5, #1
+ 344 0022 80F84130 		strb	r3, [r0, #65]
+ 345 0026 8368     		ldr	r3, [r0, #8]
+ 346 0028 80F84050 		strb	r5, [r0, #64]
+ 347 002c 002B     		cmp	r3, #0
+ 348 002e 33D0     		beq	.L66
+ 349 0030 022B     		cmp	r3, #2
+ 350 0032 34D0     		beq	.L67
+ 351 0034 042B     		cmp	r3, #4
+ 352 0036 0CBF     		ite	eq
+ 353 0038 4FF0D043 		moveq	r3, #1744830464
+ 354 003c 4FF0D843 		movne	r3, #1811939328
+ 355              	.L56:
+ 356 0040 AA27     		movs	r7, #170
+ 357 0042 1A4D     		ldr	r5, .L72
+ARM GAS  /tmp/ccKWzf4l.s 			page 7
 
 
- 358 006e 03F2AA26 		addwne	r6, r3, #682
- 359 0072 3780     		strh	r7, [r6]	@ movhi
- 360              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
- 361 0074 BFF34F8F 		dsb 0xF
- 362              	@ 0 "" 2
- 363              		.thumb
- 364 0078 2D68     		ldr	r5, [r5]
- 365 007a 012D     		cmp	r5, #1
- 366 007c 0CBF     		ite	eq
- 367 007e 03F6AA23 		addweq	r3, r3, #2730
- 368 0082 03F25553 		addwne	r3, r3, #1365
- 369 0086 F025     		movs	r5, #240
- 370 0088 1D80     		strh	r5, [r3]	@ movhi
- 371              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
- 372 008a BFF34F8F 		dsb 0xF
- 373              	@ 0 "" 2
- 374              		.thumb
- 375 008e 0B68     		ldr	r3, [r1]
- 376 0090 1380     		strh	r3, [r2]	@ movhi
- 377 0092 0023     		movs	r3, #0
- 378 0094 80F84140 		strb	r4, [r0, #65]
- 379 0098 80F84030 		strb	r3, [r0, #64]
- 380 009c 03E0     		b	.L66
- 381              	.L64:
- 382 009e 2046     		mov	r0, r4
- 383 00a0 F0BD     		pop	{r4, r5, r6, r7, pc}
- 384              	.L65:
- 385 00a2 0120     		movs	r0, #1
- 386 00a4 F0BD     		pop	{r4, r5, r6, r7, pc}
- 387              	.L66:
- 388 00a6 1846     		mov	r0, r3
- 389 00a8 F0BD     		pop	{r4, r5, r6, r7, pc}
- 390              	.L74:
- 391 00aa 00BF     		.align	2
- 392              	.L73:
- 393 00ac 00000000 		.word	.LANCHOR0
- 395              		.section	.text.HAL_NOR_Program,"ax",%progbits
- 396              		.align	1
- 397              		.global	HAL_NOR_Program
- 398              		.thumb
- 399              		.thumb_func
- 401              	HAL_NOR_Program:
- 402              		@ args = 0, pretend = 0, frame = 0
- 403              		@ frame_needed = 0, uses_anonymous_args = 0
- 404 0000 90F84130 		ldrb	r3, [r0, #65]	@ zero_extendqisi2
- 405 0004 70B5     		push	{r4, r5, r6, lr}
- 406 0006 DBB2     		uxtb	r3, r3
- 407 0008 022B     		cmp	r3, #2
- 408 000a 4DD0     		beq	.L86
- 409 000c 90F84140 		ldrb	r4, [r0, #65]	@ zero_extendqisi2
- 410 0010 E4B2     		uxtb	r4, r4
- 411 0012 012C     		cmp	r4, #1
- 412 0014 46D1     		bne	.L85
- 413 0016 90F84030 		ldrb	r3, [r0, #64]	@ zero_extendqisi2
- 414 001a 012B     		cmp	r3, #1
- 415 001c 4FF00203 		mov	r3, #2
- 416 0020 42D0     		beq	.L86
-ARM GAS  /tmp/ccPlkNs4.s 			page 8
+ 358 0044 2E68     		ldr	r6, [r5]
+ 359 0046 012E     		cmp	r6, #1
+ 360 0048 0CBF     		ite	eq
+ 361 004a 03F6AA26 		addweq	r6, r3, #2730
+ 362 004e 03F25556 		addwne	r6, r3, #1365
+ 363 0052 3780     		strh	r7, [r6]	@ movhi
+ 364              		.syntax unified
+ 365              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
+ 366 0054 BFF34F8F 		dsb 0xF
+ 367              	@ 0 "" 2
+ 368              		.thumb
+ 369              		.syntax unified
+ 370 0058 5527     		movs	r7, #85
+ 371 005a 2E68     		ldr	r6, [r5]
+ 372 005c 012E     		cmp	r6, #1
+ 373 005e 0CBF     		ite	eq
+ 374 0060 03F25456 		addweq	r6, r3, #1364
+ 375 0064 03F2AA26 		addwne	r6, r3, #682
+ 376 0068 3780     		strh	r7, [r6]	@ movhi
+ 377              		.syntax unified
+ 378              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
+ 379 006a BFF34F8F 		dsb 0xF
+ 380              	@ 0 "" 2
+ 381              		.thumb
+ 382              		.syntax unified
+ 383 006e 2D68     		ldr	r5, [r5]
+ 384 0070 012D     		cmp	r5, #1
+ 385 0072 4FF0F005 		mov	r5, #240
+ 386 0076 0CBF     		ite	eq
+ 387 0078 03F6AA23 		addweq	r3, r3, #2730
+ 388 007c 03F25553 		addwne	r3, r3, #1365
+ 389 0080 1D80     		strh	r5, [r3]	@ movhi
+ 390              		.syntax unified
+ 391              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
+ 392 0082 BFF34F8F 		dsb 0xF
+ 393              	@ 0 "" 2
+ 394              		.thumb
+ 395              		.syntax unified
+ 396 0086 0B68     		ldr	r3, [r1]
+ 397 0088 1380     		strh	r3, [r2]	@ movhi
+ 398 008a 0023     		movs	r3, #0
+ 399 008c 80F84140 		strb	r4, [r0, #65]
+ 400 0090 80F84030 		strb	r3, [r0, #64]
+ 401              	.L65:
+ 402 0094 1846     		mov	r0, r3
+ 403 0096 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 404              	.L66:
+ 405 0098 4FF0C043 		mov	r3, #1610612736
+ 406 009c D0E7     		b	.L56
+ 407              	.L67:
+ 408 009e 4FF0C843 		mov	r3, #1677721600
+ 409 00a2 CDE7     		b	.L56
+ 410              	.L63:
+ 411 00a4 2046     		mov	r0, r4
+ 412 00a6 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 413              	.L64:
+ 414 00a8 0120     		movs	r0, #1
+ARM GAS  /tmp/ccKWzf4l.s 			page 8
 
 
- 417 0022 80F84130 		strb	r3, [r0, #65]
- 418 0026 8368     		ldr	r3, [r0, #8]
- 419 0028 80F84040 		strb	r4, [r0, #64]
- 420 002c 43B1     		cbz	r3, .L87
- 421 002e 022B     		cmp	r3, #2
- 422 0030 09D0     		beq	.L88
- 423 0032 042B     		cmp	r3, #4
- 424 0034 0CBF     		ite	eq
- 425 0036 4FF0D043 		moveq	r3, #1744830464
- 426 003a 4FF0D843 		movne	r3, #1811939328
- 427 003e 04E0     		b	.L77
- 428              	.L87:
- 429 0040 4FF0C043 		mov	r3, #1610612736
- 430 0044 01E0     		b	.L77
- 431              	.L88:
- 432 0046 4FF0C843 		mov	r3, #1677721600
- 433              	.L77:
- 434 004a 184C     		ldr	r4, .L90
- 435 004c AA26     		movs	r6, #170
- 436 004e 2568     		ldr	r5, [r4]
- 437 0050 012D     		cmp	r5, #1
- 438 0052 0CBF     		ite	eq
- 439 0054 03F6AA25 		addweq	r5, r3, #2730
- 440 0058 03F25555 		addwne	r5, r3, #1365
- 441 005c 2E80     		strh	r6, [r5]	@ movhi
- 442              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
- 443 005e BFF34F8F 		dsb 0xF
- 444              	@ 0 "" 2
- 445              		.thumb
- 446 0062 2568     		ldr	r5, [r4]
- 447 0064 5526     		movs	r6, #85
- 448 0066 012D     		cmp	r5, #1
- 449 0068 0CBF     		ite	eq
- 450 006a 03F25455 		addweq	r5, r3, #1364
- 451 006e 03F2AA25 		addwne	r5, r3, #682
- 452 0072 2E80     		strh	r6, [r5]	@ movhi
- 453              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
- 454 0074 BFF34F8F 		dsb 0xF
- 455              	@ 0 "" 2
- 456              		.thumb
- 457 0078 2468     		ldr	r4, [r4]
- 458 007a 012C     		cmp	r4, #1
- 459 007c 0CBF     		ite	eq
- 460 007e 03F6AA23 		addweq	r3, r3, #2730
- 461 0082 03F25553 		addwne	r3, r3, #1365
- 462 0086 A024     		movs	r4, #160
- 463 0088 1C80     		strh	r4, [r3]	@ movhi
- 464              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
- 465 008a BFF34F8F 		dsb 0xF
- 466              	@ 0 "" 2
- 467              		.thumb
- 468 008e 1388     		ldrh	r3, [r2]
- 469 0090 0B80     		strh	r3, [r1]	@ movhi
- 470              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
- 471 0092 BFF34F8F 		dsb 0xF
- 472              	@ 0 "" 2
- 473              		.thumb
-ARM GAS  /tmp/ccPlkNs4.s 			page 9
+ 415 00aa F0BD     		pop	{r4, r5, r6, r7, pc}
+ 416              	.L73:
+ 417              		.align	2
+ 418              	.L72:
+ 419 00ac 00000000 		.word	.LANCHOR0
+ 421              		.section	.text.HAL_NOR_Program,"ax",%progbits
+ 422              		.align	1
+ 423              		.global	HAL_NOR_Program
+ 424              		.syntax unified
+ 425              		.thumb
+ 426              		.thumb_func
+ 427              		.fpu softvfp
+ 429              	HAL_NOR_Program:
+ 430              		@ args = 0, pretend = 0, frame = 0
+ 431              		@ frame_needed = 0, uses_anonymous_args = 0
+ 432 0000 90F84130 		ldrb	r3, [r0, #65]	@ zero_extendqisi2
+ 433 0004 70B5     		push	{r4, r5, r6, lr}
+ 434 0006 DBB2     		uxtb	r3, r3
+ 435 0008 022B     		cmp	r3, #2
+ 436 000a 46D0     		beq	.L75
+ 437 000c 90F84140 		ldrb	r4, [r0, #65]	@ zero_extendqisi2
+ 438 0010 E4B2     		uxtb	r4, r4
+ 439 0012 012C     		cmp	r4, #1
+ 440 0014 49D1     		bne	.L84
+ 441 0016 90F84030 		ldrb	r3, [r0, #64]	@ zero_extendqisi2
+ 442 001a 012B     		cmp	r3, #1
+ 443 001c 4FF00203 		mov	r3, #2
+ 444 0020 3BD0     		beq	.L75
+ 445 0022 80F84130 		strb	r3, [r0, #65]
+ 446 0026 8368     		ldr	r3, [r0, #8]
+ 447 0028 80F84040 		strb	r4, [r0, #64]
+ 448 002c 002B     		cmp	r3, #0
+ 449 002e 36D0     		beq	.L86
+ 450 0030 022B     		cmp	r3, #2
+ 451 0032 37D0     		beq	.L87
+ 452 0034 042B     		cmp	r3, #4
+ 453 0036 0CBF     		ite	eq
+ 454 0038 4FF0D043 		moveq	r3, #1744830464
+ 455 003c 4FF0D843 		movne	r3, #1811939328
+ 456              	.L76:
+ 457 0040 AA26     		movs	r6, #170
+ 458 0042 1B4C     		ldr	r4, .L89
+ 459 0044 2568     		ldr	r5, [r4]
+ 460 0046 012D     		cmp	r5, #1
+ 461 0048 0CBF     		ite	eq
+ 462 004a 03F6AA25 		addweq	r5, r3, #2730
+ 463 004e 03F25555 		addwne	r5, r3, #1365
+ 464 0052 2E80     		strh	r6, [r5]	@ movhi
+ 465              		.syntax unified
+ 466              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
+ 467 0054 BFF34F8F 		dsb 0xF
+ 468              	@ 0 "" 2
+ 469              		.thumb
+ 470              		.syntax unified
+ 471 0058 5526     		movs	r6, #85
+ 472 005a 2568     		ldr	r5, [r4]
+ 473 005c 012D     		cmp	r5, #1
+ARM GAS  /tmp/ccKWzf4l.s 			page 9
 
 
- 474 0096 0123     		movs	r3, #1
- 475 0098 80F84130 		strb	r3, [r0, #65]
- 476 009c 0023     		movs	r3, #0
- 477 009e 80F84030 		strb	r3, [r0, #64]
- 478 00a2 01E0     		b	.L86
- 479              	.L85:
- 480 00a4 0120     		movs	r0, #1
- 481 00a6 70BD     		pop	{r4, r5, r6, pc}
- 482              	.L86:
- 483 00a8 1846     		mov	r0, r3
- 484 00aa 70BD     		pop	{r4, r5, r6, pc}
- 485              	.L91:
- 486              		.align	2
- 487              	.L90:
- 488 00ac 00000000 		.word	.LANCHOR0
- 490              		.section	.text.HAL_NOR_ReadBuffer,"ax",%progbits
- 491              		.align	1
- 492              		.global	HAL_NOR_ReadBuffer
- 493              		.thumb
- 494              		.thumb_func
- 496              	HAL_NOR_ReadBuffer:
- 497              		@ args = 0, pretend = 0, frame = 0
- 498              		@ frame_needed = 0, uses_anonymous_args = 0
- 499 0000 F0B5     		push	{r4, r5, r6, r7, lr}
- 500 0002 90F84150 		ldrb	r5, [r0, #65]	@ zero_extendqisi2
- 501 0006 EDB2     		uxtb	r5, r5
- 502 0008 022D     		cmp	r5, #2
- 503 000a 52D0     		beq	.L104
- 504 000c 012D     		cmp	r5, #1
- 505 000e 01D0     		beq	.L94
- 506 0010 042D     		cmp	r5, #4
- 507 0012 50D1     		bne	.L105
- 508              	.L94:
- 509 0014 90F84040 		ldrb	r4, [r0, #64]	@ zero_extendqisi2
- 510 0018 012C     		cmp	r4, #1
- 511 001a 4FF00204 		mov	r4, #2
- 512 001e 4CD0     		beq	.L106
- 513 0020 80F84140 		strb	r4, [r0, #65]
- 514 0024 8468     		ldr	r4, [r0, #8]
- 515 0026 0126     		movs	r6, #1
- 516 0028 80F84060 		strb	r6, [r0, #64]
- 517 002c 44B1     		cbz	r4, .L107
- 518 002e 022C     		cmp	r4, #2
- 519 0030 09D0     		beq	.L108
- 520 0032 042C     		cmp	r4, #4
- 521 0034 0CBF     		ite	eq
- 522 0036 4FF0D044 		moveq	r4, #1744830464
- 523 003a 4FF0D844 		movne	r4, #1811939328
- 524 003e 04E0     		b	.L95
- 525              	.L107:
- 526 0040 4FF0C044 		mov	r4, #1610612736
- 527 0044 01E0     		b	.L95
- 528              	.L108:
- 529 0046 4FF0C844 		mov	r4, #1677721600
- 530              	.L95:
- 531 004a 1D4E     		ldr	r6, .L114
- 532 004c 4FF0AA0E 		mov	lr, #170
-ARM GAS  /tmp/ccPlkNs4.s 			page 10
+ 474 005e 0CBF     		ite	eq
+ 475 0060 03F25455 		addweq	r5, r3, #1364
+ 476 0064 03F2AA25 		addwne	r5, r3, #682
+ 477 0068 2E80     		strh	r6, [r5]	@ movhi
+ 478              		.syntax unified
+ 479              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
+ 480 006a BFF34F8F 		dsb 0xF
+ 481              	@ 0 "" 2
+ 482              		.thumb
+ 483              		.syntax unified
+ 484 006e 2468     		ldr	r4, [r4]
+ 485 0070 012C     		cmp	r4, #1
+ 486 0072 4FF0A004 		mov	r4, #160
+ 487 0076 0CBF     		ite	eq
+ 488 0078 03F6AA23 		addweq	r3, r3, #2730
+ 489 007c 03F25553 		addwne	r3, r3, #1365
+ 490 0080 1C80     		strh	r4, [r3]	@ movhi
+ 491              		.syntax unified
+ 492              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
+ 493 0082 BFF34F8F 		dsb 0xF
+ 494              	@ 0 "" 2
+ 495              		.thumb
+ 496              		.syntax unified
+ 497 0086 1388     		ldrh	r3, [r2]
+ 498 0088 0B80     		strh	r3, [r1]	@ movhi
+ 499              		.syntax unified
+ 500              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
+ 501 008a BFF34F8F 		dsb 0xF
+ 502              	@ 0 "" 2
+ 503              		.thumb
+ 504              		.syntax unified
+ 505 008e 0123     		movs	r3, #1
+ 506 0090 80F84130 		strb	r3, [r0, #65]
+ 507 0094 0023     		movs	r3, #0
+ 508 0096 80F84030 		strb	r3, [r0, #64]
+ 509              	.L75:
+ 510 009a 1846     		mov	r0, r3
+ 511 009c 70BD     		pop	{r4, r5, r6, pc}
+ 512              	.L86:
+ 513 009e 4FF0C043 		mov	r3, #1610612736
+ 514 00a2 CDE7     		b	.L76
+ 515              	.L87:
+ 516 00a4 4FF0C843 		mov	r3, #1677721600
+ 517 00a8 CAE7     		b	.L76
+ 518              	.L84:
+ 519 00aa 0123     		movs	r3, #1
+ 520 00ac F5E7     		b	.L75
+ 521              	.L90:
+ 522 00ae 00BF     		.align	2
+ 523              	.L89:
+ 524 00b0 00000000 		.word	.LANCHOR0
+ 526              		.section	.text.HAL_NOR_ReadBuffer,"ax",%progbits
+ 527              		.align	1
+ 528              		.global	HAL_NOR_ReadBuffer
+ 529              		.syntax unified
+ 530              		.thumb
+ 531              		.thumb_func
+ARM GAS  /tmp/ccKWzf4l.s 			page 10
 
 
- 533 0050 3768     		ldr	r7, [r6]
- 534 0052 012F     		cmp	r7, #1
- 535 0054 0CBF     		ite	eq
- 536 0056 04F6AA27 		addweq	r7, r4, #2730
- 537 005a 04F25557 		addwne	r7, r4, #1365
- 538 005e A7F800E0 		strh	lr, [r7]	@ movhi
- 539              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
- 540 0062 BFF34F8F 		dsb 0xF
- 541              	@ 0 "" 2
- 542              		.thumb
- 543 0066 3768     		ldr	r7, [r6]
- 544 0068 4FF0550E 		mov	lr, #85
- 545 006c 012F     		cmp	r7, #1
- 546 006e 0CBF     		ite	eq
- 547 0070 04F25457 		addweq	r7, r4, #1364
- 548 0074 04F2AA27 		addwne	r7, r4, #682
- 549 0078 A7F800E0 		strh	lr, [r7]	@ movhi
- 550              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
- 551 007c BFF34F8F 		dsb 0xF
- 552              	@ 0 "" 2
- 553              		.thumb
- 554 0080 3668     		ldr	r6, [r6]
- 555 0082 012E     		cmp	r6, #1
- 556 0084 0CBF     		ite	eq
- 557 0086 04F6AA24 		addweq	r4, r4, #2730
- 558 008a 04F25554 		addwne	r4, r4, #1365
- 559 008e F026     		movs	r6, #240
- 560 0090 2680     		strh	r6, [r4]	@ movhi
- 561              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
- 562 0092 BFF34F8F 		dsb 0xF
- 563              	@ 0 "" 2
- 564              		.thumb
- 565 0096 1446     		mov	r4, r2
- 566              	.L102:
- 567 0098 2BB1     		cbz	r3, .L113
- 568 009a 8E1A     		subs	r6, r1, r2
- 569 009c A65B     		ldrh	r6, [r4, r6]
- 570 009e 013B     		subs	r3, r3, #1
- 571 00a0 24F8026B 		strh	r6, [r4], #2	@ movhi
- 572 00a4 F8E7     		b	.L102
- 573              	.L113:
- 574 00a6 80F84150 		strb	r5, [r0, #65]
- 575 00aa 80F84030 		strb	r3, [r0, #64]
- 576 00ae 1846     		mov	r0, r3
- 577 00b0 F0BD     		pop	{r4, r5, r6, r7, pc}
- 578              	.L104:
- 579 00b2 2846     		mov	r0, r5
- 580 00b4 F0BD     		pop	{r4, r5, r6, r7, pc}
- 581              	.L105:
- 582 00b6 0120     		movs	r0, #1
- 583 00b8 F0BD     		pop	{r4, r5, r6, r7, pc}
- 584              	.L106:
- 585 00ba 2046     		mov	r0, r4
- 586 00bc F0BD     		pop	{r4, r5, r6, r7, pc}
- 587              	.L115:
- 588 00be 00BF     		.align	2
- 589              	.L114:
-ARM GAS  /tmp/ccPlkNs4.s 			page 11
+ 532              		.fpu softvfp
+ 534              	HAL_NOR_ReadBuffer:
+ 535              		@ args = 0, pretend = 0, frame = 0
+ 536              		@ frame_needed = 0, uses_anonymous_args = 0
+ 537 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 538 0002 90F84150 		ldrb	r5, [r0, #65]	@ zero_extendqisi2
+ 539 0006 EDB2     		uxtb	r5, r5
+ 540 0008 022D     		cmp	r5, #2
+ 541 000a 53D0     		beq	.L103
+ 542 000c 012D     		cmp	r5, #1
+ 543 000e 01D0     		beq	.L93
+ 544 0010 042D     		cmp	r5, #4
+ 545 0012 51D1     		bne	.L104
+ 546              	.L93:
+ 547 0014 90F84040 		ldrb	r4, [r0, #64]	@ zero_extendqisi2
+ 548 0018 012C     		cmp	r4, #1
+ 549 001a 4FF00204 		mov	r4, #2
+ 550 001e 4DD0     		beq	.L105
+ 551 0020 0126     		movs	r6, #1
+ 552 0022 80F84140 		strb	r4, [r0, #65]
+ 553 0026 8468     		ldr	r4, [r0, #8]
+ 554 0028 80F84060 		strb	r6, [r0, #64]
+ 555 002c 002C     		cmp	r4, #0
+ 556 002e 36D0     		beq	.L106
+ 557 0030 022C     		cmp	r4, #2
+ 558 0032 37D0     		beq	.L107
+ 559 0034 042C     		cmp	r4, #4
+ 560 0036 0CBF     		ite	eq
+ 561 0038 4FF0D044 		moveq	r4, #1744830464
+ 562 003c 4FF0D844 		movne	r4, #1811939328
+ 563              	.L94:
+ 564 0040 4FF0AA0E 		mov	lr, #170
+ 565 0044 1E4E     		ldr	r6, .L112
+ 566 0046 3768     		ldr	r7, [r6]
+ 567 0048 012F     		cmp	r7, #1
+ 568 004a 0CBF     		ite	eq
+ 569 004c 04F6AA27 		addweq	r7, r4, #2730
+ 570 0050 04F25557 		addwne	r7, r4, #1365
+ 571 0054 A7F800E0 		strh	lr, [r7]	@ movhi
+ 572              		.syntax unified
+ 573              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
+ 574 0058 BFF34F8F 		dsb 0xF
+ 575              	@ 0 "" 2
+ 576              		.thumb
+ 577              		.syntax unified
+ 578 005c 4FF0550E 		mov	lr, #85
+ 579 0060 3768     		ldr	r7, [r6]
+ 580 0062 012F     		cmp	r7, #1
+ 581 0064 0CBF     		ite	eq
+ 582 0066 04F25457 		addweq	r7, r4, #1364
+ 583 006a 04F2AA27 		addwne	r7, r4, #682
+ 584 006e A7F800E0 		strh	lr, [r7]	@ movhi
+ 585              		.syntax unified
+ 586              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
+ 587 0072 BFF34F8F 		dsb 0xF
+ 588              	@ 0 "" 2
+ 589              		.thumb
+ARM GAS  /tmp/ccKWzf4l.s 			page 11
 
 
- 590 00c0 00000000 		.word	.LANCHOR0
- 592              		.section	.text.HAL_NOR_ProgramBuffer,"ax",%progbits
- 593              		.align	1
- 594              		.global	HAL_NOR_ProgramBuffer
- 595              		.thumb
- 596              		.thumb_func
- 598              	HAL_NOR_ProgramBuffer:
- 599              		@ args = 0, pretend = 0, frame = 0
- 600              		@ frame_needed = 0, uses_anonymous_args = 0
- 601 0000 F0B5     		push	{r4, r5, r6, r7, lr}
- 602 0002 90F84140 		ldrb	r4, [r0, #65]	@ zero_extendqisi2
- 603 0006 E4B2     		uxtb	r4, r4
- 604 0008 022C     		cmp	r4, #2
- 605 000a 6CD0     		beq	.L131
- 606 000c 90F84150 		ldrb	r5, [r0, #65]	@ zero_extendqisi2
- 607 0010 EDB2     		uxtb	r5, r5
- 608 0012 012D     		cmp	r5, #1
- 609 0014 65D1     		bne	.L130
- 610 0016 90F84040 		ldrb	r4, [r0, #64]	@ zero_extendqisi2
- 611 001a 012C     		cmp	r4, #1
- 612 001c 4FF00204 		mov	r4, #2
- 613 0020 61D0     		beq	.L131
- 614 0022 80F84140 		strb	r4, [r0, #65]
- 615 0026 8468     		ldr	r4, [r0, #8]
- 616 0028 80F84050 		strb	r5, [r0, #64]
- 617 002c 44B1     		cbz	r4, .L132
- 618 002e 022C     		cmp	r4, #2
- 619 0030 09D0     		beq	.L133
- 620 0032 042C     		cmp	r4, #4
- 621 0034 0CBF     		ite	eq
- 622 0036 4FF0D044 		moveq	r4, #1744830464
- 623 003a 4FF0D844 		movne	r4, #1811939328
- 624 003e 04E0     		b	.L118
- 625              	.L132:
- 626 0040 4FF0C044 		mov	r4, #1610612736
- 627 0044 01E0     		b	.L118
- 628              	.L133:
- 629 0046 4FF0C844 		mov	r4, #1677721600
- 630              	.L118:
- 631 004a 284D     		ldr	r5, .L136
- 632 004c 013B     		subs	r3, r3, #1
- 633 004e 2F68     		ldr	r7, [r5]
- 634 0050 4FF0AA0C 		mov	ip, #170
- 635 0054 012F     		cmp	r7, #1
- 636 0056 0CBF     		ite	eq
- 637 0058 04F6AA27 		addweq	r7, r4, #2730
- 638 005c 04F25557 		addwne	r7, r4, #1365
- 639 0060 0E46     		mov	r6, r1
- 640 0062 03EB010E 		add	lr, r3, r1
- 641 0066 A7F800C0 		strh	ip, [r7]	@ movhi
- 642              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
- 643 006a BFF34F8F 		dsb 0xF
- 644              	@ 0 "" 2
- 645              		.thumb
- 646 006e 2F68     		ldr	r7, [r5]
- 647 0070 4FF0550C 		mov	ip, #85
- 648 0074 012F     		cmp	r7, #1
-ARM GAS  /tmp/ccPlkNs4.s 			page 12
+ 590              		.syntax unified
+ 591 0076 3668     		ldr	r6, [r6]
+ 592 0078 012E     		cmp	r6, #1
+ 593 007a 4FF0F006 		mov	r6, #240
+ 594 007e 0CBF     		ite	eq
+ 595 0080 04F6AA24 		addweq	r4, r4, #2730
+ 596 0084 04F25554 		addwne	r4, r4, #1365
+ 597 0088 2680     		strh	r6, [r4]	@ movhi
+ 598              		.syntax unified
+ 599              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
+ 600 008a BFF34F8F 		dsb 0xF
+ 601              	@ 0 "" 2
+ 602              		.thumb
+ 603              		.syntax unified
+ 604 008e 891A     		subs	r1, r1, r2
+ 605              	.L101:
+ 606 0090 5BB9     		cbnz	r3, .L102
+ 607 0092 80F84150 		strb	r5, [r0, #65]
+ 608 0096 80F84030 		strb	r3, [r0, #64]
+ 609 009a 1846     		mov	r0, r3
+ 610 009c F0BD     		pop	{r4, r5, r6, r7, pc}
+ 611              	.L106:
+ 612 009e 4FF0C044 		mov	r4, #1610612736
+ 613 00a2 CDE7     		b	.L94
+ 614              	.L107:
+ 615 00a4 4FF0C844 		mov	r4, #1677721600
+ 616 00a8 CAE7     		b	.L94
+ 617              	.L102:
+ 618 00aa 545A     		ldrh	r4, [r2, r1]
+ 619 00ac 013B     		subs	r3, r3, #1
+ 620 00ae 22F8024B 		strh	r4, [r2], #2	@ movhi
+ 621 00b2 EDE7     		b	.L101
+ 622              	.L103:
+ 623 00b4 2846     		mov	r0, r5
+ 624 00b6 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 625              	.L104:
+ 626 00b8 0120     		movs	r0, #1
+ 627 00ba F0BD     		pop	{r4, r5, r6, r7, pc}
+ 628              	.L105:
+ 629 00bc 2046     		mov	r0, r4
+ 630 00be F0BD     		pop	{r4, r5, r6, r7, pc}
+ 631              	.L113:
+ 632              		.align	2
+ 633              	.L112:
+ 634 00c0 00000000 		.word	.LANCHOR0
+ 636              		.section	.text.HAL_NOR_ProgramBuffer,"ax",%progbits
+ 637              		.align	1
+ 638              		.global	HAL_NOR_ProgramBuffer
+ 639              		.syntax unified
+ 640              		.thumb
+ 641              		.thumb_func
+ 642              		.fpu softvfp
+ 644              	HAL_NOR_ProgramBuffer:
+ 645              		@ args = 0, pretend = 0, frame = 0
+ 646              		@ frame_needed = 0, uses_anonymous_args = 0
+ 647 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 648 0002 90F84140 		ldrb	r4, [r0, #65]	@ zero_extendqisi2
+ARM GAS  /tmp/ccKWzf4l.s 			page 12
 
 
- 649 0076 0CBF     		ite	eq
- 650 0078 04F25457 		addweq	r7, r4, #1364
- 651 007c 04F2AA27 		addwne	r7, r4, #682
- 652 0080 A7F800C0 		strh	ip, [r7]	@ movhi
- 653              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
- 654 0084 BFF34F8F 		dsb 0xF
- 655              	@ 0 "" 2
- 656              		.thumb
- 657 0088 2F68     		ldr	r7, [r5]
- 658 008a 4FF0250C 		mov	ip, #37
- 659 008e 012F     		cmp	r7, #1
- 660 0090 0CBF     		ite	eq
- 661 0092 04EB4107 		addeq	r7, r4, r1, lsl #1
- 662 0096 6718     		addne	r7, r4, r1
- 663 0098 A7F800C0 		strh	ip, [r7]	@ movhi
- 664              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
- 665 009c BFF34F8F 		dsb 0xF
- 666              	@ 0 "" 2
- 667              		.thumb
- 668 00a0 2D68     		ldr	r5, [r5]
- 669 00a2 9BB2     		uxth	r3, r3
- 670 00a4 012D     		cmp	r5, #1
- 671 00a6 0CBF     		ite	eq
- 672 00a8 04EB4104 		addeq	r4, r4, r1, lsl #1
- 673 00ac 6418     		addne	r4, r4, r1
- 674 00ae 2380     		strh	r3, [r4]	@ movhi
- 675              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
- 676 00b0 BFF34F8F 		dsb 0xF
- 677              	@ 0 "" 2
- 678              		.thumb
- 679 00b4 023A     		subs	r2, r2, #2
- 680              	.L127:
- 681 00b6 7645     		cmp	r6, lr
- 682 00b8 07D8     		bhi	.L135
- 683 00ba 32F8023F 		ldrh	r3, [r2, #2]!
- 684 00be 3146     		mov	r1, r6
- 685 00c0 26F8023B 		strh	r3, [r6], #2	@ movhi
- 686              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
- 687 00c4 BFF34F8F 		dsb 0xF
- 688              	@ 0 "" 2
- 689              		.thumb
- 690 00c8 F5E7     		b	.L127
- 691              	.L135:
- 692 00ca 2923     		movs	r3, #41
- 693 00cc 0B80     		strh	r3, [r1]	@ movhi
- 694              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
- 695 00ce BFF34F8F 		dsb 0xF
- 696              	@ 0 "" 2
- 697              		.thumb
- 698 00d2 0123     		movs	r3, #1
- 699 00d4 80F84130 		strb	r3, [r0, #65]
- 700 00d8 0023     		movs	r3, #0
- 701 00da 80F84030 		strb	r3, [r0, #64]
- 702 00de 1846     		mov	r0, r3
- 703 00e0 F0BD     		pop	{r4, r5, r6, r7, pc}
- 704              	.L130:
- 705 00e2 0120     		movs	r0, #1
-ARM GAS  /tmp/ccPlkNs4.s 			page 13
+ 649 0006 E4B2     		uxtb	r4, r4
+ 650 0008 022C     		cmp	r4, #2
+ 651 000a 6AD0     		beq	.L129
+ 652 000c 90F84150 		ldrb	r5, [r0, #65]	@ zero_extendqisi2
+ 653 0010 EDB2     		uxtb	r5, r5
+ 654 0012 012D     		cmp	r5, #1
+ 655 0014 63D1     		bne	.L128
+ 656 0016 90F84040 		ldrb	r4, [r0, #64]	@ zero_extendqisi2
+ 657 001a 012C     		cmp	r4, #1
+ 658 001c 4FF00204 		mov	r4, #2
+ 659 0020 5FD0     		beq	.L129
+ 660 0022 80F84140 		strb	r4, [r0, #65]
+ 661 0026 8468     		ldr	r4, [r0, #8]
+ 662 0028 80F84050 		strb	r5, [r0, #64]
+ 663 002c 002C     		cmp	r4, #0
+ 664 002e 4AD0     		beq	.L130
+ 665 0030 022C     		cmp	r4, #2
+ 666 0032 4BD0     		beq	.L131
+ 667 0034 042C     		cmp	r4, #4
+ 668 0036 0CBF     		ite	eq
+ 669 0038 4FF0D044 		moveq	r4, #1744830464
+ 670 003c 4FF0D844 		movne	r4, #1811939328
+ 671              	.L116:
+ 672 0040 4FF0AA0C 		mov	ip, #170
+ 673 0044 284D     		ldr	r5, .L134
+ 674 0046 013B     		subs	r3, r3, #1
+ 675 0048 2F68     		ldr	r7, [r5]
+ 676 004a 0E46     		mov	r6, r1
+ 677 004c 012F     		cmp	r7, #1
+ 678 004e 0CBF     		ite	eq
+ 679 0050 04F6AA27 		addweq	r7, r4, #2730
+ 680 0054 04F25557 		addwne	r7, r4, #1365
+ 681 0058 03EB010E 		add	lr, r3, r1
+ 682 005c A7F800C0 		strh	ip, [r7]	@ movhi
+ 683              		.syntax unified
+ 684              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
+ 685 0060 BFF34F8F 		dsb 0xF
+ 686              	@ 0 "" 2
+ 687              		.thumb
+ 688              		.syntax unified
+ 689 0064 4FF0550C 		mov	ip, #85
+ 690 0068 2F68     		ldr	r7, [r5]
+ 691 006a 012F     		cmp	r7, #1
+ 692 006c 0CBF     		ite	eq
+ 693 006e 04F25457 		addweq	r7, r4, #1364
+ 694 0072 04F2AA27 		addwne	r7, r4, #682
+ 695 0076 A7F800C0 		strh	ip, [r7]	@ movhi
+ 696              		.syntax unified
+ 697              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
+ 698 007a BFF34F8F 		dsb 0xF
+ 699              	@ 0 "" 2
+ 700              		.thumb
+ 701              		.syntax unified
+ 702 007e 4FF0250C 		mov	ip, #37
+ 703 0082 2F68     		ldr	r7, [r5]
+ 704 0084 012F     		cmp	r7, #1
+ 705 0086 0CBF     		ite	eq
+ARM GAS  /tmp/ccKWzf4l.s 			page 13
 
 
- 706 00e4 F0BD     		pop	{r4, r5, r6, r7, pc}
- 707              	.L131:
- 708 00e6 2046     		mov	r0, r4
- 709 00e8 F0BD     		pop	{r4, r5, r6, r7, pc}
- 710              	.L137:
- 711 00ea 00BF     		.align	2
- 712              	.L136:
- 713 00ec 00000000 		.word	.LANCHOR0
- 715              		.section	.text.HAL_NOR_Erase_Block,"ax",%progbits
- 716              		.align	1
- 717              		.global	HAL_NOR_Erase_Block
- 718              		.thumb
- 719              		.thumb_func
- 721              	HAL_NOR_Erase_Block:
- 722              		@ args = 0, pretend = 0, frame = 0
- 723              		@ frame_needed = 0, uses_anonymous_args = 0
- 724 0000 90F84130 		ldrb	r3, [r0, #65]	@ zero_extendqisi2
- 725 0004 70B5     		push	{r4, r5, r6, lr}
- 726 0006 DBB2     		uxtb	r3, r3
- 727 0008 022B     		cmp	r3, #2
- 728 000a 63D0     		beq	.L153
- 729 000c 90F84140 		ldrb	r4, [r0, #65]	@ zero_extendqisi2
- 730 0010 E4B2     		uxtb	r4, r4
- 731 0012 012C     		cmp	r4, #1
- 732 0014 5CD1     		bne	.L152
- 733 0016 90F84030 		ldrb	r3, [r0, #64]	@ zero_extendqisi2
- 734 001a 012B     		cmp	r3, #1
- 735 001c 4FF00203 		mov	r3, #2
- 736 0020 58D0     		beq	.L153
- 737 0022 80F84130 		strb	r3, [r0, #65]
- 738 0026 8368     		ldr	r3, [r0, #8]
- 739 0028 80F84040 		strb	r4, [r0, #64]
- 740 002c 43B1     		cbz	r3, .L154
- 741 002e 022B     		cmp	r3, #2
- 742 0030 09D0     		beq	.L155
- 743 0032 042B     		cmp	r3, #4
- 744 0034 0CBF     		ite	eq
- 745 0036 4FF0D043 		moveq	r3, #1744830464
- 746 003a 4FF0D843 		movne	r3, #1811939328
- 747 003e 04E0     		b	.L140
- 748              	.L154:
- 749 0040 4FF0C043 		mov	r3, #1610612736
- 750 0044 01E0     		b	.L140
- 751              	.L155:
- 752 0046 4FF0C843 		mov	r3, #1677721600
- 753              	.L140:
- 754 004a 234C     		ldr	r4, .L157
- 755 004c AA26     		movs	r6, #170
- 756 004e 2568     		ldr	r5, [r4]
- 757 0050 012D     		cmp	r5, #1
- 758 0052 0CBF     		ite	eq
- 759 0054 03F6AA25 		addweq	r5, r3, #2730
- 760 0058 03F25555 		addwne	r5, r3, #1365
- 761 005c 2E80     		strh	r6, [r5]	@ movhi
- 762              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
- 763 005e BFF34F8F 		dsb 0xF
- 764              	@ 0 "" 2
-ARM GAS  /tmp/ccPlkNs4.s 			page 14
+ 706 0088 04EB4107 		addeq	r7, r4, r1, lsl #1
+ 707 008c 6718     		addne	r7, r4, r1
+ 708 008e A7F800C0 		strh	ip, [r7]	@ movhi
+ 709              		.syntax unified
+ 710              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
+ 711 0092 BFF34F8F 		dsb 0xF
+ 712              	@ 0 "" 2
+ 713              		.thumb
+ 714              		.syntax unified
+ 715 0096 2D68     		ldr	r5, [r5]
+ 716 0098 9BB2     		uxth	r3, r3
+ 717 009a 012D     		cmp	r5, #1
+ 718 009c 0CBF     		ite	eq
+ 719 009e 04EB4104 		addeq	r4, r4, r1, lsl #1
+ 720 00a2 6418     		addne	r4, r4, r1
+ 721 00a4 2380     		strh	r3, [r4]	@ movhi
+ 722              	.L133:
+ 723              		.syntax unified
+ 724              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
+ 725 00a6 BFF34F8F 		dsb 0xF
+ 726              	@ 0 "" 2
+ 727              		.thumb
+ 728              		.syntax unified
+ 729 00aa 7645     		cmp	r6, lr
+ 730 00ac 11D9     		bls	.L126
+ 731 00ae 2923     		movs	r3, #41
+ 732 00b0 0B80     		strh	r3, [r1]	@ movhi
+ 733              		.syntax unified
+ 734              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
+ 735 00b2 BFF34F8F 		dsb 0xF
+ 736              	@ 0 "" 2
+ 737              		.thumb
+ 738              		.syntax unified
+ 739 00b6 0123     		movs	r3, #1
+ 740 00b8 80F84130 		strb	r3, [r0, #65]
+ 741 00bc 0023     		movs	r3, #0
+ 742 00be 80F84030 		strb	r3, [r0, #64]
+ 743 00c2 1846     		mov	r0, r3
+ 744 00c4 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 745              	.L130:
+ 746 00c6 4FF0C044 		mov	r4, #1610612736
+ 747 00ca B9E7     		b	.L116
+ 748              	.L131:
+ 749 00cc 4FF0C844 		mov	r4, #1677721600
+ 750 00d0 B6E7     		b	.L116
+ 751              	.L126:
+ 752 00d2 32F8023B 		ldrh	r3, [r2], #2
+ 753 00d6 3146     		mov	r1, r6
+ 754 00d8 26F8023B 		strh	r3, [r6], #2	@ movhi
+ 755 00dc E3E7     		b	.L133
+ 756              	.L128:
+ 757 00de 0120     		movs	r0, #1
+ 758 00e0 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 759              	.L129:
+ 760 00e2 2046     		mov	r0, r4
+ 761 00e4 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 762              	.L135:
+ARM GAS  /tmp/ccKWzf4l.s 			page 14
 
 
- 765              		.thumb
- 766 0062 2568     		ldr	r5, [r4]
- 767 0064 5526     		movs	r6, #85
- 768 0066 012D     		cmp	r5, #1
- 769 0068 0CBF     		ite	eq
- 770 006a 03F25455 		addweq	r5, r3, #1364
- 771 006e 03F2AA25 		addwne	r5, r3, #682
- 772 0072 2E80     		strh	r6, [r5]	@ movhi
- 773              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
- 774 0074 BFF34F8F 		dsb 0xF
- 775              	@ 0 "" 2
- 776              		.thumb
- 777 0078 2568     		ldr	r5, [r4]
- 778 007a 8026     		movs	r6, #128
- 779 007c 012D     		cmp	r5, #1
- 780 007e 0CBF     		ite	eq
- 781 0080 03F6AA25 		addweq	r5, r3, #2730
- 782 0084 03F25555 		addwne	r5, r3, #1365
- 783 0088 2E80     		strh	r6, [r5]	@ movhi
- 784              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
- 785 008a BFF34F8F 		dsb 0xF
- 786              	@ 0 "" 2
- 787              		.thumb
- 788 008e 2568     		ldr	r5, [r4]
- 789 0090 AA26     		movs	r6, #170
- 790 0092 012D     		cmp	r5, #1
- 791 0094 0CBF     		ite	eq
- 792 0096 03F6AA25 		addweq	r5, r3, #2730
- 793 009a 03F25555 		addwne	r5, r3, #1365
- 794 009e 2E80     		strh	r6, [r5]	@ movhi
- 795              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
- 796 00a0 BFF34F8F 		dsb 0xF
- 797              	@ 0 "" 2
- 798              		.thumb
- 799 00a4 2468     		ldr	r4, [r4]
- 800 00a6 012C     		cmp	r4, #1
- 801 00a8 0CBF     		ite	eq
- 802 00aa 03F25453 		addweq	r3, r3, #1364
- 803 00ae 03F2AA23 		addwne	r3, r3, #682
- 804 00b2 5524     		movs	r4, #85
- 805 00b4 1C80     		strh	r4, [r3]	@ movhi
- 806              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
- 807 00b6 BFF34F8F 		dsb 0xF
- 808              	@ 0 "" 2
- 809              		.thumb
- 810 00ba 3023     		movs	r3, #48
- 811 00bc 8B52     		strh	r3, [r1, r2]	@ movhi
+ 763 00e6 00BF     		.align	2
+ 764              	.L134:
+ 765 00e8 00000000 		.word	.LANCHOR0
+ 767              		.section	.text.HAL_NOR_Erase_Block,"ax",%progbits
+ 768              		.align	1
+ 769              		.global	HAL_NOR_Erase_Block
+ 770              		.syntax unified
+ 771              		.thumb
+ 772              		.thumb_func
+ 773              		.fpu softvfp
+ 775              	HAL_NOR_Erase_Block:
+ 776              		@ args = 0, pretend = 0, frame = 0
+ 777              		@ frame_needed = 0, uses_anonymous_args = 0
+ 778 0000 90F84130 		ldrb	r3, [r0, #65]	@ zero_extendqisi2
+ 779 0004 70B5     		push	{r4, r5, r6, lr}
+ 780 0006 DBB2     		uxtb	r3, r3
+ 781 0008 022B     		cmp	r3, #2
+ 782 000a 5CD0     		beq	.L137
+ 783 000c 90F84140 		ldrb	r4, [r0, #65]	@ zero_extendqisi2
+ 784 0010 E4B2     		uxtb	r4, r4
+ 785 0012 012C     		cmp	r4, #1
+ 786 0014 5FD1     		bne	.L150
+ 787 0016 90F84030 		ldrb	r3, [r0, #64]	@ zero_extendqisi2
+ 788 001a 012B     		cmp	r3, #1
+ 789 001c 4FF00203 		mov	r3, #2
+ 790 0020 51D0     		beq	.L137
+ 791 0022 80F84130 		strb	r3, [r0, #65]
+ 792 0026 8368     		ldr	r3, [r0, #8]
+ 793 0028 80F84040 		strb	r4, [r0, #64]
+ 794 002c 002B     		cmp	r3, #0
+ 795 002e 4CD0     		beq	.L152
+ 796 0030 022B     		cmp	r3, #2
+ 797 0032 4DD0     		beq	.L153
+ 798 0034 042B     		cmp	r3, #4
+ 799 0036 0CBF     		ite	eq
+ 800 0038 4FF0D043 		moveq	r3, #1744830464
+ 801 003c 4FF0D843 		movne	r3, #1811939328
+ 802              	.L138:
+ 803 0040 AA26     		movs	r6, #170
+ 804 0042 264C     		ldr	r4, .L155
+ 805 0044 2568     		ldr	r5, [r4]
+ 806 0046 012D     		cmp	r5, #1
+ 807 0048 0CBF     		ite	eq
+ 808 004a 03F6AA25 		addweq	r5, r3, #2730
+ 809 004e 03F25555 		addwne	r5, r3, #1365
+ 810 0052 2E80     		strh	r6, [r5]	@ movhi
+ 811              		.syntax unified
  812              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
- 813 00be BFF34F8F 		dsb 0xF
+ 813 0054 BFF34F8F 		dsb 0xF
  814              	@ 0 "" 2
  815              		.thumb
- 816 00c2 0123     		movs	r3, #1
- 817 00c4 80F84130 		strb	r3, [r0, #65]
- 818 00c8 0023     		movs	r3, #0
- 819 00ca 80F84030 		strb	r3, [r0, #64]
- 820 00ce 01E0     		b	.L153
- 821              	.L152:
-ARM GAS  /tmp/ccPlkNs4.s 			page 15
+ 816              		.syntax unified
+ 817 0058 5526     		movs	r6, #85
+ 818 005a 2568     		ldr	r5, [r4]
+ 819 005c 012D     		cmp	r5, #1
+ 820 005e 0CBF     		ite	eq
+ 821 0060 03F25455 		addweq	r5, r3, #1364
+ARM GAS  /tmp/ccKWzf4l.s 			page 15
 
 
- 822 00d0 0120     		movs	r0, #1
- 823 00d2 70BD     		pop	{r4, r5, r6, pc}
- 824              	.L153:
- 825 00d4 1846     		mov	r0, r3
- 826 00d6 70BD     		pop	{r4, r5, r6, pc}
- 827              	.L158:
- 828              		.align	2
- 829              	.L157:
- 830 00d8 00000000 		.word	.LANCHOR0
- 832              		.section	.text.HAL_NOR_Erase_Chip,"ax",%progbits
- 833              		.align	1
- 834              		.global	HAL_NOR_Erase_Chip
- 835              		.thumb
- 836              		.thumb_func
- 838              	HAL_NOR_Erase_Chip:
- 839              		@ args = 0, pretend = 0, frame = 0
- 840              		@ frame_needed = 0, uses_anonymous_args = 0
- 841 0000 90F84130 		ldrb	r3, [r0, #65]	@ zero_extendqisi2
- 842 0004 10B5     		push	{r4, lr}
- 843 0006 DBB2     		uxtb	r3, r3
- 844 0008 022B     		cmp	r3, #2
- 845 000a 6AD0     		beq	.L176
- 846 000c 90F84120 		ldrb	r2, [r0, #65]	@ zero_extendqisi2
- 847 0010 D2B2     		uxtb	r2, r2
- 848 0012 012A     		cmp	r2, #1
- 849 0014 63D1     		bne	.L175
- 850 0016 90F84030 		ldrb	r3, [r0, #64]	@ zero_extendqisi2
- 851 001a 012B     		cmp	r3, #1
- 852 001c 4FF00203 		mov	r3, #2
- 853 0020 5FD0     		beq	.L176
- 854 0022 80F84130 		strb	r3, [r0, #65]
- 855 0026 8368     		ldr	r3, [r0, #8]
- 856 0028 80F84020 		strb	r2, [r0, #64]
- 857 002c 43B1     		cbz	r3, .L177
- 858 002e 022B     		cmp	r3, #2
- 859 0030 09D0     		beq	.L178
- 860 0032 042B     		cmp	r3, #4
- 861 0034 0CBF     		ite	eq
- 862 0036 4FF0D043 		moveq	r3, #1744830464
- 863 003a 4FF0D843 		movne	r3, #1811939328
- 864 003e 04E0     		b	.L161
- 865              	.L177:
- 866 0040 4FF0C043 		mov	r3, #1610612736
- 867 0044 01E0     		b	.L161
- 868              	.L178:
- 869 0046 4FF0C843 		mov	r3, #1677721600
- 870              	.L161:
- 871 004a 274A     		ldr	r2, .L180
- 872 004c AA24     		movs	r4, #170
- 873 004e 1168     		ldr	r1, [r2]
- 874 0050 0129     		cmp	r1, #1
- 875 0052 0CBF     		ite	eq
- 876 0054 03F6AA21 		addweq	r1, r3, #2730
- 877 0058 03F25551 		addwne	r1, r3, #1365
- 878 005c 0C80     		strh	r4, [r1]	@ movhi
- 879              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
- 880 005e BFF34F8F 		dsb 0xF
-ARM GAS  /tmp/ccPlkNs4.s 			page 16
+ 822 0064 03F2AA25 		addwne	r5, r3, #682
+ 823 0068 2E80     		strh	r6, [r5]	@ movhi
+ 824              		.syntax unified
+ 825              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
+ 826 006a BFF34F8F 		dsb 0xF
+ 827              	@ 0 "" 2
+ 828              		.thumb
+ 829              		.syntax unified
+ 830 006e 8026     		movs	r6, #128
+ 831 0070 2568     		ldr	r5, [r4]
+ 832 0072 012D     		cmp	r5, #1
+ 833 0074 0CBF     		ite	eq
+ 834 0076 03F6AA25 		addweq	r5, r3, #2730
+ 835 007a 03F25555 		addwne	r5, r3, #1365
+ 836 007e 2E80     		strh	r6, [r5]	@ movhi
+ 837              		.syntax unified
+ 838              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
+ 839 0080 BFF34F8F 		dsb 0xF
+ 840              	@ 0 "" 2
+ 841              		.thumb
+ 842              		.syntax unified
+ 843 0084 AA26     		movs	r6, #170
+ 844 0086 2568     		ldr	r5, [r4]
+ 845 0088 012D     		cmp	r5, #1
+ 846 008a 0CBF     		ite	eq
+ 847 008c 03F6AA25 		addweq	r5, r3, #2730
+ 848 0090 03F25555 		addwne	r5, r3, #1365
+ 849 0094 2E80     		strh	r6, [r5]	@ movhi
+ 850              		.syntax unified
+ 851              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
+ 852 0096 BFF34F8F 		dsb 0xF
+ 853              	@ 0 "" 2
+ 854              		.thumb
+ 855              		.syntax unified
+ 856 009a 2468     		ldr	r4, [r4]
+ 857 009c 012C     		cmp	r4, #1
+ 858 009e 4FF05504 		mov	r4, #85
+ 859 00a2 0CBF     		ite	eq
+ 860 00a4 03F25453 		addweq	r3, r3, #1364
+ 861 00a8 03F2AA23 		addwne	r3, r3, #682
+ 862 00ac 1C80     		strh	r4, [r3]	@ movhi
+ 863              		.syntax unified
+ 864              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
+ 865 00ae BFF34F8F 		dsb 0xF
+ 866              	@ 0 "" 2
+ 867              		.thumb
+ 868              		.syntax unified
+ 869 00b2 3023     		movs	r3, #48
+ 870 00b4 8B52     		strh	r3, [r1, r2]	@ movhi
+ 871              		.syntax unified
+ 872              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
+ 873 00b6 BFF34F8F 		dsb 0xF
+ 874              	@ 0 "" 2
+ 875              		.thumb
+ 876              		.syntax unified
+ 877 00ba 0123     		movs	r3, #1
+ 878 00bc 80F84130 		strb	r3, [r0, #65]
+ARM GAS  /tmp/ccKWzf4l.s 			page 16
 
 
- 881              	@ 0 "" 2
- 882              		.thumb
- 883 0062 1168     		ldr	r1, [r2]
- 884 0064 5524     		movs	r4, #85
- 885 0066 0129     		cmp	r1, #1
- 886 0068 0CBF     		ite	eq
- 887 006a 03F25451 		addweq	r1, r3, #1364
- 888 006e 03F2AA21 		addwne	r1, r3, #682
- 889 0072 0C80     		strh	r4, [r1]	@ movhi
- 890              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
- 891 0074 BFF34F8F 		dsb 0xF
- 892              	@ 0 "" 2
- 893              		.thumb
- 894 0078 1168     		ldr	r1, [r2]
- 895 007a 8024     		movs	r4, #128
- 896 007c 0129     		cmp	r1, #1
- 897 007e 0CBF     		ite	eq
- 898 0080 03F6AA21 		addweq	r1, r3, #2730
- 899 0084 03F25551 		addwne	r1, r3, #1365
- 900 0088 0C80     		strh	r4, [r1]	@ movhi
- 901              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
- 902 008a BFF34F8F 		dsb 0xF
- 903              	@ 0 "" 2
- 904              		.thumb
- 905 008e 1168     		ldr	r1, [r2]
- 906 0090 AA24     		movs	r4, #170
- 907 0092 0129     		cmp	r1, #1
- 908 0094 0CBF     		ite	eq
- 909 0096 03F6AA21 		addweq	r1, r3, #2730
- 910 009a 03F25551 		addwne	r1, r3, #1365
- 911 009e 0C80     		strh	r4, [r1]	@ movhi
- 912              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
- 913 00a0 BFF34F8F 		dsb 0xF
- 914              	@ 0 "" 2
- 915              		.thumb
- 916 00a4 1168     		ldr	r1, [r2]
- 917 00a6 5524     		movs	r4, #85
- 918 00a8 0129     		cmp	r1, #1
- 919 00aa 0CBF     		ite	eq
- 920 00ac 03F25451 		addweq	r1, r3, #1364
- 921 00b0 03F2AA21 		addwne	r1, r3, #682
- 922 00b4 0C80     		strh	r4, [r1]	@ movhi
- 923              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
- 924 00b6 BFF34F8F 		dsb 0xF
- 925              	@ 0 "" 2
- 926              		.thumb
- 927 00ba 1268     		ldr	r2, [r2]
- 928 00bc 012A     		cmp	r2, #1
- 929 00be 0CBF     		ite	eq
- 930 00c0 03F6AA23 		addweq	r3, r3, #2730
- 931 00c4 03F25553 		addwne	r3, r3, #1365
- 932 00c8 1022     		movs	r2, #16
- 933 00ca 1A80     		strh	r2, [r3]	@ movhi
- 934              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
- 935 00cc BFF34F8F 		dsb 0xF
- 936              	@ 0 "" 2
- 937              		.thumb
-ARM GAS  /tmp/ccPlkNs4.s 			page 17
+ 879 00c0 0023     		movs	r3, #0
+ 880 00c2 80F84030 		strb	r3, [r0, #64]
+ 881              	.L137:
+ 882 00c6 1846     		mov	r0, r3
+ 883 00c8 70BD     		pop	{r4, r5, r6, pc}
+ 884              	.L152:
+ 885 00ca 4FF0C043 		mov	r3, #1610612736
+ 886 00ce B7E7     		b	.L138
+ 887              	.L153:
+ 888 00d0 4FF0C843 		mov	r3, #1677721600
+ 889 00d4 B4E7     		b	.L138
+ 890              	.L150:
+ 891 00d6 0123     		movs	r3, #1
+ 892 00d8 F5E7     		b	.L137
+ 893              	.L156:
+ 894 00da 00BF     		.align	2
+ 895              	.L155:
+ 896 00dc 00000000 		.word	.LANCHOR0
+ 898              		.section	.text.HAL_NOR_Erase_Chip,"ax",%progbits
+ 899              		.align	1
+ 900              		.global	HAL_NOR_Erase_Chip
+ 901              		.syntax unified
+ 902              		.thumb
+ 903              		.thumb_func
+ 904              		.fpu softvfp
+ 906              	HAL_NOR_Erase_Chip:
+ 907              		@ args = 0, pretend = 0, frame = 0
+ 908              		@ frame_needed = 0, uses_anonymous_args = 0
+ 909 0000 90F84130 		ldrb	r3, [r0, #65]	@ zero_extendqisi2
+ 910 0004 10B5     		push	{r4, lr}
+ 911 0006 DBB2     		uxtb	r3, r3
+ 912 0008 022B     		cmp	r3, #2
+ 913 000a 63D0     		beq	.L158
+ 914 000c 90F84120 		ldrb	r2, [r0, #65]	@ zero_extendqisi2
+ 915 0010 D2B2     		uxtb	r2, r2
+ 916 0012 012A     		cmp	r2, #1
+ 917 0014 66D1     		bne	.L173
+ 918 0016 90F84030 		ldrb	r3, [r0, #64]	@ zero_extendqisi2
+ 919 001a 012B     		cmp	r3, #1
+ 920 001c 4FF00203 		mov	r3, #2
+ 921 0020 58D0     		beq	.L158
+ 922 0022 80F84130 		strb	r3, [r0, #65]
+ 923 0026 8368     		ldr	r3, [r0, #8]
+ 924 0028 80F84020 		strb	r2, [r0, #64]
+ 925 002c 002B     		cmp	r3, #0
+ 926 002e 53D0     		beq	.L175
+ 927 0030 022B     		cmp	r3, #2
+ 928 0032 54D0     		beq	.L176
+ 929 0034 042B     		cmp	r3, #4
+ 930 0036 0CBF     		ite	eq
+ 931 0038 4FF0D043 		moveq	r3, #1744830464
+ 932 003c 4FF0D843 		movne	r3, #1811939328
+ 933              	.L159:
+ 934 0040 AA24     		movs	r4, #170
+ 935 0042 294A     		ldr	r2, .L178
+ 936 0044 1168     		ldr	r1, [r2]
+ 937 0046 0129     		cmp	r1, #1
+ARM GAS  /tmp/ccKWzf4l.s 			page 17
 
 
- 938 00d0 0123     		movs	r3, #1
- 939 00d2 80F84130 		strb	r3, [r0, #65]
- 940 00d6 0023     		movs	r3, #0
- 941 00d8 80F84030 		strb	r3, [r0, #64]
- 942 00dc 01E0     		b	.L176
- 943              	.L175:
- 944 00de 0120     		movs	r0, #1
- 945 00e0 10BD     		pop	{r4, pc}
- 946              	.L176:
- 947 00e2 1846     		mov	r0, r3
- 948 00e4 10BD     		pop	{r4, pc}
- 949              	.L181:
- 950 00e6 00BF     		.align	2
- 951              	.L180:
- 952 00e8 00000000 		.word	.LANCHOR0
- 954              		.section	.text.HAL_NOR_Read_CFI,"ax",%progbits
- 955              		.align	1
- 956              		.global	HAL_NOR_Read_CFI
- 957              		.thumb
- 958              		.thumb_func
- 960              	HAL_NOR_Read_CFI:
- 961              		@ args = 0, pretend = 0, frame = 0
- 962              		@ frame_needed = 0, uses_anonymous_args = 0
- 963 0000 90F84120 		ldrb	r2, [r0, #65]	@ zero_extendqisi2
- 964 0004 70B5     		push	{r4, r5, r6, lr}
- 965 0006 D2B2     		uxtb	r2, r2
- 966 0008 022A     		cmp	r2, #2
- 967 000a 4FD0     		beq	.L196
- 968 000c 012A     		cmp	r2, #1
- 969 000e 01D0     		beq	.L184
- 970 0010 042A     		cmp	r2, #4
- 971 0012 4DD1     		bne	.L197
- 972              	.L184:
- 973 0014 90F84030 		ldrb	r3, [r0, #64]	@ zero_extendqisi2
- 974 0018 012B     		cmp	r3, #1
- 975 001a 4FF00203 		mov	r3, #2
- 976 001e 49D0     		beq	.L198
- 977 0020 80F84130 		strb	r3, [r0, #65]
- 978 0024 8368     		ldr	r3, [r0, #8]
- 979 0026 0124     		movs	r4, #1
- 980 0028 80F84040 		strb	r4, [r0, #64]
- 981 002c 43B1     		cbz	r3, .L199
- 982 002e 022B     		cmp	r3, #2
- 983 0030 09D0     		beq	.L200
- 984 0032 042B     		cmp	r3, #4
- 985 0034 0CBF     		ite	eq
- 986 0036 4FF0D043 		moveq	r3, #1744830464
- 987 003a 4FF0D843 		movne	r3, #1811939328
- 988 003e 04E0     		b	.L185
- 989              	.L199:
- 990 0040 4FF0C043 		mov	r3, #1610612736
- 991 0044 01E0     		b	.L185
- 992              	.L200:
- 993 0046 4FF0C843 		mov	r3, #1677721600
- 994              	.L185:
- 995 004a 1B4C     		ldr	r4, .L205
- 996 004c 9826     		movs	r6, #152
-ARM GAS  /tmp/ccPlkNs4.s 			page 18
+ 938 0048 0CBF     		ite	eq
+ 939 004a 03F6AA21 		addweq	r1, r3, #2730
+ 940 004e 03F25551 		addwne	r1, r3, #1365
+ 941 0052 0C80     		strh	r4, [r1]	@ movhi
+ 942              		.syntax unified
+ 943              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
+ 944 0054 BFF34F8F 		dsb 0xF
+ 945              	@ 0 "" 2
+ 946              		.thumb
+ 947              		.syntax unified
+ 948 0058 5524     		movs	r4, #85
+ 949 005a 1168     		ldr	r1, [r2]
+ 950 005c 0129     		cmp	r1, #1
+ 951 005e 0CBF     		ite	eq
+ 952 0060 03F25451 		addweq	r1, r3, #1364
+ 953 0064 03F2AA21 		addwne	r1, r3, #682
+ 954 0068 0C80     		strh	r4, [r1]	@ movhi
+ 955              		.syntax unified
+ 956              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
+ 957 006a BFF34F8F 		dsb 0xF
+ 958              	@ 0 "" 2
+ 959              		.thumb
+ 960              		.syntax unified
+ 961 006e 8024     		movs	r4, #128
+ 962 0070 1168     		ldr	r1, [r2]
+ 963 0072 0129     		cmp	r1, #1
+ 964 0074 0CBF     		ite	eq
+ 965 0076 03F6AA21 		addweq	r1, r3, #2730
+ 966 007a 03F25551 		addwne	r1, r3, #1365
+ 967 007e 0C80     		strh	r4, [r1]	@ movhi
+ 968              		.syntax unified
+ 969              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
+ 970 0080 BFF34F8F 		dsb 0xF
+ 971              	@ 0 "" 2
+ 972              		.thumb
+ 973              		.syntax unified
+ 974 0084 AA24     		movs	r4, #170
+ 975 0086 1168     		ldr	r1, [r2]
+ 976 0088 0129     		cmp	r1, #1
+ 977 008a 0CBF     		ite	eq
+ 978 008c 03F6AA21 		addweq	r1, r3, #2730
+ 979 0090 03F25551 		addwne	r1, r3, #1365
+ 980 0094 0C80     		strh	r4, [r1]	@ movhi
+ 981              		.syntax unified
+ 982              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
+ 983 0096 BFF34F8F 		dsb 0xF
+ 984              	@ 0 "" 2
+ 985              		.thumb
+ 986              		.syntax unified
+ 987 009a 5524     		movs	r4, #85
+ 988 009c 1168     		ldr	r1, [r2]
+ 989 009e 0129     		cmp	r1, #1
+ 990 00a0 0CBF     		ite	eq
+ 991 00a2 03F25451 		addweq	r1, r3, #1364
+ 992 00a6 03F2AA21 		addwne	r1, r3, #682
+ 993 00aa 0C80     		strh	r4, [r1]	@ movhi
+ 994              		.syntax unified
+ARM GAS  /tmp/ccKWzf4l.s 			page 18
 
 
- 997 004e 2568     		ldr	r5, [r4]
- 998 0050 012D     		cmp	r5, #1
- 999 0052 0CBF     		ite	eq
- 1000 0054 03F1AA05 		addeq	r5, r3, #170
- 1001 0058 03F15505 		addne	r5, r3, #85
- 1002 005c 2E80     		strh	r6, [r5]	@ movhi
- 1003              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
- 1004 005e BFF34F8F 		dsb 0xF
- 1005              	@ 0 "" 2
- 1006              		.thumb
- 1007 0062 2468     		ldr	r4, [r4]
- 1008 0064 012C     		cmp	r4, #1
- 1009 0066 0CBF     		ite	eq
- 1010 0068 03F1C205 		addeq	r5, r3, #194
- 1011 006c 03F16105 		addne	r5, r3, #97
- 1012 0070 2D88     		ldrh	r5, [r5]
- 1013 0072 012C     		cmp	r4, #1
- 1014 0074 0D80     		strh	r5, [r1]	@ movhi
- 1015 0076 0CBF     		ite	eq
- 1016 0078 03F1C405 		addeq	r5, r3, #196
- 1017 007c 03F16205 		addne	r5, r3, #98
- 1018 0080 2D88     		ldrh	r5, [r5]
- 1019 0082 012C     		cmp	r4, #1
- 1020 0084 4D80     		strh	r5, [r1, #2]	@ movhi
- 1021 0086 0CBF     		ite	eq
- 1022 0088 03F1C605 		addeq	r5, r3, #198
- 1023 008c 03F16305 		addne	r5, r3, #99
- 1024 0090 2D88     		ldrh	r5, [r5]
- 1025 0092 012C     		cmp	r4, #1
- 1026 0094 8D80     		strh	r5, [r1, #4]	@ movhi
- 1027 0096 0CBF     		ite	eq
- 1028 0098 C833     		addeq	r3, r3, #200
- 1029 009a 6433     		addne	r3, r3, #100
- 1030 009c 1B88     		ldrh	r3, [r3]
- 1031 009e CB80     		strh	r3, [r1, #6]	@ movhi
- 1032 00a0 0023     		movs	r3, #0
- 1033 00a2 80F84120 		strb	r2, [r0, #65]
- 1034 00a6 80F84030 		strb	r3, [r0, #64]
- 1035 00aa 03E0     		b	.L198
- 1036              	.L196:
- 1037 00ac 1046     		mov	r0, r2
- 1038 00ae 70BD     		pop	{r4, r5, r6, pc}
- 1039              	.L197:
- 1040 00b0 0120     		movs	r0, #1
- 1041 00b2 70BD     		pop	{r4, r5, r6, pc}
- 1042              	.L198:
- 1043 00b4 1846     		mov	r0, r3
- 1044 00b6 70BD     		pop	{r4, r5, r6, pc}
- 1045              	.L206:
- 1046              		.align	2
- 1047              	.L205:
- 1048 00b8 00000000 		.word	.LANCHOR0
- 1050              		.section	.text.HAL_NOR_WriteOperation_Enable,"ax",%progbits
- 1051              		.align	1
- 1052              		.global	HAL_NOR_WriteOperation_Enable
- 1053              		.thumb
- 1054              		.thumb_func
-ARM GAS  /tmp/ccPlkNs4.s 			page 19
+ 995              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
+ 996 00ac BFF34F8F 		dsb 0xF
+ 997              	@ 0 "" 2
+ 998              		.thumb
+ 999              		.syntax unified
+ 1000 00b0 1268     		ldr	r2, [r2]
+ 1001 00b2 012A     		cmp	r2, #1
+ 1002 00b4 4FF01002 		mov	r2, #16
+ 1003 00b8 0CBF     		ite	eq
+ 1004 00ba 03F6AA23 		addweq	r3, r3, #2730
+ 1005 00be 03F25553 		addwne	r3, r3, #1365
+ 1006 00c2 1A80     		strh	r2, [r3]	@ movhi
+ 1007              		.syntax unified
+ 1008              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
+ 1009 00c4 BFF34F8F 		dsb 0xF
+ 1010              	@ 0 "" 2
+ 1011              		.thumb
+ 1012              		.syntax unified
+ 1013 00c8 0123     		movs	r3, #1
+ 1014 00ca 80F84130 		strb	r3, [r0, #65]
+ 1015 00ce 0023     		movs	r3, #0
+ 1016 00d0 80F84030 		strb	r3, [r0, #64]
+ 1017              	.L158:
+ 1018 00d4 1846     		mov	r0, r3
+ 1019 00d6 10BD     		pop	{r4, pc}
+ 1020              	.L175:
+ 1021 00d8 4FF0C043 		mov	r3, #1610612736
+ 1022 00dc B0E7     		b	.L159
+ 1023              	.L176:
+ 1024 00de 4FF0C843 		mov	r3, #1677721600
+ 1025 00e2 ADE7     		b	.L159
+ 1026              	.L173:
+ 1027 00e4 0123     		movs	r3, #1
+ 1028 00e6 F5E7     		b	.L158
+ 1029              	.L179:
+ 1030              		.align	2
+ 1031              	.L178:
+ 1032 00e8 00000000 		.word	.LANCHOR0
+ 1034              		.section	.text.HAL_NOR_Read_CFI,"ax",%progbits
+ 1035              		.align	1
+ 1036              		.global	HAL_NOR_Read_CFI
+ 1037              		.syntax unified
+ 1038              		.thumb
+ 1039              		.thumb_func
+ 1040              		.fpu softvfp
+ 1042              	HAL_NOR_Read_CFI:
+ 1043              		@ args = 0, pretend = 0, frame = 0
+ 1044              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1045 0000 90F84120 		ldrb	r2, [r0, #65]	@ zero_extendqisi2
+ 1046 0004 70B5     		push	{r4, r5, r6, lr}
+ 1047 0006 D2B2     		uxtb	r2, r2
+ 1048 0008 022A     		cmp	r2, #2
+ 1049 000a 51D0     		beq	.L194
+ 1050 000c 012A     		cmp	r2, #1
+ 1051 000e 01D0     		beq	.L182
+ 1052 0010 042A     		cmp	r2, #4
+ 1053 0012 4FD1     		bne	.L195
+ARM GAS  /tmp/ccKWzf4l.s 			page 19
 
 
- 1056              	HAL_NOR_WriteOperation_Enable:
- 1057              		@ args = 0, pretend = 0, frame = 0
- 1058              		@ frame_needed = 0, uses_anonymous_args = 0
- 1059 0000 38B5     		push	{r3, r4, r5, lr}
- 1060 0002 90F84130 		ldrb	r3, [r0, #65]	@ zero_extendqisi2
- 1061 0006 0446     		mov	r4, r0
- 1062 0008 042B     		cmp	r3, #4
- 1063 000a 13D1     		bne	.L209
- 1064 000c 90F84030 		ldrb	r3, [r0, #64]	@ zero_extendqisi2
- 1065 0010 0220     		movs	r0, #2
- 1066 0012 012B     		cmp	r3, #1
- 1067 0014 0FD0     		beq	.L208
- 1068 0016 0125     		movs	r5, #1
- 1069 0018 84F84100 		strb	r0, [r4, #65]
- 1070 001c 84F84050 		strb	r5, [r4, #64]
- 1071 0020 2068     		ldr	r0, [r4]
- 1072 0022 A168     		ldr	r1, [r4, #8]
- 1073 0024 FFF7FEFF 		bl	FSMC_NORSRAM_WriteOperation_Enable
- 1074 0028 0020     		movs	r0, #0
- 1075 002a 84F84150 		strb	r5, [r4, #65]
- 1076 002e 84F84000 		strb	r0, [r4, #64]
- 1077 0032 38BD     		pop	{r3, r4, r5, pc}
- 1078              	.L209:
- 1079 0034 0120     		movs	r0, #1
- 1080              	.L208:
- 1081 0036 38BD     		pop	{r3, r4, r5, pc}
- 1083              		.section	.text.HAL_NOR_WriteOperation_Disable,"ax",%progbits
- 1084              		.align	1
- 1085              		.global	HAL_NOR_WriteOperation_Disable
- 1086              		.thumb
- 1087              		.thumb_func
- 1089              	HAL_NOR_WriteOperation_Disable:
- 1090              		@ args = 0, pretend = 0, frame = 0
- 1091              		@ frame_needed = 0, uses_anonymous_args = 0
- 1092 0000 90F84130 		ldrb	r3, [r0, #65]	@ zero_extendqisi2
- 1093 0004 10B5     		push	{r4, lr}
- 1094 0006 DBB2     		uxtb	r3, r3
- 1095 0008 012B     		cmp	r3, #1
- 1096 000a 0446     		mov	r4, r0
- 1097 000c 13D1     		bne	.L213
- 1098 000e 90F84020 		ldrb	r2, [r0, #64]	@ zero_extendqisi2
- 1099 0012 0220     		movs	r0, #2
- 1100 0014 012A     		cmp	r2, #1
- 1101 0016 0FD0     		beq	.L212
- 1102 0018 84F84030 		strb	r3, [r4, #64]
- 1103 001c 84F84100 		strb	r0, [r4, #65]
- 1104 0020 A168     		ldr	r1, [r4, #8]
- 1105 0022 2068     		ldr	r0, [r4]
- 1106 0024 FFF7FEFF 		bl	FSMC_NORSRAM_WriteOperation_Disable
- 1107 0028 0423     		movs	r3, #4
- 1108 002a 0020     		movs	r0, #0
- 1109 002c 84F84130 		strb	r3, [r4, #65]
- 1110 0030 84F84000 		strb	r0, [r4, #64]
- 1111 0034 10BD     		pop	{r4, pc}
- 1112              	.L213:
- 1113 0036 0120     		movs	r0, #1
- 1114              	.L212:
-ARM GAS  /tmp/ccPlkNs4.s 			page 20
+ 1054              	.L182:
+ 1055 0014 90F84030 		ldrb	r3, [r0, #64]	@ zero_extendqisi2
+ 1056 0018 012B     		cmp	r3, #1
+ 1057 001a 4FF00203 		mov	r3, #2
+ 1058 001e 3FD0     		beq	.L196
+ 1059 0020 0124     		movs	r4, #1
+ 1060 0022 80F84130 		strb	r3, [r0, #65]
+ 1061 0026 8368     		ldr	r3, [r0, #8]
+ 1062 0028 80F84040 		strb	r4, [r0, #64]
+ 1063 002c 002B     		cmp	r3, #0
+ 1064 002e 39D0     		beq	.L197
+ 1065 0030 022B     		cmp	r3, #2
+ 1066 0032 3AD0     		beq	.L198
+ 1067 0034 042B     		cmp	r3, #4
+ 1068 0036 0CBF     		ite	eq
+ 1069 0038 4FF0D043 		moveq	r3, #1744830464
+ 1070 003c 4FF0D843 		movne	r3, #1811939328
+ 1071              	.L183:
+ 1072 0040 9826     		movs	r6, #152
+ 1073 0042 1D4C     		ldr	r4, .L203
+ 1074 0044 2568     		ldr	r5, [r4]
+ 1075 0046 012D     		cmp	r5, #1
+ 1076 0048 0CBF     		ite	eq
+ 1077 004a 03F1AA05 		addeq	r5, r3, #170
+ 1078 004e 03F15505 		addne	r5, r3, #85
+ 1079 0052 2E80     		strh	r6, [r5]	@ movhi
+ 1080              		.syntax unified
+ 1081              	@ 879 "./cmsis/inc/cmsis_gcc.h" 1
+ 1082 0054 BFF34F8F 		dsb 0xF
+ 1083              	@ 0 "" 2
+ 1084              		.thumb
+ 1085              		.syntax unified
+ 1086 0058 2468     		ldr	r4, [r4]
+ 1087 005a 012C     		cmp	r4, #1
+ 1088 005c 0CBF     		ite	eq
+ 1089 005e 03F1C205 		addeq	r5, r3, #194
+ 1090 0062 03F16105 		addne	r5, r3, #97
+ 1091 0066 2D88     		ldrh	r5, [r5]
+ 1092 0068 012C     		cmp	r4, #1
+ 1093 006a 0D80     		strh	r5, [r1]	@ movhi
+ 1094 006c 0CBF     		ite	eq
+ 1095 006e 03F1C405 		addeq	r5, r3, #196
+ 1096 0072 03F16205 		addne	r5, r3, #98
+ 1097 0076 2D88     		ldrh	r5, [r5]
+ 1098 0078 012C     		cmp	r4, #1
+ 1099 007a 4D80     		strh	r5, [r1, #2]	@ movhi
+ 1100 007c 0CBF     		ite	eq
+ 1101 007e 03F1C605 		addeq	r5, r3, #198
+ 1102 0082 03F16305 		addne	r5, r3, #99
+ 1103 0086 2D88     		ldrh	r5, [r5]
+ 1104 0088 012C     		cmp	r4, #1
+ 1105 008a 8D80     		strh	r5, [r1, #4]	@ movhi
+ 1106 008c 0CBF     		ite	eq
+ 1107 008e C833     		addeq	r3, r3, #200
+ 1108 0090 6433     		addne	r3, r3, #100
+ 1109 0092 1B88     		ldrh	r3, [r3]
+ 1110 0094 CB80     		strh	r3, [r1, #6]	@ movhi
+ARM GAS  /tmp/ccKWzf4l.s 			page 20
 
 
- 1115 0038 10BD     		pop	{r4, pc}
- 1117              		.section	.text.HAL_NOR_GetState,"ax",%progbits
- 1118              		.align	1
- 1119              		.global	HAL_NOR_GetState
- 1120              		.thumb
- 1121              		.thumb_func
- 1123              	HAL_NOR_GetState:
- 1124              		@ args = 0, pretend = 0, frame = 0
- 1125              		@ frame_needed = 0, uses_anonymous_args = 0
- 1126              		@ link register save eliminated.
- 1127 0000 90F84100 		ldrb	r0, [r0, #65]	@ zero_extendqisi2
- 1128 0004 7047     		bx	lr
- 1130              		.section	.text.HAL_NOR_GetStatus,"ax",%progbits
- 1131              		.align	1
- 1132              		.global	HAL_NOR_GetStatus
- 1133              		.thumb
- 1134              		.thumb_func
- 1136              	HAL_NOR_GetStatus:
- 1137              		@ args = 0, pretend = 0, frame = 0
- 1138              		@ frame_needed = 0, uses_anonymous_args = 0
- 1139 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
- 1140 0002 0D46     		mov	r5, r1
- 1141 0004 1146     		mov	r1, r2
- 1142 0006 1646     		mov	r6, r2
- 1143 0008 FFF7FEFF 		bl	HAL_NOR_MspWait
- 1144 000c FFF7FEFF 		bl	HAL_GetTick
- 1145 0010 0746     		mov	r7, r0
- 1146 0012 0124     		movs	r4, #1
- 1147              	.L220:
- 1148 0014 721C     		adds	r2, r6, #1
- 1149 0016 09D0     		beq	.L217
- 1150 0018 FFF7FEFF 		bl	HAL_GetTick
- 1151 001c C01B     		subs	r0, r0, r7
- 1152 001e B042     		cmp	r0, r6
- 1153 0020 03D8     		bhi	.L221
- 1154 0022 002E     		cmp	r6, #0
- 1155 0024 08BF     		it	eq
- 1156 0026 0324     		moveq	r4, #3
- 1157 0028 00E0     		b	.L217
- 1158              	.L221:
- 1159 002a 0324     		movs	r4, #3
- 1160              	.L217:
- 1161 002c 2B88     		ldrh	r3, [r5]
- 1162 002e 2888     		ldrh	r0, [r5]
- 1163 0030 9BB2     		uxth	r3, r3
- 1164 0032 5840     		eors	r0, r0, r3
- 1165 0034 00F04000 		and	r0, r0, #64
- 1166 0038 80B2     		uxth	r0, r0
- 1167 003a 98B1     		cbz	r0, .L218
- 1168 003c 13F0200F 		tst	r3, #32
- 1169 0040 2B88     		ldrh	r3, [r5]
- 1170 0042 2888     		ldrh	r0, [r5]
- 1171 0044 9BB2     		uxth	r3, r3
- 1172 0046 80EA0300 		eor	r0, r0, r3
- 1173 004a 00F04000 		and	r0, r0, #64
- 1174 004e 80B2     		uxth	r0, r0
- 1175 0050 18BF     		it	ne
-ARM GAS  /tmp/ccPlkNs4.s 			page 21
+ 1111 0096 0023     		movs	r3, #0
+ 1112 0098 80F84120 		strb	r2, [r0, #65]
+ 1113 009c 80F84030 		strb	r3, [r0, #64]
+ 1114              	.L196:
+ 1115 00a0 1846     		mov	r0, r3
+ 1116 00a2 70BD     		pop	{r4, r5, r6, pc}
+ 1117              	.L197:
+ 1118 00a4 4FF0C043 		mov	r3, #1610612736
+ 1119 00a8 CAE7     		b	.L183
+ 1120              	.L198:
+ 1121 00aa 4FF0C843 		mov	r3, #1677721600
+ 1122 00ae C7E7     		b	.L183
+ 1123              	.L194:
+ 1124 00b0 1046     		mov	r0, r2
+ 1125 00b2 70BD     		pop	{r4, r5, r6, pc}
+ 1126              	.L195:
+ 1127 00b4 0120     		movs	r0, #1
+ 1128 00b6 70BD     		pop	{r4, r5, r6, pc}
+ 1129              	.L204:
+ 1130              		.align	2
+ 1131              	.L203:
+ 1132 00b8 00000000 		.word	.LANCHOR0
+ 1134              		.section	.text.HAL_NOR_WriteOperation_Enable,"ax",%progbits
+ 1135              		.align	1
+ 1136              		.global	HAL_NOR_WriteOperation_Enable
+ 1137              		.syntax unified
+ 1138              		.thumb
+ 1139              		.thumb_func
+ 1140              		.fpu softvfp
+ 1142              	HAL_NOR_WriteOperation_Enable:
+ 1143              		@ args = 0, pretend = 0, frame = 0
+ 1144              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1145 0000 38B5     		push	{r3, r4, r5, lr}
+ 1146 0002 90F84130 		ldrb	r3, [r0, #65]	@ zero_extendqisi2
+ 1147 0006 0446     		mov	r4, r0
+ 1148 0008 042B     		cmp	r3, #4
+ 1149 000a 13D1     		bne	.L207
+ 1150 000c 90F84030 		ldrb	r3, [r0, #64]	@ zero_extendqisi2
+ 1151 0010 0220     		movs	r0, #2
+ 1152 0012 012B     		cmp	r3, #1
+ 1153 0014 0FD0     		beq	.L206
+ 1154 0016 0125     		movs	r5, #1
+ 1155 0018 84F84100 		strb	r0, [r4, #65]
+ 1156 001c 84F84050 		strb	r5, [r4, #64]
+ 1157 0020 A168     		ldr	r1, [r4, #8]
+ 1158 0022 2068     		ldr	r0, [r4]
+ 1159 0024 FFF7FEFF 		bl	FSMC_NORSRAM_WriteOperation_Enable
+ 1160 0028 0020     		movs	r0, #0
+ 1161 002a 84F84150 		strb	r5, [r4, #65]
+ 1162 002e 84F84000 		strb	r0, [r4, #64]
+ 1163 0032 38BD     		pop	{r3, r4, r5, pc}
+ 1164              	.L207:
+ 1165 0034 0120     		movs	r0, #1
+ 1166              	.L206:
+ 1167 0036 38BD     		pop	{r3, r4, r5, pc}
+ 1169              		.section	.text.HAL_NOR_WriteOperation_Disable,"ax",%progbits
+ 1170              		.align	1
+ARM GAS  /tmp/ccKWzf4l.s 			page 21
 
 
- 1176 0052 0124     		movne	r4, #1
- 1177 0054 30B1     		cbz	r0, .L218
- 1178 0056 9B06     		lsls	r3, r3, #26
- 1179 0058 03D4     		bmi	.L225
- 1180 005a 032C     		cmp	r4, #3
- 1181 005c DAD1     		bne	.L220
- 1182 005e 2046     		mov	r0, r4
- 1183 0060 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 1184              	.L225:
- 1185 0062 0220     		movs	r0, #2
- 1186              	.L218:
- 1187 0064 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 1189              		.section	.bss.uwNORMemoryDataWidth,"aw",%nobits
- 1190              		.align	2
- 1191              		.set	.LANCHOR0,. + 0
- 1194              	uwNORMemoryDataWidth:
- 1195 0000 00000000 		.space	4
- 1196              		.ident	"GCC: (15:4.9.3+svn231177-1) 4.9.3 20150529 (prerelease)"
-ARM GAS  /tmp/ccPlkNs4.s 			page 22
+ 1171              		.global	HAL_NOR_WriteOperation_Disable
+ 1172              		.syntax unified
+ 1173              		.thumb
+ 1174              		.thumb_func
+ 1175              		.fpu softvfp
+ 1177              	HAL_NOR_WriteOperation_Disable:
+ 1178              		@ args = 0, pretend = 0, frame = 0
+ 1179              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1180 0000 90F84130 		ldrb	r3, [r0, #65]	@ zero_extendqisi2
+ 1181 0004 10B5     		push	{r4, lr}
+ 1182 0006 DBB2     		uxtb	r3, r3
+ 1183 0008 012B     		cmp	r3, #1
+ 1184 000a 0446     		mov	r4, r0
+ 1185 000c 13D1     		bne	.L211
+ 1186 000e 90F84020 		ldrb	r2, [r0, #64]	@ zero_extendqisi2
+ 1187 0012 0220     		movs	r0, #2
+ 1188 0014 012A     		cmp	r2, #1
+ 1189 0016 0FD0     		beq	.L210
+ 1190 0018 84F84030 		strb	r3, [r4, #64]
+ 1191 001c 84F84100 		strb	r0, [r4, #65]
+ 1192 0020 A168     		ldr	r1, [r4, #8]
+ 1193 0022 2068     		ldr	r0, [r4]
+ 1194 0024 FFF7FEFF 		bl	FSMC_NORSRAM_WriteOperation_Disable
+ 1195 0028 0423     		movs	r3, #4
+ 1196 002a 0020     		movs	r0, #0
+ 1197 002c 84F84130 		strb	r3, [r4, #65]
+ 1198 0030 84F84000 		strb	r0, [r4, #64]
+ 1199 0034 10BD     		pop	{r4, pc}
+ 1200              	.L211:
+ 1201 0036 0120     		movs	r0, #1
+ 1202              	.L210:
+ 1203 0038 10BD     		pop	{r4, pc}
+ 1205              		.section	.text.HAL_NOR_GetState,"ax",%progbits
+ 1206              		.align	1
+ 1207              		.global	HAL_NOR_GetState
+ 1208              		.syntax unified
+ 1209              		.thumb
+ 1210              		.thumb_func
+ 1211              		.fpu softvfp
+ 1213              	HAL_NOR_GetState:
+ 1214              		@ args = 0, pretend = 0, frame = 0
+ 1215              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1216              		@ link register save eliminated.
+ 1217 0000 90F84100 		ldrb	r0, [r0, #65]	@ zero_extendqisi2
+ 1218 0004 7047     		bx	lr
+ 1220              		.section	.text.HAL_NOR_GetStatus,"ax",%progbits
+ 1221              		.align	1
+ 1222              		.global	HAL_NOR_GetStatus
+ 1223              		.syntax unified
+ 1224              		.thumb
+ 1225              		.thumb_func
+ 1226              		.fpu softvfp
+ 1228              	HAL_NOR_GetStatus:
+ 1229              		@ args = 0, pretend = 0, frame = 0
+ 1230              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1231 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 1232 0002 0D46     		mov	r5, r1
+ARM GAS  /tmp/ccKWzf4l.s 			page 22
+
+
+ 1233 0004 1146     		mov	r1, r2
+ 1234 0006 1646     		mov	r6, r2
+ 1235 0008 FFF7FEFF 		bl	HAL_NOR_MspWait
+ 1236 000c FFF7FEFF 		bl	HAL_GetTick
+ 1237 0010 0124     		movs	r4, #1
+ 1238 0012 0746     		mov	r7, r0
+ 1239              	.L218:
+ 1240 0014 721C     		adds	r2, r6, #1
+ 1241 0016 07D0     		beq	.L215
+ 1242 0018 FFF7FEFF 		bl	HAL_GetTick
+ 1243 001c C01B     		subs	r0, r0, r7
+ 1244 001e 8642     		cmp	r6, r0
+ 1245 0020 1BD3     		bcc	.L219
+ 1246 0022 002E     		cmp	r6, #0
+ 1247 0024 08BF     		it	eq
+ 1248 0026 0324     		moveq	r4, #3
+ 1249              	.L215:
+ 1250 0028 2A88     		ldrh	r2, [r5]
+ 1251 002a 2B88     		ldrh	r3, [r5]
+ 1252 002c 92B2     		uxth	r2, r2
+ 1253 002e 5340     		eors	r3, r3, r2
+ 1254 0030 13F04003 		ands	r3, r3, #64
+ 1255 0034 13D0     		beq	.L222
+ 1256 0036 12F0200F 		tst	r2, #32
+ 1257 003a 2A88     		ldrh	r2, [r5]
+ 1258 003c 2B88     		ldrh	r3, [r5]
+ 1259 003e 92B2     		uxth	r2, r2
+ 1260 0040 83EA0203 		eor	r3, r3, r2
+ 1261 0044 18BF     		it	ne
+ 1262 0046 0124     		movne	r4, #1
+ 1263 0048 13F04003 		ands	r3, r3, #64
+ 1264 004c 07D0     		beq	.L222
+ 1265 004e 9306     		lsls	r3, r2, #26
+ 1266 0050 07D4     		bmi	.L223
+ 1267 0052 032C     		cmp	r4, #3
+ 1268 0054 DED1     		bne	.L218
+ 1269              	.L216:
+ 1270 0056 2046     		mov	r0, r4
+ 1271 0058 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 1272              	.L219:
+ 1273 005a 0324     		movs	r4, #3
+ 1274 005c E4E7     		b	.L215
+ 1275              	.L222:
+ 1276 005e 1C46     		mov	r4, r3
+ 1277 0060 F9E7     		b	.L216
+ 1278              	.L223:
+ 1279 0062 0224     		movs	r4, #2
+ 1280 0064 F7E7     		b	.L216
+ 1282              		.section	.bss.uwNORMemoryDataWidth,"aw",%nobits
+ 1283              		.align	2
+ 1284              		.set	.LANCHOR0,. + 0
+ 1287              	uwNORMemoryDataWidth:
+ 1288 0000 00000000 		.space	4
+ 1289              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
+ARM GAS  /tmp/ccKWzf4l.s 			page 23
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f1xx_hal_nor.c
-     /tmp/ccPlkNs4.s:16     .text.HAL_NOR_MspInit:0000000000000000 $t
-     /tmp/ccPlkNs4.s:21     .text.HAL_NOR_MspInit:0000000000000000 HAL_NOR_MspInit
-     /tmp/ccPlkNs4.s:28     .text.HAL_NOR_Init:0000000000000000 $t
-     /tmp/ccPlkNs4.s:33     .text.HAL_NOR_Init:0000000000000000 HAL_NOR_Init
-     /tmp/ccPlkNs4.s:80     .text.HAL_NOR_Init:0000000000000068 $d
-     /tmp/ccPlkNs4.s:83     .text.HAL_NOR_MspDeInit:0000000000000000 $t
-     /tmp/ccPlkNs4.s:88     .text.HAL_NOR_MspDeInit:0000000000000000 HAL_NOR_MspDeInit
-     /tmp/ccPlkNs4.s:95     .text.HAL_NOR_DeInit:0000000000000000 $t
-     /tmp/ccPlkNs4.s:100    .text.HAL_NOR_DeInit:0000000000000000 HAL_NOR_DeInit
-     /tmp/ccPlkNs4.s:114    .text.HAL_NOR_MspWait:0000000000000000 $t
-     /tmp/ccPlkNs4.s:119    .text.HAL_NOR_MspWait:0000000000000000 HAL_NOR_MspWait
-     /tmp/ccPlkNs4.s:126    .text.HAL_NOR_Read_ID:0000000000000000 $t
-     /tmp/ccPlkNs4.s:131    .text.HAL_NOR_Read_ID:0000000000000000 HAL_NOR_Read_ID
-     /tmp/ccPlkNs4.s:237    .text.HAL_NOR_Read_ID:00000000000000d4 $d
-     /tmp/ccPlkNs4.s:240    .text.HAL_NOR_ReturnToReadMode:0000000000000000 $t
-     /tmp/ccPlkNs4.s:245    .text.HAL_NOR_ReturnToReadMode:0000000000000000 HAL_NOR_ReturnToReadMode
-     /tmp/ccPlkNs4.s:301    .text.HAL_NOR_Read:0000000000000000 $t
-     /tmp/ccPlkNs4.s:306    .text.HAL_NOR_Read:0000000000000000 HAL_NOR_Read
-     /tmp/ccPlkNs4.s:393    .text.HAL_NOR_Read:00000000000000ac $d
-     /tmp/ccPlkNs4.s:396    .text.HAL_NOR_Program:0000000000000000 $t
-     /tmp/ccPlkNs4.s:401    .text.HAL_NOR_Program:0000000000000000 HAL_NOR_Program
-     /tmp/ccPlkNs4.s:488    .text.HAL_NOR_Program:00000000000000ac $d
-     /tmp/ccPlkNs4.s:491    .text.HAL_NOR_ReadBuffer:0000000000000000 $t
-     /tmp/ccPlkNs4.s:496    .text.HAL_NOR_ReadBuffer:0000000000000000 HAL_NOR_ReadBuffer
-     /tmp/ccPlkNs4.s:590    .text.HAL_NOR_ReadBuffer:00000000000000c0 $d
-     /tmp/ccPlkNs4.s:593    .text.HAL_NOR_ProgramBuffer:0000000000000000 $t
-     /tmp/ccPlkNs4.s:598    .text.HAL_NOR_ProgramBuffer:0000000000000000 HAL_NOR_ProgramBuffer
-     /tmp/ccPlkNs4.s:713    .text.HAL_NOR_ProgramBuffer:00000000000000ec $d
-     /tmp/ccPlkNs4.s:716    .text.HAL_NOR_Erase_Block:0000000000000000 $t
-     /tmp/ccPlkNs4.s:721    .text.HAL_NOR_Erase_Block:0000000000000000 HAL_NOR_Erase_Block
-     /tmp/ccPlkNs4.s:830    .text.HAL_NOR_Erase_Block:00000000000000d8 $d
-     /tmp/ccPlkNs4.s:833    .text.HAL_NOR_Erase_Chip:0000000000000000 $t
-     /tmp/ccPlkNs4.s:838    .text.HAL_NOR_Erase_Chip:0000000000000000 HAL_NOR_Erase_Chip
-     /tmp/ccPlkNs4.s:952    .text.HAL_NOR_Erase_Chip:00000000000000e8 $d
-     /tmp/ccPlkNs4.s:955    .text.HAL_NOR_Read_CFI:0000000000000000 $t
-     /tmp/ccPlkNs4.s:960    .text.HAL_NOR_Read_CFI:0000000000000000 HAL_NOR_Read_CFI
-     /tmp/ccPlkNs4.s:1048   .text.HAL_NOR_Read_CFI:00000000000000b8 $d
-     /tmp/ccPlkNs4.s:1051   .text.HAL_NOR_WriteOperation_Enable:0000000000000000 $t
-     /tmp/ccPlkNs4.s:1056   .text.HAL_NOR_WriteOperation_Enable:0000000000000000 HAL_NOR_WriteOperation_Enable
-     /tmp/ccPlkNs4.s:1084   .text.HAL_NOR_WriteOperation_Disable:0000000000000000 $t
-     /tmp/ccPlkNs4.s:1089   .text.HAL_NOR_WriteOperation_Disable:0000000000000000 HAL_NOR_WriteOperation_Disable
-     /tmp/ccPlkNs4.s:1118   .text.HAL_NOR_GetState:0000000000000000 $t
-     /tmp/ccPlkNs4.s:1123   .text.HAL_NOR_GetState:0000000000000000 HAL_NOR_GetState
-     /tmp/ccPlkNs4.s:1131   .text.HAL_NOR_GetStatus:0000000000000000 $t
-     /tmp/ccPlkNs4.s:1136   .text.HAL_NOR_GetStatus:0000000000000000 HAL_NOR_GetStatus
-     /tmp/ccPlkNs4.s:1190   .bss.uwNORMemoryDataWidth:0000000000000000 $d
-     /tmp/ccPlkNs4.s:1194   .bss.uwNORMemoryDataWidth:0000000000000000 uwNORMemoryDataWidth
+     /tmp/ccKWzf4l.s:13     .text.HAL_NOR_MspInit:0000000000000000 $t
+     /tmp/ccKWzf4l.s:20     .text.HAL_NOR_MspInit:0000000000000000 HAL_NOR_MspInit
+     /tmp/ccKWzf4l.s:27     .text.HAL_NOR_Init:0000000000000000 $t
+     /tmp/ccKWzf4l.s:34     .text.HAL_NOR_Init:0000000000000000 HAL_NOR_Init
+     /tmp/ccKWzf4l.s:81     .text.HAL_NOR_Init:0000000000000068 $d
+     /tmp/ccKWzf4l.s:84     .text.HAL_NOR_MspDeInit:0000000000000000 $t
+     /tmp/ccKWzf4l.s:91     .text.HAL_NOR_MspDeInit:0000000000000000 HAL_NOR_MspDeInit
+     /tmp/ccKWzf4l.s:98     .text.HAL_NOR_DeInit:0000000000000000 $t
+     /tmp/ccKWzf4l.s:105    .text.HAL_NOR_DeInit:0000000000000000 HAL_NOR_DeInit
+     /tmp/ccKWzf4l.s:119    .text.HAL_NOR_MspWait:0000000000000000 $t
+     /tmp/ccKWzf4l.s:126    .text.HAL_NOR_MspWait:0000000000000000 HAL_NOR_MspWait
+     /tmp/ccKWzf4l.s:133    .text.HAL_NOR_Read_ID:0000000000000000 $t
+     /tmp/ccKWzf4l.s:140    .text.HAL_NOR_Read_ID:0000000000000000 HAL_NOR_Read_ID
+     /tmp/ccKWzf4l.s:252    .text.HAL_NOR_Read_ID:00000000000000d4 $d
+     /tmp/ccKWzf4l.s:255    .text.HAL_NOR_ReturnToReadMode:0000000000000000 $t
+     /tmp/ccKWzf4l.s:262    .text.HAL_NOR_ReturnToReadMode:0000000000000000 HAL_NOR_ReturnToReadMode
+     /tmp/ccKWzf4l.s:319    .text.HAL_NOR_Read:0000000000000000 $t
+     /tmp/ccKWzf4l.s:326    .text.HAL_NOR_Read:0000000000000000 HAL_NOR_Read
+     /tmp/ccKWzf4l.s:419    .text.HAL_NOR_Read:00000000000000ac $d
+     /tmp/ccKWzf4l.s:422    .text.HAL_NOR_Program:0000000000000000 $t
+     /tmp/ccKWzf4l.s:429    .text.HAL_NOR_Program:0000000000000000 HAL_NOR_Program
+     /tmp/ccKWzf4l.s:524    .text.HAL_NOR_Program:00000000000000b0 $d
+     /tmp/ccKWzf4l.s:527    .text.HAL_NOR_ReadBuffer:0000000000000000 $t
+     /tmp/ccKWzf4l.s:534    .text.HAL_NOR_ReadBuffer:0000000000000000 HAL_NOR_ReadBuffer
+     /tmp/ccKWzf4l.s:634    .text.HAL_NOR_ReadBuffer:00000000000000c0 $d
+     /tmp/ccKWzf4l.s:637    .text.HAL_NOR_ProgramBuffer:0000000000000000 $t
+     /tmp/ccKWzf4l.s:644    .text.HAL_NOR_ProgramBuffer:0000000000000000 HAL_NOR_ProgramBuffer
+     /tmp/ccKWzf4l.s:765    .text.HAL_NOR_ProgramBuffer:00000000000000e8 $d
+     /tmp/ccKWzf4l.s:768    .text.HAL_NOR_Erase_Block:0000000000000000 $t
+     /tmp/ccKWzf4l.s:775    .text.HAL_NOR_Erase_Block:0000000000000000 HAL_NOR_Erase_Block
+     /tmp/ccKWzf4l.s:896    .text.HAL_NOR_Erase_Block:00000000000000dc $d
+     /tmp/ccKWzf4l.s:899    .text.HAL_NOR_Erase_Chip:0000000000000000 $t
+     /tmp/ccKWzf4l.s:906    .text.HAL_NOR_Erase_Chip:0000000000000000 HAL_NOR_Erase_Chip
+     /tmp/ccKWzf4l.s:1032   .text.HAL_NOR_Erase_Chip:00000000000000e8 $d
+     /tmp/ccKWzf4l.s:1035   .text.HAL_NOR_Read_CFI:0000000000000000 $t
+     /tmp/ccKWzf4l.s:1042   .text.HAL_NOR_Read_CFI:0000000000000000 HAL_NOR_Read_CFI
+     /tmp/ccKWzf4l.s:1132   .text.HAL_NOR_Read_CFI:00000000000000b8 $d
+     /tmp/ccKWzf4l.s:1135   .text.HAL_NOR_WriteOperation_Enable:0000000000000000 $t
+     /tmp/ccKWzf4l.s:1142   .text.HAL_NOR_WriteOperation_Enable:0000000000000000 HAL_NOR_WriteOperation_Enable
+     /tmp/ccKWzf4l.s:1170   .text.HAL_NOR_WriteOperation_Disable:0000000000000000 $t
+     /tmp/ccKWzf4l.s:1177   .text.HAL_NOR_WriteOperation_Disable:0000000000000000 HAL_NOR_WriteOperation_Disable
+     /tmp/ccKWzf4l.s:1206   .text.HAL_NOR_GetState:0000000000000000 $t
+     /tmp/ccKWzf4l.s:1213   .text.HAL_NOR_GetState:0000000000000000 HAL_NOR_GetState
+     /tmp/ccKWzf4l.s:1221   .text.HAL_NOR_GetStatus:0000000000000000 $t
+     /tmp/ccKWzf4l.s:1228   .text.HAL_NOR_GetStatus:0000000000000000 HAL_NOR_GetStatus
+     /tmp/ccKWzf4l.s:1283   .bss.uwNORMemoryDataWidth:0000000000000000 $d
+     /tmp/ccKWzf4l.s:1287   .bss.uwNORMemoryDataWidth:0000000000000000 uwNORMemoryDataWidth
 
 UNDEFINED SYMBOLS
 FSMC_NORSRAM_Init
@@ -1279,7 +1375,7 @@ FSMC_NORSRAM_Extended_Timing_Init
 FSMC_NORSRAM_DeInit
 FSMC_NORSRAM_WriteOperation_Enable
 FSMC_NORSRAM_WriteOperation_Disable
-ARM GAS  /tmp/ccPlkNs4.s 			page 23
+ARM GAS  /tmp/ccKWzf4l.s 			page 24
 
 
 HAL_GetTick

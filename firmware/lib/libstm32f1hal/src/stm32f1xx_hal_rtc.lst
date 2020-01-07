@@ -1,1363 +1,1405 @@
-ARM GAS  /tmp/ccn4dUkb.s 			page 1
+ARM GAS  /tmp/ccHzUxDT.s 			page 1
 
 
-   1              		.syntax unified
-   2              		.cpu cortex-m3
-   3              		.fpu softvfp
-   4              		.eabi_attribute 20, 1
-   5              		.eabi_attribute 21, 1
-   6              		.eabi_attribute 23, 3
-   7              		.eabi_attribute 24, 1
-   8              		.eabi_attribute 25, 1
-   9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 4
-  11              		.eabi_attribute 34, 1
-  12              		.eabi_attribute 18, 4
-  13              		.thumb
-  14              		.file	"stm32f1xx_hal_rtc.c"
-  15              		.section	.text.RTC_ReadTimeCounter,"ax",%progbits
-  16              		.align	1
-  17              		.thumb
-  18              		.thumb_func
-  20              	RTC_ReadTimeCounter:
-  21              		@ args = 0, pretend = 0, frame = 0
-  22              		@ frame_needed = 0, uses_anonymous_args = 0
-  23 0000 10B5     		push	{r4, lr}
-  24 0002 0468     		ldr	r4, [r0]
-  25 0004 A069     		ldr	r0, [r4, #24]
-  26 0006 E369     		ldr	r3, [r4, #28]
-  27 0008 A169     		ldr	r1, [r4, #24]
-  28 000a 82B2     		uxth	r2, r0
-  29 000c 88B2     		uxth	r0, r1
-  30 000e 8242     		cmp	r2, r0
-  31 0010 17BF     		itett	ne
-  32 0012 E369     		ldrne	r3, [r4, #28]
-  33 0014 9BB2     		uxtheq	r3, r3
-  34 0016 9BB2     		uxthne	r3, r3
-  35 0018 43EA0040 		orrne	r0, r3, r0, lsl #16
-  36 001c 08BF     		it	eq
-  37 001e 43EA0240 		orreq	r0, r3, r2, lsl #16
-  38 0022 10BD     		pop	{r4, pc}
-  40              		.section	.text.RTC_ReadAlarmCounter,"ax",%progbits
-  41              		.align	1
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 4
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"stm32f1xx_hal_rtc.c"
+  12              		.section	.text.RTC_ReadTimeCounter,"ax",%progbits
+  13              		.align	1
+  14              		.syntax unified
+  15              		.thumb
+  16              		.thumb_func
+  17              		.fpu softvfp
+  19              	RTC_ReadTimeCounter:
+  20              		@ args = 0, pretend = 0, frame = 0
+  21              		@ frame_needed = 0, uses_anonymous_args = 0
+  22 0000 0368     		ldr	r3, [r0]
+  23 0002 30B5     		push	{r4, r5, lr}
+  24 0004 9A69     		ldr	r2, [r3, #24]
+  25 0006 D869     		ldr	r0, [r3, #28]
+  26 0008 9969     		ldr	r1, [r3, #24]
+  27 000a 95B2     		uxth	r5, r2
+  28 000c 8CB2     		uxth	r4, r1
+  29 000e A542     		cmp	r5, r4
+  30 0010 1DBF     		ittte	ne
+  31 0012 D869     		ldrne	r0, [r3, #28]
+  32 0014 80B2     		uxthne	r0, r0
+  33 0016 40EA0140 		orrne	r0, r0, r1, lsl #16
+  34 001a 80B2     		uxtheq	r0, r0
+  35 001c 08BF     		it	eq
+  36 001e 40EA0240 		orreq	r0, r0, r2, lsl #16
+  37 0022 30BD     		pop	{r4, r5, pc}
+  39              		.section	.text.RTC_ReadAlarmCounter,"ax",%progbits
+  40              		.align	1
+  41              		.syntax unified
   42              		.thumb
   43              		.thumb_func
-  45              	RTC_ReadAlarmCounter:
-  46              		@ args = 0, pretend = 0, frame = 0
-  47              		@ frame_needed = 0, uses_anonymous_args = 0
-  48              		@ link register save eliminated.
-  49 0000 0368     		ldr	r3, [r0]
-  50 0002 186A     		ldr	r0, [r3, #32]
-  51 0004 5B6A     		ldr	r3, [r3, #36]
-  52 0006 9BB2     		uxth	r3, r3
-  53 0008 43EA0040 		orr	r0, r3, r0, lsl #16
-  54 000c 7047     		bx	lr
-  56              		.section	.text.RTC_ByteToBcd2,"ax",%progbits
-  57              		.align	1
-  58              		.thumb
-  59              		.thumb_func
-  61              	RTC_ByteToBcd2:
-  62              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccn4dUkb.s 			page 2
+  44              		.fpu softvfp
+  46              	RTC_ReadAlarmCounter:
+  47              		@ args = 0, pretend = 0, frame = 0
+  48              		@ frame_needed = 0, uses_anonymous_args = 0
+  49              		@ link register save eliminated.
+  50 0000 0368     		ldr	r3, [r0]
+  51 0002 186A     		ldr	r0, [r3, #32]
+  52 0004 5B6A     		ldr	r3, [r3, #36]
+  53 0006 9BB2     		uxth	r3, r3
+  54 0008 43EA0040 		orr	r0, r3, r0, lsl #16
+  55 000c 7047     		bx	lr
+  57              		.section	.text.RTC_ByteToBcd2,"ax",%progbits
+  58              		.align	1
+  59              		.syntax unified
+  60              		.thumb
+  61              		.thumb_func
+ARM GAS  /tmp/ccHzUxDT.s 			page 2
 
 
-  63              		@ frame_needed = 0, uses_anonymous_args = 0
-  64              		@ link register save eliminated.
-  65 0000 0023     		movs	r3, #0
-  66              	.L6:
-  67 0002 0928     		cmp	r0, #9
-  68 0004 03D9     		bls	.L9
-  69 0006 0A38     		subs	r0, r0, #10
-  70 0008 0133     		adds	r3, r3, #1
-  71 000a C0B2     		uxtb	r0, r0
-  72 000c F9E7     		b	.L6
-  73              	.L9:
-  74 000e 40EA0310 		orr	r0, r0, r3, lsl #4
-  75 0012 C0B2     		uxtb	r0, r0
-  76 0014 7047     		bx	lr
-  78              		.section	.text.RTC_Bcd2ToByte,"ax",%progbits
-  79              		.align	1
-  80              		.thumb
-  81              		.thumb_func
-  83              	RTC_Bcd2ToByte:
-  84              		@ args = 0, pretend = 0, frame = 0
-  85              		@ frame_needed = 0, uses_anonymous_args = 0
-  86              		@ link register save eliminated.
-  87 0000 0309     		lsrs	r3, r0, #4
-  88 0002 0A22     		movs	r2, #10
-  89 0004 00F00F00 		and	r0, r0, #15
-  90 0008 02FB0300 		mla	r0, r2, r3, r0
-  91 000c C0B2     		uxtb	r0, r0
-  92 000e 7047     		bx	lr
-  94              		.section	.text.RTC_WeekDayNum,"ax",%progbits
-  95              		.align	1
-  96              		.thumb
-  97              		.thumb_func
-  99              	RTC_WeekDayNum:
- 100              		@ args = 0, pretend = 0, frame = 0
- 101              		@ frame_needed = 0, uses_anonymous_args = 0
- 102 0000 0229     		cmp	r1, #2
- 103 0002 70B5     		push	{r4, r5, r6, lr}
- 104 0004 00F5FA66 		add	r6, r0, #2000
- 105 0008 4FF01704 		mov	r4, #23
- 106 000c 14D8     		bhi	.L12
- 107 000e 4C43     		muls	r4, r1, r4
- 108 0010 0921     		movs	r1, #9
- 109 0012 B4FBF1F4 		udiv	r4, r4, r1
- 110 0016 0432     		adds	r2, r2, #4
- 111 0018 00F2CF70 		addw	r0, r0, #1999
- 112 001c 3244     		add	r2, r2, r6
- 113 001e 4FF4C871 		mov	r1, #400
- 114 0022 B0FBF1F1 		udiv	r1, r0, r1
- 115 0026 6423     		movs	r3, #100
- 116 0028 2244     		add	r2, r2, r4
- 117 002a 02EB9002 		add	r2, r2, r0, lsr #2
- 118 002e B0FBF3F0 		udiv	r0, r0, r3
- 119 0032 0A44     		add	r2, r2, r1
- 120 0034 131A     		subs	r3, r2, r0
- 121 0036 11E0     		b	.L14
- 122              	.L12:
- 123 0038 4C43     		muls	r4, r1, r4
-ARM GAS  /tmp/ccn4dUkb.s 			page 3
+  62              		.fpu softvfp
+  64              	RTC_ByteToBcd2:
+  65              		@ args = 0, pretend = 0, frame = 0
+  66              		@ frame_needed = 0, uses_anonymous_args = 0
+  67              		@ link register save eliminated.
+  68 0000 0023     		movs	r3, #0
+  69              	.L6:
+  70 0002 0928     		cmp	r0, #9
+  71 0004 03D8     		bhi	.L7
+  72 0006 40EA0310 		orr	r0, r0, r3, lsl #4
+  73 000a C0B2     		uxtb	r0, r0
+  74 000c 7047     		bx	lr
+  75              	.L7:
+  76 000e 0A38     		subs	r0, r0, #10
+  77 0010 0133     		adds	r3, r3, #1
+  78 0012 C0B2     		uxtb	r0, r0
+  79 0014 F5E7     		b	.L6
+  81              		.section	.text.RTC_Bcd2ToByte,"ax",%progbits
+  82              		.align	1
+  83              		.syntax unified
+  84              		.thumb
+  85              		.thumb_func
+  86              		.fpu softvfp
+  88              	RTC_Bcd2ToByte:
+  89              		@ args = 0, pretend = 0, frame = 0
+  90              		@ frame_needed = 0, uses_anonymous_args = 0
+  91              		@ link register save eliminated.
+  92 0000 0A22     		movs	r2, #10
+  93 0002 0309     		lsrs	r3, r0, #4
+  94 0004 00F00F00 		and	r0, r0, #15
+  95 0008 02FB0300 		mla	r0, r2, r3, r0
+  96 000c C0B2     		uxtb	r0, r0
+  97 000e 7047     		bx	lr
+  99              		.section	.text.RTC_WeekDayNum,"ax",%progbits
+ 100              		.align	1
+ 101              		.syntax unified
+ 102              		.thumb
+ 103              		.thumb_func
+ 104              		.fpu softvfp
+ 106              	RTC_WeekDayNum:
+ 107              		@ args = 0, pretend = 0, frame = 0
+ 108              		@ frame_needed = 0, uses_anonymous_args = 0
+ 109 0000 0229     		cmp	r1, #2
+ 110 0002 70B5     		push	{r4, r5, r6, lr}
+ 111 0004 4FF01703 		mov	r3, #23
+ 112 0008 00F5FA65 		add	r5, r0, #2000
+ 113 000c 4FF00906 		mov	r6, #9
+ 114 0010 1AD8     		bhi	.L10
+ 115 0012 4B43     		muls	r3, r1, r3
+ 116 0014 00F2CF74 		addw	r4, r0, #1999
+ 117 0018 B3FBF6F0 		udiv	r0, r3, r6
+ 118 001c 4FF4C873 		mov	r3, #400
+ 119 0020 B4FBF3F3 		udiv	r3, r4, r3
+ 120 0024 0432     		adds	r2, r2, #4
+ 121 0026 2A44     		add	r2, r2, r5
+ 122 0028 1044     		add	r0, r0, r2
+ 123 002a 00EB9400 		add	r0, r0, r4, lsr #2
+ARM GAS  /tmp/ccHzUxDT.s 			page 3
 
 
- 124 003a 0921     		movs	r1, #9
- 125 003c B4FBF1F4 		udiv	r4, r4, r1
- 126 0040 951C     		adds	r5, r2, #2
- 127 0042 3544     		add	r5, r5, r6
- 128 0044 2919     		adds	r1, r5, r4
- 129 0046 4FF4C874 		mov	r4, #400
- 130 004a B6FBF4F4 		udiv	r4, r6, r4
- 131 004e 6420     		movs	r0, #100
- 132 0050 B6FBF0F0 		udiv	r0, r6, r0
- 133 0054 01EB9601 		add	r1, r1, r6, lsr #2
- 134 0058 2144     		add	r1, r1, r4
- 135 005a 0B1A     		subs	r3, r1, r0
- 136              	.L14:
- 137 005c 0720     		movs	r0, #7
- 138 005e B3FBF0F0 		udiv	r0, r3, r0
- 139 0062 C0EBC000 		rsb	r0, r0, r0, lsl #3
- 140 0066 181A     		subs	r0, r3, r0
- 141 0068 C0B2     		uxtb	r0, r0
- 142 006a 70BD     		pop	{r4, r5, r6, pc}
- 144              		.section	.text.RTC_EnterInitMode,"ax",%progbits
- 145              		.align	1
- 146              		.thumb
- 147              		.thumb_func
- 149              	RTC_EnterInitMode:
- 150              		@ args = 0, pretend = 0, frame = 0
- 151              		@ frame_needed = 0, uses_anonymous_args = 0
- 152 0000 38B5     		push	{r3, r4, r5, lr}
- 153 0002 0446     		mov	r4, r0
- 154 0004 FFF7FEFF 		bl	HAL_GetTick
- 155 0008 0546     		mov	r5, r0
- 156              	.L16:
- 157 000a 2368     		ldr	r3, [r4]
- 158 000c 5A68     		ldr	r2, [r3, #4]
- 159 000e 9206     		lsls	r2, r2, #26
- 160 0010 07D4     		bmi	.L20
- 161 0012 FFF7FEFF 		bl	HAL_GetTick
- 162 0016 401B     		subs	r0, r0, r5
- 163 0018 B0F57A7F 		cmp	r0, #1000
- 164 001c F5D9     		bls	.L16
- 165 001e 0320     		movs	r0, #3
- 166 0020 38BD     		pop	{r3, r4, r5, pc}
- 167              	.L20:
- 168 0022 5A68     		ldr	r2, [r3, #4]
- 169 0024 0020     		movs	r0, #0
- 170 0026 42F01002 		orr	r2, r2, #16
- 171 002a 5A60     		str	r2, [r3, #4]
- 172 002c 38BD     		pop	{r3, r4, r5, pc}
- 174              		.section	.text.RTC_ExitInitMode,"ax",%progbits
- 175              		.align	1
- 176              		.thumb
- 177              		.thumb_func
- 179              	RTC_ExitInitMode:
- 180              		@ args = 0, pretend = 0, frame = 0
- 181              		@ frame_needed = 0, uses_anonymous_args = 0
- 182 0000 0268     		ldr	r2, [r0]
- 183 0002 38B5     		push	{r3, r4, r5, lr}
- 184 0004 5368     		ldr	r3, [r2, #4]
-ARM GAS  /tmp/ccn4dUkb.s 			page 4
+ 124 002e 1844     		add	r0, r0, r3
+ 125 0030 6423     		movs	r3, #100
+ 126 0032 B4FBF3F4 		udiv	r4, r4, r3
+ 127 0036 001B     		subs	r0, r0, r4
+ 128              	.L12:
+ 129 0038 0723     		movs	r3, #7
+ 130 003a B0FBF3F3 		udiv	r3, r0, r3
+ 131 003e C3EBC303 		rsb	r3, r3, r3, lsl #3
+ 132 0042 C01A     		subs	r0, r0, r3
+ 133 0044 C0B2     		uxtb	r0, r0
+ 134 0046 70BD     		pop	{r4, r5, r6, pc}
+ 135              	.L10:
+ 136 0048 03FB01F0 		mul	r0, r3, r1
+ 137 004c B0FBF6F0 		udiv	r0, r0, r6
+ 138 0050 0232     		adds	r2, r2, #2
+ 139 0052 2A44     		add	r2, r2, r5
+ 140 0054 4FF4C873 		mov	r3, #400
+ 141 0058 1044     		add	r0, r0, r2
+ 142 005a 6422     		movs	r2, #100
+ 143 005c B5FBF3F3 		udiv	r3, r5, r3
+ 144 0060 B5FBF2F2 		udiv	r2, r5, r2
+ 145 0064 00EB9500 		add	r0, r0, r5, lsr #2
+ 146 0068 1844     		add	r0, r0, r3
+ 147 006a 801A     		subs	r0, r0, r2
+ 148 006c E4E7     		b	.L12
+ 150              		.section	.text.RTC_EnterInitMode,"ax",%progbits
+ 151              		.align	1
+ 152              		.syntax unified
+ 153              		.thumb
+ 154              		.thumb_func
+ 155              		.fpu softvfp
+ 157              	RTC_EnterInitMode:
+ 158              		@ args = 0, pretend = 0, frame = 0
+ 159              		@ frame_needed = 0, uses_anonymous_args = 0
+ 160 0000 38B5     		push	{r3, r4, r5, lr}
+ 161 0002 0446     		mov	r4, r0
+ 162 0004 FFF7FEFF 		bl	HAL_GetTick
+ 163 0008 0546     		mov	r5, r0
+ 164              	.L14:
+ 165 000a 2368     		ldr	r3, [r4]
+ 166 000c 5A68     		ldr	r2, [r3, #4]
+ 167 000e 9206     		lsls	r2, r2, #26
+ 168 0010 05D5     		bpl	.L16
+ 169 0012 5A68     		ldr	r2, [r3, #4]
+ 170 0014 0020     		movs	r0, #0
+ 171 0016 42F01002 		orr	r2, r2, #16
+ 172 001a 5A60     		str	r2, [r3, #4]
+ 173 001c 38BD     		pop	{r3, r4, r5, pc}
+ 174              	.L16:
+ 175 001e FFF7FEFF 		bl	HAL_GetTick
+ 176 0022 401B     		subs	r0, r0, r5
+ 177 0024 B0F57A7F 		cmp	r0, #1000
+ 178 0028 EFD9     		bls	.L14
+ 179 002a 0320     		movs	r0, #3
+ 180 002c 38BD     		pop	{r3, r4, r5, pc}
+ 182              		.section	.text.RTC_ExitInitMode,"ax",%progbits
+ 183              		.align	1
+ARM GAS  /tmp/ccHzUxDT.s 			page 4
 
 
- 185 0006 0446     		mov	r4, r0
- 186 0008 23F01003 		bic	r3, r3, #16
- 187 000c 5360     		str	r3, [r2, #4]
- 188 000e FFF7FEFF 		bl	HAL_GetTick
- 189 0012 0546     		mov	r5, r0
- 190              	.L22:
- 191 0014 2368     		ldr	r3, [r4]
- 192 0016 5B68     		ldr	r3, [r3, #4]
- 193 0018 9B06     		lsls	r3, r3, #26
- 194 001a 07D4     		bmi	.L26
- 195 001c FFF7FEFF 		bl	HAL_GetTick
- 196 0020 401B     		subs	r0, r0, r5
- 197 0022 B0F57A7F 		cmp	r0, #1000
- 198 0026 F5D9     		bls	.L22
- 199 0028 0320     		movs	r0, #3
- 200 002a 38BD     		pop	{r3, r4, r5, pc}
- 201              	.L26:
- 202 002c 0020     		movs	r0, #0
- 203 002e 38BD     		pop	{r3, r4, r5, pc}
- 205              		.section	.text.RTC_WriteTimeCounter,"ax",%progbits
- 206              		.align	1
- 207              		.thumb
- 208              		.thumb_func
- 210              	RTC_WriteTimeCounter:
- 211              		@ args = 0, pretend = 0, frame = 0
- 212              		@ frame_needed = 0, uses_anonymous_args = 0
- 213 0000 38B5     		push	{r3, r4, r5, lr}
- 214 0002 0546     		mov	r5, r0
- 215 0004 0C46     		mov	r4, r1
- 216 0006 FFF7FEFF 		bl	RTC_EnterInitMode
- 217 000a 58B9     		cbnz	r0, .L29
- 218 000c 2B68     		ldr	r3, [r5]
- 219 000e 220C     		lsrs	r2, r4, #16
- 220 0010 A4B2     		uxth	r4, r4
- 221 0012 9A61     		str	r2, [r3, #24]
- 222 0014 2846     		mov	r0, r5
- 223 0016 DC61     		str	r4, [r3, #28]
- 224 0018 FFF7FEFF 		bl	RTC_ExitInitMode
- 225 001c 0030     		adds	r0, r0, #0
- 226 001e 18BF     		it	ne
- 227 0020 0120     		movne	r0, #1
- 228 0022 38BD     		pop	{r3, r4, r5, pc}
- 229              	.L29:
- 230 0024 0120     		movs	r0, #1
- 231 0026 38BD     		pop	{r3, r4, r5, pc}
- 233              		.section	.text.RTC_WriteAlarmCounter,"ax",%progbits
- 234              		.align	1
- 235              		.thumb
- 236              		.thumb_func
- 238              	RTC_WriteAlarmCounter:
- 239              		@ args = 0, pretend = 0, frame = 0
- 240              		@ frame_needed = 0, uses_anonymous_args = 0
- 241 0000 38B5     		push	{r3, r4, r5, lr}
- 242 0002 0546     		mov	r5, r0
- 243 0004 0C46     		mov	r4, r1
- 244 0006 FFF7FEFF 		bl	RTC_EnterInitMode
- 245 000a 58B9     		cbnz	r0, .L32
-ARM GAS  /tmp/ccn4dUkb.s 			page 5
+ 184              		.syntax unified
+ 185              		.thumb
+ 186              		.thumb_func
+ 187              		.fpu softvfp
+ 189              	RTC_ExitInitMode:
+ 190              		@ args = 0, pretend = 0, frame = 0
+ 191              		@ frame_needed = 0, uses_anonymous_args = 0
+ 192 0000 0268     		ldr	r2, [r0]
+ 193 0002 38B5     		push	{r3, r4, r5, lr}
+ 194 0004 5368     		ldr	r3, [r2, #4]
+ 195 0006 0446     		mov	r4, r0
+ 196 0008 23F01003 		bic	r3, r3, #16
+ 197 000c 5360     		str	r3, [r2, #4]
+ 198 000e FFF7FEFF 		bl	HAL_GetTick
+ 199 0012 0546     		mov	r5, r0
+ 200              	.L19:
+ 201 0014 2368     		ldr	r3, [r4]
+ 202 0016 5B68     		ldr	r3, [r3, #4]
+ 203 0018 9B06     		lsls	r3, r3, #26
+ 204 001a 01D5     		bpl	.L21
+ 205 001c 0020     		movs	r0, #0
+ 206 001e 38BD     		pop	{r3, r4, r5, pc}
+ 207              	.L21:
+ 208 0020 FFF7FEFF 		bl	HAL_GetTick
+ 209 0024 401B     		subs	r0, r0, r5
+ 210 0026 B0F57A7F 		cmp	r0, #1000
+ 211 002a F3D9     		bls	.L19
+ 212 002c 0320     		movs	r0, #3
+ 213 002e 38BD     		pop	{r3, r4, r5, pc}
+ 215              		.section	.text.RTC_WriteTimeCounter,"ax",%progbits
+ 216              		.align	1
+ 217              		.syntax unified
+ 218              		.thumb
+ 219              		.thumb_func
+ 220              		.fpu softvfp
+ 222              	RTC_WriteTimeCounter:
+ 223              		@ args = 0, pretend = 0, frame = 0
+ 224              		@ frame_needed = 0, uses_anonymous_args = 0
+ 225 0000 38B5     		push	{r3, r4, r5, lr}
+ 226 0002 0546     		mov	r5, r0
+ 227 0004 0C46     		mov	r4, r1
+ 228 0006 FFF7FEFF 		bl	RTC_EnterInitMode
+ 229 000a 58B9     		cbnz	r0, .L25
+ 230 000c 2B68     		ldr	r3, [r5]
+ 231 000e 220C     		lsrs	r2, r4, #16
+ 232 0010 A4B2     		uxth	r4, r4
+ 233 0012 9A61     		str	r2, [r3, #24]
+ 234 0014 2846     		mov	r0, r5
+ 235 0016 DC61     		str	r4, [r3, #28]
+ 236 0018 FFF7FEFF 		bl	RTC_ExitInitMode
+ 237 001c 0030     		adds	r0, r0, #0
+ 238 001e 18BF     		it	ne
+ 239 0020 0120     		movne	r0, #1
+ 240 0022 38BD     		pop	{r3, r4, r5, pc}
+ 241              	.L25:
+ 242 0024 0120     		movs	r0, #1
+ 243 0026 38BD     		pop	{r3, r4, r5, pc}
+ARM GAS  /tmp/ccHzUxDT.s 			page 5
 
 
- 246 000c 2B68     		ldr	r3, [r5]
- 247 000e 220C     		lsrs	r2, r4, #16
- 248 0010 A4B2     		uxth	r4, r4
- 249 0012 1A62     		str	r2, [r3, #32]
- 250 0014 2846     		mov	r0, r5
- 251 0016 5C62     		str	r4, [r3, #36]
- 252 0018 FFF7FEFF 		bl	RTC_ExitInitMode
- 253 001c 0030     		adds	r0, r0, #0
- 254 001e 18BF     		it	ne
- 255 0020 0120     		movne	r0, #1
- 256 0022 38BD     		pop	{r3, r4, r5, pc}
- 257              	.L32:
- 258 0024 0120     		movs	r0, #1
- 259 0026 38BD     		pop	{r3, r4, r5, pc}
- 261              		.section	.text.HAL_RTC_MspInit,"ax",%progbits
- 262              		.align	1
- 263              		.weak	HAL_RTC_MspInit
- 264              		.thumb
- 265              		.thumb_func
- 267              	HAL_RTC_MspInit:
- 268              		@ args = 0, pretend = 0, frame = 0
- 269              		@ frame_needed = 0, uses_anonymous_args = 0
- 270              		@ link register save eliminated.
- 271 0000 7047     		bx	lr
- 273              		.section	.text.HAL_RTC_MspDeInit,"ax",%progbits
- 274              		.align	1
- 275              		.weak	HAL_RTC_MspDeInit
- 276              		.thumb
- 277              		.thumb_func
- 279              	HAL_RTC_MspDeInit:
- 280              		@ args = 0, pretend = 0, frame = 0
- 281              		@ frame_needed = 0, uses_anonymous_args = 0
- 282              		@ link register save eliminated.
- 283 0000 7047     		bx	lr
- 285              		.section	.text.HAL_RTC_SetTime,"ax",%progbits
- 286              		.align	1
- 287              		.global	HAL_RTC_SetTime
- 288              		.thumb
- 289              		.thumb_func
- 291              	HAL_RTC_SetTime:
- 292              		@ args = 0, pretend = 0, frame = 0
- 293              		@ frame_needed = 0, uses_anonymous_args = 0
- 294 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
- 295 0002 0446     		mov	r4, r0
- 296 0004 0028     		cmp	r0, #0
- 297 0006 4DD0     		beq	.L42
- 298 0008 0029     		cmp	r1, #0
- 299 000a 4BD0     		beq	.L42
- 300 000c 037C     		ldrb	r3, [r0, #16]	@ zero_extendqisi2
- 301 000e 0226     		movs	r6, #2
- 302 0010 012B     		cmp	r3, #1
- 303 0012 48D0     		beq	.L36
- 304 0014 0123     		movs	r3, #1
- 305 0016 0374     		strb	r3, [r0, #16]
- 306 0018 4674     		strb	r6, [r0, #17]
- 307 001a 0878     		ldrb	r0, [r1]	@ zero_extendqisi2
- 308 001c 4D78     		ldrb	r5, [r1, #1]	@ zero_extendqisi2
-ARM GAS  /tmp/ccn4dUkb.s 			page 6
+ 245              		.section	.text.RTC_WriteAlarmCounter,"ax",%progbits
+ 246              		.align	1
+ 247              		.syntax unified
+ 248              		.thumb
+ 249              		.thumb_func
+ 250              		.fpu softvfp
+ 252              	RTC_WriteAlarmCounter:
+ 253              		@ args = 0, pretend = 0, frame = 0
+ 254              		@ frame_needed = 0, uses_anonymous_args = 0
+ 255 0000 38B5     		push	{r3, r4, r5, lr}
+ 256 0002 0546     		mov	r5, r0
+ 257 0004 0C46     		mov	r4, r1
+ 258 0006 FFF7FEFF 		bl	RTC_EnterInitMode
+ 259 000a 58B9     		cbnz	r0, .L28
+ 260 000c 2B68     		ldr	r3, [r5]
+ 261 000e 220C     		lsrs	r2, r4, #16
+ 262 0010 A4B2     		uxth	r4, r4
+ 263 0012 1A62     		str	r2, [r3, #32]
+ 264 0014 2846     		mov	r0, r5
+ 265 0016 5C62     		str	r4, [r3, #36]
+ 266 0018 FFF7FEFF 		bl	RTC_ExitInitMode
+ 267 001c 0030     		adds	r0, r0, #0
+ 268 001e 18BF     		it	ne
+ 269 0020 0120     		movne	r0, #1
+ 270 0022 38BD     		pop	{r3, r4, r5, pc}
+ 271              	.L28:
+ 272 0024 0120     		movs	r0, #1
+ 273 0026 38BD     		pop	{r3, r4, r5, pc}
+ 275              		.section	.text.HAL_RTC_MspInit,"ax",%progbits
+ 276              		.align	1
+ 277              		.weak	HAL_RTC_MspInit
+ 278              		.syntax unified
+ 279              		.thumb
+ 280              		.thumb_func
+ 281              		.fpu softvfp
+ 283              	HAL_RTC_MspInit:
+ 284              		@ args = 0, pretend = 0, frame = 0
+ 285              		@ frame_needed = 0, uses_anonymous_args = 0
+ 286              		@ link register save eliminated.
+ 287 0000 7047     		bx	lr
+ 289              		.section	.text.HAL_RTC_MspDeInit,"ax",%progbits
+ 290              		.align	1
+ 291              		.weak	HAL_RTC_MspDeInit
+ 292              		.syntax unified
+ 293              		.thumb
+ 294              		.thumb_func
+ 295              		.fpu softvfp
+ 297              	HAL_RTC_MspDeInit:
+ 298              		@ args = 0, pretend = 0, frame = 0
+ 299              		@ frame_needed = 0, uses_anonymous_args = 0
+ 300              		@ link register save eliminated.
+ 301 0000 7047     		bx	lr
+ 303              		.section	.text.HAL_RTC_SetTime,"ax",%progbits
+ 304              		.align	1
+ 305              		.global	HAL_RTC_SetTime
+ 306              		.syntax unified
+ 307              		.thumb
+ARM GAS  /tmp/ccHzUxDT.s 			page 6
 
 
- 309 001e 8F78     		ldrb	r7, [r1, #2]	@ zero_extendqisi2
- 310 0020 3AB9     		cbnz	r2, .L37
- 311 0022 3C23     		movs	r3, #60
- 312 0024 6B43     		muls	r3, r5, r3
- 313 0026 4FF46165 		mov	r5, #3600
- 314 002a 05FB0030 		mla	r0, r5, r0, r3
- 315 002e C519     		adds	r5, r0, r7
- 316 0030 0FE0     		b	.L38
- 317              	.L37:
- 318 0032 FFF7FEFF 		bl	RTC_Bcd2ToByte
- 319 0036 0646     		mov	r6, r0
- 320 0038 2846     		mov	r0, r5
- 321 003a FFF7FEFF 		bl	RTC_Bcd2ToByte
- 322 003e 3C23     		movs	r3, #60
- 323 0040 5843     		muls	r0, r3, r0
- 324 0042 4FF46165 		mov	r5, #3600
- 325 0046 05FB0605 		mla	r5, r5, r6, r0
- 326 004a 3846     		mov	r0, r7
- 327 004c FFF7FEFF 		bl	RTC_Bcd2ToByte
- 328 0050 0544     		add	r5, r5, r0
- 329              	.L38:
- 330 0052 2046     		mov	r0, r4
- 331 0054 2946     		mov	r1, r5
- 332 0056 FFF7FEFF 		bl	RTC_WriteTimeCounter
- 333 005a 0646     		mov	r6, r0
- 334 005c 20B1     		cbz	r0, .L39
- 335 005e 0423     		movs	r3, #4
- 336 0060 6374     		strb	r3, [r4, #17]
- 337 0062 0023     		movs	r3, #0
- 338 0064 2374     		strb	r3, [r4, #16]
- 339 0066 1DE0     		b	.L42
- 340              	.L39:
- 341 0068 2268     		ldr	r2, [r4]
- 342 006a 2046     		mov	r0, r4
- 343 006c 5368     		ldr	r3, [r2, #4]
- 344 006e 23F00503 		bic	r3, r3, #5
- 345 0072 5360     		str	r3, [r2, #4]
- 346 0074 FFF7FEFF 		bl	RTC_ReadAlarmCounter
- 347 0078 431C     		adds	r3, r0, #1
- 348 007a 0146     		mov	r1, r0
- 349 007c 0DD0     		beq	.L40
- 350 007e A842     		cmp	r0, r5
- 351 0080 0BD2     		bcs	.L40
- 352 0082 01F5A831 		add	r1, r1, #86016
- 353 0086 2046     		mov	r0, r4
- 354 0088 01F5C071 		add	r1, r1, #384
- 355 008c FFF7FEFF 		bl	RTC_WriteAlarmCounter
- 356 0090 18B1     		cbz	r0, .L40
- 357 0092 0423     		movs	r3, #4
- 358 0094 6374     		strb	r3, [r4, #17]
- 359 0096 2674     		strb	r6, [r4, #16]
- 360 0098 04E0     		b	.L42
- 361              	.L40:
- 362 009a 0123     		movs	r3, #1
- 363 009c 6374     		strb	r3, [r4, #17]
- 364 009e 0023     		movs	r3, #0
- 365 00a0 2374     		strb	r3, [r4, #16]
-ARM GAS  /tmp/ccn4dUkb.s 			page 7
+ 308              		.thumb_func
+ 309              		.fpu softvfp
+ 311              	HAL_RTC_SetTime:
+ 312              		@ args = 0, pretend = 0, frame = 0
+ 313              		@ frame_needed = 0, uses_anonymous_args = 0
+ 314 0000 70B5     		push	{r4, r5, r6, lr}
+ 315 0002 0446     		mov	r4, r0
+ 316 0004 E0B1     		cbz	r0, .L38
+ 317 0006 D9B1     		cbz	r1, .L38
+ 318 0008 037C     		ldrb	r3, [r0, #16]	@ zero_extendqisi2
+ 319 000a 0226     		movs	r6, #2
+ 320 000c 012B     		cmp	r3, #1
+ 321 000e 46D0     		beq	.L32
+ 322 0010 0123     		movs	r3, #1
+ 323 0012 4674     		strb	r6, [r0, #17]
+ 324 0014 0374     		strb	r3, [r0, #16]
+ 325 0016 0878     		ldrb	r0, [r1]	@ zero_extendqisi2
+ 326 0018 4E78     		ldrb	r6, [r1, #1]	@ zero_extendqisi2
+ 327 001a 8978     		ldrb	r1, [r1, #2]	@ zero_extendqisi2
+ 328 001c 92B9     		cbnz	r2, .L33
+ 329 001e 3C25     		movs	r5, #60
+ 330 0020 4FF46163 		mov	r3, #3600
+ 331 0024 7543     		muls	r5, r6, r5
+ 332 0026 03FB0050 		mla	r0, r3, r0, r5
+ 333 002a 4518     		adds	r5, r0, r1
+ 334              	.L34:
+ 335 002c 2946     		mov	r1, r5
+ 336 002e 2046     		mov	r0, r4
+ 337 0030 FFF7FEFF 		bl	RTC_WriteTimeCounter
+ 338 0034 0646     		mov	r6, r0
+ 339 0036 B0B1     		cbz	r0, .L35
+ 340 0038 0423     		movs	r3, #4
+ 341 003a 6374     		strb	r3, [r4, #17]
+ 342 003c 0023     		movs	r3, #0
+ 343 003e 2374     		strb	r3, [r4, #16]
+ 344              	.L38:
+ 345 0040 0126     		movs	r6, #1
+ 346 0042 2CE0     		b	.L32
+ 347              	.L33:
+ 348 0044 FFF7FEFF 		bl	RTC_Bcd2ToByte
+ 349 0048 0546     		mov	r5, r0
+ 350 004a 3046     		mov	r0, r6
+ 351 004c FFF7FEFF 		bl	RTC_Bcd2ToByte
+ 352 0050 3C23     		movs	r3, #60
+ 353 0052 5843     		muls	r0, r3, r0
+ 354 0054 4FF46163 		mov	r3, #3600
+ 355 0058 03FB0505 		mla	r5, r3, r5, r0
+ 356 005c 0846     		mov	r0, r1
+ 357 005e FFF7FEFF 		bl	RTC_Bcd2ToByte
+ 358 0062 0544     		add	r5, r5, r0
+ 359 0064 E2E7     		b	.L34
+ 360              	.L35:
+ 361 0066 2268     		ldr	r2, [r4]
+ 362 0068 2046     		mov	r0, r4
+ 363 006a 5368     		ldr	r3, [r2, #4]
+ 364 006c 23F00503 		bic	r3, r3, #5
+ 365 0070 5360     		str	r3, [r2, #4]
+ARM GAS  /tmp/ccHzUxDT.s 			page 7
 
 
- 366 00a2 00E0     		b	.L36
- 367              	.L42:
- 368 00a4 0126     		movs	r6, #1
- 369              	.L36:
- 370 00a6 3046     		mov	r0, r6
- 371 00a8 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 373              		.section	.text.HAL_RTC_GetTime,"ax",%progbits
- 374              		.align	1
- 375              		.global	HAL_RTC_GetTime
- 376              		.thumb
- 377              		.thumb_func
- 379              	HAL_RTC_GetTime:
- 380              		@ args = 0, pretend = 0, frame = 0
- 381              		@ frame_needed = 0, uses_anonymous_args = 0
- 382 0000 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
- 383 0004 0D46     		mov	r5, r1
- 384 0006 1746     		mov	r7, r2
- 385 0008 0446     		mov	r4, r0
- 386 000a 10B9     		cbnz	r0, .L51
- 387              	.L53:
- 388 000c 0120     		movs	r0, #1
- 389 000e BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
- 390              	.L51:
- 391 0012 0029     		cmp	r1, #0
- 392 0014 FAD0     		beq	.L53
- 393 0016 0368     		ldr	r3, [r0]
- 394 0018 5B68     		ldr	r3, [r3, #4]
- 395 001a 5E07     		lsls	r6, r3, #29
- 396 001c F6D4     		bmi	.L53
- 397 001e FFF7FEFF 		bl	RTC_ReadTimeCounter
- 398 0022 4FF46162 		mov	r2, #3600
- 399 0026 B0FBF2F3 		udiv	r3, r0, r2
- 400 002a 02FB1302 		mls	r2, r2, r3, r0
- 401 002e 8146     		mov	r9, r0
- 402 0030 3C20     		movs	r0, #60
- 403 0032 B2FBF0F1 		udiv	r1, r2, r0
- 404 0036 00FB1122 		mls	r2, r0, r1, r2
- 405 003a 172B     		cmp	r3, #23
- 406 003c 6970     		strb	r1, [r5, #1]
- 407 003e AA70     		strb	r2, [r5, #2]
- 408 0040 72D9     		bls	.L54
- 409 0042 1822     		movs	r2, #24
- 410 0044 B3FBF2F8 		udiv	r8, r3, r2
- 411 0048 02FB1833 		mls	r3, r2, r8, r3
- 412 004c 2046     		mov	r0, r4
- 413 004e 2B70     		strb	r3, [r5]
- 414 0050 FFF7FEFF 		bl	RTC_ReadAlarmCounter
- 415 0054 0646     		mov	r6, r0
- 416 0056 0130     		adds	r0, r0, #1
- 417 0058 05D0     		beq	.L55
- 418 005a 4E45     		cmp	r6, r9
- 419 005c 8CBF     		ite	hi
- 420 005e C9EB0606 		rsbhi	r6, r9, r6
- 421 0062 4FF0FF36 		movls	r6, #-1
- 422              	.L55:
- 423 0066 3E4B     		ldr	r3, .L107
- 424 0068 2046     		mov	r0, r4
-ARM GAS  /tmp/ccn4dUkb.s 			page 8
+ 366 0072 FFF7FEFF 		bl	RTC_ReadAlarmCounter
+ 367 0076 431C     		adds	r3, r0, #1
+ 368 0078 0DD0     		beq	.L36
+ 369 007a 8542     		cmp	r5, r0
+ 370 007c 0BD9     		bls	.L36
+ 371 007e 00F5A831 		add	r1, r0, #86016
+ 372 0082 01F5C071 		add	r1, r1, #384
+ 373 0086 2046     		mov	r0, r4
+ 374 0088 FFF7FEFF 		bl	RTC_WriteAlarmCounter
+ 375 008c 18B1     		cbz	r0, .L36
+ 376 008e 0423     		movs	r3, #4
+ 377 0090 2674     		strb	r6, [r4, #16]
+ 378 0092 6374     		strb	r3, [r4, #17]
+ 379 0094 D4E7     		b	.L38
+ 380              	.L36:
+ 381 0096 0123     		movs	r3, #1
+ 382 0098 6374     		strb	r3, [r4, #17]
+ 383 009a 0023     		movs	r3, #0
+ 384 009c 2374     		strb	r3, [r4, #16]
+ 385              	.L32:
+ 386 009e 3046     		mov	r0, r6
+ 387 00a0 70BD     		pop	{r4, r5, r6, pc}
+ 389              		.section	.text.HAL_RTC_GetTime,"ax",%progbits
+ 390              		.align	1
+ 391              		.global	HAL_RTC_GetTime
+ 392              		.syntax unified
+ 393              		.thumb
+ 394              		.thumb_func
+ 395              		.fpu softvfp
+ 397              	HAL_RTC_GetTime:
+ 398              		@ args = 0, pretend = 0, frame = 0
+ 399              		@ frame_needed = 0, uses_anonymous_args = 0
+ 400 0000 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
+ 401 0004 0D46     		mov	r5, r1
+ 402 0006 9046     		mov	r8, r2
+ 403 0008 0446     		mov	r4, r0
+ 404 000a 10B9     		cbnz	r0, .L47
+ 405              	.L49:
+ 406 000c 0120     		movs	r0, #1
+ 407 000e BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 408              	.L47:
+ 409 0012 0029     		cmp	r1, #0
+ 410 0014 FAD0     		beq	.L49
+ 411 0016 0368     		ldr	r3, [r0]
+ 412 0018 5B68     		ldr	r3, [r3, #4]
+ 413 001a 5E07     		lsls	r6, r3, #29
+ 414 001c F6D4     		bmi	.L49
+ 415 001e FFF7FEFF 		bl	RTC_ReadTimeCounter
+ 416 0022 4FF46162 		mov	r2, #3600
+ 417 0026 B0FBF2F3 		udiv	r3, r0, r2
+ 418 002a 0746     		mov	r7, r0
+ 419 002c 02FB1302 		mls	r2, r2, r3, r0
+ 420 0030 3C20     		movs	r0, #60
+ 421 0032 B2FBF0F1 		udiv	r1, r2, r0
+ 422 0036 00FB1122 		mls	r2, r0, r1, r2
+ 423 003a 172B     		cmp	r3, #23
+ 424 003c 6970     		strb	r1, [r5, #1]
+ARM GAS  /tmp/ccHzUxDT.s 			page 8
 
 
- 425 006a 03FB1899 		mls	r9, r3, r8, r9
- 426 006e 4946     		mov	r1, r9
- 427 0070 FFF7FEFF 		bl	RTC_WriteTimeCounter
- 428 0074 0028     		cmp	r0, #0
- 429 0076 C9D1     		bne	.L53
- 430 0078 711C     		adds	r1, r6, #1
- 431 007a 2046     		mov	r0, r4
- 432 007c 02D0     		beq	.L56
- 433 007e 06EB0901 		add	r1, r6, r9
- 434 0082 00E0     		b	.L101
- 435              	.L56:
- 436 0084 3146     		mov	r1, r6
- 437              	.L101:
- 438 0086 FFF7FEFF 		bl	RTC_WriteAlarmCounter
- 439 008a 0028     		cmp	r0, #0
- 440 008c BED1     		bne	.L53
- 441 008e E07B     		ldrb	r0, [r4, #15]	@ zero_extendqisi2
- 442 0090 617B     		ldrb	r1, [r4, #13]	@ zero_extendqisi2
- 443 0092 A27B     		ldrb	r2, [r4, #14]	@ zero_extendqisi2
- 444 0094 0026     		movs	r6, #0
- 445              	.L57:
- 446 0096 21F00203 		bic	r3, r1, #2
- 447 009a 012B     		cmp	r3, #1
- 448 009c 55D0     		beq	.L59
- 449 009e 0529     		cmp	r1, #5
- 450 00a0 53D0     		beq	.L59
- 451 00a2 A1F1070E 		sub	lr, r1, #7
- 452 00a6 BEF1010F 		cmp	lr, #1
- 453 00aa 4ED9     		bls	.L59
- 454 00ac 0A29     		cmp	r1, #10
- 455 00ae 4CD0     		beq	.L59
- 456 00b0 0C29     		cmp	r1, #12
- 457 00b2 4FD0     		beq	.L106
- 458 00b4 042B     		cmp	r3, #4
- 459 00b6 01D0     		beq	.L63
- 460 00b8 092B     		cmp	r3, #9
- 461 00ba 01D1     		bne	.L64
- 462              	.L63:
- 463 00bc 1D2A     		cmp	r2, #29
- 464 00be 45E0     		b	.L105
- 465              	.L64:
- 466 00c0 0229     		cmp	r1, #2
- 467 00c2 25D1     		bne	.L62
- 468 00c4 1B2A     		cmp	r2, #27
- 469 00c6 01D8     		bhi	.L66
- 470              	.L102:
- 471 00c8 0132     		adds	r2, r2, #1
- 472 00ca 21E0     		b	.L62
- 473              	.L66:
- 474 00cc 1C2A     		cmp	r2, #28
- 475 00ce 18D1     		bne	.L67
- 476 00d0 83B2     		uxth	r3, r0
- 477 00d2 9A07     		lsls	r2, r3, #30
- 478 00d4 1AD1     		bne	.L76
- 479 00d6 4FF0640E 		mov	lr, #100
- 480 00da B3FBFEF2 		udiv	r2, r3, lr
- 481 00de 0EFB1232 		mls	r2, lr, r2, r3
-ARM GAS  /tmp/ccn4dUkb.s 			page 9
+ 425 003e AA70     		strb	r2, [r5, #2]
+ 426 0040 40F28580 		bls	.L50
+ 427 0044 1821     		movs	r1, #24
+ 428 0046 B3FBF1F2 		udiv	r2, r3, r1
+ 429 004a 01FB1233 		mls	r3, r1, r2, r3
+ 430 004e 2046     		mov	r0, r4
+ 431 0050 2B70     		strb	r3, [r5]
+ 432 0052 FFF7FEFF 		bl	RTC_ReadAlarmCounter
+ 433 0056 411C     		adds	r1, r0, #1
+ 434 0058 0646     		mov	r6, r0
+ 435 005a 04D0     		beq	.L51
+ 436 005c 8742     		cmp	r7, r0
+ 437 005e 2CBF     		ite	cs
+ 438 0060 4FF0FF36 		movcs	r6, #-1
+ 439 0064 C61B     		subcc	r6, r0, r7
+ 440              	.L51:
+ 441 0066 404B     		ldr	r3, .L93
+ 442 0068 2046     		mov	r0, r4
+ 443 006a B7FBF3F9 		udiv	r9, r7, r3
+ 444 006e 03FB1979 		mls	r9, r3, r9, r7
+ 445 0072 4946     		mov	r1, r9
+ 446 0074 FFF7FEFF 		bl	RTC_WriteTimeCounter
+ 447 0078 0028     		cmp	r0, #0
+ 448 007a C7D1     		bne	.L49
+ 449 007c 721C     		adds	r2, r6, #1
+ 450 007e 2FD0     		beq	.L52
+ 451 0080 09EB0601 		add	r1, r9, r6
+ 452              	.L88:
+ 453 0084 2046     		mov	r0, r4
+ 454 0086 FFF7FEFF 		bl	RTC_WriteAlarmCounter
+ 455 008a 0028     		cmp	r0, #0
+ 456 008c BED1     		bne	.L49
+ 457 008e 364B     		ldr	r3, .L93
+ 458 0090 0026     		movs	r6, #0
+ 459 0092 B7FBF3F7 		udiv	r7, r7, r3
+ 460 0096 4FF0640E 		mov	lr, #100
+ 461 009a 4FF4C87C 		mov	ip, #400
+ 462 009e 40F2D529 		movw	r9, #725
+ 463 00a2 E07B     		ldrb	r0, [r4, #15]	@ zero_extendqisi2
+ 464 00a4 617B     		ldrb	r1, [r4, #13]	@ zero_extendqisi2
+ 465 00a6 A27B     		ldrb	r2, [r4, #14]	@ zero_extendqisi2
+ 466              	.L53:
+ 467 00a8 B742     		cmp	r7, r6
+ 468 00aa 1BD1     		bne	.L64
+ 469 00ac C9B2     		uxtb	r1, r1
+ 470 00ae D2B2     		uxtb	r2, r2
+ 471 00b0 E073     		strb	r0, [r4, #15]
+ 472 00b2 6173     		strb	r1, [r4, #13]
+ 473 00b4 A273     		strb	r2, [r4, #14]
+ 474 00b6 FFF7FEFF 		bl	RTC_WeekDayNum
+ 475 00ba 2073     		strb	r0, [r4, #12]
+ 476              	.L65:
+ 477 00bc B8F1000F 		cmp	r8, #0
+ 478 00c0 0BD0     		beq	.L90
+ 479 00c2 2878     		ldrb	r0, [r5]	@ zero_extendqisi2
+ 480 00c4 FFF7FEFF 		bl	RTC_ByteToBcd2
+ 481 00c8 2870     		strb	r0, [r5]
+ARM GAS  /tmp/ccHzUxDT.s 			page 9
 
 
- 482 00e2 92B2     		uxth	r2, r2
- 483 00e4 82B9     		cbnz	r2, .L74
- 484 00e6 4FF4C871 		mov	r1, #400
- 485 00ea B3FBF1F2 		udiv	r2, r3, r1
- 486 00ee 01FB1233 		mls	r3, r1, r2, r3
- 487 00f2 9BB2     		uxth	r3, r3
- 488 00f4 002B     		cmp	r3, #0
- 489 00f6 13BF     		iteet	ne
- 490 00f8 0122     		movne	r2, #1
- 491 00fa 1D22     		moveq	r2, #29
- 492 00fc 0221     		moveq	r1, #2
- 493 00fe 0321     		movne	r1, #3
- 494 0100 06E0     		b	.L62
- 495              	.L67:
- 496 0102 1D2A     		cmp	r2, #29
- 497 0104 04D1     		bne	.L62
- 498 0106 01E0     		b	.L76
- 499              	.L74:
- 500 0108 1D22     		movs	r2, #29
- 501 010a 01E0     		b	.L62
- 502              	.L76:
- 503 010c 0122     		movs	r2, #1
- 504 010e 0321     		movs	r1, #3
- 505              	.L62:
- 506 0110 0136     		adds	r6, r6, #1
- 507 0112 4645     		cmp	r6, r8
- 508 0114 BFD1     		bne	.L57
- 509 0116 C9B2     		uxtb	r1, r1
- 510 0118 D2B2     		uxtb	r2, r2
- 511 011a E073     		strb	r0, [r4, #15]
- 512 011c 6173     		strb	r1, [r4, #13]
- 513 011e A273     		strb	r2, [r4, #14]
- 514 0120 FFF7FEFF 		bl	RTC_WeekDayNum
- 515 0124 2073     		strb	r0, [r4, #12]
- 516 0126 00E0     		b	.L68
- 517              	.L54:
- 518 0128 2B70     		strb	r3, [r5]
- 519              	.L68:
- 520 012a 5FB1     		cbz	r7, .L103
- 521 012c 2878     		ldrb	r0, [r5]	@ zero_extendqisi2
- 522 012e FFF7FEFF 		bl	RTC_ByteToBcd2
- 523 0132 2870     		strb	r0, [r5]
- 524 0134 6878     		ldrb	r0, [r5, #1]	@ zero_extendqisi2
- 525 0136 FFF7FEFF 		bl	RTC_ByteToBcd2
- 526 013a 6870     		strb	r0, [r5, #1]
- 527 013c A878     		ldrb	r0, [r5, #2]	@ zero_extendqisi2
- 528 013e FFF7FEFF 		bl	RTC_ByteToBcd2
- 529 0142 A870     		strb	r0, [r5, #2]
- 530              	.L103:
- 531 0144 0020     		movs	r0, #0
- 532 0146 BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
- 533              	.L59:
- 534 014a 1E2A     		cmp	r2, #30
- 535              	.L105:
- 536 014c BCD9     		bls	.L102
- 537 014e 0131     		adds	r1, r1, #1
- 538 0150 0122     		movs	r2, #1
-ARM GAS  /tmp/ccn4dUkb.s 			page 10
+ 482 00ca 6878     		ldrb	r0, [r5, #1]	@ zero_extendqisi2
+ 483 00cc FFF7FEFF 		bl	RTC_ByteToBcd2
+ 484 00d0 6870     		strb	r0, [r5, #1]
+ 485 00d2 A878     		ldrb	r0, [r5, #2]	@ zero_extendqisi2
+ 486 00d4 FFF7FEFF 		bl	RTC_ByteToBcd2
+ 487 00d8 A870     		strb	r0, [r5, #2]
+ 488              	.L90:
+ 489 00da 0020     		movs	r0, #0
+ 490 00dc BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 491              	.L52:
+ 492 00e0 3146     		mov	r1, r6
+ 493 00e2 CFE7     		b	.L88
+ 494              	.L64:
+ 495 00e4 4B1E     		subs	r3, r1, #1
+ 496 00e6 092B     		cmp	r3, #9
+ 497 00e8 35D8     		bhi	.L55
+ 498 00ea 29FA03F3 		lsr	r3, r9, r3
+ 499 00ee DB07     		lsls	r3, r3, #31
+ 500 00f0 2FD4     		bmi	.L85
+ 501              	.L56:
+ 502 00f2 21F00203 		bic	r3, r1, #2
+ 503 00f6 042B     		cmp	r3, #4
+ 504 00f8 01D0     		beq	.L59
+ 505 00fa 092B     		cmp	r3, #9
+ 506 00fc 04D1     		bne	.L60
+ 507              	.L59:
+ 508 00fe 1D2A     		cmp	r2, #29
+ 509              	.L92:
+ 510 0100 06D9     		bls	.L89
+ 511 0102 0131     		adds	r1, r1, #1
+ 512 0104 0122     		movs	r2, #1
+ 513 0106 2DE0     		b	.L58
+ 514              	.L60:
+ 515 0108 0229     		cmp	r1, #2
+ 516 010a 2BD1     		bne	.L58
+ 517 010c 1B2A     		cmp	r2, #27
+ 518 010e 01D8     		bhi	.L62
+ 519              	.L89:
+ 520 0110 0132     		adds	r2, r2, #1
+ 521 0112 27E0     		b	.L58
+ 522              	.L62:
+ 523 0114 1C2A     		cmp	r2, #28
+ 524 0116 13D1     		bne	.L63
+ 525 0118 82B2     		uxth	r2, r0
+ 526 011a 9307     		lsls	r3, r2, #30
+ 527 011c 12D1     		bne	.L71
+ 528 011e B2FBFEF3 		udiv	r3, r2, lr
+ 529 0122 0EFB1323 		mls	r3, lr, r3, r2
+ 530 0126 9BB2     		uxth	r3, r3
+ 531 0128 7BB9     		cbnz	r3, .L72
+ 532 012a B2FBFCF3 		udiv	r3, r2, ip
+ 533 012e 0CFB1323 		mls	r3, ip, r3, r2
+ 534 0132 9BB2     		uxth	r3, r3
+ 535 0134 002B     		cmp	r3, #0
+ 536 0136 16BF     		itet	ne
+ 537 0138 0122     		movne	r2, #1
+ 538 013a 1D22     		moveq	r2, #29
+ARM GAS  /tmp/ccHzUxDT.s 			page 10
 
 
- 539 0152 DDE7     		b	.L62
- 540              	.L106:
- 541 0154 1E2A     		cmp	r2, #30
- 542 0156 B7D9     		bls	.L102
- 543 0158 0122     		movs	r2, #1
- 544 015a 0130     		adds	r0, r0, #1
- 545 015c 1146     		mov	r1, r2
- 546 015e D7E7     		b	.L62
- 547              	.L108:
- 548              		.align	2
- 549              	.L107:
- 550 0160 80510100 		.word	86400
- 552              		.section	.text.HAL_RTC_SetDate,"ax",%progbits
- 553              		.align	1
- 554              		.global	HAL_RTC_SetDate
- 555              		.thumb
- 556              		.thumb_func
- 558              	HAL_RTC_SetDate:
- 559              		@ args = 0, pretend = 0, frame = 0
- 560              		@ frame_needed = 0, uses_anonymous_args = 0
- 561 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
- 562 0002 0D46     		mov	r5, r1
- 563 0004 0446     		mov	r4, r0
- 564 0006 0028     		cmp	r0, #0
- 565 0008 55D0     		beq	.L116
- 566 000a 0029     		cmp	r1, #0
- 567 000c 53D0     		beq	.L116
- 568 000e 037C     		ldrb	r3, [r0, #16]	@ zero_extendqisi2
- 569 0010 0220     		movs	r0, #2
- 570 0012 012B     		cmp	r3, #1
- 571 0014 50D0     		beq	.L110
- 572 0016 0123     		movs	r3, #1
- 573 0018 2374     		strb	r3, [r4, #16]
- 574 001a 6074     		strb	r0, [r4, #17]
- 575 001c C878     		ldrb	r0, [r1, #3]	@ zero_extendqisi2
- 576 001e 4F78     		ldrb	r7, [r1, #1]	@ zero_extendqisi2
- 577 0020 8E78     		ldrb	r6, [r1, #2]	@ zero_extendqisi2
- 578 0022 1AB9     		cbnz	r2, .L111
- 579 0024 E073     		strb	r0, [r4, #15]
- 580 0026 6773     		strb	r7, [r4, #13]
- 581 0028 A673     		strb	r6, [r4, #14]
- 582 002a 0AE0     		b	.L112
- 583              	.L111:
- 584 002c FFF7FEFF 		bl	RTC_Bcd2ToByte
- 585 0030 E073     		strb	r0, [r4, #15]
- 586 0032 3846     		mov	r0, r7
- 587 0034 FFF7FEFF 		bl	RTC_Bcd2ToByte
- 588 0038 6073     		strb	r0, [r4, #13]
- 589 003a 3046     		mov	r0, r6
- 590 003c FFF7FEFF 		bl	RTC_Bcd2ToByte
- 591 0040 A073     		strb	r0, [r4, #14]
- 592              	.L112:
- 593 0042 E07B     		ldrb	r0, [r4, #15]	@ zero_extendqisi2
- 594 0044 617B     		ldrb	r1, [r4, #13]	@ zero_extendqisi2
- 595 0046 A27B     		ldrb	r2, [r4, #14]	@ zero_extendqisi2
- 596 0048 FFF7FEFF 		bl	RTC_WeekDayNum
- 597 004c 2073     		strb	r0, [r4, #12]
-ARM GAS  /tmp/ccn4dUkb.s 			page 11
+ 539 013c 0321     		movne	r1, #3
+ 540 013e 11E0     		b	.L58
+ 541              	.L63:
+ 542 0140 1D2A     		cmp	r2, #29
+ 543 0142 0FD1     		bne	.L58
+ 544              	.L71:
+ 545 0144 0122     		movs	r2, #1
+ 546 0146 0321     		movs	r1, #3
+ 547 0148 0CE0     		b	.L58
+ 548              	.L72:
+ 549 014a 1D22     		movs	r2, #29
+ 550 014c 0AE0     		b	.L58
+ 551              	.L50:
+ 552 014e 2B70     		strb	r3, [r5]
+ 553 0150 B4E7     		b	.L65
+ 554              	.L85:
+ 555 0152 1E2A     		cmp	r2, #30
+ 556 0154 D4E7     		b	.L92
+ 557              	.L55:
+ 558 0156 0C29     		cmp	r1, #12
+ 559 0158 CBD1     		bne	.L56
+ 560 015a 1E2A     		cmp	r2, #30
+ 561 015c D8D9     		bls	.L89
+ 562 015e 0122     		movs	r2, #1
+ 563 0160 1146     		mov	r1, r2
+ 564 0162 0130     		adds	r0, r0, #1
+ 565              	.L58:
+ 566 0164 0136     		adds	r6, r6, #1
+ 567 0166 9FE7     		b	.L53
+ 568              	.L94:
+ 569              		.align	2
+ 570              	.L93:
+ 571 0168 80510100 		.word	86400
+ 573              		.section	.text.HAL_RTC_SetDate,"ax",%progbits
+ 574              		.align	1
+ 575              		.global	HAL_RTC_SetDate
+ 576              		.syntax unified
+ 577              		.thumb
+ 578              		.thumb_func
+ 579              		.fpu softvfp
+ 581              	HAL_RTC_SetDate:
+ 582              		@ args = 0, pretend = 0, frame = 0
+ 583              		@ frame_needed = 0, uses_anonymous_args = 0
+ 584 0000 70B5     		push	{r4, r5, r6, lr}
+ 585 0002 0D46     		mov	r5, r1
+ 586 0004 0446     		mov	r4, r0
+ 587 0006 58B3     		cbz	r0, .L102
+ 588 0008 51B3     		cbz	r1, .L102
+ 589 000a 037C     		ldrb	r3, [r0, #16]	@ zero_extendqisi2
+ 590 000c 0220     		movs	r0, #2
+ 591 000e 012B     		cmp	r3, #1
+ 592 0010 27D0     		beq	.L96
+ 593 0012 0123     		movs	r3, #1
+ 594 0014 6074     		strb	r0, [r4, #17]
+ 595 0016 2374     		strb	r3, [r4, #16]
+ 596 0018 C878     		ldrb	r0, [r1, #3]	@ zero_extendqisi2
+ 597 001a 1ABB     		cbnz	r2, .L97
+ARM GAS  /tmp/ccHzUxDT.s 			page 11
 
 
- 598 004e 2870     		strb	r0, [r5]
- 599 0050 2046     		mov	r0, r4
- 600 0052 FFF7FEFF 		bl	RTC_ReadTimeCounter
- 601 0056 4FF46163 		mov	r3, #3600
- 602 005a B0FBF3F3 		udiv	r3, r0, r3
- 603 005e 182B     		cmp	r3, #24
- 604 0060 24D9     		bls	.L113
- 605 0062 1825     		movs	r5, #24
- 606 0064 B3FBF5F3 		udiv	r3, r3, r5
- 607 0068 144D     		ldr	r5, .L124
- 608 006a 05FB1305 		mls	r5, r5, r3, r0
- 609 006e 2046     		mov	r0, r4
- 610 0070 2946     		mov	r1, r5
- 611 0072 FFF7FEFF 		bl	RTC_WriteTimeCounter
- 612 0076 0646     		mov	r6, r0
- 613 0078 20B1     		cbz	r0, .L114
- 614 007a 0423     		movs	r3, #4
- 615 007c 6374     		strb	r3, [r4, #17]
- 616 007e 0023     		movs	r3, #0
- 617 0080 2374     		strb	r3, [r4, #16]
- 618 0082 18E0     		b	.L116
- 619              	.L114:
- 620 0084 2046     		mov	r0, r4
- 621 0086 FFF7FEFF 		bl	RTC_ReadAlarmCounter
- 622 008a 431C     		adds	r3, r0, #1
- 623 008c 0146     		mov	r1, r0
- 624 008e 0DD0     		beq	.L113
- 625 0090 A842     		cmp	r0, r5
- 626 0092 0BD2     		bcs	.L113
- 627 0094 01F5A831 		add	r1, r1, #86016
- 628 0098 2046     		mov	r0, r4
- 629 009a 01F5C071 		add	r1, r1, #384
- 630 009e FFF7FEFF 		bl	RTC_WriteAlarmCounter
- 631 00a2 18B1     		cbz	r0, .L113
- 632 00a4 0423     		movs	r3, #4
- 633 00a6 6374     		strb	r3, [r4, #17]
- 634 00a8 2674     		strb	r6, [r4, #16]
- 635 00aa 04E0     		b	.L116
- 636              	.L113:
- 637 00ac 0123     		movs	r3, #1
- 638 00ae 0020     		movs	r0, #0
- 639 00b0 6374     		strb	r3, [r4, #17]
- 640 00b2 2074     		strb	r0, [r4, #16]
- 641 00b4 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 642              	.L116:
- 643 00b6 0120     		movs	r0, #1
- 644              	.L110:
- 645 00b8 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 646              	.L125:
- 647 00ba 00BF     		.align	2
- 648              	.L124:
- 649 00bc 80510100 		.word	86400
- 651              		.section	.text.HAL_RTC_GetDate,"ax",%progbits
- 652              		.align	1
- 653              		.global	HAL_RTC_GetDate
- 654              		.thumb
- 655              		.thumb_func
-ARM GAS  /tmp/ccn4dUkb.s 			page 12
+ 598 001c E073     		strb	r0, [r4, #15]
+ 599 001e 4B78     		ldrb	r3, [r1, #1]	@ zero_extendqisi2
+ 600 0020 6373     		strb	r3, [r4, #13]
+ 601 0022 8B78     		ldrb	r3, [r1, #2]	@ zero_extendqisi2
+ 602 0024 A373     		strb	r3, [r4, #14]
+ 603              	.L98:
+ 604 0026 A27B     		ldrb	r2, [r4, #14]	@ zero_extendqisi2
+ 605 0028 617B     		ldrb	r1, [r4, #13]	@ zero_extendqisi2
+ 606 002a E07B     		ldrb	r0, [r4, #15]	@ zero_extendqisi2
+ 607 002c FFF7FEFF 		bl	RTC_WeekDayNum
+ 608 0030 2073     		strb	r0, [r4, #12]
+ 609 0032 2870     		strb	r0, [r5]
+ 610 0034 2046     		mov	r0, r4
+ 611 0036 FFF7FEFF 		bl	RTC_ReadTimeCounter
+ 612 003a 1C4B     		ldr	r3, .L110
+ 613 003c 9842     		cmp	r0, r3
+ 614 003e 30D9     		bls	.L99
+ 615 0040 A3F60F63 		subw	r3, r3, #3599
+ 616 0044 B0FBF3F5 		udiv	r5, r0, r3
+ 617 0048 03FB1505 		mls	r5, r3, r5, r0
+ 618 004c 2046     		mov	r0, r4
+ 619 004e 2946     		mov	r1, r5
+ 620 0050 FFF7FEFF 		bl	RTC_WriteTimeCounter
+ 621 0054 0646     		mov	r6, r0
+ 622 0056 88B1     		cbz	r0, .L100
+ 623 0058 0423     		movs	r3, #4
+ 624 005a 6374     		strb	r3, [r4, #17]
+ 625 005c 0023     		movs	r3, #0
+ 626 005e 2374     		strb	r3, [r4, #16]
+ 627              	.L102:
+ 628 0060 0120     		movs	r0, #1
+ 629              	.L96:
+ 630 0062 70BD     		pop	{r4, r5, r6, pc}
+ 631              	.L97:
+ 632 0064 FFF7FEFF 		bl	RTC_Bcd2ToByte
+ 633 0068 E073     		strb	r0, [r4, #15]
+ 634 006a 4878     		ldrb	r0, [r1, #1]	@ zero_extendqisi2
+ 635 006c FFF7FEFF 		bl	RTC_Bcd2ToByte
+ 636 0070 6073     		strb	r0, [r4, #13]
+ 637 0072 8878     		ldrb	r0, [r1, #2]	@ zero_extendqisi2
+ 638 0074 FFF7FEFF 		bl	RTC_Bcd2ToByte
+ 639 0078 A073     		strb	r0, [r4, #14]
+ 640 007a D4E7     		b	.L98
+ 641              	.L100:
+ 642 007c 2046     		mov	r0, r4
+ 643 007e FFF7FEFF 		bl	RTC_ReadAlarmCounter
+ 644 0082 431C     		adds	r3, r0, #1
+ 645 0084 0DD0     		beq	.L99
+ 646 0086 8542     		cmp	r5, r0
+ 647 0088 0BD9     		bls	.L99
+ 648 008a 00F5A831 		add	r1, r0, #86016
+ 649 008e 01F5C071 		add	r1, r1, #384
+ 650 0092 2046     		mov	r0, r4
+ 651 0094 FFF7FEFF 		bl	RTC_WriteAlarmCounter
+ 652 0098 18B1     		cbz	r0, .L99
+ 653 009a 0423     		movs	r3, #4
+ 654 009c 2674     		strb	r6, [r4, #16]
+ARM GAS  /tmp/ccHzUxDT.s 			page 12
 
 
- 657              	HAL_RTC_GetDate:
- 658              		@ args = 0, pretend = 0, frame = 8
- 659              		@ frame_needed = 0, uses_anonymous_args = 0
- 660 0000 2DE9F341 		push	{r0, r1, r4, r5, r6, r7, r8, lr}
- 661 0004 9046     		mov	r8, r2
- 662 0006 0022     		movs	r2, #0
- 663 0008 0C46     		mov	r4, r1
- 664 000a ADF80420 		strh	r2, [sp, #4]	@ movhi
- 665 000e 8DF80620 		strb	r2, [sp, #6]
- 666 0012 0546     		mov	r5, r0
- 667 0014 08B9     		cbnz	r0, .L127
- 668              	.L129:
- 669 0016 0126     		movs	r6, #1
- 670 0018 1DE0     		b	.L128
- 671              	.L127:
- 672 001a 0029     		cmp	r1, #0
- 673 001c FBD0     		beq	.L129
- 674 001e 01A9     		add	r1, sp, #4
- 675 0020 FFF7FEFF 		bl	HAL_RTC_GetTime
- 676 0024 0646     		mov	r6, r0
- 677 0026 0028     		cmp	r0, #0
- 678 0028 F5D1     		bne	.L129
- 679 002a 2B7B     		ldrb	r3, [r5, #12]	@ zero_extendqisi2
- 680 002c E87B     		ldrb	r0, [r5, #15]	@ zero_extendqisi2
- 681 002e 6F7B     		ldrb	r7, [r5, #13]	@ zero_extendqisi2
- 682 0030 AD7B     		ldrb	r5, [r5, #14]	@ zero_extendqisi2
- 683 0032 2370     		strb	r3, [r4]
- 684 0034 E070     		strb	r0, [r4, #3]
- 685 0036 6770     		strb	r7, [r4, #1]
- 686 0038 A570     		strb	r5, [r4, #2]
- 687 003a B8F1000F 		cmp	r8, #0
- 688 003e 0AD0     		beq	.L128
- 689 0040 FFF7FEFF 		bl	RTC_ByteToBcd2
- 690 0044 E070     		strb	r0, [r4, #3]
- 691 0046 3846     		mov	r0, r7
- 692 0048 FFF7FEFF 		bl	RTC_ByteToBcd2
- 693 004c 6070     		strb	r0, [r4, #1]
- 694 004e 2846     		mov	r0, r5
- 695 0050 FFF7FEFF 		bl	RTC_ByteToBcd2
- 696 0054 A070     		strb	r0, [r4, #2]
- 697              	.L128:
- 698 0056 3046     		mov	r0, r6
- 699 0058 02B0     		add	sp, sp, #8
- 700              		@ sp needed
- 701 005a BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 703              		.section	.text.HAL_RTC_SetAlarm,"ax",%progbits
- 704              		.align	1
- 705              		.global	HAL_RTC_SetAlarm
- 706              		.thumb
- 707              		.thumb_func
- 709              	HAL_RTC_SetAlarm:
- 710              		@ args = 0, pretend = 0, frame = 8
- 711              		@ frame_needed = 0, uses_anonymous_args = 0
- 712 0000 2DE9F74F 		push	{r0, r1, r2, r4, r5, r6, r7, r8, r9, r10, fp, lr}
- 713 0004 1446     		mov	r4, r2
- 714 0006 0022     		movs	r2, #0
- 715 0008 0D46     		mov	r5, r1
-ARM GAS  /tmp/ccn4dUkb.s 			page 13
+ 655 009e 6374     		strb	r3, [r4, #17]
+ 656 00a0 DEE7     		b	.L102
+ 657              	.L99:
+ 658 00a2 0123     		movs	r3, #1
+ 659 00a4 0020     		movs	r0, #0
+ 660 00a6 6374     		strb	r3, [r4, #17]
+ 661 00a8 2074     		strb	r0, [r4, #16]
+ 662 00aa 70BD     		pop	{r4, r5, r6, pc}
+ 663              	.L111:
+ 664              		.align	2
+ 665              	.L110:
+ 666 00ac 8F5F0100 		.word	89999
+ 668              		.section	.text.HAL_RTC_GetDate,"ax",%progbits
+ 669              		.align	1
+ 670              		.global	HAL_RTC_GetDate
+ 671              		.syntax unified
+ 672              		.thumb
+ 673              		.thumb_func
+ 674              		.fpu softvfp
+ 676              	HAL_RTC_GetDate:
+ 677              		@ args = 0, pretend = 0, frame = 8
+ 678              		@ frame_needed = 0, uses_anonymous_args = 0
+ 679 0000 F7B5     		push	{r0, r1, r2, r4, r5, r6, r7, lr}
+ 680 0002 1746     		mov	r7, r2
+ 681 0004 0022     		movs	r2, #0
+ 682 0006 0C46     		mov	r4, r1
+ 683 0008 ADF80420 		strh	r2, [sp, #4]	@ movhi
+ 684 000c 8DF80620 		strb	r2, [sp, #6]
+ 685 0010 0546     		mov	r5, r0
+ 686 0012 18B9     		cbnz	r0, .L113
+ 687              	.L115:
+ 688 0014 0122     		movs	r2, #1
+ 689              	.L114:
+ 690 0016 1046     		mov	r0, r2
+ 691 0018 03B0     		add	sp, sp, #12
+ 692              		@ sp needed
+ 693 001a F0BD     		pop	{r4, r5, r6, r7, pc}
+ 694              	.L113:
+ 695 001c 0029     		cmp	r1, #0
+ 696 001e F9D0     		beq	.L115
+ 697 0020 01A9     		add	r1, sp, #4
+ 698 0022 FFF7FEFF 		bl	HAL_RTC_GetTime
+ 699 0026 0246     		mov	r2, r0
+ 700 0028 0028     		cmp	r0, #0
+ 701 002a F3D1     		bne	.L115
+ 702 002c 2B7B     		ldrb	r3, [r5, #12]	@ zero_extendqisi2
+ 703 002e 2370     		strb	r3, [r4]
+ 704 0030 E87B     		ldrb	r0, [r5, #15]	@ zero_extendqisi2
+ 705 0032 E070     		strb	r0, [r4, #3]
+ 706 0034 6E7B     		ldrb	r6, [r5, #13]	@ zero_extendqisi2
+ 707 0036 6670     		strb	r6, [r4, #1]
+ 708 0038 A97B     		ldrb	r1, [r5, #14]	@ zero_extendqisi2
+ 709 003a A170     		strb	r1, [r4, #2]
+ 710 003c 002F     		cmp	r7, #0
+ 711 003e EAD0     		beq	.L114
+ 712 0040 FFF7FEFF 		bl	RTC_ByteToBcd2
+ 713 0044 E070     		strb	r0, [r4, #3]
+ARM GAS  /tmp/ccHzUxDT.s 			page 13
 
 
- 716 000a ADF80420 		strh	r2, [sp, #4]	@ movhi
- 717 000e 8DF80620 		strb	r2, [sp, #6]
- 718 0012 0646     		mov	r6, r0
- 719 0014 0028     		cmp	r0, #0
- 720 0016 43D0     		beq	.L148
- 721 0018 0029     		cmp	r1, #0
- 722 001a 41D0     		beq	.L148
- 723 001c 037C     		ldrb	r3, [r0, #16]	@ zero_extendqisi2
- 724 001e 012B     		cmp	r3, #1
- 725 0020 4FF00203 		mov	r3, #2
- 726 0024 42D0     		beq	.L144
- 727 0026 0121     		movs	r1, #1
- 728 0028 0174     		strb	r1, [r0, #16]
- 729 002a 4374     		strb	r3, [r0, #17]
- 730 002c 01A9     		add	r1, sp, #4
- 731 002e FFF7FEFF 		bl	HAL_RTC_GetTime
- 732 0032 A8BB     		cbnz	r0, .L148
- 733 0034 9DF80590 		ldrb	r9, [sp, #5]	@ zero_extendqisi2
- 734 0038 3C27     		movs	r7, #60
- 735 003a 07FB09F9 		mul	r9, r7, r9
- 736 003e 9DF80420 		ldrb	r2, [sp, #4]	@ zero_extendqisi2
- 737 0042 4FF4616B 		mov	fp, #3600
- 738 0046 0BFB0293 		mla	r3, fp, r2, r9
- 739 004a 9DF80690 		ldrb	r9, [sp, #6]	@ zero_extendqisi2
- 740 004e 2878     		ldrb	r0, [r5]	@ zero_extendqisi2
- 741 0050 9944     		add	r9, r9, r3
- 742 0052 95F80180 		ldrb	r8, [r5, #1]	@ zero_extendqisi2
- 743 0056 95F802A0 		ldrb	r10, [r5, #2]	@ zero_extendqisi2
- 744 005a 34B9     		cbnz	r4, .L140
- 745 005c 07FB08F7 		mul	r7, r7, r8
- 746 0060 0BFB0070 		mla	r0, fp, r0, r7
- 747 0064 00EB0A01 		add	r1, r0, r10
- 748 0068 0CE0     		b	.L141
- 749              	.L140:
- 750 006a FFF7FEFF 		bl	RTC_Bcd2ToByte
- 751 006e 0546     		mov	r5, r0
- 752 0070 4046     		mov	r0, r8
- 753 0072 FFF7FEFF 		bl	RTC_Bcd2ToByte
- 754 0076 7843     		muls	r0, r7, r0
- 755 0078 0BFB0504 		mla	r4, fp, r5, r0
- 756 007c 5046     		mov	r0, r10
- 757 007e FFF7FEFF 		bl	RTC_Bcd2ToByte
- 758 0082 2118     		adds	r1, r4, r0
- 759              	.L141:
- 760 0084 4945     		cmp	r1, r9
- 761 0086 3CBF     		itt	cc
- 762 0088 01F5A831 		addcc	r1, r1, #86016
- 763 008c 01F5C071 		addcc	r1, r1, #384
- 764 0090 3046     		mov	r0, r6
- 765 0092 FFF7FEFF 		bl	RTC_WriteAlarmCounter
- 766 0096 28B1     		cbz	r0, .L143
- 767 0098 0423     		movs	r3, #4
- 768 009a 7374     		strb	r3, [r6, #17]
- 769 009c 0023     		movs	r3, #0
- 770 009e 3374     		strb	r3, [r6, #16]
- 771              	.L148:
- 772 00a0 0120     		movs	r0, #1
-ARM GAS  /tmp/ccn4dUkb.s 			page 14
+ 714 0046 3046     		mov	r0, r6
+ 715 0048 FFF7FEFF 		bl	RTC_ByteToBcd2
+ 716 004c 6070     		strb	r0, [r4, #1]
+ 717 004e 0846     		mov	r0, r1
+ 718 0050 FFF7FEFF 		bl	RTC_ByteToBcd2
+ 719 0054 A070     		strb	r0, [r4, #2]
+ 720 0056 DEE7     		b	.L114
+ 722              		.section	.text.HAL_RTC_SetAlarm,"ax",%progbits
+ 723              		.align	1
+ 724              		.global	HAL_RTC_SetAlarm
+ 725              		.syntax unified
+ 726              		.thumb
+ 727              		.thumb_func
+ 728              		.fpu softvfp
+ 730              	HAL_RTC_SetAlarm:
+ 731              		@ args = 0, pretend = 0, frame = 8
+ 732              		@ frame_needed = 0, uses_anonymous_args = 0
+ 733 0000 2DE9F347 		push	{r0, r1, r4, r5, r6, r7, r8, r9, r10, lr}
+ 734 0004 9246     		mov	r10, r2
+ 735 0006 0022     		movs	r2, #0
+ 736 0008 8846     		mov	r8, r1
+ 737 000a ADF80420 		strh	r2, [sp, #4]	@ movhi
+ 738 000e 8DF80620 		strb	r2, [sp, #6]
+ 739 0012 0446     		mov	r4, r0
+ 740 0014 18B9     		cbnz	r0, .L123
+ 741              	.L134:
+ 742 0016 0120     		movs	r0, #1
+ 743              	.L124:
+ 744 0018 02B0     		add	sp, sp, #8
+ 745              		@ sp needed
+ 746 001a BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 747              	.L123:
+ 748 001e 0029     		cmp	r1, #0
+ 749 0020 F9D0     		beq	.L134
+ 750 0022 037C     		ldrb	r3, [r0, #16]	@ zero_extendqisi2
+ 751 0024 012B     		cmp	r3, #1
+ 752 0026 4FF00203 		mov	r3, #2
+ 753 002a 43D0     		beq	.L130
+ 754 002c 0121     		movs	r1, #1
+ 755 002e 4374     		strb	r3, [r0, #17]
+ 756 0030 0174     		strb	r1, [r0, #16]
+ 757 0032 01A9     		add	r1, sp, #4
+ 758 0034 FFF7FEFF 		bl	HAL_RTC_GetTime
+ 759 0038 0028     		cmp	r0, #0
+ 760 003a ECD1     		bne	.L134
+ 761 003c 3C26     		movs	r6, #60
+ 762 003e 4FF46169 		mov	r9, #3600
+ 763 0042 9DF80530 		ldrb	r3, [sp, #5]	@ zero_extendqisi2
+ 764 0046 9DF80450 		ldrb	r5, [sp, #4]	@ zero_extendqisi2
+ 765 004a 7343     		muls	r3, r6, r3
+ 766 004c 09FB0535 		mla	r5, r9, r5, r3
+ 767 0050 9DF80630 		ldrb	r3, [sp, #6]	@ zero_extendqisi2
+ 768 0054 98F80000 		ldrb	r0, [r8]	@ zero_extendqisi2
+ 769 0058 98F80170 		ldrb	r7, [r8, #1]	@ zero_extendqisi2
+ 770 005c 1D44     		add	r5, r5, r3
+ 771 005e 98F80280 		ldrb	r8, [r8, #2]	@ zero_extendqisi2
+ 772 0062 BAF1000F 		cmp	r10, #0
+ARM GAS  /tmp/ccHzUxDT.s 			page 14
 
 
- 773 00a2 04E0     		b	.L138
- 774              	.L143:
- 775 00a4 0123     		movs	r3, #1
- 776 00a6 7374     		strb	r3, [r6, #17]
- 777 00a8 3074     		strb	r0, [r6, #16]
- 778 00aa 00E0     		b	.L138
- 779              	.L144:
- 780 00ac 1846     		mov	r0, r3
- 781              	.L138:
- 782 00ae 03B0     		add	sp, sp, #12
- 783              		@ sp needed
- 784 00b0 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
- 786              		.section	.text.HAL_RTC_SetAlarm_IT,"ax",%progbits
- 787              		.align	1
- 788              		.global	HAL_RTC_SetAlarm_IT
- 789              		.thumb
- 790              		.thumb_func
- 792              	HAL_RTC_SetAlarm_IT:
- 793              		@ args = 0, pretend = 0, frame = 8
- 794              		@ frame_needed = 0, uses_anonymous_args = 0
- 795 0000 2DE9F74F 		push	{r0, r1, r2, r4, r5, r6, r7, r8, r9, r10, fp, lr}
- 796 0004 1446     		mov	r4, r2
- 797 0006 0022     		movs	r2, #0
- 798 0008 0D46     		mov	r5, r1
- 799 000a ADF80420 		strh	r2, [sp, #4]	@ movhi
- 800 000e 8DF80620 		strb	r2, [sp, #6]
- 801 0012 0646     		mov	r6, r0
- 802 0014 0028     		cmp	r0, #0
- 803 0016 43D0     		beq	.L161
- 804 0018 0029     		cmp	r1, #0
- 805 001a 41D0     		beq	.L161
- 806 001c 037C     		ldrb	r3, [r0, #16]	@ zero_extendqisi2
- 807 001e 012B     		cmp	r3, #1
- 808 0020 4FF00203 		mov	r3, #2
- 809 0024 53D0     		beq	.L157
- 810 0026 0121     		movs	r1, #1
- 811 0028 0174     		strb	r1, [r0, #16]
- 812 002a 4374     		strb	r3, [r0, #17]
- 813 002c 01A9     		add	r1, sp, #4
- 814 002e FFF7FEFF 		bl	HAL_RTC_GetTime
- 815 0032 A8BB     		cbnz	r0, .L161
- 816 0034 9DF80590 		ldrb	r9, [sp, #5]	@ zero_extendqisi2
- 817 0038 3C27     		movs	r7, #60
- 818 003a 07FB09F9 		mul	r9, r7, r9
- 819 003e 9DF80420 		ldrb	r2, [sp, #4]	@ zero_extendqisi2
- 820 0042 4FF4616B 		mov	fp, #3600
- 821 0046 0BFB0293 		mla	r3, fp, r2, r9
- 822 004a 9DF80690 		ldrb	r9, [sp, #6]	@ zero_extendqisi2
- 823 004e 2878     		ldrb	r0, [r5]	@ zero_extendqisi2
- 824 0050 9944     		add	r9, r9, r3
- 825 0052 95F80180 		ldrb	r8, [r5, #1]	@ zero_extendqisi2
- 826 0056 95F802A0 		ldrb	r10, [r5, #2]	@ zero_extendqisi2
- 827 005a 34B9     		cbnz	r4, .L153
- 828 005c 07FB08F7 		mul	r7, r7, r8
- 829 0060 0BFB0070 		mla	r0, fp, r0, r7
- 830 0064 00EB0A01 		add	r1, r0, r10
- 831 0068 0CE0     		b	.L154
-ARM GAS  /tmp/ccn4dUkb.s 			page 15
+ 773 0066 13D1     		bne	.L126
+ 774 0068 7E43     		muls	r6, r7, r6
+ 775 006a 09FB0060 		mla	r0, r9, r0, r6
+ 776 006e 00EB0801 		add	r1, r0, r8
+ 777              	.L127:
+ 778 0072 A942     		cmp	r1, r5
+ 779 0074 3CBF     		itt	cc
+ 780 0076 01F5A831 		addcc	r1, r1, #86016
+ 781 007a 01F5C071 		addcc	r1, r1, #384
+ 782 007e 2046     		mov	r0, r4
+ 783 0080 FFF7FEFF 		bl	RTC_WriteAlarmCounter
+ 784 0084 90B1     		cbz	r0, .L129
+ 785 0086 0423     		movs	r3, #4
+ 786 0088 6374     		strb	r3, [r4, #17]
+ 787 008a 0023     		movs	r3, #0
+ 788 008c 2374     		strb	r3, [r4, #16]
+ 789 008e C2E7     		b	.L134
+ 790              	.L126:
+ 791 0090 FFF7FEFF 		bl	RTC_Bcd2ToByte
+ 792 0094 0146     		mov	r1, r0
+ 793 0096 3846     		mov	r0, r7
+ 794 0098 FFF7FEFF 		bl	RTC_Bcd2ToByte
+ 795 009c 7043     		muls	r0, r6, r0
+ 796 009e 09FB0101 		mla	r1, r9, r1, r0
+ 797 00a2 4046     		mov	r0, r8
+ 798 00a4 FFF7FEFF 		bl	RTC_Bcd2ToByte
+ 799 00a8 0144     		add	r1, r1, r0
+ 800 00aa E2E7     		b	.L127
+ 801              	.L129:
+ 802 00ac 0123     		movs	r3, #1
+ 803 00ae 2074     		strb	r0, [r4, #16]
+ 804 00b0 6374     		strb	r3, [r4, #17]
+ 805 00b2 B1E7     		b	.L124
+ 806              	.L130:
+ 807 00b4 1846     		mov	r0, r3
+ 808 00b6 AFE7     		b	.L124
+ 810              		.section	.text.HAL_RTC_SetAlarm_IT,"ax",%progbits
+ 811              		.align	1
+ 812              		.global	HAL_RTC_SetAlarm_IT
+ 813              		.syntax unified
+ 814              		.thumb
+ 815              		.thumb_func
+ 816              		.fpu softvfp
+ 818              	HAL_RTC_SetAlarm_IT:
+ 819              		@ args = 0, pretend = 0, frame = 8
+ 820              		@ frame_needed = 0, uses_anonymous_args = 0
+ 821 0000 2DE9F347 		push	{r0, r1, r4, r5, r6, r7, r8, r9, r10, lr}
+ 822 0004 9246     		mov	r10, r2
+ 823 0006 0022     		movs	r2, #0
+ 824 0008 8846     		mov	r8, r1
+ 825 000a ADF80420 		strh	r2, [sp, #4]	@ movhi
+ 826 000e 8DF80620 		strb	r2, [sp, #6]
+ 827 0012 0446     		mov	r4, r0
+ 828 0014 18B9     		cbnz	r0, .L136
+ 829              	.L147:
+ 830 0016 0120     		movs	r0, #1
+ 831              	.L137:
+ARM GAS  /tmp/ccHzUxDT.s 			page 15
 
 
- 832              	.L153:
- 833 006a FFF7FEFF 		bl	RTC_Bcd2ToByte
- 834 006e 0546     		mov	r5, r0
- 835 0070 4046     		mov	r0, r8
- 836 0072 FFF7FEFF 		bl	RTC_Bcd2ToByte
- 837 0076 7843     		muls	r0, r7, r0
- 838 0078 0BFB0504 		mla	r4, fp, r5, r0
- 839 007c 5046     		mov	r0, r10
- 840 007e FFF7FEFF 		bl	RTC_Bcd2ToByte
- 841 0082 2118     		adds	r1, r4, r0
- 842              	.L154:
- 843 0084 4945     		cmp	r1, r9
- 844 0086 3CBF     		itt	cc
- 845 0088 01F5A831 		addcc	r1, r1, #86016
- 846 008c 01F5C071 		addcc	r1, r1, #384
- 847 0090 3046     		mov	r0, r6
- 848 0092 FFF7FEFF 		bl	RTC_WriteAlarmCounter
- 849 0096 28B1     		cbz	r0, .L156
- 850 0098 0423     		movs	r3, #4
- 851 009a 7374     		strb	r3, [r6, #17]
- 852 009c 0023     		movs	r3, #0
- 853 009e 3374     		strb	r3, [r6, #16]
- 854              	.L161:
- 855 00a0 0120     		movs	r0, #1
- 856 00a2 15E0     		b	.L151
- 857              	.L156:
- 858 00a4 3368     		ldr	r3, [r6]
- 859 00a6 6FF00202 		mvn	r2, #2
- 860 00aa 5A60     		str	r2, [r3, #4]
- 861 00ac 1A68     		ldr	r2, [r3]
- 862 00ae 42F00202 		orr	r2, r2, #2
- 863 00b2 1A60     		str	r2, [r3]
- 864 00b4 084B     		ldr	r3, .L162
- 865 00b6 1A68     		ldr	r2, [r3]
- 866 00b8 42F40032 		orr	r2, r2, #131072
- 867 00bc 1A60     		str	r2, [r3]
- 868 00be 9A68     		ldr	r2, [r3, #8]
- 869 00c0 42F40032 		orr	r2, r2, #131072
- 870 00c4 9A60     		str	r2, [r3, #8]
- 871 00c6 0123     		movs	r3, #1
- 872 00c8 7374     		strb	r3, [r6, #17]
- 873 00ca 3074     		strb	r0, [r6, #16]
- 874 00cc 00E0     		b	.L151
- 875              	.L157:
- 876 00ce 1846     		mov	r0, r3
- 877              	.L151:
- 878 00d0 03B0     		add	sp, sp, #12
- 879              		@ sp needed
- 880 00d2 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
- 881              	.L163:
- 882 00d6 00BF     		.align	2
- 883              	.L162:
- 884 00d8 00040140 		.word	1073808384
- 886              		.section	.text.HAL_RTC_GetAlarm,"ax",%progbits
- 887              		.align	1
- 888              		.global	HAL_RTC_GetAlarm
- 889              		.thumb
-ARM GAS  /tmp/ccn4dUkb.s 			page 16
+ 832 0018 02B0     		add	sp, sp, #8
+ 833              		@ sp needed
+ 834 001a BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 835              	.L136:
+ 836 001e 0029     		cmp	r1, #0
+ 837 0020 F9D0     		beq	.L147
+ 838 0022 037C     		ldrb	r3, [r0, #16]	@ zero_extendqisi2
+ 839 0024 012B     		cmp	r3, #1
+ 840 0026 4FF00203 		mov	r3, #2
+ 841 002a 54D0     		beq	.L143
+ 842 002c 0121     		movs	r1, #1
+ 843 002e 4374     		strb	r3, [r0, #17]
+ 844 0030 0174     		strb	r1, [r0, #16]
+ 845 0032 01A9     		add	r1, sp, #4
+ 846 0034 FFF7FEFF 		bl	HAL_RTC_GetTime
+ 847 0038 0028     		cmp	r0, #0
+ 848 003a ECD1     		bne	.L147
+ 849 003c 3C26     		movs	r6, #60
+ 850 003e 4FF46169 		mov	r9, #3600
+ 851 0042 9DF80530 		ldrb	r3, [sp, #5]	@ zero_extendqisi2
+ 852 0046 9DF80450 		ldrb	r5, [sp, #4]	@ zero_extendqisi2
+ 853 004a 7343     		muls	r3, r6, r3
+ 854 004c 09FB0535 		mla	r5, r9, r5, r3
+ 855 0050 9DF80630 		ldrb	r3, [sp, #6]	@ zero_extendqisi2
+ 856 0054 98F80000 		ldrb	r0, [r8]	@ zero_extendqisi2
+ 857 0058 98F80170 		ldrb	r7, [r8, #1]	@ zero_extendqisi2
+ 858 005c 1D44     		add	r5, r5, r3
+ 859 005e 98F80280 		ldrb	r8, [r8, #2]	@ zero_extendqisi2
+ 860 0062 BAF1000F 		cmp	r10, #0
+ 861 0066 13D1     		bne	.L139
+ 862 0068 7E43     		muls	r6, r7, r6
+ 863 006a 09FB0060 		mla	r0, r9, r0, r6
+ 864 006e 00EB0801 		add	r1, r0, r8
+ 865              	.L140:
+ 866 0072 A942     		cmp	r1, r5
+ 867 0074 3CBF     		itt	cc
+ 868 0076 01F5A831 		addcc	r1, r1, #86016
+ 869 007a 01F5C071 		addcc	r1, r1, #384
+ 870 007e 2046     		mov	r0, r4
+ 871 0080 FFF7FEFF 		bl	RTC_WriteAlarmCounter
+ 872 0084 90B1     		cbz	r0, .L142
+ 873 0086 0423     		movs	r3, #4
+ 874 0088 6374     		strb	r3, [r4, #17]
+ 875 008a 0023     		movs	r3, #0
+ 876 008c 2374     		strb	r3, [r4, #16]
+ 877 008e C2E7     		b	.L147
+ 878              	.L139:
+ 879 0090 FFF7FEFF 		bl	RTC_Bcd2ToByte
+ 880 0094 0146     		mov	r1, r0
+ 881 0096 3846     		mov	r0, r7
+ 882 0098 FFF7FEFF 		bl	RTC_Bcd2ToByte
+ 883 009c 7043     		muls	r0, r6, r0
+ 884 009e 09FB0101 		mla	r1, r9, r1, r0
+ 885 00a2 4046     		mov	r0, r8
+ 886 00a4 FFF7FEFF 		bl	RTC_Bcd2ToByte
+ 887 00a8 0144     		add	r1, r1, r0
+ 888 00aa E2E7     		b	.L140
+ARM GAS  /tmp/ccHzUxDT.s 			page 16
 
 
- 890              		.thumb_func
- 892              	HAL_RTC_GetAlarm:
- 893              		@ args = 0, pretend = 0, frame = 0
- 894              		@ frame_needed = 0, uses_anonymous_args = 0
- 895 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
- 896 0002 0D46     		mov	r5, r1
- 897 0004 1C46     		mov	r4, r3
- 898 0006 38B3     		cbz	r0, .L167
- 899 0008 31B3     		cbz	r1, .L167
- 900 000a FFF7FEFF 		bl	RTC_ReadAlarmCounter
- 901 000e 4FF46163 		mov	r3, #3600
- 902 0012 B0FBF3F1 		udiv	r1, r0, r3
- 903 0016 1826     		movs	r6, #24
- 904 0018 B1FBF6F2 		udiv	r2, r1, r6
- 905 001c 06FB1212 		mls	r2, r6, r2, r1
- 906 0020 03FB1101 		mls	r1, r3, r1, r0
- 907 0024 3C26     		movs	r6, #60
- 908 0026 B1FBF6F3 		udiv	r3, r1, r6
- 909 002a 06FB1316 		mls	r6, r6, r3, r1
- 910 002e D2B2     		uxtb	r2, r2
- 911 0030 DFB2     		uxtb	r7, r3
- 912 0032 F6B2     		uxtb	r6, r6
- 913 0034 2A70     		strb	r2, [r5]
- 914 0036 6F70     		strb	r7, [r5, #1]
- 915 0038 AE70     		strb	r6, [r5, #2]
- 916 003a 5CB1     		cbz	r4, .L169
- 917 003c 1046     		mov	r0, r2
- 918 003e FFF7FEFF 		bl	RTC_ByteToBcd2
- 919 0042 2870     		strb	r0, [r5]
- 920 0044 3846     		mov	r0, r7
- 921 0046 FFF7FEFF 		bl	RTC_ByteToBcd2
- 922 004a 6870     		strb	r0, [r5, #1]
- 923 004c 3046     		mov	r0, r6
- 924 004e FFF7FEFF 		bl	RTC_ByteToBcd2
- 925 0052 A870     		strb	r0, [r5, #2]
- 926              	.L169:
- 927 0054 0020     		movs	r0, #0
- 928 0056 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 929              	.L167:
- 930 0058 0120     		movs	r0, #1
- 931 005a F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 933              		.section	.text.HAL_RTC_DeactivateAlarm,"ax",%progbits
- 934              		.align	1
- 935              		.global	HAL_RTC_DeactivateAlarm
- 936              		.thumb
- 937              		.thumb_func
- 939              	HAL_RTC_DeactivateAlarm:
- 940              		@ args = 0, pretend = 0, frame = 0
- 941              		@ frame_needed = 0, uses_anonymous_args = 0
- 942 0000 70B5     		push	{r4, r5, r6, lr}
- 943 0002 0446     		mov	r4, r0
- 944 0004 88B3     		cbz	r0, .L174
- 945 0006 037C     		ldrb	r3, [r0, #16]	@ zero_extendqisi2
- 946 0008 012B     		cmp	r3, #1
- 947 000a 4FF00203 		mov	r3, #2
- 948 000e 2ED0     		beq	.L175
- 949 0010 0268     		ldr	r2, [r0]
-ARM GAS  /tmp/ccn4dUkb.s 			page 17
+ 889              	.L142:
+ 890 00ac 6FF00202 		mvn	r2, #2
+ 891 00b0 2368     		ldr	r3, [r4]
+ 892 00b2 5A60     		str	r2, [r3, #4]
+ 893 00b4 1A68     		ldr	r2, [r3]
+ 894 00b6 42F00202 		orr	r2, r2, #2
+ 895 00ba 1A60     		str	r2, [r3]
+ 896 00bc 074B     		ldr	r3, .L148
+ 897 00be 1A68     		ldr	r2, [r3]
+ 898 00c0 42F40032 		orr	r2, r2, #131072
+ 899 00c4 1A60     		str	r2, [r3]
+ 900 00c6 9A68     		ldr	r2, [r3, #8]
+ 901 00c8 42F40032 		orr	r2, r2, #131072
+ 902 00cc 9A60     		str	r2, [r3, #8]
+ 903 00ce 0123     		movs	r3, #1
+ 904 00d0 2074     		strb	r0, [r4, #16]
+ 905 00d2 6374     		strb	r3, [r4, #17]
+ 906 00d4 A0E7     		b	.L137
+ 907              	.L143:
+ 908 00d6 1846     		mov	r0, r3
+ 909 00d8 9EE7     		b	.L137
+ 910              	.L149:
+ 911 00da 00BF     		.align	2
+ 912              	.L148:
+ 913 00dc 00040140 		.word	1073808384
+ 915              		.section	.text.HAL_RTC_GetAlarm,"ax",%progbits
+ 916              		.align	1
+ 917              		.global	HAL_RTC_GetAlarm
+ 918              		.syntax unified
+ 919              		.thumb
+ 920              		.thumb_func
+ 921              		.fpu softvfp
+ 923              	HAL_RTC_GetAlarm:
+ 924              		@ args = 0, pretend = 0, frame = 0
+ 925              		@ frame_needed = 0, uses_anonymous_args = 0
+ 926 0000 70B5     		push	{r4, r5, r6, lr}
+ 927 0002 1A46     		mov	r2, r3
+ 928 0004 38B3     		cbz	r0, .L153
+ 929 0006 31B3     		cbz	r1, .L153
+ 930 0008 FFF7FEFF 		bl	RTC_ReadAlarmCounter
+ 931 000c 4FF46165 		mov	r5, #3600
+ 932 0010 1826     		movs	r6, #24
+ 933 0012 B0FBF5F4 		udiv	r4, r0, r5
+ 934 0016 B4FBF6F3 		udiv	r3, r4, r6
+ 935 001a 06FB1343 		mls	r3, r6, r3, r4
+ 936 001e 3C26     		movs	r6, #60
+ 937 0020 05FB1400 		mls	r0, r5, r4, r0
+ 938 0024 B0FBF6F4 		udiv	r4, r0, r6
+ 939 0028 E5B2     		uxtb	r5, r4
+ 940 002a 06FB1404 		mls	r4, r6, r4, r0
+ 941 002e DBB2     		uxtb	r3, r3
+ 942 0030 E4B2     		uxtb	r4, r4
+ 943 0032 0B70     		strb	r3, [r1]
+ 944 0034 4D70     		strb	r5, [r1, #1]
+ 945 0036 8C70     		strb	r4, [r1, #2]
+ 946 0038 5AB1     		cbz	r2, .L155
+ 947 003a 1846     		mov	r0, r3
+ARM GAS  /tmp/ccHzUxDT.s 			page 17
 
 
- 950 0012 4374     		strb	r3, [r0, #17]
- 951 0014 1368     		ldr	r3, [r2]
- 952 0016 0125     		movs	r5, #1
- 953 0018 23F00203 		bic	r3, r3, #2
- 954 001c 0574     		strb	r5, [r0, #16]
- 955 001e 1360     		str	r3, [r2]
- 956 0020 FFF7FEFF 		bl	RTC_EnterInitMode
- 957 0024 0646     		mov	r6, r0
- 958 0026 20B1     		cbz	r0, .L172
- 959 0028 0423     		movs	r3, #4
- 960 002a 6374     		strb	r3, [r4, #17]
- 961 002c 0023     		movs	r3, #0
- 962 002e 2374     		strb	r3, [r4, #16]
- 963 0030 16E0     		b	.L176
- 964              	.L172:
- 965 0032 2368     		ldr	r3, [r4]
- 966 0034 6FF00202 		mvn	r2, #2
- 967 0038 5A60     		str	r2, [r3, #4]
- 968 003a 4FF6FF72 		movw	r2, #65535
- 969 003e 1A62     		str	r2, [r3, #32]
- 970 0040 5A62     		str	r2, [r3, #36]
- 971 0042 02F18042 		add	r2, r2, #1073741824
- 972 0046 02F20142 		addw	r2, r2, #1025
- 973 004a 1368     		ldr	r3, [r2]
- 974 004c 2046     		mov	r0, r4
- 975 004e 23F40033 		bic	r3, r3, #131072
- 976 0052 1360     		str	r3, [r2]
- 977 0054 FFF7FEFF 		bl	RTC_ExitInitMode
- 978 0058 20B1     		cbz	r0, .L173
- 979 005a 0423     		movs	r3, #4
- 980 005c 6374     		strb	r3, [r4, #17]
- 981 005e 2674     		strb	r6, [r4, #16]
- 982              	.L176:
- 983 0060 2846     		mov	r0, r5
- 984 0062 70BD     		pop	{r4, r5, r6, pc}
- 985              	.L173:
- 986 0064 6574     		strb	r5, [r4, #17]
- 987 0066 2074     		strb	r0, [r4, #16]
- 988 0068 70BD     		pop	{r4, r5, r6, pc}
- 989              	.L174:
- 990 006a 0120     		movs	r0, #1
- 991 006c 70BD     		pop	{r4, r5, r6, pc}
- 992              	.L175:
- 993 006e 1846     		mov	r0, r3
- 994 0070 70BD     		pop	{r4, r5, r6, pc}
- 996              		.section	.text.HAL_RTC_AlarmAEventCallback,"ax",%progbits
- 997              		.align	1
- 998              		.weak	HAL_RTC_AlarmAEventCallback
- 999              		.thumb
- 1000              		.thumb_func
- 1002              	HAL_RTC_AlarmAEventCallback:
- 1003              		@ args = 0, pretend = 0, frame = 0
- 1004              		@ frame_needed = 0, uses_anonymous_args = 0
- 1005              		@ link register save eliminated.
- 1006 0000 7047     		bx	lr
- 1008              		.section	.text.HAL_RTC_AlarmIRQHandler,"ax",%progbits
- 1009              		.align	1
-ARM GAS  /tmp/ccn4dUkb.s 			page 18
+ 948 003c FFF7FEFF 		bl	RTC_ByteToBcd2
+ 949 0040 0870     		strb	r0, [r1]
+ 950 0042 2846     		mov	r0, r5
+ 951 0044 FFF7FEFF 		bl	RTC_ByteToBcd2
+ 952 0048 4870     		strb	r0, [r1, #1]
+ 953 004a 2046     		mov	r0, r4
+ 954 004c FFF7FEFF 		bl	RTC_ByteToBcd2
+ 955 0050 8870     		strb	r0, [r1, #2]
+ 956              	.L155:
+ 957 0052 0020     		movs	r0, #0
+ 958 0054 70BD     		pop	{r4, r5, r6, pc}
+ 959              	.L153:
+ 960 0056 0120     		movs	r0, #1
+ 961 0058 70BD     		pop	{r4, r5, r6, pc}
+ 963              		.section	.text.HAL_RTC_DeactivateAlarm,"ax",%progbits
+ 964              		.align	1
+ 965              		.global	HAL_RTC_DeactivateAlarm
+ 966              		.syntax unified
+ 967              		.thumb
+ 968              		.thumb_func
+ 969              		.fpu softvfp
+ 971              	HAL_RTC_DeactivateAlarm:
+ 972              		@ args = 0, pretend = 0, frame = 0
+ 973              		@ frame_needed = 0, uses_anonymous_args = 0
+ 974 0000 70B5     		push	{r4, r5, r6, lr}
+ 975 0002 0446     		mov	r4, r0
+ 976 0004 A0B1     		cbz	r0, .L160
+ 977 0006 037C     		ldrb	r3, [r0, #16]	@ zero_extendqisi2
+ 978 0008 012B     		cmp	r3, #1
+ 979 000a 4FF00203 		mov	r3, #2
+ 980 000e 2CD0     		beq	.L161
+ 981 0010 0125     		movs	r5, #1
+ 982 0012 0268     		ldr	r2, [r0]
+ 983 0014 4374     		strb	r3, [r0, #17]
+ 984 0016 1368     		ldr	r3, [r2]
+ 985 0018 0574     		strb	r5, [r0, #16]
+ 986 001a 23F00203 		bic	r3, r3, #2
+ 987 001e 1360     		str	r3, [r2]
+ 988 0020 FFF7FEFF 		bl	RTC_EnterInitMode
+ 989 0024 0646     		mov	r6, r0
+ 990 0026 28B1     		cbz	r0, .L158
+ 991 0028 0423     		movs	r3, #4
+ 992 002a 6374     		strb	r3, [r4, #17]
+ 993 002c 0023     		movs	r3, #0
+ 994 002e 2374     		strb	r3, [r4, #16]
+ 995              	.L160:
+ 996 0030 0120     		movs	r0, #1
+ 997 0032 70BD     		pop	{r4, r5, r6, pc}
+ 998              	.L158:
+ 999 0034 6FF00202 		mvn	r2, #2
+ 1000 0038 2368     		ldr	r3, [r4]
+ 1001 003a 2046     		mov	r0, r4
+ 1002 003c 5A60     		str	r2, [r3, #4]
+ 1003 003e 4FF6FF72 		movw	r2, #65535
+ 1004 0042 1A62     		str	r2, [r3, #32]
+ 1005 0044 5A62     		str	r2, [r3, #36]
+ 1006 0046 02F18042 		add	r2, r2, #1073741824
+ARM GAS  /tmp/ccHzUxDT.s 			page 18
 
 
- 1010              		.global	HAL_RTC_AlarmIRQHandler
- 1011              		.thumb
- 1012              		.thumb_func
- 1014              	HAL_RTC_AlarmIRQHandler:
- 1015              		@ args = 0, pretend = 0, frame = 0
- 1016              		@ frame_needed = 0, uses_anonymous_args = 0
- 1017 0000 0368     		ldr	r3, [r0]
- 1018 0002 10B5     		push	{r4, lr}
- 1019 0004 1A68     		ldr	r2, [r3]
- 1020 0006 0446     		mov	r4, r0
- 1021 0008 9207     		lsls	r2, r2, #30
- 1022 000a 08D5     		bpl	.L179
- 1023 000c 5B68     		ldr	r3, [r3, #4]
- 1024 000e 9B07     		lsls	r3, r3, #30
- 1025 0010 05D5     		bpl	.L179
- 1026 0012 FFF7FEFF 		bl	HAL_RTC_AlarmAEventCallback
- 1027 0016 2368     		ldr	r3, [r4]
- 1028 0018 6FF00202 		mvn	r2, #2
- 1029 001c 5A60     		str	r2, [r3, #4]
- 1030              	.L179:
- 1031 001e 034B     		ldr	r3, .L186
- 1032 0020 4FF40032 		mov	r2, #131072
- 1033 0024 5A61     		str	r2, [r3, #20]
- 1034 0026 0123     		movs	r3, #1
- 1035 0028 6374     		strb	r3, [r4, #17]
- 1036 002a 10BD     		pop	{r4, pc}
- 1037              	.L187:
- 1038              		.align	2
- 1039              	.L186:
- 1040 002c 00040140 		.word	1073808384
- 1042              		.section	.text.HAL_RTC_PollForAlarmAEvent,"ax",%progbits
- 1043              		.align	1
- 1044              		.global	HAL_RTC_PollForAlarmAEvent
- 1045              		.thumb
- 1046              		.thumb_func
- 1048              	HAL_RTC_PollForAlarmAEvent:
- 1049              		@ args = 0, pretend = 0, frame = 0
- 1050              		@ frame_needed = 0, uses_anonymous_args = 0
- 1051 0000 70B5     		push	{r4, r5, r6, lr}
- 1052 0002 0446     		mov	r4, r0
- 1053 0004 0D46     		mov	r5, r1
- 1054 0006 FFF7FEFF 		bl	HAL_GetTick
- 1055 000a 0646     		mov	r6, r0
- 1056 000c B4B1     		cbz	r4, .L198
- 1057              	.L190:
- 1058 000e 2368     		ldr	r3, [r4]
- 1059              	.L191:
- 1060 0010 5A68     		ldr	r2, [r3, #4]
- 1061 0012 9207     		lsls	r2, r2, #30
- 1062 0014 0BD4     		bmi	.L199
- 1063 0016 691C     		adds	r1, r5, #1
- 1064 0018 FAD0     		beq	.L191
- 1065 001a 15B9     		cbnz	r5, .L192
- 1066              	.L193:
- 1067 001c 0320     		movs	r0, #3
- 1068 001e 6074     		strb	r0, [r4, #17]
- 1069 0020 70BD     		pop	{r4, r5, r6, pc}
-ARM GAS  /tmp/ccn4dUkb.s 			page 19
+ 1007 004a 02F20142 		addw	r2, r2, #1025
+ 1008 004e 1368     		ldr	r3, [r2]
+ 1009 0050 23F40033 		bic	r3, r3, #131072
+ 1010 0054 1360     		str	r3, [r2]
+ 1011 0056 FFF7FEFF 		bl	RTC_ExitInitMode
+ 1012 005a 18B1     		cbz	r0, .L159
+ 1013 005c 0423     		movs	r3, #4
+ 1014 005e 2674     		strb	r6, [r4, #16]
+ 1015 0060 6374     		strb	r3, [r4, #17]
+ 1016 0062 E5E7     		b	.L160
+ 1017              	.L159:
+ 1018 0064 6574     		strb	r5, [r4, #17]
+ 1019 0066 2074     		strb	r0, [r4, #16]
+ 1020 0068 70BD     		pop	{r4, r5, r6, pc}
+ 1021              	.L161:
+ 1022 006a 1846     		mov	r0, r3
+ 1023 006c 70BD     		pop	{r4, r5, r6, pc}
+ 1025              		.section	.text.HAL_RTC_AlarmAEventCallback,"ax",%progbits
+ 1026              		.align	1
+ 1027              		.weak	HAL_RTC_AlarmAEventCallback
+ 1028              		.syntax unified
+ 1029              		.thumb
+ 1030              		.thumb_func
+ 1031              		.fpu softvfp
+ 1033              	HAL_RTC_AlarmAEventCallback:
+ 1034              		@ args = 0, pretend = 0, frame = 0
+ 1035              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1036              		@ link register save eliminated.
+ 1037 0000 7047     		bx	lr
+ 1039              		.section	.text.HAL_RTC_AlarmIRQHandler,"ax",%progbits
+ 1040              		.align	1
+ 1041              		.global	HAL_RTC_AlarmIRQHandler
+ 1042              		.syntax unified
+ 1043              		.thumb
+ 1044              		.thumb_func
+ 1045              		.fpu softvfp
+ 1047              	HAL_RTC_AlarmIRQHandler:
+ 1048              		@ args = 0, pretend = 0, frame = 0
+ 1049              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1050 0000 0368     		ldr	r3, [r0]
+ 1051 0002 10B5     		push	{r4, lr}
+ 1052 0004 1A68     		ldr	r2, [r3]
+ 1053 0006 0446     		mov	r4, r0
+ 1054 0008 9207     		lsls	r2, r2, #30
+ 1055 000a 08D5     		bpl	.L164
+ 1056 000c 5B68     		ldr	r3, [r3, #4]
+ 1057 000e 9B07     		lsls	r3, r3, #30
+ 1058 0010 05D5     		bpl	.L164
+ 1059 0012 FFF7FEFF 		bl	HAL_RTC_AlarmAEventCallback
+ 1060 0016 6FF00202 		mvn	r2, #2
+ 1061 001a 2368     		ldr	r3, [r4]
+ 1062 001c 5A60     		str	r2, [r3, #4]
+ 1063              	.L164:
+ 1064 001e 4FF40032 		mov	r2, #131072
+ 1065 0022 024B     		ldr	r3, .L171
+ 1066 0024 5A61     		str	r2, [r3, #20]
+ 1067 0026 0123     		movs	r3, #1
+ARM GAS  /tmp/ccHzUxDT.s 			page 19
 
 
- 1070              	.L192:
- 1071 0022 FFF7FEFF 		bl	HAL_GetTick
- 1072 0026 801B     		subs	r0, r0, r6
- 1073 0028 A842     		cmp	r0, r5
- 1074 002a F0D9     		bls	.L190
- 1075 002c F6E7     		b	.L193
- 1076              	.L199:
- 1077 002e 6FF00202 		mvn	r2, #2
- 1078 0032 5A60     		str	r2, [r3, #4]
- 1079 0034 0123     		movs	r3, #1
- 1080 0036 6374     		strb	r3, [r4, #17]
- 1081 0038 0020     		movs	r0, #0
- 1082 003a 70BD     		pop	{r4, r5, r6, pc}
- 1083              	.L198:
- 1084 003c 0120     		movs	r0, #1
- 1085 003e 70BD     		pop	{r4, r5, r6, pc}
- 1087              		.section	.text.HAL_RTC_GetState,"ax",%progbits
- 1088              		.align	1
- 1089              		.global	HAL_RTC_GetState
- 1090              		.thumb
- 1091              		.thumb_func
- 1093              	HAL_RTC_GetState:
- 1094              		@ args = 0, pretend = 0, frame = 0
- 1095              		@ frame_needed = 0, uses_anonymous_args = 0
- 1096              		@ link register save eliminated.
- 1097 0000 407C     		ldrb	r0, [r0, #17]	@ zero_extendqisi2
- 1098 0002 7047     		bx	lr
- 1100              		.section	.text.HAL_RTC_WaitForSynchro,"ax",%progbits
- 1101              		.align	1
- 1102              		.global	HAL_RTC_WaitForSynchro
- 1103              		.thumb
- 1104              		.thumb_func
- 1106              	HAL_RTC_WaitForSynchro:
- 1107              		@ args = 0, pretend = 0, frame = 0
- 1108              		@ frame_needed = 0, uses_anonymous_args = 0
- 1109 0000 38B5     		push	{r3, r4, r5, lr}
- 1110 0002 0446     		mov	r4, r0
- 1111 0004 A8B1     		cbz	r0, .L205
- 1112 0006 0268     		ldr	r2, [r0]
- 1113 0008 5368     		ldr	r3, [r2, #4]
- 1114 000a 23F00803 		bic	r3, r3, #8
- 1115 000e 5360     		str	r3, [r2, #4]
- 1116 0010 FFF7FEFF 		bl	HAL_GetTick
- 1117 0014 0546     		mov	r5, r0
- 1118              	.L203:
- 1119 0016 2368     		ldr	r3, [r4]
- 1120 0018 5B68     		ldr	r3, [r3, #4]
- 1121 001a 1B07     		lsls	r3, r3, #28
- 1122 001c 07D4     		bmi	.L207
- 1123 001e FFF7FEFF 		bl	HAL_GetTick
- 1124 0022 401B     		subs	r0, r0, r5
- 1125 0024 B0F57A7F 		cmp	r0, #1000
- 1126 0028 F5D9     		bls	.L203
- 1127 002a 0320     		movs	r0, #3
- 1128 002c 38BD     		pop	{r3, r4, r5, pc}
- 1129              	.L207:
- 1130 002e 0020     		movs	r0, #0
-ARM GAS  /tmp/ccn4dUkb.s 			page 20
+ 1068 0028 6374     		strb	r3, [r4, #17]
+ 1069 002a 10BD     		pop	{r4, pc}
+ 1070              	.L172:
+ 1071              		.align	2
+ 1072              	.L171:
+ 1073 002c 00040140 		.word	1073808384
+ 1075              		.section	.text.HAL_RTC_PollForAlarmAEvent,"ax",%progbits
+ 1076              		.align	1
+ 1077              		.global	HAL_RTC_PollForAlarmAEvent
+ 1078              		.syntax unified
+ 1079              		.thumb
+ 1080              		.thumb_func
+ 1081              		.fpu softvfp
+ 1083              	HAL_RTC_PollForAlarmAEvent:
+ 1084              		@ args = 0, pretend = 0, frame = 0
+ 1085              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1086 0000 70B5     		push	{r4, r5, r6, lr}
+ 1087 0002 0446     		mov	r4, r0
+ 1088 0004 0D46     		mov	r5, r1
+ 1089 0006 FFF7FEFF 		bl	HAL_GetTick
+ 1090 000a 0646     		mov	r6, r0
+ 1091 000c 64B9     		cbnz	r4, .L175
+ 1092 000e 0120     		movs	r0, #1
+ 1093 0010 70BD     		pop	{r4, r5, r6, pc}
+ 1094              	.L179:
+ 1095 0012 691C     		adds	r1, r5, #1
+ 1096 0014 09D0     		beq	.L176
+ 1097 0016 15B9     		cbnz	r5, .L177
+ 1098              	.L178:
+ 1099 0018 0320     		movs	r0, #3
+ 1100 001a 6074     		strb	r0, [r4, #17]
+ 1101 001c 70BD     		pop	{r4, r5, r6, pc}
+ 1102              	.L177:
+ 1103 001e FFF7FEFF 		bl	HAL_GetTick
+ 1104 0022 801B     		subs	r0, r0, r6
+ 1105 0024 8542     		cmp	r5, r0
+ 1106 0026 F7D3     		bcc	.L178
+ 1107              	.L175:
+ 1108 0028 2368     		ldr	r3, [r4]
+ 1109              	.L176:
+ 1110 002a 5A68     		ldr	r2, [r3, #4]
+ 1111 002c 9207     		lsls	r2, r2, #30
+ 1112 002e F0D5     		bpl	.L179
+ 1113 0030 6FF00202 		mvn	r2, #2
+ 1114 0034 5A60     		str	r2, [r3, #4]
+ 1115 0036 0123     		movs	r3, #1
+ 1116 0038 0020     		movs	r0, #0
+ 1117 003a 6374     		strb	r3, [r4, #17]
+ 1118 003c 70BD     		pop	{r4, r5, r6, pc}
+ 1120              		.section	.text.HAL_RTC_GetState,"ax",%progbits
+ 1121              		.align	1
+ 1122              		.global	HAL_RTC_GetState
+ 1123              		.syntax unified
+ 1124              		.thumb
+ 1125              		.thumb_func
+ 1126              		.fpu softvfp
+ 1128              	HAL_RTC_GetState:
+ARM GAS  /tmp/ccHzUxDT.s 			page 20
 
 
- 1131 0030 38BD     		pop	{r3, r4, r5, pc}
- 1132              	.L205:
- 1133 0032 0120     		movs	r0, #1
- 1134 0034 38BD     		pop	{r3, r4, r5, pc}
- 1136              		.section	.text.HAL_RTC_Init,"ax",%progbits
- 1137              		.align	1
- 1138              		.global	HAL_RTC_Init
+ 1129              		@ args = 0, pretend = 0, frame = 0
+ 1130              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1131              		@ link register save eliminated.
+ 1132 0000 407C     		ldrb	r0, [r0, #17]	@ zero_extendqisi2
+ 1133 0002 7047     		bx	lr
+ 1135              		.section	.text.HAL_RTC_WaitForSynchro,"ax",%progbits
+ 1136              		.align	1
+ 1137              		.global	HAL_RTC_WaitForSynchro
+ 1138              		.syntax unified
  1139              		.thumb
  1140              		.thumb_func
- 1142              	HAL_RTC_Init:
- 1143              		@ args = 0, pretend = 0, frame = 0
- 1144              		@ frame_needed = 0, uses_anonymous_args = 0
- 1145 0000 10B5     		push	{r4, lr}
- 1146 0002 0446     		mov	r4, r0
- 1147 0004 0028     		cmp	r0, #0
- 1148 0006 47D0     		beq	.L217
- 1149 0008 437C     		ldrb	r3, [r0, #17]	@ zero_extendqisi2
- 1150 000a 03F0FF02 		and	r2, r3, #255
- 1151 000e 13B9     		cbnz	r3, .L210
- 1152 0010 0274     		strb	r2, [r0, #16]
- 1153 0012 FFF7FEFF 		bl	HAL_RTC_MspInit
- 1154              	.L210:
- 1155 0016 0223     		movs	r3, #2
- 1156 0018 6374     		strb	r3, [r4, #17]
- 1157 001a 2046     		mov	r0, r4
- 1158 001c FFF7FEFF 		bl	HAL_RTC_WaitForSynchro
- 1159 0020 D8B9     		cbnz	r0, .L222
- 1160 0022 2046     		mov	r0, r4
- 1161 0024 FFF7FEFF 		bl	RTC_EnterInitMode
- 1162 0028 B8B9     		cbnz	r0, .L222
- 1163 002a 2268     		ldr	r2, [r4]
- 1164 002c 5368     		ldr	r3, [r2, #4]
- 1165 002e 23F00703 		bic	r3, r3, #7
- 1166 0032 5360     		str	r3, [r2, #4]
- 1167 0034 A268     		ldr	r2, [r4, #8]
- 1168 0036 194B     		ldr	r3, .L223
- 1169 0038 1AB1     		cbz	r2, .L213
- 1170 003a 196B     		ldr	r1, [r3, #48]
- 1171 003c 21F00101 		bic	r1, r1, #1
- 1172 0040 1963     		str	r1, [r3, #48]
- 1173              	.L213:
- 1174 0042 D96A     		ldr	r1, [r3, #44]
- 1175 0044 21F46071 		bic	r1, r1, #896
- 1176 0048 0A43     		orrs	r2, r2, r1
- 1177 004a DA62     		str	r2, [r3, #44]
- 1178 004c 6068     		ldr	r0, [r4, #4]
- 1179 004e 431C     		adds	r3, r0, #1
- 1180 0050 07D1     		bne	.L214
- 1181 0052 0120     		movs	r0, #1
- 1182 0054 FFF7FEFF 		bl	HAL_RCCEx_GetPeriphCLKFreq
- 1183 0058 10B9     		cbnz	r0, .L215
- 1184              	.L222:
- 1185 005a 0423     		movs	r3, #4
- 1186 005c 6374     		strb	r3, [r4, #17]
- 1187 005e 1BE0     		b	.L217
- 1188              	.L215:
- 1189 0060 0138     		subs	r0, r0, #1
-ARM GAS  /tmp/ccn4dUkb.s 			page 21
+ 1141              		.fpu softvfp
+ 1143              	HAL_RTC_WaitForSynchro:
+ 1144              		@ args = 0, pretend = 0, frame = 0
+ 1145              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1146 0000 38B5     		push	{r3, r4, r5, lr}
+ 1147 0002 0446     		mov	r4, r0
+ 1148 0004 A8B1     		cbz	r0, .L188
+ 1149 0006 0268     		ldr	r2, [r0]
+ 1150 0008 5368     		ldr	r3, [r2, #4]
+ 1151 000a 23F00803 		bic	r3, r3, #8
+ 1152 000e 5360     		str	r3, [r2, #4]
+ 1153 0010 FFF7FEFF 		bl	HAL_GetTick
+ 1154 0014 0546     		mov	r5, r0
+ 1155              	.L186:
+ 1156 0016 2368     		ldr	r3, [r4]
+ 1157 0018 5B68     		ldr	r3, [r3, #4]
+ 1158 001a 1B07     		lsls	r3, r3, #28
+ 1159 001c 01D5     		bpl	.L187
+ 1160 001e 0020     		movs	r0, #0
+ 1161 0020 38BD     		pop	{r3, r4, r5, pc}
+ 1162              	.L187:
+ 1163 0022 FFF7FEFF 		bl	HAL_GetTick
+ 1164 0026 401B     		subs	r0, r0, r5
+ 1165 0028 B0F57A7F 		cmp	r0, #1000
+ 1166 002c F3D9     		bls	.L186
+ 1167 002e 0320     		movs	r0, #3
+ 1168 0030 38BD     		pop	{r3, r4, r5, pc}
+ 1169              	.L188:
+ 1170 0032 0120     		movs	r0, #1
+ 1171 0034 38BD     		pop	{r3, r4, r5, pc}
+ 1173              		.section	.text.HAL_RTC_Init,"ax",%progbits
+ 1174              		.align	1
+ 1175              		.global	HAL_RTC_Init
+ 1176              		.syntax unified
+ 1177              		.thumb
+ 1178              		.thumb_func
+ 1179              		.fpu softvfp
+ 1181              	HAL_RTC_Init:
+ 1182              		@ args = 0, pretend = 0, frame = 0
+ 1183              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1184 0000 10B5     		push	{r4, lr}
+ 1185 0002 0446     		mov	r4, r0
+ 1186 0004 70B1     		cbz	r0, .L199
+ 1187 0006 437C     		ldrb	r3, [r0, #17]	@ zero_extendqisi2
+ 1188 0008 03F0FF02 		and	r2, r3, #255
+ 1189 000c 13B9     		cbnz	r3, .L192
+ARM GAS  /tmp/ccHzUxDT.s 			page 21
 
 
- 1190              	.L214:
- 1191 0062 2268     		ldr	r2, [r4]
- 1192 0064 9368     		ldr	r3, [r2, #8]
- 1193 0066 23F00F03 		bic	r3, r3, #15
- 1194 006a 43EA1043 		orr	r3, r3, r0, lsr #16
- 1195 006e 9360     		str	r3, [r2, #8]
- 1196 0070 D368     		ldr	r3, [r2, #12]
- 1197 0072 80B2     		uxth	r0, r0
- 1198 0074 1B0C     		lsrs	r3, r3, #16
- 1199 0076 1B04     		lsls	r3, r3, #16
- 1200 0078 1843     		orrs	r0, r0, r3
- 1201 007a D060     		str	r0, [r2, #12]
- 1202 007c 2046     		mov	r0, r4
- 1203 007e FFF7FEFF 		bl	RTC_ExitInitMode
- 1204 0082 0123     		movs	r3, #1
- 1205 0084 18B1     		cbz	r0, .L216
- 1206 0086 0422     		movs	r2, #4
- 1207 0088 6274     		strb	r2, [r4, #17]
- 1208 008a 1846     		mov	r0, r3
- 1209 008c 10BD     		pop	{r4, pc}
- 1210              	.L216:
- 1211 008e E073     		strb	r0, [r4, #15]
- 1212 0090 6373     		strb	r3, [r4, #13]
- 1213 0092 A373     		strb	r3, [r4, #14]
- 1214 0094 6374     		strb	r3, [r4, #17]
- 1215 0096 10BD     		pop	{r4, pc}
- 1216              	.L217:
- 1217 0098 0120     		movs	r0, #1
- 1218 009a 10BD     		pop	{r4, pc}
- 1219              	.L224:
- 1220              		.align	2
- 1221              	.L223:
- 1222 009c 006C0040 		.word	1073769472
- 1224              		.section	.text.HAL_RTC_DeInit,"ax",%progbits
- 1225              		.align	1
- 1226              		.global	HAL_RTC_DeInit
- 1227              		.thumb
- 1228              		.thumb_func
- 1230              	HAL_RTC_DeInit:
- 1231              		@ args = 0, pretend = 0, frame = 0
- 1232              		@ frame_needed = 0, uses_anonymous_args = 0
- 1233 0000 70B5     		push	{r4, r5, r6, lr}
- 1234 0002 0446     		mov	r4, r0
- 1235 0004 50B3     		cbz	r0, .L229
- 1236 0006 0223     		movs	r3, #2
- 1237 0008 4374     		strb	r3, [r0, #17]
- 1238 000a FFF7FEFF 		bl	RTC_EnterInitMode
- 1239 000e 0646     		mov	r6, r0
- 1240 0010 20B1     		cbz	r0, .L227
- 1241 0012 0423     		movs	r3, #4
- 1242 0014 6374     		strb	r3, [r4, #17]
- 1243 0016 0023     		movs	r3, #0
- 1244 0018 2374     		strb	r3, [r4, #16]
- 1245 001a 1FE0     		b	.L229
- 1246              	.L227:
- 1247 001c 2368     		ldr	r3, [r4]
- 1248 001e 4FF40042 		mov	r2, #32768
-ARM GAS  /tmp/ccn4dUkb.s 			page 22
+ 1190 000e 0274     		strb	r2, [r0, #16]
+ 1191 0010 FFF7FEFF 		bl	HAL_RTC_MspInit
+ 1192              	.L192:
+ 1193 0014 0223     		movs	r3, #2
+ 1194 0016 2046     		mov	r0, r4
+ 1195 0018 6374     		strb	r3, [r4, #17]
+ 1196 001a FFF7FEFF 		bl	HAL_RTC_WaitForSynchro
+ 1197 001e 18B1     		cbz	r0, .L193
+ 1198              	.L203:
+ 1199 0020 0423     		movs	r3, #4
+ 1200 0022 6374     		strb	r3, [r4, #17]
+ 1201              	.L199:
+ 1202 0024 0120     		movs	r0, #1
+ 1203 0026 10BD     		pop	{r4, pc}
+ 1204              	.L193:
+ 1205 0028 2046     		mov	r0, r4
+ 1206 002a FFF7FEFF 		bl	RTC_EnterInitMode
+ 1207 002e 0028     		cmp	r0, #0
+ 1208 0030 F6D1     		bne	.L203
+ 1209 0032 2268     		ldr	r2, [r4]
+ 1210 0034 A068     		ldr	r0, [r4, #8]
+ 1211 0036 5368     		ldr	r3, [r2, #4]
+ 1212 0038 23F00703 		bic	r3, r3, #7
+ 1213 003c 5360     		str	r3, [r2, #4]
+ 1214 003e 174A     		ldr	r2, .L204
+ 1215 0040 18B1     		cbz	r0, .L195
+ 1216 0042 116B     		ldr	r1, [r2, #48]
+ 1217 0044 21F00101 		bic	r1, r1, #1
+ 1218 0048 1163     		str	r1, [r2, #48]
+ 1219              	.L195:
+ 1220 004a D36A     		ldr	r3, [r2, #44]
+ 1221 004c 23F46073 		bic	r3, r3, #896
+ 1222 0050 0343     		orrs	r3, r3, r0
+ 1223 0052 D362     		str	r3, [r2, #44]
+ 1224 0054 6068     		ldr	r0, [r4, #4]
+ 1225 0056 431C     		adds	r3, r0, #1
+ 1226 0058 05D1     		bne	.L196
+ 1227 005a 0120     		movs	r0, #1
+ 1228 005c FFF7FEFF 		bl	HAL_RCCEx_GetPeriphCLKFreq
+ 1229 0060 0028     		cmp	r0, #0
+ 1230 0062 DDD0     		beq	.L203
+ 1231 0064 0138     		subs	r0, r0, #1
+ 1232              	.L196:
+ 1233 0066 2268     		ldr	r2, [r4]
+ 1234 0068 9368     		ldr	r3, [r2, #8]
+ 1235 006a 23F00F03 		bic	r3, r3, #15
+ 1236 006e 43EA1043 		orr	r3, r3, r0, lsr #16
+ 1237 0072 9360     		str	r3, [r2, #8]
+ 1238 0074 D368     		ldr	r3, [r2, #12]
+ 1239 0076 80B2     		uxth	r0, r0
+ 1240 0078 1B0C     		lsrs	r3, r3, #16
+ 1241 007a 1B04     		lsls	r3, r3, #16
+ 1242 007c 1843     		orrs	r0, r0, r3
+ 1243 007e D060     		str	r0, [r2, #12]
+ 1244 0080 2046     		mov	r0, r4
+ 1245 0082 FFF7FEFF 		bl	RTC_ExitInitMode
+ 1246 0086 0123     		movs	r3, #1
+ARM GAS  /tmp/ccHzUxDT.s 			page 22
 
 
- 1249 0022 D861     		str	r0, [r3, #28]
- 1250 0024 9861     		str	r0, [r3, #24]
- 1251 0026 DA60     		str	r2, [r3, #12]
- 1252 0028 9860     		str	r0, [r3, #8]
- 1253 002a 1860     		str	r0, [r3]
- 1254 002c 5860     		str	r0, [r3, #4]
- 1255 002e 2046     		mov	r0, r4
- 1256 0030 FFF7FEFF 		bl	RTC_ExitInitMode
- 1257 0034 0546     		mov	r5, r0
- 1258 0036 18B1     		cbz	r0, .L228
- 1259 0038 0423     		movs	r3, #4
- 1260 003a 6374     		strb	r3, [r4, #17]
- 1261 003c 2674     		strb	r6, [r4, #16]
- 1262 003e 0DE0     		b	.L229
- 1263              	.L228:
- 1264 0040 2046     		mov	r0, r4
- 1265 0042 FFF7FEFF 		bl	HAL_RTC_WaitForSynchro
- 1266 0046 2268     		ldr	r2, [r4]
- 1267 0048 2046     		mov	r0, r4
- 1268 004a 5368     		ldr	r3, [r2, #4]
- 1269 004c 23F00803 		bic	r3, r3, #8
- 1270 0050 5360     		str	r3, [r2, #4]
- 1271 0052 FFF7FEFF 		bl	HAL_RTC_MspDeInit
- 1272 0056 6574     		strb	r5, [r4, #17]
- 1273 0058 2574     		strb	r5, [r4, #16]
- 1274 005a 00E0     		b	.L226
- 1275              	.L229:
- 1276 005c 0125     		movs	r5, #1
- 1277              	.L226:
- 1278 005e 2846     		mov	r0, r5
- 1279 0060 70BD     		pop	{r4, r5, r6, pc}
- 1281              		.ident	"GCC: (15:4.9.3+svn231177-1) 4.9.3 20150529 (prerelease)"
-ARM GAS  /tmp/ccn4dUkb.s 			page 23
+ 1247 0088 10B1     		cbz	r0, .L198
+ 1248 008a 0422     		movs	r2, #4
+ 1249 008c 6274     		strb	r2, [r4, #17]
+ 1250 008e C9E7     		b	.L199
+ 1251              	.L198:
+ 1252 0090 E073     		strb	r0, [r4, #15]
+ 1253 0092 6373     		strb	r3, [r4, #13]
+ 1254 0094 A373     		strb	r3, [r4, #14]
+ 1255 0096 6374     		strb	r3, [r4, #17]
+ 1256 0098 10BD     		pop	{r4, pc}
+ 1257              	.L205:
+ 1258 009a 00BF     		.align	2
+ 1259              	.L204:
+ 1260 009c 006C0040 		.word	1073769472
+ 1262              		.section	.text.HAL_RTC_DeInit,"ax",%progbits
+ 1263              		.align	1
+ 1264              		.global	HAL_RTC_DeInit
+ 1265              		.syntax unified
+ 1266              		.thumb
+ 1267              		.thumb_func
+ 1268              		.fpu softvfp
+ 1270              	HAL_RTC_DeInit:
+ 1271              		@ args = 0, pretend = 0, frame = 0
+ 1272              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1273 0000 70B5     		push	{r4, r5, r6, lr}
+ 1274 0002 0446     		mov	r4, r0
+ 1275 0004 48B1     		cbz	r0, .L210
+ 1276 0006 0223     		movs	r3, #2
+ 1277 0008 4374     		strb	r3, [r0, #17]
+ 1278 000a FFF7FEFF 		bl	RTC_EnterInitMode
+ 1279 000e 0646     		mov	r6, r0
+ 1280 0010 28B1     		cbz	r0, .L208
+ 1281 0012 0423     		movs	r3, #4
+ 1282 0014 6374     		strb	r3, [r4, #17]
+ 1283 0016 0023     		movs	r3, #0
+ 1284 0018 2374     		strb	r3, [r4, #16]
+ 1285              	.L210:
+ 1286 001a 0125     		movs	r5, #1
+ 1287 001c 1EE0     		b	.L207
+ 1288              	.L208:
+ 1289 001e 4FF40042 		mov	r2, #32768
+ 1290 0022 2368     		ldr	r3, [r4]
+ 1291 0024 D861     		str	r0, [r3, #28]
+ 1292 0026 9861     		str	r0, [r3, #24]
+ 1293 0028 DA60     		str	r2, [r3, #12]
+ 1294 002a 9860     		str	r0, [r3, #8]
+ 1295 002c 1860     		str	r0, [r3]
+ 1296 002e 5860     		str	r0, [r3, #4]
+ 1297 0030 2046     		mov	r0, r4
+ 1298 0032 FFF7FEFF 		bl	RTC_ExitInitMode
+ 1299 0036 0546     		mov	r5, r0
+ 1300 0038 18B1     		cbz	r0, .L209
+ 1301 003a 0423     		movs	r3, #4
+ 1302 003c 2674     		strb	r6, [r4, #16]
+ 1303 003e 6374     		strb	r3, [r4, #17]
+ 1304 0040 EBE7     		b	.L210
+ 1305              	.L209:
+ARM GAS  /tmp/ccHzUxDT.s 			page 23
+
+
+ 1306 0042 2046     		mov	r0, r4
+ 1307 0044 FFF7FEFF 		bl	HAL_RTC_WaitForSynchro
+ 1308 0048 2268     		ldr	r2, [r4]
+ 1309 004a 2046     		mov	r0, r4
+ 1310 004c 5368     		ldr	r3, [r2, #4]
+ 1311 004e 23F00803 		bic	r3, r3, #8
+ 1312 0052 5360     		str	r3, [r2, #4]
+ 1313 0054 FFF7FEFF 		bl	HAL_RTC_MspDeInit
+ 1314 0058 6574     		strb	r5, [r4, #17]
+ 1315 005a 2574     		strb	r5, [r4, #16]
+ 1316              	.L207:
+ 1317 005c 2846     		mov	r0, r5
+ 1318 005e 70BD     		pop	{r4, r5, r6, pc}
+ 1320              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
+ARM GAS  /tmp/ccHzUxDT.s 			page 24
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f1xx_hal_rtc.c
-     /tmp/ccn4dUkb.s:16     .text.RTC_ReadTimeCounter:0000000000000000 $t
-     /tmp/ccn4dUkb.s:20     .text.RTC_ReadTimeCounter:0000000000000000 RTC_ReadTimeCounter
-     /tmp/ccn4dUkb.s:41     .text.RTC_ReadAlarmCounter:0000000000000000 $t
-     /tmp/ccn4dUkb.s:45     .text.RTC_ReadAlarmCounter:0000000000000000 RTC_ReadAlarmCounter
-     /tmp/ccn4dUkb.s:57     .text.RTC_ByteToBcd2:0000000000000000 $t
-     /tmp/ccn4dUkb.s:61     .text.RTC_ByteToBcd2:0000000000000000 RTC_ByteToBcd2
-     /tmp/ccn4dUkb.s:79     .text.RTC_Bcd2ToByte:0000000000000000 $t
-     /tmp/ccn4dUkb.s:83     .text.RTC_Bcd2ToByte:0000000000000000 RTC_Bcd2ToByte
-     /tmp/ccn4dUkb.s:95     .text.RTC_WeekDayNum:0000000000000000 $t
-     /tmp/ccn4dUkb.s:99     .text.RTC_WeekDayNum:0000000000000000 RTC_WeekDayNum
-     /tmp/ccn4dUkb.s:145    .text.RTC_EnterInitMode:0000000000000000 $t
-     /tmp/ccn4dUkb.s:149    .text.RTC_EnterInitMode:0000000000000000 RTC_EnterInitMode
-     /tmp/ccn4dUkb.s:175    .text.RTC_ExitInitMode:0000000000000000 $t
-     /tmp/ccn4dUkb.s:179    .text.RTC_ExitInitMode:0000000000000000 RTC_ExitInitMode
-     /tmp/ccn4dUkb.s:206    .text.RTC_WriteTimeCounter:0000000000000000 $t
-     /tmp/ccn4dUkb.s:210    .text.RTC_WriteTimeCounter:0000000000000000 RTC_WriteTimeCounter
-     /tmp/ccn4dUkb.s:234    .text.RTC_WriteAlarmCounter:0000000000000000 $t
-     /tmp/ccn4dUkb.s:238    .text.RTC_WriteAlarmCounter:0000000000000000 RTC_WriteAlarmCounter
-     /tmp/ccn4dUkb.s:262    .text.HAL_RTC_MspInit:0000000000000000 $t
-     /tmp/ccn4dUkb.s:267    .text.HAL_RTC_MspInit:0000000000000000 HAL_RTC_MspInit
-     /tmp/ccn4dUkb.s:274    .text.HAL_RTC_MspDeInit:0000000000000000 $t
-     /tmp/ccn4dUkb.s:279    .text.HAL_RTC_MspDeInit:0000000000000000 HAL_RTC_MspDeInit
-     /tmp/ccn4dUkb.s:286    .text.HAL_RTC_SetTime:0000000000000000 $t
-     /tmp/ccn4dUkb.s:291    .text.HAL_RTC_SetTime:0000000000000000 HAL_RTC_SetTime
-     /tmp/ccn4dUkb.s:374    .text.HAL_RTC_GetTime:0000000000000000 $t
-     /tmp/ccn4dUkb.s:379    .text.HAL_RTC_GetTime:0000000000000000 HAL_RTC_GetTime
-     /tmp/ccn4dUkb.s:550    .text.HAL_RTC_GetTime:0000000000000160 $d
-     /tmp/ccn4dUkb.s:553    .text.HAL_RTC_SetDate:0000000000000000 $t
-     /tmp/ccn4dUkb.s:558    .text.HAL_RTC_SetDate:0000000000000000 HAL_RTC_SetDate
-     /tmp/ccn4dUkb.s:649    .text.HAL_RTC_SetDate:00000000000000bc $d
-     /tmp/ccn4dUkb.s:652    .text.HAL_RTC_GetDate:0000000000000000 $t
-     /tmp/ccn4dUkb.s:657    .text.HAL_RTC_GetDate:0000000000000000 HAL_RTC_GetDate
-     /tmp/ccn4dUkb.s:704    .text.HAL_RTC_SetAlarm:0000000000000000 $t
-     /tmp/ccn4dUkb.s:709    .text.HAL_RTC_SetAlarm:0000000000000000 HAL_RTC_SetAlarm
-     /tmp/ccn4dUkb.s:787    .text.HAL_RTC_SetAlarm_IT:0000000000000000 $t
-     /tmp/ccn4dUkb.s:792    .text.HAL_RTC_SetAlarm_IT:0000000000000000 HAL_RTC_SetAlarm_IT
-     /tmp/ccn4dUkb.s:884    .text.HAL_RTC_SetAlarm_IT:00000000000000d8 $d
-     /tmp/ccn4dUkb.s:887    .text.HAL_RTC_GetAlarm:0000000000000000 $t
-     /tmp/ccn4dUkb.s:892    .text.HAL_RTC_GetAlarm:0000000000000000 HAL_RTC_GetAlarm
-     /tmp/ccn4dUkb.s:934    .text.HAL_RTC_DeactivateAlarm:0000000000000000 $t
-     /tmp/ccn4dUkb.s:939    .text.HAL_RTC_DeactivateAlarm:0000000000000000 HAL_RTC_DeactivateAlarm
-     /tmp/ccn4dUkb.s:997    .text.HAL_RTC_AlarmAEventCallback:0000000000000000 $t
-     /tmp/ccn4dUkb.s:1002   .text.HAL_RTC_AlarmAEventCallback:0000000000000000 HAL_RTC_AlarmAEventCallback
-     /tmp/ccn4dUkb.s:1009   .text.HAL_RTC_AlarmIRQHandler:0000000000000000 $t
-     /tmp/ccn4dUkb.s:1014   .text.HAL_RTC_AlarmIRQHandler:0000000000000000 HAL_RTC_AlarmIRQHandler
-     /tmp/ccn4dUkb.s:1040   .text.HAL_RTC_AlarmIRQHandler:000000000000002c $d
-     /tmp/ccn4dUkb.s:1043   .text.HAL_RTC_PollForAlarmAEvent:0000000000000000 $t
-     /tmp/ccn4dUkb.s:1048   .text.HAL_RTC_PollForAlarmAEvent:0000000000000000 HAL_RTC_PollForAlarmAEvent
-     /tmp/ccn4dUkb.s:1088   .text.HAL_RTC_GetState:0000000000000000 $t
-     /tmp/ccn4dUkb.s:1093   .text.HAL_RTC_GetState:0000000000000000 HAL_RTC_GetState
-     /tmp/ccn4dUkb.s:1101   .text.HAL_RTC_WaitForSynchro:0000000000000000 $t
-     /tmp/ccn4dUkb.s:1106   .text.HAL_RTC_WaitForSynchro:0000000000000000 HAL_RTC_WaitForSynchro
-     /tmp/ccn4dUkb.s:1137   .text.HAL_RTC_Init:0000000000000000 $t
-     /tmp/ccn4dUkb.s:1142   .text.HAL_RTC_Init:0000000000000000 HAL_RTC_Init
-     /tmp/ccn4dUkb.s:1222   .text.HAL_RTC_Init:000000000000009c $d
-ARM GAS  /tmp/ccn4dUkb.s 			page 24
+     /tmp/ccHzUxDT.s:13     .text.RTC_ReadTimeCounter:0000000000000000 $t
+     /tmp/ccHzUxDT.s:19     .text.RTC_ReadTimeCounter:0000000000000000 RTC_ReadTimeCounter
+     /tmp/ccHzUxDT.s:40     .text.RTC_ReadAlarmCounter:0000000000000000 $t
+     /tmp/ccHzUxDT.s:46     .text.RTC_ReadAlarmCounter:0000000000000000 RTC_ReadAlarmCounter
+     /tmp/ccHzUxDT.s:58     .text.RTC_ByteToBcd2:0000000000000000 $t
+     /tmp/ccHzUxDT.s:64     .text.RTC_ByteToBcd2:0000000000000000 RTC_ByteToBcd2
+     /tmp/ccHzUxDT.s:82     .text.RTC_Bcd2ToByte:0000000000000000 $t
+     /tmp/ccHzUxDT.s:88     .text.RTC_Bcd2ToByte:0000000000000000 RTC_Bcd2ToByte
+     /tmp/ccHzUxDT.s:100    .text.RTC_WeekDayNum:0000000000000000 $t
+     /tmp/ccHzUxDT.s:106    .text.RTC_WeekDayNum:0000000000000000 RTC_WeekDayNum
+     /tmp/ccHzUxDT.s:151    .text.RTC_EnterInitMode:0000000000000000 $t
+     /tmp/ccHzUxDT.s:157    .text.RTC_EnterInitMode:0000000000000000 RTC_EnterInitMode
+     /tmp/ccHzUxDT.s:183    .text.RTC_ExitInitMode:0000000000000000 $t
+     /tmp/ccHzUxDT.s:189    .text.RTC_ExitInitMode:0000000000000000 RTC_ExitInitMode
+     /tmp/ccHzUxDT.s:216    .text.RTC_WriteTimeCounter:0000000000000000 $t
+     /tmp/ccHzUxDT.s:222    .text.RTC_WriteTimeCounter:0000000000000000 RTC_WriteTimeCounter
+     /tmp/ccHzUxDT.s:246    .text.RTC_WriteAlarmCounter:0000000000000000 $t
+     /tmp/ccHzUxDT.s:252    .text.RTC_WriteAlarmCounter:0000000000000000 RTC_WriteAlarmCounter
+     /tmp/ccHzUxDT.s:276    .text.HAL_RTC_MspInit:0000000000000000 $t
+     /tmp/ccHzUxDT.s:283    .text.HAL_RTC_MspInit:0000000000000000 HAL_RTC_MspInit
+     /tmp/ccHzUxDT.s:290    .text.HAL_RTC_MspDeInit:0000000000000000 $t
+     /tmp/ccHzUxDT.s:297    .text.HAL_RTC_MspDeInit:0000000000000000 HAL_RTC_MspDeInit
+     /tmp/ccHzUxDT.s:304    .text.HAL_RTC_SetTime:0000000000000000 $t
+     /tmp/ccHzUxDT.s:311    .text.HAL_RTC_SetTime:0000000000000000 HAL_RTC_SetTime
+     /tmp/ccHzUxDT.s:390    .text.HAL_RTC_GetTime:0000000000000000 $t
+     /tmp/ccHzUxDT.s:397    .text.HAL_RTC_GetTime:0000000000000000 HAL_RTC_GetTime
+     /tmp/ccHzUxDT.s:571    .text.HAL_RTC_GetTime:0000000000000168 $d
+     /tmp/ccHzUxDT.s:574    .text.HAL_RTC_SetDate:0000000000000000 $t
+     /tmp/ccHzUxDT.s:581    .text.HAL_RTC_SetDate:0000000000000000 HAL_RTC_SetDate
+     /tmp/ccHzUxDT.s:666    .text.HAL_RTC_SetDate:00000000000000ac $d
+     /tmp/ccHzUxDT.s:669    .text.HAL_RTC_GetDate:0000000000000000 $t
+     /tmp/ccHzUxDT.s:676    .text.HAL_RTC_GetDate:0000000000000000 HAL_RTC_GetDate
+     /tmp/ccHzUxDT.s:723    .text.HAL_RTC_SetAlarm:0000000000000000 $t
+     /tmp/ccHzUxDT.s:730    .text.HAL_RTC_SetAlarm:0000000000000000 HAL_RTC_SetAlarm
+     /tmp/ccHzUxDT.s:811    .text.HAL_RTC_SetAlarm_IT:0000000000000000 $t
+     /tmp/ccHzUxDT.s:818    .text.HAL_RTC_SetAlarm_IT:0000000000000000 HAL_RTC_SetAlarm_IT
+     /tmp/ccHzUxDT.s:913    .text.HAL_RTC_SetAlarm_IT:00000000000000dc $d
+     /tmp/ccHzUxDT.s:916    .text.HAL_RTC_GetAlarm:0000000000000000 $t
+     /tmp/ccHzUxDT.s:923    .text.HAL_RTC_GetAlarm:0000000000000000 HAL_RTC_GetAlarm
+     /tmp/ccHzUxDT.s:964    .text.HAL_RTC_DeactivateAlarm:0000000000000000 $t
+     /tmp/ccHzUxDT.s:971    .text.HAL_RTC_DeactivateAlarm:0000000000000000 HAL_RTC_DeactivateAlarm
+     /tmp/ccHzUxDT.s:1026   .text.HAL_RTC_AlarmAEventCallback:0000000000000000 $t
+     /tmp/ccHzUxDT.s:1033   .text.HAL_RTC_AlarmAEventCallback:0000000000000000 HAL_RTC_AlarmAEventCallback
+     /tmp/ccHzUxDT.s:1040   .text.HAL_RTC_AlarmIRQHandler:0000000000000000 $t
+     /tmp/ccHzUxDT.s:1047   .text.HAL_RTC_AlarmIRQHandler:0000000000000000 HAL_RTC_AlarmIRQHandler
+     /tmp/ccHzUxDT.s:1073   .text.HAL_RTC_AlarmIRQHandler:000000000000002c $d
+     /tmp/ccHzUxDT.s:1076   .text.HAL_RTC_PollForAlarmAEvent:0000000000000000 $t
+     /tmp/ccHzUxDT.s:1083   .text.HAL_RTC_PollForAlarmAEvent:0000000000000000 HAL_RTC_PollForAlarmAEvent
+     /tmp/ccHzUxDT.s:1121   .text.HAL_RTC_GetState:0000000000000000 $t
+     /tmp/ccHzUxDT.s:1128   .text.HAL_RTC_GetState:0000000000000000 HAL_RTC_GetState
+     /tmp/ccHzUxDT.s:1136   .text.HAL_RTC_WaitForSynchro:0000000000000000 $t
+     /tmp/ccHzUxDT.s:1143   .text.HAL_RTC_WaitForSynchro:0000000000000000 HAL_RTC_WaitForSynchro
+     /tmp/ccHzUxDT.s:1174   .text.HAL_RTC_Init:0000000000000000 $t
+     /tmp/ccHzUxDT.s:1181   .text.HAL_RTC_Init:0000000000000000 HAL_RTC_Init
+     /tmp/ccHzUxDT.s:1260   .text.HAL_RTC_Init:000000000000009c $d
+ARM GAS  /tmp/ccHzUxDT.s 			page 25
 
 
-     /tmp/ccn4dUkb.s:1225   .text.HAL_RTC_DeInit:0000000000000000 $t
-     /tmp/ccn4dUkb.s:1230   .text.HAL_RTC_DeInit:0000000000000000 HAL_RTC_DeInit
+     /tmp/ccHzUxDT.s:1263   .text.HAL_RTC_DeInit:0000000000000000 $t
+     /tmp/ccHzUxDT.s:1270   .text.HAL_RTC_DeInit:0000000000000000 HAL_RTC_DeInit
 
 UNDEFINED SYMBOLS
 HAL_GetTick

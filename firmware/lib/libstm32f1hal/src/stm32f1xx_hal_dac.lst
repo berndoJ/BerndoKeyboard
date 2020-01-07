@@ -1,573 +1,615 @@
-ARM GAS  /tmp/ccAkLtW5.s 			page 1
+ARM GAS  /tmp/ccwXeut7.s 			page 1
 
 
-   1              		.syntax unified
-   2              		.cpu cortex-m3
-   3              		.fpu softvfp
-   4              		.eabi_attribute 20, 1
-   5              		.eabi_attribute 21, 1
-   6              		.eabi_attribute 23, 3
-   7              		.eabi_attribute 24, 1
-   8              		.eabi_attribute 25, 1
-   9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 4
-  11              		.eabi_attribute 34, 1
-  12              		.eabi_attribute 18, 4
-  13              		.thumb
-  14              		.file	"stm32f1xx_hal_dac.c"
-  15              		.section	.text.HAL_DAC_MspInit,"ax",%progbits
-  16              		.align	1
-  17              		.weak	HAL_DAC_MspInit
-  18              		.thumb
-  19              		.thumb_func
-  21              	HAL_DAC_MspInit:
-  22              		@ args = 0, pretend = 0, frame = 0
-  23              		@ frame_needed = 0, uses_anonymous_args = 0
-  24              		@ link register save eliminated.
-  25 0000 7047     		bx	lr
-  27              		.section	.text.HAL_DAC_Init,"ax",%progbits
-  28              		.align	1
-  29              		.global	HAL_DAC_Init
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 4
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"stm32f1xx_hal_dac.c"
+  12              		.section	.text.HAL_DAC_MspInit,"ax",%progbits
+  13              		.align	1
+  14              		.weak	HAL_DAC_MspInit
+  15              		.syntax unified
+  16              		.thumb
+  17              		.thumb_func
+  18              		.fpu softvfp
+  20              	HAL_DAC_MspInit:
+  21              		@ args = 0, pretend = 0, frame = 0
+  22              		@ frame_needed = 0, uses_anonymous_args = 0
+  23              		@ link register save eliminated.
+  24 0000 7047     		bx	lr
+  26              		.section	.text.HAL_DAC_Init,"ax",%progbits
+  27              		.align	1
+  28              		.global	HAL_DAC_Init
+  29              		.syntax unified
   30              		.thumb
   31              		.thumb_func
-  33              	HAL_DAC_Init:
-  34              		@ args = 0, pretend = 0, frame = 0
-  35              		@ frame_needed = 0, uses_anonymous_args = 0
-  36 0000 10B5     		push	{r4, lr}
-  37 0002 0446     		mov	r4, r0
-  38 0004 68B1     		cbz	r0, .L5
-  39 0006 0379     		ldrb	r3, [r0, #4]	@ zero_extendqisi2
-  40 0008 03F0FF02 		and	r2, r3, #255
-  41 000c 13B9     		cbnz	r3, .L4
-  42 000e 4271     		strb	r2, [r0, #5]
-  43 0010 FFF7FEFF 		bl	HAL_DAC_MspInit
-  44              	.L4:
-  45 0014 0223     		movs	r3, #2
-  46 0016 2371     		strb	r3, [r4, #4]
-  47 0018 0020     		movs	r0, #0
-  48 001a 0123     		movs	r3, #1
-  49 001c 2061     		str	r0, [r4, #16]
-  50 001e 2371     		strb	r3, [r4, #4]
-  51 0020 10BD     		pop	{r4, pc}
-  52              	.L5:
-  53 0022 0120     		movs	r0, #1
-  54 0024 10BD     		pop	{r4, pc}
-  56              		.section	.text.HAL_DAC_MspDeInit,"ax",%progbits
-  57              		.align	1
-  58              		.weak	HAL_DAC_MspDeInit
-  59              		.thumb
-  60              		.thumb_func
-  62              	HAL_DAC_MspDeInit:
-ARM GAS  /tmp/ccAkLtW5.s 			page 2
+  32              		.fpu softvfp
+  34              	HAL_DAC_Init:
+  35              		@ args = 0, pretend = 0, frame = 0
+  36              		@ frame_needed = 0, uses_anonymous_args = 0
+  37 0000 10B5     		push	{r4, lr}
+  38 0002 0446     		mov	r4, r0
+  39 0004 68B1     		cbz	r0, .L5
+  40 0006 0379     		ldrb	r3, [r0, #4]	@ zero_extendqisi2
+  41 0008 03F0FF02 		and	r2, r3, #255
+  42 000c 13B9     		cbnz	r3, .L4
+  43 000e 4271     		strb	r2, [r0, #5]
+  44 0010 FFF7FEFF 		bl	HAL_DAC_MspInit
+  45              	.L4:
+  46 0014 0223     		movs	r3, #2
+  47 0016 0020     		movs	r0, #0
+  48 0018 2371     		strb	r3, [r4, #4]
+  49 001a 0123     		movs	r3, #1
+  50 001c 2061     		str	r0, [r4, #16]
+  51 001e 2371     		strb	r3, [r4, #4]
+  52 0020 10BD     		pop	{r4, pc}
+  53              	.L5:
+  54 0022 0120     		movs	r0, #1
+  55 0024 10BD     		pop	{r4, pc}
+  57              		.section	.text.HAL_DAC_MspDeInit,"ax",%progbits
+  58              		.align	1
+  59              		.weak	HAL_DAC_MspDeInit
+  60              		.syntax unified
+  61              		.thumb
+ARM GAS  /tmp/ccwXeut7.s 			page 2
 
 
-  63              		@ args = 0, pretend = 0, frame = 0
-  64              		@ frame_needed = 0, uses_anonymous_args = 0
-  65              		@ link register save eliminated.
-  66 0000 7047     		bx	lr
-  68              		.section	.text.HAL_DAC_DeInit,"ax",%progbits
-  69              		.align	1
-  70              		.global	HAL_DAC_DeInit
-  71              		.thumb
-  72              		.thumb_func
-  74              	HAL_DAC_DeInit:
-  75              		@ args = 0, pretend = 0, frame = 0
-  76              		@ frame_needed = 0, uses_anonymous_args = 0
-  77 0000 10B5     		push	{r4, lr}
-  78 0002 0446     		mov	r4, r0
-  79 0004 40B1     		cbz	r0, .L10
-  80 0006 0223     		movs	r3, #2
-  81 0008 0371     		strb	r3, [r0, #4]
-  82 000a FFF7FEFF 		bl	HAL_DAC_MspDeInit
-  83 000e 0020     		movs	r0, #0
-  84 0010 2061     		str	r0, [r4, #16]
-  85 0012 6071     		strb	r0, [r4, #5]
-  86 0014 2071     		strb	r0, [r4, #4]
-  87 0016 10BD     		pop	{r4, pc}
-  88              	.L10:
-  89 0018 0120     		movs	r0, #1
-  90 001a 10BD     		pop	{r4, pc}
-  92              		.section	.text.HAL_DAC_Start,"ax",%progbits
-  93              		.align	1
-  94              		.global	HAL_DAC_Start
-  95              		.thumb
-  96              		.thumb_func
-  98              	HAL_DAC_Start:
-  99              		@ args = 0, pretend = 0, frame = 0
- 100              		@ frame_needed = 0, uses_anonymous_args = 0
- 101 0000 4379     		ldrb	r3, [r0, #5]	@ zero_extendqisi2
- 102 0002 30B5     		push	{r4, r5, lr}
- 103 0004 012B     		cmp	r3, #1
- 104 0006 4FF00203 		mov	r3, #2
- 105 000a 22D0     		beq	.L15
- 106 000c 0371     		strb	r3, [r0, #4]
- 107 000e 0368     		ldr	r3, [r0]
- 108 0010 0122     		movs	r2, #1
- 109 0012 1C68     		ldr	r4, [r3]
- 110 0014 01F01005 		and	r5, r1, #16
- 111 0018 4271     		strb	r2, [r0, #5]
- 112 001a AA40     		lsls	r2, r2, r5
- 113 001c 2243     		orrs	r2, r2, r4
- 114 001e 1A60     		str	r2, [r3]
- 115 0020 41B9     		cbnz	r1, .L13
- 116 0022 1A68     		ldr	r2, [r3]
- 117 0024 02F03C02 		and	r2, r2, #60
- 118 0028 3C2A     		cmp	r2, #60
- 119 002a 0ED1     		bne	.L14
- 120 002c 5A68     		ldr	r2, [r3, #4]
- 121 002e 42F00102 		orr	r2, r2, #1
- 122 0032 09E0     		b	.L16
- 123              	.L13:
-ARM GAS  /tmp/ccAkLtW5.s 			page 3
+  62              		.thumb_func
+  63              		.fpu softvfp
+  65              	HAL_DAC_MspDeInit:
+  66              		@ args = 0, pretend = 0, frame = 0
+  67              		@ frame_needed = 0, uses_anonymous_args = 0
+  68              		@ link register save eliminated.
+  69 0000 7047     		bx	lr
+  71              		.section	.text.HAL_DAC_DeInit,"ax",%progbits
+  72              		.align	1
+  73              		.global	HAL_DAC_DeInit
+  74              		.syntax unified
+  75              		.thumb
+  76              		.thumb_func
+  77              		.fpu softvfp
+  79              	HAL_DAC_DeInit:
+  80              		@ args = 0, pretend = 0, frame = 0
+  81              		@ frame_needed = 0, uses_anonymous_args = 0
+  82 0000 10B5     		push	{r4, lr}
+  83 0002 0446     		mov	r4, r0
+  84 0004 40B1     		cbz	r0, .L9
+  85 0006 0223     		movs	r3, #2
+  86 0008 0371     		strb	r3, [r0, #4]
+  87 000a FFF7FEFF 		bl	HAL_DAC_MspDeInit
+  88 000e 0020     		movs	r0, #0
+  89 0010 2061     		str	r0, [r4, #16]
+  90 0012 6071     		strb	r0, [r4, #5]
+  91 0014 2071     		strb	r0, [r4, #4]
+  92 0016 10BD     		pop	{r4, pc}
+  93              	.L9:
+  94 0018 0120     		movs	r0, #1
+  95 001a 10BD     		pop	{r4, pc}
+  97              		.section	.text.HAL_DAC_Start,"ax",%progbits
+  98              		.align	1
+  99              		.global	HAL_DAC_Start
+ 100              		.syntax unified
+ 101              		.thumb
+ 102              		.thumb_func
+ 103              		.fpu softvfp
+ 105              	HAL_DAC_Start:
+ 106              		@ args = 0, pretend = 0, frame = 0
+ 107              		@ frame_needed = 0, uses_anonymous_args = 0
+ 108 0000 4379     		ldrb	r3, [r0, #5]	@ zero_extendqisi2
+ 109 0002 30B5     		push	{r4, r5, lr}
+ 110 0004 012B     		cmp	r3, #1
+ 111 0006 4FF00203 		mov	r3, #2
+ 112 000a 17D0     		beq	.L14
+ 113 000c 0122     		movs	r2, #1
+ 114 000e 0371     		strb	r3, [r0, #4]
+ 115 0010 0368     		ldr	r3, [r0]
+ 116 0012 01F01004 		and	r4, r1, #16
+ 117 0016 1D68     		ldr	r5, [r3]
+ 118 0018 4271     		strb	r2, [r0, #5]
+ 119 001a A240     		lsls	r2, r2, r4
+ 120 001c 2A43     		orrs	r2, r2, r5
+ 121 001e 1A60     		str	r2, [r3]
+ 122 0020 71B9     		cbnz	r1, .L12
+ 123 0022 1A68     		ldr	r2, [r3]
+ARM GAS  /tmp/ccwXeut7.s 			page 3
 
 
- 124 0034 1968     		ldr	r1, [r3]
- 125 0036 3C22     		movs	r2, #60
- 126 0038 01F47011 		and	r1, r1, #3932160
- 127 003c AA40     		lsls	r2, r2, r5
- 128 003e 9142     		cmp	r1, r2
- 129 0040 03D1     		bne	.L14
- 130 0042 5A68     		ldr	r2, [r3, #4]
- 131 0044 42F00202 		orr	r2, r2, #2
- 132              	.L16:
- 133 0048 5A60     		str	r2, [r3, #4]
- 134              	.L14:
- 135 004a 0123     		movs	r3, #1
- 136 004c 0371     		strb	r3, [r0, #4]
- 137 004e 0023     		movs	r3, #0
- 138 0050 4371     		strb	r3, [r0, #5]
- 139              	.L15:
- 140 0052 1846     		mov	r0, r3
- 141 0054 30BD     		pop	{r4, r5, pc}
- 143              		.section	.text.HAL_DAC_Stop,"ax",%progbits
- 144              		.align	1
- 145              		.global	HAL_DAC_Stop
- 146              		.thumb
- 147              		.thumb_func
- 149              	HAL_DAC_Stop:
- 150              		@ args = 0, pretend = 0, frame = 0
- 151              		@ frame_needed = 0, uses_anonymous_args = 0
- 152 0000 10B5     		push	{r4, lr}
- 153 0002 0468     		ldr	r4, [r0]
- 154 0004 0122     		movs	r2, #1
- 155 0006 2368     		ldr	r3, [r4]
- 156 0008 01F01001 		and	r1, r1, #16
- 157 000c 02FA01F1 		lsl	r1, r2, r1
- 158 0010 23EA0103 		bic	r3, r3, r1
- 159 0014 2360     		str	r3, [r4]
- 160 0016 0271     		strb	r2, [r0, #4]
- 161 0018 0020     		movs	r0, #0
- 162 001a 10BD     		pop	{r4, pc}
- 164              		.section	.text.HAL_DAC_Start_DMA,"ax",%progbits
- 165              		.align	1
- 166              		.global	HAL_DAC_Start_DMA
- 167              		.thumb
- 168              		.thumb_func
- 170              	HAL_DAC_Start_DMA:
- 171              		@ args = 4, pretend = 0, frame = 0
- 172              		@ frame_needed = 0, uses_anonymous_args = 0
- 173 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
- 174 0002 0F46     		mov	r7, r1
- 175 0004 1146     		mov	r1, r2
- 176 0006 4279     		ldrb	r2, [r0, #5]	@ zero_extendqisi2
- 177 0008 0546     		mov	r5, r0
- 178 000a 012A     		cmp	r2, #1
- 179 000c 069E     		ldr	r6, [sp, #24]
- 180 000e 4FF00200 		mov	r0, #2
- 181 0012 4CD0     		beq	.L36
- 182 0014 0122     		movs	r2, #1
- 183 0016 6A71     		strb	r2, [r5, #5]
- 184 0018 2871     		strb	r0, [r5, #4]
-ARM GAS  /tmp/ccAkLtW5.s 			page 4
+ 124 0024 02F03C02 		and	r2, r2, #60
+ 125 0028 3C2A     		cmp	r2, #60
+ 126 002a 03D1     		bne	.L13
+ 127 002c 5A68     		ldr	r2, [r3, #4]
+ 128 002e 42F00102 		orr	r2, r2, #1
+ 129              	.L15:
+ 130 0032 5A60     		str	r2, [r3, #4]
+ 131              	.L13:
+ 132 0034 0123     		movs	r3, #1
+ 133 0036 0371     		strb	r3, [r0, #4]
+ 134 0038 0023     		movs	r3, #0
+ 135 003a 4371     		strb	r3, [r0, #5]
+ 136              	.L14:
+ 137 003c 1846     		mov	r0, r3
+ 138 003e 30BD     		pop	{r4, r5, pc}
+ 139              	.L12:
+ 140 0040 3C22     		movs	r2, #60
+ 141 0042 1968     		ldr	r1, [r3]
+ 142 0044 A240     		lsls	r2, r2, r4
+ 143 0046 01F47011 		and	r1, r1, #3932160
+ 144 004a 9142     		cmp	r1, r2
+ 145 004c F2D1     		bne	.L13
+ 146 004e 5A68     		ldr	r2, [r3, #4]
+ 147 0050 42F00202 		orr	r2, r2, #2
+ 148 0054 EDE7     		b	.L15
+ 150              		.section	.text.HAL_DAC_Stop,"ax",%progbits
+ 151              		.align	1
+ 152              		.global	HAL_DAC_Stop
+ 153              		.syntax unified
+ 154              		.thumb
+ 155              		.thumb_func
+ 156              		.fpu softvfp
+ 158              	HAL_DAC_Stop:
+ 159              		@ args = 0, pretend = 0, frame = 0
+ 160              		@ frame_needed = 0, uses_anonymous_args = 0
+ 161 0000 0122     		movs	r2, #1
+ 162 0002 10B5     		push	{r4, lr}
+ 163 0004 0468     		ldr	r4, [r0]
+ 164 0006 01F01001 		and	r1, r1, #16
+ 165 000a 2368     		ldr	r3, [r4]
+ 166 000c 02FA01F1 		lsl	r1, r2, r1
+ 167 0010 23EA0103 		bic	r3, r3, r1
+ 168 0014 2360     		str	r3, [r4]
+ 169 0016 0271     		strb	r2, [r0, #4]
+ 170 0018 0020     		movs	r0, #0
+ 171 001a 10BD     		pop	{r4, pc}
+ 173              		.section	.text.HAL_DAC_Start_DMA,"ax",%progbits
+ 174              		.align	1
+ 175              		.global	HAL_DAC_Start_DMA
+ 176              		.syntax unified
+ 177              		.thumb
+ 178              		.thumb_func
+ 179              		.fpu softvfp
+ 181              	HAL_DAC_Start_DMA:
+ 182              		@ args = 4, pretend = 0, frame = 0
+ 183              		@ frame_needed = 0, uses_anonymous_args = 0
+ 184 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ARM GAS  /tmp/ccwXeut7.s 			page 4
 
 
- 185 001a 2C68     		ldr	r4, [r5]
- 186 001c C7B9     		cbnz	r7, .L20
- 187 001e A868     		ldr	r0, [r5, #8]
- 188 0020 234A     		ldr	r2, .L37
- 189 0022 042E     		cmp	r6, #4
- 190 0024 8262     		str	r2, [r0, #40]
- 191 0026 234A     		ldr	r2, .L37+4
- 192 0028 C262     		str	r2, [r0, #44]
- 193 002a 234A     		ldr	r2, .L37+8
- 194 002c 0263     		str	r2, [r0, #48]
- 195 002e 2268     		ldr	r2, [r4]
- 196 0030 42F48052 		orr	r2, r2, #4096
- 197 0034 2260     		str	r2, [r4]
- 198 0036 05D0     		beq	.L22
- 199 0038 082E     		cmp	r6, #8
- 200 003a 06D0     		beq	.L23
- 201 003c 1EBB     		cbnz	r6, .L34
- 202 003e 04F10802 		add	r2, r4, #8
- 203 0042 21E0     		b	.L21
- 204              	.L22:
- 205 0044 04F10C02 		add	r2, r4, #12
- 206 0048 1EE0     		b	.L21
- 207              	.L23:
- 208 004a 04F11002 		add	r2, r4, #16
- 209 004e 1BE0     		b	.L21
- 210              	.L20:
- 211 0050 E868     		ldr	r0, [r5, #12]
- 212 0052 1A4A     		ldr	r2, .L37+12
- 213 0054 042E     		cmp	r6, #4
- 214 0056 8262     		str	r2, [r0, #40]
- 215 0058 194A     		ldr	r2, .L37+16
- 216 005a C262     		str	r2, [r0, #44]
- 217 005c 194A     		ldr	r2, .L37+20
- 218 005e 0263     		str	r2, [r0, #48]
- 219 0060 2268     		ldr	r2, [r4]
- 220 0062 42F08052 		orr	r2, r2, #268435456
- 221 0066 2260     		str	r2, [r4]
- 222 0068 05D0     		beq	.L26
- 223 006a 082E     		cmp	r6, #8
- 224 006c 06D0     		beq	.L27
- 225 006e 46B9     		cbnz	r6, .L35
- 226 0070 04F11402 		add	r2, r4, #20
- 227 0074 08E0     		b	.L21
- 228              	.L26:
- 229 0076 04F11802 		add	r2, r4, #24
- 230 007a 05E0     		b	.L21
- 231              	.L27:
- 232 007c 04F11C02 		add	r2, r4, #28
- 233 0080 02E0     		b	.L21
- 234              	.L35:
- 235 0082 0022     		movs	r2, #0
- 236 0084 00E0     		b	.L21
- 237              	.L34:
- 238 0086 3A46     		mov	r2, r7
- 239              	.L21:
- 240 0088 FFF7FEFF 		bl	HAL_DMA_Start_IT
- 241 008c 0023     		movs	r3, #0
-ARM GAS  /tmp/ccAkLtW5.s 			page 5
+ 185 0002 0E46     		mov	r6, r1
+ 186 0004 1146     		mov	r1, r2
+ 187 0006 4279     		ldrb	r2, [r0, #5]	@ zero_extendqisi2
+ 188 0008 0446     		mov	r4, r0
+ 189 000a 012A     		cmp	r2, #1
+ 190 000c 069D     		ldr	r5, [sp, #24]
+ 191 000e 4FF00200 		mov	r0, #2
+ 192 0012 46D0     		beq	.L35
+ 193 0014 0122     		movs	r2, #1
+ 194 0016 2071     		strb	r0, [r4, #4]
+ 195 0018 6271     		strb	r2, [r4, #5]
+ 196 001a 2268     		ldr	r2, [r4]
+ 197 001c 16BB     		cbnz	r6, .L19
+ 198 001e A068     		ldr	r0, [r4, #8]
+ 199 0020 204F     		ldr	r7, .L36
+ 200 0022 042D     		cmp	r5, #4
+ 201 0024 8762     		str	r7, [r0, #40]
+ 202 0026 204F     		ldr	r7, .L36+4
+ 203 0028 C762     		str	r7, [r0, #44]
+ 204 002a 204F     		ldr	r7, .L36+8
+ 205 002c 0763     		str	r7, [r0, #48]
+ 206 002e 1768     		ldr	r7, [r2]
+ 207 0030 47F48057 		orr	r7, r7, #4096
+ 208 0034 1760     		str	r7, [r2]
+ 209 0036 11D0     		beq	.L21
+ 210 0038 082D     		cmp	r5, #8
+ 211 003a 11D0     		beq	.L22
+ 212 003c 7DBB     		cbnz	r5, .L33
+ 213 003e 0832     		adds	r2, r2, #8
+ 214              	.L20:
+ 215 0040 FFF7FEFF 		bl	HAL_DMA_Start_IT
+ 216 0044 0023     		movs	r3, #0
+ 217 0046 6371     		strb	r3, [r4, #5]
+ 218 0048 10BB     		cbnz	r0, .L28
+ 219 004a 06F01001 		and	r1, r6, #16
+ 220 004e 0126     		movs	r6, #1
+ 221 0050 2368     		ldr	r3, [r4]
+ 222 0052 8E40     		lsls	r6, r6, r1
+ 223 0054 1A68     		ldr	r2, [r3]
+ 224 0056 1643     		orrs	r6, r6, r2
+ 225 0058 1E60     		str	r6, [r3]
+ 226 005a F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 227              	.L21:
+ 228 005c 0C32     		adds	r2, r2, #12
+ 229 005e EFE7     		b	.L20
+ 230              	.L22:
+ 231 0060 1032     		adds	r2, r2, #16
+ 232 0062 EDE7     		b	.L20
+ 233              	.L19:
+ 234 0064 E068     		ldr	r0, [r4, #12]
+ 235 0066 124F     		ldr	r7, .L36+12
+ 236 0068 042D     		cmp	r5, #4
+ 237 006a 8762     		str	r7, [r0, #40]
+ 238 006c 114F     		ldr	r7, .L36+16
+ 239 006e C762     		str	r7, [r0, #44]
+ 240 0070 114F     		ldr	r7, .L36+20
+ 241 0072 0763     		str	r7, [r0, #48]
+ARM GAS  /tmp/ccwXeut7.s 			page 5
 
 
- 242 008e 6B71     		strb	r3, [r5, #5]
- 243 0090 40B9     		cbnz	r0, .L29
- 244 0092 2968     		ldr	r1, [r5]
- 245 0094 07F01007 		and	r7, r7, #16
- 246 0098 0A68     		ldr	r2, [r1]
- 247 009a 0123     		movs	r3, #1
- 248 009c BB40     		lsls	r3, r3, r7
- 249 009e 1343     		orrs	r3, r3, r2
- 250 00a0 0B60     		str	r3, [r1]
- 251 00a2 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 252              	.L29:
- 253 00a4 2B69     		ldr	r3, [r5, #16]
- 254 00a6 43F00403 		orr	r3, r3, #4
- 255 00aa 2B61     		str	r3, [r5, #16]
- 256 00ac F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 257              	.L36:
- 258 00ae F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 259              	.L38:
- 260              		.align	2
- 261              	.L37:
- 262 00b0 00000000 		.word	DAC_DMAConvCpltCh1
- 263 00b4 00000000 		.word	DAC_DMAHalfConvCpltCh1
- 264 00b8 00000000 		.word	DAC_DMAErrorCh1
- 265 00bc 00000000 		.word	DAC_DMAConvCpltCh2
- 266 00c0 00000000 		.word	DAC_DMAHalfConvCpltCh2
- 267 00c4 00000000 		.word	DAC_DMAErrorCh2
- 269              		.section	.text.HAL_DAC_Stop_DMA,"ax",%progbits
- 270              		.align	1
- 271              		.global	HAL_DAC_Stop_DMA
- 272              		.thumb
- 273              		.thumb_func
- 275              	HAL_DAC_Stop_DMA:
- 276              		@ args = 0, pretend = 0, frame = 0
- 277              		@ frame_needed = 0, uses_anonymous_args = 0
- 278 0000 38B5     		push	{r3, r4, r5, lr}
- 279 0002 0368     		ldr	r3, [r0]
- 280 0004 01F01005 		and	r5, r1, #16
- 281 0008 0446     		mov	r4, r0
- 282 000a 4FF48052 		mov	r2, #4096
- 283 000e 1868     		ldr	r0, [r3]
- 284 0010 AA40     		lsls	r2, r2, r5
- 285 0012 20EA0202 		bic	r2, r0, r2
- 286 0016 1A60     		str	r2, [r3]
- 287 0018 1868     		ldr	r0, [r3]
- 288 001a 0122     		movs	r2, #1
- 289 001c AA40     		lsls	r2, r2, r5
- 290 001e 20EA0202 		bic	r2, r0, r2
- 291 0022 1A60     		str	r2, [r3]
- 292 0024 09B9     		cbnz	r1, .L40
- 293 0026 A068     		ldr	r0, [r4, #8]
- 294 0028 00E0     		b	.L44
- 295              	.L40:
- 296 002a E068     		ldr	r0, [r4, #12]
- 297              	.L44:
- 298 002c FFF7FEFF 		bl	HAL_DMA_Abort
- 299 0030 08B1     		cbz	r0, .L42
- 300 0032 0423     		movs	r3, #4
-ARM GAS  /tmp/ccAkLtW5.s 			page 6
+ 242 0074 1768     		ldr	r7, [r2]
+ 243 0076 47F08057 		orr	r7, r7, #268435456
+ 244 007a 1760     		str	r7, [r2]
+ 245 007c 04D0     		beq	.L25
+ 246 007e 082D     		cmp	r5, #8
+ 247 0080 04D0     		beq	.L26
+ 248 0082 55B9     		cbnz	r5, .L34
+ 249 0084 1432     		adds	r2, r2, #20
+ 250 0086 DBE7     		b	.L20
+ 251              	.L25:
+ 252 0088 1832     		adds	r2, r2, #24
+ 253 008a D9E7     		b	.L20
+ 254              	.L26:
+ 255 008c 1C32     		adds	r2, r2, #28
+ 256 008e D7E7     		b	.L20
+ 257              	.L28:
+ 258 0090 2369     		ldr	r3, [r4, #16]
+ 259 0092 43F00403 		orr	r3, r3, #4
+ 260 0096 2361     		str	r3, [r4, #16]
+ 261 0098 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 262              	.L34:
+ 263 009a 0022     		movs	r2, #0
+ 264 009c D0E7     		b	.L20
+ 265              	.L33:
+ 266 009e 3246     		mov	r2, r6
+ 267 00a0 CEE7     		b	.L20
+ 268              	.L35:
+ 269 00a2 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 270              	.L37:
+ 271              		.align	2
+ 272              	.L36:
+ 273 00a4 00000000 		.word	DAC_DMAConvCpltCh1
+ 274 00a8 00000000 		.word	DAC_DMAHalfConvCpltCh1
+ 275 00ac 00000000 		.word	DAC_DMAErrorCh1
+ 276 00b0 00000000 		.word	DAC_DMAConvCpltCh2
+ 277 00b4 00000000 		.word	DAC_DMAHalfConvCpltCh2
+ 278 00b8 00000000 		.word	DAC_DMAErrorCh2
+ 280              		.section	.text.HAL_DAC_Stop_DMA,"ax",%progbits
+ 281              		.align	1
+ 282              		.global	HAL_DAC_Stop_DMA
+ 283              		.syntax unified
+ 284              		.thumb
+ 285              		.thumb_func
+ 286              		.fpu softvfp
+ 288              	HAL_DAC_Stop_DMA:
+ 289              		@ args = 0, pretend = 0, frame = 0
+ 290              		@ frame_needed = 0, uses_anonymous_args = 0
+ 291 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 292 0002 4FF48056 		mov	r6, #4096
+ 293 0006 0368     		ldr	r3, [r0]
+ 294 0008 0446     		mov	r4, r0
+ 295 000a 0120     		movs	r0, #1
+ 296 000c 1D68     		ldr	r5, [r3]
+ 297 000e 01F01007 		and	r7, r1, #16
+ 298 0012 BE40     		lsls	r6, r6, r7
+ 299 0014 25EA0605 		bic	r5, r5, r6
+ 300 0018 1D60     		str	r5, [r3]
+ARM GAS  /tmp/ccwXeut7.s 			page 6
 
 
- 301 0034 00E0     		b	.L45
- 302              	.L42:
- 303 0036 0123     		movs	r3, #1
- 304              	.L45:
- 305 0038 2371     		strb	r3, [r4, #4]
- 306 003a 38BD     		pop	{r3, r4, r5, pc}
- 308              		.section	.text.HAL_DAC_IRQHandler,"ax",%progbits
- 309              		.align	1
- 310              		.global	HAL_DAC_IRQHandler
- 311              		.thumb
- 312              		.thumb_func
- 314              	HAL_DAC_IRQHandler:
- 315              		@ args = 0, pretend = 0, frame = 0
- 316              		@ frame_needed = 0, uses_anonymous_args = 0
- 317              		@ link register save eliminated.
- 318 0000 7047     		bx	lr
- 320              		.section	.text.HAL_DAC_SetValue,"ax",%progbits
- 321              		.align	1
- 322              		.global	HAL_DAC_SetValue
- 323              		.thumb
- 324              		.thumb_func
- 326              	HAL_DAC_SetValue:
- 327              		@ args = 0, pretend = 0, frame = 8
- 328              		@ frame_needed = 0, uses_anonymous_args = 0
- 329 0000 13B5     		push	{r0, r1, r4, lr}
- 330 0002 0068     		ldr	r0, [r0]
- 331 0004 0024     		movs	r4, #0
- 332 0006 0194     		str	r4, [sp, #4]
- 333 0008 0190     		str	r0, [sp, #4]
- 334 000a 11B9     		cbnz	r1, .L48
- 335 000c 0199     		ldr	r1, [sp, #4]
- 336 000e 0831     		adds	r1, r1, #8
- 337 0010 01E0     		b	.L50
- 338              	.L48:
- 339 0012 0199     		ldr	r1, [sp, #4]
- 340 0014 1431     		adds	r1, r1, #20
- 341              	.L50:
- 342 0016 0A44     		add	r2, r2, r1
- 343 0018 0192     		str	r2, [sp, #4]
- 344 001a 019A     		ldr	r2, [sp, #4]
- 345 001c 0020     		movs	r0, #0
- 346 001e 1360     		str	r3, [r2]
- 347 0020 02B0     		add	sp, sp, #8
- 348              		@ sp needed
- 349 0022 10BD     		pop	{r4, pc}
- 351              		.section	.text.HAL_DAC_ConvCpltCallbackCh1,"ax",%progbits
- 352              		.align	1
- 353              		.weak	HAL_DAC_ConvCpltCallbackCh1
- 354              		.thumb
- 355              		.thumb_func
- 357              	HAL_DAC_ConvCpltCallbackCh1:
- 358              		@ args = 0, pretend = 0, frame = 0
- 359              		@ frame_needed = 0, uses_anonymous_args = 0
- 360              		@ link register save eliminated.
- 361 0000 7047     		bx	lr
- 363              		.section	.text.DAC_DMAConvCpltCh1,"ax",%progbits
- 364              		.align	1
-ARM GAS  /tmp/ccAkLtW5.s 			page 7
+ 301 001a 1A68     		ldr	r2, [r3]
+ 302 001c B840     		lsls	r0, r0, r7
+ 303 001e 22EA0002 		bic	r2, r2, r0
+ 304 0022 1A60     		str	r2, [r3]
+ 305 0024 31B9     		cbnz	r1, .L39
+ 306 0026 A068     		ldr	r0, [r4, #8]
+ 307              	.L43:
+ 308 0028 FFF7FEFF 		bl	HAL_DMA_Abort
+ 309 002c 20B1     		cbz	r0, .L41
+ 310 002e 0423     		movs	r3, #4
+ 311              	.L44:
+ 312 0030 2371     		strb	r3, [r4, #4]
+ 313 0032 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 314              	.L39:
+ 315 0034 E068     		ldr	r0, [r4, #12]
+ 316 0036 F7E7     		b	.L43
+ 317              	.L41:
+ 318 0038 0123     		movs	r3, #1
+ 319 003a F9E7     		b	.L44
+ 321              		.section	.text.HAL_DAC_IRQHandler,"ax",%progbits
+ 322              		.align	1
+ 323              		.global	HAL_DAC_IRQHandler
+ 324              		.syntax unified
+ 325              		.thumb
+ 326              		.thumb_func
+ 327              		.fpu softvfp
+ 329              	HAL_DAC_IRQHandler:
+ 330              		@ args = 0, pretend = 0, frame = 0
+ 331              		@ frame_needed = 0, uses_anonymous_args = 0
+ 332              		@ link register save eliminated.
+ 333 0000 7047     		bx	lr
+ 335              		.section	.text.HAL_DAC_SetValue,"ax",%progbits
+ 336              		.align	1
+ 337              		.global	HAL_DAC_SetValue
+ 338              		.syntax unified
+ 339              		.thumb
+ 340              		.thumb_func
+ 341              		.fpu softvfp
+ 343              	HAL_DAC_SetValue:
+ 344              		@ args = 0, pretend = 0, frame = 8
+ 345              		@ frame_needed = 0, uses_anonymous_args = 0
+ 346 0000 13B5     		push	{r0, r1, r4, lr}
+ 347 0002 0024     		movs	r4, #0
+ 348 0004 0068     		ldr	r0, [r0]
+ 349 0006 0194     		str	r4, [sp, #4]
+ 350 0008 0190     		str	r0, [sp, #4]
+ 351 000a 41B9     		cbnz	r1, .L47
+ 352 000c 0199     		ldr	r1, [sp, #4]
+ 353 000e 0831     		adds	r1, r1, #8
+ 354              	.L49:
+ 355 0010 0020     		movs	r0, #0
+ 356 0012 0A44     		add	r2, r2, r1
+ 357 0014 0192     		str	r2, [sp, #4]
+ 358 0016 019A     		ldr	r2, [sp, #4]
+ 359 0018 1360     		str	r3, [r2]
+ 360 001a 02B0     		add	sp, sp, #8
+ 361              		@ sp needed
+ARM GAS  /tmp/ccwXeut7.s 			page 7
 
 
- 365              		.global	DAC_DMAConvCpltCh1
- 366              		.thumb
- 367              		.thumb_func
- 369              	DAC_DMAConvCpltCh1:
- 370              		@ args = 0, pretend = 0, frame = 0
- 371              		@ frame_needed = 0, uses_anonymous_args = 0
- 372 0000 10B5     		push	{r4, lr}
- 373 0002 446A     		ldr	r4, [r0, #36]
- 374 0004 2046     		mov	r0, r4
- 375 0006 FFF7FEFF 		bl	HAL_DAC_ConvCpltCallbackCh1
- 376 000a 0123     		movs	r3, #1
- 377 000c 2371     		strb	r3, [r4, #4]
- 378 000e 10BD     		pop	{r4, pc}
- 380              		.section	.text.HAL_DAC_ConvHalfCpltCallbackCh1,"ax",%progbits
- 381              		.align	1
- 382              		.weak	HAL_DAC_ConvHalfCpltCallbackCh1
- 383              		.thumb
- 384              		.thumb_func
- 386              	HAL_DAC_ConvHalfCpltCallbackCh1:
- 387              		@ args = 0, pretend = 0, frame = 0
- 388              		@ frame_needed = 0, uses_anonymous_args = 0
- 389              		@ link register save eliminated.
- 390 0000 7047     		bx	lr
- 392              		.section	.text.DAC_DMAHalfConvCpltCh1,"ax",%progbits
- 393              		.align	1
- 394              		.global	DAC_DMAHalfConvCpltCh1
- 395              		.thumb
- 396              		.thumb_func
- 398              	DAC_DMAHalfConvCpltCh1:
- 399              		@ args = 0, pretend = 0, frame = 0
- 400              		@ frame_needed = 0, uses_anonymous_args = 0
- 401 0000 08B5     		push	{r3, lr}
- 402 0002 406A     		ldr	r0, [r0, #36]
- 403 0004 FFF7FEFF 		bl	HAL_DAC_ConvHalfCpltCallbackCh1
- 404 0008 08BD     		pop	{r3, pc}
- 406              		.section	.text.HAL_DAC_ErrorCallbackCh1,"ax",%progbits
- 407              		.align	1
- 408              		.weak	HAL_DAC_ErrorCallbackCh1
- 409              		.thumb
- 410              		.thumb_func
- 412              	HAL_DAC_ErrorCallbackCh1:
- 413              		@ args = 0, pretend = 0, frame = 0
- 414              		@ frame_needed = 0, uses_anonymous_args = 0
- 415              		@ link register save eliminated.
- 416 0000 7047     		bx	lr
- 418              		.section	.text.DAC_DMAErrorCh1,"ax",%progbits
- 419              		.align	1
- 420              		.global	DAC_DMAErrorCh1
- 421              		.thumb
- 422              		.thumb_func
- 424              	DAC_DMAErrorCh1:
- 425              		@ args = 0, pretend = 0, frame = 0
- 426              		@ frame_needed = 0, uses_anonymous_args = 0
- 427 0000 10B5     		push	{r4, lr}
- 428 0002 446A     		ldr	r4, [r0, #36]
- 429 0004 2369     		ldr	r3, [r4, #16]
- 430 0006 2046     		mov	r0, r4
-ARM GAS  /tmp/ccAkLtW5.s 			page 8
+ 362 001c 10BD     		pop	{r4, pc}
+ 363              	.L47:
+ 364 001e 0199     		ldr	r1, [sp, #4]
+ 365 0020 1431     		adds	r1, r1, #20
+ 366 0022 F5E7     		b	.L49
+ 368              		.section	.text.HAL_DAC_ConvCpltCallbackCh1,"ax",%progbits
+ 369              		.align	1
+ 370              		.weak	HAL_DAC_ConvCpltCallbackCh1
+ 371              		.syntax unified
+ 372              		.thumb
+ 373              		.thumb_func
+ 374              		.fpu softvfp
+ 376              	HAL_DAC_ConvCpltCallbackCh1:
+ 377              		@ args = 0, pretend = 0, frame = 0
+ 378              		@ frame_needed = 0, uses_anonymous_args = 0
+ 379              		@ link register save eliminated.
+ 380 0000 7047     		bx	lr
+ 382              		.section	.text.DAC_DMAConvCpltCh1,"ax",%progbits
+ 383              		.align	1
+ 384              		.global	DAC_DMAConvCpltCh1
+ 385              		.syntax unified
+ 386              		.thumb
+ 387              		.thumb_func
+ 388              		.fpu softvfp
+ 390              	DAC_DMAConvCpltCh1:
+ 391              		@ args = 0, pretend = 0, frame = 0
+ 392              		@ frame_needed = 0, uses_anonymous_args = 0
+ 393 0000 10B5     		push	{r4, lr}
+ 394 0002 446A     		ldr	r4, [r0, #36]
+ 395 0004 2046     		mov	r0, r4
+ 396 0006 FFF7FEFF 		bl	HAL_DAC_ConvCpltCallbackCh1
+ 397 000a 0123     		movs	r3, #1
+ 398 000c 2371     		strb	r3, [r4, #4]
+ 399 000e 10BD     		pop	{r4, pc}
+ 401              		.section	.text.HAL_DAC_ConvHalfCpltCallbackCh1,"ax",%progbits
+ 402              		.align	1
+ 403              		.weak	HAL_DAC_ConvHalfCpltCallbackCh1
+ 404              		.syntax unified
+ 405              		.thumb
+ 406              		.thumb_func
+ 407              		.fpu softvfp
+ 409              	HAL_DAC_ConvHalfCpltCallbackCh1:
+ 410              		@ args = 0, pretend = 0, frame = 0
+ 411              		@ frame_needed = 0, uses_anonymous_args = 0
+ 412              		@ link register save eliminated.
+ 413 0000 7047     		bx	lr
+ 415              		.section	.text.DAC_DMAHalfConvCpltCh1,"ax",%progbits
+ 416              		.align	1
+ 417              		.global	DAC_DMAHalfConvCpltCh1
+ 418              		.syntax unified
+ 419              		.thumb
+ 420              		.thumb_func
+ 421              		.fpu softvfp
+ 423              	DAC_DMAHalfConvCpltCh1:
+ 424              		@ args = 0, pretend = 0, frame = 0
+ 425              		@ frame_needed = 0, uses_anonymous_args = 0
+ 426 0000 08B5     		push	{r3, lr}
+ARM GAS  /tmp/ccwXeut7.s 			page 8
 
 
- 431 0008 43F00403 		orr	r3, r3, #4
- 432 000c 2361     		str	r3, [r4, #16]
- 433 000e FFF7FEFF 		bl	HAL_DAC_ErrorCallbackCh1
- 434 0012 0123     		movs	r3, #1
- 435 0014 2371     		strb	r3, [r4, #4]
- 436 0016 10BD     		pop	{r4, pc}
- 438              		.section	.text.HAL_DAC_DMAUnderrunCallbackCh1,"ax",%progbits
- 439              		.align	1
- 440              		.weak	HAL_DAC_DMAUnderrunCallbackCh1
- 441              		.thumb
- 442              		.thumb_func
- 444              	HAL_DAC_DMAUnderrunCallbackCh1:
- 445              		@ args = 0, pretend = 0, frame = 0
- 446              		@ frame_needed = 0, uses_anonymous_args = 0
- 447              		@ link register save eliminated.
- 448 0000 7047     		bx	lr
- 450              		.section	.text.HAL_DAC_GetValue,"ax",%progbits
- 451              		.align	1
- 452              		.global	HAL_DAC_GetValue
- 453              		.thumb
- 454              		.thumb_func
- 456              	HAL_DAC_GetValue:
- 457              		@ args = 0, pretend = 0, frame = 0
- 458              		@ frame_needed = 0, uses_anonymous_args = 0
- 459              		@ link register save eliminated.
- 460 0000 0368     		ldr	r3, [r0]
- 461 0002 09B9     		cbnz	r1, .L59
- 462 0004 D86A     		ldr	r0, [r3, #44]
- 463 0006 7047     		bx	lr
- 464              	.L59:
- 465 0008 186B     		ldr	r0, [r3, #48]
- 466 000a 7047     		bx	lr
- 468              		.section	.text.HAL_DAC_ConfigChannel,"ax",%progbits
- 469              		.align	1
- 470              		.global	HAL_DAC_ConfigChannel
+ 427 0002 406A     		ldr	r0, [r0, #36]
+ 428 0004 FFF7FEFF 		bl	HAL_DAC_ConvHalfCpltCallbackCh1
+ 429 0008 08BD     		pop	{r3, pc}
+ 431              		.section	.text.HAL_DAC_ErrorCallbackCh1,"ax",%progbits
+ 432              		.align	1
+ 433              		.weak	HAL_DAC_ErrorCallbackCh1
+ 434              		.syntax unified
+ 435              		.thumb
+ 436              		.thumb_func
+ 437              		.fpu softvfp
+ 439              	HAL_DAC_ErrorCallbackCh1:
+ 440              		@ args = 0, pretend = 0, frame = 0
+ 441              		@ frame_needed = 0, uses_anonymous_args = 0
+ 442              		@ link register save eliminated.
+ 443 0000 7047     		bx	lr
+ 445              		.section	.text.DAC_DMAErrorCh1,"ax",%progbits
+ 446              		.align	1
+ 447              		.global	DAC_DMAErrorCh1
+ 448              		.syntax unified
+ 449              		.thumb
+ 450              		.thumb_func
+ 451              		.fpu softvfp
+ 453              	DAC_DMAErrorCh1:
+ 454              		@ args = 0, pretend = 0, frame = 0
+ 455              		@ frame_needed = 0, uses_anonymous_args = 0
+ 456 0000 10B5     		push	{r4, lr}
+ 457 0002 446A     		ldr	r4, [r0, #36]
+ 458 0004 2369     		ldr	r3, [r4, #16]
+ 459 0006 2046     		mov	r0, r4
+ 460 0008 43F00403 		orr	r3, r3, #4
+ 461 000c 2361     		str	r3, [r4, #16]
+ 462 000e FFF7FEFF 		bl	HAL_DAC_ErrorCallbackCh1
+ 463 0012 0123     		movs	r3, #1
+ 464 0014 2371     		strb	r3, [r4, #4]
+ 465 0016 10BD     		pop	{r4, pc}
+ 467              		.section	.text.HAL_DAC_DMAUnderrunCallbackCh1,"ax",%progbits
+ 468              		.align	1
+ 469              		.weak	HAL_DAC_DMAUnderrunCallbackCh1
+ 470              		.syntax unified
  471              		.thumb
  472              		.thumb_func
- 474              	HAL_DAC_ConfigChannel:
- 475              		@ args = 0, pretend = 0, frame = 0
- 476              		@ frame_needed = 0, uses_anonymous_args = 0
- 477 0000 4379     		ldrb	r3, [r0, #5]	@ zero_extendqisi2
- 478 0002 70B5     		push	{r4, r5, r6, lr}
- 479 0004 012B     		cmp	r3, #1
- 480 0006 4FF00203 		mov	r3, #2
- 481 000a 1CD0     		beq	.L63
- 482 000c 0371     		strb	r3, [r0, #4]
- 483 000e 40F6FE73 		movw	r3, #4094
- 484 0012 0468     		ldr	r4, [r0]
- 485 0014 02F01002 		and	r2, r2, #16
- 486 0018 2668     		ldr	r6, [r4]
- 487 001a 9340     		lsls	r3, r3, r2
- 488 001c 26EA0305 		bic	r5, r6, r3
- 489 0020 0AC9     		ldmia	r1, {r1, r3}
- 490 0022 0B43     		orrs	r3, r3, r1
- 491 0024 9340     		lsls	r3, r3, r2
- 492 0026 2B43     		orrs	r3, r3, r5
- 493 0028 2360     		str	r3, [r4]
-ARM GAS  /tmp/ccAkLtW5.s 			page 9
+ 473              		.fpu softvfp
+ 475              	HAL_DAC_DMAUnderrunCallbackCh1:
+ 476              		@ args = 0, pretend = 0, frame = 0
+ 477              		@ frame_needed = 0, uses_anonymous_args = 0
+ 478              		@ link register save eliminated.
+ 479 0000 7047     		bx	lr
+ 481              		.section	.text.HAL_DAC_GetValue,"ax",%progbits
+ 482              		.align	1
+ 483              		.global	HAL_DAC_GetValue
+ 484              		.syntax unified
+ 485              		.thumb
+ 486              		.thumb_func
+ 487              		.fpu softvfp
+ 489              	HAL_DAC_GetValue:
+ 490              		@ args = 0, pretend = 0, frame = 0
+ 491              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /tmp/ccwXeut7.s 			page 9
 
 
- 494 002a C023     		movs	r3, #192
- 495 002c 9340     		lsls	r3, r3, r2
- 496 002e DB43     		mvns	r3, r3
- 497 0030 2168     		ldr	r1, [r4]
- 498 0032 03EA0102 		and	r2, r3, r1
- 499 0036 2260     		str	r2, [r4]
- 500 0038 2268     		ldr	r2, [r4]
- 501 003a 1340     		ands	r3, r3, r2
- 502 003c 2360     		str	r3, [r4]
- 503 003e 0123     		movs	r3, #1
- 504 0040 0371     		strb	r3, [r0, #4]
- 505 0042 0023     		movs	r3, #0
- 506 0044 4371     		strb	r3, [r0, #5]
- 507              	.L63:
- 508 0046 1846     		mov	r0, r3
- 509 0048 70BD     		pop	{r4, r5, r6, pc}
- 511              		.section	.text.HAL_DAC_GetState,"ax",%progbits
- 512              		.align	1
- 513              		.global	HAL_DAC_GetState
- 514              		.thumb
- 515              		.thumb_func
- 517              	HAL_DAC_GetState:
- 518              		@ args = 0, pretend = 0, frame = 0
- 519              		@ frame_needed = 0, uses_anonymous_args = 0
- 520              		@ link register save eliminated.
- 521 0000 0079     		ldrb	r0, [r0, #4]	@ zero_extendqisi2
- 522 0002 7047     		bx	lr
- 524              		.section	.text.HAL_DAC_GetError,"ax",%progbits
- 525              		.align	1
- 526              		.global	HAL_DAC_GetError
- 527              		.thumb
- 528              		.thumb_func
- 530              	HAL_DAC_GetError:
- 531              		@ args = 0, pretend = 0, frame = 0
- 532              		@ frame_needed = 0, uses_anonymous_args = 0
- 533              		@ link register save eliminated.
- 534 0000 0069     		ldr	r0, [r0, #16]
- 535 0002 7047     		bx	lr
- 537              		.ident	"GCC: (15:4.9.3+svn231177-1) 4.9.3 20150529 (prerelease)"
-ARM GAS  /tmp/ccAkLtW5.s 			page 10
+ 492              		@ link register save eliminated.
+ 493 0000 0368     		ldr	r3, [r0]
+ 494 0002 09B9     		cbnz	r1, .L58
+ 495 0004 D86A     		ldr	r0, [r3, #44]
+ 496 0006 7047     		bx	lr
+ 497              	.L58:
+ 498 0008 186B     		ldr	r0, [r3, #48]
+ 499 000a 7047     		bx	lr
+ 501              		.section	.text.HAL_DAC_ConfigChannel,"ax",%progbits
+ 502              		.align	1
+ 503              		.global	HAL_DAC_ConfigChannel
+ 504              		.syntax unified
+ 505              		.thumb
+ 506              		.thumb_func
+ 507              		.fpu softvfp
+ 509              	HAL_DAC_ConfigChannel:
+ 510              		@ args = 0, pretend = 0, frame = 0
+ 511              		@ frame_needed = 0, uses_anonymous_args = 0
+ 512 0000 4379     		ldrb	r3, [r0, #5]	@ zero_extendqisi2
+ 513 0002 30B5     		push	{r4, r5, lr}
+ 514 0004 012B     		cmp	r3, #1
+ 515 0006 4FF00203 		mov	r3, #2
+ 516 000a 1BD0     		beq	.L62
+ 517 000c 02F01005 		and	r5, r2, #16
+ 518 0010 40F6FE72 		movw	r2, #4094
+ 519 0014 0468     		ldr	r4, [r0]
+ 520 0016 0371     		strb	r3, [r0, #4]
+ 521 0018 2368     		ldr	r3, [r4]
+ 522 001a AA40     		lsls	r2, r2, r5
+ 523 001c 23EA0202 		bic	r2, r3, r2
+ 524 0020 0AC9     		ldm	r1, {r1, r3}
+ 525 0022 0B43     		orrs	r3, r3, r1
+ 526 0024 AB40     		lsls	r3, r3, r5
+ 527 0026 1343     		orrs	r3, r3, r2
+ 528 0028 C022     		movs	r2, #192
+ 529 002a AA40     		lsls	r2, r2, r5
+ 530 002c D243     		mvns	r2, r2
+ 531 002e 2360     		str	r3, [r4]
+ 532 0030 2368     		ldr	r3, [r4]
+ 533 0032 1340     		ands	r3, r3, r2
+ 534 0034 2360     		str	r3, [r4]
+ 535 0036 2368     		ldr	r3, [r4]
+ 536 0038 1A40     		ands	r2, r2, r3
+ 537 003a 0123     		movs	r3, #1
+ 538 003c 2260     		str	r2, [r4]
+ 539 003e 0371     		strb	r3, [r0, #4]
+ 540 0040 0023     		movs	r3, #0
+ 541 0042 4371     		strb	r3, [r0, #5]
+ 542              	.L62:
+ 543 0044 1846     		mov	r0, r3
+ 544 0046 30BD     		pop	{r4, r5, pc}
+ 546              		.section	.text.HAL_DAC_GetState,"ax",%progbits
+ 547              		.align	1
+ 548              		.global	HAL_DAC_GetState
+ 549              		.syntax unified
+ 550              		.thumb
+ 551              		.thumb_func
+ARM GAS  /tmp/ccwXeut7.s 			page 10
+
+
+ 552              		.fpu softvfp
+ 554              	HAL_DAC_GetState:
+ 555              		@ args = 0, pretend = 0, frame = 0
+ 556              		@ frame_needed = 0, uses_anonymous_args = 0
+ 557              		@ link register save eliminated.
+ 558 0000 0079     		ldrb	r0, [r0, #4]	@ zero_extendqisi2
+ 559 0002 7047     		bx	lr
+ 561              		.section	.text.HAL_DAC_GetError,"ax",%progbits
+ 562              		.align	1
+ 563              		.global	HAL_DAC_GetError
+ 564              		.syntax unified
+ 565              		.thumb
+ 566              		.thumb_func
+ 567              		.fpu softvfp
+ 569              	HAL_DAC_GetError:
+ 570              		@ args = 0, pretend = 0, frame = 0
+ 571              		@ frame_needed = 0, uses_anonymous_args = 0
+ 572              		@ link register save eliminated.
+ 573 0000 0069     		ldr	r0, [r0, #16]
+ 574 0002 7047     		bx	lr
+ 576              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
+ARM GAS  /tmp/ccwXeut7.s 			page 11
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f1xx_hal_dac.c
-     /tmp/ccAkLtW5.s:16     .text.HAL_DAC_MspInit:0000000000000000 $t
-     /tmp/ccAkLtW5.s:21     .text.HAL_DAC_MspInit:0000000000000000 HAL_DAC_MspInit
-     /tmp/ccAkLtW5.s:28     .text.HAL_DAC_Init:0000000000000000 $t
-     /tmp/ccAkLtW5.s:33     .text.HAL_DAC_Init:0000000000000000 HAL_DAC_Init
-     /tmp/ccAkLtW5.s:57     .text.HAL_DAC_MspDeInit:0000000000000000 $t
-     /tmp/ccAkLtW5.s:62     .text.HAL_DAC_MspDeInit:0000000000000000 HAL_DAC_MspDeInit
-     /tmp/ccAkLtW5.s:69     .text.HAL_DAC_DeInit:0000000000000000 $t
-     /tmp/ccAkLtW5.s:74     .text.HAL_DAC_DeInit:0000000000000000 HAL_DAC_DeInit
-     /tmp/ccAkLtW5.s:93     .text.HAL_DAC_Start:0000000000000000 $t
-     /tmp/ccAkLtW5.s:98     .text.HAL_DAC_Start:0000000000000000 HAL_DAC_Start
-     /tmp/ccAkLtW5.s:144    .text.HAL_DAC_Stop:0000000000000000 $t
-     /tmp/ccAkLtW5.s:149    .text.HAL_DAC_Stop:0000000000000000 HAL_DAC_Stop
-     /tmp/ccAkLtW5.s:165    .text.HAL_DAC_Start_DMA:0000000000000000 $t
-     /tmp/ccAkLtW5.s:170    .text.HAL_DAC_Start_DMA:0000000000000000 HAL_DAC_Start_DMA
-     /tmp/ccAkLtW5.s:262    .text.HAL_DAC_Start_DMA:00000000000000b0 $d
-     /tmp/ccAkLtW5.s:369    .text.DAC_DMAConvCpltCh1:0000000000000000 DAC_DMAConvCpltCh1
-     /tmp/ccAkLtW5.s:398    .text.DAC_DMAHalfConvCpltCh1:0000000000000000 DAC_DMAHalfConvCpltCh1
-     /tmp/ccAkLtW5.s:424    .text.DAC_DMAErrorCh1:0000000000000000 DAC_DMAErrorCh1
-     /tmp/ccAkLtW5.s:270    .text.HAL_DAC_Stop_DMA:0000000000000000 $t
-     /tmp/ccAkLtW5.s:275    .text.HAL_DAC_Stop_DMA:0000000000000000 HAL_DAC_Stop_DMA
-     /tmp/ccAkLtW5.s:309    .text.HAL_DAC_IRQHandler:0000000000000000 $t
-     /tmp/ccAkLtW5.s:314    .text.HAL_DAC_IRQHandler:0000000000000000 HAL_DAC_IRQHandler
-     /tmp/ccAkLtW5.s:321    .text.HAL_DAC_SetValue:0000000000000000 $t
-     /tmp/ccAkLtW5.s:326    .text.HAL_DAC_SetValue:0000000000000000 HAL_DAC_SetValue
-     /tmp/ccAkLtW5.s:352    .text.HAL_DAC_ConvCpltCallbackCh1:0000000000000000 $t
-     /tmp/ccAkLtW5.s:357    .text.HAL_DAC_ConvCpltCallbackCh1:0000000000000000 HAL_DAC_ConvCpltCallbackCh1
-     /tmp/ccAkLtW5.s:364    .text.DAC_DMAConvCpltCh1:0000000000000000 $t
-     /tmp/ccAkLtW5.s:381    .text.HAL_DAC_ConvHalfCpltCallbackCh1:0000000000000000 $t
-     /tmp/ccAkLtW5.s:386    .text.HAL_DAC_ConvHalfCpltCallbackCh1:0000000000000000 HAL_DAC_ConvHalfCpltCallbackCh1
-     /tmp/ccAkLtW5.s:393    .text.DAC_DMAHalfConvCpltCh1:0000000000000000 $t
-     /tmp/ccAkLtW5.s:407    .text.HAL_DAC_ErrorCallbackCh1:0000000000000000 $t
-     /tmp/ccAkLtW5.s:412    .text.HAL_DAC_ErrorCallbackCh1:0000000000000000 HAL_DAC_ErrorCallbackCh1
-     /tmp/ccAkLtW5.s:419    .text.DAC_DMAErrorCh1:0000000000000000 $t
-     /tmp/ccAkLtW5.s:439    .text.HAL_DAC_DMAUnderrunCallbackCh1:0000000000000000 $t
-     /tmp/ccAkLtW5.s:444    .text.HAL_DAC_DMAUnderrunCallbackCh1:0000000000000000 HAL_DAC_DMAUnderrunCallbackCh1
-     /tmp/ccAkLtW5.s:451    .text.HAL_DAC_GetValue:0000000000000000 $t
-     /tmp/ccAkLtW5.s:456    .text.HAL_DAC_GetValue:0000000000000000 HAL_DAC_GetValue
-     /tmp/ccAkLtW5.s:469    .text.HAL_DAC_ConfigChannel:0000000000000000 $t
-     /tmp/ccAkLtW5.s:474    .text.HAL_DAC_ConfigChannel:0000000000000000 HAL_DAC_ConfigChannel
-     /tmp/ccAkLtW5.s:512    .text.HAL_DAC_GetState:0000000000000000 $t
-     /tmp/ccAkLtW5.s:517    .text.HAL_DAC_GetState:0000000000000000 HAL_DAC_GetState
-     /tmp/ccAkLtW5.s:525    .text.HAL_DAC_GetError:0000000000000000 $t
-     /tmp/ccAkLtW5.s:530    .text.HAL_DAC_GetError:0000000000000000 HAL_DAC_GetError
+     /tmp/ccwXeut7.s:13     .text.HAL_DAC_MspInit:0000000000000000 $t
+     /tmp/ccwXeut7.s:20     .text.HAL_DAC_MspInit:0000000000000000 HAL_DAC_MspInit
+     /tmp/ccwXeut7.s:27     .text.HAL_DAC_Init:0000000000000000 $t
+     /tmp/ccwXeut7.s:34     .text.HAL_DAC_Init:0000000000000000 HAL_DAC_Init
+     /tmp/ccwXeut7.s:58     .text.HAL_DAC_MspDeInit:0000000000000000 $t
+     /tmp/ccwXeut7.s:65     .text.HAL_DAC_MspDeInit:0000000000000000 HAL_DAC_MspDeInit
+     /tmp/ccwXeut7.s:72     .text.HAL_DAC_DeInit:0000000000000000 $t
+     /tmp/ccwXeut7.s:79     .text.HAL_DAC_DeInit:0000000000000000 HAL_DAC_DeInit
+     /tmp/ccwXeut7.s:98     .text.HAL_DAC_Start:0000000000000000 $t
+     /tmp/ccwXeut7.s:105    .text.HAL_DAC_Start:0000000000000000 HAL_DAC_Start
+     /tmp/ccwXeut7.s:151    .text.HAL_DAC_Stop:0000000000000000 $t
+     /tmp/ccwXeut7.s:158    .text.HAL_DAC_Stop:0000000000000000 HAL_DAC_Stop
+     /tmp/ccwXeut7.s:174    .text.HAL_DAC_Start_DMA:0000000000000000 $t
+     /tmp/ccwXeut7.s:181    .text.HAL_DAC_Start_DMA:0000000000000000 HAL_DAC_Start_DMA
+     /tmp/ccwXeut7.s:273    .text.HAL_DAC_Start_DMA:00000000000000a4 $d
+     /tmp/ccwXeut7.s:390    .text.DAC_DMAConvCpltCh1:0000000000000000 DAC_DMAConvCpltCh1
+     /tmp/ccwXeut7.s:423    .text.DAC_DMAHalfConvCpltCh1:0000000000000000 DAC_DMAHalfConvCpltCh1
+     /tmp/ccwXeut7.s:453    .text.DAC_DMAErrorCh1:0000000000000000 DAC_DMAErrorCh1
+     /tmp/ccwXeut7.s:281    .text.HAL_DAC_Stop_DMA:0000000000000000 $t
+     /tmp/ccwXeut7.s:288    .text.HAL_DAC_Stop_DMA:0000000000000000 HAL_DAC_Stop_DMA
+     /tmp/ccwXeut7.s:322    .text.HAL_DAC_IRQHandler:0000000000000000 $t
+     /tmp/ccwXeut7.s:329    .text.HAL_DAC_IRQHandler:0000000000000000 HAL_DAC_IRQHandler
+     /tmp/ccwXeut7.s:336    .text.HAL_DAC_SetValue:0000000000000000 $t
+     /tmp/ccwXeut7.s:343    .text.HAL_DAC_SetValue:0000000000000000 HAL_DAC_SetValue
+     /tmp/ccwXeut7.s:369    .text.HAL_DAC_ConvCpltCallbackCh1:0000000000000000 $t
+     /tmp/ccwXeut7.s:376    .text.HAL_DAC_ConvCpltCallbackCh1:0000000000000000 HAL_DAC_ConvCpltCallbackCh1
+     /tmp/ccwXeut7.s:383    .text.DAC_DMAConvCpltCh1:0000000000000000 $t
+     /tmp/ccwXeut7.s:402    .text.HAL_DAC_ConvHalfCpltCallbackCh1:0000000000000000 $t
+     /tmp/ccwXeut7.s:409    .text.HAL_DAC_ConvHalfCpltCallbackCh1:0000000000000000 HAL_DAC_ConvHalfCpltCallbackCh1
+     /tmp/ccwXeut7.s:416    .text.DAC_DMAHalfConvCpltCh1:0000000000000000 $t
+     /tmp/ccwXeut7.s:432    .text.HAL_DAC_ErrorCallbackCh1:0000000000000000 $t
+     /tmp/ccwXeut7.s:439    .text.HAL_DAC_ErrorCallbackCh1:0000000000000000 HAL_DAC_ErrorCallbackCh1
+     /tmp/ccwXeut7.s:446    .text.DAC_DMAErrorCh1:0000000000000000 $t
+     /tmp/ccwXeut7.s:468    .text.HAL_DAC_DMAUnderrunCallbackCh1:0000000000000000 $t
+     /tmp/ccwXeut7.s:475    .text.HAL_DAC_DMAUnderrunCallbackCh1:0000000000000000 HAL_DAC_DMAUnderrunCallbackCh1
+     /tmp/ccwXeut7.s:482    .text.HAL_DAC_GetValue:0000000000000000 $t
+     /tmp/ccwXeut7.s:489    .text.HAL_DAC_GetValue:0000000000000000 HAL_DAC_GetValue
+     /tmp/ccwXeut7.s:502    .text.HAL_DAC_ConfigChannel:0000000000000000 $t
+     /tmp/ccwXeut7.s:509    .text.HAL_DAC_ConfigChannel:0000000000000000 HAL_DAC_ConfigChannel
+     /tmp/ccwXeut7.s:547    .text.HAL_DAC_GetState:0000000000000000 $t
+     /tmp/ccwXeut7.s:554    .text.HAL_DAC_GetState:0000000000000000 HAL_DAC_GetState
+     /tmp/ccwXeut7.s:562    .text.HAL_DAC_GetError:0000000000000000 $t
+     /tmp/ccwXeut7.s:569    .text.HAL_DAC_GetError:0000000000000000 HAL_DAC_GetError
 
 UNDEFINED SYMBOLS
 HAL_DMA_Start_IT

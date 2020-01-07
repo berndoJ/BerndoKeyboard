@@ -1,2456 +1,2476 @@
-ARM GAS  /tmp/cc823MVC.s 			page 1
+ARM GAS  /tmp/ccfeIOOj.s 			page 1
 
 
-   1              		.syntax unified
-   2              		.cpu cortex-m3
-   3              		.fpu softvfp
-   4              		.eabi_attribute 20, 1
-   5              		.eabi_attribute 21, 1
-   6              		.eabi_attribute 23, 3
-   7              		.eabi_attribute 24, 1
-   8              		.eabi_attribute 25, 1
-   9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 4
-  11              		.eabi_attribute 34, 1
-  12              		.eabi_attribute 18, 4
-  13              		.thumb
-  14              		.file	"stm32f1xx_hal_mmc.c"
-  15              		.section	.text.MMC_DMATransmitCplt,"ax",%progbits
-  16              		.align	1
-  17              		.thumb
-  18              		.thumb_func
-  20              	MMC_DMATransmitCplt:
-  21              		@ args = 0, pretend = 0, frame = 0
-  22              		@ frame_needed = 0, uses_anonymous_args = 0
-  23              		@ link register save eliminated.
-  24 0000 436A     		ldr	r3, [r0, #36]
-  25 0002 1A68     		ldr	r2, [r3]
-  26 0004 D36B     		ldr	r3, [r2, #60]
-  27 0006 43F48073 		orr	r3, r3, #256
-  28 000a D363     		str	r3, [r2, #60]
-  29 000c 7047     		bx	lr
-  31              		.section	.text.HAL_MMC_MspInit,"ax",%progbits
-  32              		.align	1
-  33              		.weak	HAL_MMC_MspInit
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 4
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"stm32f1xx_hal_mmc.c"
+  12              		.section	.text.MMC_DMATransmitCplt,"ax",%progbits
+  13              		.align	1
+  14              		.syntax unified
+  15              		.thumb
+  16              		.thumb_func
+  17              		.fpu softvfp
+  19              	MMC_DMATransmitCplt:
+  20              		@ args = 0, pretend = 0, frame = 0
+  21              		@ frame_needed = 0, uses_anonymous_args = 0
+  22              		@ link register save eliminated.
+  23 0000 436A     		ldr	r3, [r0, #36]
+  24 0002 1A68     		ldr	r2, [r3]
+  25 0004 D36B     		ldr	r3, [r2, #60]
+  26 0006 43F48073 		orr	r3, r3, #256
+  27 000a D363     		str	r3, [r2, #60]
+  28 000c 7047     		bx	lr
+  30              		.section	.text.HAL_MMC_MspInit,"ax",%progbits
+  31              		.align	1
+  32              		.weak	HAL_MMC_MspInit
+  33              		.syntax unified
   34              		.thumb
   35              		.thumb_func
-  37              	HAL_MMC_MspInit:
-  38              		@ args = 0, pretend = 0, frame = 0
-  39              		@ frame_needed = 0, uses_anonymous_args = 0
-  40              		@ link register save eliminated.
-  41 0000 7047     		bx	lr
-  43              		.section	.text.HAL_MMC_MspDeInit,"ax",%progbits
-  44              		.align	1
-  45              		.weak	HAL_MMC_MspDeInit
-  46              		.thumb
-  47              		.thumb_func
-  49              	HAL_MMC_MspDeInit:
-  50              		@ args = 0, pretend = 0, frame = 0
-  51              		@ frame_needed = 0, uses_anonymous_args = 0
-  52              		@ link register save eliminated.
-  53 0000 7047     		bx	lr
-  55              		.section	.text.HAL_MMC_DeInit,"ax",%progbits
-  56              		.align	1
-  57              		.global	HAL_MMC_DeInit
-  58              		.thumb
-  59              		.thumb_func
-  61              	HAL_MMC_DeInit:
-  62              		@ args = 0, pretend = 0, frame = 0
-  63              		@ frame_needed = 0, uses_anonymous_args = 0
-  64 0000 10B5     		push	{r4, lr}
-ARM GAS  /tmp/cc823MVC.s 			page 2
-
-
-  65 0002 0446     		mov	r4, r0
-  66 0004 68B1     		cbz	r0, .L6
-  67 0006 0323     		movs	r3, #3
-  68 0008 80F83430 		strb	r3, [r0, #52]
-  69 000c 0068     		ldr	r0, [r0]
-  70 000e FFF7FEFF 		bl	SDIO_PowerState_OFF
-  71 0012 2046     		mov	r0, r4
-  72 0014 FFF7FEFF 		bl	HAL_MMC_MspDeInit
-  73 0018 0020     		movs	r0, #0
-  74 001a A063     		str	r0, [r4, #56]
-  75 001c 84F83400 		strb	r0, [r4, #52]
-  76 0020 10BD     		pop	{r4, pc}
-  77              	.L6:
-  78 0022 0120     		movs	r0, #1
-  79 0024 10BD     		pop	{r4, pc}
-  81              		.section	.text.HAL_MMC_ReadBlocks,"ax",%progbits
-  82              		.align	1
-  83              		.global	HAL_MMC_ReadBlocks
-  84              		.thumb
-  85              		.thumb_func
-  87              	HAL_MMC_ReadBlocks:
-  88              		@ args = 4, pretend = 0, frame = 24
-  89              		@ frame_needed = 0, uses_anonymous_args = 0
-  90 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
-  91 0004 87B0     		sub	sp, sp, #28
-  92 0006 0446     		mov	r4, r0
-  93 0008 0D46     		mov	r5, r1
-  94 000a 1646     		mov	r6, r2
-  95 000c 9946     		mov	r9, r3
-  96 000e DDF84080 		ldr	r8, [sp, #64]
-  97 0012 FFF7FEFF 		bl	HAL_GetTick
-  98 0016 0746     		mov	r7, r0
-  99 0018 1DB9     		cbnz	r5, .L9
- 100 001a A36B     		ldr	r3, [r4, #56]
- 101 001c 43F00063 		orr	r3, r3, #134217728
- 102 0020 DCE0     		b	.L48
- 103              	.L9:
- 104 0022 94F83400 		ldrb	r0, [r4, #52]	@ zero_extendqisi2
- 105 0026 C0B2     		uxtb	r0, r0
- 106 0028 0128     		cmp	r0, #1
- 107 002a 40F0D480 		bne	.L11
- 108 002e A26D     		ldr	r2, [r4, #88]
- 109 0030 06EB0903 		add	r3, r6, r9
- 110 0034 0021     		movs	r1, #0
- 111 0036 9342     		cmp	r3, r2
- 112 0038 A163     		str	r1, [r4, #56]
- 113 003a 04D9     		bls	.L12
- 114 003c A36B     		ldr	r3, [r4, #56]
- 115 003e 43F00073 		orr	r3, r3, #33554432
- 116 0042 A363     		str	r3, [r4, #56]
- 117 0044 CCE0     		b	.L10
- 118              	.L12:
- 119 0046 0323     		movs	r3, #3
- 120 0048 84F83430 		strb	r3, [r4, #52]
- 121 004c 2068     		ldr	r0, [r4]
- 122 004e 636C     		ldr	r3, [r4, #68]
- 123 0050 C162     		str	r1, [r0, #44]
-ARM GAS  /tmp/cc823MVC.s 			page 3
-
-
- 124 0052 012B     		cmp	r3, #1
- 125 0054 4FF40071 		mov	r1, #512
- 126 0058 18BF     		it	ne
- 127 005a 7602     		lslne	r6, r6, #9
- 128 005c FFF7FEFF 		bl	SDMMC_CmdBlockLength
- 129 0060 0028     		cmp	r0, #0
- 130 0062 64D1     		bne	.L52
- 131 0064 4FF0FF33 		mov	r3, #-1
- 132 0068 0093     		str	r3, [sp]
- 133 006a 4FEA4923 		lsl	r3, r9, #9
- 134 006e 0193     		str	r3, [sp, #4]
- 135 0070 0490     		str	r0, [sp, #16]
- 136 0072 9023     		movs	r3, #144
- 137 0074 4FF0010A 		mov	r10, #1
- 138 0078 4FF0020B 		mov	fp, #2
- 139 007c 2068     		ldr	r0, [r4]
- 140 007e 6946     		mov	r1, sp
- 141 0080 0293     		str	r3, [sp, #8]
- 142 0082 CDF80CB0 		str	fp, [sp, #12]
- 143 0086 CDF814A0 		str	r10, [sp, #20]
- 144 008a FFF7FEFF 		bl	SDIO_ConfigData
- 145 008e D145     		cmp	r9, r10
- 146 0090 06D9     		bls	.L15
- 147 0092 C4F830B0 		str	fp, [r4, #48]
- 148 0096 2068     		ldr	r0, [r4]
- 149 0098 3146     		mov	r1, r6
- 150 009a FFF7FEFF 		bl	SDMMC_CmdReadMultiBlock
- 151 009e 05E0     		b	.L16
- 152              	.L15:
- 153 00a0 C4F830A0 		str	r10, [r4, #48]
- 154 00a4 2068     		ldr	r0, [r4]
- 155 00a6 3146     		mov	r1, r6
- 156 00a8 FFF7FEFF 		bl	SDMMC_CmdReadSingleBlock
- 157              	.L16:
- 158 00ac 0028     		cmp	r0, #0
- 159 00ae 3ED1     		bne	.L52
- 160 00b0 DDF804A0 		ldr	r10, [sp, #4]
- 161              	.L18:
- 162 00b4 40F22A33 		movw	r3, #810
- 163 00b8 2068     		ldr	r0, [r4]
- 164 00ba 426B     		ldr	r2, [r0, #52]
- 165 00bc 1340     		ands	r3, r3, r2
- 166 00be 6BBB     		cbnz	r3, .L53
- 167 00c0 436B     		ldr	r3, [r0, #52]
- 168 00c2 1B04     		lsls	r3, r3, #16
- 169 00c4 19D5     		bpl	.L19
- 170 00c6 BAF1000F 		cmp	r10, #0
- 171 00ca 16D0     		beq	.L19
- 172 00cc 2E1D     		adds	r6, r5, #4
- 173 00ce 05F1240B 		add	fp, r5, #36
- 174              	.L20:
- 175 00d2 2068     		ldr	r0, [r4]
- 176 00d4 FFF7FEFF 		bl	SDIO_ReadFIFO
- 177 00d8 030A     		lsrs	r3, r0, #8
- 178 00da 06F8040C 		strb	r0, [r6, #-4]
- 179 00de 06F8033C 		strb	r3, [r6, #-3]
- 180 00e2 030C     		lsrs	r3, r0, #16
-ARM GAS  /tmp/cc823MVC.s 			page 4
-
-
- 181 00e4 000E     		lsrs	r0, r0, #24
- 182 00e6 06F8023C 		strb	r3, [r6, #-2]
- 183 00ea 06F8010C 		strb	r0, [r6, #-1]
- 184 00ee 0436     		adds	r6, r6, #4
- 185 00f0 5E45     		cmp	r6, fp
- 186 00f2 EED1     		bne	.L20
- 187 00f4 2035     		adds	r5, r5, #32
- 188 00f6 AAF1200A 		sub	r10, r10, #32
- 189              	.L19:
- 190 00fa FFF7FEFF 		bl	HAL_GetTick
- 191 00fe C01B     		subs	r0, r0, r7
- 192 0100 4045     		cmp	r0, r8
- 193 0102 D7D3     		bcc	.L18
- 194 0104 2368     		ldr	r3, [r4]
- 195 0106 384A     		ldr	r2, .L54
- 196 0108 0320     		movs	r0, #3
- 197 010a 9A63     		str	r2, [r3, #56]
- 198 010c A36B     		ldr	r3, [r4, #56]
- 199 010e 43F00043 		orr	r3, r3, #-2147483648
- 200 0112 A363     		str	r3, [r4, #56]
- 201 0114 0123     		movs	r3, #1
- 202 0116 84F83430 		strb	r3, [r4, #52]
- 203 011a 61E0     		b	.L10
- 204              	.L53:
- 205 011c 436B     		ldr	r3, [r0, #52]
- 206 011e DE05     		lsls	r6, r3, #23
- 207 0120 0CD5     		bpl	.L22
- 208 0122 B9F1010F 		cmp	r9, #1
- 209 0126 09D9     		bls	.L22
- 210 0128 FFF7FEFF 		bl	SDMMC_CmdStopTransfer
- 211 012c 30B1     		cbz	r0, .L22
- 212              	.L52:
- 213 012e 2368     		ldr	r3, [r4]
- 214 0130 2D4A     		ldr	r2, .L54
- 215 0132 9A63     		str	r2, [r3, #56]
- 216 0134 A36B     		ldr	r3, [r4, #56]
- 217 0136 1843     		orrs	r0, r0, r3
- 218 0138 A063     		str	r0, [r4, #56]
- 219 013a 40E0     		b	.L50
- 220              	.L22:
- 221 013c 2368     		ldr	r3, [r4]
- 222 013e 5A6B     		ldr	r2, [r3, #52]
- 223 0140 1007     		lsls	r0, r2, #28
- 224 0142 05D5     		bpl	.L23
- 225 0144 284A     		ldr	r2, .L54
- 226 0146 9A63     		str	r2, [r3, #56]
- 227 0148 A36B     		ldr	r3, [r4, #56]
- 228 014a 43F00803 		orr	r3, r3, #8
- 229 014e 35E0     		b	.L51
- 230              	.L23:
- 231 0150 5A6B     		ldr	r2, [r3, #52]
- 232 0152 9107     		lsls	r1, r2, #30
- 233 0154 05D5     		bpl	.L24
- 234 0156 244A     		ldr	r2, .L54
- 235 0158 9A63     		str	r2, [r3, #56]
- 236 015a A36B     		ldr	r3, [r4, #56]
- 237 015c 43F00203 		orr	r3, r3, #2
-ARM GAS  /tmp/cc823MVC.s 			page 5
-
-
- 238 0160 2CE0     		b	.L51
- 239              	.L24:
- 240 0162 5A6B     		ldr	r2, [r3, #52]
- 241 0164 9206     		lsls	r2, r2, #26
- 242 0166 05D5     		bpl	.L25
- 243 0168 1F4A     		ldr	r2, .L54
- 244 016a 9A63     		str	r2, [r3, #56]
- 245 016c A36B     		ldr	r3, [r4, #56]
- 246 016e 43F02003 		orr	r3, r3, #32
- 247 0172 23E0     		b	.L51
- 248              	.L25:
- 249 0174 2E1D     		adds	r6, r5, #4
- 250              	.L26:
- 251 0176 2068     		ldr	r0, [r4]
- 252 0178 436B     		ldr	r3, [r0, #52]
- 253 017a 9B02     		lsls	r3, r3, #10
- 254 017c 23D5     		bpl	.L29
- 255 017e 0AF10403 		add	r3, r10, #4
- 256 0182 9B1B     		subs	r3, r3, r6
- 257 0184 DD42     		cmn	r5, r3
- 258 0186 1ED0     		beq	.L29
- 259 0188 FFF7FEFF 		bl	SDIO_ReadFIFO
- 260 018c 030A     		lsrs	r3, r0, #8
- 261 018e 06F8040C 		strb	r0, [r6, #-4]
- 262 0192 06F8033C 		strb	r3, [r6, #-3]
- 263 0196 030C     		lsrs	r3, r0, #16
- 264 0198 000E     		lsrs	r0, r0, #24
- 265 019a 06F8023C 		strb	r3, [r6, #-2]
- 266 019e 06F8010C 		strb	r0, [r6, #-1]
- 267 01a2 FFF7FEFF 		bl	HAL_GetTick
- 268 01a6 C01B     		subs	r0, r0, r7
- 269 01a8 4045     		cmp	r0, r8
- 270 01aa 06F10406 		add	r6, r6, #4
- 271 01ae E2D3     		bcc	.L26
- 272 01b0 2368     		ldr	r3, [r4]
- 273 01b2 0D4A     		ldr	r2, .L54
- 274 01b4 9A63     		str	r2, [r3, #56]
- 275 01b6 A36B     		ldr	r3, [r4, #56]
- 276 01b8 43F00043 		orr	r3, r3, #-2147483648
- 277              	.L51:
- 278 01bc A363     		str	r3, [r4, #56]
- 279              	.L50:
- 280 01be 0120     		movs	r0, #1
- 281 01c0 84F83400 		strb	r0, [r4, #52]
- 282 01c4 0CE0     		b	.L10
- 283              	.L29:
- 284 01c6 40F23A53 		movw	r3, #1338
- 285 01ca 8363     		str	r3, [r0, #56]
- 286 01cc 0123     		movs	r3, #1
- 287 01ce 84F83430 		strb	r3, [r4, #52]
- 288 01d2 0020     		movs	r0, #0
- 289 01d4 04E0     		b	.L10
- 290              	.L11:
- 291 01d6 A36B     		ldr	r3, [r4, #56]
- 292 01d8 43F00053 		orr	r3, r3, #536870912
- 293              	.L48:
- 294 01dc A363     		str	r3, [r4, #56]
-ARM GAS  /tmp/cc823MVC.s 			page 6
-
-
- 295 01de 0120     		movs	r0, #1
- 296              	.L10:
- 297 01e0 07B0     		add	sp, sp, #28
- 298              		@ sp needed
- 299 01e2 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
- 300              	.L55:
- 301 01e6 00BF     		.align	2
- 302              	.L54:
- 303 01e8 FF054000 		.word	4195839
- 305              		.section	.text.HAL_MMC_WriteBlocks,"ax",%progbits
- 306              		.align	1
- 307              		.global	HAL_MMC_WriteBlocks
- 308              		.thumb
- 309              		.thumb_func
- 311              	HAL_MMC_WriteBlocks:
- 312              		@ args = 4, pretend = 0, frame = 32
- 313              		@ frame_needed = 0, uses_anonymous_args = 0
- 314 0000 2DE9F04B 		push	{r4, r5, r6, r7, r8, r9, fp, lr}
- 315 0004 88B0     		sub	sp, sp, #32
- 316 0006 0446     		mov	r4, r0
- 317 0008 0F46     		mov	r7, r1
- 318 000a 1646     		mov	r6, r2
- 319 000c 9846     		mov	r8, r3
- 320 000e FFF7FEFF 		bl	HAL_GetTick
- 321 0012 8146     		mov	r9, r0
- 322 0014 1FB9     		cbnz	r7, .L57
- 323 0016 A36B     		ldr	r3, [r4, #56]
- 324 0018 43F00063 		orr	r3, r3, #134217728
- 325 001c B5E0     		b	.L91
- 326              	.L57:
- 327 001e 94F83400 		ldrb	r0, [r4, #52]	@ zero_extendqisi2
- 328 0022 C0B2     		uxtb	r0, r0
- 329 0024 0128     		cmp	r0, #1
- 330 0026 40F0AD80 		bne	.L59
- 331 002a A26D     		ldr	r2, [r4, #88]
- 332 002c 06EB0803 		add	r3, r6, r8
- 333 0030 0021     		movs	r1, #0
- 334 0032 9342     		cmp	r3, r2
- 335 0034 A163     		str	r1, [r4, #56]
- 336 0036 04D9     		bls	.L60
- 337 0038 A36B     		ldr	r3, [r4, #56]
- 338 003a 43F00073 		orr	r3, r3, #33554432
- 339 003e A363     		str	r3, [r4, #56]
- 340 0040 A5E0     		b	.L58
- 341              	.L60:
- 342 0042 0323     		movs	r3, #3
- 343 0044 84F83430 		strb	r3, [r4, #52]
- 344 0048 2068     		ldr	r0, [r4]
- 345 004a 636C     		ldr	r3, [r4, #68]
- 346 004c C162     		str	r1, [r0, #44]
- 347 004e 012B     		cmp	r3, #1
- 348 0050 4FF40071 		mov	r1, #512
- 349 0054 18BF     		it	ne
- 350 0056 7602     		lslne	r6, r6, #9
- 351 0058 FFF7FEFF 		bl	SDMMC_CmdBlockLength
- 352 005c 0028     		cmp	r0, #0
- 353 005e 62D1     		bne	.L95
-ARM GAS  /tmp/cc823MVC.s 			page 7
-
-
- 354 0060 B8F1010F 		cmp	r8, #1
- 355 0064 06D9     		bls	.L63
- 356 0066 2023     		movs	r3, #32
- 357 0068 2363     		str	r3, [r4, #48]
- 358 006a 2068     		ldr	r0, [r4]
- 359 006c 3146     		mov	r1, r6
- 360 006e FFF7FEFF 		bl	SDMMC_CmdWriteMultiBlock
- 361 0072 05E0     		b	.L64
- 362              	.L63:
- 363 0074 1023     		movs	r3, #16
- 364 0076 2363     		str	r3, [r4, #48]
- 365 0078 2068     		ldr	r0, [r4]
- 366 007a 3146     		mov	r1, r6
- 367 007c FFF7FEFF 		bl	SDMMC_CmdWriteSingleBlock
- 368              	.L64:
- 369 0080 0028     		cmp	r0, #0
- 370 0082 50D1     		bne	.L95
- 371 0084 4FF0FF33 		mov	r3, #-1
- 372 0088 0293     		str	r3, [sp, #8]
- 373 008a 4FEA4823 		lsl	r3, r8, #9
- 374 008e 0393     		str	r3, [sp, #12]
- 375 0090 9023     		movs	r3, #144
- 376 0092 0493     		str	r3, [sp, #16]
- 377 0094 0590     		str	r0, [sp, #20]
- 378 0096 0690     		str	r0, [sp, #24]
- 379 0098 0123     		movs	r3, #1
- 380 009a 2068     		ldr	r0, [r4]
- 381 009c 02A9     		add	r1, sp, #8
- 382 009e 0793     		str	r3, [sp, #28]
- 383 00a0 FFF7FEFF 		bl	SDIO_ConfigData
- 384 00a4 039D     		ldr	r5, [sp, #12]
- 385              	.L66:
- 386 00a6 40F21A33 		movw	r3, #794
- 387 00aa 2068     		ldr	r0, [r4]
- 388 00ac 426B     		ldr	r2, [r0, #52]
- 389 00ae 1340     		ands	r3, r3, r2
- 390 00b0 83BB     		cbnz	r3, .L96
- 391 00b2 436B     		ldr	r3, [r0, #52]
- 392 00b4 5E04     		lsls	r6, r3, #17
- 393 00b6 1CD5     		bpl	.L67
- 394 00b8 DDB1     		cbz	r5, .L67
- 395 00ba 3E1D     		adds	r6, r7, #4
- 396 00bc 07F1240B 		add	fp, r7, #36
- 397              	.L68:
- 398 00c0 16F8023C 		ldrb	r3, [r6, #-2]	@ zero_extendqisi2
- 399 00c4 16F8032C 		ldrb	r2, [r6, #-3]	@ zero_extendqisi2
- 400 00c8 1B04     		lsls	r3, r3, #16
- 401 00ca 43EA0223 		orr	r3, r3, r2, lsl #8
- 402 00ce 16F8042C 		ldrb	r2, [r6, #-4]	@ zero_extendqisi2
- 403 00d2 08A9     		add	r1, sp, #32
- 404 00d4 1343     		orrs	r3, r3, r2
- 405 00d6 16F8012C 		ldrb	r2, [r6, #-1]	@ zero_extendqisi2
- 406 00da 2068     		ldr	r0, [r4]
- 407 00dc 43EA0263 		orr	r3, r3, r2, lsl #24
- 408 00e0 41F81C3D 		str	r3, [r1, #-28]!
- 409 00e4 0436     		adds	r6, r6, #4
- 410 00e6 FFF7FEFF 		bl	SDIO_WriteFIFO
-ARM GAS  /tmp/cc823MVC.s 			page 8
-
-
- 411 00ea 5E45     		cmp	r6, fp
- 412 00ec E8D1     		bne	.L68
- 413 00ee 2037     		adds	r7, r7, #32
- 414 00f0 203D     		subs	r5, r5, #32
- 415              	.L67:
- 416 00f2 FFF7FEFF 		bl	HAL_GetTick
- 417 00f6 109B     		ldr	r3, [sp, #64]
- 418 00f8 C9EB0000 		rsb	r0, r9, r0
- 419 00fc 9842     		cmp	r0, r3
- 420 00fe D2D3     		bcc	.L66
- 421 0100 2368     		ldr	r3, [r4]
- 422 0102 244A     		ldr	r2, .L97
- 423 0104 0320     		movs	r0, #3
- 424 0106 9A63     		str	r2, [r3, #56]
- 425 0108 A36B     		ldr	r3, [r4, #56]
- 426 010a A363     		str	r3, [r4, #56]
- 427 010c 0123     		movs	r3, #1
- 428 010e 84F83430 		strb	r3, [r4, #52]
- 429 0112 3CE0     		b	.L58
- 430              	.L96:
- 431 0114 436B     		ldr	r3, [r0, #52]
- 432 0116 DD05     		lsls	r5, r3, #23
- 433 0118 0CD5     		bpl	.L70
- 434 011a B8F1010F 		cmp	r8, #1
- 435 011e 09D9     		bls	.L70
- 436 0120 FFF7FEFF 		bl	SDMMC_CmdStopTransfer
- 437 0124 30B1     		cbz	r0, .L70
- 438              	.L95:
- 439 0126 2368     		ldr	r3, [r4]
- 440 0128 1A4A     		ldr	r2, .L97
- 441 012a 9A63     		str	r2, [r3, #56]
- 442 012c A36B     		ldr	r3, [r4, #56]
- 443 012e 1843     		orrs	r0, r0, r3
- 444 0130 A063     		str	r0, [r4, #56]
- 445 0132 1CE0     		b	.L93
- 446              	.L70:
- 447 0134 2368     		ldr	r3, [r4]
- 448 0136 5A6B     		ldr	r2, [r3, #52]
- 449 0138 1107     		lsls	r1, r2, #28
- 450 013a 05D5     		bpl	.L71
- 451 013c 154A     		ldr	r2, .L97
- 452 013e 9A63     		str	r2, [r3, #56]
- 453 0140 A36B     		ldr	r3, [r4, #56]
- 454 0142 43F00803 		orr	r3, r3, #8
- 455 0146 11E0     		b	.L94
- 456              	.L71:
- 457 0148 5A6B     		ldr	r2, [r3, #52]
- 458 014a 9207     		lsls	r2, r2, #30
- 459 014c 05D5     		bpl	.L72
- 460 014e 114A     		ldr	r2, .L97
- 461 0150 9A63     		str	r2, [r3, #56]
- 462 0152 A36B     		ldr	r3, [r4, #56]
- 463 0154 43F00203 		orr	r3, r3, #2
- 464 0158 08E0     		b	.L94
- 465              	.L72:
- 466 015a 586B     		ldr	r0, [r3, #52]
- 467 015c 10F01000 		ands	r0, r0, #16
-ARM GAS  /tmp/cc823MVC.s 			page 9
-
-
- 468 0160 09D0     		beq	.L73
- 469 0162 0C4A     		ldr	r2, .L97
- 470 0164 9A63     		str	r2, [r3, #56]
- 471 0166 A36B     		ldr	r3, [r4, #56]
- 472 0168 43F01003 		orr	r3, r3, #16
- 473              	.L94:
- 474 016c A363     		str	r3, [r4, #56]
- 475              	.L93:
- 476 016e 0120     		movs	r0, #1
- 477 0170 84F83400 		strb	r0, [r4, #52]
- 478 0174 0BE0     		b	.L58
- 479              	.L73:
- 480 0176 40F23A52 		movw	r2, #1338
- 481 017a 9A63     		str	r2, [r3, #56]
- 482 017c 0123     		movs	r3, #1
- 483 017e 84F83430 		strb	r3, [r4, #52]
- 484 0182 04E0     		b	.L58
- 485              	.L59:
- 486 0184 A36B     		ldr	r3, [r4, #56]
- 487 0186 43F00053 		orr	r3, r3, #536870912
- 488              	.L91:
- 489 018a A363     		str	r3, [r4, #56]
- 490 018c 0120     		movs	r0, #1
- 491              	.L58:
- 492 018e 08B0     		add	sp, sp, #32
- 493              		@ sp needed
- 494 0190 BDE8F08B 		pop	{r4, r5, r6, r7, r8, r9, fp, pc}
- 495              	.L98:
- 496              		.align	2
- 497              	.L97:
- 498 0194 FF054000 		.word	4195839
- 500              		.section	.text.HAL_MMC_ReadBlocks_IT,"ax",%progbits
- 501              		.align	1
- 502              		.global	HAL_MMC_ReadBlocks_IT
- 503              		.thumb
- 504              		.thumb_func
- 506              	HAL_MMC_ReadBlocks_IT:
- 507              		@ args = 0, pretend = 0, frame = 24
- 508              		@ frame_needed = 0, uses_anonymous_args = 0
- 509 0000 F0B5     		push	{r4, r5, r6, r7, lr}
- 510 0002 0446     		mov	r4, r0
- 511 0004 87B0     		sub	sp, sp, #28
- 512 0006 1546     		mov	r5, r2
- 513 0008 1E46     		mov	r6, r3
- 514 000a 29B9     		cbnz	r1, .L100
- 515 000c 836B     		ldr	r3, [r0, #56]
- 516 000e 43F00063 		orr	r3, r3, #134217728
- 517 0012 8363     		str	r3, [r0, #56]
- 518 0014 0120     		movs	r0, #1
- 519 0016 50E0     		b	.L101
- 520              	.L100:
- 521 0018 90F83400 		ldrb	r0, [r0, #52]	@ zero_extendqisi2
- 522 001c C0B2     		uxtb	r0, r0
- 523 001e 0128     		cmp	r0, #1
- 524 0020 4AD1     		bne	.L107
- 525 0022 D318     		adds	r3, r2, r3
- 526 0024 A26D     		ldr	r2, [r4, #88]
-ARM GAS  /tmp/cc823MVC.s 			page 10
-
-
- 527 0026 0027     		movs	r7, #0
- 528 0028 9342     		cmp	r3, r2
- 529 002a A763     		str	r7, [r4, #56]
- 530 002c 04D9     		bls	.L102
- 531 002e A36B     		ldr	r3, [r4, #56]
- 532 0030 43F00073 		orr	r3, r3, #33554432
- 533 0034 A363     		str	r3, [r4, #56]
- 534 0036 40E0     		b	.L101
- 535              	.L102:
- 536 0038 2068     		ldr	r0, [r4]
- 537 003a 0323     		movs	r3, #3
- 538 003c 84F83430 		strb	r3, [r4, #52]
- 539 0040 C762     		str	r7, [r0, #44]
- 540 0042 C26B     		ldr	r2, [r0, #60]
- 541 0044 636C     		ldr	r3, [r4, #68]
- 542 0046 42F40342 		orr	r2, r2, #33536
- 543 004a 7702     		lsls	r7, r6, #9
- 544 004c 42F02A02 		orr	r2, r2, #42
- 545 0050 A162     		str	r1, [r4, #40]
- 546 0052 012B     		cmp	r3, #1
- 547 0054 E762     		str	r7, [r4, #44]
- 548 0056 4FF40071 		mov	r1, #512
- 549 005a C263     		str	r2, [r0, #60]
- 550 005c 18BF     		it	ne
- 551 005e 6D02     		lslne	r5, r5, #9
- 552 0060 FFF7FEFF 		bl	SDMMC_CmdBlockLength
- 553 0064 F0B9     		cbnz	r0, .L112
- 554 0066 4FF0FF33 		mov	r3, #-1
- 555 006a 8DE88800 		stmia	sp, {r3, r7}
- 556 006e 9023     		movs	r3, #144
- 557 0070 0293     		str	r3, [sp, #8]
- 558 0072 0223     		movs	r3, #2
- 559 0074 0393     		str	r3, [sp, #12]
- 560 0076 0490     		str	r0, [sp, #16]
- 561 0078 0123     		movs	r3, #1
- 562 007a 2068     		ldr	r0, [r4]
- 563 007c 6946     		mov	r1, sp
- 564 007e 0593     		str	r3, [sp, #20]
- 565 0080 FFF7FEFF 		bl	SDIO_ConfigData
- 566 0084 012E     		cmp	r6, #1
- 567 0086 06D9     		bls	.L105
- 568 0088 0A23     		movs	r3, #10
- 569 008a 2363     		str	r3, [r4, #48]
- 570 008c 2068     		ldr	r0, [r4]
- 571 008e 2946     		mov	r1, r5
- 572 0090 FFF7FEFF 		bl	SDMMC_CmdReadMultiBlock
- 573 0094 05E0     		b	.L106
- 574              	.L105:
- 575 0096 0923     		movs	r3, #9
- 576 0098 2363     		str	r3, [r4, #48]
- 577 009a 2068     		ldr	r0, [r4]
- 578 009c 2946     		mov	r1, r5
- 579 009e FFF7FEFF 		bl	SDMMC_CmdReadSingleBlock
- 580              	.L106:
- 581 00a2 50B1     		cbz	r0, .L101
- 582              	.L112:
- 583 00a4 2368     		ldr	r3, [r4]
-ARM GAS  /tmp/cc823MVC.s 			page 11
-
-
- 584 00a6 064A     		ldr	r2, .L113
- 585 00a8 9A63     		str	r2, [r3, #56]
- 586 00aa A36B     		ldr	r3, [r4, #56]
- 587 00ac 1843     		orrs	r0, r0, r3
- 588 00ae A063     		str	r0, [r4, #56]
- 589 00b0 0120     		movs	r0, #1
- 590 00b2 84F83400 		strb	r0, [r4, #52]
- 591 00b6 00E0     		b	.L101
- 592              	.L107:
- 593 00b8 0220     		movs	r0, #2
- 594              	.L101:
- 595 00ba 07B0     		add	sp, sp, #28
- 596              		@ sp needed
- 597 00bc F0BD     		pop	{r4, r5, r6, r7, pc}
- 598              	.L114:
- 599 00be 00BF     		.align	2
- 600              	.L113:
- 601 00c0 FF054000 		.word	4195839
- 603              		.section	.text.HAL_MMC_WriteBlocks_IT,"ax",%progbits
- 604              		.align	1
- 605              		.global	HAL_MMC_WriteBlocks_IT
- 606              		.thumb
- 607              		.thumb_func
- 609              	HAL_MMC_WriteBlocks_IT:
- 610              		@ args = 0, pretend = 0, frame = 24
- 611              		@ frame_needed = 0, uses_anonymous_args = 0
- 612 0000 F0B5     		push	{r4, r5, r6, r7, lr}
- 613 0002 0446     		mov	r4, r0
- 614 0004 87B0     		sub	sp, sp, #28
- 615 0006 1546     		mov	r5, r2
- 616 0008 1E46     		mov	r6, r3
- 617 000a 29B9     		cbnz	r1, .L116
- 618 000c 836B     		ldr	r3, [r0, #56]
- 619 000e 43F00063 		orr	r3, r3, #134217728
- 620 0012 8363     		str	r3, [r0, #56]
- 621 0014 0120     		movs	r0, #1
- 622 0016 59E0     		b	.L117
- 623              	.L116:
- 624 0018 90F83400 		ldrb	r0, [r0, #52]	@ zero_extendqisi2
- 625 001c C0B2     		uxtb	r0, r0
- 626 001e 0128     		cmp	r0, #1
- 627 0020 53D1     		bne	.L124
- 628 0022 D318     		adds	r3, r2, r3
- 629 0024 A26D     		ldr	r2, [r4, #88]
- 630 0026 0027     		movs	r7, #0
- 631 0028 9342     		cmp	r3, r2
- 632 002a A763     		str	r7, [r4, #56]
- 633 002c 04D9     		bls	.L118
- 634 002e A36B     		ldr	r3, [r4, #56]
- 635 0030 43F00073 		orr	r3, r3, #33554432
- 636 0034 A363     		str	r3, [r4, #56]
- 637 0036 49E0     		b	.L117
- 638              	.L118:
- 639 0038 2068     		ldr	r0, [r4]
- 640 003a 0323     		movs	r3, #3
- 641 003c 84F83430 		strb	r3, [r4, #52]
- 642 0040 C762     		str	r7, [r0, #44]
-ARM GAS  /tmp/cc823MVC.s 			page 12
-
-
- 643 0042 C26B     		ldr	r2, [r0, #60]
- 644 0044 636C     		ldr	r3, [r4, #68]
- 645 0046 42F48642 		orr	r2, r2, #17152
- 646 004a 7702     		lsls	r7, r6, #9
- 647 004c 42F01A02 		orr	r2, r2, #26
- 648 0050 2162     		str	r1, [r4, #32]
- 649 0052 012B     		cmp	r3, #1
- 650 0054 6762     		str	r7, [r4, #36]
- 651 0056 4FF40071 		mov	r1, #512
- 652 005a C263     		str	r2, [r0, #60]
- 653 005c 18BF     		it	ne
- 654 005e 6D02     		lslne	r5, r5, #9
- 655 0060 FFF7FEFF 		bl	SDMMC_CmdBlockLength
- 656 0064 30B1     		cbz	r0, .L120
- 657 0066 2368     		ldr	r3, [r4]
- 658 0068 194A     		ldr	r2, .L130
- 659 006a 9A63     		str	r2, [r3, #56]
- 660 006c A36B     		ldr	r3, [r4, #56]
- 661 006e 1843     		orrs	r0, r0, r3
- 662 0070 A063     		str	r0, [r4, #56]
- 663 0072 16E0     		b	.L129
- 664              	.L120:
- 665 0074 012E     		cmp	r6, #1
- 666 0076 06D9     		bls	.L121
- 667 0078 2823     		movs	r3, #40
- 668 007a 2363     		str	r3, [r4, #48]
- 669 007c 2068     		ldr	r0, [r4]
- 670 007e 2946     		mov	r1, r5
- 671 0080 FFF7FEFF 		bl	SDMMC_CmdWriteMultiBlock
- 672 0084 05E0     		b	.L128
- 673              	.L121:
- 674 0086 1823     		movs	r3, #24
- 675 0088 2363     		str	r3, [r4, #48]
- 676 008a 2068     		ldr	r0, [r4]
- 677 008c 2946     		mov	r1, r5
- 678 008e FFF7FEFF 		bl	SDMMC_CmdWriteSingleBlock
- 679              	.L128:
- 680 0092 0546     		mov	r5, r0
- 681 0094 48B1     		cbz	r0, .L123
- 682 0096 2368     		ldr	r3, [r4]
- 683 0098 0D4A     		ldr	r2, .L130
- 684 009a 9A63     		str	r2, [r3, #56]
- 685 009c A06B     		ldr	r0, [r4, #56]
- 686 009e 0543     		orrs	r5, r5, r0
- 687 00a0 A563     		str	r5, [r4, #56]
- 688              	.L129:
- 689 00a2 0120     		movs	r0, #1
- 690 00a4 84F83400 		strb	r0, [r4, #52]
- 691 00a8 10E0     		b	.L117
- 692              	.L123:
- 693 00aa 4FF0FF33 		mov	r3, #-1
- 694 00ae 8DE88800 		stmia	sp, {r3, r7}
- 695 00b2 9023     		movs	r3, #144
- 696 00b4 0293     		str	r3, [sp, #8]
- 697 00b6 0390     		str	r0, [sp, #12]
- 698 00b8 0490     		str	r0, [sp, #16]
- 699 00ba 0123     		movs	r3, #1
-ARM GAS  /tmp/cc823MVC.s 			page 13
-
-
- 700 00bc 2068     		ldr	r0, [r4]
- 701 00be 6946     		mov	r1, sp
- 702 00c0 0593     		str	r3, [sp, #20]
- 703 00c2 FFF7FEFF 		bl	SDIO_ConfigData
- 704 00c6 2846     		mov	r0, r5
- 705 00c8 00E0     		b	.L117
- 706              	.L124:
- 707 00ca 0220     		movs	r0, #2
- 708              	.L117:
- 709 00cc 07B0     		add	sp, sp, #28
- 710              		@ sp needed
- 711 00ce F0BD     		pop	{r4, r5, r6, r7, pc}
- 712              	.L131:
- 713              		.align	2
- 714              	.L130:
- 715 00d0 FF054000 		.word	4195839
- 717              		.section	.text.HAL_MMC_ReadBlocks_DMA,"ax",%progbits
- 718              		.align	1
- 719              		.global	HAL_MMC_ReadBlocks_DMA
- 720              		.thumb
- 721              		.thumb_func
- 723              	HAL_MMC_ReadBlocks_DMA:
- 724              		@ args = 0, pretend = 0, frame = 24
- 725              		@ frame_needed = 0, uses_anonymous_args = 0
- 726 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
- 727 0004 0446     		mov	r4, r0
- 728 0006 87B0     		sub	sp, sp, #28
- 729 0008 1746     		mov	r7, r2
- 730 000a 1E46     		mov	r6, r3
- 731 000c 8846     		mov	r8, r1
- 732 000e 29B9     		cbnz	r1, .L133
- 733 0010 836B     		ldr	r3, [r0, #56]
- 734 0012 0125     		movs	r5, #1
- 735 0014 43F00063 		orr	r3, r3, #134217728
- 736 0018 8363     		str	r3, [r0, #56]
- 737 001a 71E0     		b	.L134
- 738              	.L133:
- 739 001c 90F83450 		ldrb	r5, [r0, #52]	@ zero_extendqisi2
- 740 0020 EDB2     		uxtb	r5, r5
- 741 0022 012D     		cmp	r5, #1
- 742 0024 6BD1     		bne	.L141
- 743 0026 D318     		adds	r3, r2, r3
- 744 0028 826D     		ldr	r2, [r0, #88]
- 745 002a 0021     		movs	r1, #0
- 746 002c 9342     		cmp	r3, r2
- 747 002e 8163     		str	r1, [r0, #56]
- 748 0030 04D9     		bls	.L135
- 749 0032 836B     		ldr	r3, [r0, #56]
- 750 0034 43F00073 		orr	r3, r3, #33554432
- 751 0038 8363     		str	r3, [r0, #56]
- 752 003a 61E0     		b	.L134
- 753              	.L135:
- 754 003c 0323     		movs	r3, #3
- 755 003e 80F83430 		strb	r3, [r0, #52]
- 756 0042 0068     		ldr	r0, [r0]
- 757 0044 304A     		ldr	r2, .L150
- 758 0046 C162     		str	r1, [r0, #44]
-ARM GAS  /tmp/cc823MVC.s 			page 14
-
-
- 759 0048 C36B     		ldr	r3, [r0, #60]
- 760 004a 43F44A73 		orr	r3, r3, #808
- 761 004e 43F00203 		orr	r3, r3, #2
- 762 0052 C363     		str	r3, [r0, #60]
- 763 0054 E36B     		ldr	r3, [r4, #60]
- 764 0056 9A62     		str	r2, [r3, #40]
- 765 0058 2C4A     		ldr	r2, .L150+4
- 766 005a 5963     		str	r1, [r3, #52]
- 767 005c 1A63     		str	r2, [r3, #48]
- 768 005e 636C     		ldr	r3, [r4, #68]
- 769 0060 4FF40071 		mov	r1, #512
- 770 0064 012B     		cmp	r3, #1
- 771 0066 18BF     		it	ne
- 772 0068 7F02     		lslne	r7, r7, #9
- 773 006a FFF7FEFF 		bl	SDMMC_CmdBlockLength
- 774 006e 2168     		ldr	r1, [r4]
- 775 0070 10B1     		cbz	r0, .L137
- 776 0072 274B     		ldr	r3, .L150+8
- 777 0074 8B63     		str	r3, [r1, #56]
- 778 0076 3DE0     		b	.L149
- 779              	.L137:
- 780 0078 4FEA4629 		lsl	r9, r6, #9
- 781 007c E06B     		ldr	r0, [r4, #60]
- 782 007e 8031     		adds	r1, r1, #128
- 783 0080 4246     		mov	r2, r8
- 784 0082 4FEA9903 		lsr	r3, r9, #2
- 785 0086 FFF7FEFF 		bl	HAL_DMA_Start_IT
- 786 008a 0546     		mov	r5, r0
- 787 008c 50B1     		cbz	r0, .L138
- 788 008e 2368     		ldr	r3, [r4]
- 789 0090 DA6B     		ldr	r2, [r3, #60]
- 790 0092 22F49572 		bic	r2, r2, #298
- 791 0096 DA63     		str	r2, [r3, #60]
- 792 0098 1D4A     		ldr	r2, .L150+8
- 793 009a 9A63     		str	r2, [r3, #56]
- 794 009c 4FF08043 		mov	r3, #1073741824
- 795 00a0 A363     		str	r3, [r4, #56]
- 796 00a2 28E0     		b	.L148
- 797              	.L138:
- 798 00a4 1B4A     		ldr	r2, .L150+12
- 799 00a6 0123     		movs	r3, #1
- 800 00a8 1360     		str	r3, [r2]
- 801 00aa 4FF0FF32 		mov	r2, #-1
- 802 00ae 8DE80402 		stmia	sp, {r2, r9}
- 803 00b2 9022     		movs	r2, #144
- 804 00b4 0292     		str	r2, [sp, #8]
- 805 00b6 0490     		str	r0, [sp, #16]
- 806 00b8 0222     		movs	r2, #2
- 807 00ba 2068     		ldr	r0, [r4]
- 808 00bc 6946     		mov	r1, sp
- 809 00be 0392     		str	r2, [sp, #12]
- 810 00c0 0593     		str	r3, [sp, #20]
- 811 00c2 FFF7FEFF 		bl	SDIO_ConfigData
- 812 00c6 012E     		cmp	r6, #1
- 813 00c8 06D9     		bls	.L139
- 814 00ca 8223     		movs	r3, #130
- 815 00cc 2363     		str	r3, [r4, #48]
-ARM GAS  /tmp/cc823MVC.s 			page 15
-
-
- 816 00ce 2068     		ldr	r0, [r4]
- 817 00d0 3946     		mov	r1, r7
- 818 00d2 FFF7FEFF 		bl	SDMMC_CmdReadMultiBlock
- 819 00d6 05E0     		b	.L140
- 820              	.L139:
- 821 00d8 8123     		movs	r3, #129
- 822 00da 2363     		str	r3, [r4, #48]
- 823 00dc 2068     		ldr	r0, [r4]
- 824 00de 3946     		mov	r1, r7
- 825 00e0 FFF7FEFF 		bl	SDMMC_CmdReadSingleBlock
- 826              	.L140:
- 827 00e4 60B1     		cbz	r0, .L134
- 828 00e6 2368     		ldr	r3, [r4]
- 829 00e8 094A     		ldr	r2, .L150+8
- 830 00ea 9A63     		str	r2, [r3, #56]
- 831 00ec DA6B     		ldr	r2, [r3, #60]
- 832 00ee 22F49572 		bic	r2, r2, #298
- 833 00f2 DA63     		str	r2, [r3, #60]
- 834              	.L149:
- 835 00f4 A063     		str	r0, [r4, #56]
- 836              	.L148:
- 837 00f6 0125     		movs	r5, #1
- 838 00f8 84F83450 		strb	r5, [r4, #52]
- 839 00fc 00E0     		b	.L134
- 840              	.L141:
- 841 00fe 0225     		movs	r5, #2
- 842              	.L134:
- 843 0100 2846     		mov	r0, r5
- 844 0102 07B0     		add	sp, sp, #28
- 845              		@ sp needed
- 846 0104 BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
- 847              	.L151:
- 848              		.align	2
- 849              	.L150:
- 850 0108 00000000 		.word	MMC_DMAReceiveCplt
- 851 010c 00000000 		.word	MMC_DMAError
- 852 0110 FF054000 		.word	4195839
- 853 0114 8C053042 		.word	1110443404
- 855              		.section	.text.HAL_MMC_WriteBlocks_DMA,"ax",%progbits
- 856              		.align	1
- 857              		.global	HAL_MMC_WriteBlocks_DMA
- 858              		.thumb
- 859              		.thumb_func
- 861              	HAL_MMC_WriteBlocks_DMA:
- 862              		@ args = 0, pretend = 0, frame = 24
- 863              		@ frame_needed = 0, uses_anonymous_args = 0
- 864 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
- 865 0004 0446     		mov	r4, r0
- 866 0006 87B0     		sub	sp, sp, #28
- 867 0008 1746     		mov	r7, r2
- 868 000a 1E46     		mov	r6, r3
- 869 000c 8846     		mov	r8, r1
- 870 000e 29B9     		cbnz	r1, .L153
- 871 0010 836B     		ldr	r3, [r0, #56]
- 872 0012 43F00063 		orr	r3, r3, #134217728
- 873 0016 8363     		str	r3, [r0, #56]
- 874              	.L167:
-ARM GAS  /tmp/cc823MVC.s 			page 16
-
-
- 875 0018 0125     		movs	r5, #1
- 876 001a 7BE0     		b	.L154
- 877              	.L153:
- 878 001c 90F83450 		ldrb	r5, [r0, #52]	@ zero_extendqisi2
- 879 0020 EDB2     		uxtb	r5, r5
- 880 0022 012D     		cmp	r5, #1
- 881 0024 75D1     		bne	.L162
- 882 0026 816D     		ldr	r1, [r0, #88]
- 883 0028 FB18     		adds	r3, r7, r3
- 884 002a 0022     		movs	r2, #0
- 885 002c 8B42     		cmp	r3, r1
- 886 002e 8263     		str	r2, [r0, #56]
- 887 0030 04D9     		bls	.L155
- 888 0032 836B     		ldr	r3, [r0, #56]
- 889 0034 43F00073 		orr	r3, r3, #33554432
- 890 0038 8363     		str	r3, [r0, #56]
- 891 003a 6BE0     		b	.L154
- 892              	.L155:
- 893 003c 0323     		movs	r3, #3
- 894 003e 80F83430 		strb	r3, [r0, #52]
- 895 0042 0068     		ldr	r0, [r0]
- 896 0044 3549     		ldr	r1, .L169
- 897 0046 C262     		str	r2, [r0, #44]
- 898 0048 C36B     		ldr	r3, [r0, #60]
- 899 004a 43F40673 		orr	r3, r3, #536
- 900 004e 43F00203 		orr	r3, r3, #2
- 901 0052 C363     		str	r3, [r0, #60]
- 902 0054 236C     		ldr	r3, [r4, #64]
- 903 0056 9962     		str	r1, [r3, #40]
- 904 0058 3149     		ldr	r1, .L169+4
- 905 005a 5A63     		str	r2, [r3, #52]
- 906 005c 1963     		str	r1, [r3, #48]
- 907 005e 636C     		ldr	r3, [r4, #68]
- 908 0060 4FF40071 		mov	r1, #512
- 909 0064 012B     		cmp	r3, #1
- 910 0066 18BF     		it	ne
- 911 0068 7F02     		lslne	r7, r7, #9
- 912 006a FFF7FEFF 		bl	SDMMC_CmdBlockLength
- 913 006e 30B1     		cbz	r0, .L157
- 914 0070 2368     		ldr	r3, [r4]
- 915 0072 2C4A     		ldr	r2, .L169+8
- 916 0074 9A63     		str	r2, [r3, #56]
- 917 0076 A36B     		ldr	r3, [r4, #56]
- 918 0078 1843     		orrs	r0, r0, r3
- 919 007a A063     		str	r0, [r4, #56]
- 920 007c 1AE0     		b	.L168
- 921              	.L157:
- 922 007e 012E     		cmp	r6, #1
- 923 0080 06D9     		bls	.L158
- 924 0082 A023     		movs	r3, #160
- 925 0084 2363     		str	r3, [r4, #48]
- 926 0086 2068     		ldr	r0, [r4]
- 927 0088 3946     		mov	r1, r7
- 928 008a FFF7FEFF 		bl	SDMMC_CmdWriteMultiBlock
- 929 008e 05E0     		b	.L166
- 930              	.L158:
- 931 0090 9023     		movs	r3, #144
-ARM GAS  /tmp/cc823MVC.s 			page 17
-
-
- 932 0092 2363     		str	r3, [r4, #48]
- 933 0094 2068     		ldr	r0, [r4]
- 934 0096 3946     		mov	r1, r7
- 935 0098 FFF7FEFF 		bl	SDMMC_CmdWriteSingleBlock
- 936              	.L166:
- 937 009c 0746     		mov	r7, r0
- 938 009e 2268     		ldr	r2, [r4]
- 939 00a0 60B1     		cbz	r0, .L160
- 940 00a2 204B     		ldr	r3, .L169+8
- 941 00a4 9363     		str	r3, [r2, #56]
- 942 00a6 D36B     		ldr	r3, [r2, #60]
- 943 00a8 23F48D73 		bic	r3, r3, #282
- 944 00ac D363     		str	r3, [r2, #60]
- 945 00ae A36B     		ldr	r3, [r4, #56]
- 946 00b0 1F43     		orrs	r7, r7, r3
- 947 00b2 A763     		str	r7, [r4, #56]
- 948              	.L168:
- 949 00b4 0125     		movs	r5, #1
- 950 00b6 84F83450 		strb	r5, [r4, #52]
- 951 00ba 2BE0     		b	.L154
- 952              	.L160:
- 953 00bc 1A4B     		ldr	r3, .L169+12
- 954 00be 4FF00109 		mov	r9, #1
- 955 00c2 7602     		lsls	r6, r6, #9
- 956 00c4 C3F80090 		str	r9, [r3]
- 957 00c8 206C     		ldr	r0, [r4, #64]
- 958 00ca 4146     		mov	r1, r8
- 959 00cc 8032     		adds	r2, r2, #128
- 960 00ce B308     		lsrs	r3, r6, #2
- 961 00d0 FFF7FEFF 		bl	HAL_DMA_Start_IT
- 962 00d4 0546     		mov	r5, r0
- 963 00d6 68B1     		cbz	r0, .L161
- 964 00d8 2368     		ldr	r3, [r4]
- 965 00da DA6B     		ldr	r2, [r3, #60]
- 966 00dc 22F48D72 		bic	r2, r2, #282
- 967 00e0 DA63     		str	r2, [r3, #60]
- 968 00e2 104A     		ldr	r2, .L169+8
- 969 00e4 9A63     		str	r2, [r3, #56]
- 970 00e6 A36B     		ldr	r3, [r4, #56]
- 971 00e8 43F08043 		orr	r3, r3, #1073741824
- 972 00ec A363     		str	r3, [r4, #56]
- 973 00ee 84F83490 		strb	r9, [r4, #52]
- 974 00f2 91E7     		b	.L167
- 975              	.L161:
- 976 00f4 4FF0FF33 		mov	r3, #-1
- 977 00f8 8DE84800 		stmia	sp, {r3, r6}
- 978 00fc 2068     		ldr	r0, [r4]
- 979 00fe 9023     		movs	r3, #144
- 980 0100 6946     		mov	r1, sp
- 981 0102 0293     		str	r3, [sp, #8]
- 982 0104 0397     		str	r7, [sp, #12]
- 983 0106 0497     		str	r7, [sp, #16]
- 984 0108 CDF81490 		str	r9, [sp, #20]
- 985 010c FFF7FEFF 		bl	SDIO_ConfigData
- 986 0110 00E0     		b	.L154
- 987              	.L162:
- 988 0112 0225     		movs	r5, #2
-ARM GAS  /tmp/cc823MVC.s 			page 18
-
-
- 989              	.L154:
- 990 0114 2846     		mov	r0, r5
- 991 0116 07B0     		add	sp, sp, #28
- 992              		@ sp needed
- 993 0118 BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
- 994              	.L170:
- 995              		.align	2
- 996              	.L169:
- 997 011c 00000000 		.word	MMC_DMATransmitCplt
- 998 0120 00000000 		.word	MMC_DMAError
- 999 0124 FF054000 		.word	4195839
- 1000 0128 8C053042 		.word	1110443404
- 1002              		.section	.text.HAL_MMC_Erase,"ax",%progbits
- 1003              		.align	1
- 1004              		.global	HAL_MMC_Erase
- 1005              		.thumb
- 1006              		.thumb_func
- 1008              	HAL_MMC_Erase:
- 1009              		@ args = 0, pretend = 0, frame = 0
- 1010              		@ frame_needed = 0, uses_anonymous_args = 0
- 1011 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
- 1012 0002 0446     		mov	r4, r0
- 1013 0004 90F83400 		ldrb	r0, [r0, #52]	@ zero_extendqisi2
- 1014 0008 0F46     		mov	r7, r1
- 1015 000a C5B2     		uxtb	r5, r0
- 1016 000c 012D     		cmp	r5, #1
- 1017 000e 1646     		mov	r6, r2
- 1018 0010 4ED1     		bne	.L181
- 1019 0012 0021     		movs	r1, #0
- 1020 0014 BA42     		cmp	r2, r7
- 1021 0016 A163     		str	r1, [r4, #56]
- 1022 0018 03D2     		bcs	.L173
- 1023 001a A36B     		ldr	r3, [r4, #56]
- 1024 001c 43F00063 		orr	r3, r3, #134217728
- 1025 0020 05E0     		b	.L185
- 1026              	.L173:
- 1027 0022 A36D     		ldr	r3, [r4, #88]
- 1028 0024 9A42     		cmp	r2, r3
- 1029 0026 05D9     		bls	.L174
- 1030 0028 A36B     		ldr	r3, [r4, #56]
- 1031 002a 43F00073 		orr	r3, r3, #33554432
- 1032              	.L185:
- 1033 002e A363     		str	r3, [r4, #56]
- 1034              	.L186:
- 1035 0030 2846     		mov	r0, r5
- 1036 0032 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 1037              	.L174:
- 1038 0034 0323     		movs	r3, #3
- 1039 0036 84F83430 		strb	r3, [r4, #52]
- 1040 003a A36C     		ldr	r3, [r4, #72]
- 1041 003c 9A06     		lsls	r2, r3, #26
- 1042 003e 06D4     		bmi	.L175
- 1043 0040 2368     		ldr	r3, [r4]
- 1044 0042 1C4A     		ldr	r2, .L189
- 1045 0044 9A63     		str	r2, [r3, #56]
- 1046 0046 A36B     		ldr	r3, [r4, #56]
- 1047 0048 43F08063 		orr	r3, r3, #67108864
-ARM GAS  /tmp/cc823MVC.s 			page 19
-
-
- 1048 004c 0AE0     		b	.L188
- 1049              	.L175:
- 1050 004e 2068     		ldr	r0, [r4]
- 1051 0050 FFF7FEFF 		bl	SDIO_GetResponse
- 1052 0054 8301     		lsls	r3, r0, #6
- 1053 0056 09D5     		bpl	.L176
- 1054 0058 2368     		ldr	r3, [r4]
- 1055 005a 164A     		ldr	r2, .L189
- 1056 005c 9A63     		str	r2, [r3, #56]
- 1057 005e A36B     		ldr	r3, [r4, #56]
- 1058 0060 43F40063 		orr	r3, r3, #2048
- 1059              	.L188:
- 1060 0064 A363     		str	r3, [r4, #56]
- 1061 0066 84F83450 		strb	r5, [r4, #52]
- 1062 006a E1E7     		b	.L186
- 1063              	.L176:
- 1064 006c 636C     		ldr	r3, [r4, #68]
- 1065 006e 2068     		ldr	r0, [r4]
- 1066 0070 012B     		cmp	r3, #1
- 1067 0072 18BF     		it	ne
- 1068 0074 7F02     		lslne	r7, r7, #9
- 1069 0076 3946     		mov	r1, r7
- 1070 0078 18BF     		it	ne
- 1071 007a 7602     		lslne	r6, r6, #9
- 1072 007c FFF7FEFF 		bl	SDMMC_CmdEraseStartAdd
- 1073 0080 40B9     		cbnz	r0, .L187
- 1074 0082 2068     		ldr	r0, [r4]
- 1075 0084 3146     		mov	r1, r6
- 1076 0086 FFF7FEFF 		bl	SDMMC_CmdEraseEndAdd
- 1077 008a 18B9     		cbnz	r0, .L187
- 1078 008c 2068     		ldr	r0, [r4]
- 1079 008e FFF7FEFF 		bl	SDMMC_CmdErase
- 1080 0092 48B1     		cbz	r0, .L180
- 1081              	.L187:
- 1082 0094 2368     		ldr	r3, [r4]
- 1083 0096 074A     		ldr	r2, .L189
- 1084 0098 9A63     		str	r2, [r3, #56]
- 1085 009a A36B     		ldr	r3, [r4, #56]
- 1086 009c 1843     		orrs	r0, r0, r3
- 1087 009e A063     		str	r0, [r4, #56]
- 1088 00a0 0120     		movs	r0, #1
- 1089 00a2 84F83400 		strb	r0, [r4, #52]
- 1090 00a6 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 1091              	.L180:
- 1092 00a8 0123     		movs	r3, #1
- 1093 00aa 84F83430 		strb	r3, [r4, #52]
- 1094 00ae F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 1095              	.L181:
- 1096 00b0 0220     		movs	r0, #2
- 1097 00b2 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 1098              	.L190:
- 1099              		.align	2
- 1100              	.L189:
- 1101 00b4 FF054000 		.word	4195839
- 1103              		.section	.text.HAL_MMC_GetState,"ax",%progbits
- 1104              		.align	1
- 1105              		.global	HAL_MMC_GetState
-ARM GAS  /tmp/cc823MVC.s 			page 20
-
-
- 1106              		.thumb
- 1107              		.thumb_func
- 1109              	HAL_MMC_GetState:
- 1110              		@ args = 0, pretend = 0, frame = 0
- 1111              		@ frame_needed = 0, uses_anonymous_args = 0
- 1112              		@ link register save eliminated.
- 1113 0000 90F83400 		ldrb	r0, [r0, #52]	@ zero_extendqisi2
- 1114 0004 7047     		bx	lr
- 1116              		.section	.text.HAL_MMC_GetError,"ax",%progbits
- 1117              		.align	1
- 1118              		.global	HAL_MMC_GetError
- 1119              		.thumb
- 1120              		.thumb_func
- 1122              	HAL_MMC_GetError:
- 1123              		@ args = 0, pretend = 0, frame = 0
- 1124              		@ frame_needed = 0, uses_anonymous_args = 0
- 1125              		@ link register save eliminated.
- 1126 0000 806B     		ldr	r0, [r0, #56]
- 1127 0002 7047     		bx	lr
- 1129              		.section	.text.HAL_MMC_TxCpltCallback,"ax",%progbits
- 1130              		.align	1
- 1131              		.weak	HAL_MMC_TxCpltCallback
- 1132              		.thumb
- 1133              		.thumb_func
- 1135              	HAL_MMC_TxCpltCallback:
- 1136              		@ args = 0, pretend = 0, frame = 0
- 1137              		@ frame_needed = 0, uses_anonymous_args = 0
- 1138              		@ link register save eliminated.
- 1139 0000 7047     		bx	lr
- 1141              		.section	.text.HAL_MMC_RxCpltCallback,"ax",%progbits
- 1142              		.align	1
- 1143              		.weak	HAL_MMC_RxCpltCallback
- 1144              		.thumb
- 1145              		.thumb_func
- 1147              	HAL_MMC_RxCpltCallback:
- 1148              		@ args = 0, pretend = 0, frame = 0
- 1149              		@ frame_needed = 0, uses_anonymous_args = 0
- 1150              		@ link register save eliminated.
- 1151 0000 7047     		bx	lr
- 1153              		.section	.text.HAL_MMC_ErrorCallback,"ax",%progbits
- 1154              		.align	1
- 1155              		.weak	HAL_MMC_ErrorCallback
- 1156              		.thumb
- 1157              		.thumb_func
- 1159              	HAL_MMC_ErrorCallback:
- 1160              		@ args = 0, pretend = 0, frame = 0
- 1161              		@ frame_needed = 0, uses_anonymous_args = 0
- 1162              		@ link register save eliminated.
- 1163 0000 7047     		bx	lr
- 1165              		.section	.text.MMC_DMAReceiveCplt,"ax",%progbits
- 1166              		.align	1
- 1167              		.thumb
- 1168              		.thumb_func
- 1170              	MMC_DMAReceiveCplt:
- 1171              		@ args = 0, pretend = 0, frame = 0
- 1172              		@ frame_needed = 0, uses_anonymous_args = 0
- 1173 0000 10B5     		push	{r4, lr}
-ARM GAS  /tmp/cc823MVC.s 			page 21
-
-
- 1174 0002 446A     		ldr	r4, [r0, #36]
- 1175 0004 236B     		ldr	r3, [r4, #48]
- 1176 0006 822B     		cmp	r3, #130
- 1177 0008 09D1     		bne	.L198
- 1178 000a 2068     		ldr	r0, [r4]
- 1179 000c FFF7FEFF 		bl	SDMMC_CmdStopTransfer
- 1180 0010 28B1     		cbz	r0, .L198
- 1181 0012 A36B     		ldr	r3, [r4, #56]
- 1182 0014 1843     		orrs	r0, r0, r3
- 1183 0016 A063     		str	r0, [r4, #56]
- 1184 0018 2046     		mov	r0, r4
- 1185 001a FFF7FEFF 		bl	HAL_MMC_ErrorCallback
- 1186              	.L198:
- 1187 001e 2368     		ldr	r3, [r4]
- 1188 0020 2046     		mov	r0, r4
- 1189 0022 DA6A     		ldr	r2, [r3, #44]
- 1190 0024 22F00802 		bic	r2, r2, #8
- 1191 0028 DA62     		str	r2, [r3, #44]
- 1192 002a 40F23A52 		movw	r2, #1338
- 1193 002e 9A63     		str	r2, [r3, #56]
- 1194 0030 0123     		movs	r3, #1
- 1195 0032 84F83430 		strb	r3, [r4, #52]
- 1196 0036 FFF7FEFF 		bl	HAL_MMC_RxCpltCallback
- 1197 003a 10BD     		pop	{r4, pc}
- 1199              		.section	.text.HAL_MMC_AbortCallback,"ax",%progbits
- 1200              		.align	1
- 1201              		.weak	HAL_MMC_AbortCallback
- 1202              		.thumb
- 1203              		.thumb_func
- 1205              	HAL_MMC_AbortCallback:
- 1206              		@ args = 0, pretend = 0, frame = 0
- 1207              		@ frame_needed = 0, uses_anonymous_args = 0
- 1208              		@ link register save eliminated.
- 1209 0000 7047     		bx	lr
- 1211              		.section	.text.HAL_MMC_GetCardCID,"ax",%progbits
- 1212              		.align	1
- 1213              		.global	HAL_MMC_GetCardCID
- 1214              		.thumb
- 1215              		.thumb_func
- 1217              	HAL_MMC_GetCardCID:
- 1218              		@ args = 0, pretend = 0, frame = 0
- 1219              		@ frame_needed = 0, uses_anonymous_args = 0
- 1220              		@ link register save eliminated.
- 1221 0000 90F87330 		ldrb	r3, [r0, #115]	@ zero_extendqisi2
- 1222 0004 0B70     		strb	r3, [r1]
- 1223 0006 036F     		ldr	r3, [r0, #112]
- 1224 0008 C3F30F22 		ubfx	r2, r3, #8, #16
- 1225 000c 4A80     		strh	r2, [r1, #2]	@ movhi
- 1226 000e 426F     		ldr	r2, [r0, #116]
- 1227 0010 1B06     		lsls	r3, r3, #24
- 1228 0012 43EA1223 		orr	r3, r3, r2, lsr #8
- 1229 0016 D2B2     		uxtb	r2, r2
- 1230 0018 4B60     		str	r3, [r1, #4]
- 1231 001a 0A72     		strb	r2, [r1, #8]
- 1232 001c 90F87B30 		ldrb	r3, [r0, #123]	@ zero_extendqisi2
- 1233 0020 4B72     		strb	r3, [r1, #9]
- 1234 0022 836F     		ldr	r3, [r0, #120]
-ARM GAS  /tmp/cc823MVC.s 			page 22
-
-
- 1235 0024 C26F     		ldr	r2, [r0, #124]
- 1236 0026 1B02     		lsls	r3, r3, #8
- 1237 0028 43EA1263 		orr	r3, r3, r2, lsr #24
- 1238 002c C2F30352 		ubfx	r2, r2, #20, #4
- 1239 0030 CB60     		str	r3, [r1, #12]
- 1240 0032 0A74     		strb	r2, [r1, #16]
- 1241 0034 C36F     		ldr	r3, [r0, #124]
- 1242 0036 0020     		movs	r0, #0
- 1243 0038 C3F30B22 		ubfx	r2, r3, #8, #12
- 1244 003c C3F34603 		ubfx	r3, r3, #1, #7
- 1245 0040 4A82     		strh	r2, [r1, #18]	@ movhi
- 1246 0042 0B75     		strb	r3, [r1, #20]
- 1247 0044 0123     		movs	r3, #1
- 1248 0046 4B75     		strb	r3, [r1, #21]
- 1249 0048 7047     		bx	lr
- 1251              		.section	.text.HAL_MMC_GetCardCSD,"ax",%progbits
- 1252              		.align	1
- 1253              		.global	HAL_MMC_GetCardCSD
- 1254              		.thumb
- 1255              		.thumb_func
- 1257              	HAL_MMC_GetCardCSD:
- 1258              		@ args = 0, pretend = 0, frame = 0
- 1259              		@ frame_needed = 0, uses_anonymous_args = 0
- 1260 0000 0346     		mov	r3, r0
- 1261 0002 026E     		ldr	r2, [r0, #96]
- 1262 0004 30B5     		push	{r4, r5, lr}
- 1263 0006 920F     		lsrs	r2, r2, #30
- 1264 0008 0A70     		strb	r2, [r1]
- 1265 000a 026E     		ldr	r2, [r0, #96]
- 1266 000c C2F38362 		ubfx	r2, r2, #26, #4
- 1267 0010 4A70     		strb	r2, [r1, #1]
- 1268 0012 026E     		ldr	r2, [r0, #96]
- 1269 0014 C2F30162 		ubfx	r2, r2, #24, #2
- 1270 0018 8A70     		strb	r2, [r1, #2]
- 1271 001a 90F86220 		ldrb	r2, [r0, #98]	@ zero_extendqisi2
- 1272 001e CA70     		strb	r2, [r1, #3]
- 1273 0020 90F86120 		ldrb	r2, [r0, #97]	@ zero_extendqisi2
- 1274 0024 0A71     		strb	r2, [r1, #4]
- 1275 0026 90F86020 		ldrb	r2, [r0, #96]	@ zero_extendqisi2
- 1276 002a 4A71     		strb	r2, [r1, #5]
- 1277 002c 426E     		ldr	r2, [r0, #100]
- 1278 002e 100D     		lsrs	r0, r2, #20
- 1279 0030 C2F30342 		ubfx	r2, r2, #16, #4
- 1280 0034 C880     		strh	r0, [r1, #6]	@ movhi
- 1281 0036 0A72     		strb	r2, [r1, #8]
- 1282 0038 5A6E     		ldr	r2, [r3, #100]
- 1283 003a 0020     		movs	r0, #0
- 1284 003c C2F3C032 		ubfx	r2, r2, #15, #1
- 1285 0040 4A72     		strb	r2, [r1, #9]
- 1286 0042 5A6E     		ldr	r2, [r3, #100]
- 1287 0044 C2F38032 		ubfx	r2, r2, #14, #1
- 1288 0048 8A72     		strb	r2, [r1, #10]
- 1289 004a 5A6E     		ldr	r2, [r3, #100]
- 1290 004c C2F34032 		ubfx	r2, r2, #13, #1
- 1291 0050 CA72     		strb	r2, [r1, #11]
- 1292 0052 5A6E     		ldr	r2, [r3, #100]
- 1293 0054 C2F30032 		ubfx	r2, r2, #12, #1
-ARM GAS  /tmp/cc823MVC.s 			page 23
-
-
- 1294 0058 0A73     		strb	r2, [r1, #12]
- 1295 005a 4873     		strb	r0, [r1, #13]
- 1296 005c 9A6E     		ldr	r2, [r3, #104]
- 1297 005e 5C6E     		ldr	r4, [r3, #100]
- 1298 0060 C4F30905 		ubfx	r5, r4, #0, #10
- 1299 0064 940F     		lsrs	r4, r2, #30
- 1300 0066 44EA8504 		orr	r4, r4, r5, lsl #2
- 1301 006a C2F3C262 		ubfx	r2, r2, #27, #3
- 1302 006e 0C61     		str	r4, [r1, #16]
- 1303 0070 0A75     		strb	r2, [r1, #20]
- 1304 0072 9A6E     		ldr	r2, [r3, #104]
- 1305 0074 0125     		movs	r5, #1
- 1306 0076 C2F30262 		ubfx	r2, r2, #24, #3
- 1307 007a 4A75     		strb	r2, [r1, #21]
- 1308 007c 9A6E     		ldr	r2, [r3, #104]
- 1309 007e C2F34252 		ubfx	r2, r2, #21, #3
- 1310 0082 8A75     		strb	r2, [r1, #22]
- 1311 0084 9A6E     		ldr	r2, [r3, #104]
- 1312 0086 C2F38242 		ubfx	r2, r2, #18, #3
- 1313 008a CA75     		strb	r2, [r1, #23]
- 1314 008c 9A6E     		ldr	r2, [r3, #104]
- 1315 008e C2F3C232 		ubfx	r2, r2, #15, #3
- 1316 0092 0A76     		strb	r2, [r1, #24]
- 1317 0094 0A69     		ldr	r2, [r1, #16]
- 1318 0096 0132     		adds	r2, r2, #1
- 1319 0098 1A65     		str	r2, [r3, #80]
- 1320 009a 0C7E     		ldrb	r4, [r1, #24]	@ zero_extendqisi2
- 1321 009c 04F00704 		and	r4, r4, #7
- 1322 00a0 0234     		adds	r4, r4, #2
- 1323 00a2 05FA04F4 		lsl	r4, r5, r4
- 1324 00a6 6243     		muls	r2, r4, r2
- 1325 00a8 1A65     		str	r2, [r3, #80]
- 1326 00aa 0C7A     		ldrb	r4, [r1, #8]	@ zero_extendqisi2
- 1327 00ac 04F00F04 		and	r4, r4, #15
- 1328 00b0 05FA04F4 		lsl	r4, r5, r4
- 1329 00b4 5C65     		str	r4, [r3, #84]
- 1330 00b6 640A     		lsrs	r4, r4, #9
- 1331 00b8 6243     		muls	r2, r4, r2
- 1332 00ba 9A65     		str	r2, [r3, #88]
- 1333 00bc 4FF40072 		mov	r2, #512
- 1334 00c0 DA65     		str	r2, [r3, #92]
- 1335 00c2 9A6E     		ldr	r2, [r3, #104]
- 1336 00c4 C2F38032 		ubfx	r2, r2, #14, #1
- 1337 00c8 4A76     		strb	r2, [r1, #25]
- 1338 00ca 9A6E     		ldr	r2, [r3, #104]
- 1339 00cc C2F3C612 		ubfx	r2, r2, #7, #7
- 1340 00d0 8A76     		strb	r2, [r1, #26]
- 1341 00d2 9A6E     		ldr	r2, [r3, #104]
- 1342 00d4 02F07F02 		and	r2, r2, #127
- 1343 00d8 CA76     		strb	r2, [r1, #27]
- 1344 00da DA6E     		ldr	r2, [r3, #108]
- 1345 00dc D20F     		lsrs	r2, r2, #31
- 1346 00de 0A77     		strb	r2, [r1, #28]
- 1347 00e0 DA6E     		ldr	r2, [r3, #108]
- 1348 00e2 C2F34172 		ubfx	r2, r2, #29, #2
- 1349 00e6 4A77     		strb	r2, [r1, #29]
- 1350 00e8 DA6E     		ldr	r2, [r3, #108]
-ARM GAS  /tmp/cc823MVC.s 			page 24
-
-
- 1351 00ea C2F38262 		ubfx	r2, r2, #26, #3
- 1352 00ee 8A77     		strb	r2, [r1, #30]
- 1353 00f0 DA6E     		ldr	r2, [r3, #108]
- 1354 00f2 C2F38352 		ubfx	r2, r2, #22, #4
- 1355 00f6 CA77     		strb	r2, [r1, #31]
- 1356 00f8 DA6E     		ldr	r2, [r3, #108]
- 1357 00fa C2F34052 		ubfx	r2, r2, #21, #1
- 1358 00fe 81F82020 		strb	r2, [r1, #32]
- 1359 0102 81F82100 		strb	r0, [r1, #33]
- 1360 0106 DA6E     		ldr	r2, [r3, #108]
- 1361 0108 C2F30042 		ubfx	r2, r2, #16, #1
- 1362 010c 81F82220 		strb	r2, [r1, #34]
- 1363 0110 DA6E     		ldr	r2, [r3, #108]
- 1364 0112 C2F3C032 		ubfx	r2, r2, #15, #1
- 1365 0116 81F82320 		strb	r2, [r1, #35]
- 1366 011a DA6E     		ldr	r2, [r3, #108]
- 1367 011c C2F38032 		ubfx	r2, r2, #14, #1
- 1368 0120 81F82420 		strb	r2, [r1, #36]
- 1369 0124 DA6E     		ldr	r2, [r3, #108]
- 1370 0126 C2F34032 		ubfx	r2, r2, #13, #1
- 1371 012a 81F82520 		strb	r2, [r1, #37]
- 1372 012e DA6E     		ldr	r2, [r3, #108]
- 1373 0130 C2F30032 		ubfx	r2, r2, #12, #1
- 1374 0134 81F82620 		strb	r2, [r1, #38]
- 1375 0138 DA6E     		ldr	r2, [r3, #108]
- 1376 013a C2F38122 		ubfx	r2, r2, #10, #2
- 1377 013e 81F82720 		strb	r2, [r1, #39]
- 1378 0142 DA6E     		ldr	r2, [r3, #108]
- 1379 0144 C2F30122 		ubfx	r2, r2, #8, #2
- 1380 0148 81F82820 		strb	r2, [r1, #40]
- 1381 014c DB6E     		ldr	r3, [r3, #108]
- 1382 014e C3F34603 		ubfx	r3, r3, #1, #7
- 1383 0152 81F82930 		strb	r3, [r1, #41]
- 1384 0156 81F82A50 		strb	r5, [r1, #42]
- 1385 015a 30BD     		pop	{r4, r5, pc}
- 1387              		.section	.text.HAL_MMC_InitCard,"ax",%progbits
- 1388              		.align	1
- 1389              		.global	HAL_MMC_InitCard
- 1390              		.thumb
- 1391              		.thumb_func
- 1393              	HAL_MMC_InitCard:
- 1394              		@ args = 0, pretend = 0, frame = 80
- 1395              		@ frame_needed = 0, uses_anonymous_args = 0
- 1396 0000 70B5     		push	{r4, r5, r6, lr}
- 1397 0002 0446     		mov	r4, r0
- 1398 0004 98B0     		sub	sp, sp, #96
- 1399 0006 0025     		movs	r5, #0
- 1400 0008 7623     		movs	r3, #118
- 1401 000a 0C93     		str	r3, [sp, #48]
- 1402 000c 0A95     		str	r5, [sp, #40]
- 1403 000e 0B95     		str	r5, [sp, #44]
- 1404 0010 0AAB     		add	r3, sp, #40
- 1405 0012 93E80700 		ldmia	r3, {r0, r1, r2}
- 1406 0016 8DE80700 		stmia	sp, {r0, r1, r2}
- 1407 001a 0795     		str	r5, [sp, #28]
- 1408 001c 0895     		str	r5, [sp, #32]
- 1409 001e 0995     		str	r5, [sp, #36]
-ARM GAS  /tmp/cc823MVC.s 			page 25
-
-
- 1410 0020 07AB     		add	r3, sp, #28
- 1411 0022 0ECB     		ldmia	r3, {r1, r2, r3}
- 1412 0024 2068     		ldr	r0, [r4]
- 1413 0026 FFF7FEFF 		bl	SDIO_Init
- 1414 002a 0128     		cmp	r0, #1
- 1415 002c 01D1     		bne	.L207
- 1416              	.L209:
- 1417 002e 0120     		movs	r0, #1
- 1418 0030 AAE0     		b	.L232
- 1419              	.L207:
- 1420 0032 564E     		ldr	r6, .L234
- 1421 0034 2068     		ldr	r0, [r4]
- 1422 0036 3560     		str	r5, [r6]
- 1423 0038 FFF7FEFF 		bl	SDIO_PowerState_ON
- 1424 003c 0128     		cmp	r0, #1
- 1425 003e F6D0     		beq	.L209
- 1426 0040 0123     		movs	r3, #1
- 1427 0042 3360     		str	r3, [r6]
- 1428 0044 2068     		ldr	r0, [r4]
- 1429 0046 0695     		str	r5, [sp, #24]
- 1430 0048 FFF7FEFF 		bl	SDMMC_CmdGoIdleState
- 1431 004c 0028     		cmp	r0, #0
- 1432 004e 40F08E80 		bne	.L217
- 1433              	.L211:
- 1434 0052 069B     		ldr	r3, [sp, #24]
- 1435 0054 5A1C     		adds	r2, r3, #1
- 1436 0056 0692     		str	r2, [sp, #24]
- 1437 0058 4FF6FF72 		movw	r2, #65535
- 1438 005c 9342     		cmp	r3, r2
- 1439 005e 00F08880 		beq	.L218
- 1440 0062 4B49     		ldr	r1, .L234+4
- 1441 0064 2068     		ldr	r0, [r4]
- 1442 0066 FFF7FEFF 		bl	SDMMC_CmdOpCondition
- 1443 006a 0146     		mov	r1, r0
- 1444 006c 0028     		cmp	r0, #0
- 1445 006e 40F08380 		bne	.L219
- 1446 0072 2068     		ldr	r0, [r4]
- 1447 0074 FFF7FEFF 		bl	SDIO_GetResponse
- 1448 0078 C30F     		lsrs	r3, r0, #31
- 1449 007a EAD0     		beq	.L211
- 1450 007c 000E     		lsrs	r0, r0, #24
- 1451 007e A0F1C002 		sub	r2, r0, #192
- 1452 0082 5042     		rsbs	r0, r2, #0
- 1453 0084 5041     		adcs	r0, r0, r2
- 1454 0086 6064     		str	r0, [r4, #68]
- 1455 0088 2068     		ldr	r0, [r4]
- 1456 008a ADF81630 		strh	r3, [sp, #22]	@ movhi
- 1457 008e FFF7FEFF 		bl	SDIO_GetPowerState
- 1458 0092 0028     		cmp	r0, #0
- 1459 0094 5ED0     		beq	.L225
- 1460 0096 2068     		ldr	r0, [r4]
- 1461 0098 FFF7FEFF 		bl	SDMMC_CmdSendCID
- 1462 009c 0146     		mov	r1, r0
- 1463 009e 0028     		cmp	r0, #0
- 1464 00a0 5BD1     		bne	.L214
- 1465 00a2 2068     		ldr	r0, [r4]
- 1466 00a4 FFF7FEFF 		bl	SDIO_GetResponse
-ARM GAS  /tmp/cc823MVC.s 			page 26
-
-
- 1467 00a8 0421     		movs	r1, #4
- 1468 00aa 2067     		str	r0, [r4, #112]
- 1469 00ac 2068     		ldr	r0, [r4]
- 1470 00ae FFF7FEFF 		bl	SDIO_GetResponse
- 1471 00b2 0821     		movs	r1, #8
- 1472 00b4 6067     		str	r0, [r4, #116]
- 1473 00b6 2068     		ldr	r0, [r4]
- 1474 00b8 FFF7FEFF 		bl	SDIO_GetResponse
- 1475 00bc 0C21     		movs	r1, #12
- 1476 00be A067     		str	r0, [r4, #120]
- 1477 00c0 2068     		ldr	r0, [r4]
- 1478 00c2 FFF7FEFF 		bl	SDIO_GetResponse
- 1479 00c6 0DF11601 		add	r1, sp, #22
- 1480 00ca E067     		str	r0, [r4, #124]
- 1481 00cc 2068     		ldr	r0, [r4]
- 1482 00ce FFF7FEFF 		bl	SDMMC_CmdSetRelAdd
- 1483 00d2 0028     		cmp	r0, #0
- 1484 00d4 3CD1     		bne	.L223
- 1485 00d6 BDF81610 		ldrh	r1, [sp, #22]
- 1486 00da 2068     		ldr	r0, [r4]
- 1487 00dc E164     		str	r1, [r4, #76]
- 1488 00de 0904     		lsls	r1, r1, #16
- 1489 00e0 FFF7FEFF 		bl	SDMMC_CmdSendCSD
- 1490 00e4 0146     		mov	r1, r0
- 1491 00e6 0028     		cmp	r0, #0
- 1492 00e8 37D1     		bne	.L214
- 1493 00ea 2068     		ldr	r0, [r4]
- 1494 00ec FFF7FEFF 		bl	SDIO_GetResponse
- 1495 00f0 0421     		movs	r1, #4
- 1496 00f2 2066     		str	r0, [r4, #96]
- 1497 00f4 2068     		ldr	r0, [r4]
- 1498 00f6 FFF7FEFF 		bl	SDIO_GetResponse
- 1499 00fa 0821     		movs	r1, #8
- 1500 00fc 6066     		str	r0, [r4, #100]
- 1501 00fe 2068     		ldr	r0, [r4]
- 1502 0100 FFF7FEFF 		bl	SDIO_GetResponse
- 1503 0104 0C21     		movs	r1, #12
- 1504 0106 A066     		str	r0, [r4, #104]
- 1505 0108 2068     		ldr	r0, [r4]
- 1506 010a FFF7FEFF 		bl	SDIO_GetResponse
- 1507 010e 0421     		movs	r1, #4
- 1508 0110 E066     		str	r0, [r4, #108]
- 1509 0112 2068     		ldr	r0, [r4]
- 1510 0114 FFF7FEFF 		bl	SDIO_GetResponse
- 1511 0118 000D     		lsrs	r0, r0, #20
- 1512 011a A064     		str	r0, [r4, #72]
- 1513 011c 0DA9     		add	r1, sp, #52
- 1514 011e 2046     		mov	r0, r4
- 1515 0120 FFF7FEFF 		bl	HAL_MMC_GetCardCSD
- 1516 0124 0346     		mov	r3, r0
- 1517 0126 08B1     		cbz	r0, .L215
- 1518 0128 A16B     		ldr	r1, [r4, #56]
- 1519 012a 16E0     		b	.L214
- 1520              	.L215:
- 1521 012c E26C     		ldr	r2, [r4, #76]
- 1522 012e 2068     		ldr	r0, [r4]
- 1523 0130 1204     		lsls	r2, r2, #16
-ARM GAS  /tmp/cc823MVC.s 			page 27
-
-
- 1524 0132 FFF7FEFF 		bl	SDMMC_CmdSelDesel
- 1525 0136 58B9     		cbnz	r0, .L223
- 1526 0138 04F11003 		add	r3, r4, #16
- 1527 013c 93E80700 		ldmia	r3, {r0, r1, r2}
- 1528 0140 8DE80700 		stmia	sp, {r0, r1, r2}
- 1529 0144 231D     		adds	r3, r4, #4
- 1530 0146 0ECB     		ldmia	r3, {r1, r2, r3}
- 1531 0148 2068     		ldr	r0, [r4]
- 1532 014a FFF7FEFF 		bl	SDIO_Init
- 1533 014e 0CE0     		b	.L224
- 1534              	.L223:
- 1535 0150 0146     		mov	r1, r0
- 1536 0152 02E0     		b	.L214
- 1537              	.L225:
- 1538 0154 4FF08061 		mov	r1, #67108864
- 1539 0158 00E0     		b	.L233
- 1540              	.L214:
- 1541 015a 31B1     		cbz	r1, .L224
- 1542              	.L233:
- 1543 015c 0120     		movs	r0, #1
- 1544 015e 84F83400 		strb	r0, [r4, #52]
- 1545 0162 A36B     		ldr	r3, [r4, #56]
- 1546 0164 1943     		orrs	r1, r1, r3
- 1547 0166 A163     		str	r1, [r4, #56]
- 1548 0168 0EE0     		b	.L232
- 1549              	.L224:
- 1550 016a 0020     		movs	r0, #0
- 1551 016c 0CE0     		b	.L232
- 1552              	.L217:
- 1553 016e 0346     		mov	r3, r0
- 1554 0170 04E0     		b	.L210
- 1555              	.L218:
- 1556 0172 4FF08073 		mov	r3, #16777216
- 1557 0176 01E0     		b	.L210
- 1558              	.L219:
- 1559 0178 4FF08053 		mov	r3, #268435456
- 1560              	.L210:
- 1561 017c 0120     		movs	r0, #1
- 1562 017e 84F83400 		strb	r0, [r4, #52]
- 1563 0182 A26B     		ldr	r2, [r4, #56]
- 1564 0184 1343     		orrs	r3, r3, r2
- 1565 0186 A363     		str	r3, [r4, #56]
- 1566              	.L232:
- 1567 0188 18B0     		add	sp, sp, #96
- 1568              		@ sp needed
- 1569 018a 70BD     		pop	{r4, r5, r6, pc}
- 1570              	.L235:
- 1571              		.align	2
- 1572              	.L234:
- 1573 018c A0003042 		.word	1110442144
- 1574 0190 0080FFC0 		.word	-1056997376
- 1576              		.section	.text.HAL_MMC_Init,"ax",%progbits
- 1577              		.align	1
- 1578              		.global	HAL_MMC_Init
- 1579              		.thumb
- 1580              		.thumb_func
- 1582              	HAL_MMC_Init:
-ARM GAS  /tmp/cc823MVC.s 			page 28
-
-
- 1583              		@ args = 0, pretend = 0, frame = 0
- 1584              		@ frame_needed = 0, uses_anonymous_args = 0
- 1585 0000 10B5     		push	{r4, lr}
- 1586 0002 0446     		mov	r4, r0
- 1587 0004 08B9     		cbnz	r0, .L237
- 1588              	.L240:
- 1589 0006 0120     		movs	r0, #1
- 1590 0008 10BD     		pop	{r4, pc}
- 1591              	.L237:
- 1592 000a 90F83430 		ldrb	r3, [r0, #52]	@ zero_extendqisi2
- 1593 000e 03F0FF02 		and	r2, r3, #255
- 1594 0012 13B9     		cbnz	r3, .L239
- 1595 0014 0277     		strb	r2, [r0, #28]
- 1596 0016 FFF7FEFF 		bl	HAL_MMC_MspInit
- 1597              	.L239:
- 1598 001a 0323     		movs	r3, #3
- 1599 001c 84F83430 		strb	r3, [r4, #52]
- 1600 0020 2046     		mov	r0, r4
- 1601 0022 FFF7FEFF 		bl	HAL_MMC_InitCard
- 1602 0026 0128     		cmp	r0, #1
- 1603 0028 EDD0     		beq	.L240
- 1604 002a 0020     		movs	r0, #0
- 1605 002c 0123     		movs	r3, #1
- 1606 002e A063     		str	r0, [r4, #56]
- 1607 0030 2063     		str	r0, [r4, #48]
- 1608 0032 84F83430 		strb	r3, [r4, #52]
- 1609 0036 10BD     		pop	{r4, pc}
- 1611              		.section	.text.HAL_MMC_GetCardInfo,"ax",%progbits
- 1612              		.align	1
- 1613              		.global	HAL_MMC_GetCardInfo
- 1614              		.thumb
- 1615              		.thumb_func
- 1617              	HAL_MMC_GetCardInfo:
- 1618              		@ args = 0, pretend = 0, frame = 0
- 1619              		@ frame_needed = 0, uses_anonymous_args = 0
- 1620              		@ link register save eliminated.
- 1621 0000 436C     		ldr	r3, [r0, #68]
- 1622 0002 0B60     		str	r3, [r1]
- 1623 0004 836C     		ldr	r3, [r0, #72]
- 1624 0006 4B60     		str	r3, [r1, #4]
- 1625 0008 C36C     		ldr	r3, [r0, #76]
- 1626 000a 8B60     		str	r3, [r1, #8]
- 1627 000c 036D     		ldr	r3, [r0, #80]
- 1628 000e CB60     		str	r3, [r1, #12]
- 1629 0010 436D     		ldr	r3, [r0, #84]
- 1630 0012 0B61     		str	r3, [r1, #16]
- 1631 0014 836D     		ldr	r3, [r0, #88]
- 1632 0016 4B61     		str	r3, [r1, #20]
- 1633 0018 C36D     		ldr	r3, [r0, #92]
- 1634 001a 0020     		movs	r0, #0
- 1635 001c 8B61     		str	r3, [r1, #24]
- 1636 001e 7047     		bx	lr
- 1638              		.section	.text.HAL_MMC_ConfigWideBusOperation,"ax",%progbits
- 1639              		.align	1
- 1640              		.global	HAL_MMC_ConfigWideBusOperation
- 1641              		.thumb
- 1642              		.thumb_func
-ARM GAS  /tmp/cc823MVC.s 			page 29
-
-
- 1644              	HAL_MMC_ConfigWideBusOperation:
- 1645              		@ args = 0, pretend = 0, frame = 32
- 1646              		@ frame_needed = 0, uses_anonymous_args = 0
- 1647 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
- 1648 0004 0446     		mov	r4, r0
- 1649 0006 8846     		mov	r8, r1
- 1650 0008 8CB0     		sub	sp, sp, #48
- 1651 000a 0023     		movs	r3, #0
- 1652 000c 0593     		str	r3, [sp, #20]
- 1653 000e 0693     		str	r3, [sp, #24]
- 1654 0010 0793     		str	r3, [sp, #28]
- 1655 0012 0893     		str	r3, [sp, #32]
- 1656 0014 0A93     		str	r3, [sp, #40]
- 1657 0016 7623     		movs	r3, #118
- 1658 0018 0B93     		str	r3, [sp, #44]
- 1659 001a 0322     		movs	r2, #3
- 1660 001c 0991     		str	r1, [sp, #36]
- 1661 001e 09AF     		add	r7, sp, #36
- 1662 0020 80F83420 		strb	r2, [r0, #52]
- 1663 0024 97E80700 		ldmia	r7, {r0, r1, r2}
- 1664 0028 8DE80700 		stmia	sp, {r0, r1, r2}
- 1665 002c 06AE     		add	r6, sp, #24
- 1666 002e 96E80E00 		ldmia	r6, {r1, r2, r3}
- 1667 0032 2068     		ldr	r0, [r4]
- 1668 0034 FFF7FEFF 		bl	SDIO_Init
- 1669 0038 B8F5805F 		cmp	r8, #4096
- 1670 003c 02D1     		bne	.L246
- 1671 003e 2068     		ldr	r0, [r4]
- 1672 0040 3A49     		ldr	r1, .L281
- 1673 0042 0AE0     		b	.L278
- 1674              	.L246:
- 1675 0044 B8F5006F 		cmp	r8, #2048
- 1676 0048 02D1     		bne	.L250
- 1677 004a 2068     		ldr	r0, [r4]
- 1678 004c 3849     		ldr	r1, .L281+4
- 1679 004e 04E0     		b	.L278
- 1680              	.L250:
- 1681 0050 B8F1000F 		cmp	r8, #0
- 1682 0054 08D1     		bne	.L252
- 1683 0056 2068     		ldr	r0, [r4]
- 1684 0058 3649     		ldr	r1, .L281+8
- 1685              	.L278:
- 1686 005a FFF7FEFF 		bl	SDMMC_CmdSwitch
- 1687 005e 38B1     		cbz	r0, .L249
- 1688 0060 A36B     		ldr	r3, [r4, #56]
- 1689 0062 1843     		orrs	r0, r0, r3
- 1690 0064 A063     		str	r0, [r4, #56]
- 1691 0066 03E0     		b	.L249
- 1692              	.L252:
- 1693 0068 A36B     		ldr	r3, [r4, #56]
- 1694 006a 43F00063 		orr	r3, r3, #134217728
- 1695 006e A363     		str	r3, [r4, #56]
- 1696              	.L249:
- 1697 0070 4FF6FF73 		movw	r3, #65535
- 1698 0074 059A     		ldr	r2, [sp, #20]
- 1699 0076 9A42     		cmp	r2, r3
- 1700 0078 2BD0     		beq	.L276
-ARM GAS  /tmp/cc823MVC.s 			page 30
-
-
- 1701 007a 059B     		ldr	r3, [sp, #20]
- 1702 007c E16C     		ldr	r1, [r4, #76]
- 1703 007e 0133     		adds	r3, r3, #1
- 1704 0080 2068     		ldr	r0, [r4]
- 1705 0082 0904     		lsls	r1, r1, #16
- 1706 0084 0593     		str	r3, [sp, #20]
- 1707 0086 FFF7FEFF 		bl	SDMMC_CmdSendStatus
- 1708 008a 10B1     		cbz	r0, .L255
- 1709 008c A36B     		ldr	r3, [r4, #56]
- 1710 008e 1843     		orrs	r0, r0, r3
- 1711 0090 A063     		str	r0, [r4, #56]
- 1712              	.L255:
- 1713 0092 2068     		ldr	r0, [r4]
- 1714 0094 0021     		movs	r1, #0
- 1715 0096 FFF7FEFF 		bl	SDIO_GetResponse
- 1716 009a C309     		lsrs	r3, r0, #7
- 1717 009c 012B     		cmp	r3, #1
- 1718 009e E7D0     		beq	.L249
- 1719 00a0 4FF0FF33 		mov	r3, #-1
- 1720 00a4 0593     		str	r3, [sp, #20]
- 1721 00a6 0FE0     		b	.L256
- 1722              	.L257:
- 1723 00a8 059B     		ldr	r3, [sp, #20]
- 1724 00aa E16C     		ldr	r1, [r4, #76]
- 1725 00ac 013B     		subs	r3, r3, #1
- 1726 00ae 2068     		ldr	r0, [r4]
- 1727 00b0 0904     		lsls	r1, r1, #16
- 1728 00b2 0593     		str	r3, [sp, #20]
- 1729 00b4 FFF7FEFF 		bl	SDMMC_CmdSendStatus
- 1730 00b8 10B1     		cbz	r0, .L258
- 1731 00ba A36B     		ldr	r3, [r4, #56]
- 1732 00bc 1843     		orrs	r0, r0, r3
- 1733 00be A063     		str	r0, [r4, #56]
- 1734              	.L258:
- 1735 00c0 2068     		ldr	r0, [r4]
- 1736 00c2 0021     		movs	r1, #0
- 1737 00c4 FFF7FEFF 		bl	SDIO_GetResponse
- 1738              	.L256:
- 1739 00c8 C305     		lsls	r3, r0, #23
- 1740 00ca 0AD4     		bmi	.L280
- 1741 00cc 059B     		ldr	r3, [sp, #20]
- 1742 00ce 002B     		cmp	r3, #0
- 1743 00d0 EAD1     		bne	.L257
- 1744              	.L276:
- 1745 00d2 0120     		movs	r0, #1
- 1746 00d4 84F83400 		strb	r0, [r4, #52]
- 1747 00d8 A36B     		ldr	r3, [r4, #56]
- 1748 00da 43F08063 		orr	r3, r3, #67108864
- 1749 00de A363     		str	r3, [r4, #56]
- 1750 00e0 21E0     		b	.L254
- 1751              	.L280:
- 1752 00e2 A56B     		ldr	r5, [r4, #56]
- 1753 00e4 35B1     		cbz	r5, .L260
- 1754 00e6 2368     		ldr	r3, [r4]
- 1755 00e8 134A     		ldr	r2, .L281+12
- 1756 00ea 0120     		movs	r0, #1
- 1757 00ec 9A63     		str	r2, [r3, #56]
-ARM GAS  /tmp/cc823MVC.s 			page 31
-
-
- 1758 00ee 84F83400 		strb	r0, [r4, #52]
- 1759 00f2 18E0     		b	.L254
- 1760              	.L260:
- 1761 00f4 6368     		ldr	r3, [r4, #4]
- 1762 00f6 CDF82480 		str	r8, [sp, #36]
- 1763 00fa 0693     		str	r3, [sp, #24]
- 1764 00fc A368     		ldr	r3, [r4, #8]
- 1765 00fe 0793     		str	r3, [sp, #28]
- 1766 0100 E368     		ldr	r3, [r4, #12]
- 1767 0102 0893     		str	r3, [sp, #32]
- 1768 0104 6369     		ldr	r3, [r4, #20]
- 1769 0106 0A93     		str	r3, [sp, #40]
- 1770 0108 A369     		ldr	r3, [r4, #24]
- 1771 010a 0B93     		str	r3, [sp, #44]
- 1772 010c 97E80700 		ldmia	r7, {r0, r1, r2}
- 1773 0110 8DE80700 		stmia	sp, {r0, r1, r2}
- 1774 0114 2068     		ldr	r0, [r4]
- 1775 0116 96E80E00 		ldmia	r6, {r1, r2, r3}
- 1776 011a FFF7FEFF 		bl	SDIO_Init
- 1777 011e 2846     		mov	r0, r5
- 1778 0120 0123     		movs	r3, #1
- 1779 0122 84F83430 		strb	r3, [r4, #52]
- 1780              	.L254:
- 1781 0126 0CB0     		add	sp, sp, #48
- 1782              		@ sp needed
- 1783 0128 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 1784              	.L282:
- 1785              		.align	2
- 1786              	.L281:
- 1787 012c 0002B703 		.word	62325248
- 1788 0130 0001B703 		.word	62324992
- 1789 0134 0000B703 		.word	62324736
- 1790 0138 FF054000 		.word	4195839
- 1792              		.section	.text.HAL_MMC_GetCardState,"ax",%progbits
- 1793              		.align	1
- 1794              		.global	HAL_MMC_GetCardState
- 1795              		.thumb
- 1796              		.thumb_func
- 1798              	HAL_MMC_GetCardState:
- 1799              		@ args = 0, pretend = 0, frame = 0
- 1800              		@ frame_needed = 0, uses_anonymous_args = 0
- 1801 0000 C16C     		ldr	r1, [r0, #76]
- 1802 0002 10B5     		push	{r4, lr}
- 1803 0004 0904     		lsls	r1, r1, #16
- 1804 0006 0446     		mov	r4, r0
- 1805 0008 0068     		ldr	r0, [r0]
- 1806 000a FFF7FEFF 		bl	SDMMC_CmdSendStatus
- 1807 000e 0146     		mov	r1, r0
- 1808 0010 18B9     		cbnz	r0, .L284
- 1809 0012 2068     		ldr	r0, [r4]
- 1810 0014 FFF7FEFF 		bl	SDIO_GetResponse
- 1811 0018 03E0     		b	.L285
- 1812              	.L284:
- 1813 001a A36B     		ldr	r3, [r4, #56]
- 1814 001c 0020     		movs	r0, #0
- 1815 001e 1943     		orrs	r1, r1, r3
- 1816 0020 A163     		str	r1, [r4, #56]
-ARM GAS  /tmp/cc823MVC.s 			page 32
-
-
- 1817              	.L285:
- 1818 0022 C0F34320 		ubfx	r0, r0, #9, #4
- 1819 0026 10BD     		pop	{r4, pc}
- 1821              		.section	.text.MMC_DMAError,"ax",%progbits
- 1822              		.align	1
- 1823              		.thumb
- 1824              		.thumb_func
- 1826              	MMC_DMAError:
- 1827              		@ args = 0, pretend = 0, frame = 0
- 1828              		@ frame_needed = 0, uses_anonymous_args = 0
- 1829 0000 10B5     		push	{r4, lr}
- 1830 0002 446A     		ldr	r4, [r0, #36]
- 1831 0004 E36B     		ldr	r3, [r4, #60]
- 1832 0006 9A6B     		ldr	r2, [r3, #56]
- 1833 0008 236C     		ldr	r3, [r4, #64]
- 1834 000a 012A     		cmp	r2, #1
- 1835 000c 9B6B     		ldr	r3, [r3, #56]
- 1836 000e 01D0     		beq	.L288
- 1837 0010 012B     		cmp	r3, #1
- 1838 0012 19D1     		bne	.L289
- 1839              	.L288:
- 1840 0014 2368     		ldr	r3, [r4]
- 1841 0016 0E4A     		ldr	r2, .L294
- 1842 0018 2046     		mov	r0, r4
- 1843 001a 9A63     		str	r2, [r3, #56]
- 1844 001c DA6B     		ldr	r2, [r3, #60]
- 1845 001e 22F49D72 		bic	r2, r2, #314
- 1846 0022 DA63     		str	r2, [r3, #60]
- 1847 0024 A36B     		ldr	r3, [r4, #56]
- 1848 0026 43F08043 		orr	r3, r3, #1073741824
- 1849 002a A363     		str	r3, [r4, #56]
- 1850 002c FFF7FEFF 		bl	HAL_MMC_GetCardState
- 1851 0030 0538     		subs	r0, r0, #5
- 1852 0032 0128     		cmp	r0, #1
- 1853 0034 05D8     		bhi	.L290
- 1854 0036 2068     		ldr	r0, [r4]
- 1855 0038 FFF7FEFF 		bl	SDMMC_CmdStopTransfer
- 1856 003c A36B     		ldr	r3, [r4, #56]
- 1857 003e 1843     		orrs	r0, r0, r3
- 1858 0040 A063     		str	r0, [r4, #56]
- 1859              	.L290:
- 1860 0042 0123     		movs	r3, #1
- 1861 0044 84F83430 		strb	r3, [r4, #52]
- 1862              	.L289:
- 1863 0048 2046     		mov	r0, r4
- 1864 004a FFF7FEFF 		bl	HAL_MMC_ErrorCallback
- 1865 004e 10BD     		pop	{r4, pc}
- 1866              	.L295:
- 1867              		.align	2
- 1868              	.L294:
- 1869 0050 FF054000 		.word	4195839
- 1871              		.section	.text.MMC_DMATxAbort,"ax",%progbits
- 1872              		.align	1
- 1873              		.thumb
- 1874              		.thumb_func
- 1876              	MMC_DMATxAbort:
- 1877              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/cc823MVC.s 			page 33
-
-
- 1878              		@ frame_needed = 0, uses_anonymous_args = 0
- 1879 0000 38B5     		push	{r3, r4, r5, lr}
- 1880 0002 446A     		ldr	r4, [r0, #36]
- 1881 0004 236C     		ldr	r3, [r4, #64]
- 1882 0006 0BB1     		cbz	r3, .L297
- 1883 0008 0023     		movs	r3, #0
- 1884 000a 2364     		str	r3, [r4, #64]
- 1885              	.L297:
- 1886 000c E56B     		ldr	r5, [r4, #60]
- 1887 000e BDB9     		cbnz	r5, .L296
- 1888 0010 2046     		mov	r0, r4
- 1889 0012 FFF7FEFF 		bl	HAL_MMC_GetCardState
- 1890 0016 0123     		movs	r3, #1
- 1891 0018 0538     		subs	r0, r0, #5
- 1892 001a 9842     		cmp	r0, r3
- 1893 001c A563     		str	r5, [r4, #56]
- 1894 001e 84F83430 		strb	r3, [r4, #52]
- 1895 0022 0DD8     		bhi	.L296
- 1896 0024 2068     		ldr	r0, [r4]
- 1897 0026 FFF7FEFF 		bl	SDMMC_CmdStopTransfer
- 1898 002a A36B     		ldr	r3, [r4, #56]
- 1899 002c 1843     		orrs	r0, r0, r3
- 1900 002e A063     		str	r0, [r4, #56]
- 1901 0030 A36B     		ldr	r3, [r4, #56]
- 1902 0032 2046     		mov	r0, r4
- 1903 0034 13B1     		cbz	r3, .L301
- 1904 0036 FFF7FEFF 		bl	HAL_MMC_AbortCallback
- 1905 003a 38BD     		pop	{r3, r4, r5, pc}
- 1906              	.L301:
- 1907 003c FFF7FEFF 		bl	HAL_MMC_ErrorCallback
- 1908              	.L296:
- 1909 0040 38BD     		pop	{r3, r4, r5, pc}
- 1911              		.section	.text.MMC_DMARxAbort,"ax",%progbits
- 1912              		.align	1
- 1913              		.thumb
- 1914              		.thumb_func
- 1916              	MMC_DMARxAbort:
- 1917              		@ args = 0, pretend = 0, frame = 0
- 1918              		@ frame_needed = 0, uses_anonymous_args = 0
- 1919 0000 38B5     		push	{r3, r4, r5, lr}
- 1920 0002 446A     		ldr	r4, [r0, #36]
- 1921 0004 E36B     		ldr	r3, [r4, #60]
- 1922 0006 0BB1     		cbz	r3, .L306
- 1923 0008 0023     		movs	r3, #0
- 1924 000a E363     		str	r3, [r4, #60]
- 1925              	.L306:
- 1926 000c 256C     		ldr	r5, [r4, #64]
- 1927 000e BDB9     		cbnz	r5, .L305
- 1928 0010 2046     		mov	r0, r4
- 1929 0012 FFF7FEFF 		bl	HAL_MMC_GetCardState
- 1930 0016 0123     		movs	r3, #1
- 1931 0018 0538     		subs	r0, r0, #5
- 1932 001a 9842     		cmp	r0, r3
- 1933 001c A563     		str	r5, [r4, #56]
- 1934 001e 84F83430 		strb	r3, [r4, #52]
- 1935 0022 0DD8     		bhi	.L305
- 1936 0024 2068     		ldr	r0, [r4]
-ARM GAS  /tmp/cc823MVC.s 			page 34
-
-
- 1937 0026 FFF7FEFF 		bl	SDMMC_CmdStopTransfer
- 1938 002a A36B     		ldr	r3, [r4, #56]
- 1939 002c 1843     		orrs	r0, r0, r3
- 1940 002e A063     		str	r0, [r4, #56]
- 1941 0030 A36B     		ldr	r3, [r4, #56]
- 1942 0032 2046     		mov	r0, r4
- 1943 0034 13B1     		cbz	r3, .L310
- 1944 0036 FFF7FEFF 		bl	HAL_MMC_AbortCallback
- 1945 003a 38BD     		pop	{r3, r4, r5, pc}
- 1946              	.L310:
- 1947 003c FFF7FEFF 		bl	HAL_MMC_ErrorCallback
- 1948              	.L305:
- 1949 0040 38BD     		pop	{r3, r4, r5, pc}
- 1951              		.section	.text.HAL_MMC_IRQHandler,"ax",%progbits
- 1952              		.align	1
- 1953              		.global	HAL_MMC_IRQHandler
- 1954              		.thumb
- 1955              		.thumb_func
- 1957              	HAL_MMC_IRQHandler:
- 1958              		@ args = 0, pretend = 0, frame = 8
- 1959              		@ frame_needed = 0, uses_anonymous_args = 0
- 1960 0000 2DE9F341 		push	{r0, r1, r4, r5, r6, r7, r8, lr}
- 1961 0004 056B     		ldr	r5, [r0, #48]
- 1962 0006 0446     		mov	r4, r0
- 1963 0008 0068     		ldr	r0, [r0]
- 1964 000a 436B     		ldr	r3, [r0, #52]
- 1965 000c 1A04     		lsls	r2, r3, #16
- 1966 000e 1FD5     		bpl	.L315
- 1967 0010 2B07     		lsls	r3, r5, #28
- 1968 0012 1DD5     		bpl	.L315
- 1969 0014 E76A     		ldr	r7, [r4, #44]
- 1970 0016 A66A     		ldr	r6, [r4, #40]
- 1971 0018 002F     		cmp	r7, #0
- 1972 001a 00F0EF80 		beq	.L314
- 1973 001e 351D     		adds	r5, r6, #4
- 1974 0020 06F12408 		add	r8, r6, #36
- 1975              	.L318:
- 1976 0024 2068     		ldr	r0, [r4]
- 1977 0026 FFF7FEFF 		bl	SDIO_ReadFIFO
- 1978 002a 030A     		lsrs	r3, r0, #8
- 1979 002c 05F8040C 		strb	r0, [r5, #-4]
- 1980 0030 05F8033C 		strb	r3, [r5, #-3]
- 1981 0034 030C     		lsrs	r3, r0, #16
- 1982 0036 000E     		lsrs	r0, r0, #24
- 1983 0038 05F8023C 		strb	r3, [r5, #-2]
- 1984 003c 05F8010C 		strb	r0, [r5, #-1]
- 1985 0040 0435     		adds	r5, r5, #4
- 1986 0042 4545     		cmp	r5, r8
- 1987 0044 EED1     		bne	.L318
- 1988 0046 2036     		adds	r6, r6, #32
- 1989 0048 203F     		subs	r7, r7, #32
- 1990 004a A662     		str	r6, [r4, #40]
- 1991 004c E762     		str	r7, [r4, #44]
- 1992 004e D5E0     		b	.L314
- 1993              	.L315:
- 1994 0050 436B     		ldr	r3, [r0, #52]
- 1995 0052 DF05     		lsls	r7, r3, #23
-ARM GAS  /tmp/cc823MVC.s 			page 35
-
-
- 1996 0054 46D5     		bpl	.L319
- 1997 0056 4FF48073 		mov	r3, #256
- 1998 005a 8363     		str	r3, [r0, #56]
- 1999 005c C36B     		ldr	r3, [r0, #60]
- 2000 005e 2E06     		lsls	r6, r5, #24
- 2001 0060 23F44E73 		bic	r3, r3, #824
- 2002 0064 23F00203 		bic	r3, r3, #2
- 2003 0068 C363     		str	r3, [r0, #60]
- 2004 006a C36A     		ldr	r3, [r0, #44]
- 2005 006c 23F00103 		bic	r3, r3, #1
- 2006 0070 C362     		str	r3, [r0, #44]
- 2007 0072 17D5     		bpl	.L320
- 2008 0074 A906     		lsls	r1, r5, #26
- 2009 0076 08D5     		bpl	.L322
- 2010 0078 FFF7FEFF 		bl	SDMMC_CmdStopTransfer
- 2011 007c 28B1     		cbz	r0, .L322
- 2012 007e A36B     		ldr	r3, [r4, #56]
- 2013 0080 1843     		orrs	r0, r0, r3
- 2014 0082 A063     		str	r0, [r4, #56]
- 2015 0084 2046     		mov	r0, r4
- 2016 0086 FFF7FEFF 		bl	HAL_MMC_ErrorCallback
- 2017              	.L322:
- 2018 008a AA07     		lsls	r2, r5, #30
- 2019 008c 40F0B680 		bne	.L314
- 2020 0090 2268     		ldr	r2, [r4]
- 2021 0092 2046     		mov	r0, r4
- 2022 0094 D36A     		ldr	r3, [r2, #44]
- 2023 0096 23F00803 		bic	r3, r3, #8
- 2024 009a D362     		str	r3, [r2, #44]
- 2025 009c 0123     		movs	r3, #1
- 2026 009e 84F83430 		strb	r3, [r4, #52]
- 2027 00a2 1CE0     		b	.L328
- 2028              	.L320:
- 2029 00a4 2B07     		lsls	r3, r5, #28
- 2030 00a6 40F1A980 		bpl	.L314
- 2031 00aa 15F0220F 		tst	r5, #34
- 2032 00ae 08D0     		beq	.L326
- 2033 00b0 FFF7FEFF 		bl	SDMMC_CmdStopTransfer
- 2034 00b4 28B1     		cbz	r0, .L326
- 2035 00b6 A36B     		ldr	r3, [r4, #56]
- 2036 00b8 1843     		orrs	r0, r0, r3
- 2037 00ba A063     		str	r0, [r4, #56]
- 2038 00bc 2046     		mov	r0, r4
- 2039 00be FFF7FEFF 		bl	HAL_MMC_ErrorCallback
- 2040              	.L326:
- 2041 00c2 40F23A52 		movw	r2, #1338
- 2042 00c6 2368     		ldr	r3, [r4]
- 2043 00c8 AF07     		lsls	r7, r5, #30
- 2044 00ca 9A63     		str	r2, [r3, #56]
- 2045 00cc 4FF00103 		mov	r3, #1
- 2046 00d0 84F83430 		strb	r3, [r4, #52]
- 2047 00d4 2046     		mov	r0, r4
- 2048 00d6 02D0     		beq	.L328
- 2049 00d8 FFF7FEFF 		bl	HAL_MMC_RxCpltCallback
- 2050 00dc 8EE0     		b	.L314
- 2051              	.L328:
- 2052 00de FFF7FEFF 		bl	HAL_MMC_TxCpltCallback
-ARM GAS  /tmp/cc823MVC.s 			page 36
-
-
- 2053 00e2 8BE0     		b	.L314
- 2054              	.L319:
- 2055 00e4 436B     		ldr	r3, [r0, #52]
- 2056 00e6 5E04     		lsls	r6, r3, #17
- 2057 00e8 28D5     		bpl	.L329
- 2058 00ea 2907     		lsls	r1, r5, #28
- 2059 00ec 26D5     		bpl	.L329
- 2060 00ee 676A     		ldr	r7, [r4, #36]
- 2061 00f0 266A     		ldr	r6, [r4, #32]
- 2062 00f2 002F     		cmp	r7, #0
- 2063 00f4 00F08280 		beq	.L314
- 2064 00f8 351D     		adds	r5, r6, #4
- 2065 00fa 06F12408 		add	r8, r6, #36
- 2066              	.L331:
- 2067 00fe 15F8043C 		ldrb	r3, [r5, #-4]	@ zero_extendqisi2
- 2068 0102 02A9     		add	r1, sp, #8
- 2069 0104 0193     		str	r3, [sp, #4]
- 2070 0106 15F8032C 		ldrb	r2, [r5, #-3]	@ zero_extendqisi2
- 2071 010a 2068     		ldr	r0, [r4]
- 2072 010c 43EA0223 		orr	r3, r3, r2, lsl #8
- 2073 0110 0193     		str	r3, [sp, #4]
- 2074 0112 15F8022C 		ldrb	r2, [r5, #-2]	@ zero_extendqisi2
- 2075 0116 0435     		adds	r5, r5, #4
- 2076 0118 43EA0243 		orr	r3, r3, r2, lsl #16
- 2077 011c 0193     		str	r3, [sp, #4]
- 2078 011e 15F8052C 		ldrb	r2, [r5, #-5]	@ zero_extendqisi2
- 2079 0122 43EA0263 		orr	r3, r3, r2, lsl #24
- 2080 0126 41F8043D 		str	r3, [r1, #-4]!
- 2081 012a FFF7FEFF 		bl	SDIO_WriteFIFO
- 2082 012e 4545     		cmp	r5, r8
- 2083 0130 E5D1     		bne	.L331
- 2084 0132 2036     		adds	r6, r6, #32
- 2085 0134 203F     		subs	r7, r7, #32
- 2086 0136 2662     		str	r6, [r4, #32]
- 2087 0138 6762     		str	r7, [r4, #36]
- 2088 013a 5FE0     		b	.L314
- 2089              	.L329:
- 2090 013c 40F23A23 		movw	r3, #570
- 2091 0140 426B     		ldr	r2, [r0, #52]
- 2092 0142 1340     		ands	r3, r3, r2
- 2093 0144 002B     		cmp	r3, #0
- 2094 0146 59D0     		beq	.L314
- 2095 0148 436B     		ldr	r3, [r0, #52]
- 2096 014a 9A07     		lsls	r2, r3, #30
- 2097 014c 42BF     		ittt	mi
- 2098 014e A36B     		ldrmi	r3, [r4, #56]
- 2099 0150 43F00203 		orrmi	r3, r3, #2
- 2100 0154 A363     		strmi	r3, [r4, #56]
- 2101 0156 436B     		ldr	r3, [r0, #52]
- 2102 0158 1B07     		lsls	r3, r3, #28
- 2103 015a 42BF     		ittt	mi
- 2104 015c A36B     		ldrmi	r3, [r4, #56]
- 2105 015e 43F00803 		orrmi	r3, r3, #8
- 2106 0162 A363     		strmi	r3, [r4, #56]
- 2107 0164 436B     		ldr	r3, [r0, #52]
- 2108 0166 9F06     		lsls	r7, r3, #26
- 2109 0168 42BF     		ittt	mi
-ARM GAS  /tmp/cc823MVC.s 			page 37
-
-
- 2110 016a A36B     		ldrmi	r3, [r4, #56]
- 2111 016c 43F02003 		orrmi	r3, r3, #32
- 2112 0170 A363     		strmi	r3, [r4, #56]
- 2113 0172 436B     		ldr	r3, [r0, #52]
- 2114 0174 DE06     		lsls	r6, r3, #27
- 2115 0176 42BF     		ittt	mi
- 2116 0178 A36B     		ldrmi	r3, [r4, #56]
- 2117 017a 43F01003 		orrmi	r3, r3, #16
- 2118 017e A363     		strmi	r3, [r4, #56]
- 2119 0180 436B     		ldr	r3, [r0, #52]
- 2120 0182 9905     		lsls	r1, r3, #22
- 2121 0184 42BF     		ittt	mi
- 2122 0186 A36B     		ldrmi	r3, [r4, #56]
- 2123 0188 43F00803 		orrmi	r3, r3, #8
- 2124 018c A363     		strmi	r3, [r4, #56]
- 2125 018e 40F23A73 		movw	r3, #1850
- 2126 0192 8363     		str	r3, [r0, #56]
- 2127 0194 C36B     		ldr	r3, [r0, #60]
- 2128 0196 23F44E73 		bic	r3, r3, #824
- 2129 019a 23F00203 		bic	r3, r3, #2
- 2130 019e C363     		str	r3, [r0, #60]
- 2131 01a0 FFF7FEFF 		bl	SDMMC_CmdStopTransfer
- 2132 01a4 A36B     		ldr	r3, [r4, #56]
- 2133 01a6 2A07     		lsls	r2, r5, #28
- 2134 01a8 40EA0300 		orr	r0, r0, r3
- 2135 01ac A063     		str	r0, [r4, #56]
- 2136 01ae 06D5     		bpl	.L337
- 2137 01b0 0123     		movs	r3, #1
- 2138 01b2 84F83430 		strb	r3, [r4, #52]
- 2139 01b6 2046     		mov	r0, r4
- 2140 01b8 FFF7FEFF 		bl	HAL_MMC_ErrorCallback
- 2141 01bc 1EE0     		b	.L314
- 2142              	.L337:
- 2143 01be 2B06     		lsls	r3, r5, #24
- 2144 01c0 1CD5     		bpl	.L314
- 2145 01c2 206C     		ldr	r0, [r4, #64]
- 2146 01c4 40B1     		cbz	r0, .L338
- 2147 01c6 0F4B     		ldr	r3, .L393
- 2148 01c8 4363     		str	r3, [r0, #52]
- 2149 01ca FFF7FEFF 		bl	HAL_DMA_Abort_IT
- 2150 01ce A8B1     		cbz	r0, .L314
- 2151 01d0 206C     		ldr	r0, [r4, #64]
- 2152 01d2 FFF7FEFF 		bl	MMC_DMATxAbort
- 2153 01d6 11E0     		b	.L314
- 2154              	.L338:
- 2155 01d8 E06B     		ldr	r0, [r4, #60]
- 2156 01da 40B1     		cbz	r0, .L339
- 2157 01dc 0A4B     		ldr	r3, .L393+4
- 2158 01de 4363     		str	r3, [r0, #52]
- 2159 01e0 FFF7FEFF 		bl	HAL_DMA_Abort_IT
- 2160 01e4 50B1     		cbz	r0, .L314
- 2161 01e6 E06B     		ldr	r0, [r4, #60]
- 2162 01e8 FFF7FEFF 		bl	MMC_DMARxAbort
- 2163 01ec 06E0     		b	.L314
- 2164              	.L339:
- 2165 01ee 0123     		movs	r3, #1
- 2166 01f0 A063     		str	r0, [r4, #56]
-ARM GAS  /tmp/cc823MVC.s 			page 38
-
-
- 2167 01f2 84F83430 		strb	r3, [r4, #52]
- 2168 01f6 2046     		mov	r0, r4
- 2169 01f8 FFF7FEFF 		bl	HAL_MMC_AbortCallback
- 2170              	.L314:
- 2171 01fc 02B0     		add	sp, sp, #8
- 2172              		@ sp needed
- 2173 01fe BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 2174              	.L394:
- 2175 0202 00BF     		.align	2
- 2176              	.L393:
- 2177 0204 00000000 		.word	MMC_DMATxAbort
- 2178 0208 00000000 		.word	MMC_DMARxAbort
- 2180              		.section	.text.HAL_MMC_Abort,"ax",%progbits
- 2181              		.align	1
- 2182              		.global	HAL_MMC_Abort
- 2183              		.thumb
- 2184              		.thumb_func
- 2186              	HAL_MMC_Abort:
- 2187              		@ args = 0, pretend = 0, frame = 0
- 2188              		@ frame_needed = 0, uses_anonymous_args = 0
- 2189 0000 0368     		ldr	r3, [r0]
- 2190 0002 10B5     		push	{r4, lr}
- 2191 0004 DA6B     		ldr	r2, [r3, #60]
- 2192 0006 0446     		mov	r4, r0
- 2193 0008 22F49D72 		bic	r2, r2, #314
- 2194 000c DA63     		str	r2, [r3, #60]
- 2195 000e 40F23A52 		movw	r2, #1338
- 2196 0012 006C     		ldr	r0, [r0, #64]
- 2197 0014 9A63     		str	r2, [r3, #56]
- 2198 0016 08B9     		cbnz	r0, .L396
- 2199 0018 E26B     		ldr	r2, [r4, #60]
- 2200 001a A2B1     		cbz	r2, .L397
- 2201              	.L396:
- 2202 001c DA6A     		ldr	r2, [r3, #44]
- 2203 001e 22F00802 		bic	r2, r2, #8
- 2204 0022 DA62     		str	r2, [r3, #44]
- 2205 0024 30B1     		cbz	r0, .L399
- 2206 0026 FFF7FEFF 		bl	HAL_DMA_Abort
- 2207 002a 18B1     		cbz	r0, .L399
- 2208 002c A36B     		ldr	r3, [r4, #56]
- 2209 002e 43F08043 		orr	r3, r3, #1073741824
- 2210 0032 A363     		str	r3, [r4, #56]
- 2211              	.L399:
- 2212 0034 E06B     		ldr	r0, [r4, #60]
- 2213 0036 30B1     		cbz	r0, .L397
- 2214 0038 FFF7FEFF 		bl	HAL_DMA_Abort
- 2215 003c 18B1     		cbz	r0, .L397
- 2216 003e A36B     		ldr	r3, [r4, #56]
- 2217 0040 43F08043 		orr	r3, r3, #1073741824
- 2218 0044 A363     		str	r3, [r4, #56]
- 2219              	.L397:
- 2220 0046 0123     		movs	r3, #1
- 2221 0048 84F83430 		strb	r3, [r4, #52]
- 2222 004c 0023     		movs	r3, #0
- 2223 004e 2363     		str	r3, [r4, #48]
- 2224 0050 2046     		mov	r0, r4
- 2225 0052 FFF7FEFF 		bl	HAL_MMC_GetCardState
-ARM GAS  /tmp/cc823MVC.s 			page 39
-
-
- 2226 0056 0538     		subs	r0, r0, #5
- 2227 0058 0128     		cmp	r0, #1
- 2228 005a 03D8     		bhi	.L402
- 2229 005c 2068     		ldr	r0, [r4]
- 2230 005e FFF7FEFF 		bl	SDMMC_CmdStopTransfer
- 2231 0062 A063     		str	r0, [r4, #56]
- 2232              	.L402:
- 2233 0064 A06B     		ldr	r0, [r4, #56]
- 2234 0066 0030     		adds	r0, r0, #0
- 2235 0068 18BF     		it	ne
- 2236 006a 0120     		movne	r0, #1
- 2237 006c 10BD     		pop	{r4, pc}
- 2239              		.section	.text.HAL_MMC_Abort_IT,"ax",%progbits
- 2240              		.align	1
- 2241              		.global	HAL_MMC_Abort_IT
- 2242              		.thumb
- 2243              		.thumb_func
- 2245              	HAL_MMC_Abort_IT:
- 2246              		@ args = 0, pretend = 0, frame = 0
- 2247              		@ frame_needed = 0, uses_anonymous_args = 0
- 2248 0000 38B5     		push	{r3, r4, r5, lr}
- 2249 0002 0368     		ldr	r3, [r0]
- 2250 0004 0446     		mov	r4, r0
- 2251 0006 DA6B     		ldr	r2, [r3, #60]
- 2252 0008 006C     		ldr	r0, [r0, #64]
- 2253 000a 22F49D72 		bic	r2, r2, #314
- 2254 000e DA63     		str	r2, [r3, #60]
- 2255 0010 40F23A52 		movw	r2, #1338
- 2256 0014 9A63     		str	r2, [r3, #56]
- 2257 0016 08B9     		cbnz	r0, .L413
- 2258 0018 E26B     		ldr	r2, [r4, #60]
- 2259 001a A2B1     		cbz	r2, .L414
- 2260              	.L413:
- 2261 001c DA6A     		ldr	r2, [r3, #44]
- 2262 001e 22F00802 		bic	r2, r2, #8
- 2263 0022 DA62     		str	r2, [r3, #44]
- 2264 0024 30B1     		cbz	r0, .L416
- 2265 0026 154B     		ldr	r3, .L433
- 2266 0028 4363     		str	r3, [r0, #52]
- 2267 002a FFF7FEFF 		bl	HAL_DMA_Abort_IT
- 2268 002e 08B1     		cbz	r0, .L416
- 2269 0030 0023     		movs	r3, #0
- 2270 0032 2364     		str	r3, [r4, #64]
- 2271              	.L416:
- 2272 0034 E06B     		ldr	r0, [r4, #60]
- 2273 0036 30B1     		cbz	r0, .L414
- 2274 0038 114B     		ldr	r3, .L433+4
- 2275 003a 4363     		str	r3, [r0, #52]
- 2276 003c FFF7FEFF 		bl	HAL_DMA_Abort_IT
- 2277 0040 08B1     		cbz	r0, .L414
- 2278 0042 0023     		movs	r3, #0
- 2279 0044 E363     		str	r3, [r4, #60]
- 2280              	.L414:
- 2281 0046 206C     		ldr	r0, [r4, #64]
- 2282 0048 98B9     		cbnz	r0, .L421
- 2283 004a E36B     		ldr	r3, [r4, #60]
- 2284 004c A3B9     		cbnz	r3, .L419
-ARM GAS  /tmp/cc823MVC.s 			page 40
-
-
- 2285 004e 2046     		mov	r0, r4
- 2286 0050 FFF7FEFF 		bl	HAL_MMC_GetCardState
- 2287 0054 0123     		movs	r3, #1
- 2288 0056 0538     		subs	r0, r0, #5
- 2289 0058 9842     		cmp	r0, r3
- 2290 005a 84F83430 		strb	r3, [r4, #52]
- 2291 005e 03D8     		bhi	.L420
- 2292 0060 2068     		ldr	r0, [r4]
- 2293 0062 FFF7FEFF 		bl	SDMMC_CmdStopTransfer
- 2294 0066 A063     		str	r0, [r4, #56]
- 2295              	.L420:
- 2296 0068 A56B     		ldr	r5, [r4, #56]
- 2297 006a 25B9     		cbnz	r5, .L423
- 2298 006c 2046     		mov	r0, r4
- 2299 006e FFF7FEFF 		bl	HAL_MMC_AbortCallback
- 2300              	.L421:
- 2301 0072 0020     		movs	r0, #0
- 2302 0074 38BD     		pop	{r3, r4, r5, pc}
- 2303              	.L423:
- 2304 0076 0120     		movs	r0, #1
- 2305              	.L419:
- 2306 0078 38BD     		pop	{r3, r4, r5, pc}
- 2307              	.L434:
- 2308 007a 00BF     		.align	2
- 2309              	.L433:
- 2310 007c 00000000 		.word	MMC_DMATxAbort
- 2311 0080 00000000 		.word	MMC_DMARxAbort
- 2313              		.ident	"GCC: (15:4.9.3+svn231177-1) 4.9.3 20150529 (prerelease)"
-ARM GAS  /tmp/cc823MVC.s 			page 41
+  36              		.fpu softvfp
+  38              	HAL_MMC_MspInit:
+  39              		@ args = 0, pretend = 0, frame = 0
+  40              		@ frame_needed = 0, uses_anonymous_args = 0
+  41              		@ link register save eliminated.
+  42 0000 7047     		bx	lr
+  44              		.section	.text.HAL_MMC_MspDeInit,"ax",%progbits
+  45              		.align	1
+  46              		.weak	HAL_MMC_MspDeInit
+  47              		.syntax unified
+  48              		.thumb
+  49              		.thumb_func
+  50              		.fpu softvfp
+  52              	HAL_MMC_MspDeInit:
+  53              		@ args = 0, pretend = 0, frame = 0
+  54              		@ frame_needed = 0, uses_anonymous_args = 0
+  55              		@ link register save eliminated.
+  56 0000 7047     		bx	lr
+  58              		.section	.text.HAL_MMC_DeInit,"ax",%progbits
+  59              		.align	1
+  60              		.global	HAL_MMC_DeInit
+  61              		.syntax unified
+  62              		.thumb
+  63              		.thumb_func
+ARM GAS  /tmp/ccfeIOOj.s 			page 2
+
+
+  64              		.fpu softvfp
+  66              	HAL_MMC_DeInit:
+  67              		@ args = 0, pretend = 0, frame = 0
+  68              		@ frame_needed = 0, uses_anonymous_args = 0
+  69 0000 10B5     		push	{r4, lr}
+  70 0002 0446     		mov	r4, r0
+  71 0004 68B1     		cbz	r0, .L6
+  72 0006 0323     		movs	r3, #3
+  73 0008 80F83430 		strb	r3, [r0, #52]
+  74 000c 0068     		ldr	r0, [r0]
+  75 000e FFF7FEFF 		bl	SDIO_PowerState_OFF
+  76 0012 2046     		mov	r0, r4
+  77 0014 FFF7FEFF 		bl	HAL_MMC_MspDeInit
+  78 0018 0020     		movs	r0, #0
+  79 001a A063     		str	r0, [r4, #56]
+  80 001c 84F83400 		strb	r0, [r4, #52]
+  81 0020 10BD     		pop	{r4, pc}
+  82              	.L6:
+  83 0022 0120     		movs	r0, #1
+  84 0024 10BD     		pop	{r4, pc}
+  86              		.section	.text.HAL_MMC_ReadBlocks,"ax",%progbits
+  87              		.align	1
+  88              		.global	HAL_MMC_ReadBlocks
+  89              		.syntax unified
+  90              		.thumb
+  91              		.thumb_func
+  92              		.fpu softvfp
+  94              	HAL_MMC_ReadBlocks:
+  95              		@ args = 4, pretend = 0, frame = 24
+  96              		@ frame_needed = 0, uses_anonymous_args = 0
+  97 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+  98 0004 87B0     		sub	sp, sp, #28
+  99 0006 0446     		mov	r4, r0
+ 100 0008 0D46     		mov	r5, r1
+ 101 000a 1646     		mov	r6, r2
+ 102 000c 9946     		mov	r9, r3
+ 103 000e FFF7FEFF 		bl	HAL_GetTick
+ 104 0012 0746     		mov	r7, r0
+ 105 0014 2DB9     		cbnz	r5, .L8
+ 106 0016 A36B     		ldr	r3, [r4, #56]
+ 107 0018 43F00063 		orr	r3, r3, #134217728
+ 108              	.L47:
+ 109 001c A363     		str	r3, [r4, #56]
+ 110 001e 0120     		movs	r0, #1
+ 111 0020 10E0     		b	.L9
+ 112              	.L8:
+ 113 0022 94F83400 		ldrb	r0, [r4, #52]	@ zero_extendqisi2
+ 114 0026 C0B2     		uxtb	r0, r0
+ 115 0028 0128     		cmp	r0, #1
+ 116 002a 40F0D980 		bne	.L10
+ 117 002e 0021     		movs	r1, #0
+ 118 0030 A26D     		ldr	r2, [r4, #88]
+ 119 0032 06EB0903 		add	r3, r6, r9
+ 120 0036 9342     		cmp	r3, r2
+ 121 0038 A163     		str	r1, [r4, #56]
+ 122 003a 06D9     		bls	.L11
+ 123 003c A36B     		ldr	r3, [r4, #56]
+ARM GAS  /tmp/ccfeIOOj.s 			page 3
+
+
+ 124 003e 43F00073 		orr	r3, r3, #33554432
+ 125 0042 A363     		str	r3, [r4, #56]
+ 126              	.L9:
+ 127 0044 07B0     		add	sp, sp, #28
+ 128              		@ sp needed
+ 129 0046 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 130              	.L11:
+ 131 004a 0323     		movs	r3, #3
+ 132 004c 2068     		ldr	r0, [r4]
+ 133 004e 84F83430 		strb	r3, [r4, #52]
+ 134 0052 636C     		ldr	r3, [r4, #68]
+ 135 0054 C162     		str	r1, [r0, #44]
+ 136 0056 012B     		cmp	r3, #1
+ 137 0058 4FF40071 		mov	r1, #512
+ 138 005c 18BF     		it	ne
+ 139 005e 7602     		lslne	r6, r6, #9
+ 140 0060 FFF7FEFF 		bl	SDMMC_CmdBlockLength
+ 141 0064 48B1     		cbz	r0, .L13
+ 142              	.L51:
+ 143 0066 2368     		ldr	r3, [r4]
+ 144 0068 5F4A     		ldr	r2, .L52
+ 145 006a 9A63     		str	r2, [r3, #56]
+ 146 006c A36B     		ldr	r3, [r4, #56]
+ 147 006e 1843     		orrs	r0, r0, r3
+ 148 0070 A063     		str	r0, [r4, #56]
+ 149              	.L49:
+ 150 0072 0120     		movs	r0, #1
+ 151 0074 84F83400 		strb	r0, [r4, #52]
+ 152 0078 E4E7     		b	.L9
+ 153              	.L13:
+ 154 007a 4FF0FF33 		mov	r3, #-1
+ 155 007e 0093     		str	r3, [sp]
+ 156 0080 4FEA4923 		lsl	r3, r9, #9
+ 157 0084 0193     		str	r3, [sp, #4]
+ 158 0086 4FF0010A 		mov	r10, #1
+ 159 008a 9023     		movs	r3, #144
+ 160 008c 4FF0020B 		mov	fp, #2
+ 161 0090 0490     		str	r0, [sp, #16]
+ 162 0092 6946     		mov	r1, sp
+ 163 0094 2068     		ldr	r0, [r4]
+ 164 0096 0293     		str	r3, [sp, #8]
+ 165 0098 CDF80CB0 		str	fp, [sp, #12]
+ 166 009c CDF814A0 		str	r10, [sp, #20]
+ 167 00a0 FFF7FEFF 		bl	SDIO_ConfigData
+ 168 00a4 D145     		cmp	r9, r10
+ 169 00a6 25D9     		bls	.L14
+ 170 00a8 C4F830B0 		str	fp, [r4, #48]
+ 171 00ac 3146     		mov	r1, r6
+ 172 00ae 2068     		ldr	r0, [r4]
+ 173 00b0 FFF7FEFF 		bl	SDMMC_CmdReadMultiBlock
+ 174              	.L15:
+ 175 00b4 0028     		cmp	r0, #0
+ 176 00b6 D6D1     		bne	.L51
+ 177 00b8 40F22A3B 		movw	fp, #810
+ 178 00bc DDF804A0 		ldr	r10, [sp, #4]
+ 179              	.L17:
+ 180 00c0 2068     		ldr	r0, [r4]
+ARM GAS  /tmp/ccfeIOOj.s 			page 4
+
+
+ 181 00c2 436B     		ldr	r3, [r0, #52]
+ 182 00c4 13EA0B0F 		tst	r3, fp
+ 183 00c8 436B     		ldr	r3, [r0, #52]
+ 184 00ca 1AD0     		beq	.L20
+ 185 00cc DE05     		lsls	r6, r3, #23
+ 186 00ce 06D5     		bpl	.L21
+ 187 00d0 B9F1010F 		cmp	r9, #1
+ 188 00d4 03D9     		bls	.L21
+ 189 00d6 FFF7FEFF 		bl	SDMMC_CmdStopTransfer
+ 190 00da 0028     		cmp	r0, #0
+ 191 00dc C3D1     		bne	.L51
+ 192              	.L21:
+ 193 00de 2368     		ldr	r3, [r4]
+ 194 00e0 5A6B     		ldr	r2, [r3, #52]
+ 195 00e2 1007     		lsls	r0, r2, #28
+ 196 00e4 3BD5     		bpl	.L22
+ 197 00e6 404A     		ldr	r2, .L52
+ 198 00e8 9A63     		str	r2, [r3, #56]
+ 199 00ea A36B     		ldr	r3, [r4, #56]
+ 200 00ec 43F00803 		orr	r3, r3, #8
+ 201              	.L50:
+ 202 00f0 A363     		str	r3, [r4, #56]
+ 203 00f2 BEE7     		b	.L49
+ 204              	.L14:
+ 205 00f4 C4F830A0 		str	r10, [r4, #48]
+ 206 00f8 3146     		mov	r1, r6
+ 207 00fa 2068     		ldr	r0, [r4]
+ 208 00fc FFF7FEFF 		bl	SDMMC_CmdReadSingleBlock
+ 209 0100 D8E7     		b	.L15
+ 210              	.L20:
+ 211 0102 1B04     		lsls	r3, r3, #16
+ 212 0104 19D5     		bpl	.L18
+ 213 0106 BAF1000F 		cmp	r10, #0
+ 214 010a 16D0     		beq	.L18
+ 215 010c 2E1D     		adds	r6, r5, #4
+ 216 010e 05F12408 		add	r8, r5, #36
+ 217              	.L19:
+ 218 0112 2068     		ldr	r0, [r4]
+ 219 0114 FFF7FEFF 		bl	SDIO_ReadFIFO
+ 220 0118 020A     		lsrs	r2, r0, #8
+ 221 011a 06F8040C 		strb	r0, [r6, #-4]
+ 222 011e 06F8032C 		strb	r2, [r6, #-3]
+ 223 0122 020C     		lsrs	r2, r0, #16
+ 224 0124 000E     		lsrs	r0, r0, #24
+ 225 0126 06F8022C 		strb	r2, [r6, #-2]
+ 226 012a 06F8010C 		strb	r0, [r6, #-1]
+ 227 012e 0436     		adds	r6, r6, #4
+ 228 0130 4645     		cmp	r6, r8
+ 229 0132 EED1     		bne	.L19
+ 230 0134 2035     		adds	r5, r5, #32
+ 231 0136 AAF1200A 		sub	r10, r10, #32
+ 232              	.L18:
+ 233 013a FFF7FEFF 		bl	HAL_GetTick
+ 234 013e 109B     		ldr	r3, [sp, #64]
+ 235 0140 C01B     		subs	r0, r0, r7
+ 236 0142 9842     		cmp	r0, r3
+ 237 0144 BCD3     		bcc	.L17
+ARM GAS  /tmp/ccfeIOOj.s 			page 5
+
+
+ 238 0146 2368     		ldr	r3, [r4]
+ 239 0148 274A     		ldr	r2, .L52
+ 240 014a 0320     		movs	r0, #3
+ 241 014c 9A63     		str	r2, [r3, #56]
+ 242 014e A36B     		ldr	r3, [r4, #56]
+ 243 0150 43F00043 		orr	r3, r3, #-2147483648
+ 244 0154 A363     		str	r3, [r4, #56]
+ 245 0156 0123     		movs	r3, #1
+ 246 0158 84F83430 		strb	r3, [r4, #52]
+ 247 015c 72E7     		b	.L9
+ 248              	.L22:
+ 249 015e 5A6B     		ldr	r2, [r3, #52]
+ 250 0160 9107     		lsls	r1, r2, #30
+ 251 0162 05D5     		bpl	.L23
+ 252 0164 204A     		ldr	r2, .L52
+ 253 0166 9A63     		str	r2, [r3, #56]
+ 254 0168 A36B     		ldr	r3, [r4, #56]
+ 255 016a 43F00203 		orr	r3, r3, #2
+ 256 016e BFE7     		b	.L50
+ 257              	.L23:
+ 258 0170 5A6B     		ldr	r2, [r3, #52]
+ 259 0172 9206     		lsls	r2, r2, #26
+ 260 0174 05D5     		bpl	.L24
+ 261 0176 1C4A     		ldr	r2, .L52
+ 262 0178 9A63     		str	r2, [r3, #56]
+ 263 017a A36B     		ldr	r3, [r4, #56]
+ 264 017c 43F02003 		orr	r3, r3, #32
+ 265 0180 B6E7     		b	.L50
+ 266              	.L24:
+ 267 0182 2E1D     		adds	r6, r5, #4
+ 268 0184 0AF1040A 		add	r10, r10, #4
+ 269              	.L25:
+ 270 0188 2068     		ldr	r0, [r4]
+ 271 018a 436B     		ldr	r3, [r0, #52]
+ 272 018c 9B02     		lsls	r3, r3, #10
+ 273 018e 07D4     		bmi	.L26
+ 274              	.L28:
+ 275 0190 40F23A53 		movw	r3, #1338
+ 276 0194 8363     		str	r3, [r0, #56]
+ 277 0196 0123     		movs	r3, #1
+ 278 0198 0020     		movs	r0, #0
+ 279 019a 84F83430 		strb	r3, [r4, #52]
+ 280 019e 51E7     		b	.L9
+ 281              	.L26:
+ 282 01a0 AAEB0603 		sub	r3, r10, r6
+ 283 01a4 DD42     		cmn	r5, r3
+ 284 01a6 F3D0     		beq	.L28
+ 285 01a8 FFF7FEFF 		bl	SDIO_ReadFIFO
+ 286 01ac 030A     		lsrs	r3, r0, #8
+ 287 01ae 06F8040C 		strb	r0, [r6, #-4]
+ 288 01b2 06F8033C 		strb	r3, [r6, #-3]
+ 289 01b6 030C     		lsrs	r3, r0, #16
+ 290 01b8 000E     		lsrs	r0, r0, #24
+ 291 01ba 06F8023C 		strb	r3, [r6, #-2]
+ 292 01be 06F8010C 		strb	r0, [r6, #-1]
+ 293 01c2 FFF7FEFF 		bl	HAL_GetTick
+ 294 01c6 109B     		ldr	r3, [sp, #64]
+ARM GAS  /tmp/ccfeIOOj.s 			page 6
+
+
+ 295 01c8 C01B     		subs	r0, r0, r7
+ 296 01ca 8342     		cmp	r3, r0
+ 297 01cc 06F10406 		add	r6, r6, #4
+ 298 01d0 DAD8     		bhi	.L25
+ 299 01d2 2368     		ldr	r3, [r4]
+ 300 01d4 044A     		ldr	r2, .L52
+ 301 01d6 9A63     		str	r2, [r3, #56]
+ 302 01d8 A36B     		ldr	r3, [r4, #56]
+ 303 01da 43F00043 		orr	r3, r3, #-2147483648
+ 304 01de 87E7     		b	.L50
+ 305              	.L10:
+ 306 01e0 A36B     		ldr	r3, [r4, #56]
+ 307 01e2 43F00053 		orr	r3, r3, #536870912
+ 308 01e6 19E7     		b	.L47
+ 309              	.L53:
+ 310              		.align	2
+ 311              	.L52:
+ 312 01e8 FF054000 		.word	4195839
+ 314              		.section	.text.HAL_MMC_WriteBlocks,"ax",%progbits
+ 315              		.align	1
+ 316              		.global	HAL_MMC_WriteBlocks
+ 317              		.syntax unified
+ 318              		.thumb
+ 319              		.thumb_func
+ 320              		.fpu softvfp
+ 322              	HAL_MMC_WriteBlocks:
+ 323              		@ args = 4, pretend = 0, frame = 32
+ 324              		@ frame_needed = 0, uses_anonymous_args = 0
+ 325 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 326 0004 89B0     		sub	sp, sp, #36
+ 327 0006 0446     		mov	r4, r0
+ 328 0008 0E46     		mov	r6, r1
+ 329 000a 9146     		mov	r9, r2
+ 330 000c 1F46     		mov	r7, r3
+ 331 000e FFF7FEFF 		bl	HAL_GetTick
+ 332 0012 8046     		mov	r8, r0
+ 333 0014 2EB9     		cbnz	r6, .L55
+ 334 0016 A36B     		ldr	r3, [r4, #56]
+ 335 0018 43F00063 		orr	r3, r3, #134217728
+ 336              	.L89:
+ 337 001c A363     		str	r3, [r4, #56]
+ 338 001e 0120     		movs	r0, #1
+ 339 0020 10E0     		b	.L56
+ 340              	.L55:
+ 341 0022 94F83400 		ldrb	r0, [r4, #52]	@ zero_extendqisi2
+ 342 0026 C0B2     		uxtb	r0, r0
+ 343 0028 0128     		cmp	r0, #1
+ 344 002a 40F09D80 		bne	.L57
+ 345 002e 0021     		movs	r1, #0
+ 346 0030 A26D     		ldr	r2, [r4, #88]
+ 347 0032 09EB0703 		add	r3, r9, r7
+ 348 0036 9342     		cmp	r3, r2
+ 349 0038 A163     		str	r1, [r4, #56]
+ 350 003a 06D9     		bls	.L58
+ 351 003c A36B     		ldr	r3, [r4, #56]
+ 352 003e 43F00073 		orr	r3, r3, #33554432
+ 353 0042 A363     		str	r3, [r4, #56]
+ARM GAS  /tmp/ccfeIOOj.s 			page 7
+
+
+ 354              	.L56:
+ 355 0044 09B0     		add	sp, sp, #36
+ 356              		@ sp needed
+ 357 0046 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 358              	.L58:
+ 359 004a 0323     		movs	r3, #3
+ 360 004c 2068     		ldr	r0, [r4]
+ 361 004e 84F83430 		strb	r3, [r4, #52]
+ 362 0052 636C     		ldr	r3, [r4, #68]
+ 363 0054 C162     		str	r1, [r0, #44]
+ 364 0056 012B     		cmp	r3, #1
+ 365 0058 4FF40071 		mov	r1, #512
+ 366 005c 18BF     		it	ne
+ 367 005e 4FEA4929 		lslne	r9, r9, #9
+ 368 0062 FFF7FEFF 		bl	SDMMC_CmdBlockLength
+ 369 0066 48B1     		cbz	r0, .L60
+ 370              	.L93:
+ 371 0068 2368     		ldr	r3, [r4]
+ 372 006a 414A     		ldr	r2, .L94
+ 373 006c 9A63     		str	r2, [r3, #56]
+ 374 006e A36B     		ldr	r3, [r4, #56]
+ 375 0070 1843     		orrs	r0, r0, r3
+ 376 0072 A063     		str	r0, [r4, #56]
+ 377              	.L91:
+ 378 0074 0120     		movs	r0, #1
+ 379 0076 84F83400 		strb	r0, [r4, #52]
+ 380 007a E3E7     		b	.L56
+ 381              	.L60:
+ 382 007c 012F     		cmp	r7, #1
+ 383 007e 32D9     		bls	.L61
+ 384 0080 2023     		movs	r3, #32
+ 385 0082 4946     		mov	r1, r9
+ 386 0084 2363     		str	r3, [r4, #48]
+ 387 0086 2068     		ldr	r0, [r4]
+ 388 0088 FFF7FEFF 		bl	SDMMC_CmdWriteMultiBlock
+ 389              	.L62:
+ 390 008c 0028     		cmp	r0, #0
+ 391 008e EBD1     		bne	.L93
+ 392 0090 4FF0FF33 		mov	r3, #-1
+ 393 0094 0293     		str	r3, [sp, #8]
+ 394 0096 7B02     		lsls	r3, r7, #9
+ 395 0098 0393     		str	r3, [sp, #12]
+ 396 009a 9023     		movs	r3, #144
+ 397 009c 0493     		str	r3, [sp, #16]
+ 398 009e 0123     		movs	r3, #1
+ 399 00a0 40F21A3A 		movw	r10, #794
+ 400 00a4 0590     		str	r0, [sp, #20]
+ 401 00a6 0690     		str	r0, [sp, #24]
+ 402 00a8 02A9     		add	r1, sp, #8
+ 403 00aa 2068     		ldr	r0, [r4]
+ 404 00ac 0793     		str	r3, [sp, #28]
+ 405 00ae FFF7FEFF 		bl	SDIO_ConfigData
+ 406 00b2 039D     		ldr	r5, [sp, #12]
+ 407              	.L64:
+ 408 00b4 2068     		ldr	r0, [r4]
+ 409 00b6 436B     		ldr	r3, [r0, #52]
+ 410 00b8 13EA0A0F 		tst	r3, r10
+ARM GAS  /tmp/ccfeIOOj.s 			page 8
+
+
+ 411 00bc 436B     		ldr	r3, [r0, #52]
+ 412 00be 19D0     		beq	.L67
+ 413 00c0 DD05     		lsls	r5, r3, #23
+ 414 00c2 05D5     		bpl	.L68
+ 415 00c4 012F     		cmp	r7, #1
+ 416 00c6 03D9     		bls	.L68
+ 417 00c8 FFF7FEFF 		bl	SDMMC_CmdStopTransfer
+ 418 00cc 0028     		cmp	r0, #0
+ 419 00ce CBD1     		bne	.L93
+ 420              	.L68:
+ 421 00d0 2368     		ldr	r3, [r4]
+ 422 00d2 5A6B     		ldr	r2, [r3, #52]
+ 423 00d4 1107     		lsls	r1, r2, #28
+ 424 00d6 2DD5     		bpl	.L69
+ 425 00d8 254A     		ldr	r2, .L94
+ 426 00da 9A63     		str	r2, [r3, #56]
+ 427 00dc A36B     		ldr	r3, [r4, #56]
+ 428 00de 43F00803 		orr	r3, r3, #8
+ 429              	.L92:
+ 430 00e2 A363     		str	r3, [r4, #56]
+ 431 00e4 C6E7     		b	.L91
+ 432              	.L61:
+ 433 00e6 1023     		movs	r3, #16
+ 434 00e8 4946     		mov	r1, r9
+ 435 00ea 2363     		str	r3, [r4, #48]
+ 436 00ec 2068     		ldr	r0, [r4]
+ 437 00ee FFF7FEFF 		bl	SDMMC_CmdWriteSingleBlock
+ 438 00f2 CBE7     		b	.L62
+ 439              	.L67:
+ 440 00f4 5B04     		lsls	r3, r3, #17
+ 441 00f6 0CD5     		bpl	.L65
+ 442 00f8 5DB1     		cbz	r5, .L65
+ 443 00fa 06F1200B 		add	fp, r6, #32
+ 444              	.L66:
+ 445 00fe 56F8043B 		ldr	r3, [r6], #4	@ unaligned
+ 446 0102 01A9     		add	r1, sp, #4
+ 447 0104 2068     		ldr	r0, [r4]
+ 448 0106 0193     		str	r3, [sp, #4]
+ 449 0108 FFF7FEFF 		bl	SDIO_WriteFIFO
+ 450 010c B345     		cmp	fp, r6
+ 451 010e F6D1     		bne	.L66
+ 452 0110 203D     		subs	r5, r5, #32
+ 453              	.L65:
+ 454 0112 FFF7FEFF 		bl	HAL_GetTick
+ 455 0116 129B     		ldr	r3, [sp, #72]
+ 456 0118 A0EB0800 		sub	r0, r0, r8
+ 457 011c 9842     		cmp	r0, r3
+ 458 011e C9D3     		bcc	.L64
+ 459 0120 2368     		ldr	r3, [r4]
+ 460 0122 134A     		ldr	r2, .L94
+ 461 0124 0320     		movs	r0, #3
+ 462 0126 9A63     		str	r2, [r3, #56]
+ 463 0128 A36B     		ldr	r3, [r4, #56]
+ 464 012a A363     		str	r3, [r4, #56]
+ 465 012c 0123     		movs	r3, #1
+ 466 012e 84F83430 		strb	r3, [r4, #52]
+ 467 0132 87E7     		b	.L56
+ARM GAS  /tmp/ccfeIOOj.s 			page 9
+
+
+ 468              	.L69:
+ 469 0134 5A6B     		ldr	r2, [r3, #52]
+ 470 0136 9207     		lsls	r2, r2, #30
+ 471 0138 05D5     		bpl	.L70
+ 472 013a 0D4A     		ldr	r2, .L94
+ 473 013c 9A63     		str	r2, [r3, #56]
+ 474 013e A36B     		ldr	r3, [r4, #56]
+ 475 0140 43F00203 		orr	r3, r3, #2
+ 476 0144 CDE7     		b	.L92
+ 477              	.L70:
+ 478 0146 586B     		ldr	r0, [r3, #52]
+ 479 0148 10F01000 		ands	r0, r0, #16
+ 480 014c 05D0     		beq	.L71
+ 481 014e 084A     		ldr	r2, .L94
+ 482 0150 9A63     		str	r2, [r3, #56]
+ 483 0152 A36B     		ldr	r3, [r4, #56]
+ 484 0154 43F01003 		orr	r3, r3, #16
+ 485 0158 C3E7     		b	.L92
+ 486              	.L71:
+ 487 015a 40F23A52 		movw	r2, #1338
+ 488 015e 9A63     		str	r2, [r3, #56]
+ 489 0160 0123     		movs	r3, #1
+ 490 0162 84F83430 		strb	r3, [r4, #52]
+ 491 0166 6DE7     		b	.L56
+ 492              	.L57:
+ 493 0168 A36B     		ldr	r3, [r4, #56]
+ 494 016a 43F00053 		orr	r3, r3, #536870912
+ 495 016e 55E7     		b	.L89
+ 496              	.L95:
+ 497              		.align	2
+ 498              	.L94:
+ 499 0170 FF054000 		.word	4195839
+ 501              		.section	.text.HAL_MMC_ReadBlocks_IT,"ax",%progbits
+ 502              		.align	1
+ 503              		.global	HAL_MMC_ReadBlocks_IT
+ 504              		.syntax unified
+ 505              		.thumb
+ 506              		.thumb_func
+ 507              		.fpu softvfp
+ 509              	HAL_MMC_ReadBlocks_IT:
+ 510              		@ args = 0, pretend = 0, frame = 24
+ 511              		@ frame_needed = 0, uses_anonymous_args = 0
+ 512 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 513 0002 0446     		mov	r4, r0
+ 514 0004 87B0     		sub	sp, sp, #28
+ 515 0006 1546     		mov	r5, r2
+ 516 0008 1E46     		mov	r6, r3
+ 517 000a 31B9     		cbnz	r1, .L97
+ 518 000c 836B     		ldr	r3, [r0, #56]
+ 519 000e 43F00063 		orr	r3, r3, #134217728
+ 520 0012 8363     		str	r3, [r0, #56]
+ 521 0014 0120     		movs	r0, #1
+ 522              	.L98:
+ 523 0016 07B0     		add	sp, sp, #28
+ 524              		@ sp needed
+ 525 0018 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 526              	.L97:
+ARM GAS  /tmp/ccfeIOOj.s 			page 10
+
+
+ 527 001a 90F83400 		ldrb	r0, [r0, #52]	@ zero_extendqisi2
+ 528 001e C0B2     		uxtb	r0, r0
+ 529 0020 0128     		cmp	r0, #1
+ 530 0022 4CD1     		bne	.L104
+ 531 0024 0027     		movs	r7, #0
+ 532 0026 D318     		adds	r3, r2, r3
+ 533 0028 A26D     		ldr	r2, [r4, #88]
+ 534 002a A763     		str	r7, [r4, #56]
+ 535 002c 9342     		cmp	r3, r2
+ 536 002e 04D9     		bls	.L99
+ 537 0030 A36B     		ldr	r3, [r4, #56]
+ 538 0032 43F00073 		orr	r3, r3, #33554432
+ 539 0036 A363     		str	r3, [r4, #56]
+ 540 0038 EDE7     		b	.L98
+ 541              	.L99:
+ 542 003a 0323     		movs	r3, #3
+ 543 003c 2068     		ldr	r0, [r4]
+ 544 003e 84F83430 		strb	r3, [r4, #52]
+ 545 0042 C762     		str	r7, [r0, #44]
+ 546 0044 C26B     		ldr	r2, [r0, #60]
+ 547 0046 636C     		ldr	r3, [r4, #68]
+ 548 0048 42F40342 		orr	r2, r2, #33536
+ 549 004c 7702     		lsls	r7, r6, #9
+ 550 004e 42F02A02 		orr	r2, r2, #42
+ 551 0052 A162     		str	r1, [r4, #40]
+ 552 0054 012B     		cmp	r3, #1
+ 553 0056 E762     		str	r7, [r4, #44]
+ 554 0058 4FF40071 		mov	r1, #512
+ 555 005c C263     		str	r2, [r0, #60]
+ 556 005e 18BF     		it	ne
+ 557 0060 6D02     		lslne	r5, r5, #9
+ 558 0062 FFF7FEFF 		bl	SDMMC_CmdBlockLength
+ 559 0066 48B1     		cbz	r0, .L101
+ 560              	.L109:
+ 561 0068 2368     		ldr	r3, [r4]
+ 562 006a 164A     		ldr	r2, .L110
+ 563 006c 9A63     		str	r2, [r3, #56]
+ 564 006e A36B     		ldr	r3, [r4, #56]
+ 565 0070 1843     		orrs	r0, r0, r3
+ 566 0072 A063     		str	r0, [r4, #56]
+ 567 0074 0120     		movs	r0, #1
+ 568 0076 84F83400 		strb	r0, [r4, #52]
+ 569 007a CCE7     		b	.L98
+ 570              	.L101:
+ 571 007c 4FF0FF33 		mov	r3, #-1
+ 572 0080 8DE88800 		stm	sp, {r3, r7}
+ 573 0084 9023     		movs	r3, #144
+ 574 0086 0293     		str	r3, [sp, #8]
+ 575 0088 0223     		movs	r3, #2
+ 576 008a 0393     		str	r3, [sp, #12]
+ 577 008c 0123     		movs	r3, #1
+ 578 008e 0490     		str	r0, [sp, #16]
+ 579 0090 6946     		mov	r1, sp
+ 580 0092 2068     		ldr	r0, [r4]
+ 581 0094 0593     		str	r3, [sp, #20]
+ 582 0096 FFF7FEFF 		bl	SDIO_ConfigData
+ 583 009a 012E     		cmp	r6, #1
+ARM GAS  /tmp/ccfeIOOj.s 			page 11
+
+
+ 584 009c 08D9     		bls	.L102
+ 585 009e 0A23     		movs	r3, #10
+ 586 00a0 2946     		mov	r1, r5
+ 587 00a2 2363     		str	r3, [r4, #48]
+ 588 00a4 2068     		ldr	r0, [r4]
+ 589 00a6 FFF7FEFF 		bl	SDMMC_CmdReadMultiBlock
+ 590              	.L103:
+ 591 00aa 0028     		cmp	r0, #0
+ 592 00ac DCD1     		bne	.L109
+ 593 00ae B2E7     		b	.L98
+ 594              	.L102:
+ 595 00b0 0923     		movs	r3, #9
+ 596 00b2 2946     		mov	r1, r5
+ 597 00b4 2363     		str	r3, [r4, #48]
+ 598 00b6 2068     		ldr	r0, [r4]
+ 599 00b8 FFF7FEFF 		bl	SDMMC_CmdReadSingleBlock
+ 600 00bc F5E7     		b	.L103
+ 601              	.L104:
+ 602 00be 0220     		movs	r0, #2
+ 603 00c0 A9E7     		b	.L98
+ 604              	.L111:
+ 605 00c2 00BF     		.align	2
+ 606              	.L110:
+ 607 00c4 FF054000 		.word	4195839
+ 609              		.section	.text.HAL_MMC_WriteBlocks_IT,"ax",%progbits
+ 610              		.align	1
+ 611              		.global	HAL_MMC_WriteBlocks_IT
+ 612              		.syntax unified
+ 613              		.thumb
+ 614              		.thumb_func
+ 615              		.fpu softvfp
+ 617              	HAL_MMC_WriteBlocks_IT:
+ 618              		@ args = 0, pretend = 0, frame = 24
+ 619              		@ frame_needed = 0, uses_anonymous_args = 0
+ 620 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 621 0002 0546     		mov	r5, r0
+ 622 0004 87B0     		sub	sp, sp, #28
+ 623 0006 1446     		mov	r4, r2
+ 624 0008 1F46     		mov	r7, r3
+ 625 000a 31B9     		cbnz	r1, .L113
+ 626 000c 836B     		ldr	r3, [r0, #56]
+ 627 000e 43F00063 		orr	r3, r3, #134217728
+ 628 0012 8363     		str	r3, [r0, #56]
+ 629 0014 0120     		movs	r0, #1
+ 630              	.L114:
+ 631 0016 07B0     		add	sp, sp, #28
+ 632              		@ sp needed
+ 633 0018 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 634              	.L113:
+ 635 001a 90F83400 		ldrb	r0, [r0, #52]	@ zero_extendqisi2
+ 636 001e C0B2     		uxtb	r0, r0
+ 637 0020 0128     		cmp	r0, #1
+ 638 0022 53D1     		bne	.L121
+ 639 0024 0026     		movs	r6, #0
+ 640 0026 D318     		adds	r3, r2, r3
+ 641 0028 AA6D     		ldr	r2, [r5, #88]
+ 642 002a AE63     		str	r6, [r5, #56]
+ARM GAS  /tmp/ccfeIOOj.s 			page 12
+
+
+ 643 002c 9342     		cmp	r3, r2
+ 644 002e 04D9     		bls	.L115
+ 645 0030 AB6B     		ldr	r3, [r5, #56]
+ 646 0032 43F00073 		orr	r3, r3, #33554432
+ 647 0036 AB63     		str	r3, [r5, #56]
+ 648 0038 EDE7     		b	.L114
+ 649              	.L115:
+ 650 003a 0323     		movs	r3, #3
+ 651 003c 2868     		ldr	r0, [r5]
+ 652 003e 85F83430 		strb	r3, [r5, #52]
+ 653 0042 C662     		str	r6, [r0, #44]
+ 654 0044 C26B     		ldr	r2, [r0, #60]
+ 655 0046 6B6C     		ldr	r3, [r5, #68]
+ 656 0048 42F48642 		orr	r2, r2, #17152
+ 657 004c 7E02     		lsls	r6, r7, #9
+ 658 004e 42F01A02 		orr	r2, r2, #26
+ 659 0052 2962     		str	r1, [r5, #32]
+ 660 0054 012B     		cmp	r3, #1
+ 661 0056 6E62     		str	r6, [r5, #36]
+ 662 0058 4FF40071 		mov	r1, #512
+ 663 005c C263     		str	r2, [r0, #60]
+ 664 005e 18BF     		it	ne
+ 665 0060 6402     		lslne	r4, r4, #9
+ 666 0062 FFF7FEFF 		bl	SDMMC_CmdBlockLength
+ 667 0066 48B1     		cbz	r0, .L117
+ 668 0068 2B68     		ldr	r3, [r5]
+ 669 006a 194A     		ldr	r2, .L127
+ 670 006c 9A63     		str	r2, [r3, #56]
+ 671 006e AB6B     		ldr	r3, [r5, #56]
+ 672 0070 1843     		orrs	r0, r0, r3
+ 673 0072 A863     		str	r0, [r5, #56]
+ 674              	.L126:
+ 675 0074 0120     		movs	r0, #1
+ 676 0076 85F83400 		strb	r0, [r5, #52]
+ 677 007a CCE7     		b	.L114
+ 678              	.L117:
+ 679 007c 012F     		cmp	r7, #1
+ 680 007e 0ED9     		bls	.L118
+ 681 0080 2823     		movs	r3, #40
+ 682 0082 2146     		mov	r1, r4
+ 683 0084 2B63     		str	r3, [r5, #48]
+ 684 0086 2868     		ldr	r0, [r5]
+ 685 0088 FFF7FEFF 		bl	SDMMC_CmdWriteMultiBlock
+ 686              	.L125:
+ 687 008c 0446     		mov	r4, r0
+ 688 008e 68B1     		cbz	r0, .L120
+ 689 0090 2B68     		ldr	r3, [r5]
+ 690 0092 0F4A     		ldr	r2, .L127
+ 691 0094 9A63     		str	r2, [r3, #56]
+ 692 0096 A86B     		ldr	r0, [r5, #56]
+ 693 0098 0443     		orrs	r4, r4, r0
+ 694 009a AC63     		str	r4, [r5, #56]
+ 695 009c EAE7     		b	.L126
+ 696              	.L118:
+ 697 009e 1823     		movs	r3, #24
+ 698 00a0 2146     		mov	r1, r4
+ 699 00a2 2B63     		str	r3, [r5, #48]
+ARM GAS  /tmp/ccfeIOOj.s 			page 13
+
+
+ 700 00a4 2868     		ldr	r0, [r5]
+ 701 00a6 FFF7FEFF 		bl	SDMMC_CmdWriteSingleBlock
+ 702 00aa EFE7     		b	.L125
+ 703              	.L120:
+ 704 00ac 4FF0FF33 		mov	r3, #-1
+ 705 00b0 8DE84800 		stm	sp, {r3, r6}
+ 706 00b4 9023     		movs	r3, #144
+ 707 00b6 0293     		str	r3, [sp, #8]
+ 708 00b8 0123     		movs	r3, #1
+ 709 00ba 0390     		str	r0, [sp, #12]
+ 710 00bc 0490     		str	r0, [sp, #16]
+ 711 00be 6946     		mov	r1, sp
+ 712 00c0 2868     		ldr	r0, [r5]
+ 713 00c2 0593     		str	r3, [sp, #20]
+ 714 00c4 FFF7FEFF 		bl	SDIO_ConfigData
+ 715 00c8 2046     		mov	r0, r4
+ 716 00ca A4E7     		b	.L114
+ 717              	.L121:
+ 718 00cc 0220     		movs	r0, #2
+ 719 00ce A2E7     		b	.L114
+ 720              	.L128:
+ 721              		.align	2
+ 722              	.L127:
+ 723 00d0 FF054000 		.word	4195839
+ 725              		.section	.text.HAL_MMC_ReadBlocks_DMA,"ax",%progbits
+ 726              		.align	1
+ 727              		.global	HAL_MMC_ReadBlocks_DMA
+ 728              		.syntax unified
+ 729              		.thumb
+ 730              		.thumb_func
+ 731              		.fpu softvfp
+ 733              	HAL_MMC_ReadBlocks_DMA:
+ 734              		@ args = 0, pretend = 0, frame = 24
+ 735              		@ frame_needed = 0, uses_anonymous_args = 0
+ 736 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+ 737 0004 0446     		mov	r4, r0
+ 738 0006 87B0     		sub	sp, sp, #28
+ 739 0008 1646     		mov	r6, r2
+ 740 000a 1F46     		mov	r7, r3
+ 741 000c 8846     		mov	r8, r1
+ 742 000e 41B9     		cbnz	r1, .L130
+ 743 0010 0125     		movs	r5, #1
+ 744 0012 836B     		ldr	r3, [r0, #56]
+ 745 0014 43F00063 		orr	r3, r3, #134217728
+ 746 0018 8363     		str	r3, [r0, #56]
+ 747              	.L131:
+ 748 001a 2846     		mov	r0, r5
+ 749 001c 07B0     		add	sp, sp, #28
+ 750              		@ sp needed
+ 751 001e BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 752              	.L130:
+ 753 0022 90F83450 		ldrb	r5, [r0, #52]	@ zero_extendqisi2
+ 754 0026 EDB2     		uxtb	r5, r5
+ 755 0028 012D     		cmp	r5, #1
+ 756 002a 6CD1     		bne	.L138
+ 757 002c 0022     		movs	r2, #0
+ 758 002e 816D     		ldr	r1, [r0, #88]
+ARM GAS  /tmp/ccfeIOOj.s 			page 14
+
+
+ 759 0030 F318     		adds	r3, r6, r3
+ 760 0032 8B42     		cmp	r3, r1
+ 761 0034 8263     		str	r2, [r0, #56]
+ 762 0036 04D9     		bls	.L132
+ 763 0038 836B     		ldr	r3, [r0, #56]
+ 764 003a 43F00073 		orr	r3, r3, #33554432
+ 765 003e 8363     		str	r3, [r0, #56]
+ 766 0040 EBE7     		b	.L131
+ 767              	.L132:
+ 768 0042 0323     		movs	r3, #3
+ 769 0044 80F83430 		strb	r3, [r0, #52]
+ 770 0048 0068     		ldr	r0, [r0]
+ 771 004a 3049     		ldr	r1, .L147
+ 772 004c C262     		str	r2, [r0, #44]
+ 773 004e C36B     		ldr	r3, [r0, #60]
+ 774 0050 43F44A73 		orr	r3, r3, #808
+ 775 0054 43F00203 		orr	r3, r3, #2
+ 776 0058 C363     		str	r3, [r0, #60]
+ 777 005a E36B     		ldr	r3, [r4, #60]
+ 778 005c 9962     		str	r1, [r3, #40]
+ 779 005e 2C49     		ldr	r1, .L147+4
+ 780 0060 5A63     		str	r2, [r3, #52]
+ 781 0062 1963     		str	r1, [r3, #48]
+ 782 0064 636C     		ldr	r3, [r4, #68]
+ 783 0066 4FF40071 		mov	r1, #512
+ 784 006a 012B     		cmp	r3, #1
+ 785 006c 18BF     		it	ne
+ 786 006e 7602     		lslne	r6, r6, #9
+ 787 0070 FFF7FEFF 		bl	SDMMC_CmdBlockLength
+ 788 0074 2168     		ldr	r1, [r4]
+ 789 0076 18B1     		cbz	r0, .L134
+ 790 0078 264B     		ldr	r3, .L147+8
+ 791 007a 8B63     		str	r3, [r1, #56]
+ 792              	.L146:
+ 793 007c A063     		str	r0, [r4, #56]
+ 794 007e 14E0     		b	.L145
+ 795              	.L134:
+ 796 0080 4FEA4729 		lsl	r9, r7, #9
+ 797 0084 4FEA9903 		lsr	r3, r9, #2
+ 798 0088 4246     		mov	r2, r8
+ 799 008a 8031     		adds	r1, r1, #128
+ 800 008c E06B     		ldr	r0, [r4, #60]
+ 801 008e FFF7FEFF 		bl	HAL_DMA_Start_IT
+ 802 0092 0546     		mov	r5, r0
+ 803 0094 68B1     		cbz	r0, .L135
+ 804 0096 2368     		ldr	r3, [r4]
+ 805 0098 DA6B     		ldr	r2, [r3, #60]
+ 806 009a 22F49572 		bic	r2, r2, #298
+ 807 009e DA63     		str	r2, [r3, #60]
+ 808 00a0 1C4A     		ldr	r2, .L147+8
+ 809 00a2 9A63     		str	r2, [r3, #56]
+ 810 00a4 4FF08043 		mov	r3, #1073741824
+ 811 00a8 A363     		str	r3, [r4, #56]
+ 812              	.L145:
+ 813 00aa 0125     		movs	r5, #1
+ 814 00ac 84F83450 		strb	r5, [r4, #52]
+ 815 00b0 B3E7     		b	.L131
+ARM GAS  /tmp/ccfeIOOj.s 			page 15
+
+
+ 816              	.L135:
+ 817 00b2 0123     		movs	r3, #1
+ 818 00b4 184A     		ldr	r2, .L147+12
+ 819 00b6 6946     		mov	r1, sp
+ 820 00b8 1360     		str	r3, [r2]
+ 821 00ba 4FF0FF32 		mov	r2, #-1
+ 822 00be 8DE80402 		stm	sp, {r2, r9}
+ 823 00c2 9022     		movs	r2, #144
+ 824 00c4 0292     		str	r2, [sp, #8]
+ 825 00c6 0222     		movs	r2, #2
+ 826 00c8 0490     		str	r0, [sp, #16]
+ 827 00ca 2068     		ldr	r0, [r4]
+ 828 00cc 0392     		str	r2, [sp, #12]
+ 829 00ce 0593     		str	r3, [sp, #20]
+ 830 00d0 FFF7FEFF 		bl	SDIO_ConfigData
+ 831 00d4 012F     		cmp	r7, #1
+ 832 00d6 0FD9     		bls	.L136
+ 833 00d8 8223     		movs	r3, #130
+ 834 00da 3146     		mov	r1, r6
+ 835 00dc 2363     		str	r3, [r4, #48]
+ 836 00de 2068     		ldr	r0, [r4]
+ 837 00e0 FFF7FEFF 		bl	SDMMC_CmdReadMultiBlock
+ 838              	.L137:
+ 839 00e4 0028     		cmp	r0, #0
+ 840 00e6 98D0     		beq	.L131
+ 841 00e8 2368     		ldr	r3, [r4]
+ 842 00ea 0A4A     		ldr	r2, .L147+8
+ 843 00ec 9A63     		str	r2, [r3, #56]
+ 844 00ee DA6B     		ldr	r2, [r3, #60]
+ 845 00f0 22F49572 		bic	r2, r2, #298
+ 846 00f4 DA63     		str	r2, [r3, #60]
+ 847 00f6 C1E7     		b	.L146
+ 848              	.L136:
+ 849 00f8 8123     		movs	r3, #129
+ 850 00fa 3146     		mov	r1, r6
+ 851 00fc 2363     		str	r3, [r4, #48]
+ 852 00fe 2068     		ldr	r0, [r4]
+ 853 0100 FFF7FEFF 		bl	SDMMC_CmdReadSingleBlock
+ 854 0104 EEE7     		b	.L137
+ 855              	.L138:
+ 856 0106 0225     		movs	r5, #2
+ 857 0108 87E7     		b	.L131
+ 858              	.L148:
+ 859 010a 00BF     		.align	2
+ 860              	.L147:
+ 861 010c 00000000 		.word	MMC_DMAReceiveCplt
+ 862 0110 00000000 		.word	MMC_DMAError
+ 863 0114 FF054000 		.word	4195839
+ 864 0118 8C053042 		.word	1110443404
+ 866              		.section	.text.HAL_MMC_WriteBlocks_DMA,"ax",%progbits
+ 867              		.align	1
+ 868              		.global	HAL_MMC_WriteBlocks_DMA
+ 869              		.syntax unified
+ 870              		.thumb
+ 871              		.thumb_func
+ 872              		.fpu softvfp
+ 874              	HAL_MMC_WriteBlocks_DMA:
+ARM GAS  /tmp/ccfeIOOj.s 			page 16
+
+
+ 875              		@ args = 0, pretend = 0, frame = 24
+ 876              		@ frame_needed = 0, uses_anonymous_args = 0
+ 877 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+ 878 0004 0446     		mov	r4, r0
+ 879 0006 87B0     		sub	sp, sp, #28
+ 880 0008 1746     		mov	r7, r2
+ 881 000a 1E46     		mov	r6, r3
+ 882 000c 8846     		mov	r8, r1
+ 883 000e 41B9     		cbnz	r1, .L150
+ 884 0010 836B     		ldr	r3, [r0, #56]
+ 885 0012 43F00063 		orr	r3, r3, #134217728
+ 886 0016 8363     		str	r3, [r0, #56]
+ 887              	.L164:
+ 888 0018 0125     		movs	r5, #1
+ 889              	.L151:
+ 890 001a 2846     		mov	r0, r5
+ 891 001c 07B0     		add	sp, sp, #28
+ 892              		@ sp needed
+ 893 001e BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 894              	.L150:
+ 895 0022 90F83450 		ldrb	r5, [r0, #52]	@ zero_extendqisi2
+ 896 0026 EDB2     		uxtb	r5, r5
+ 897 0028 012D     		cmp	r5, #1
+ 898 002a 75D1     		bne	.L159
+ 899 002c 0022     		movs	r2, #0
+ 900 002e 816D     		ldr	r1, [r0, #88]
+ 901 0030 FB18     		adds	r3, r7, r3
+ 902 0032 8B42     		cmp	r3, r1
+ 903 0034 8263     		str	r2, [r0, #56]
+ 904 0036 04D9     		bls	.L152
+ 905 0038 836B     		ldr	r3, [r0, #56]
+ 906 003a 43F00073 		orr	r3, r3, #33554432
+ 907 003e 8363     		str	r3, [r0, #56]
+ 908 0040 EBE7     		b	.L151
+ 909              	.L152:
+ 910 0042 0323     		movs	r3, #3
+ 911 0044 80F83430 		strb	r3, [r0, #52]
+ 912 0048 0068     		ldr	r0, [r0]
+ 913 004a 3449     		ldr	r1, .L166
+ 914 004c C262     		str	r2, [r0, #44]
+ 915 004e C36B     		ldr	r3, [r0, #60]
+ 916 0050 43F40673 		orr	r3, r3, #536
+ 917 0054 43F00203 		orr	r3, r3, #2
+ 918 0058 C363     		str	r3, [r0, #60]
+ 919 005a 236C     		ldr	r3, [r4, #64]
+ 920 005c 9962     		str	r1, [r3, #40]
+ 921 005e 3049     		ldr	r1, .L166+4
+ 922 0060 5A63     		str	r2, [r3, #52]
+ 923 0062 1963     		str	r1, [r3, #48]
+ 924 0064 636C     		ldr	r3, [r4, #68]
+ 925 0066 4FF40071 		mov	r1, #512
+ 926 006a 012B     		cmp	r3, #1
+ 927 006c 18BF     		it	ne
+ 928 006e 7F02     		lslne	r7, r7, #9
+ 929 0070 FFF7FEFF 		bl	SDMMC_CmdBlockLength
+ 930 0074 48B1     		cbz	r0, .L154
+ 931 0076 2368     		ldr	r3, [r4]
+ARM GAS  /tmp/ccfeIOOj.s 			page 17
+
+
+ 932 0078 2A4A     		ldr	r2, .L166+8
+ 933 007a 9A63     		str	r2, [r3, #56]
+ 934 007c A36B     		ldr	r3, [r4, #56]
+ 935 007e 1843     		orrs	r0, r0, r3
+ 936 0080 A063     		str	r0, [r4, #56]
+ 937              	.L165:
+ 938 0082 0125     		movs	r5, #1
+ 939 0084 84F83450 		strb	r5, [r4, #52]
+ 940 0088 C7E7     		b	.L151
+ 941              	.L154:
+ 942 008a 012E     		cmp	r6, #1
+ 943 008c 12D9     		bls	.L155
+ 944 008e A023     		movs	r3, #160
+ 945 0090 3946     		mov	r1, r7
+ 946 0092 2363     		str	r3, [r4, #48]
+ 947 0094 2068     		ldr	r0, [r4]
+ 948 0096 FFF7FEFF 		bl	SDMMC_CmdWriteMultiBlock
+ 949              	.L163:
+ 950 009a 0746     		mov	r7, r0
+ 951 009c 2268     		ldr	r2, [r4]
+ 952 009e 80B1     		cbz	r0, .L157
+ 953 00a0 204B     		ldr	r3, .L166+8
+ 954 00a2 9363     		str	r3, [r2, #56]
+ 955 00a4 D36B     		ldr	r3, [r2, #60]
+ 956 00a6 23F48D73 		bic	r3, r3, #282
+ 957 00aa D363     		str	r3, [r2, #60]
+ 958 00ac A36B     		ldr	r3, [r4, #56]
+ 959 00ae 1F43     		orrs	r7, r7, r3
+ 960 00b0 A763     		str	r7, [r4, #56]
+ 961 00b2 E6E7     		b	.L165
+ 962              	.L155:
+ 963 00b4 9023     		movs	r3, #144
+ 964 00b6 3946     		mov	r1, r7
+ 965 00b8 2363     		str	r3, [r4, #48]
+ 966 00ba 2068     		ldr	r0, [r4]
+ 967 00bc FFF7FEFF 		bl	SDMMC_CmdWriteSingleBlock
+ 968 00c0 EBE7     		b	.L163
+ 969              	.L157:
+ 970 00c2 4FF00109 		mov	r9, #1
+ 971 00c6 184B     		ldr	r3, .L166+12
+ 972 00c8 7602     		lsls	r6, r6, #9
+ 973 00ca C3F80090 		str	r9, [r3]
+ 974 00ce 8032     		adds	r2, r2, #128
+ 975 00d0 B308     		lsrs	r3, r6, #2
+ 976 00d2 4146     		mov	r1, r8
+ 977 00d4 206C     		ldr	r0, [r4, #64]
+ 978 00d6 FFF7FEFF 		bl	HAL_DMA_Start_IT
+ 979 00da 0546     		mov	r5, r0
+ 980 00dc 68B1     		cbz	r0, .L158
+ 981 00de 2368     		ldr	r3, [r4]
+ 982 00e0 DA6B     		ldr	r2, [r3, #60]
+ 983 00e2 22F48D72 		bic	r2, r2, #282
+ 984 00e6 DA63     		str	r2, [r3, #60]
+ 985 00e8 0E4A     		ldr	r2, .L166+8
+ 986 00ea 9A63     		str	r2, [r3, #56]
+ 987 00ec A36B     		ldr	r3, [r4, #56]
+ 988 00ee 43F08043 		orr	r3, r3, #1073741824
+ARM GAS  /tmp/ccfeIOOj.s 			page 18
+
+
+ 989 00f2 A363     		str	r3, [r4, #56]
+ 990 00f4 84F83490 		strb	r9, [r4, #52]
+ 991 00f8 8EE7     		b	.L164
+ 992              	.L158:
+ 993 00fa 4FF0FF33 		mov	r3, #-1
+ 994 00fe 8DE84800 		stm	sp, {r3, r6}
+ 995 0102 9023     		movs	r3, #144
+ 996 0104 6946     		mov	r1, sp
+ 997 0106 2068     		ldr	r0, [r4]
+ 998 0108 0293     		str	r3, [sp, #8]
+ 999 010a 0397     		str	r7, [sp, #12]
+ 1000 010c 0497     		str	r7, [sp, #16]
+ 1001 010e CDF81490 		str	r9, [sp, #20]
+ 1002 0112 FFF7FEFF 		bl	SDIO_ConfigData
+ 1003 0116 80E7     		b	.L151
+ 1004              	.L159:
+ 1005 0118 0225     		movs	r5, #2
+ 1006 011a 7EE7     		b	.L151
+ 1007              	.L167:
+ 1008              		.align	2
+ 1009              	.L166:
+ 1010 011c 00000000 		.word	MMC_DMATransmitCplt
+ 1011 0120 00000000 		.word	MMC_DMAError
+ 1012 0124 FF054000 		.word	4195839
+ 1013 0128 8C053042 		.word	1110443404
+ 1015              		.section	.text.HAL_MMC_Erase,"ax",%progbits
+ 1016              		.align	1
+ 1017              		.global	HAL_MMC_Erase
+ 1018              		.syntax unified
+ 1019              		.thumb
+ 1020              		.thumb_func
+ 1021              		.fpu softvfp
+ 1023              	HAL_MMC_Erase:
+ 1024              		@ args = 0, pretend = 0, frame = 0
+ 1025              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1026 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 1027 0002 0446     		mov	r4, r0
+ 1028 0004 90F83400 		ldrb	r0, [r0, #52]	@ zero_extendqisi2
+ 1029 0008 0F46     		mov	r7, r1
+ 1030 000a C5B2     		uxtb	r5, r0
+ 1031 000c 012D     		cmp	r5, #1
+ 1032 000e 1646     		mov	r6, r2
+ 1033 0010 50D1     		bne	.L178
+ 1034 0012 0021     		movs	r1, #0
+ 1035 0014 9742     		cmp	r7, r2
+ 1036 0016 A163     		str	r1, [r4, #56]
+ 1037 0018 05D9     		bls	.L170
+ 1038 001a A36B     		ldr	r3, [r4, #56]
+ 1039 001c 43F00063 		orr	r3, r3, #134217728
+ 1040              	.L182:
+ 1041 0020 A363     		str	r3, [r4, #56]
+ 1042              	.L183:
+ 1043 0022 2846     		mov	r0, r5
+ 1044 0024 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 1045              	.L170:
+ 1046 0026 A36D     		ldr	r3, [r4, #88]
+ 1047 0028 9A42     		cmp	r2, r3
+ARM GAS  /tmp/ccfeIOOj.s 			page 19
+
+
+ 1048 002a 03D9     		bls	.L171
+ 1049 002c A36B     		ldr	r3, [r4, #56]
+ 1050 002e 43F00073 		orr	r3, r3, #33554432
+ 1051 0032 F5E7     		b	.L182
+ 1052              	.L171:
+ 1053 0034 0323     		movs	r3, #3
+ 1054 0036 84F83430 		strb	r3, [r4, #52]
+ 1055 003a A36C     		ldr	r3, [r4, #72]
+ 1056 003c 9A06     		lsls	r2, r3, #26
+ 1057 003e 09D4     		bmi	.L172
+ 1058 0040 2368     		ldr	r3, [r4]
+ 1059 0042 1D4A     		ldr	r2, .L186
+ 1060 0044 9A63     		str	r2, [r3, #56]
+ 1061 0046 A36B     		ldr	r3, [r4, #56]
+ 1062 0048 43F08063 		orr	r3, r3, #67108864
+ 1063              	.L185:
+ 1064 004c A363     		str	r3, [r4, #56]
+ 1065 004e 84F83450 		strb	r5, [r4, #52]
+ 1066 0052 E6E7     		b	.L183
+ 1067              	.L172:
+ 1068 0054 2068     		ldr	r0, [r4]
+ 1069 0056 FFF7FEFF 		bl	SDIO_GetResponse
+ 1070 005a 8301     		lsls	r3, r0, #6
+ 1071 005c 06D5     		bpl	.L173
+ 1072 005e 2368     		ldr	r3, [r4]
+ 1073 0060 154A     		ldr	r2, .L186
+ 1074 0062 9A63     		str	r2, [r3, #56]
+ 1075 0064 A36B     		ldr	r3, [r4, #56]
+ 1076 0066 43F40063 		orr	r3, r3, #2048
+ 1077 006a EFE7     		b	.L185
+ 1078              	.L173:
+ 1079 006c 636C     		ldr	r3, [r4, #68]
+ 1080 006e 2068     		ldr	r0, [r4]
+ 1081 0070 012B     		cmp	r3, #1
+ 1082 0072 18BF     		it	ne
+ 1083 0074 7F02     		lslne	r7, r7, #9
+ 1084 0076 3946     		mov	r1, r7
+ 1085 0078 18BF     		it	ne
+ 1086 007a 7602     		lslne	r6, r6, #9
+ 1087 007c FFF7FEFF 		bl	SDMMC_CmdEraseStartAdd
+ 1088 0080 48B1     		cbz	r0, .L175
+ 1089              	.L184:
+ 1090 0082 2368     		ldr	r3, [r4]
+ 1091 0084 0C4A     		ldr	r2, .L186
+ 1092 0086 9A63     		str	r2, [r3, #56]
+ 1093 0088 A36B     		ldr	r3, [r4, #56]
+ 1094 008a 1843     		orrs	r0, r0, r3
+ 1095 008c A063     		str	r0, [r4, #56]
+ 1096 008e 0120     		movs	r0, #1
+ 1097 0090 84F83400 		strb	r0, [r4, #52]
+ 1098 0094 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 1099              	.L175:
+ 1100 0096 3146     		mov	r1, r6
+ 1101 0098 2068     		ldr	r0, [r4]
+ 1102 009a FFF7FEFF 		bl	SDMMC_CmdEraseEndAdd
+ 1103 009e 0028     		cmp	r0, #0
+ 1104 00a0 EFD1     		bne	.L184
+ARM GAS  /tmp/ccfeIOOj.s 			page 20
+
+
+ 1105 00a2 2068     		ldr	r0, [r4]
+ 1106 00a4 FFF7FEFF 		bl	SDMMC_CmdErase
+ 1107 00a8 0028     		cmp	r0, #0
+ 1108 00aa EAD1     		bne	.L184
+ 1109 00ac 0123     		movs	r3, #1
+ 1110 00ae 84F83430 		strb	r3, [r4, #52]
+ 1111 00b2 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 1112              	.L178:
+ 1113 00b4 0220     		movs	r0, #2
+ 1114 00b6 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 1115              	.L187:
+ 1116              		.align	2
+ 1117              	.L186:
+ 1118 00b8 FF054000 		.word	4195839
+ 1120              		.section	.text.HAL_MMC_GetState,"ax",%progbits
+ 1121              		.align	1
+ 1122              		.global	HAL_MMC_GetState
+ 1123              		.syntax unified
+ 1124              		.thumb
+ 1125              		.thumb_func
+ 1126              		.fpu softvfp
+ 1128              	HAL_MMC_GetState:
+ 1129              		@ args = 0, pretend = 0, frame = 0
+ 1130              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1131              		@ link register save eliminated.
+ 1132 0000 90F83400 		ldrb	r0, [r0, #52]	@ zero_extendqisi2
+ 1133 0004 7047     		bx	lr
+ 1135              		.section	.text.HAL_MMC_GetError,"ax",%progbits
+ 1136              		.align	1
+ 1137              		.global	HAL_MMC_GetError
+ 1138              		.syntax unified
+ 1139              		.thumb
+ 1140              		.thumb_func
+ 1141              		.fpu softvfp
+ 1143              	HAL_MMC_GetError:
+ 1144              		@ args = 0, pretend = 0, frame = 0
+ 1145              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1146              		@ link register save eliminated.
+ 1147 0000 806B     		ldr	r0, [r0, #56]
+ 1148 0002 7047     		bx	lr
+ 1150              		.section	.text.HAL_MMC_TxCpltCallback,"ax",%progbits
+ 1151              		.align	1
+ 1152              		.weak	HAL_MMC_TxCpltCallback
+ 1153              		.syntax unified
+ 1154              		.thumb
+ 1155              		.thumb_func
+ 1156              		.fpu softvfp
+ 1158              	HAL_MMC_TxCpltCallback:
+ 1159              		@ args = 0, pretend = 0, frame = 0
+ 1160              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1161              		@ link register save eliminated.
+ 1162 0000 7047     		bx	lr
+ 1164              		.section	.text.HAL_MMC_RxCpltCallback,"ax",%progbits
+ 1165              		.align	1
+ 1166              		.weak	HAL_MMC_RxCpltCallback
+ 1167              		.syntax unified
+ 1168              		.thumb
+ARM GAS  /tmp/ccfeIOOj.s 			page 21
+
+
+ 1169              		.thumb_func
+ 1170              		.fpu softvfp
+ 1172              	HAL_MMC_RxCpltCallback:
+ 1173              		@ args = 0, pretend = 0, frame = 0
+ 1174              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1175              		@ link register save eliminated.
+ 1176 0000 7047     		bx	lr
+ 1178              		.section	.text.HAL_MMC_ErrorCallback,"ax",%progbits
+ 1179              		.align	1
+ 1180              		.weak	HAL_MMC_ErrorCallback
+ 1181              		.syntax unified
+ 1182              		.thumb
+ 1183              		.thumb_func
+ 1184              		.fpu softvfp
+ 1186              	HAL_MMC_ErrorCallback:
+ 1187              		@ args = 0, pretend = 0, frame = 0
+ 1188              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1189              		@ link register save eliminated.
+ 1190 0000 7047     		bx	lr
+ 1192              		.section	.text.MMC_DMAReceiveCplt,"ax",%progbits
+ 1193              		.align	1
+ 1194              		.syntax unified
+ 1195              		.thumb
+ 1196              		.thumb_func
+ 1197              		.fpu softvfp
+ 1199              	MMC_DMAReceiveCplt:
+ 1200              		@ args = 0, pretend = 0, frame = 0
+ 1201              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1202 0000 10B5     		push	{r4, lr}
+ 1203 0002 446A     		ldr	r4, [r0, #36]
+ 1204 0004 236B     		ldr	r3, [r4, #48]
+ 1205 0006 822B     		cmp	r3, #130
+ 1206 0008 09D1     		bne	.L195
+ 1207 000a 2068     		ldr	r0, [r4]
+ 1208 000c FFF7FEFF 		bl	SDMMC_CmdStopTransfer
+ 1209 0010 28B1     		cbz	r0, .L195
+ 1210 0012 A36B     		ldr	r3, [r4, #56]
+ 1211 0014 1843     		orrs	r0, r0, r3
+ 1212 0016 A063     		str	r0, [r4, #56]
+ 1213 0018 2046     		mov	r0, r4
+ 1214 001a FFF7FEFF 		bl	HAL_MMC_ErrorCallback
+ 1215              	.L195:
+ 1216 001e 2368     		ldr	r3, [r4]
+ 1217 0020 2046     		mov	r0, r4
+ 1218 0022 DA6A     		ldr	r2, [r3, #44]
+ 1219 0024 22F00802 		bic	r2, r2, #8
+ 1220 0028 DA62     		str	r2, [r3, #44]
+ 1221 002a 40F23A52 		movw	r2, #1338
+ 1222 002e 9A63     		str	r2, [r3, #56]
+ 1223 0030 0123     		movs	r3, #1
+ 1224 0032 84F83430 		strb	r3, [r4, #52]
+ 1225 0036 FFF7FEFF 		bl	HAL_MMC_RxCpltCallback
+ 1226 003a 10BD     		pop	{r4, pc}
+ 1228              		.section	.text.HAL_MMC_AbortCallback,"ax",%progbits
+ 1229              		.align	1
+ 1230              		.weak	HAL_MMC_AbortCallback
+ 1231              		.syntax unified
+ARM GAS  /tmp/ccfeIOOj.s 			page 22
+
+
+ 1232              		.thumb
+ 1233              		.thumb_func
+ 1234              		.fpu softvfp
+ 1236              	HAL_MMC_AbortCallback:
+ 1237              		@ args = 0, pretend = 0, frame = 0
+ 1238              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1239              		@ link register save eliminated.
+ 1240 0000 7047     		bx	lr
+ 1242              		.section	.text.HAL_MMC_GetCardCID,"ax",%progbits
+ 1243              		.align	1
+ 1244              		.global	HAL_MMC_GetCardCID
+ 1245              		.syntax unified
+ 1246              		.thumb
+ 1247              		.thumb_func
+ 1248              		.fpu softvfp
+ 1250              	HAL_MMC_GetCardCID:
+ 1251              		@ args = 0, pretend = 0, frame = 0
+ 1252              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1253 0000 10B5     		push	{r4, lr}
+ 1254 0002 046F     		ldr	r4, [r0, #112]
+ 1255 0004 230E     		lsrs	r3, r4, #24
+ 1256 0006 0B70     		strb	r3, [r1]
+ 1257 0008 C4F30F23 		ubfx	r3, r4, #8, #16
+ 1258 000c 4B80     		strh	r3, [r1, #2]	@ movhi
+ 1259 000e 436F     		ldr	r3, [r0, #116]
+ 1260 0010 1A0A     		lsrs	r2, r3, #8
+ 1261 0012 42EA0462 		orr	r2, r2, r4, lsl #24
+ 1262 0016 DBB2     		uxtb	r3, r3
+ 1263 0018 4A60     		str	r2, [r1, #4]
+ 1264 001a 0B72     		strb	r3, [r1, #8]
+ 1265 001c 846F     		ldr	r4, [r0, #120]
+ 1266 001e 230E     		lsrs	r3, r4, #24
+ 1267 0020 4B72     		strb	r3, [r1, #9]
+ 1268 0022 C36F     		ldr	r3, [r0, #124]
+ 1269 0024 0020     		movs	r0, #0
+ 1270 0026 1A0E     		lsrs	r2, r3, #24
+ 1271 0028 42EA0422 		orr	r2, r2, r4, lsl #8
+ 1272 002c CA60     		str	r2, [r1, #12]
+ 1273 002e C3F30352 		ubfx	r2, r3, #20, #4
+ 1274 0032 0A74     		strb	r2, [r1, #16]
+ 1275 0034 C3F30B22 		ubfx	r2, r3, #8, #12
+ 1276 0038 C3F34603 		ubfx	r3, r3, #1, #7
+ 1277 003c 4A82     		strh	r2, [r1, #18]	@ movhi
+ 1278 003e 0B75     		strb	r3, [r1, #20]
+ 1279 0040 0123     		movs	r3, #1
+ 1280 0042 4B75     		strb	r3, [r1, #21]
+ 1281 0044 10BD     		pop	{r4, pc}
+ 1283              		.section	.text.HAL_MMC_GetCardCSD,"ax",%progbits
+ 1284              		.align	1
+ 1285              		.global	HAL_MMC_GetCardCSD
+ 1286              		.syntax unified
+ 1287              		.thumb
+ 1288              		.thumb_func
+ 1289              		.fpu softvfp
+ 1291              	HAL_MMC_GetCardCSD:
+ 1292              		@ args = 0, pretend = 0, frame = 0
+ 1293              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /tmp/ccfeIOOj.s 			page 23
+
+
+ 1294 0000 0246     		mov	r2, r0
+ 1295 0002 036E     		ldr	r3, [r0, #96]
+ 1296 0004 70B5     		push	{r4, r5, r6, lr}
+ 1297 0006 980F     		lsrs	r0, r3, #30
+ 1298 0008 0870     		strb	r0, [r1]
+ 1299 000a C3F38360 		ubfx	r0, r3, #26, #4
+ 1300 000e 4870     		strb	r0, [r1, #1]
+ 1301 0010 C3F30160 		ubfx	r0, r3, #24, #2
+ 1302 0014 8870     		strb	r0, [r1, #2]
+ 1303 0016 C3F30740 		ubfx	r0, r3, #16, #8
+ 1304 001a C870     		strb	r0, [r1, #3]
+ 1305 001c C3F30720 		ubfx	r0, r3, #8, #8
+ 1306 0020 0871     		strb	r0, [r1, #4]
+ 1307 0022 0020     		movs	r0, #0
+ 1308 0024 40F6FC75 		movw	r5, #4092
+ 1309 0028 0126     		movs	r6, #1
+ 1310 002a DBB2     		uxtb	r3, r3
+ 1311 002c 4B71     		strb	r3, [r1, #5]
+ 1312 002e 546E     		ldr	r4, [r2, #100]
+ 1313 0030 230D     		lsrs	r3, r4, #20
+ 1314 0032 CB80     		strh	r3, [r1, #6]	@ movhi
+ 1315 0034 C4F30343 		ubfx	r3, r4, #16, #4
+ 1316 0038 0B72     		strb	r3, [r1, #8]
+ 1317 003a C4F3C033 		ubfx	r3, r4, #15, #1
+ 1318 003e 4B72     		strb	r3, [r1, #9]
+ 1319 0040 C4F38033 		ubfx	r3, r4, #14, #1
+ 1320 0044 8B72     		strb	r3, [r1, #10]
+ 1321 0046 C4F34033 		ubfx	r3, r4, #13, #1
+ 1322 004a CB72     		strb	r3, [r1, #11]
+ 1323 004c C4F30033 		ubfx	r3, r4, #12, #1
+ 1324 0050 0B73     		strb	r3, [r1, #12]
+ 1325 0052 4873     		strb	r0, [r1, #13]
+ 1326 0054 936E     		ldr	r3, [r2, #104]
+ 1327 0056 05EA8404 		and	r4, r5, r4, lsl #2
+ 1328 005a 44EA9374 		orr	r4, r4, r3, lsr #30
+ 1329 005e 0C61     		str	r4, [r1, #16]
+ 1330 0060 C3F3C264 		ubfx	r4, r3, #27, #3
+ 1331 0064 0C75     		strb	r4, [r1, #20]
+ 1332 0066 C3F30264 		ubfx	r4, r3, #24, #3
+ 1333 006a 4C75     		strb	r4, [r1, #21]
+ 1334 006c C3F34254 		ubfx	r4, r3, #21, #3
+ 1335 0070 8C75     		strb	r4, [r1, #22]
+ 1336 0072 C3F38244 		ubfx	r4, r3, #18, #3
+ 1337 0076 CC75     		strb	r4, [r1, #23]
+ 1338 0078 C3F3C234 		ubfx	r4, r3, #15, #3
+ 1339 007c 0C76     		strb	r4, [r1, #24]
+ 1340 007e 0C69     		ldr	r4, [r1, #16]
+ 1341 0080 0D7E     		ldrb	r5, [r1, #24]	@ zero_extendqisi2
+ 1342 0082 0134     		adds	r4, r4, #1
+ 1343 0084 05F00705 		and	r5, r5, #7
+ 1344 0088 0235     		adds	r5, r5, #2
+ 1345 008a AC40     		lsls	r4, r4, r5
+ 1346 008c 1465     		str	r4, [r2, #80]
+ 1347 008e 0D7A     		ldrb	r5, [r1, #8]	@ zero_extendqisi2
+ 1348 0090 05F00F05 		and	r5, r5, #15
+ 1349 0094 06FA05F5 		lsl	r5, r6, r5
+ 1350 0098 5565     		str	r5, [r2, #84]
+ARM GAS  /tmp/ccfeIOOj.s 			page 24
+
+
+ 1351 009a 6D0A     		lsrs	r5, r5, #9
+ 1352 009c 6C43     		muls	r4, r5, r4
+ 1353 009e 9465     		str	r4, [r2, #88]
+ 1354 00a0 4FF40074 		mov	r4, #512
+ 1355 00a4 D465     		str	r4, [r2, #92]
+ 1356 00a6 C3F38034 		ubfx	r4, r3, #14, #1
+ 1357 00aa 4C76     		strb	r4, [r1, #25]
+ 1358 00ac C3F3C614 		ubfx	r4, r3, #7, #7
+ 1359 00b0 03F07F03 		and	r3, r3, #127
+ 1360 00b4 8C76     		strb	r4, [r1, #26]
+ 1361 00b6 CB76     		strb	r3, [r1, #27]
+ 1362 00b8 D36E     		ldr	r3, [r2, #108]
+ 1363 00ba DA0F     		lsrs	r2, r3, #31
+ 1364 00bc 0A77     		strb	r2, [r1, #28]
+ 1365 00be C3F34172 		ubfx	r2, r3, #29, #2
+ 1366 00c2 4A77     		strb	r2, [r1, #29]
+ 1367 00c4 C3F38262 		ubfx	r2, r3, #26, #3
+ 1368 00c8 8A77     		strb	r2, [r1, #30]
+ 1369 00ca C3F38352 		ubfx	r2, r3, #22, #4
+ 1370 00ce CA77     		strb	r2, [r1, #31]
+ 1371 00d0 C3F34052 		ubfx	r2, r3, #21, #1
+ 1372 00d4 81F82020 		strb	r2, [r1, #32]
+ 1373 00d8 C3F30042 		ubfx	r2, r3, #16, #1
+ 1374 00dc 81F82100 		strb	r0, [r1, #33]
+ 1375 00e0 81F82220 		strb	r2, [r1, #34]
+ 1376 00e4 C3F3C032 		ubfx	r2, r3, #15, #1
+ 1377 00e8 81F82320 		strb	r2, [r1, #35]
+ 1378 00ec C3F38032 		ubfx	r2, r3, #14, #1
+ 1379 00f0 81F82420 		strb	r2, [r1, #36]
+ 1380 00f4 C3F34032 		ubfx	r2, r3, #13, #1
+ 1381 00f8 81F82520 		strb	r2, [r1, #37]
+ 1382 00fc C3F30032 		ubfx	r2, r3, #12, #1
+ 1383 0100 81F82620 		strb	r2, [r1, #38]
+ 1384 0104 C3F38122 		ubfx	r2, r3, #10, #2
+ 1385 0108 81F82720 		strb	r2, [r1, #39]
+ 1386 010c C3F30122 		ubfx	r2, r3, #8, #2
+ 1387 0110 C3F34603 		ubfx	r3, r3, #1, #7
+ 1388 0114 81F82820 		strb	r2, [r1, #40]
+ 1389 0118 81F82930 		strb	r3, [r1, #41]
+ 1390 011c 81F82A60 		strb	r6, [r1, #42]
+ 1391 0120 70BD     		pop	{r4, r5, r6, pc}
+ 1393              		.section	.text.HAL_MMC_InitCard,"ax",%progbits
+ 1394              		.align	1
+ 1395              		.global	HAL_MMC_InitCard
+ 1396              		.syntax unified
+ 1397              		.thumb
+ 1398              		.thumb_func
+ 1399              		.fpu softvfp
+ 1401              	HAL_MMC_InitCard:
+ 1402              		@ args = 0, pretend = 0, frame = 80
+ 1403              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1404 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 1405 0002 7623     		movs	r3, #118
+ 1406 0004 0025     		movs	r5, #0
+ 1407 0006 0446     		mov	r4, r0
+ 1408 0008 99B0     		sub	sp, sp, #100
+ 1409 000a 0C93     		str	r3, [sp, #48]
+ARM GAS  /tmp/ccfeIOOj.s 			page 25
+
+
+ 1410 000c 0A95     		str	r5, [sp, #40]
+ 1411 000e 0B95     		str	r5, [sp, #44]
+ 1412 0010 0AAB     		add	r3, sp, #40
+ 1413 0012 93E80700 		ldm	r3, {r0, r1, r2}
+ 1414 0016 8DE80700 		stm	sp, {r0, r1, r2}
+ 1415 001a 0795     		str	r5, [sp, #28]
+ 1416 001c 0895     		str	r5, [sp, #32]
+ 1417 001e 0995     		str	r5, [sp, #36]
+ 1418 0020 07AB     		add	r3, sp, #28
+ 1419 0022 0ECB     		ldm	r3, {r1, r2, r3}
+ 1420 0024 2068     		ldr	r0, [r4]
+ 1421 0026 FFF7FEFF 		bl	SDIO_Init
+ 1422 002a 0128     		cmp	r0, #1
+ 1423 002c 03D1     		bne	.L204
+ 1424              	.L206:
+ 1425 002e 0125     		movs	r5, #1
+ 1426              	.L221:
+ 1427 0030 2846     		mov	r0, r5
+ 1428 0032 19B0     		add	sp, sp, #100
+ 1429              		@ sp needed
+ 1430 0034 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 1431              	.L204:
+ 1432 0036 524E     		ldr	r6, .L224
+ 1433 0038 2068     		ldr	r0, [r4]
+ 1434 003a 3560     		str	r5, [r6]
+ 1435 003c FFF7FEFF 		bl	SDIO_PowerState_ON
+ 1436 0040 0128     		cmp	r0, #1
+ 1437 0042 F4D0     		beq	.L206
+ 1438 0044 0123     		movs	r3, #1
+ 1439 0046 2068     		ldr	r0, [r4]
+ 1440 0048 3360     		str	r3, [r6]
+ 1441 004a 0695     		str	r5, [sp, #24]
+ 1442 004c FFF7FEFF 		bl	SDMMC_CmdGoIdleState
+ 1443 0050 0028     		cmp	r0, #0
+ 1444 0052 40F08380 		bne	.L207
+ 1445 0056 4FF6FF76 		movw	r6, #65535
+ 1446 005a 4A4F     		ldr	r7, .L224+4
+ 1447              	.L208:
+ 1448 005c 069B     		ldr	r3, [sp, #24]
+ 1449 005e 5A1C     		adds	r2, r3, #1
+ 1450 0060 B342     		cmp	r3, r6
+ 1451 0062 0692     		str	r2, [sp, #24]
+ 1452 0064 78D0     		beq	.L215
+ 1453 0066 3946     		mov	r1, r7
+ 1454 0068 2068     		ldr	r0, [r4]
+ 1455 006a FFF7FEFF 		bl	SDMMC_CmdOpCondition
+ 1456 006e 0546     		mov	r5, r0
+ 1457 0070 0028     		cmp	r0, #0
+ 1458 0072 79D1     		bne	.L216
+ 1459 0074 0146     		mov	r1, r0
+ 1460 0076 2068     		ldr	r0, [r4]
+ 1461 0078 FFF7FEFF 		bl	SDIO_GetResponse
+ 1462 007c C30F     		lsrs	r3, r0, #31
+ 1463 007e EDD0     		beq	.L208
+ 1464 0080 000E     		lsrs	r0, r0, #24
+ 1465 0082 C028     		cmp	r0, #192
+ 1466 0084 08BF     		it	eq
+ARM GAS  /tmp/ccfeIOOj.s 			page 26
+
+
+ 1467 0086 1D46     		moveq	r5, r3
+ 1468 0088 2068     		ldr	r0, [r4]
+ 1469 008a 6564     		str	r5, [r4, #68]
+ 1470 008c ADF81630 		strh	r3, [sp, #22]	@ movhi
+ 1471 0090 FFF7FEFF 		bl	SDIO_GetPowerState
+ 1472 0094 0028     		cmp	r0, #0
+ 1473 0096 6AD0     		beq	.L222
+ 1474 0098 2068     		ldr	r0, [r4]
+ 1475 009a FFF7FEFF 		bl	SDMMC_CmdSendCID
+ 1476 009e 0028     		cmp	r0, #0
+ 1477 00a0 67D1     		bne	.L213
+ 1478 00a2 0146     		mov	r1, r0
+ 1479 00a4 2068     		ldr	r0, [r4]
+ 1480 00a6 FFF7FEFF 		bl	SDIO_GetResponse
+ 1481 00aa 0421     		movs	r1, #4
+ 1482 00ac 2067     		str	r0, [r4, #112]
+ 1483 00ae 2068     		ldr	r0, [r4]
+ 1484 00b0 FFF7FEFF 		bl	SDIO_GetResponse
+ 1485 00b4 0821     		movs	r1, #8
+ 1486 00b6 6067     		str	r0, [r4, #116]
+ 1487 00b8 2068     		ldr	r0, [r4]
+ 1488 00ba FFF7FEFF 		bl	SDIO_GetResponse
+ 1489 00be 0C21     		movs	r1, #12
+ 1490 00c0 A067     		str	r0, [r4, #120]
+ 1491 00c2 2068     		ldr	r0, [r4]
+ 1492 00c4 FFF7FEFF 		bl	SDIO_GetResponse
+ 1493 00c8 0DF11601 		add	r1, sp, #22
+ 1494 00cc E067     		str	r0, [r4, #124]
+ 1495 00ce 2068     		ldr	r0, [r4]
+ 1496 00d0 FFF7FEFF 		bl	SDMMC_CmdSetRelAdd
+ 1497 00d4 0028     		cmp	r0, #0
+ 1498 00d6 4CD1     		bne	.L213
+ 1499 00d8 BDF81610 		ldrh	r1, [sp, #22]
+ 1500 00dc 2068     		ldr	r0, [r4]
+ 1501 00de E164     		str	r1, [r4, #76]
+ 1502 00e0 0904     		lsls	r1, r1, #16
+ 1503 00e2 FFF7FEFF 		bl	SDMMC_CmdSendCSD
+ 1504 00e6 0028     		cmp	r0, #0
+ 1505 00e8 43D1     		bne	.L213
+ 1506 00ea 0146     		mov	r1, r0
+ 1507 00ec 2068     		ldr	r0, [r4]
+ 1508 00ee FFF7FEFF 		bl	SDIO_GetResponse
+ 1509 00f2 0421     		movs	r1, #4
+ 1510 00f4 2066     		str	r0, [r4, #96]
+ 1511 00f6 2068     		ldr	r0, [r4]
+ 1512 00f8 FFF7FEFF 		bl	SDIO_GetResponse
+ 1513 00fc 0821     		movs	r1, #8
+ 1514 00fe 6066     		str	r0, [r4, #100]
+ 1515 0100 2068     		ldr	r0, [r4]
+ 1516 0102 FFF7FEFF 		bl	SDIO_GetResponse
+ 1517 0106 0C21     		movs	r1, #12
+ 1518 0108 A066     		str	r0, [r4, #104]
+ 1519 010a 2068     		ldr	r0, [r4]
+ 1520 010c FFF7FEFF 		bl	SDIO_GetResponse
+ 1521 0110 0421     		movs	r1, #4
+ 1522 0112 E066     		str	r0, [r4, #108]
+ 1523 0114 2068     		ldr	r0, [r4]
+ARM GAS  /tmp/ccfeIOOj.s 			page 27
+
+
+ 1524 0116 FFF7FEFF 		bl	SDIO_GetResponse
+ 1525 011a 000D     		lsrs	r0, r0, #20
+ 1526 011c A064     		str	r0, [r4, #72]
+ 1527 011e 0DA9     		add	r1, sp, #52
+ 1528 0120 2046     		mov	r0, r4
+ 1529 0122 FFF7FEFF 		bl	HAL_MMC_GetCardCSD
+ 1530 0126 0546     		mov	r5, r0
+ 1531 0128 18B1     		cbz	r0, .L212
+ 1532 012a A06B     		ldr	r0, [r4, #56]
+ 1533 012c 08BB     		cbnz	r0, .L213
+ 1534 012e 0546     		mov	r5, r0
+ 1535 0130 7EE7     		b	.L221
+ 1536              	.L212:
+ 1537 0132 E26C     		ldr	r2, [r4, #76]
+ 1538 0134 0346     		mov	r3, r0
+ 1539 0136 1204     		lsls	r2, r2, #16
+ 1540 0138 2068     		ldr	r0, [r4]
+ 1541 013a FFF7FEFF 		bl	SDMMC_CmdSelDesel
+ 1542 013e C0B9     		cbnz	r0, .L213
+ 1543 0140 04F11003 		add	r3, r4, #16
+ 1544 0144 93E80700 		ldm	r3, {r0, r1, r2}
+ 1545 0148 8DE80700 		stm	sp, {r0, r1, r2}
+ 1546 014c 231D     		adds	r3, r4, #4
+ 1547 014e 0ECB     		ldm	r3, {r1, r2, r3}
+ 1548 0150 2068     		ldr	r0, [r4]
+ 1549 0152 FFF7FEFF 		bl	SDIO_Init
+ 1550 0156 6BE7     		b	.L221
+ 1551              	.L215:
+ 1552 0158 4FF08070 		mov	r0, #16777216
+ 1553              	.L207:
+ 1554 015c 0125     		movs	r5, #1
+ 1555 015e 84F83450 		strb	r5, [r4, #52]
+ 1556 0162 A36B     		ldr	r3, [r4, #56]
+ 1557 0164 1843     		orrs	r0, r0, r3
+ 1558 0166 09E0     		b	.L223
+ 1559              	.L216:
+ 1560 0168 4FF08050 		mov	r0, #268435456
+ 1561 016c F6E7     		b	.L207
+ 1562              	.L222:
+ 1563 016e 4FF08060 		mov	r0, #67108864
+ 1564              	.L213:
+ 1565 0172 0125     		movs	r5, #1
+ 1566 0174 84F83450 		strb	r5, [r4, #52]
+ 1567 0178 A16B     		ldr	r1, [r4, #56]
+ 1568 017a 0843     		orrs	r0, r0, r1
+ 1569              	.L223:
+ 1570 017c A063     		str	r0, [r4, #56]
+ 1571 017e 57E7     		b	.L221
+ 1572              	.L225:
+ 1573              		.align	2
+ 1574              	.L224:
+ 1575 0180 A0003042 		.word	1110442144
+ 1576 0184 0080FFC0 		.word	-1056997376
+ 1578              		.section	.text.HAL_MMC_Init,"ax",%progbits
+ 1579              		.align	1
+ 1580              		.global	HAL_MMC_Init
+ 1581              		.syntax unified
+ARM GAS  /tmp/ccfeIOOj.s 			page 28
+
+
+ 1582              		.thumb
+ 1583              		.thumb_func
+ 1584              		.fpu softvfp
+ 1586              	HAL_MMC_Init:
+ 1587              		@ args = 0, pretend = 0, frame = 0
+ 1588              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1589 0000 10B5     		push	{r4, lr}
+ 1590 0002 0446     		mov	r4, r0
+ 1591 0004 08B9     		cbnz	r0, .L227
+ 1592              	.L230:
+ 1593 0006 0120     		movs	r0, #1
+ 1594 0008 10BD     		pop	{r4, pc}
+ 1595              	.L227:
+ 1596 000a 90F83430 		ldrb	r3, [r0, #52]	@ zero_extendqisi2
+ 1597 000e 03F0FF02 		and	r2, r3, #255
+ 1598 0012 13B9     		cbnz	r3, .L229
+ 1599 0014 0277     		strb	r2, [r0, #28]
+ 1600 0016 FFF7FEFF 		bl	HAL_MMC_MspInit
+ 1601              	.L229:
+ 1602 001a 0323     		movs	r3, #3
+ 1603 001c 2046     		mov	r0, r4
+ 1604 001e 84F83430 		strb	r3, [r4, #52]
+ 1605 0022 FFF7FEFF 		bl	HAL_MMC_InitCard
+ 1606 0026 0128     		cmp	r0, #1
+ 1607 0028 EDD0     		beq	.L230
+ 1608 002a 0020     		movs	r0, #0
+ 1609 002c 0123     		movs	r3, #1
+ 1610 002e A063     		str	r0, [r4, #56]
+ 1611 0030 2063     		str	r0, [r4, #48]
+ 1612 0032 84F83430 		strb	r3, [r4, #52]
+ 1613 0036 10BD     		pop	{r4, pc}
+ 1615              		.section	.text.HAL_MMC_GetCardInfo,"ax",%progbits
+ 1616              		.align	1
+ 1617              		.global	HAL_MMC_GetCardInfo
+ 1618              		.syntax unified
+ 1619              		.thumb
+ 1620              		.thumb_func
+ 1621              		.fpu softvfp
+ 1623              	HAL_MMC_GetCardInfo:
+ 1624              		@ args = 0, pretend = 0, frame = 0
+ 1625              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1626              		@ link register save eliminated.
+ 1627 0000 436C     		ldr	r3, [r0, #68]
+ 1628 0002 0B60     		str	r3, [r1]
+ 1629 0004 836C     		ldr	r3, [r0, #72]
+ 1630 0006 4B60     		str	r3, [r1, #4]
+ 1631 0008 C36C     		ldr	r3, [r0, #76]
+ 1632 000a 8B60     		str	r3, [r1, #8]
+ 1633 000c 036D     		ldr	r3, [r0, #80]
+ 1634 000e CB60     		str	r3, [r1, #12]
+ 1635 0010 436D     		ldr	r3, [r0, #84]
+ 1636 0012 0B61     		str	r3, [r1, #16]
+ 1637 0014 836D     		ldr	r3, [r0, #88]
+ 1638 0016 4B61     		str	r3, [r1, #20]
+ 1639 0018 C36D     		ldr	r3, [r0, #92]
+ 1640 001a 0020     		movs	r0, #0
+ 1641 001c 8B61     		str	r3, [r1, #24]
+ARM GAS  /tmp/ccfeIOOj.s 			page 29
+
+
+ 1642 001e 7047     		bx	lr
+ 1644              		.section	.text.HAL_MMC_ConfigWideBusOperation,"ax",%progbits
+ 1645              		.align	1
+ 1646              		.global	HAL_MMC_ConfigWideBusOperation
+ 1647              		.syntax unified
+ 1648              		.thumb
+ 1649              		.thumb_func
+ 1650              		.fpu softvfp
+ 1652              	HAL_MMC_ConfigWideBusOperation:
+ 1653              		@ args = 0, pretend = 0, frame = 32
+ 1654              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1655 0000 0023     		movs	r3, #0
+ 1656 0002 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 1657 0006 8CB0     		sub	sp, sp, #48
+ 1658 0008 0593     		str	r3, [sp, #20]
+ 1659 000a 0693     		str	r3, [sp, #24]
+ 1660 000c 0793     		str	r3, [sp, #28]
+ 1661 000e 0893     		str	r3, [sp, #32]
+ 1662 0010 0A93     		str	r3, [sp, #40]
+ 1663 0012 7623     		movs	r3, #118
+ 1664 0014 0322     		movs	r2, #3
+ 1665 0016 0446     		mov	r4, r0
+ 1666 0018 8846     		mov	r8, r1
+ 1667 001a 0B93     		str	r3, [sp, #44]
+ 1668 001c 0991     		str	r1, [sp, #36]
+ 1669 001e 09AF     		add	r7, sp, #36
+ 1670 0020 80F83420 		strb	r2, [r0, #52]
+ 1671 0024 97E80700 		ldm	r7, {r0, r1, r2}
+ 1672 0028 8DE80700 		stm	sp, {r0, r1, r2}
+ 1673 002c 06AE     		add	r6, sp, #24
+ 1674 002e 96E80E00 		ldm	r6, {r1, r2, r3}
+ 1675 0032 2068     		ldr	r0, [r4]
+ 1676 0034 FFF7FEFF 		bl	SDIO_Init
+ 1677 0038 B8F5805F 		cmp	r8, #4096
+ 1678 003c 16D1     		bne	.L236
+ 1679 003e 3A49     		ldr	r1, .L271
+ 1680              	.L269:
+ 1681 0040 2068     		ldr	r0, [r4]
+ 1682 0042 FFF7FEFF 		bl	SDMMC_CmdSwitch
+ 1683 0046 10B1     		cbz	r0, .L238
+ 1684 0048 A36B     		ldr	r3, [r4, #56]
+ 1685 004a 1843     		orrs	r0, r0, r3
+ 1686 004c A063     		str	r0, [r4, #56]
+ 1687              	.L238:
+ 1688 004e 4FF6FF75 		movw	r5, #65535
+ 1689              	.L245:
+ 1690 0052 059B     		ldr	r3, [sp, #20]
+ 1691 0054 AB42     		cmp	r3, r5
+ 1692 0056 18D1     		bne	.L242
+ 1693              	.L267:
+ 1694 0058 0120     		movs	r0, #1
+ 1695 005a 84F83400 		strb	r0, [r4, #52]
+ 1696 005e A36B     		ldr	r3, [r4, #56]
+ 1697 0060 43F08063 		orr	r3, r3, #67108864
+ 1698 0064 A363     		str	r3, [r4, #56]
+ 1699              	.L243:
+ 1700 0066 0CB0     		add	sp, sp, #48
+ARM GAS  /tmp/ccfeIOOj.s 			page 30
+
+
+ 1701              		@ sp needed
+ 1702 0068 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 1703              	.L236:
+ 1704 006c B8F5006F 		cmp	r8, #2048
+ 1705 0070 01D1     		bne	.L239
+ 1706 0072 2E49     		ldr	r1, .L271+4
+ 1707 0074 E4E7     		b	.L269
+ 1708              	.L239:
+ 1709 0076 B8F1000F 		cmp	r8, #0
+ 1710 007a 01D1     		bne	.L241
+ 1711 007c 2C49     		ldr	r1, .L271+8
+ 1712 007e DFE7     		b	.L269
+ 1713              	.L241:
+ 1714 0080 A36B     		ldr	r3, [r4, #56]
+ 1715 0082 43F00063 		orr	r3, r3, #134217728
+ 1716 0086 A363     		str	r3, [r4, #56]
+ 1717 0088 E1E7     		b	.L238
+ 1718              	.L242:
+ 1719 008a 059B     		ldr	r3, [sp, #20]
+ 1720 008c E16C     		ldr	r1, [r4, #76]
+ 1721 008e 0133     		adds	r3, r3, #1
+ 1722 0090 0904     		lsls	r1, r1, #16
+ 1723 0092 2068     		ldr	r0, [r4]
+ 1724 0094 0593     		str	r3, [sp, #20]
+ 1725 0096 FFF7FEFF 		bl	SDMMC_CmdSendStatus
+ 1726 009a 10B1     		cbz	r0, .L244
+ 1727 009c A36B     		ldr	r3, [r4, #56]
+ 1728 009e 1843     		orrs	r0, r0, r3
+ 1729 00a0 A063     		str	r0, [r4, #56]
+ 1730              	.L244:
+ 1731 00a2 0021     		movs	r1, #0
+ 1732 00a4 2068     		ldr	r0, [r4]
+ 1733 00a6 FFF7FEFF 		bl	SDIO_GetResponse
+ 1734 00aa C309     		lsrs	r3, r0, #7
+ 1735 00ac 012B     		cmp	r3, #1
+ 1736 00ae D0D0     		beq	.L245
+ 1737 00b0 4FF0FF33 		mov	r3, #-1
+ 1738 00b4 0593     		str	r3, [sp, #20]
+ 1739              	.L246:
+ 1740 00b6 C305     		lsls	r3, r0, #23
+ 1741 00b8 08D5     		bpl	.L249
+ 1742 00ba A56B     		ldr	r5, [r4, #56]
+ 1743 00bc D5B1     		cbz	r5, .L250
+ 1744 00be 0120     		movs	r0, #1
+ 1745 00c0 2368     		ldr	r3, [r4]
+ 1746 00c2 1C4A     		ldr	r2, .L271+12
+ 1747 00c4 9A63     		str	r2, [r3, #56]
+ 1748 00c6 84F83400 		strb	r0, [r4, #52]
+ 1749 00ca CCE7     		b	.L243
+ 1750              	.L249:
+ 1751 00cc 059B     		ldr	r3, [sp, #20]
+ 1752 00ce 002B     		cmp	r3, #0
+ 1753 00d0 C2D0     		beq	.L267
+ 1754 00d2 059B     		ldr	r3, [sp, #20]
+ 1755 00d4 E16C     		ldr	r1, [r4, #76]
+ 1756 00d6 013B     		subs	r3, r3, #1
+ 1757 00d8 0904     		lsls	r1, r1, #16
+ARM GAS  /tmp/ccfeIOOj.s 			page 31
+
+
+ 1758 00da 2068     		ldr	r0, [r4]
+ 1759 00dc 0593     		str	r3, [sp, #20]
+ 1760 00de FFF7FEFF 		bl	SDMMC_CmdSendStatus
+ 1761 00e2 10B1     		cbz	r0, .L248
+ 1762 00e4 A36B     		ldr	r3, [r4, #56]
+ 1763 00e6 1843     		orrs	r0, r0, r3
+ 1764 00e8 A063     		str	r0, [r4, #56]
+ 1765              	.L248:
+ 1766 00ea 0021     		movs	r1, #0
+ 1767 00ec 2068     		ldr	r0, [r4]
+ 1768 00ee FFF7FEFF 		bl	SDIO_GetResponse
+ 1769 00f2 E0E7     		b	.L246
+ 1770              	.L250:
+ 1771 00f4 6368     		ldr	r3, [r4, #4]
+ 1772 00f6 CDF82480 		str	r8, [sp, #36]
+ 1773 00fa 0693     		str	r3, [sp, #24]
+ 1774 00fc A368     		ldr	r3, [r4, #8]
+ 1775 00fe 0793     		str	r3, [sp, #28]
+ 1776 0100 E368     		ldr	r3, [r4, #12]
+ 1777 0102 0893     		str	r3, [sp, #32]
+ 1778 0104 6369     		ldr	r3, [r4, #20]
+ 1779 0106 0A93     		str	r3, [sp, #40]
+ 1780 0108 A369     		ldr	r3, [r4, #24]
+ 1781 010a 0B93     		str	r3, [sp, #44]
+ 1782 010c 97E80700 		ldm	r7, {r0, r1, r2}
+ 1783 0110 8DE80700 		stm	sp, {r0, r1, r2}
+ 1784 0114 2068     		ldr	r0, [r4]
+ 1785 0116 96E80E00 		ldm	r6, {r1, r2, r3}
+ 1786 011a FFF7FEFF 		bl	SDIO_Init
+ 1787 011e 0123     		movs	r3, #1
+ 1788 0120 2846     		mov	r0, r5
+ 1789 0122 84F83430 		strb	r3, [r4, #52]
+ 1790 0126 9EE7     		b	.L243
+ 1791              	.L272:
+ 1792              		.align	2
+ 1793              	.L271:
+ 1794 0128 0002B703 		.word	62325248
+ 1795 012c 0001B703 		.word	62324992
+ 1796 0130 0000B703 		.word	62324736
+ 1797 0134 FF054000 		.word	4195839
+ 1799              		.section	.text.HAL_MMC_GetCardState,"ax",%progbits
+ 1800              		.align	1
+ 1801              		.global	HAL_MMC_GetCardState
+ 1802              		.syntax unified
+ 1803              		.thumb
+ 1804              		.thumb_func
+ 1805              		.fpu softvfp
+ 1807              	HAL_MMC_GetCardState:
+ 1808              		@ args = 0, pretend = 0, frame = 0
+ 1809              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1810 0000 C16C     		ldr	r1, [r0, #76]
+ 1811 0002 10B5     		push	{r4, lr}
+ 1812 0004 0904     		lsls	r1, r1, #16
+ 1813 0006 0446     		mov	r4, r0
+ 1814 0008 0068     		ldr	r0, [r0]
+ 1815 000a FFF7FEFF 		bl	SDMMC_CmdSendStatus
+ 1816 000e 0146     		mov	r1, r0
+ARM GAS  /tmp/ccfeIOOj.s 			page 32
+
+
+ 1817 0010 28B9     		cbnz	r0, .L274
+ 1818 0012 2068     		ldr	r0, [r4]
+ 1819 0014 FFF7FEFF 		bl	SDIO_GetResponse
+ 1820              	.L275:
+ 1821 0018 C0F34320 		ubfx	r0, r0, #9, #4
+ 1822 001c 10BD     		pop	{r4, pc}
+ 1823              	.L274:
+ 1824 001e A36B     		ldr	r3, [r4, #56]
+ 1825 0020 0020     		movs	r0, #0
+ 1826 0022 1943     		orrs	r1, r1, r3
+ 1827 0024 A163     		str	r1, [r4, #56]
+ 1828 0026 F7E7     		b	.L275
+ 1830              		.section	.text.MMC_DMAError,"ax",%progbits
+ 1831              		.align	1
+ 1832              		.syntax unified
+ 1833              		.thumb
+ 1834              		.thumb_func
+ 1835              		.fpu softvfp
+ 1837              	MMC_DMAError:
+ 1838              		@ args = 0, pretend = 0, frame = 0
+ 1839              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1840 0000 10B5     		push	{r4, lr}
+ 1841 0002 446A     		ldr	r4, [r0, #36]
+ 1842 0004 E36B     		ldr	r3, [r4, #60]
+ 1843 0006 9A6B     		ldr	r2, [r3, #56]
+ 1844 0008 236C     		ldr	r3, [r4, #64]
+ 1845 000a 012A     		cmp	r2, #1
+ 1846 000c 9B6B     		ldr	r3, [r3, #56]
+ 1847 000e 01D0     		beq	.L278
+ 1848 0010 012B     		cmp	r3, #1
+ 1849 0012 19D1     		bne	.L279
+ 1850              	.L278:
+ 1851 0014 2368     		ldr	r3, [r4]
+ 1852 0016 0E4A     		ldr	r2, .L284
+ 1853 0018 2046     		mov	r0, r4
+ 1854 001a 9A63     		str	r2, [r3, #56]
+ 1855 001c DA6B     		ldr	r2, [r3, #60]
+ 1856 001e 22F49D72 		bic	r2, r2, #314
+ 1857 0022 DA63     		str	r2, [r3, #60]
+ 1858 0024 A36B     		ldr	r3, [r4, #56]
+ 1859 0026 43F08043 		orr	r3, r3, #1073741824
+ 1860 002a A363     		str	r3, [r4, #56]
+ 1861 002c FFF7FEFF 		bl	HAL_MMC_GetCardState
+ 1862 0030 0538     		subs	r0, r0, #5
+ 1863 0032 0128     		cmp	r0, #1
+ 1864 0034 05D8     		bhi	.L280
+ 1865 0036 2068     		ldr	r0, [r4]
+ 1866 0038 FFF7FEFF 		bl	SDMMC_CmdStopTransfer
+ 1867 003c A36B     		ldr	r3, [r4, #56]
+ 1868 003e 1843     		orrs	r0, r0, r3
+ 1869 0040 A063     		str	r0, [r4, #56]
+ 1870              	.L280:
+ 1871 0042 0123     		movs	r3, #1
+ 1872 0044 84F83430 		strb	r3, [r4, #52]
+ 1873              	.L279:
+ 1874 0048 2046     		mov	r0, r4
+ 1875 004a FFF7FEFF 		bl	HAL_MMC_ErrorCallback
+ARM GAS  /tmp/ccfeIOOj.s 			page 33
+
+
+ 1876 004e 10BD     		pop	{r4, pc}
+ 1877              	.L285:
+ 1878              		.align	2
+ 1879              	.L284:
+ 1880 0050 FF054000 		.word	4195839
+ 1882              		.section	.text.MMC_DMATxAbort,"ax",%progbits
+ 1883              		.align	1
+ 1884              		.syntax unified
+ 1885              		.thumb
+ 1886              		.thumb_func
+ 1887              		.fpu softvfp
+ 1889              	MMC_DMATxAbort:
+ 1890              		@ args = 0, pretend = 0, frame = 0
+ 1891              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1892 0000 38B5     		push	{r3, r4, r5, lr}
+ 1893 0002 446A     		ldr	r4, [r0, #36]
+ 1894 0004 236C     		ldr	r3, [r4, #64]
+ 1895 0006 0BB1     		cbz	r3, .L287
+ 1896 0008 0023     		movs	r3, #0
+ 1897 000a 2364     		str	r3, [r4, #64]
+ 1898              	.L287:
+ 1899 000c E56B     		ldr	r5, [r4, #60]
+ 1900 000e BDB9     		cbnz	r5, .L286
+ 1901 0010 2046     		mov	r0, r4
+ 1902 0012 FFF7FEFF 		bl	HAL_MMC_GetCardState
+ 1903 0016 0123     		movs	r3, #1
+ 1904 0018 0538     		subs	r0, r0, #5
+ 1905 001a 9842     		cmp	r0, r3
+ 1906 001c A563     		str	r5, [r4, #56]
+ 1907 001e 84F83430 		strb	r3, [r4, #52]
+ 1908 0022 0DD8     		bhi	.L286
+ 1909 0024 2068     		ldr	r0, [r4]
+ 1910 0026 FFF7FEFF 		bl	SDMMC_CmdStopTransfer
+ 1911 002a A36B     		ldr	r3, [r4, #56]
+ 1912 002c 1843     		orrs	r0, r0, r3
+ 1913 002e A063     		str	r0, [r4, #56]
+ 1914 0030 A36B     		ldr	r3, [r4, #56]
+ 1915 0032 2046     		mov	r0, r4
+ 1916 0034 13B1     		cbz	r3, .L291
+ 1917 0036 FFF7FEFF 		bl	HAL_MMC_AbortCallback
+ 1918 003a 38BD     		pop	{r3, r4, r5, pc}
+ 1919              	.L291:
+ 1920 003c FFF7FEFF 		bl	HAL_MMC_ErrorCallback
+ 1921              	.L286:
+ 1922 0040 38BD     		pop	{r3, r4, r5, pc}
+ 1924              		.section	.text.MMC_DMARxAbort,"ax",%progbits
+ 1925              		.align	1
+ 1926              		.syntax unified
+ 1927              		.thumb
+ 1928              		.thumb_func
+ 1929              		.fpu softvfp
+ 1931              	MMC_DMARxAbort:
+ 1932              		@ args = 0, pretend = 0, frame = 0
+ 1933              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1934 0000 38B5     		push	{r3, r4, r5, lr}
+ 1935 0002 446A     		ldr	r4, [r0, #36]
+ 1936 0004 E36B     		ldr	r3, [r4, #60]
+ARM GAS  /tmp/ccfeIOOj.s 			page 34
+
+
+ 1937 0006 0BB1     		cbz	r3, .L296
+ 1938 0008 0023     		movs	r3, #0
+ 1939 000a E363     		str	r3, [r4, #60]
+ 1940              	.L296:
+ 1941 000c 256C     		ldr	r5, [r4, #64]
+ 1942 000e BDB9     		cbnz	r5, .L295
+ 1943 0010 2046     		mov	r0, r4
+ 1944 0012 FFF7FEFF 		bl	HAL_MMC_GetCardState
+ 1945 0016 0123     		movs	r3, #1
+ 1946 0018 0538     		subs	r0, r0, #5
+ 1947 001a 9842     		cmp	r0, r3
+ 1948 001c A563     		str	r5, [r4, #56]
+ 1949 001e 84F83430 		strb	r3, [r4, #52]
+ 1950 0022 0DD8     		bhi	.L295
+ 1951 0024 2068     		ldr	r0, [r4]
+ 1952 0026 FFF7FEFF 		bl	SDMMC_CmdStopTransfer
+ 1953 002a A36B     		ldr	r3, [r4, #56]
+ 1954 002c 1843     		orrs	r0, r0, r3
+ 1955 002e A063     		str	r0, [r4, #56]
+ 1956 0030 A36B     		ldr	r3, [r4, #56]
+ 1957 0032 2046     		mov	r0, r4
+ 1958 0034 13B1     		cbz	r3, .L300
+ 1959 0036 FFF7FEFF 		bl	HAL_MMC_AbortCallback
+ 1960 003a 38BD     		pop	{r3, r4, r5, pc}
+ 1961              	.L300:
+ 1962 003c FFF7FEFF 		bl	HAL_MMC_ErrorCallback
+ 1963              	.L295:
+ 1964 0040 38BD     		pop	{r3, r4, r5, pc}
+ 1966              		.section	.text.HAL_MMC_IRQHandler,"ax",%progbits
+ 1967              		.align	1
+ 1968              		.global	HAL_MMC_IRQHandler
+ 1969              		.syntax unified
+ 1970              		.thumb
+ 1971              		.thumb_func
+ 1972              		.fpu softvfp
+ 1974              	HAL_MMC_IRQHandler:
+ 1975              		@ args = 0, pretend = 0, frame = 8
+ 1976              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1977 0000 2DE9F341 		push	{r0, r1, r4, r5, r6, r7, r8, lr}
+ 1978 0004 056B     		ldr	r5, [r0, #48]
+ 1979 0006 0446     		mov	r4, r0
+ 1980 0008 0068     		ldr	r0, [r0]
+ 1981 000a 436B     		ldr	r3, [r0, #52]
+ 1982 000c 1A04     		lsls	r2, r3, #16
+ 1983 000e 1FD5     		bpl	.L305
+ 1984 0010 2B07     		lsls	r3, r5, #28
+ 1985 0012 1DD5     		bpl	.L305
+ 1986 0014 E76A     		ldr	r7, [r4, #44]
+ 1987 0016 C7B1     		cbz	r7, .L304
+ 1988 0018 A66A     		ldr	r6, [r4, #40]
+ 1989 001a 351D     		adds	r5, r6, #4
+ 1990 001c 06F12408 		add	r8, r6, #36
+ 1991              	.L308:
+ 1992 0020 2068     		ldr	r0, [r4]
+ 1993 0022 FFF7FEFF 		bl	SDIO_ReadFIFO
+ 1994 0026 030A     		lsrs	r3, r0, #8
+ 1995 0028 05F8040C 		strb	r0, [r5, #-4]
+ARM GAS  /tmp/ccfeIOOj.s 			page 35
+
+
+ 1996 002c 05F8033C 		strb	r3, [r5, #-3]
+ 1997 0030 030C     		lsrs	r3, r0, #16
+ 1998 0032 000E     		lsrs	r0, r0, #24
+ 1999 0034 05F8023C 		strb	r3, [r5, #-2]
+ 2000 0038 05F8010C 		strb	r0, [r5, #-1]
+ 2001 003c 0435     		adds	r5, r5, #4
+ 2002 003e 4545     		cmp	r5, r8
+ 2003 0040 EED1     		bne	.L308
+ 2004 0042 2036     		adds	r6, r6, #32
+ 2005 0044 203F     		subs	r7, r7, #32
+ 2006 0046 A662     		str	r6, [r4, #40]
+ 2007 0048 E762     		str	r7, [r4, #44]
+ 2008              	.L304:
+ 2009 004a 02B0     		add	sp, sp, #8
+ 2010              		@ sp needed
+ 2011 004c BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 2012              	.L305:
+ 2013 0050 436B     		ldr	r3, [r0, #52]
+ 2014 0052 DF05     		lsls	r7, r3, #23
+ 2015 0054 43D5     		bpl	.L309
+ 2016 0056 4FF48073 		mov	r3, #256
+ 2017 005a 8363     		str	r3, [r0, #56]
+ 2018 005c C36B     		ldr	r3, [r0, #60]
+ 2019 005e 2E06     		lsls	r6, r5, #24
+ 2020 0060 23F44E73 		bic	r3, r3, #824
+ 2021 0064 23F00203 		bic	r3, r3, #2
+ 2022 0068 C363     		str	r3, [r0, #60]
+ 2023 006a C36A     		ldr	r3, [r0, #44]
+ 2024 006c 23F00103 		bic	r3, r3, #1
+ 2025 0070 C362     		str	r3, [r0, #44]
+ 2026 0072 18D5     		bpl	.L310
+ 2027 0074 A906     		lsls	r1, r5, #26
+ 2028 0076 08D5     		bpl	.L312
+ 2029 0078 FFF7FEFF 		bl	SDMMC_CmdStopTransfer
+ 2030 007c 28B1     		cbz	r0, .L312
+ 2031 007e A36B     		ldr	r3, [r4, #56]
+ 2032 0080 1843     		orrs	r0, r0, r3
+ 2033 0082 A063     		str	r0, [r4, #56]
+ 2034 0084 2046     		mov	r0, r4
+ 2035 0086 FFF7FEFF 		bl	HAL_MMC_ErrorCallback
+ 2036              	.L312:
+ 2037 008a AA07     		lsls	r2, r5, #30
+ 2038 008c DDD1     		bne	.L304
+ 2039 008e 2268     		ldr	r2, [r4]
+ 2040 0090 2046     		mov	r0, r4
+ 2041 0092 D36A     		ldr	r3, [r2, #44]
+ 2042 0094 23F00803 		bic	r3, r3, #8
+ 2043 0098 D362     		str	r3, [r2, #44]
+ 2044 009a 0123     		movs	r3, #1
+ 2045 009c 84F83430 		strb	r3, [r4, #52]
+ 2046              	.L318:
+ 2047 00a0 FFF7FEFF 		bl	HAL_MMC_TxCpltCallback
+ 2048 00a4 D1E7     		b	.L304
+ 2049              	.L310:
+ 2050 00a6 2B07     		lsls	r3, r5, #28
+ 2051 00a8 CFD5     		bpl	.L304
+ 2052 00aa 15F0220F 		tst	r5, #34
+ARM GAS  /tmp/ccfeIOOj.s 			page 36
+
+
+ 2053 00ae 08D0     		beq	.L316
+ 2054 00b0 FFF7FEFF 		bl	SDMMC_CmdStopTransfer
+ 2055 00b4 28B1     		cbz	r0, .L316
+ 2056 00b6 A36B     		ldr	r3, [r4, #56]
+ 2057 00b8 1843     		orrs	r0, r0, r3
+ 2058 00ba A063     		str	r0, [r4, #56]
+ 2059 00bc 2046     		mov	r0, r4
+ 2060 00be FFF7FEFF 		bl	HAL_MMC_ErrorCallback
+ 2061              	.L316:
+ 2062 00c2 40F23A52 		movw	r2, #1338
+ 2063 00c6 2368     		ldr	r3, [r4]
+ 2064 00c8 AF07     		lsls	r7, r5, #30
+ 2065 00ca 9A63     		str	r2, [r3, #56]
+ 2066 00cc 4FF00103 		mov	r3, #1
+ 2067 00d0 2046     		mov	r0, r4
+ 2068 00d2 84F83430 		strb	r3, [r4, #52]
+ 2069 00d6 E3D0     		beq	.L318
+ 2070 00d8 FFF7FEFF 		bl	HAL_MMC_RxCpltCallback
+ 2071 00dc B5E7     		b	.L304
+ 2072              	.L309:
+ 2073 00de 436B     		ldr	r3, [r0, #52]
+ 2074 00e0 5E04     		lsls	r6, r3, #17
+ 2075 00e2 26D5     		bpl	.L319
+ 2076 00e4 2907     		lsls	r1, r5, #28
+ 2077 00e6 24D5     		bpl	.L319
+ 2078 00e8 676A     		ldr	r7, [r4, #36]
+ 2079 00ea 002F     		cmp	r7, #0
+ 2080 00ec ADD0     		beq	.L304
+ 2081 00ee 266A     		ldr	r6, [r4, #32]
+ 2082 00f0 351D     		adds	r5, r6, #4
+ 2083 00f2 06F12408 		add	r8, r6, #36
+ 2084              	.L321:
+ 2085 00f6 15F8043C 		ldrb	r3, [r5, #-4]	@ zero_extendqisi2
+ 2086 00fa 01A9     		add	r1, sp, #4
+ 2087 00fc 0193     		str	r3, [sp, #4]
+ 2088 00fe 15F8032C 		ldrb	r2, [r5, #-3]	@ zero_extendqisi2
+ 2089 0102 2068     		ldr	r0, [r4]
+ 2090 0104 43EA0223 		orr	r3, r3, r2, lsl #8
+ 2091 0108 0193     		str	r3, [sp, #4]
+ 2092 010a 15F8022C 		ldrb	r2, [r5, #-2]	@ zero_extendqisi2
+ 2093 010e 0435     		adds	r5, r5, #4
+ 2094 0110 43EA0243 		orr	r3, r3, r2, lsl #16
+ 2095 0114 0193     		str	r3, [sp, #4]
+ 2096 0116 15F8052C 		ldrb	r2, [r5, #-5]	@ zero_extendqisi2
+ 2097 011a 43EA0263 		orr	r3, r3, r2, lsl #24
+ 2098 011e 0193     		str	r3, [sp, #4]
+ 2099 0120 FFF7FEFF 		bl	SDIO_WriteFIFO
+ 2100 0124 4545     		cmp	r5, r8
+ 2101 0126 E6D1     		bne	.L321
+ 2102 0128 2036     		adds	r6, r6, #32
+ 2103 012a 203F     		subs	r7, r7, #32
+ 2104 012c 2662     		str	r6, [r4, #32]
+ 2105 012e 6762     		str	r7, [r4, #36]
+ 2106 0130 8BE7     		b	.L304
+ 2107              	.L319:
+ 2108 0132 40F23A23 		movw	r3, #570
+ 2109 0136 426B     		ldr	r2, [r0, #52]
+ARM GAS  /tmp/ccfeIOOj.s 			page 37
+
+
+ 2110 0138 1A42     		tst	r2, r3
+ 2111 013a 86D0     		beq	.L304
+ 2112 013c 436B     		ldr	r3, [r0, #52]
+ 2113 013e 9A07     		lsls	r2, r3, #30
+ 2114 0140 42BF     		ittt	mi
+ 2115 0142 A36B     		ldrmi	r3, [r4, #56]
+ 2116 0144 43F00203 		orrmi	r3, r3, #2
+ 2117 0148 A363     		strmi	r3, [r4, #56]
+ 2118 014a 436B     		ldr	r3, [r0, #52]
+ 2119 014c 1B07     		lsls	r3, r3, #28
+ 2120 014e 42BF     		ittt	mi
+ 2121 0150 A36B     		ldrmi	r3, [r4, #56]
+ 2122 0152 43F00803 		orrmi	r3, r3, #8
+ 2123 0156 A363     		strmi	r3, [r4, #56]
+ 2124 0158 436B     		ldr	r3, [r0, #52]
+ 2125 015a 9F06     		lsls	r7, r3, #26
+ 2126 015c 42BF     		ittt	mi
+ 2127 015e A36B     		ldrmi	r3, [r4, #56]
+ 2128 0160 43F02003 		orrmi	r3, r3, #32
+ 2129 0164 A363     		strmi	r3, [r4, #56]
+ 2130 0166 436B     		ldr	r3, [r0, #52]
+ 2131 0168 DE06     		lsls	r6, r3, #27
+ 2132 016a 42BF     		ittt	mi
+ 2133 016c A36B     		ldrmi	r3, [r4, #56]
+ 2134 016e 43F01003 		orrmi	r3, r3, #16
+ 2135 0172 A363     		strmi	r3, [r4, #56]
+ 2136 0174 436B     		ldr	r3, [r0, #52]
+ 2137 0176 9905     		lsls	r1, r3, #22
+ 2138 0178 42BF     		ittt	mi
+ 2139 017a A36B     		ldrmi	r3, [r4, #56]
+ 2140 017c 43F00803 		orrmi	r3, r3, #8
+ 2141 0180 A363     		strmi	r3, [r4, #56]
+ 2142 0182 40F23A73 		movw	r3, #1850
+ 2143 0186 8363     		str	r3, [r0, #56]
+ 2144 0188 C36B     		ldr	r3, [r0, #60]
+ 2145 018a 23F44E73 		bic	r3, r3, #824
+ 2146 018e 23F00203 		bic	r3, r3, #2
+ 2147 0192 C363     		str	r3, [r0, #60]
+ 2148 0194 FFF7FEFF 		bl	SDMMC_CmdStopTransfer
+ 2149 0198 A36B     		ldr	r3, [r4, #56]
+ 2150 019a 2A07     		lsls	r2, r5, #28
+ 2151 019c 40EA0300 		orr	r0, r0, r3
+ 2152 01a0 A063     		str	r0, [r4, #56]
+ 2153 01a2 06D5     		bpl	.L327
+ 2154 01a4 0123     		movs	r3, #1
+ 2155 01a6 2046     		mov	r0, r4
+ 2156 01a8 84F83430 		strb	r3, [r4, #52]
+ 2157 01ac FFF7FEFF 		bl	HAL_MMC_ErrorCallback
+ 2158 01b0 4BE7     		b	.L304
+ 2159              	.L327:
+ 2160 01b2 2B06     		lsls	r3, r5, #24
+ 2161 01b4 7FF549AF 		bpl	.L304
+ 2162 01b8 206C     		ldr	r0, [r4, #64]
+ 2163 01ba 50B1     		cbz	r0, .L328
+ 2164 01bc 0F4B     		ldr	r3, .L383
+ 2165 01be 4363     		str	r3, [r0, #52]
+ 2166 01c0 FFF7FEFF 		bl	HAL_DMA_Abort_IT
+ARM GAS  /tmp/ccfeIOOj.s 			page 38
+
+
+ 2167 01c4 0028     		cmp	r0, #0
+ 2168 01c6 3FF440AF 		beq	.L304
+ 2169 01ca 206C     		ldr	r0, [r4, #64]
+ 2170 01cc FFF7FEFF 		bl	MMC_DMATxAbort
+ 2171 01d0 3BE7     		b	.L304
+ 2172              	.L328:
+ 2173 01d2 E06B     		ldr	r0, [r4, #60]
+ 2174 01d4 50B1     		cbz	r0, .L329
+ 2175 01d6 0A4B     		ldr	r3, .L383+4
+ 2176 01d8 4363     		str	r3, [r0, #52]
+ 2177 01da FFF7FEFF 		bl	HAL_DMA_Abort_IT
+ 2178 01de 0028     		cmp	r0, #0
+ 2179 01e0 3FF433AF 		beq	.L304
+ 2180 01e4 E06B     		ldr	r0, [r4, #60]
+ 2181 01e6 FFF7FEFF 		bl	MMC_DMARxAbort
+ 2182 01ea 2EE7     		b	.L304
+ 2183              	.L329:
+ 2184 01ec 0123     		movs	r3, #1
+ 2185 01ee A063     		str	r0, [r4, #56]
+ 2186 01f0 84F83430 		strb	r3, [r4, #52]
+ 2187 01f4 2046     		mov	r0, r4
+ 2188 01f6 FFF7FEFF 		bl	HAL_MMC_AbortCallback
+ 2189 01fa 26E7     		b	.L304
+ 2190              	.L384:
+ 2191              		.align	2
+ 2192              	.L383:
+ 2193 01fc 00000000 		.word	MMC_DMATxAbort
+ 2194 0200 00000000 		.word	MMC_DMARxAbort
+ 2196              		.section	.text.HAL_MMC_Abort,"ax",%progbits
+ 2197              		.align	1
+ 2198              		.global	HAL_MMC_Abort
+ 2199              		.syntax unified
+ 2200              		.thumb
+ 2201              		.thumb_func
+ 2202              		.fpu softvfp
+ 2204              	HAL_MMC_Abort:
+ 2205              		@ args = 0, pretend = 0, frame = 0
+ 2206              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2207 0000 0368     		ldr	r3, [r0]
+ 2208 0002 10B5     		push	{r4, lr}
+ 2209 0004 DA6B     		ldr	r2, [r3, #60]
+ 2210 0006 0446     		mov	r4, r0
+ 2211 0008 22F49D72 		bic	r2, r2, #314
+ 2212 000c DA63     		str	r2, [r3, #60]
+ 2213 000e 40F23A52 		movw	r2, #1338
+ 2214 0012 006C     		ldr	r0, [r0, #64]
+ 2215 0014 9A63     		str	r2, [r3, #56]
+ 2216 0016 08B9     		cbnz	r0, .L386
+ 2217 0018 E26B     		ldr	r2, [r4, #60]
+ 2218 001a A2B1     		cbz	r2, .L387
+ 2219              	.L386:
+ 2220 001c DA6A     		ldr	r2, [r3, #44]
+ 2221 001e 22F00802 		bic	r2, r2, #8
+ 2222 0022 DA62     		str	r2, [r3, #44]
+ 2223 0024 30B1     		cbz	r0, .L389
+ 2224 0026 FFF7FEFF 		bl	HAL_DMA_Abort
+ 2225 002a 18B1     		cbz	r0, .L389
+ARM GAS  /tmp/ccfeIOOj.s 			page 39
+
+
+ 2226 002c A36B     		ldr	r3, [r4, #56]
+ 2227 002e 43F08043 		orr	r3, r3, #1073741824
+ 2228 0032 A363     		str	r3, [r4, #56]
+ 2229              	.L389:
+ 2230 0034 E06B     		ldr	r0, [r4, #60]
+ 2231 0036 30B1     		cbz	r0, .L387
+ 2232 0038 FFF7FEFF 		bl	HAL_DMA_Abort
+ 2233 003c 18B1     		cbz	r0, .L387
+ 2234 003e A36B     		ldr	r3, [r4, #56]
+ 2235 0040 43F08043 		orr	r3, r3, #1073741824
+ 2236 0044 A363     		str	r3, [r4, #56]
+ 2237              	.L387:
+ 2238 0046 0123     		movs	r3, #1
+ 2239 0048 84F83430 		strb	r3, [r4, #52]
+ 2240 004c 0023     		movs	r3, #0
+ 2241 004e 2046     		mov	r0, r4
+ 2242 0050 2363     		str	r3, [r4, #48]
+ 2243 0052 FFF7FEFF 		bl	HAL_MMC_GetCardState
+ 2244 0056 0538     		subs	r0, r0, #5
+ 2245 0058 0128     		cmp	r0, #1
+ 2246 005a 03D8     		bhi	.L392
+ 2247 005c 2068     		ldr	r0, [r4]
+ 2248 005e FFF7FEFF 		bl	SDMMC_CmdStopTransfer
+ 2249 0062 A063     		str	r0, [r4, #56]
+ 2250              	.L392:
+ 2251 0064 A06B     		ldr	r0, [r4, #56]
+ 2252 0066 0030     		adds	r0, r0, #0
+ 2253 0068 18BF     		it	ne
+ 2254 006a 0120     		movne	r0, #1
+ 2255 006c 10BD     		pop	{r4, pc}
+ 2257              		.section	.text.HAL_MMC_Abort_IT,"ax",%progbits
+ 2258              		.align	1
+ 2259              		.global	HAL_MMC_Abort_IT
+ 2260              		.syntax unified
+ 2261              		.thumb
+ 2262              		.thumb_func
+ 2263              		.fpu softvfp
+ 2265              	HAL_MMC_Abort_IT:
+ 2266              		@ args = 0, pretend = 0, frame = 0
+ 2267              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2268 0000 38B5     		push	{r3, r4, r5, lr}
+ 2269 0002 0368     		ldr	r3, [r0]
+ 2270 0004 0446     		mov	r4, r0
+ 2271 0006 DA6B     		ldr	r2, [r3, #60]
+ 2272 0008 006C     		ldr	r0, [r0, #64]
+ 2273 000a 22F49D72 		bic	r2, r2, #314
+ 2274 000e DA63     		str	r2, [r3, #60]
+ 2275 0010 40F23A52 		movw	r2, #1338
+ 2276 0014 9A63     		str	r2, [r3, #56]
+ 2277 0016 08B9     		cbnz	r0, .L403
+ 2278 0018 E26B     		ldr	r2, [r4, #60]
+ 2279 001a B2B1     		cbz	r2, .L404
+ 2280              	.L403:
+ 2281 001c DA6A     		ldr	r2, [r3, #44]
+ 2282 001e 22F00802 		bic	r2, r2, #8
+ 2283 0022 DA62     		str	r2, [r3, #44]
+ 2284 0024 30B1     		cbz	r0, .L407
+ARM GAS  /tmp/ccfeIOOj.s 			page 40
+
+
+ 2285 0026 154B     		ldr	r3, .L424
+ 2286 0028 4363     		str	r3, [r0, #52]
+ 2287 002a FFF7FEFF 		bl	HAL_DMA_Abort_IT
+ 2288 002e 08B1     		cbz	r0, .L407
+ 2289 0030 0023     		movs	r3, #0
+ 2290 0032 2364     		str	r3, [r4, #64]
+ 2291              	.L407:
+ 2292 0034 E06B     		ldr	r0, [r4, #60]
+ 2293 0036 30B1     		cbz	r0, .L405
+ 2294 0038 114B     		ldr	r3, .L424+4
+ 2295 003a 4363     		str	r3, [r0, #52]
+ 2296 003c FFF7FEFF 		bl	HAL_DMA_Abort_IT
+ 2297 0040 08B1     		cbz	r0, .L405
+ 2298 0042 0023     		movs	r3, #0
+ 2299 0044 E363     		str	r3, [r4, #60]
+ 2300              	.L405:
+ 2301 0046 236C     		ldr	r3, [r4, #64]
+ 2302 0048 9BB9     		cbnz	r3, .L413
+ 2303              	.L404:
+ 2304 004a E36B     		ldr	r3, [r4, #60]
+ 2305 004c 8BB9     		cbnz	r3, .L413
+ 2306 004e 2046     		mov	r0, r4
+ 2307 0050 FFF7FEFF 		bl	HAL_MMC_GetCardState
+ 2308 0054 0123     		movs	r3, #1
+ 2309 0056 0538     		subs	r0, r0, #5
+ 2310 0058 9842     		cmp	r0, r3
+ 2311 005a 84F83430 		strb	r3, [r4, #52]
+ 2312 005e 03D8     		bhi	.L411
+ 2313 0060 2068     		ldr	r0, [r4]
+ 2314 0062 FFF7FEFF 		bl	SDMMC_CmdStopTransfer
+ 2315 0066 A063     		str	r0, [r4, #56]
+ 2316              	.L411:
+ 2317 0068 A56B     		ldr	r5, [r4, #56]
+ 2318 006a 25B9     		cbnz	r5, .L414
+ 2319 006c 2046     		mov	r0, r4
+ 2320 006e FFF7FEFF 		bl	HAL_MMC_AbortCallback
+ 2321              	.L413:
+ 2322 0072 0020     		movs	r0, #0
+ 2323 0074 38BD     		pop	{r3, r4, r5, pc}
+ 2324              	.L414:
+ 2325 0076 0120     		movs	r0, #1
+ 2326 0078 38BD     		pop	{r3, r4, r5, pc}
+ 2327              	.L425:
+ 2328 007a 00BF     		.align	2
+ 2329              	.L424:
+ 2330 007c 00000000 		.word	MMC_DMATxAbort
+ 2331 0080 00000000 		.word	MMC_DMARxAbort
+ 2333              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
+ARM GAS  /tmp/ccfeIOOj.s 			page 41
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f1xx_hal_mmc.c
-     /tmp/cc823MVC.s:16     .text.MMC_DMATransmitCplt:0000000000000000 $t
-     /tmp/cc823MVC.s:20     .text.MMC_DMATransmitCplt:0000000000000000 MMC_DMATransmitCplt
-     /tmp/cc823MVC.s:32     .text.HAL_MMC_MspInit:0000000000000000 $t
-     /tmp/cc823MVC.s:37     .text.HAL_MMC_MspInit:0000000000000000 HAL_MMC_MspInit
-     /tmp/cc823MVC.s:44     .text.HAL_MMC_MspDeInit:0000000000000000 $t
-     /tmp/cc823MVC.s:49     .text.HAL_MMC_MspDeInit:0000000000000000 HAL_MMC_MspDeInit
-     /tmp/cc823MVC.s:56     .text.HAL_MMC_DeInit:0000000000000000 $t
-     /tmp/cc823MVC.s:61     .text.HAL_MMC_DeInit:0000000000000000 HAL_MMC_DeInit
-     /tmp/cc823MVC.s:82     .text.HAL_MMC_ReadBlocks:0000000000000000 $t
-     /tmp/cc823MVC.s:87     .text.HAL_MMC_ReadBlocks:0000000000000000 HAL_MMC_ReadBlocks
-     /tmp/cc823MVC.s:303    .text.HAL_MMC_ReadBlocks:00000000000001e8 $d
-     /tmp/cc823MVC.s:306    .text.HAL_MMC_WriteBlocks:0000000000000000 $t
-     /tmp/cc823MVC.s:311    .text.HAL_MMC_WriteBlocks:0000000000000000 HAL_MMC_WriteBlocks
-     /tmp/cc823MVC.s:498    .text.HAL_MMC_WriteBlocks:0000000000000194 $d
-     /tmp/cc823MVC.s:501    .text.HAL_MMC_ReadBlocks_IT:0000000000000000 $t
-     /tmp/cc823MVC.s:506    .text.HAL_MMC_ReadBlocks_IT:0000000000000000 HAL_MMC_ReadBlocks_IT
-     /tmp/cc823MVC.s:601    .text.HAL_MMC_ReadBlocks_IT:00000000000000c0 $d
-     /tmp/cc823MVC.s:604    .text.HAL_MMC_WriteBlocks_IT:0000000000000000 $t
-     /tmp/cc823MVC.s:609    .text.HAL_MMC_WriteBlocks_IT:0000000000000000 HAL_MMC_WriteBlocks_IT
-     /tmp/cc823MVC.s:715    .text.HAL_MMC_WriteBlocks_IT:00000000000000d0 $d
-     /tmp/cc823MVC.s:718    .text.HAL_MMC_ReadBlocks_DMA:0000000000000000 $t
-     /tmp/cc823MVC.s:723    .text.HAL_MMC_ReadBlocks_DMA:0000000000000000 HAL_MMC_ReadBlocks_DMA
-     /tmp/cc823MVC.s:850    .text.HAL_MMC_ReadBlocks_DMA:0000000000000108 $d
-     /tmp/cc823MVC.s:1170   .text.MMC_DMAReceiveCplt:0000000000000000 MMC_DMAReceiveCplt
-     /tmp/cc823MVC.s:1826   .text.MMC_DMAError:0000000000000000 MMC_DMAError
-     /tmp/cc823MVC.s:856    .text.HAL_MMC_WriteBlocks_DMA:0000000000000000 $t
-     /tmp/cc823MVC.s:861    .text.HAL_MMC_WriteBlocks_DMA:0000000000000000 HAL_MMC_WriteBlocks_DMA
-     /tmp/cc823MVC.s:997    .text.HAL_MMC_WriteBlocks_DMA:000000000000011c $d
-     /tmp/cc823MVC.s:1003   .text.HAL_MMC_Erase:0000000000000000 $t
-     /tmp/cc823MVC.s:1008   .text.HAL_MMC_Erase:0000000000000000 HAL_MMC_Erase
-     /tmp/cc823MVC.s:1101   .text.HAL_MMC_Erase:00000000000000b4 $d
-     /tmp/cc823MVC.s:1104   .text.HAL_MMC_GetState:0000000000000000 $t
-     /tmp/cc823MVC.s:1109   .text.HAL_MMC_GetState:0000000000000000 HAL_MMC_GetState
-     /tmp/cc823MVC.s:1117   .text.HAL_MMC_GetError:0000000000000000 $t
-     /tmp/cc823MVC.s:1122   .text.HAL_MMC_GetError:0000000000000000 HAL_MMC_GetError
-     /tmp/cc823MVC.s:1130   .text.HAL_MMC_TxCpltCallback:0000000000000000 $t
-     /tmp/cc823MVC.s:1135   .text.HAL_MMC_TxCpltCallback:0000000000000000 HAL_MMC_TxCpltCallback
-     /tmp/cc823MVC.s:1142   .text.HAL_MMC_RxCpltCallback:0000000000000000 $t
-     /tmp/cc823MVC.s:1147   .text.HAL_MMC_RxCpltCallback:0000000000000000 HAL_MMC_RxCpltCallback
-     /tmp/cc823MVC.s:1154   .text.HAL_MMC_ErrorCallback:0000000000000000 $t
-     /tmp/cc823MVC.s:1159   .text.HAL_MMC_ErrorCallback:0000000000000000 HAL_MMC_ErrorCallback
-     /tmp/cc823MVC.s:1166   .text.MMC_DMAReceiveCplt:0000000000000000 $t
-     /tmp/cc823MVC.s:1200   .text.HAL_MMC_AbortCallback:0000000000000000 $t
-     /tmp/cc823MVC.s:1205   .text.HAL_MMC_AbortCallback:0000000000000000 HAL_MMC_AbortCallback
-     /tmp/cc823MVC.s:1212   .text.HAL_MMC_GetCardCID:0000000000000000 $t
-     /tmp/cc823MVC.s:1217   .text.HAL_MMC_GetCardCID:0000000000000000 HAL_MMC_GetCardCID
-     /tmp/cc823MVC.s:1252   .text.HAL_MMC_GetCardCSD:0000000000000000 $t
-     /tmp/cc823MVC.s:1257   .text.HAL_MMC_GetCardCSD:0000000000000000 HAL_MMC_GetCardCSD
-     /tmp/cc823MVC.s:1388   .text.HAL_MMC_InitCard:0000000000000000 $t
-     /tmp/cc823MVC.s:1393   .text.HAL_MMC_InitCard:0000000000000000 HAL_MMC_InitCard
-     /tmp/cc823MVC.s:1573   .text.HAL_MMC_InitCard:000000000000018c $d
-     /tmp/cc823MVC.s:1577   .text.HAL_MMC_Init:0000000000000000 $t
-     /tmp/cc823MVC.s:1582   .text.HAL_MMC_Init:0000000000000000 HAL_MMC_Init
-     /tmp/cc823MVC.s:1612   .text.HAL_MMC_GetCardInfo:0000000000000000 $t
-     /tmp/cc823MVC.s:1617   .text.HAL_MMC_GetCardInfo:0000000000000000 HAL_MMC_GetCardInfo
-ARM GAS  /tmp/cc823MVC.s 			page 42
+     /tmp/ccfeIOOj.s:13     .text.MMC_DMATransmitCplt:0000000000000000 $t
+     /tmp/ccfeIOOj.s:19     .text.MMC_DMATransmitCplt:0000000000000000 MMC_DMATransmitCplt
+     /tmp/ccfeIOOj.s:31     .text.HAL_MMC_MspInit:0000000000000000 $t
+     /tmp/ccfeIOOj.s:38     .text.HAL_MMC_MspInit:0000000000000000 HAL_MMC_MspInit
+     /tmp/ccfeIOOj.s:45     .text.HAL_MMC_MspDeInit:0000000000000000 $t
+     /tmp/ccfeIOOj.s:52     .text.HAL_MMC_MspDeInit:0000000000000000 HAL_MMC_MspDeInit
+     /tmp/ccfeIOOj.s:59     .text.HAL_MMC_DeInit:0000000000000000 $t
+     /tmp/ccfeIOOj.s:66     .text.HAL_MMC_DeInit:0000000000000000 HAL_MMC_DeInit
+     /tmp/ccfeIOOj.s:87     .text.HAL_MMC_ReadBlocks:0000000000000000 $t
+     /tmp/ccfeIOOj.s:94     .text.HAL_MMC_ReadBlocks:0000000000000000 HAL_MMC_ReadBlocks
+     /tmp/ccfeIOOj.s:312    .text.HAL_MMC_ReadBlocks:00000000000001e8 $d
+     /tmp/ccfeIOOj.s:315    .text.HAL_MMC_WriteBlocks:0000000000000000 $t
+     /tmp/ccfeIOOj.s:322    .text.HAL_MMC_WriteBlocks:0000000000000000 HAL_MMC_WriteBlocks
+     /tmp/ccfeIOOj.s:499    .text.HAL_MMC_WriteBlocks:0000000000000170 $d
+     /tmp/ccfeIOOj.s:502    .text.HAL_MMC_ReadBlocks_IT:0000000000000000 $t
+     /tmp/ccfeIOOj.s:509    .text.HAL_MMC_ReadBlocks_IT:0000000000000000 HAL_MMC_ReadBlocks_IT
+     /tmp/ccfeIOOj.s:607    .text.HAL_MMC_ReadBlocks_IT:00000000000000c4 $d
+     /tmp/ccfeIOOj.s:610    .text.HAL_MMC_WriteBlocks_IT:0000000000000000 $t
+     /tmp/ccfeIOOj.s:617    .text.HAL_MMC_WriteBlocks_IT:0000000000000000 HAL_MMC_WriteBlocks_IT
+     /tmp/ccfeIOOj.s:723    .text.HAL_MMC_WriteBlocks_IT:00000000000000d0 $d
+     /tmp/ccfeIOOj.s:726    .text.HAL_MMC_ReadBlocks_DMA:0000000000000000 $t
+     /tmp/ccfeIOOj.s:733    .text.HAL_MMC_ReadBlocks_DMA:0000000000000000 HAL_MMC_ReadBlocks_DMA
+     /tmp/ccfeIOOj.s:861    .text.HAL_MMC_ReadBlocks_DMA:000000000000010c $d
+     /tmp/ccfeIOOj.s:1199   .text.MMC_DMAReceiveCplt:0000000000000000 MMC_DMAReceiveCplt
+     /tmp/ccfeIOOj.s:1837   .text.MMC_DMAError:0000000000000000 MMC_DMAError
+     /tmp/ccfeIOOj.s:867    .text.HAL_MMC_WriteBlocks_DMA:0000000000000000 $t
+     /tmp/ccfeIOOj.s:874    .text.HAL_MMC_WriteBlocks_DMA:0000000000000000 HAL_MMC_WriteBlocks_DMA
+     /tmp/ccfeIOOj.s:1010   .text.HAL_MMC_WriteBlocks_DMA:000000000000011c $d
+     /tmp/ccfeIOOj.s:1016   .text.HAL_MMC_Erase:0000000000000000 $t
+     /tmp/ccfeIOOj.s:1023   .text.HAL_MMC_Erase:0000000000000000 HAL_MMC_Erase
+     /tmp/ccfeIOOj.s:1118   .text.HAL_MMC_Erase:00000000000000b8 $d
+     /tmp/ccfeIOOj.s:1121   .text.HAL_MMC_GetState:0000000000000000 $t
+     /tmp/ccfeIOOj.s:1128   .text.HAL_MMC_GetState:0000000000000000 HAL_MMC_GetState
+     /tmp/ccfeIOOj.s:1136   .text.HAL_MMC_GetError:0000000000000000 $t
+     /tmp/ccfeIOOj.s:1143   .text.HAL_MMC_GetError:0000000000000000 HAL_MMC_GetError
+     /tmp/ccfeIOOj.s:1151   .text.HAL_MMC_TxCpltCallback:0000000000000000 $t
+     /tmp/ccfeIOOj.s:1158   .text.HAL_MMC_TxCpltCallback:0000000000000000 HAL_MMC_TxCpltCallback
+     /tmp/ccfeIOOj.s:1165   .text.HAL_MMC_RxCpltCallback:0000000000000000 $t
+     /tmp/ccfeIOOj.s:1172   .text.HAL_MMC_RxCpltCallback:0000000000000000 HAL_MMC_RxCpltCallback
+     /tmp/ccfeIOOj.s:1179   .text.HAL_MMC_ErrorCallback:0000000000000000 $t
+     /tmp/ccfeIOOj.s:1186   .text.HAL_MMC_ErrorCallback:0000000000000000 HAL_MMC_ErrorCallback
+     /tmp/ccfeIOOj.s:1193   .text.MMC_DMAReceiveCplt:0000000000000000 $t
+     /tmp/ccfeIOOj.s:1229   .text.HAL_MMC_AbortCallback:0000000000000000 $t
+     /tmp/ccfeIOOj.s:1236   .text.HAL_MMC_AbortCallback:0000000000000000 HAL_MMC_AbortCallback
+     /tmp/ccfeIOOj.s:1243   .text.HAL_MMC_GetCardCID:0000000000000000 $t
+     /tmp/ccfeIOOj.s:1250   .text.HAL_MMC_GetCardCID:0000000000000000 HAL_MMC_GetCardCID
+     /tmp/ccfeIOOj.s:1284   .text.HAL_MMC_GetCardCSD:0000000000000000 $t
+     /tmp/ccfeIOOj.s:1291   .text.HAL_MMC_GetCardCSD:0000000000000000 HAL_MMC_GetCardCSD
+     /tmp/ccfeIOOj.s:1394   .text.HAL_MMC_InitCard:0000000000000000 $t
+     /tmp/ccfeIOOj.s:1401   .text.HAL_MMC_InitCard:0000000000000000 HAL_MMC_InitCard
+     /tmp/ccfeIOOj.s:1575   .text.HAL_MMC_InitCard:0000000000000180 $d
+     /tmp/ccfeIOOj.s:1579   .text.HAL_MMC_Init:0000000000000000 $t
+     /tmp/ccfeIOOj.s:1586   .text.HAL_MMC_Init:0000000000000000 HAL_MMC_Init
+     /tmp/ccfeIOOj.s:1616   .text.HAL_MMC_GetCardInfo:0000000000000000 $t
+     /tmp/ccfeIOOj.s:1623   .text.HAL_MMC_GetCardInfo:0000000000000000 HAL_MMC_GetCardInfo
+ARM GAS  /tmp/ccfeIOOj.s 			page 42
 
 
-     /tmp/cc823MVC.s:1639   .text.HAL_MMC_ConfigWideBusOperation:0000000000000000 $t
-     /tmp/cc823MVC.s:1644   .text.HAL_MMC_ConfigWideBusOperation:0000000000000000 HAL_MMC_ConfigWideBusOperation
-     /tmp/cc823MVC.s:1787   .text.HAL_MMC_ConfigWideBusOperation:000000000000012c $d
-     /tmp/cc823MVC.s:1793   .text.HAL_MMC_GetCardState:0000000000000000 $t
-     /tmp/cc823MVC.s:1798   .text.HAL_MMC_GetCardState:0000000000000000 HAL_MMC_GetCardState
-     /tmp/cc823MVC.s:1822   .text.MMC_DMAError:0000000000000000 $t
-     /tmp/cc823MVC.s:1869   .text.MMC_DMAError:0000000000000050 $d
-     /tmp/cc823MVC.s:1872   .text.MMC_DMATxAbort:0000000000000000 $t
-     /tmp/cc823MVC.s:1876   .text.MMC_DMATxAbort:0000000000000000 MMC_DMATxAbort
-     /tmp/cc823MVC.s:1912   .text.MMC_DMARxAbort:0000000000000000 $t
-     /tmp/cc823MVC.s:1916   .text.MMC_DMARxAbort:0000000000000000 MMC_DMARxAbort
-     /tmp/cc823MVC.s:1952   .text.HAL_MMC_IRQHandler:0000000000000000 $t
-     /tmp/cc823MVC.s:1957   .text.HAL_MMC_IRQHandler:0000000000000000 HAL_MMC_IRQHandler
-     /tmp/cc823MVC.s:2177   .text.HAL_MMC_IRQHandler:0000000000000204 $d
-     /tmp/cc823MVC.s:2181   .text.HAL_MMC_Abort:0000000000000000 $t
-     /tmp/cc823MVC.s:2186   .text.HAL_MMC_Abort:0000000000000000 HAL_MMC_Abort
-     /tmp/cc823MVC.s:2240   .text.HAL_MMC_Abort_IT:0000000000000000 $t
-     /tmp/cc823MVC.s:2245   .text.HAL_MMC_Abort_IT:0000000000000000 HAL_MMC_Abort_IT
-     /tmp/cc823MVC.s:2310   .text.HAL_MMC_Abort_IT:000000000000007c $d
+     /tmp/ccfeIOOj.s:1645   .text.HAL_MMC_ConfigWideBusOperation:0000000000000000 $t
+     /tmp/ccfeIOOj.s:1652   .text.HAL_MMC_ConfigWideBusOperation:0000000000000000 HAL_MMC_ConfigWideBusOperation
+     /tmp/ccfeIOOj.s:1794   .text.HAL_MMC_ConfigWideBusOperation:0000000000000128 $d
+     /tmp/ccfeIOOj.s:1800   .text.HAL_MMC_GetCardState:0000000000000000 $t
+     /tmp/ccfeIOOj.s:1807   .text.HAL_MMC_GetCardState:0000000000000000 HAL_MMC_GetCardState
+     /tmp/ccfeIOOj.s:1831   .text.MMC_DMAError:0000000000000000 $t
+     /tmp/ccfeIOOj.s:1880   .text.MMC_DMAError:0000000000000050 $d
+     /tmp/ccfeIOOj.s:1883   .text.MMC_DMATxAbort:0000000000000000 $t
+     /tmp/ccfeIOOj.s:1889   .text.MMC_DMATxAbort:0000000000000000 MMC_DMATxAbort
+     /tmp/ccfeIOOj.s:1925   .text.MMC_DMARxAbort:0000000000000000 $t
+     /tmp/ccfeIOOj.s:1931   .text.MMC_DMARxAbort:0000000000000000 MMC_DMARxAbort
+     /tmp/ccfeIOOj.s:1967   .text.HAL_MMC_IRQHandler:0000000000000000 $t
+     /tmp/ccfeIOOj.s:1974   .text.HAL_MMC_IRQHandler:0000000000000000 HAL_MMC_IRQHandler
+     /tmp/ccfeIOOj.s:2193   .text.HAL_MMC_IRQHandler:00000000000001fc $d
+     /tmp/ccfeIOOj.s:2197   .text.HAL_MMC_Abort:0000000000000000 $t
+     /tmp/ccfeIOOj.s:2204   .text.HAL_MMC_Abort:0000000000000000 HAL_MMC_Abort
+     /tmp/ccfeIOOj.s:2258   .text.HAL_MMC_Abort_IT:0000000000000000 $t
+     /tmp/ccfeIOOj.s:2265   .text.HAL_MMC_Abort_IT:0000000000000000 HAL_MMC_Abort_IT
+     /tmp/ccfeIOOj.s:2330   .text.HAL_MMC_Abort_IT:000000000000007c $d
 
 UNDEFINED SYMBOLS
 SDIO_PowerState_OFF
@@ -2458,9 +2478,9 @@ HAL_GetTick
 SDMMC_CmdBlockLength
 SDIO_ConfigData
 SDMMC_CmdReadMultiBlock
+SDMMC_CmdStopTransfer
 SDMMC_CmdReadSingleBlock
 SDIO_ReadFIFO
-SDMMC_CmdStopTransfer
 SDMMC_CmdWriteMultiBlock
 SDMMC_CmdWriteSingleBlock
 SDIO_WriteFIFO
