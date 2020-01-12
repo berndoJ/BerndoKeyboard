@@ -1,0 +1,217 @@
+ARM GAS  /tmp/ccTsBuvs.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 4
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"debug.c"
+  12              		.text
+  13              		.section	.rodata.SYS_PrintDebugMessage.str1.1,"aMS",%progbits,1
+  14              	.LC0:
+  15 0000 5B446562 		.ascii	"[Debug][Info] %s\012\000"
+  15      75675D5B 
+  15      496E666F 
+  15      5D202573 
+  15      0A00
+  16              		.section	.text.SYS_PrintDebugMessage,"ax",%progbits
+  17              		.align	1
+  18              		.global	SYS_PrintDebugMessage
+  19              		.arch armv7-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu softvfp
+  25              	SYS_PrintDebugMessage:
+  26              		@ args = 0, pretend = 0, frame = 0
+  27              		@ frame_needed = 0, uses_anonymous_args = 0
+  28 0000 38B5     		push	{r3, r4, r5, lr}
+  29 0002 0F4B     		ldr	r3, .L8
+  30 0004 0546     		mov	r5, r0
+  31 0006 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  32 0008 012B     		cmp	r3, #1
+  33 000a 17D1     		bne	.L1
+  34 000c FFF7FEFF 		bl	strlen
+  35 0010 1030     		adds	r0, r0, #16
+  36 0012 80B2     		uxth	r0, r0
+  37 0014 FFF7FEFF 		bl	malloc
+  38 0018 0446     		mov	r4, r0
+  39 001a 78B1     		cbz	r0, .L1
+  40 001c 2A46     		mov	r2, r5
+  41 001e 0949     		ldr	r1, .L8+4
+  42 0020 FFF7FEFF 		bl	sprintf
+  43 0024 82B2     		uxth	r2, r0
+  44 0026 0848     		ldr	r0, .L8+8
+  45 0028 0A23     		movs	r3, #10
+  46 002a 2146     		mov	r1, r4
+  47 002c 0068     		ldr	r0, [r0]
+  48 002e FFF7FEFF 		bl	HAL_UART_Transmit
+  49 0032 2046     		mov	r0, r4
+  50 0034 BDE83840 		pop	{r3, r4, r5, lr}
+  51 0038 FFF7FEBF 		b	free
+  52              	.L1:
+  53 003c 38BD     		pop	{r3, r4, r5, pc}
+  54              	.L9:
+ARM GAS  /tmp/ccTsBuvs.s 			page 2
+
+
+  55 003e 00BF     		.align	2
+  56              	.L8:
+  57 0040 00000000 		.word	hw_uart1_init_status
+  58 0044 00000000 		.word	.LC0
+  59 0048 00000000 		.word	hw_uart1_handle
+  61              		.section	.rodata.SYS_DumpMemToDebugInterface.str1.1,"aMS",%progbits,1
+  62              	.LC1:
+  63 0000 5B446562 		.ascii	"[Debug] Memory dump @ %p [%d Bytes]:\012[Debug] \000"
+  63      75675D20 
+  63      4D656D6F 
+  63      72792064 
+  63      756D7020 
+  64              	.LC2:
+  65 002e 25303258 		.ascii	"%02X\000"
+  65      00
+  66              	.LC3:
+  67 0033 0A5B4465 		.ascii	"\012[Debug] \000"
+  67      6275675D 
+  67      2000
+  68              	.LC4:
+  69 003d 2000     		.ascii	" \000"
+  70              	.LC5:
+  71 003f 0A00     		.ascii	"\012\000"
+  72              	.LC6:
+  73 0041 5B446562 		.ascii	"[Debug] Memory dump complete.\012\000"
+  73      75675D20 
+  73      4D656D6F 
+  73      72792064 
+  73      756D7020 
+  74              		.section	.text.SYS_DumpMemToDebugInterface,"ax",%progbits
+  75              		.align	1
+  76              		.global	SYS_DumpMemToDebugInterface
+  77              		.syntax unified
+  78              		.thumb
+  79              		.thumb_func
+  80              		.fpu softvfp
+  82              	SYS_DumpMemToDebugInterface:
+  83              		@ args = 0, pretend = 0, frame = 0
+  84              		@ frame_needed = 0, uses_anonymous_args = 0
+  85 0000 2DE9F84F 		push	{r3, r4, r5, r6, r7, r8, r9, r10, fp, lr}
+  86 0004 2A4B     		ldr	r3, .L23
+  87 0006 8146     		mov	r9, r0
+  88 0008 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  89 000a 8846     		mov	r8, r1
+  90 000c 012B     		cmp	r3, #1
+  91 000e 4CD1     		bne	.L10
+  92 0010 4020     		movs	r0, #64
+  93 0012 FFF7FEFF 		bl	malloc
+  94 0016 0446     		mov	r4, r0
+  95 0018 0028     		cmp	r0, #0
+  96 001a 46D0     		beq	.L10
+  97 001c 4346     		mov	r3, r8
+  98 001e 4A46     		mov	r2, r9
+  99 0020 2449     		ldr	r1, .L23+4
+ 100 0022 FFF7FEFF 		bl	sprintf
+ 101 0026 0026     		movs	r6, #0
+ 102 0028 234D     		ldr	r5, .L23+8
+ARM GAS  /tmp/ccTsBuvs.s 			page 3
+
+
+ 103 002a 82B2     		uxth	r2, r0
+ 104 002c 0A23     		movs	r3, #10
+ 105 002e 2146     		mov	r1, r4
+ 106 0030 2868     		ldr	r0, [r5]
+ 107 0032 FFF7FEFF 		bl	HAL_UART_Transmit
+ 108 0036 3746     		mov	r7, r6
+ 109 0038 DFF88CA0 		ldr	r10, .L23+24
+ 110 003c DFF88CB0 		ldr	fp, .L23+28
+ 111              	.L14:
+ 112 0040 4645     		cmp	r6, r8
+ 113 0042 0AD1     		bne	.L18
+ 114 0044 0A23     		movs	r3, #10
+ 115 0046 2868     		ldr	r0, [r5]
+ 116 0048 1E22     		movs	r2, #30
+ 117 004a 1C49     		ldr	r1, .L23+12
+ 118 004c FFF7FEFF 		bl	HAL_UART_Transmit
+ 119 0050 2046     		mov	r0, r4
+ 120 0052 BDE8F84F 		pop	{r3, r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 121 0056 FFF7FEBF 		b	free
+ 122              	.L18:
+ 123 005a 19F80620 		ldrb	r2, [r9, r6]	@ zero_extendqisi2
+ 124 005e 1849     		ldr	r1, .L23+16
+ 125 0060 2046     		mov	r0, r4
+ 126 0062 FFF7FEFF 		bl	sprintf
+ 127 0066 0A23     		movs	r3, #10
+ 128 0068 0222     		movs	r2, #2
+ 129 006a 2146     		mov	r1, r4
+ 130 006c 2868     		ldr	r0, [r5]
+ 131 006e FFF7FEFF 		bl	HAL_UART_Transmit
+ 132 0072 08F1FF33 		add	r3, r8, #-1
+ 133 0076 0137     		adds	r7, r7, #1
+ 134 0078 B342     		cmp	r3, r6
+ 135 007a FFB2     		uxtb	r7, r7
+ 136 007c 10DD     		ble	.L15
+ 137 007e 202F     		cmp	r7, #32
+ 138 0080 4FF00A03 		mov	r3, #10
+ 139 0084 2868     		ldr	r0, [r5]
+ 140 0086 06D1     		bne	.L16
+ 141 0088 0922     		movs	r2, #9
+ 142 008a 0E49     		ldr	r1, .L23+20
+ 143 008c FFF7FEFF 		bl	HAL_UART_Transmit
+ 144 0090 0027     		movs	r7, #0
+ 145              	.L17:
+ 146 0092 0136     		adds	r6, r6, #1
+ 147 0094 D4E7     		b	.L14
+ 148              	.L16:
+ 149 0096 0122     		movs	r2, #1
+ 150 0098 5946     		mov	r1, fp
+ 151              	.L22:
+ 152 009a FFF7FEFF 		bl	HAL_UART_Transmit
+ 153 009e F8E7     		b	.L17
+ 154              	.L15:
+ 155 00a0 0A23     		movs	r3, #10
+ 156 00a2 0122     		movs	r2, #1
+ 157 00a4 5146     		mov	r1, r10
+ 158 00a6 2868     		ldr	r0, [r5]
+ 159 00a8 F7E7     		b	.L22
+ARM GAS  /tmp/ccTsBuvs.s 			page 4
+
+
+ 160              	.L10:
+ 161 00aa BDE8F88F 		pop	{r3, r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 162              	.L24:
+ 163 00ae 00BF     		.align	2
+ 164              	.L23:
+ 165 00b0 00000000 		.word	hw_uart1_init_status
+ 166 00b4 00000000 		.word	.LC1
+ 167 00b8 00000000 		.word	hw_uart1_handle
+ 168 00bc 41000000 		.word	.LC6
+ 169 00c0 2E000000 		.word	.LC2
+ 170 00c4 33000000 		.word	.LC3
+ 171 00c8 3F000000 		.word	.LC5
+ 172 00cc 3D000000 		.word	.LC4
+ 174              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
+ARM GAS  /tmp/ccTsBuvs.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 debug.c
+     /tmp/ccTsBuvs.s:17     .text.SYS_PrintDebugMessage:0000000000000000 $t
+     /tmp/ccTsBuvs.s:25     .text.SYS_PrintDebugMessage:0000000000000000 SYS_PrintDebugMessage
+     /tmp/ccTsBuvs.s:57     .text.SYS_PrintDebugMessage:0000000000000040 $d
+     /tmp/ccTsBuvs.s:75     .text.SYS_DumpMemToDebugInterface:0000000000000000 $t
+     /tmp/ccTsBuvs.s:82     .text.SYS_DumpMemToDebugInterface:0000000000000000 SYS_DumpMemToDebugInterface
+     /tmp/ccTsBuvs.s:165    .text.SYS_DumpMemToDebugInterface:00000000000000b0 $d
+
+UNDEFINED SYMBOLS
+strlen
+malloc
+sprintf
+HAL_UART_Transmit
+free
+hw_uart1_init_status
+hw_uart1_handle

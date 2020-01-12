@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccq4gOw7.s 			page 1
+ARM GAS  /tmp/ccXQAIo0.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -12,47 +12,49 @@ ARM GAS  /tmp/ccq4gOw7.s 			page 1
    9              		.eabi_attribute 34, 1
   10              		.eabi_attribute 18, 4
   11              		.file	"sys_dma.c"
-  12              		.section	.text.SYS_DMA_Init,"ax",%progbits
-  13              		.align	1
-  14              		.global	SYS_DMA_Init
-  15              		.syntax unified
-  16              		.thumb
-  17              		.thumb_func
-  18              		.fpu softvfp
-  20              	SYS_DMA_Init:
-  21              		@ args = 0, pretend = 0, frame = 8
-  22              		@ frame_needed = 0, uses_anonymous_args = 0
-  23 0000 0A4B     		ldr	r3, .L2
-  24 0002 07B5     		push	{r0, r1, r2, lr}
-  25 0004 5A69     		ldr	r2, [r3, #20]
-  26 0006 0121     		movs	r1, #1
-  27 0008 42F00102 		orr	r2, r2, #1
-  28 000c 5A61     		str	r2, [r3, #20]
-  29 000e 5B69     		ldr	r3, [r3, #20]
-  30 0010 0022     		movs	r2, #0
-  31 0012 03F00103 		and	r3, r3, #1
-  32 0016 0193     		str	r3, [sp, #4]
-  33 0018 0D20     		movs	r0, #13
-  34 001a 019B     		ldr	r3, [sp, #4]
-  35 001c FFF7FEFF 		bl	HAL_NVIC_SetPriority
-  36 0020 0D20     		movs	r0, #13
-  37 0022 FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
-  38 0026 03B0     		add	sp, sp, #12
-  39              		@ sp needed
-  40 0028 5DF804FB 		ldr	pc, [sp], #4
-  41              	.L3:
-  42              		.align	2
-  43              	.L2:
-  44 002c 00100240 		.word	1073876992
-  46              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
-ARM GAS  /tmp/ccq4gOw7.s 			page 2
+  12              		.text
+  13              		.section	.text.SYS_DMA_Init,"ax",%progbits
+  14              		.align	1
+  15              		.global	SYS_DMA_Init
+  16              		.arch armv7-m
+  17              		.syntax unified
+  18              		.thumb
+  19              		.thumb_func
+  20              		.fpu softvfp
+  22              	SYS_DMA_Init:
+  23              		@ args = 0, pretend = 0, frame = 8
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25 0000 0A4B     		ldr	r3, .L2
+  26 0002 07B5     		push	{r0, r1, r2, lr}
+  27 0004 5A69     		ldr	r2, [r3, #20]
+  28 0006 0121     		movs	r1, #1
+  29 0008 42F00102 		orr	r2, r2, #1
+  30 000c 5A61     		str	r2, [r3, #20]
+  31 000e 5B69     		ldr	r3, [r3, #20]
+  32 0010 0022     		movs	r2, #0
+  33 0012 03F00103 		and	r3, r3, #1
+  34 0016 0193     		str	r3, [sp, #4]
+  35 0018 0B20     		movs	r0, #11
+  36 001a 019B     		ldr	r3, [sp, #4]
+  37 001c FFF7FEFF 		bl	HAL_NVIC_SetPriority
+  38 0020 0B20     		movs	r0, #11
+  39 0022 03B0     		add	sp, sp, #12
+  40              		@ sp needed
+  41 0024 5DF804EB 		ldr	lr, [sp], #4
+  42 0028 FFF7FEBF 		b	HAL_NVIC_EnableIRQ
+  43              	.L3:
+  44              		.align	2
+  45              	.L2:
+  46 002c 00100240 		.word	1073876992
+  48              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
+ARM GAS  /tmp/ccXQAIo0.s 			page 2
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 sys_dma.c
-     /tmp/ccq4gOw7.s:13     .text.SYS_DMA_Init:0000000000000000 $t
-     /tmp/ccq4gOw7.s:20     .text.SYS_DMA_Init:0000000000000000 SYS_DMA_Init
-     /tmp/ccq4gOw7.s:44     .text.SYS_DMA_Init:000000000000002c $d
+     /tmp/ccXQAIo0.s:14     .text.SYS_DMA_Init:0000000000000000 $t
+     /tmp/ccXQAIo0.s:22     .text.SYS_DMA_Init:0000000000000000 SYS_DMA_Init
+     /tmp/ccXQAIo0.s:46     .text.SYS_DMA_Init:000000000000002c $d
 
 UNDEFINED SYMBOLS
 HAL_NVIC_SetPriority

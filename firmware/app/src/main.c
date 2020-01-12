@@ -10,6 +10,7 @@
 #include "sys_timer.h"
 #include "sys_hwb.h"
 #include "sys_ws2812.h"
+#include "error.h"
 #include "pca9555.h"
 #include "neopixel32.h"
 #include "stm32f1xx_hal.h"
@@ -52,24 +53,23 @@ int main(void)
     HAL_UART_Transmit(hw_uart1_handle, (uint8_t *)cbuf, len, 10);
     free(cbuf);
 
-    //! TEST START
-
-    NP32_SetAllLEDs_RGB(hw_ws2812_handle, (NP32_RGB_t){ 0xff, 0x00, 0x00 });
+    // Black out all LEDs.
+    NP32_ClearAllLEDs(hw_ws2812_handle);
     NP32_Update(hw_ws2812_handle);
-
-
-    //! TEST END
 
     PCA9555_ConfigPortPinMode(hw_portex0_handle, 0, 0x00); // Config PORT0 as OUTPUT.
     PCA9555_ConfigPortPinMode(hw_portex0_handle, 1, 0x00); // Config PORT1 as OUTPUT.
     PCA9555_ConfigPortPinMode(hw_portex1_handle, 0, 0x00); // Config PORT0 as OUTPUT.
     PCA9555_ConfigPortPinMode(hw_portex1_handle, 1, 0x00); // Config PORT1 as OUTPUT.
 
-    uint8_t x = 0;
+    uint8_t x = 0, l = 0;
 
     while (1)
     {
         HAL_Delay(100);
+
+        l = !l;
+        HAL_GPIO_WritePin(GPIO_USER_LED_0_PORT, GPIO_USER_LED_0_PIN, (GPIO_PinState) l);
 
         x++;
         

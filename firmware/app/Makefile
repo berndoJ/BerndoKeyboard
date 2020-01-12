@@ -46,6 +46,7 @@ C_SOURCES  = main.c
 C_SOURCES += mcu_init.c
 C_SOURCES += isr.c
 C_SOURCES += error.c
+C_SOURCES += debug.c
 C_SOURCES += sys_clock.c
 C_SOURCES += sys_gpio.c
 C_SOURCES += sys_init.c

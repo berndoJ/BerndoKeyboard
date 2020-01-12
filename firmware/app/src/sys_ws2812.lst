@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc50DnJq.s 			page 1
+ARM GAS  /tmp/ccWDEM7Y.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -12,106 +12,124 @@ ARM GAS  /tmp/cc50DnJq.s 			page 1
    9              		.eabi_attribute 34, 1
   10              		.eabi_attribute 18, 4
   11              		.file	"sys_ws2812.c"
-  12              		.section	.text._NP32_StartDMA_Call,"ax",%progbits
-  13              		.align	1
-  14              		.syntax unified
-  15              		.thumb
-  16              		.thumb_func
-  17              		.fpu softvfp
-  19              	_NP32_StartDMA_Call:
-  20              		@ args = 0, pretend = 0, frame = 0
-  21              		@ frame_needed = 0, uses_anonymous_args = 0
-  22              		@ link register save eliminated.
-  23 0000 0020     		movs	r0, #0
-  24 0002 7047     		bx	lr
-  26              		.section	.text.SYS_WS2812_Init,"ax",%progbits
-  27              		.align	1
-  28              		.global	SYS_WS2812_Init
-  29              		.syntax unified
-  30              		.thumb
-  31              		.thumb_func
-  32              		.fpu softvfp
-  34              	SYS_WS2812_Init:
-  35              		@ args = 0, pretend = 0, frame = 0
-  36              		@ frame_needed = 0, uses_anonymous_args = 0
-  37 0000 08B5     		push	{r3, lr}
-  38 0002 0B48     		ldr	r0, .L7
-  39 0004 0B4B     		ldr	r3, .L7+4
-  40 0006 1860     		str	r0, [r3]
-  41 0008 0B23     		movs	r3, #11
-  42 000a 0380     		strh	r3, [r0]	@ movhi
-  43 000c 0023     		movs	r3, #0
-  44 000e 0372     		strb	r3, [r0, #8]
-  45 0010 094B     		ldr	r3, .L7+8
-  46 0012 4361     		str	r3, [r0, #20]
-  47 0014 FFF7FEFF 		bl	NP32_Init
-  48 0018 28B1     		cbz	r0, .L3
-  49 001a 084B     		ldr	r3, .L7+12
-  50 001c 084A     		ldr	r2, .L7+16
-  51 001e 1521     		movs	r1, #21
-  52 0020 0220     		movs	r0, #2
-  53 0022 FFF7FEFF 		bl	SYS_ThrowError
-  54              	.L3:
-  55 0026 0122     		movs	r2, #1
-  56 0028 064B     		ldr	r3, .L7+20
-  57 002a 1A70     		strb	r2, [r3]
-  58 002c 08BD     		pop	{r3, pc}
-  59              	.L8:
-  60 002e 00BF     		.align	2
-ARM GAS  /tmp/cc50DnJq.s 			page 2
+  12              		.text
+  13              		.section	.text._NP32_StartDMA_Call,"ax",%progbits
+  14              		.align	1
+  15              		.arch armv7-m
+  16              		.syntax unified
+  17              		.thumb
+  18              		.thumb_func
+  19              		.fpu softvfp
+  21              	_NP32_StartDMA_Call:
+  22              		@ args = 0, pretend = 0, frame = 0
+  23              		@ frame_needed = 0, uses_anonymous_args = 0
+  24 0000 0246     		mov	r2, r0
+  25 0002 0648     		ldr	r0, .L2
+  26 0004 08B5     		push	{r3, lr}
+  27 0006 0068     		ldr	r0, [r0]
+  28 0008 0B46     		mov	r3, r1
+  29 000a 0821     		movs	r1, #8
+  30 000c FFF7FEFF 		bl	HAL_TIM_PWM_Start_DMA
+  31 0010 0038     		subs	r0, r0, #0
+  32 0012 18BF     		it	ne
+  33 0014 0120     		movne	r0, #1
+  34 0016 4042     		rsbs	r0, r0, #0
+  35 0018 08BD     		pop	{r3, pc}
+  36              	.L3:
+  37 001a 00BF     		.align	2
+  38              	.L2:
+  39 001c 00000000 		.word	hw_timer2_handle
+  41              		.section	.rodata.SYS_WS2812_Init.str1.1,"aMS",%progbits,1
+  42              	.LC0:
+  43 0000 4E503332 		.ascii	"NP32 INIT ERR\000"
+  43      20494E49 
+  43      54204552 
+  43      5200
+  44              	.LC1:
+  45 000e 7372632F 		.ascii	"src/sys_ws2812.c\000"
+  45      7379735F 
+  45      77733238 
+  45      31322E63 
+  45      00
+  46              		.section	.text.SYS_WS2812_Init,"ax",%progbits
+  47              		.align	1
+  48              		.global	SYS_WS2812_Init
+  49              		.syntax unified
+  50              		.thumb
+  51              		.thumb_func
+  52              		.fpu softvfp
+ARM GAS  /tmp/ccWDEM7Y.s 			page 2
 
 
-  61              	.L7:
-  62 0030 00000000 		.word	.LANCHOR0
-  63 0034 00000000 		.word	hw_ws2812_handle
-  64 0038 00000000 		.word	_NP32_StartDMA_Call
-  65 003c 00000000 		.word	.LC0
-  66 0040 0E000000 		.word	.LC1
-  67 0044 00000000 		.word	.LANCHOR1
-  69              		.global	hw_ws2812_init_status
-  70              		.comm	hw_ws2812_handle,4,4
-  71              		.section	.bss._hw_ws2812_handle,"aw",%nobits
-  72              		.align	2
-  73              		.set	.LANCHOR0,. + 0
-  76              	_hw_ws2812_handle:
-  77 0000 00000000 		.space	24
-  77      00000000 
-  77      00000000 
-  77      00000000 
-  77      00000000 
-  78              		.section	.bss.hw_ws2812_init_status,"aw",%nobits
-  79              		.set	.LANCHOR1,. + 0
-  82              	hw_ws2812_init_status:
-  83 0000 00       		.space	1
-  84              		.section	.rodata.SYS_WS2812_Init.str1.1,"aMS",%progbits,1
-  85              	.LC0:
-  86 0000 4E503332 		.ascii	"NP32 INIT ERR\000"
-  86      20494E49 
-  86      54204552 
-  86      5200
-  87              	.LC1:
-  88 000e 7372632F 		.ascii	"src/sys_ws2812.c\000"
-  88      7379735F 
-  88      77733238 
-  88      31322E63 
-  88      00
-  89              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
-ARM GAS  /tmp/cc50DnJq.s 			page 3
+  54              	SYS_WS2812_Init:
+  55              		@ args = 0, pretend = 0, frame = 0
+  56              		@ frame_needed = 0, uses_anonymous_args = 0
+  57 0000 08B5     		push	{r3, lr}
+  58 0002 0B48     		ldr	r0, .L9
+  59 0004 0B4B     		ldr	r3, .L9+4
+  60 0006 1860     		str	r0, [r3]
+  61 0008 0B23     		movs	r3, #11
+  62 000a 0380     		strh	r3, [r0]	@ movhi
+  63 000c 0023     		movs	r3, #0
+  64 000e 0372     		strb	r3, [r0, #8]
+  65 0010 094B     		ldr	r3, .L9+8
+  66 0012 4361     		str	r3, [r0, #20]
+  67 0014 FFF7FEFF 		bl	NP32_Init
+  68 0018 28B1     		cbz	r0, .L5
+  69 001a 1B21     		movs	r1, #27
+  70 001c 0220     		movs	r0, #2
+  71 001e 074B     		ldr	r3, .L9+12
+  72 0020 074A     		ldr	r2, .L9+16
+  73 0022 FFF7FEFF 		bl	SYS_ThrowError
+  74              	.L5:
+  75 0026 0122     		movs	r2, #1
+  76 0028 064B     		ldr	r3, .L9+20
+  77 002a 1A70     		strb	r2, [r3]
+  78 002c 08BD     		pop	{r3, pc}
+  79              	.L10:
+  80 002e 00BF     		.align	2
+  81              	.L9:
+  82 0030 00000000 		.word	.LANCHOR0
+  83 0034 00000000 		.word	hw_ws2812_handle
+  84 0038 00000000 		.word	_NP32_StartDMA_Call
+  85 003c 00000000 		.word	.LC0
+  86 0040 0E000000 		.word	.LC1
+  87 0044 00000000 		.word	.LANCHOR1
+  89              		.global	hw_ws2812_init_status
+  90              		.comm	hw_ws2812_handle,4,4
+  91              		.section	.bss._hw_ws2812_handle,"aw",%nobits
+  92              		.align	2
+  93              		.set	.LANCHOR0,. + 0
+  96              	_hw_ws2812_handle:
+  97 0000 00000000 		.space	24
+  97      00000000 
+  97      00000000 
+  97      00000000 
+  97      00000000 
+  98              		.section	.bss.hw_ws2812_init_status,"aw",%nobits
+  99              		.set	.LANCHOR1,. + 0
+ 102              	hw_ws2812_init_status:
+ 103 0000 00       		.space	1
+ 104              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
+ARM GAS  /tmp/ccWDEM7Y.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 sys_ws2812.c
-     /tmp/cc50DnJq.s:13     .text._NP32_StartDMA_Call:0000000000000000 $t
-     /tmp/cc50DnJq.s:19     .text._NP32_StartDMA_Call:0000000000000000 _NP32_StartDMA_Call
-     /tmp/cc50DnJq.s:27     .text.SYS_WS2812_Init:0000000000000000 $t
-     /tmp/cc50DnJq.s:34     .text.SYS_WS2812_Init:0000000000000000 SYS_WS2812_Init
-     /tmp/cc50DnJq.s:62     .text.SYS_WS2812_Init:0000000000000030 $d
+     /tmp/ccWDEM7Y.s:14     .text._NP32_StartDMA_Call:0000000000000000 $t
+     /tmp/ccWDEM7Y.s:21     .text._NP32_StartDMA_Call:0000000000000000 _NP32_StartDMA_Call
+     /tmp/ccWDEM7Y.s:39     .text._NP32_StartDMA_Call:000000000000001c $d
+     /tmp/ccWDEM7Y.s:47     .text.SYS_WS2812_Init:0000000000000000 $t
+     /tmp/ccWDEM7Y.s:54     .text.SYS_WS2812_Init:0000000000000000 SYS_WS2812_Init
+     /tmp/ccWDEM7Y.s:82     .text.SYS_WS2812_Init:0000000000000030 $d
                             *COM*:0000000000000004 hw_ws2812_handle
-     /tmp/cc50DnJq.s:82     .bss.hw_ws2812_init_status:0000000000000000 hw_ws2812_init_status
-     /tmp/cc50DnJq.s:72     .bss._hw_ws2812_handle:0000000000000000 $d
-     /tmp/cc50DnJq.s:76     .bss._hw_ws2812_handle:0000000000000000 _hw_ws2812_handle
-     /tmp/cc50DnJq.s:83     .bss.hw_ws2812_init_status:0000000000000000 $d
+     /tmp/ccWDEM7Y.s:102    .bss.hw_ws2812_init_status:0000000000000000 hw_ws2812_init_status
+     /tmp/ccWDEM7Y.s:92     .bss._hw_ws2812_handle:0000000000000000 $d
+     /tmp/ccWDEM7Y.s:96     .bss._hw_ws2812_handle:0000000000000000 _hw_ws2812_handle
+     /tmp/ccWDEM7Y.s:103    .bss.hw_ws2812_init_status:0000000000000000 $d
 
 UNDEFINED SYMBOLS
+HAL_TIM_PWM_Start_DMA
+hw_timer2_handle
 NP32_Init
 SYS_ThrowError

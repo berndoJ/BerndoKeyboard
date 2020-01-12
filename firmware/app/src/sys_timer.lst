@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccZ4md6D.s 			page 1
+ARM GAS  /tmp/cconnoOL.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -12,302 +12,309 @@ ARM GAS  /tmp/ccZ4md6D.s 			page 1
    9              		.eabi_attribute 34, 1
   10              		.eabi_attribute 18, 4
   11              		.file	"sys_timer.c"
-  12              		.section	.text._SYS_Timer3_PWM_MspDeInit_Callback,"ax",%progbits
-  13              		.align	1
-  14              		.syntax unified
-  15              		.thumb
-  16              		.thumb_func
-  17              		.fpu softvfp
-  19              	_SYS_Timer3_PWM_MspDeInit_Callback:
-  20              		@ args = 0, pretend = 0, frame = 0
-  21              		@ frame_needed = 0, uses_anonymous_args = 0
-  22 0000 10B5     		push	{r4, lr}
-  23 0002 0446     		mov	r4, r0
-  24 0004 064A     		ldr	r2, .L2
-  25 0006 006B     		ldr	r0, [r0, #48]
-  26 0008 D369     		ldr	r3, [r2, #28]
-  27 000a 23F00203 		bic	r3, r3, #2
-  28 000e D361     		str	r3, [r2, #28]
-  29 0010 FFF7FEFF 		bl	HAL_DMA_DeInit
-  30 0014 206A     		ldr	r0, [r4, #32]
-  31 0016 BDE81040 		pop	{r4, lr}
-  32 001a FFF7FEBF 		b	HAL_DMA_DeInit
-  33              	.L3:
-  34 001e 00BF     		.align	2
-  35              	.L2:
-  36 0020 00100240 		.word	1073876992
-  38              		.section	.text._SYS_Timer3_PWM_MspInit_Callback,"ax",%progbits
-  39              		.align	1
-  40              		.syntax unified
-  41              		.thumb
-  42              		.thumb_func
-  43              		.fpu softvfp
-  45              	_SYS_Timer3_PWM_MspInit_Callback:
-  46              		@ args = 0, pretend = 0, frame = 8
-  47              		@ frame_needed = 0, uses_anonymous_args = 0
-  48 0000 174B     		ldr	r3, .L9
-  49 0002 37B5     		push	{r0, r1, r2, r4, r5, lr}
-  50 0004 DA69     		ldr	r2, [r3, #28]
-  51 0006 174C     		ldr	r4, .L9+4
-  52 0008 42F00202 		orr	r2, r2, #2
-  53 000c DA61     		str	r2, [r3, #28]
-  54 000e DB69     		ldr	r3, [r3, #28]
-  55 0010 8022     		movs	r2, #128
-  56 0012 03F00203 		and	r3, r3, #2
-  57 0016 0193     		str	r3, [sp, #4]
-  58 0018 019B     		ldr	r3, [sp, #4]
-  59 001a 1023     		movs	r3, #16
-  60 001c 0546     		mov	r5, r0
-ARM GAS  /tmp/ccZ4md6D.s 			page 2
+  12              		.text
+  13              		.section	.text._SYS_Timer2_PWM_MspDeInit_Callback,"ax",%progbits
+  14              		.align	1
+  15              		.arch armv7-m
+  16              		.syntax unified
+  17              		.thumb
+  18              		.thumb_func
+  19              		.fpu softvfp
+  21              	_SYS_Timer2_PWM_MspDeInit_Callback:
+  22              		@ args = 0, pretend = 0, frame = 0
+  23              		@ frame_needed = 0, uses_anonymous_args = 0
+  24              		@ link register save eliminated.
+  25 0000 034A     		ldr	r2, .L2
+  26 0002 C06A     		ldr	r0, [r0, #44]
+  27 0004 D369     		ldr	r3, [r2, #28]
+  28 0006 23F00103 		bic	r3, r3, #1
+  29 000a D361     		str	r3, [r2, #28]
+  30 000c FFF7FEBF 		b	HAL_DMA_DeInit
+  31              	.L3:
+  32              		.align	2
+  33              	.L2:
+  34 0010 00100240 		.word	1073876992
+  36              		.section	.rodata._SYS_Timer2_PWM_MspInit_Callback.str1.1,"aMS",%progbits,1
+  37              	.LC0:
+  38 0000 54494D20 		.ascii	"TIM DMA INIT ERR\000"
+  38      444D4120 
+  38      494E4954 
+  38      20455252 
+  38      00
+  39              	.LC1:
+  40 0011 7372632F 		.ascii	"src/sys_timer.c\000"
+  40      7379735F 
+  40      74696D65 
+  40      722E6300 
+  41              		.section	.text._SYS_Timer2_PWM_MspInit_Callback,"ax",%progbits
+  42              		.align	1
+  43              		.syntax unified
+  44              		.thumb
+  45              		.thumb_func
+  46              		.fpu softvfp
+  48              	_SYS_Timer2_PWM_MspInit_Callback:
+  49              		@ args = 0, pretend = 0, frame = 8
+  50              		@ frame_needed = 0, uses_anonymous_args = 0
+  51 0000 164B     		ldr	r3, .L9
+  52 0002 37B5     		push	{r0, r1, r2, r4, r5, lr}
+  53 0004 DA69     		ldr	r2, [r3, #28]
+ARM GAS  /tmp/cconnoOL.s 			page 2
 
 
-  61 001e 1249     		ldr	r1, .L9+8
-  62 0020 2068     		ldr	r0, [r4]
-  63 0022 80E80A00 		stm	r0, {r1, r3}
-  64 0026 C260     		str	r2, [r0, #12]
-  65 0028 0023     		movs	r3, #0
-  66 002a 4FF48072 		mov	r2, #256
-  67 002e 8360     		str	r3, [r0, #8]
-  68 0030 0261     		str	r2, [r0, #16]
-  69 0032 8361     		str	r3, [r0, #24]
-  70 0034 4FF48062 		mov	r2, #1024
-  71 0038 4FF48053 		mov	r3, #4096
-  72 003c 4261     		str	r2, [r0, #20]
-  73 003e C361     		str	r3, [r0, #28]
-  74 0040 FFF7FEFF 		bl	HAL_DMA_Init
-  75 0044 28B1     		cbz	r0, .L5
-  76 0046 094B     		ldr	r3, .L9+12
-  77 0048 094A     		ldr	r2, .L9+16
-  78 004a 4E21     		movs	r1, #78
-  79 004c 0220     		movs	r0, #2
-  80 004e FFF7FEFF 		bl	SYS_ThrowError
-  81              	.L5:
-  82 0052 2368     		ldr	r3, [r4]
-  83 0054 2B63     		str	r3, [r5, #48]
-  84 0056 2B62     		str	r3, [r5, #32]
-  85 0058 5D62     		str	r5, [r3, #36]
-  86 005a 03B0     		add	sp, sp, #12
+  54 0006 164D     		ldr	r5, .L9+4
+  55 0008 42F00102 		orr	r2, r2, #1
+  56 000c DA61     		str	r2, [r3, #28]
+  57 000e DB69     		ldr	r3, [r3, #28]
+  58 0010 144A     		ldr	r2, .L9+8
+  59 0012 03F00103 		and	r3, r3, #1
+  60 0016 0193     		str	r3, [sp, #4]
+  61 0018 019B     		ldr	r3, [sp, #4]
+  62 001a 1023     		movs	r3, #16
+  63 001c 0446     		mov	r4, r0
+  64 001e 2868     		ldr	r0, [r5]
+  65 0020 4FF48071 		mov	r1, #256
+  66 0024 C0E90023 		strd	r2, r3, [r0]
+  67 0028 0023     		movs	r3, #0
+  68 002a 8022     		movs	r2, #128
+  69 002c 8361     		str	r3, [r0, #24]
+  70 002e C0E90232 		strd	r3, r2, [r0, #8]
+  71 0032 4FF48062 		mov	r2, #1024
+  72 0036 4FF48053 		mov	r3, #4096
+  73 003a C0E90412 		strd	r1, r2, [r0, #16]
+  74 003e C361     		str	r3, [r0, #28]
+  75 0040 FFF7FEFF 		bl	HAL_DMA_Init
+  76 0044 28B1     		cbz	r0, .L5
+  77 0046 5A21     		movs	r1, #90
+  78 0048 0220     		movs	r0, #2
+  79 004a 074B     		ldr	r3, .L9+12
+  80 004c 074A     		ldr	r2, .L9+16
+  81 004e FFF7FEFF 		bl	SYS_ThrowError
+  82              	.L5:
+  83 0052 2B68     		ldr	r3, [r5]
+  84 0054 E362     		str	r3, [r4, #44]
+  85 0056 5C62     		str	r4, [r3, #36]
+  86 0058 03B0     		add	sp, sp, #12
   87              		@ sp needed
-  88 005c 30BD     		pop	{r4, r5, pc}
+  88 005a 30BD     		pop	{r4, r5, pc}
   89              	.L10:
-  90 005e 00BF     		.align	2
+  90              		.align	2
   91              	.L9:
-  92 0060 00100240 		.word	1073876992
-  93 0064 00000000 		.word	hw_timer3_dma_handle
-  94 0068 30000240 		.word	1073872944
-  95 006c 00000000 		.word	.LC0
-  96 0070 11000000 		.word	.LC1
-  98              		.section	.text.SYS_Timer_Init,"ax",%progbits
-  99              		.align	1
- 100              		.global	SYS_Timer_Init
- 101              		.syntax unified
- 102              		.thumb
- 103              		.thumb_func
- 104              		.fpu softvfp
- 106              	SYS_Timer_Init:
- 107              		@ args = 0, pretend = 0, frame = 56
- 108              		@ frame_needed = 0, uses_anonymous_args = 0
- 109 0000 30B5     		push	{r4, r5, lr}
- 110 0002 1C22     		movs	r2, #28
- 111 0004 0024     		movs	r4, #0
- 112 0006 8FB0     		sub	sp, sp, #60
- 113 0008 2146     		mov	r1, r4
- 114 000a 0DEB0200 		add	r0, sp, r2
- 115 000e 0194     		str	r4, [sp, #4]
- 116 0010 0294     		str	r4, [sp, #8]
- 117 0012 FFF7FEFF 		bl	memset
- 118 0016 1022     		movs	r2, #16
- 119 0018 2146     		mov	r1, r4
-ARM GAS  /tmp/ccZ4md6D.s 			page 3
+  92 005c 00100240 		.word	1073876992
+  93 0060 00000000 		.word	hw_timer2_ch3_dma_handle
+  94 0064 08000240 		.word	1073872904
+  95 0068 00000000 		.word	.LC0
+  96 006c 11000000 		.word	.LC1
+  98              		.section	.rodata.SYS_Timer_Init.str1.1,"aMS",%progbits,1
+  99              	.LC2:
+ 100 0000 54494D20 		.ascii	"TIM INIT ERR\000"
+ 100      494E4954 
+ 100      20455252 
+ 100      00
+ 101              	.LC3:
+ 102 000d 54494D20 		.ascii	"TIM MCS INIT ERR\000"
+ 102      4D435320 
+ 102      494E4954 
+ 102      20455252 
+ 102      00
+ 103              	.LC4:
+ 104 001e 54494D20 		.ascii	"TIM OCC INIT ERR\000"
+ARM GAS  /tmp/cconnoOL.s 			page 3
 
 
- 120 001a 03A8     		add	r0, sp, #12
- 121 001c FFF7FEFF 		bl	memset
- 122 0020 2D4B     		ldr	r3, .L24
- 123 0022 2E4A     		ldr	r2, .L24+4
- 124 0024 2E48     		ldr	r0, .L24+8
- 125 0026 1A60     		str	r2, [r3]
- 126 0028 2E4B     		ldr	r3, .L24+12
- 127 002a 2F4D     		ldr	r5, .L24+16
- 128 002c 80E81800 		stm	r0, {r3, r4}
- 129 0030 5D23     		movs	r3, #93
- 130 0032 C360     		str	r3, [r0, #12]
- 131 0034 2D4B     		ldr	r3, .L24+20
- 132 0036 2860     		str	r0, [r5]
- 133 0038 8365     		str	r3, [r0, #88]
- 134 003a 2D4B     		ldr	r3, .L24+24
- 135 003c 8460     		str	r4, [r0, #8]
- 136 003e 0461     		str	r4, [r0, #16]
- 137 0040 8461     		str	r4, [r0, #24]
- 138 0042 C365     		str	r3, [r0, #92]
- 139 0044 FFF7FEFF 		bl	HAL_TIM_PWM_Init
- 140 0048 28B1     		cbz	r0, .L12
- 141 004a 2A4B     		ldr	r3, .L24+28
- 142 004c 2A4A     		ldr	r2, .L24+32
- 143 004e 2321     		movs	r1, #35
- 144 0050 0220     		movs	r0, #2
- 145 0052 FFF7FEFF 		bl	SYS_ThrowError
- 146              	.L12:
- 147 0056 0023     		movs	r3, #0
- 148 0058 01A9     		add	r1, sp, #4
- 149 005a 2868     		ldr	r0, [r5]
- 150 005c 0193     		str	r3, [sp, #4]
- 151 005e 0293     		str	r3, [sp, #8]
- 152 0060 FFF7FEFF 		bl	HAL_TIMEx_MasterConfigSynchronization
- 153 0064 28B1     		cbz	r0, .L13
- 154 0066 254B     		ldr	r3, .L24+36
- 155 0068 234A     		ldr	r2, .L24+32
- 156 006a 2921     		movs	r1, #41
- 157 006c 0220     		movs	r0, #2
- 158 006e FFF7FEFF 		bl	SYS_ThrowError
- 159              	.L13:
- 160 0072 6023     		movs	r3, #96
- 161 0074 0793     		str	r3, [sp, #28]
- 162 0076 0023     		movs	r3, #0
- 163 0078 0422     		movs	r2, #4
- 164 007a 07A9     		add	r1, sp, #28
- 165 007c 2868     		ldr	r0, [r5]
- 166 007e 0893     		str	r3, [sp, #32]
- 167 0080 0993     		str	r3, [sp, #36]
- 168 0082 0B93     		str	r3, [sp, #44]
- 169 0084 FFF7FEFF 		bl	HAL_TIM_PWM_ConfigChannel
- 170 0088 28B1     		cbz	r0, .L14
- 171 008a 1D4B     		ldr	r3, .L24+40
- 172 008c 1A4A     		ldr	r2, .L24+32
- 173 008e 3121     		movs	r1, #49
- 174 0090 0220     		movs	r0, #2
- 175 0092 FFF7FEFF 		bl	SYS_ThrowError
- 176              	.L14:
-ARM GAS  /tmp/ccZ4md6D.s 			page 4
+ 104      4F434320 
+ 104      494E4954 
+ 104      20455252 
+ 104      00
+ 105              		.section	.text.SYS_Timer_Init,"ax",%progbits
+ 106              		.align	1
+ 107              		.global	SYS_Timer_Init
+ 108              		.syntax unified
+ 109              		.thumb
+ 110              		.thumb_func
+ 111              		.fpu softvfp
+ 113              	SYS_Timer_Init:
+ 114              		@ args = 0, pretend = 0, frame = 56
+ 115              		@ frame_needed = 0, uses_anonymous_args = 0
+ 116 0000 30B5     		push	{r4, r5, lr}
+ 117 0002 1C22     		movs	r2, #28
+ 118 0004 0024     		movs	r4, #0
+ 119 0006 8FB0     		sub	sp, sp, #60
+ 120 0008 2146     		mov	r1, r4
+ 121 000a 0DEB0200 		add	r0, sp, r2
+ 122 000e CDE90144 		strd	r4, r4, [sp, #4]
+ 123 0012 FFF7FEFF 		bl	memset
+ 124 0016 1022     		movs	r2, #16
+ 125 0018 2146     		mov	r1, r4
+ 126 001a 03A8     		add	r0, sp, #12
+ 127 001c FFF7FEFF 		bl	memset
+ 128 0020 354B     		ldr	r3, .L24
+ 129 0022 364A     		ldr	r2, .L24+4
+ 130 0024 3648     		ldr	r0, .L24+8
+ 131 0026 1A60     		str	r2, [r3]
+ 132 0028 4FF08043 		mov	r3, #1073741824
+ 133 002c C0E90034 		strd	r3, r4, [r0]
+ 134 0030 5D23     		movs	r3, #93
+ 135 0032 C0E90334 		strd	r3, r4, [r0, #12]
+ 136 0036 334B     		ldr	r3, .L24+12
+ 137 0038 334D     		ldr	r5, .L24+16
+ 138 003a 8365     		str	r3, [r0, #88]
+ 139 003c 334B     		ldr	r3, .L24+20
+ 140 003e 2860     		str	r0, [r5]
+ 141 0040 C365     		str	r3, [r0, #92]
+ 142 0042 334B     		ldr	r3, .L24+24
+ 143 0044 8460     		str	r4, [r0, #8]
+ 144 0046 C0F89430 		str	r3, [r0, #148]
+ 145 004a 324B     		ldr	r3, .L24+28
+ 146 004c 8461     		str	r4, [r0, #24]
+ 147 004e C0F89830 		str	r3, [r0, #152]
+ 148 0052 314B     		ldr	r3, .L24+32
+ 149 0054 C0F88830 		str	r3, [r0, #136]
+ 150 0058 304B     		ldr	r3, .L24+36
+ 151 005a C0F88C30 		str	r3, [r0, #140]
+ 152 005e 304B     		ldr	r3, .L24+40
+ 153 0060 8367     		str	r3, [r0, #120]
+ 154 0062 304B     		ldr	r3, .L24+44
+ 155 0064 C367     		str	r3, [r0, #124]
+ 156 0066 304B     		ldr	r3, .L24+48
+ 157 0068 C0F88030 		str	r3, [r0, #128]
+ 158 006c 2F4B     		ldr	r3, .L24+52
+ARM GAS  /tmp/cconnoOL.s 			page 4
 
 
- 177 0096 1B4B     		ldr	r3, .L24+44
- 178 0098 03A9     		add	r1, sp, #12
- 179 009a 9A69     		ldr	r2, [r3, #24]
- 180 009c 1A48     		ldr	r0, .L24+48
- 181 009e 42F01002 		orr	r2, r2, #16
- 182 00a2 9A61     		str	r2, [r3, #24]
- 183 00a4 9B69     		ldr	r3, [r3, #24]
- 184 00a6 03F01003 		and	r3, r3, #16
- 185 00aa 0093     		str	r3, [sp]
- 186 00ac 009B     		ldr	r3, [sp]
- 187 00ae 8023     		movs	r3, #128
- 188 00b0 0393     		str	r3, [sp, #12]
- 189 00b2 0223     		movs	r3, #2
- 190 00b4 0493     		str	r3, [sp, #16]
- 191 00b6 0323     		movs	r3, #3
- 192 00b8 0693     		str	r3, [sp, #24]
- 193 00ba FFF7FEFF 		bl	HAL_GPIO_Init
- 194 00be 134A     		ldr	r2, .L24+52
- 195 00c0 5368     		ldr	r3, [r2, #4]
- 196 00c2 43F0E063 		orr	r3, r3, #117440512
- 197 00c6 43F44063 		orr	r3, r3, #3072
- 198 00ca 5360     		str	r3, [r2, #4]
- 199 00cc 0122     		movs	r2, #1
- 200 00ce 104B     		ldr	r3, .L24+56
- 201 00d0 1A70     		strb	r2, [r3]
- 202 00d2 0FB0     		add	sp, sp, #60
- 203              		@ sp needed
- 204 00d4 30BD     		pop	{r4, r5, pc}
- 205              	.L25:
- 206 00d6 00BF     		.align	2
- 207              	.L24:
- 208 00d8 00000000 		.word	hw_timer3_dma_handle
- 209 00dc 00000000 		.word	.LANCHOR1
- 210 00e0 00000000 		.word	.LANCHOR0
- 211 00e4 00040040 		.word	1073742848
- 212 00e8 00000000 		.word	hw_timer3_handle
- 213 00ec 00000000 		.word	_SYS_Timer3_PWM_MspInit_Callback
- 214 00f0 00000000 		.word	_SYS_Timer3_PWM_MspDeInit_Callback
- 215 00f4 00000000 		.word	.LC2
- 216 00f8 11000000 		.word	.LC1
- 217 00fc 0D000000 		.word	.LC3
- 218 0100 1E000000 		.word	.LC4
- 219 0104 00100240 		.word	1073876992
- 220 0108 00100140 		.word	1073811456
- 221 010c 00000140 		.word	1073807360
- 222 0110 00000000 		.word	.LANCHOR2
- 224              		.global	hw_timer3_init_status
- 225              		.comm	hw_timer3_dma_handle,4,4
- 226              		.comm	hw_timer3_handle,4,4
- 227              		.section	.bss._hw_timer3_dma_handle,"aw",%nobits
- 228              		.align	2
- 229              		.set	.LANCHOR1,. + 0
- 232              	_hw_timer3_dma_handle:
- 233 0000 00000000 		.space	68
- 233      00000000 
- 233      00000000 
- 233      00000000 
-ARM GAS  /tmp/ccZ4md6D.s 			page 5
+ 159 006e C0F88430 		str	r3, [r0, #132]
+ 160 0072 FFF7FEFF 		bl	HAL_TIM_PWM_Init
+ 161 0076 28B1     		cbz	r0, .L12
+ 162 0078 3021     		movs	r1, #48
+ 163 007a 0220     		movs	r0, #2
+ 164 007c 2C4B     		ldr	r3, .L24+56
+ 165 007e 2D4A     		ldr	r2, .L24+60
+ 166 0080 FFF7FEFF 		bl	SYS_ThrowError
+ 167              	.L12:
+ 168 0084 0023     		movs	r3, #0
+ 169 0086 2868     		ldr	r0, [r5]
+ 170 0088 01A9     		add	r1, sp, #4
+ 171 008a CDE90133 		strd	r3, r3, [sp, #4]
+ 172 008e FFF7FEFF 		bl	HAL_TIMEx_MasterConfigSynchronization
+ 173 0092 28B1     		cbz	r0, .L13
+ 174 0094 3621     		movs	r1, #54
+ 175 0096 0220     		movs	r0, #2
+ 176 0098 274B     		ldr	r3, .L24+64
+ 177 009a 264A     		ldr	r2, .L24+60
+ 178 009c FFF7FEFF 		bl	SYS_ThrowError
+ 179              	.L13:
+ 180 00a0 0023     		movs	r3, #0
+ 181 00a2 6021     		movs	r1, #96
+ 182 00a4 0822     		movs	r2, #8
+ 183 00a6 CDE90713 		strd	r1, r3, [sp, #28]
+ 184 00aa 2868     		ldr	r0, [r5]
+ 185 00ac 07A9     		add	r1, sp, #28
+ 186 00ae 0993     		str	r3, [sp, #36]
+ 187 00b0 0B93     		str	r3, [sp, #44]
+ 188 00b2 FFF7FEFF 		bl	HAL_TIM_PWM_ConfigChannel
+ 189 00b6 28B1     		cbz	r0, .L14
+ 190 00b8 3E21     		movs	r1, #62
+ 191 00ba 0220     		movs	r0, #2
+ 192 00bc 1F4B     		ldr	r3, .L24+68
+ 193 00be 1D4A     		ldr	r2, .L24+60
+ 194 00c0 FFF7FEFF 		bl	SYS_ThrowError
+ 195              	.L14:
+ 196 00c4 1E4B     		ldr	r3, .L24+72
+ 197 00c6 1F48     		ldr	r0, .L24+76
+ 198 00c8 9A69     		ldr	r2, [r3, #24]
+ 199 00ca 03A9     		add	r1, sp, #12
+ 200 00cc 42F00402 		orr	r2, r2, #4
+ 201 00d0 9A61     		str	r2, [r3, #24]
+ 202 00d2 9B69     		ldr	r3, [r3, #24]
+ 203 00d4 0422     		movs	r2, #4
+ 204 00d6 03F00403 		and	r3, r3, #4
+ 205 00da 0093     		str	r3, [sp]
+ 206 00dc 009B     		ldr	r3, [sp]
+ 207 00de 0223     		movs	r3, #2
+ 208 00e0 CDE90323 		strd	r2, r3, [sp, #12]
+ 209 00e4 0323     		movs	r3, #3
+ 210 00e6 0693     		str	r3, [sp, #24]
+ 211 00e8 FFF7FEFF 		bl	HAL_GPIO_Init
+ 212 00ec 0122     		movs	r2, #1
+ 213 00ee 164B     		ldr	r3, .L24+80
+ 214 00f0 1A70     		strb	r2, [r3]
+ 215 00f2 0FB0     		add	sp, sp, #60
+ARM GAS  /tmp/cconnoOL.s 			page 5
 
 
- 233      00000000 
- 234              		.section	.bss._hw_timer3_handle,"aw",%nobits
- 235              		.align	2
- 236              		.set	.LANCHOR0,. + 0
- 239              	_hw_timer3_handle:
- 240 0000 00000000 		.space	172
- 240      00000000 
- 240      00000000 
- 240      00000000 
- 240      00000000 
- 241              		.section	.bss.hw_timer3_init_status,"aw",%nobits
- 242              		.set	.LANCHOR2,. + 0
- 245              	hw_timer3_init_status:
- 246 0000 00       		.space	1
- 247              		.section	.rodata.SYS_Timer_Init.str1.1,"aMS",%progbits,1
- 248              	.LC2:
- 249 0000 54494D20 		.ascii	"TIM INIT ERR\000"
- 249      494E4954 
- 249      20455252 
- 249      00
- 250              	.LC3:
- 251 000d 54494D20 		.ascii	"TIM MCS INIT ERR\000"
- 251      4D435320 
- 251      494E4954 
- 251      20455252 
- 251      00
- 252              	.LC4:
- 253 001e 54494D20 		.ascii	"TIM OCC INIT ERR\000"
- 253      4F434320 
- 253      494E4954 
- 253      20455252 
- 253      00
- 254              		.section	.rodata._SYS_Timer3_PWM_MspInit_Callback.str1.1,"aMS",%progbits,1
- 255              	.LC0:
- 256 0000 54494D20 		.ascii	"TIM DMA INIT ERR\000"
- 256      444D4120 
- 256      494E4954 
- 256      20455252 
- 256      00
- 257              	.LC1:
- 258 0011 7372632F 		.ascii	"src/sys_timer.c\000"
- 258      7379735F 
- 258      74696D65 
- 258      722E6300 
- 259              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
-ARM GAS  /tmp/ccZ4md6D.s 			page 6
+ 216              		@ sp needed
+ 217 00f4 30BD     		pop	{r4, r5, pc}
+ 218              	.L25:
+ 219 00f6 00BF     		.align	2
+ 220              	.L24:
+ 221 00f8 00000000 		.word	hw_timer2_ch3_dma_handle
+ 222 00fc 00000000 		.word	.LANCHOR1
+ 223 0100 00000000 		.word	.LANCHOR0
+ 224 0104 00000000 		.word	_SYS_Timer2_PWM_MspInit_Callback
+ 225 0108 00000000 		.word	hw_timer2_handle
+ 226 010c 00000000 		.word	_SYS_Timer2_PWM_MspDeInit_Callback
+ 227 0110 00000000 		.word	HAL_TIM_PWM_PulseFinishedCallback
+ 228 0114 00000000 		.word	HAL_TIM_PWM_PulseFinishedHalfCpltCallback
+ 229 0118 00000000 		.word	HAL_TIM_IC_CaptureCallback
+ 230 011c 00000000 		.word	HAL_TIM_IC_CaptureHalfCpltCallback
+ 231 0120 00000000 		.word	HAL_TIM_PeriodElapsedCallback
+ 232 0124 00000000 		.word	HAL_TIM_PeriodElapsedHalfCpltCallback
+ 233 0128 00000000 		.word	HAL_TIM_TriggerCallback
+ 234 012c 00000000 		.word	HAL_TIM_TriggerHalfCpltCallback
+ 235 0130 00000000 		.word	.LC2
+ 236 0134 11000000 		.word	.LC1
+ 237 0138 0D000000 		.word	.LC3
+ 238 013c 1E000000 		.word	.LC4
+ 239 0140 00100240 		.word	1073876992
+ 240 0144 00080140 		.word	1073809408
+ 241 0148 00000000 		.word	.LANCHOR2
+ 243              		.global	hw_timer2_init_status
+ 244              		.comm	hw_timer2_ch3_dma_handle,4,4
+ 245              		.comm	hw_timer2_handle,4,4
+ 246              		.section	.bss._hw_timer2_ch3_dma_handle,"aw",%nobits
+ 247              		.align	2
+ 248              		.set	.LANCHOR1,. + 0
+ 251              	_hw_timer2_ch3_dma_handle:
+ 252 0000 00000000 		.space	68
+ 252      00000000 
+ 252      00000000 
+ 252      00000000 
+ 252      00000000 
+ 253              		.section	.bss._hw_timer2_handle,"aw",%nobits
+ 254              		.align	2
+ 255              		.set	.LANCHOR0,. + 0
+ 258              	_hw_timer2_handle:
+ 259 0000 00000000 		.space	172
+ 259      00000000 
+ 259      00000000 
+ 259      00000000 
+ 259      00000000 
+ 260              		.section	.bss.hw_timer2_init_status,"aw",%nobits
+ 261              		.set	.LANCHOR2,. + 0
+ 264              	hw_timer2_init_status:
+ 265 0000 00       		.space	1
+ 266              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
+ARM GAS  /tmp/cconnoOL.s 			page 6
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 sys_timer.c
-     /tmp/ccZ4md6D.s:13     .text._SYS_Timer3_PWM_MspDeInit_Callback:0000000000000000 $t
-     /tmp/ccZ4md6D.s:19     .text._SYS_Timer3_PWM_MspDeInit_Callback:0000000000000000 _SYS_Timer3_PWM_MspDeInit_Callback
-     /tmp/ccZ4md6D.s:36     .text._SYS_Timer3_PWM_MspDeInit_Callback:0000000000000020 $d
-     /tmp/ccZ4md6D.s:39     .text._SYS_Timer3_PWM_MspInit_Callback:0000000000000000 $t
-     /tmp/ccZ4md6D.s:45     .text._SYS_Timer3_PWM_MspInit_Callback:0000000000000000 _SYS_Timer3_PWM_MspInit_Callback
-     /tmp/ccZ4md6D.s:92     .text._SYS_Timer3_PWM_MspInit_Callback:0000000000000060 $d
-                            *COM*:0000000000000004 hw_timer3_dma_handle
-     /tmp/ccZ4md6D.s:99     .text.SYS_Timer_Init:0000000000000000 $t
-     /tmp/ccZ4md6D.s:106    .text.SYS_Timer_Init:0000000000000000 SYS_Timer_Init
-     /tmp/ccZ4md6D.s:208    .text.SYS_Timer_Init:00000000000000d8 $d
-                            *COM*:0000000000000004 hw_timer3_handle
-     /tmp/ccZ4md6D.s:245    .bss.hw_timer3_init_status:0000000000000000 hw_timer3_init_status
-     /tmp/ccZ4md6D.s:228    .bss._hw_timer3_dma_handle:0000000000000000 $d
-     /tmp/ccZ4md6D.s:232    .bss._hw_timer3_dma_handle:0000000000000000 _hw_timer3_dma_handle
-     /tmp/ccZ4md6D.s:235    .bss._hw_timer3_handle:0000000000000000 $d
-     /tmp/ccZ4md6D.s:239    .bss._hw_timer3_handle:0000000000000000 _hw_timer3_handle
-     /tmp/ccZ4md6D.s:246    .bss.hw_timer3_init_status:0000000000000000 $d
+     /tmp/cconnoOL.s:14     .text._SYS_Timer2_PWM_MspDeInit_Callback:0000000000000000 $t
+     /tmp/cconnoOL.s:21     .text._SYS_Timer2_PWM_MspDeInit_Callback:0000000000000000 _SYS_Timer2_PWM_MspDeInit_Callback
+     /tmp/cconnoOL.s:34     .text._SYS_Timer2_PWM_MspDeInit_Callback:0000000000000010 $d
+     /tmp/cconnoOL.s:42     .text._SYS_Timer2_PWM_MspInit_Callback:0000000000000000 $t
+     /tmp/cconnoOL.s:48     .text._SYS_Timer2_PWM_MspInit_Callback:0000000000000000 _SYS_Timer2_PWM_MspInit_Callback
+     /tmp/cconnoOL.s:92     .text._SYS_Timer2_PWM_MspInit_Callback:000000000000005c $d
+                            *COM*:0000000000000004 hw_timer2_ch3_dma_handle
+     /tmp/cconnoOL.s:106    .text.SYS_Timer_Init:0000000000000000 $t
+     /tmp/cconnoOL.s:113    .text.SYS_Timer_Init:0000000000000000 SYS_Timer_Init
+     /tmp/cconnoOL.s:221    .text.SYS_Timer_Init:00000000000000f8 $d
+                            *COM*:0000000000000004 hw_timer2_handle
+     /tmp/cconnoOL.s:264    .bss.hw_timer2_init_status:0000000000000000 hw_timer2_init_status
+     /tmp/cconnoOL.s:247    .bss._hw_timer2_ch3_dma_handle:0000000000000000 $d
+     /tmp/cconnoOL.s:251    .bss._hw_timer2_ch3_dma_handle:0000000000000000 _hw_timer2_ch3_dma_handle
+     /tmp/cconnoOL.s:254    .bss._hw_timer2_handle:0000000000000000 $d
+     /tmp/cconnoOL.s:258    .bss._hw_timer2_handle:0000000000000000 _hw_timer2_handle
+     /tmp/cconnoOL.s:265    .bss.hw_timer2_init_status:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 HAL_DMA_DeInit
@@ -318,3 +325,11 @@ HAL_TIM_PWM_Init
 HAL_TIMEx_MasterConfigSynchronization
 HAL_TIM_PWM_ConfigChannel
 HAL_GPIO_Init
+HAL_TIM_PWM_PulseFinishedCallback
+HAL_TIM_PWM_PulseFinishedHalfCpltCallback
+HAL_TIM_IC_CaptureCallback
+HAL_TIM_IC_CaptureHalfCpltCallback
+HAL_TIM_PeriodElapsedCallback
+HAL_TIM_PeriodElapsedHalfCpltCallback
+HAL_TIM_TriggerCallback
+HAL_TIM_TriggerHalfCpltCallback

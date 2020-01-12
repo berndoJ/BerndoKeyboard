@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cczYksB5.s 			page 1
+ARM GAS  /tmp/ccBYlD3C.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -12,95 +12,93 @@ ARM GAS  /tmp/cczYksB5.s 			page 1
    9              		.eabi_attribute 34, 1
   10              		.eabi_attribute 18, 4
   11              		.file	"sys_clock.c"
-  12              		.section	.text.SYS_Clock_Init,"ax",%progbits
-  13              		.align	1
-  14              		.global	SYS_Clock_Init
-  15              		.syntax unified
-  16              		.thumb
-  17              		.thumb_func
-  18              		.fpu softvfp
-  20              	SYS_Clock_Init:
-  21              		@ args = 0, pretend = 0, frame = 64
-  22              		@ frame_needed = 0, uses_anonymous_args = 0
-  23 0000 4FF48033 		mov	r3, #65536
-  24 0004 10B5     		push	{r4, lr}
-  25 0006 90B0     		sub	sp, sp, #64
-  26 0008 0122     		movs	r2, #1
-  27 000a 0793     		str	r3, [sp, #28]
-  28 000c 4FF40031 		mov	r1, #131072
-  29 0010 0224     		movs	r4, #2
-  30 0012 0E93     		str	r3, [sp, #56]
-  31 0014 4FF4E013 		mov	r3, #1835008
-  32 0018 06A8     		add	r0, sp, #24
-  33 001a 0692     		str	r2, [sp, #24]
-  34 001c 0891     		str	r1, [sp, #32]
-  35 001e 0A92     		str	r2, [sp, #40]
-  36 0020 0D94     		str	r4, [sp, #52]
-  37 0022 0F93     		str	r3, [sp, #60]
-  38 0024 FFF7FEFF 		bl	HAL_RCC_OscConfig
-  39 0028 28B1     		cbz	r0, .L2
-  40 002a 0E4B     		ldr	r3, .L10
-  41 002c 0E4A     		ldr	r2, .L10+4
-  42 002e 1321     		movs	r1, #19
-  43 0030 2046     		mov	r0, r4
-  44 0032 FFF7FEFF 		bl	SYS_ThrowError
-  45              	.L2:
-  46 0036 0F23     		movs	r3, #15
-  47 0038 0224     		movs	r4, #2
-  48 003a 0193     		str	r3, [sp, #4]
-  49 003c 4FF48062 		mov	r2, #1024
-  50 0040 0023     		movs	r3, #0
-  51 0042 2146     		mov	r1, r4
-  52 0044 01A8     		add	r0, sp, #4
-  53 0046 0294     		str	r4, [sp, #8]
-  54 0048 0393     		str	r3, [sp, #12]
-  55 004a 0492     		str	r2, [sp, #16]
-  56 004c 0593     		str	r3, [sp, #20]
-  57 004e FFF7FEFF 		bl	HAL_RCC_ClockConfig
-  58 0052 28B1     		cbz	r0, .L1
-ARM GAS  /tmp/cczYksB5.s 			page 2
+  12              		.text
+  13              		.section	.rodata.SYS_Clock_Init.str1.1,"aMS",%progbits,1
+  14              	.LC0:
+  15 0000 5243434F 		.ascii	"RCCOSC HAL ERR\000"
+  15      53432048 
+  15      414C2045 
+  15      525200
+  16              	.LC1:
+  17 000f 7372632F 		.ascii	"src/sys_clock.c\000"
+  17      7379735F 
+  17      636C6F63 
+  17      6B2E6300 
+  18              	.LC2:
+  19 001f 52434343 		.ascii	"RCCCLK HAL ERR\000"
+  19      4C4B2048 
+  19      414C2045 
+  19      525200
+  20              		.section	.text.SYS_Clock_Init,"ax",%progbits
+  21              		.align	1
+  22              		.global	SYS_Clock_Init
+  23              		.arch armv7-m
+  24              		.syntax unified
+  25              		.thumb
+  26              		.thumb_func
+  27              		.fpu softvfp
+  29              	SYS_Clock_Init:
+  30              		@ args = 0, pretend = 0, frame = 64
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 10B5     		push	{r4, lr}
+  33 0002 4FF48033 		mov	r3, #65536
+  34 0006 0122     		movs	r2, #1
+  35 0008 0224     		movs	r4, #2
+  36 000a 90B0     		sub	sp, sp, #64
+  37 000c 4FF40031 		mov	r1, #131072
+  38 0010 CDE90623 		strd	r2, r3, [sp, #24]
+  39 0014 CDE90D43 		strd	r4, r3, [sp, #52]
+  40 0018 4FF4E013 		mov	r3, #1835008
+  41 001c 06A8     		add	r0, sp, #24
+  42 001e 0891     		str	r1, [sp, #32]
+  43 0020 0A92     		str	r2, [sp, #40]
+  44 0022 0F93     		str	r3, [sp, #60]
+  45 0024 FFF7FEFF 		bl	HAL_RCC_OscConfig
+  46 0028 28B1     		cbz	r0, .L2
+  47 002a 1321     		movs	r1, #19
+  48 002c 2046     		mov	r0, r4
+  49 002e 0D4B     		ldr	r3, .L10
+ARM GAS  /tmp/ccBYlD3C.s 			page 2
 
 
-  59 0054 054B     		ldr	r3, .L10+8
-  60 0056 044A     		ldr	r2, .L10+4
-  61 0058 1C21     		movs	r1, #28
-  62 005a 2046     		mov	r0, r4
-  63 005c FFF7FEFF 		bl	SYS_ThrowError
-  64              	.L1:
-  65 0060 10B0     		add	sp, sp, #64
-  66              		@ sp needed
-  67 0062 10BD     		pop	{r4, pc}
-  68              	.L11:
-  69              		.align	2
-  70              	.L10:
-  71 0064 00000000 		.word	.LC0
-  72 0068 0F000000 		.word	.LC1
-  73 006c 1F000000 		.word	.LC2
-  75              		.section	.rodata.SYS_Clock_Init.str1.1,"aMS",%progbits,1
-  76              	.LC0:
-  77 0000 5243434F 		.ascii	"RCCOSC HAL ERR\000"
-  77      53432048 
-  77      414C2045 
-  77      525200
-  78              	.LC1:
-  79 000f 7372632F 		.ascii	"src/sys_clock.c\000"
-  79      7379735F 
-  79      636C6F63 
-  79      6B2E6300 
-  80              	.LC2:
-  81 001f 52434343 		.ascii	"RCCCLK HAL ERR\000"
-  81      4C4B2048 
-  81      414C2045 
-  81      525200
-  82              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
-ARM GAS  /tmp/cczYksB5.s 			page 3
+  50 0030 0D4A     		ldr	r2, .L10+4
+  51 0032 FFF7FEFF 		bl	SYS_ThrowError
+  52              	.L2:
+  53 0036 0F23     		movs	r3, #15
+  54 0038 0224     		movs	r4, #2
+  55 003a 4FF48062 		mov	r2, #1024
+  56 003e CDE90134 		strd	r3, r4, [sp, #4]
+  57 0042 0023     		movs	r3, #0
+  58 0044 2146     		mov	r1, r4
+  59 0046 01A8     		add	r0, sp, #4
+  60 0048 CDE90332 		strd	r3, r2, [sp, #12]
+  61 004c 0593     		str	r3, [sp, #20]
+  62 004e FFF7FEFF 		bl	HAL_RCC_ClockConfig
+  63 0052 28B1     		cbz	r0, .L1
+  64 0054 1C21     		movs	r1, #28
+  65 0056 2046     		mov	r0, r4
+  66 0058 044B     		ldr	r3, .L10+8
+  67 005a 034A     		ldr	r2, .L10+4
+  68 005c FFF7FEFF 		bl	SYS_ThrowError
+  69              	.L1:
+  70 0060 10B0     		add	sp, sp, #64
+  71              		@ sp needed
+  72 0062 10BD     		pop	{r4, pc}
+  73              	.L11:
+  74              		.align	2
+  75              	.L10:
+  76 0064 00000000 		.word	.LC0
+  77 0068 0F000000 		.word	.LC1
+  78 006c 1F000000 		.word	.LC2
+  80              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
+ARM GAS  /tmp/ccBYlD3C.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 sys_clock.c
-     /tmp/cczYksB5.s:13     .text.SYS_Clock_Init:0000000000000000 $t
-     /tmp/cczYksB5.s:20     .text.SYS_Clock_Init:0000000000000000 SYS_Clock_Init
-     /tmp/cczYksB5.s:71     .text.SYS_Clock_Init:0000000000000064 $d
+     /tmp/ccBYlD3C.s:21     .text.SYS_Clock_Init:0000000000000000 $t
+     /tmp/ccBYlD3C.s:29     .text.SYS_Clock_Init:0000000000000000 SYS_Clock_Init
+     /tmp/ccBYlD3C.s:76     .text.SYS_Clock_Init:0000000000000064 $d
 
 UNDEFINED SYMBOLS
 HAL_RCC_OscConfig

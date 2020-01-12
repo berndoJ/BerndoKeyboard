@@ -14,9 +14,9 @@
 #include "sys_def.h"
 #include "stm32f1xx_hal.h"
 
-extern TIM_HandleTypeDef *hw_timer3_handle;
-extern DMA_HandleTypeDef *hw_timer3_dma_handle;
-extern SYS_InitStatus_t hw_timer3_init_status;
+extern TIM_HandleTypeDef *hw_timer2_handle;
+extern DMA_HandleTypeDef *hw_timer2_ch3_dma_handle;
+extern SYS_InitStatus_t hw_timer2_init_status;
 
 /**
  * \brief Initialises all timers.

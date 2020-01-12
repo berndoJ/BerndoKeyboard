@@ -52,8 +52,8 @@ bin/sys_timer.o: src/sys_timer.c inc/sys_timer.h inc/sys_def.h \
  ../lib/libstm32f1hal/inc/stm32f1xx_ll_usb.h \
  ../lib/libstm32f1hal/inc/stm32f1xx_hal_pcd_ex.h \
  ../lib/libstm32f1hal/inc/stm32f1xx_hal_hcd.h \
- ../lib/libstm32f1hal/inc/stm32f1xx_hal_mmc.h inc/error.h \
- ../lib/libneopixel32/inc/neopixel32.h
+ ../lib/libstm32f1hal/inc/stm32f1xx_hal_mmc.h inc/error.h inc/debug.h \
+ inc/sys_gpio.h inc/sys_ws2812.h ../lib/libneopixel32/inc/neopixel32.h
 
 inc/sys_timer.h:
 
@@ -168,5 +168,11 @@ inc/sys_def.h:
 ../lib/libstm32f1hal/inc/stm32f1xx_hal_mmc.h:
 
 inc/error.h:
+
+inc/debug.h:
+
+inc/sys_gpio.h:
+
+inc/sys_ws2812.h:
 
 ../lib/libneopixel32/inc/neopixel32.h:

@@ -1,6 +1,5 @@
-bin/main.o: src/main.c inc/main.h inc/sys_def.h inc/sys_dma.h \
- inc/sys_init.h inc/sys_clock.h inc/sys_gpio.h inc/sys_def.h \
- inc/sys_i2c.h ../lib/libstm32f1hal/inc/stm32f1xx_hal.h \
+bin/debug.o: src/debug.c inc/debug.h inc/sys_def.h inc/sys_usart.h \
+ inc/sys_def.h ../lib/libstm32f1hal/inc/stm32f1xx_hal.h \
  ../lib/libstm32f1hal/config/stm32f1xx_hal_conf.h \
  ../lib/libstm32f1hal/inc/stm32f1xx_hal_rcc.h \
  ../lib/libstm32f1hal/inc/stm32f1xx_hal_def.h \
@@ -53,26 +52,15 @@ bin/main.o: src/main.c inc/main.h inc/sys_def.h inc/sys_dma.h \
  ../lib/libstm32f1hal/inc/stm32f1xx_ll_usb.h \
  ../lib/libstm32f1hal/inc/stm32f1xx_hal_pcd_ex.h \
  ../lib/libstm32f1hal/inc/stm32f1xx_hal_hcd.h \
- ../lib/libstm32f1hal/inc/stm32f1xx_hal_mmc.h inc/sys_usart.h \
- inc/sys_pca9555.h ../lib/libpca9555/inc/pca9555.h inc/sys_timer.h \
- inc/sys_hwb.h inc/sys_ws2812.h ../lib/libneopixel32/inc/neopixel32.h \
- inc/error.h
+ ../lib/libstm32f1hal/inc/stm32f1xx_hal_mmc.h
 
-inc/main.h:
+inc/debug.h:
 
 inc/sys_def.h:
 
-inc/sys_dma.h:
-
-inc/sys_init.h:
-
-inc/sys_clock.h:
-
-inc/sys_gpio.h:
+inc/sys_usart.h:
 
 inc/sys_def.h:
-
-inc/sys_i2c.h:
 
 ../lib/libstm32f1hal/inc/stm32f1xx_hal.h:
 
@@ -181,19 +169,3 @@ inc/sys_i2c.h:
 ../lib/libstm32f1hal/inc/stm32f1xx_hal_hcd.h:
 
 ../lib/libstm32f1hal/inc/stm32f1xx_hal_mmc.h:
-
-inc/sys_usart.h:
-
-inc/sys_pca9555.h:
-
-../lib/libpca9555/inc/pca9555.h:
-
-inc/sys_timer.h:
-
-inc/sys_hwb.h:
-
-inc/sys_ws2812.h:
-
-../lib/libneopixel32/inc/neopixel32.h:
-
-inc/error.h:

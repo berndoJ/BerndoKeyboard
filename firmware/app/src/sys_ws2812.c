@@ -1,6 +1,12 @@
 #include "sys_ws2812.h"
+#include "sys_timer.h"
 #include "error.h"
+#include "debug.h"
+#include "stm32f1xx_hal.h"
 #include <stdint.h>
+
+#include <stdlib.h>
+#include <stdio.h>
 
 NP32_Instance_t *hw_ws2812_handle;
 SYS_InitStatus_t hw_ws2812_init_status = SYS_INIT_STATUS_NOT_INITIALISED;
@@ -25,5 +31,5 @@ void SYS_WS2812_Init(void)
 
 int8_t _NP32_StartDMA_Call(uint16_t *buf, uint16_t len)
 {
-    return 0;
+    return (HAL_TIM_PWM_Start_DMA(hw_timer2_handle, TIM_CHANNEL_3, (uint32_t *) buf, len) == HAL_OK) ? 0 : -1;
 }

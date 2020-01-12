@@ -1,5 +1,5 @@
 bin/error.o: src/error.c inc/error.h inc/sys_gpio.h inc/sys_def.h \
- ../lib/libstm32f1hal/inc/stm32f1xx_hal.h \
+ inc/sys_usart.h ../lib/libstm32f1hal/inc/stm32f1xx_hal.h \
  ../lib/libstm32f1hal/config/stm32f1xx_hal_conf.h \
  ../lib/libstm32f1hal/inc/stm32f1xx_hal_rcc.h \
  ../lib/libstm32f1hal/inc/stm32f1xx_hal_def.h \
@@ -59,6 +59,8 @@ inc/error.h:
 inc/sys_gpio.h:
 
 inc/sys_def.h:
+
+inc/sys_usart.h:
 
 ../lib/libstm32f1hal/inc/stm32f1xx_hal.h:
 

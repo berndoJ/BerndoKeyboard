@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccYiSGAa.s 			page 1
+ARM GAS  /tmp/ccBDBHIE.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -12,682 +12,689 @@ ARM GAS  /tmp/ccYiSGAa.s 			page 1
    9              		.eabi_attribute 34, 1
   10              		.eabi_attribute 18, 4
   11              		.file	"stm32f1xx_hal_pccard.c"
-  12              		.section	.text.HAL_PCCARD_MspInit,"ax",%progbits
-  13              		.align	1
-  14              		.weak	HAL_PCCARD_MspInit
-  15              		.syntax unified
-  16              		.thumb
-  17              		.thumb_func
-  18              		.fpu softvfp
-  20              	HAL_PCCARD_MspInit:
-  21              		@ args = 0, pretend = 0, frame = 0
-  22              		@ frame_needed = 0, uses_anonymous_args = 0
-  23              		@ link register save eliminated.
-  24 0000 7047     		bx	lr
-  26              		.section	.text.HAL_PCCARD_Init,"ax",%progbits
-  27              		.align	1
-  28              		.global	HAL_PCCARD_Init
-  29              		.syntax unified
-  30              		.thumb
-  31              		.thumb_func
-  32              		.fpu softvfp
-  34              	HAL_PCCARD_Init:
-  35              		@ args = 0, pretend = 0, frame = 0
-  36              		@ frame_needed = 0, uses_anonymous_args = 0
-  37 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
-  38 0002 0F46     		mov	r7, r1
-  39 0004 1646     		mov	r6, r2
-  40 0006 1D46     		mov	r5, r3
-  41 0008 0446     		mov	r4, r0
-  42 000a 08B3     		cbz	r0, .L5
-  43 000c 037C     		ldrb	r3, [r0, #16]	@ zero_extendqisi2
-  44 000e 03F0FF02 		and	r2, r3, #255
-  45 0012 13B9     		cbnz	r3, .L4
-  46 0014 4274     		strb	r2, [r0, #17]
-  47 0016 FFF7FEFF 		bl	HAL_PCCARD_MspInit
-  48              	.L4:
-  49 001a 0223     		movs	r3, #2
-  50 001c 211D     		adds	r1, r4, #4
-  51 001e 2374     		strb	r3, [r4, #16]
-  52 0020 2068     		ldr	r0, [r4]
-  53 0022 FFF7FEFF 		bl	FSMC_PCCARD_Init
-  54 0026 3946     		mov	r1, r7
-  55 0028 2068     		ldr	r0, [r4]
-  56 002a FFF7FEFF 		bl	FSMC_PCCARD_CommonSpace_Timing_Init
-  57 002e 3146     		mov	r1, r6
-  58 0030 2068     		ldr	r0, [r4]
-  59 0032 FFF7FEFF 		bl	FSMC_PCCARD_AttributeSpace_Timing_Init
-  60 0036 2946     		mov	r1, r5
-ARM GAS  /tmp/ccYiSGAa.s 			page 2
+  12              		.text
+  13              		.section	.text.HAL_PCCARD_MspInit,"ax",%progbits
+  14              		.align	1
+  15              		.weak	HAL_PCCARD_MspInit
+  16              		.arch armv7-m
+  17              		.syntax unified
+  18              		.thumb
+  19              		.thumb_func
+  20              		.fpu softvfp
+  22              	HAL_PCCARD_MspInit:
+  23              		@ args = 0, pretend = 0, frame = 0
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25              		@ link register save eliminated.
+  26 0000 7047     		bx	lr
+  28              		.section	.text.HAL_PCCARD_Init,"ax",%progbits
+  29              		.align	1
+  30              		.global	HAL_PCCARD_Init
+  31              		.syntax unified
+  32              		.thumb
+  33              		.thumb_func
+  34              		.fpu softvfp
+  36              	HAL_PCCARD_Init:
+  37              		@ args = 0, pretend = 0, frame = 0
+  38              		@ frame_needed = 0, uses_anonymous_args = 0
+  39 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  40 0002 0F46     		mov	r7, r1
+  41 0004 1646     		mov	r6, r2
+  42 0006 1D46     		mov	r5, r3
+  43 0008 0446     		mov	r4, r0
+  44 000a 08B3     		cbz	r0, .L5
+  45 000c 037C     		ldrb	r3, [r0, #16]	@ zero_extendqisi2
+  46 000e 03F0FF02 		and	r2, r3, #255
+  47 0012 13B9     		cbnz	r3, .L4
+  48 0014 4274     		strb	r2, [r0, #17]
+  49 0016 FFF7FEFF 		bl	HAL_PCCARD_MspInit
+  50              	.L4:
+  51 001a 0223     		movs	r3, #2
+  52 001c 211D     		adds	r1, r4, #4
+  53 001e 2374     		strb	r3, [r4, #16]
+  54 0020 2068     		ldr	r0, [r4]
+  55 0022 FFF7FEFF 		bl	FSMC_PCCARD_Init
+  56 0026 3946     		mov	r1, r7
+  57 0028 2068     		ldr	r0, [r4]
+  58 002a FFF7FEFF 		bl	FSMC_PCCARD_CommonSpace_Timing_Init
+  59 002e 3146     		mov	r1, r6
+  60 0030 2068     		ldr	r0, [r4]
+ARM GAS  /tmp/ccBDBHIE.s 			page 2
 
 
-  61 0038 2068     		ldr	r0, [r4]
-  62 003a FFF7FEFF 		bl	FSMC_PCCARD_IOSpace_Timing_Init
-  63 003e 2268     		ldr	r2, [r4]
-  64 0040 0020     		movs	r0, #0
-  65 0042 1368     		ldr	r3, [r2]
-  66 0044 43F00403 		orr	r3, r3, #4
-  67 0048 1360     		str	r3, [r2]
-  68 004a 0123     		movs	r3, #1
-  69 004c 2374     		strb	r3, [r4, #16]
-  70 004e F8BD     		pop	{r3, r4, r5, r6, r7, pc}
-  71              	.L5:
-  72 0050 0120     		movs	r0, #1
-  73 0052 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
-  75              		.section	.text.HAL_PCCARD_MspDeInit,"ax",%progbits
-  76              		.align	1
-  77              		.weak	HAL_PCCARD_MspDeInit
-  78              		.syntax unified
-  79              		.thumb
-  80              		.thumb_func
-  81              		.fpu softvfp
-  83              	HAL_PCCARD_MspDeInit:
-  84              		@ args = 0, pretend = 0, frame = 0
-  85              		@ frame_needed = 0, uses_anonymous_args = 0
-  86              		@ link register save eliminated.
-  87 0000 7047     		bx	lr
-  89              		.section	.text.HAL_PCCARD_DeInit,"ax",%progbits
-  90              		.align	1
-  91              		.global	HAL_PCCARD_DeInit
-  92              		.syntax unified
-  93              		.thumb
-  94              		.thumb_func
-  95              		.fpu softvfp
-  97              	HAL_PCCARD_DeInit:
-  98              		@ args = 0, pretend = 0, frame = 0
-  99              		@ frame_needed = 0, uses_anonymous_args = 0
- 100 0000 10B5     		push	{r4, lr}
- 101 0002 0446     		mov	r4, r0
- 102 0004 FFF7FEFF 		bl	HAL_PCCARD_MspDeInit
- 103 0008 2068     		ldr	r0, [r4]
- 104 000a FFF7FEFF 		bl	FSMC_PCCARD_DeInit
- 105 000e 0020     		movs	r0, #0
- 106 0010 2074     		strb	r0, [r4, #16]
- 107 0012 6074     		strb	r0, [r4, #17]
- 108 0014 10BD     		pop	{r4, pc}
- 110              		.section	.text.HAL_PCCARD_Read_ID,"ax",%progbits
- 111              		.align	1
- 112              		.global	HAL_PCCARD_Read_ID
- 113              		.syntax unified
- 114              		.thumb
- 115              		.thumb_func
- 116              		.fpu softvfp
- 118              	HAL_PCCARD_Read_ID:
- 119              		@ args = 0, pretend = 0, frame = 0
- 120              		@ frame_needed = 0, uses_anonymous_args = 0
- 121 0000 437C     		ldrb	r3, [r0, #17]	@ zero_extendqisi2
- 122 0002 30B5     		push	{r4, r5, lr}
- 123 0004 012B     		cmp	r3, #1
-ARM GAS  /tmp/ccYiSGAa.s 			page 3
+  61 0032 FFF7FEFF 		bl	FSMC_PCCARD_AttributeSpace_Timing_Init
+  62 0036 2946     		mov	r1, r5
+  63 0038 2068     		ldr	r0, [r4]
+  64 003a FFF7FEFF 		bl	FSMC_PCCARD_IOSpace_Timing_Init
+  65 003e 2268     		ldr	r2, [r4]
+  66 0040 0020     		movs	r0, #0
+  67 0042 1368     		ldr	r3, [r2]
+  68 0044 43F00403 		orr	r3, r3, #4
+  69 0048 1360     		str	r3, [r2]
+  70 004a 0123     		movs	r3, #1
+  71 004c 2374     		strb	r3, [r4, #16]
+  72              	.L3:
+  73 004e F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+  74              	.L5:
+  75 0050 0120     		movs	r0, #1
+  76 0052 FCE7     		b	.L3
+  78              		.section	.text.HAL_PCCARD_MspDeInit,"ax",%progbits
+  79              		.align	1
+  80              		.weak	HAL_PCCARD_MspDeInit
+  81              		.syntax unified
+  82              		.thumb
+  83              		.thumb_func
+  84              		.fpu softvfp
+  86              	HAL_PCCARD_MspDeInit:
+  87              		@ args = 0, pretend = 0, frame = 0
+  88              		@ frame_needed = 0, uses_anonymous_args = 0
+  89              		@ link register save eliminated.
+  90 0000 7047     		bx	lr
+  92              		.section	.text.HAL_PCCARD_DeInit,"ax",%progbits
+  93              		.align	1
+  94              		.global	HAL_PCCARD_DeInit
+  95              		.syntax unified
+  96              		.thumb
+  97              		.thumb_func
+  98              		.fpu softvfp
+ 100              	HAL_PCCARD_DeInit:
+ 101              		@ args = 0, pretend = 0, frame = 0
+ 102              		@ frame_needed = 0, uses_anonymous_args = 0
+ 103 0000 10B5     		push	{r4, lr}
+ 104 0002 0446     		mov	r4, r0
+ 105 0004 FFF7FEFF 		bl	HAL_PCCARD_MspDeInit
+ 106 0008 2068     		ldr	r0, [r4]
+ 107 000a FFF7FEFF 		bl	FSMC_PCCARD_DeInit
+ 108 000e 0020     		movs	r0, #0
+ 109 0010 2074     		strb	r0, [r4, #16]
+ 110 0012 6074     		strb	r0, [r4, #17]
+ 111 0014 10BD     		pop	{r4, pc}
+ 113              		.section	.text.HAL_PCCARD_Read_ID,"ax",%progbits
+ 114              		.align	1
+ 115              		.global	HAL_PCCARD_Read_ID
+ 116              		.syntax unified
+ 117              		.thumb
+ 118              		.thumb_func
+ 119              		.fpu softvfp
+ 121              	HAL_PCCARD_Read_ID:
+ 122              		@ args = 0, pretend = 0, frame = 0
+ 123              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /tmp/ccBDBHIE.s 			page 3
 
 
- 124 0006 01D1     		bne	.L9
- 125              	.L11:
- 126 0008 0220     		movs	r0, #2
- 127 000a 30BD     		pop	{r4, r5, pc}
- 128              	.L9:
- 129 000c 0123     		movs	r3, #1
- 130 000e 4374     		strb	r3, [r0, #17]
- 131 0010 037C     		ldrb	r3, [r0, #16]	@ zero_extendqisi2
- 132 0012 022B     		cmp	r3, #2
- 133 0014 F8D0     		beq	.L11
- 134 0016 0223     		movs	r3, #2
- 135 0018 0374     		strb	r3, [r0, #16]
- 136 001a 4023     		movs	r3, #64
- 137 001c 4EF6EC44 		movw	r4, 60652	@ movhi
- 138 0020 1370     		strb	r3, [r2]
- 139 0022 0F4B     		ldr	r3, .L23
- 140 0024 1C80     		strh	r4, [r3]	@ unaligned
- 141 0026 4FF6FF73 		movw	r3, #65535
- 142 002a 0E4C     		ldr	r4, .L23+4
- 143              	.L13:
- 144 002c 2578     		ldrb	r5, [r4]	@ zero_extendqisi2
- 145 002e 013B     		subs	r3, r3, #1
- 146 0030 582D     		cmp	r5, #88
- 147 0032 09D0     		beq	.L12
- 148 0034 002B     		cmp	r3, #0
- 149 0036 F9D1     		bne	.L13
- 150              	.L14:
- 151 0038 6023     		movs	r3, #96
- 152 003a 1370     		strb	r3, [r2]
- 153              	.L16:
- 154 003c 0123     		movs	r3, #1
- 155 003e 0374     		strb	r3, [r0, #16]
- 156 0040 0023     		movs	r3, #0
- 157 0042 4374     		strb	r3, [r0, #17]
- 158 0044 1846     		mov	r0, r3
- 159 0046 30BD     		pop	{r4, r5, pc}
- 160              	.L12:
- 161 0048 002B     		cmp	r3, #0
- 162 004a F5D0     		beq	.L14
- 163 004c 064C     		ldr	r4, .L23+8
- 164 004e 4B1E     		subs	r3, r1, #1
- 165 0050 0F31     		adds	r1, r1, #15
- 166              	.L17:
- 167 0052 2278     		ldrb	r2, [r4]	@ zero_extendqisi2
- 168 0054 03F8012F 		strb	r2, [r3, #1]!
- 169 0058 8B42     		cmp	r3, r1
- 170 005a FAD1     		bne	.L17
- 171 005c EEE7     		b	.L16
- 172              	.L24:
- 173 005e 00BF     		.align	2
- 174              	.L23:
- 175 0060 F701009C 		.word	-1677721097
- 176 0064 FE01009C 		.word	-1677721090
- 177 0068 F001009C 		.word	-1677721104
- 179              		.section	.text.HAL_PCCARD_Read_Sector,"ax",%progbits
- 180              		.align	1
- 181              		.global	HAL_PCCARD_Read_Sector
-ARM GAS  /tmp/ccYiSGAa.s 			page 4
+ 124 0000 30B5     		push	{r4, r5, lr}
+ 125 0002 437C     		ldrb	r3, [r0, #17]	@ zero_extendqisi2
+ 126 0004 012B     		cmp	r3, #1
+ 127 0006 01D1     		bne	.L9
+ 128              	.L11:
+ 129 0008 0220     		movs	r0, #2
+ 130              	.L10:
+ 131 000a 30BD     		pop	{r4, r5, pc}
+ 132              	.L9:
+ 133 000c 0123     		movs	r3, #1
+ 134 000e 4374     		strb	r3, [r0, #17]
+ 135 0010 037C     		ldrb	r3, [r0, #16]	@ zero_extendqisi2
+ 136 0012 022B     		cmp	r3, #2
+ 137 0014 F8D0     		beq	.L11
+ 138 0016 0223     		movs	r3, #2
+ 139 0018 0374     		strb	r3, [r0, #16]
+ 140 001a 4023     		movs	r3, #64
+ 141 001c 4EF6EC44 		movw	r4, 60652	@ movhi
+ 142 0020 1370     		strb	r3, [r2]
+ 143 0022 0F4B     		ldr	r3, .L23
+ 144 0024 1C80     		strh	r4, [r3]	@ unaligned
+ 145 0026 4FF6FF73 		movw	r3, #65535
+ 146 002a 0E4C     		ldr	r4, .L23+4
+ 147              	.L13:
+ 148 002c 2578     		ldrb	r5, [r4]	@ zero_extendqisi2
+ 149 002e 013B     		subs	r3, r3, #1
+ 150 0030 582D     		cmp	r5, #88
+ 151 0032 09D0     		beq	.L12
+ 152 0034 002B     		cmp	r3, #0
+ 153 0036 F9D1     		bne	.L13
+ 154              	.L14:
+ 155 0038 6023     		movs	r3, #96
+ 156 003a 1370     		strb	r3, [r2]
+ 157              	.L16:
+ 158 003c 0123     		movs	r3, #1
+ 159 003e 0374     		strb	r3, [r0, #16]
+ 160 0040 0023     		movs	r3, #0
+ 161 0042 4374     		strb	r3, [r0, #17]
+ 162 0044 1846     		mov	r0, r3
+ 163 0046 E0E7     		b	.L10
+ 164              	.L12:
+ 165 0048 002B     		cmp	r3, #0
+ 166 004a F5D0     		beq	.L14
+ 167 004c 064C     		ldr	r4, .L23+8
+ 168 004e 4B1E     		subs	r3, r1, #1
+ 169 0050 0F31     		adds	r1, r1, #15
+ 170              	.L17:
+ 171 0052 2278     		ldrb	r2, [r4]	@ zero_extendqisi2
+ 172 0054 03F8012F 		strb	r2, [r3, #1]!
+ 173 0058 8B42     		cmp	r3, r1
+ 174 005a FAD1     		bne	.L17
+ 175 005c EEE7     		b	.L16
+ 176              	.L24:
+ 177 005e 00BF     		.align	2
+ 178              	.L23:
+ 179 0060 F701009C 		.word	-1677721097
+ 180 0064 FE01009C 		.word	-1677721090
+ARM GAS  /tmp/ccBDBHIE.s 			page 4
 
 
- 182              		.syntax unified
- 183              		.thumb
- 184              		.thumb_func
- 185              		.fpu softvfp
- 187              	HAL_PCCARD_Read_Sector:
- 188              		@ args = 0, pretend = 0, frame = 0
- 189              		@ frame_needed = 0, uses_anonymous_args = 0
- 190 0000 30B5     		push	{r4, r5, lr}
- 191 0002 447C     		ldrb	r4, [r0, #17]	@ zero_extendqisi2
- 192 0004 012C     		cmp	r4, #1
- 193 0006 01D1     		bne	.L26
- 194              	.L28:
- 195 0008 0220     		movs	r0, #2
- 196 000a 30BD     		pop	{r4, r5, pc}
- 197              	.L26:
- 198 000c 0124     		movs	r4, #1
- 199 000e 4474     		strb	r4, [r0, #17]
- 200 0010 047C     		ldrb	r4, [r0, #16]	@ zero_extendqisi2
- 201 0012 022C     		cmp	r4, #2
- 202 0014 F8D0     		beq	.L28
- 203 0016 0224     		movs	r4, #2
- 204 0018 0474     		strb	r4, [r0, #16]
- 205 001a 4024     		movs	r4, #64
- 206 001c 4FF00005 		mov	r5, #0	@ movhi
- 207 0020 1C70     		strb	r4, [r3]
- 208 0022 1B4C     		ldr	r4, .L44
- 209 0024 42F48072 		orr	r2, r2, #256
- 210 0028 2580     		strh	r5, [r4]	@ unaligned
- 211 002a 24F8032C 		strh	r2, [r4, #-3]	@ movhi
- 212 002e 4EF2A044 		movw	r4, 58528	@ movhi
- 213 0032 184A     		ldr	r2, .L44+4
- 214 0034 184D     		ldr	r5, .L44+8
- 215 0036 1480     		strh	r4, [r2]	@ unaligned
- 216 0038 4FF6FF72 		movw	r2, #65535
- 217              	.L30:
- 218 003c 2C88     		ldrh	r4, [r5]
- 219 003e 013A     		subs	r2, r2, #1
- 220 0040 E4B2     		uxtb	r4, r4
- 221 0042 802C     		cmp	r4, #128
- 222 0044 04D1     		bne	.L29
- 223 0046 002A     		cmp	r2, #0
- 224 0048 F8D1     		bne	.L30
- 225              	.L31:
- 226 004a 6022     		movs	r2, #96
- 227 004c 1A70     		strb	r2, [r3]
- 228 004e 01E0     		b	.L32
- 229              	.L29:
- 230 0050 002A     		cmp	r2, #0
- 231 0052 FAD0     		beq	.L31
- 232              	.L32:
- 233 0054 4FF6FF72 		movw	r2, #65535
- 234 0058 0F4D     		ldr	r5, .L44+8
- 235              	.L34:
- 236 005a 2C88     		ldrh	r4, [r5]
- 237 005c 013A     		subs	r2, r2, #1
- 238 005e E4B2     		uxtb	r4, r4
- 239 0060 582C     		cmp	r4, #88
-ARM GAS  /tmp/ccYiSGAa.s 			page 5
+ 181 0068 F001009C 		.word	-1677721104
+ 183              		.section	.text.HAL_PCCARD_Read_Sector,"ax",%progbits
+ 184              		.align	1
+ 185              		.global	HAL_PCCARD_Read_Sector
+ 186              		.syntax unified
+ 187              		.thumb
+ 188              		.thumb_func
+ 189              		.fpu softvfp
+ 191              	HAL_PCCARD_Read_Sector:
+ 192              		@ args = 0, pretend = 0, frame = 0
+ 193              		@ frame_needed = 0, uses_anonymous_args = 0
+ 194 0000 30B5     		push	{r4, r5, lr}
+ 195 0002 447C     		ldrb	r4, [r0, #17]	@ zero_extendqisi2
+ 196 0004 012C     		cmp	r4, #1
+ 197 0006 01D1     		bne	.L26
+ 198              	.L28:
+ 199 0008 0220     		movs	r0, #2
+ 200              	.L27:
+ 201 000a 30BD     		pop	{r4, r5, pc}
+ 202              	.L26:
+ 203 000c 0124     		movs	r4, #1
+ 204 000e 4474     		strb	r4, [r0, #17]
+ 205 0010 047C     		ldrb	r4, [r0, #16]	@ zero_extendqisi2
+ 206 0012 022C     		cmp	r4, #2
+ 207 0014 F8D0     		beq	.L28
+ 208 0016 0224     		movs	r4, #2
+ 209 0018 0474     		strb	r4, [r0, #16]
+ 210 001a 4024     		movs	r4, #64
+ 211 001c 4FF00005 		mov	r5, #0	@ movhi
+ 212 0020 1C70     		strb	r4, [r3]
+ 213 0022 1B4C     		ldr	r4, .L44
+ 214 0024 42F48072 		orr	r2, r2, #256
+ 215 0028 2580     		strh	r5, [r4]	@ unaligned
+ 216 002a 24F8032C 		strh	r2, [r4, #-3]	@ movhi
+ 217 002e 4EF2A044 		movw	r4, 58528	@ movhi
+ 218 0032 184A     		ldr	r2, .L44+4
+ 219 0034 184D     		ldr	r5, .L44+8
+ 220 0036 1480     		strh	r4, [r2]	@ unaligned
+ 221 0038 4FF6FF72 		movw	r2, #65535
+ 222              	.L30:
+ 223 003c 2C88     		ldrh	r4, [r5]
+ 224 003e 013A     		subs	r2, r2, #1
+ 225 0040 E4B2     		uxtb	r4, r4
+ 226 0042 802C     		cmp	r4, #128
+ 227 0044 04D1     		bne	.L29
+ 228 0046 002A     		cmp	r2, #0
+ 229 0048 F8D1     		bne	.L30
+ 230              	.L31:
+ 231 004a 6022     		movs	r2, #96
+ 232 004c 1A70     		strb	r2, [r3]
+ 233 004e 01E0     		b	.L32
+ 234              	.L29:
+ 235 0050 002A     		cmp	r2, #0
+ 236 0052 FAD0     		beq	.L31
+ 237              	.L32:
+ 238 0054 4FF6FF72 		movw	r2, #65535
+ 239 0058 0F4D     		ldr	r5, .L44+8
+ARM GAS  /tmp/ccBDBHIE.s 			page 5
 
 
- 240 0062 04D0     		beq	.L33
- 241 0064 002A     		cmp	r2, #0
- 242 0066 F8D1     		bne	.L34
- 243              	.L35:
- 244 0068 6022     		movs	r2, #96
- 245 006a 1A70     		strb	r2, [r3]
- 246 006c 01E0     		b	.L36
- 247              	.L33:
- 248 006e 002A     		cmp	r2, #0
- 249 0070 FAD0     		beq	.L35
- 250              	.L36:
- 251 0072 0A4C     		ldr	r4, .L44+12
- 252 0074 01F5FF73 		add	r3, r1, #510
- 253              	.L37:
- 254 0078 2288     		ldrh	r2, [r4]
- 255 007a 21F8022B 		strh	r2, [r1], #2	@ movhi
- 256 007e 9942     		cmp	r1, r3
- 257 0080 FAD1     		bne	.L37
- 258 0082 0123     		movs	r3, #1
- 259 0084 0374     		strb	r3, [r0, #16]
- 260 0086 0023     		movs	r3, #0
- 261 0088 4374     		strb	r3, [r0, #17]
- 262 008a 1846     		mov	r0, r3
- 263 008c 30BD     		pop	{r4, r5, pc}
- 264              	.L45:
- 265 008e 00BF     		.align	2
- 266              	.L44:
- 267 0090 F501009C 		.word	-1677721099
- 268 0094 F701009C 		.word	-1677721097
- 269 0098 FE01009C 		.word	-1677721090
- 270 009c F001009C 		.word	-1677721104
- 272              		.section	.text.HAL_PCCARD_Write_Sector,"ax",%progbits
- 273              		.align	1
- 274              		.global	HAL_PCCARD_Write_Sector
- 275              		.syntax unified
- 276              		.thumb
- 277              		.thumb_func
- 278              		.fpu softvfp
- 280              	HAL_PCCARD_Write_Sector:
- 281              		@ args = 0, pretend = 0, frame = 0
- 282              		@ frame_needed = 0, uses_anonymous_args = 0
- 283 0000 70B5     		push	{r4, r5, r6, lr}
- 284 0002 447C     		ldrb	r4, [r0, #17]	@ zero_extendqisi2
- 285 0004 012C     		cmp	r4, #1
- 286 0006 01D1     		bne	.L47
- 287              	.L49:
- 288 0008 0220     		movs	r0, #2
- 289 000a 70BD     		pop	{r4, r5, r6, pc}
- 290              	.L47:
- 291 000c 0124     		movs	r4, #1
- 292 000e 4474     		strb	r4, [r0, #17]
- 293 0010 047C     		ldrb	r4, [r0, #16]	@ zero_extendqisi2
- 294 0012 022C     		cmp	r4, #2
- 295 0014 F8D0     		beq	.L49
- 296 0016 0224     		movs	r4, #2
- 297 0018 0474     		strb	r4, [r0, #16]
- 298 001a 4024     		movs	r4, #64
-ARM GAS  /tmp/ccYiSGAa.s 			page 6
+ 240              	.L34:
+ 241 005a 2C88     		ldrh	r4, [r5]
+ 242 005c 013A     		subs	r2, r2, #1
+ 243 005e E4B2     		uxtb	r4, r4
+ 244 0060 582C     		cmp	r4, #88
+ 245 0062 04D0     		beq	.L33
+ 246 0064 002A     		cmp	r2, #0
+ 247 0066 F8D1     		bne	.L34
+ 248              	.L35:
+ 249 0068 6022     		movs	r2, #96
+ 250 006a 1A70     		strb	r2, [r3]
+ 251 006c 01E0     		b	.L36
+ 252              	.L33:
+ 253 006e 002A     		cmp	r2, #0
+ 254 0070 FAD0     		beq	.L35
+ 255              	.L36:
+ 256 0072 0A4C     		ldr	r4, .L44+12
+ 257 0074 01F5FF73 		add	r3, r1, #510
+ 258              	.L37:
+ 259 0078 2288     		ldrh	r2, [r4]
+ 260 007a 21F8022B 		strh	r2, [r1], #2	@ movhi
+ 261 007e 9942     		cmp	r1, r3
+ 262 0080 FAD1     		bne	.L37
+ 263 0082 0123     		movs	r3, #1
+ 264 0084 0374     		strb	r3, [r0, #16]
+ 265 0086 0023     		movs	r3, #0
+ 266 0088 4374     		strb	r3, [r0, #17]
+ 267 008a 1846     		mov	r0, r3
+ 268 008c BDE7     		b	.L27
+ 269              	.L45:
+ 270 008e 00BF     		.align	2
+ 271              	.L44:
+ 272 0090 F501009C 		.word	-1677721099
+ 273 0094 F701009C 		.word	-1677721097
+ 274 0098 FE01009C 		.word	-1677721090
+ 275 009c F001009C 		.word	-1677721104
+ 277              		.section	.text.HAL_PCCARD_Write_Sector,"ax",%progbits
+ 278              		.align	1
+ 279              		.global	HAL_PCCARD_Write_Sector
+ 280              		.syntax unified
+ 281              		.thumb
+ 282              		.thumb_func
+ 283              		.fpu softvfp
+ 285              	HAL_PCCARD_Write_Sector:
+ 286              		@ args = 0, pretend = 0, frame = 0
+ 287              		@ frame_needed = 0, uses_anonymous_args = 0
+ 288 0000 70B5     		push	{r4, r5, r6, lr}
+ 289 0002 447C     		ldrb	r4, [r0, #17]	@ zero_extendqisi2
+ 290 0004 012C     		cmp	r4, #1
+ 291 0006 01D1     		bne	.L47
+ 292              	.L49:
+ 293 0008 0220     		movs	r0, #2
+ 294              	.L48:
+ 295 000a 70BD     		pop	{r4, r5, r6, pc}
+ 296              	.L47:
+ 297 000c 0124     		movs	r4, #1
+ 298 000e 4474     		strb	r4, [r0, #17]
+ARM GAS  /tmp/ccBDBHIE.s 			page 6
 
 
- 299 001c 4FF00005 		mov	r5, #0	@ movhi
- 300 0020 1C70     		strb	r4, [r3]
- 301 0022 194C     		ldr	r4, .L65
- 302 0024 42F48072 		orr	r2, r2, #256
- 303 0028 2580     		strh	r5, [r4]	@ unaligned
- 304 002a 24F8032C 		strh	r2, [r4, #-3]	@ movhi
- 305 002e 43F2A004 		movw	r4, 12448	@ movhi
- 306 0032 164A     		ldr	r2, .L65+4
- 307 0034 1480     		strh	r4, [r2]	@ unaligned
- 308 0036 4FF6FF72 		movw	r2, #65535
- 309 003a 154C     		ldr	r4, .L65+8
- 310              	.L51:
- 311 003c 2578     		ldrb	r5, [r4]	@ zero_extendqisi2
- 312 003e 013A     		subs	r2, r2, #1
- 313 0040 582D     		cmp	r5, #88
- 314 0042 05D0     		beq	.L50
- 315 0044 002A     		cmp	r2, #0
- 316 0046 F9D1     		bne	.L51
- 317              	.L52:
- 318 0048 6022     		movs	r2, #96
- 319 004a 1A70     		strb	r2, [r3]
- 320 004c 0022     		movs	r2, #0
- 321 004e 01E0     		b	.L53
- 322              	.L50:
- 323 0050 002A     		cmp	r2, #0
- 324 0052 F9D0     		beq	.L52
- 325              	.L53:
- 326 0054 0F4D     		ldr	r5, .L65+12
- 327 0056 01F5FF74 		add	r4, r1, #510
- 328              	.L54:
- 329 005a 31F8026B 		ldrh	r6, [r1], #2
- 330 005e 8C42     		cmp	r4, r1
- 331 0060 2E80     		strh	r6, [r5]	@ movhi
- 332 0062 FAD1     		bne	.L54
- 333 0064 0A49     		ldr	r1, .L65+8
- 334              	.L56:
- 335 0066 0C78     		ldrb	r4, [r1]	@ zero_extendqisi2
- 336 0068 013A     		subs	r2, r2, #1
- 337 006a 502C     		cmp	r4, #80
- 338 006c 04D0     		beq	.L55
- 339 006e 002A     		cmp	r2, #0
- 340 0070 F9D1     		bne	.L56
- 341              	.L57:
- 342 0072 6022     		movs	r2, #96
- 343 0074 1A70     		strb	r2, [r3]
- 344 0076 01E0     		b	.L58
- 345              	.L55:
- 346 0078 002A     		cmp	r2, #0
- 347 007a FAD0     		beq	.L57
- 348              	.L58:
- 349 007c 0123     		movs	r3, #1
- 350 007e 0374     		strb	r3, [r0, #16]
- 351 0080 0023     		movs	r3, #0
- 352 0082 4374     		strb	r3, [r0, #17]
- 353 0084 1846     		mov	r0, r3
- 354 0086 70BD     		pop	{r4, r5, r6, pc}
- 355              	.L66:
-ARM GAS  /tmp/ccYiSGAa.s 			page 7
+ 299 0010 047C     		ldrb	r4, [r0, #16]	@ zero_extendqisi2
+ 300 0012 022C     		cmp	r4, #2
+ 301 0014 F8D0     		beq	.L49
+ 302 0016 0224     		movs	r4, #2
+ 303 0018 0474     		strb	r4, [r0, #16]
+ 304 001a 4024     		movs	r4, #64
+ 305 001c 4FF00005 		mov	r5, #0	@ movhi
+ 306 0020 1C70     		strb	r4, [r3]
+ 307 0022 194C     		ldr	r4, .L65
+ 308 0024 42F48072 		orr	r2, r2, #256
+ 309 0028 2580     		strh	r5, [r4]	@ unaligned
+ 310 002a 24F8032C 		strh	r2, [r4, #-3]	@ movhi
+ 311 002e 43F2A004 		movw	r4, 12448	@ movhi
+ 312 0032 164A     		ldr	r2, .L65+4
+ 313 0034 1480     		strh	r4, [r2]	@ unaligned
+ 314 0036 4FF6FF72 		movw	r2, #65535
+ 315 003a 154C     		ldr	r4, .L65+8
+ 316              	.L51:
+ 317 003c 2578     		ldrb	r5, [r4]	@ zero_extendqisi2
+ 318 003e 013A     		subs	r2, r2, #1
+ 319 0040 582D     		cmp	r5, #88
+ 320 0042 05D0     		beq	.L50
+ 321 0044 002A     		cmp	r2, #0
+ 322 0046 F9D1     		bne	.L51
+ 323              	.L52:
+ 324 0048 6022     		movs	r2, #96
+ 325 004a 1A70     		strb	r2, [r3]
+ 326 004c 0022     		movs	r2, #0
+ 327 004e 01E0     		b	.L53
+ 328              	.L50:
+ 329 0050 002A     		cmp	r2, #0
+ 330 0052 F9D0     		beq	.L52
+ 331              	.L53:
+ 332 0054 0F4D     		ldr	r5, .L65+12
+ 333 0056 01F5FF74 		add	r4, r1, #510
+ 334              	.L54:
+ 335 005a 31F8026B 		ldrh	r6, [r1], #2
+ 336 005e 8C42     		cmp	r4, r1
+ 337 0060 2E80     		strh	r6, [r5]	@ movhi
+ 338 0062 FAD1     		bne	.L54
+ 339 0064 0A49     		ldr	r1, .L65+8
+ 340              	.L56:
+ 341 0066 0C78     		ldrb	r4, [r1]	@ zero_extendqisi2
+ 342 0068 013A     		subs	r2, r2, #1
+ 343 006a 502C     		cmp	r4, #80
+ 344 006c 04D0     		beq	.L55
+ 345 006e 002A     		cmp	r2, #0
+ 346 0070 F9D1     		bne	.L56
+ 347              	.L57:
+ 348 0072 6022     		movs	r2, #96
+ 349 0074 1A70     		strb	r2, [r3]
+ 350 0076 01E0     		b	.L58
+ 351              	.L55:
+ 352 0078 002A     		cmp	r2, #0
+ 353 007a FAD0     		beq	.L57
+ 354              	.L58:
+ 355 007c 0123     		movs	r3, #1
+ARM GAS  /tmp/ccBDBHIE.s 			page 7
 
 
- 356              		.align	2
- 357              	.L65:
- 358 0088 F501009C 		.word	-1677721099
- 359 008c F701009C 		.word	-1677721097
- 360 0090 FE01009C 		.word	-1677721090
- 361 0094 F001009C 		.word	-1677721104
- 363              		.section	.text.HAL_PCCARD_Erase_Sector,"ax",%progbits
- 364              		.align	1
- 365              		.global	HAL_PCCARD_Erase_Sector
- 366              		.syntax unified
- 367              		.thumb
- 368              		.thumb_func
- 369              		.fpu softvfp
- 371              	HAL_PCCARD_Erase_Sector:
- 372              		@ args = 0, pretend = 0, frame = 0
- 373              		@ frame_needed = 0, uses_anonymous_args = 0
- 374 0000 437C     		ldrb	r3, [r0, #17]	@ zero_extendqisi2
- 375 0002 30B5     		push	{r4, r5, lr}
- 376 0004 012B     		cmp	r3, #1
- 377 0006 01D1     		bne	.L68
- 378              	.L70:
- 379 0008 0220     		movs	r0, #2
- 380 000a 30BD     		pop	{r4, r5, pc}
- 381              	.L68:
- 382 000c 0123     		movs	r3, #1
- 383 000e 047C     		ldrb	r4, [r0, #16]	@ zero_extendqisi2
- 384 0010 4374     		strb	r3, [r0, #17]
- 385 0012 022C     		cmp	r4, #2
- 386 0014 F8D0     		beq	.L70
- 387 0016 0224     		movs	r4, #2
- 388 0018 0474     		strb	r4, [r0, #16]
- 389 001a 4024     		movs	r4, #64
- 390 001c 1470     		strb	r4, [r2]
- 391 001e 0024     		movs	r4, #0
- 392 0020 114D     		ldr	r5, .L79
- 393 0022 C9B2     		uxtb	r1, r1
- 394 0024 2C70     		strb	r4, [r5]
- 395 0026 6C70     		strb	r4, [r5, #1]
- 396 0028 104C     		ldr	r4, .L79+4
- 397 002a 2170     		strb	r1, [r4]
- 398 002c 1049     		ldr	r1, .L79+8
- 399 002e 0B34     		adds	r4, r4, #11
- 400 0030 0B70     		strb	r3, [r1]
- 401 0032 A021     		movs	r1, #160
- 402 0034 0F4B     		ldr	r3, .L79+12
- 403 0036 1970     		strb	r1, [r3]
- 404 0038 C021     		movs	r1, #192
- 405 003a 5970     		strb	r1, [r3, #1]
- 406 003c 4FF48061 		mov	r1, #1024
- 407 0040 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
- 408 0042 DBB2     		uxtb	r3, r3
- 409              	.L71:
- 410 0044 502B     		cmp	r3, #80
- 411 0046 07D0     		beq	.L72
- 412 0048 11B9     		cbnz	r1, .L73
- 413              	.L74:
- 414 004a 6023     		movs	r3, #96
-ARM GAS  /tmp/ccYiSGAa.s 			page 8
+ 356 007e 0374     		strb	r3, [r0, #16]
+ 357 0080 0023     		movs	r3, #0
+ 358 0082 4374     		strb	r3, [r0, #17]
+ 359 0084 1846     		mov	r0, r3
+ 360 0086 C0E7     		b	.L48
+ 361              	.L66:
+ 362              		.align	2
+ 363              	.L65:
+ 364 0088 F501009C 		.word	-1677721099
+ 365 008c F701009C 		.word	-1677721097
+ 366 0090 FE01009C 		.word	-1677721090
+ 367 0094 F001009C 		.word	-1677721104
+ 369              		.section	.text.HAL_PCCARD_Erase_Sector,"ax",%progbits
+ 370              		.align	1
+ 371              		.global	HAL_PCCARD_Erase_Sector
+ 372              		.syntax unified
+ 373              		.thumb
+ 374              		.thumb_func
+ 375              		.fpu softvfp
+ 377              	HAL_PCCARD_Erase_Sector:
+ 378              		@ args = 0, pretend = 0, frame = 0
+ 379              		@ frame_needed = 0, uses_anonymous_args = 0
+ 380 0000 30B5     		push	{r4, r5, lr}
+ 381 0002 437C     		ldrb	r3, [r0, #17]	@ zero_extendqisi2
+ 382 0004 012B     		cmp	r3, #1
+ 383 0006 01D1     		bne	.L68
+ 384              	.L70:
+ 385 0008 0220     		movs	r0, #2
+ 386              	.L69:
+ 387 000a 30BD     		pop	{r4, r5, pc}
+ 388              	.L68:
+ 389 000c 0123     		movs	r3, #1
+ 390 000e 047C     		ldrb	r4, [r0, #16]	@ zero_extendqisi2
+ 391 0010 4374     		strb	r3, [r0, #17]
+ 392 0012 022C     		cmp	r4, #2
+ 393 0014 F8D0     		beq	.L70
+ 394 0016 0224     		movs	r4, #2
+ 395 0018 0474     		strb	r4, [r0, #16]
+ 396 001a 4024     		movs	r4, #64
+ 397 001c 1470     		strb	r4, [r2]
+ 398 001e 0024     		movs	r4, #0
+ 399 0020 114D     		ldr	r5, .L79
+ 400 0022 C9B2     		uxtb	r1, r1
+ 401 0024 2C70     		strb	r4, [r5]
+ 402 0026 6C70     		strb	r4, [r5, #1]
+ 403 0028 104C     		ldr	r4, .L79+4
+ 404 002a 2170     		strb	r1, [r4]
+ 405 002c 1049     		ldr	r1, .L79+8
+ 406 002e 0B34     		adds	r4, r4, #11
+ 407 0030 0B70     		strb	r3, [r1]
+ 408 0032 A021     		movs	r1, #160
+ 409 0034 0F4B     		ldr	r3, .L79+12
+ 410 0036 1970     		strb	r1, [r3]
+ 411 0038 C021     		movs	r1, #192
+ 412 003a 5970     		strb	r1, [r3, #1]
+ 413 003c 4FF48061 		mov	r1, #1024
+ 414 0040 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ARM GAS  /tmp/ccBDBHIE.s 			page 8
 
 
- 415 004c 1370     		strb	r3, [r2]
- 416 004e 05E0     		b	.L75
- 417              	.L73:
- 418 0050 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
- 419 0052 0139     		subs	r1, r1, #1
- 420 0054 DBB2     		uxtb	r3, r3
- 421 0056 F5E7     		b	.L71
- 422              	.L72:
- 423 0058 0029     		cmp	r1, #0
- 424 005a F6D0     		beq	.L74
- 425              	.L75:
- 426 005c 0123     		movs	r3, #1
- 427 005e 0374     		strb	r3, [r0, #16]
- 428 0060 0023     		movs	r3, #0
- 429 0062 4374     		strb	r3, [r0, #17]
- 430 0064 1846     		mov	r0, r3
- 431 0066 30BD     		pop	{r4, r5, pc}
- 432              	.L80:
- 433              		.align	2
- 434              	.L79:
- 435 0068 F401009C 		.word	-1677721100
- 436 006c F301009C 		.word	-1677721101
- 437 0070 F201009C 		.word	-1677721102
- 438 0074 F601009C 		.word	-1677721098
- 440              		.section	.text.HAL_PCCARD_Reset,"ax",%progbits
- 441              		.align	1
- 442              		.global	HAL_PCCARD_Reset
- 443              		.syntax unified
- 444              		.thumb
- 445              		.thumb_func
- 446              		.fpu softvfp
- 448              	HAL_PCCARD_Reset:
- 449              		@ args = 0, pretend = 0, frame = 0
- 450              		@ frame_needed = 0, uses_anonymous_args = 0
- 451              		@ link register save eliminated.
- 452 0000 437C     		ldrb	r3, [r0, #17]	@ zero_extendqisi2
- 453 0002 012B     		cmp	r3, #1
- 454 0004 01D1     		bne	.L82
- 455              	.L84:
- 456 0006 0220     		movs	r0, #2
- 457 0008 7047     		bx	lr
- 458              	.L82:
- 459 000a 0123     		movs	r3, #1
- 460 000c 027C     		ldrb	r2, [r0, #16]	@ zero_extendqisi2
- 461 000e 4374     		strb	r3, [r0, #17]
- 462 0010 022A     		cmp	r2, #2
- 463 0012 F8D0     		beq	.L84
- 464 0014 0222     		movs	r2, #2
- 465 0016 0274     		strb	r2, [r0, #16]
- 466 0018 034A     		ldr	r2, .L88
- 467 001a 1370     		strb	r3, [r2]
- 468 001c 0374     		strb	r3, [r0, #16]
- 469 001e 0023     		movs	r3, #0
- 470 0020 4374     		strb	r3, [r0, #17]
- 471 0022 1846     		mov	r0, r3
- 472 0024 7047     		bx	lr
- 473              	.L89:
-ARM GAS  /tmp/ccYiSGAa.s 			page 9
+ 415 0042 DBB2     		uxtb	r3, r3
+ 416              	.L71:
+ 417 0044 502B     		cmp	r3, #80
+ 418 0046 07D0     		beq	.L72
+ 419 0048 11B9     		cbnz	r1, .L73
+ 420              	.L74:
+ 421 004a 6023     		movs	r3, #96
+ 422 004c 1370     		strb	r3, [r2]
+ 423 004e 05E0     		b	.L75
+ 424              	.L73:
+ 425 0050 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 426 0052 0139     		subs	r1, r1, #1
+ 427 0054 DBB2     		uxtb	r3, r3
+ 428 0056 F5E7     		b	.L71
+ 429              	.L72:
+ 430 0058 0029     		cmp	r1, #0
+ 431 005a F6D0     		beq	.L74
+ 432              	.L75:
+ 433 005c 0123     		movs	r3, #1
+ 434 005e 0374     		strb	r3, [r0, #16]
+ 435 0060 0023     		movs	r3, #0
+ 436 0062 4374     		strb	r3, [r0, #17]
+ 437 0064 1846     		mov	r0, r3
+ 438 0066 D0E7     		b	.L69
+ 439              	.L80:
+ 440              		.align	2
+ 441              	.L79:
+ 442 0068 F401009C 		.word	-1677721100
+ 443 006c F301009C 		.word	-1677721101
+ 444 0070 F201009C 		.word	-1677721102
+ 445 0074 F601009C 		.word	-1677721098
+ 447              		.section	.text.HAL_PCCARD_Reset,"ax",%progbits
+ 448              		.align	1
+ 449              		.global	HAL_PCCARD_Reset
+ 450              		.syntax unified
+ 451              		.thumb
+ 452              		.thumb_func
+ 453              		.fpu softvfp
+ 455              	HAL_PCCARD_Reset:
+ 456              		@ args = 0, pretend = 0, frame = 0
+ 457              		@ frame_needed = 0, uses_anonymous_args = 0
+ 458              		@ link register save eliminated.
+ 459 0000 437C     		ldrb	r3, [r0, #17]	@ zero_extendqisi2
+ 460 0002 012B     		cmp	r3, #1
+ 461 0004 01D1     		bne	.L82
+ 462              	.L84:
+ 463 0006 0220     		movs	r0, #2
+ 464 0008 7047     		bx	lr
+ 465              	.L82:
+ 466 000a 0123     		movs	r3, #1
+ 467 000c 027C     		ldrb	r2, [r0, #16]	@ zero_extendqisi2
+ 468 000e 4374     		strb	r3, [r0, #17]
+ 469 0010 022A     		cmp	r2, #2
+ 470 0012 F8D0     		beq	.L84
+ 471 0014 0222     		movs	r2, #2
+ 472 0016 0274     		strb	r2, [r0, #16]
+ 473 0018 034A     		ldr	r2, .L88
+ARM GAS  /tmp/ccBDBHIE.s 			page 9
 
 
- 474 0026 00BF     		.align	2
- 475              	.L88:
- 476 0028 02020098 		.word	-1744829950
- 478              		.section	.text.HAL_PCCARD_ITCallback,"ax",%progbits
- 479              		.align	1
- 480              		.weak	HAL_PCCARD_ITCallback
- 481              		.syntax unified
- 482              		.thumb
- 483              		.thumb_func
- 484              		.fpu softvfp
- 486              	HAL_PCCARD_ITCallback:
- 487              		@ args = 0, pretend = 0, frame = 0
- 488              		@ frame_needed = 0, uses_anonymous_args = 0
- 489              		@ link register save eliminated.
- 490 0000 7047     		bx	lr
- 492              		.section	.text.HAL_PCCARD_IRQHandler,"ax",%progbits
- 493              		.align	1
- 494              		.global	HAL_PCCARD_IRQHandler
- 495              		.syntax unified
- 496              		.thumb
- 497              		.thumb_func
- 498              		.fpu softvfp
- 500              	HAL_PCCARD_IRQHandler:
- 501              		@ args = 0, pretend = 0, frame = 0
- 502              		@ frame_needed = 0, uses_anonymous_args = 0
- 503 0000 0368     		ldr	r3, [r0]
- 504 0002 10B5     		push	{r4, lr}
- 505 0004 5B68     		ldr	r3, [r3, #4]
- 506 0006 0446     		mov	r4, r0
- 507 0008 DB07     		lsls	r3, r3, #31
- 508 000a 06D5     		bpl	.L92
- 509 000c FFF7FEFF 		bl	HAL_PCCARD_ITCallback
- 510 0010 2268     		ldr	r2, [r4]
- 511 0012 5368     		ldr	r3, [r2, #4]
- 512 0014 23F00103 		bic	r3, r3, #1
- 513 0018 5360     		str	r3, [r2, #4]
- 514              	.L92:
- 515 001a 2368     		ldr	r3, [r4]
- 516 001c 5B68     		ldr	r3, [r3, #4]
- 517 001e 9907     		lsls	r1, r3, #30
- 518 0020 07D5     		bpl	.L93
- 519 0022 2046     		mov	r0, r4
- 520 0024 FFF7FEFF 		bl	HAL_PCCARD_ITCallback
- 521 0028 2268     		ldr	r2, [r4]
- 522 002a 5368     		ldr	r3, [r2, #4]
- 523 002c 23F00203 		bic	r3, r3, #2
- 524 0030 5360     		str	r3, [r2, #4]
- 525              	.L93:
- 526 0032 2368     		ldr	r3, [r4]
- 527 0034 5B68     		ldr	r3, [r3, #4]
- 528 0036 5A07     		lsls	r2, r3, #29
- 529 0038 07D5     		bpl	.L94
- 530 003a 2046     		mov	r0, r4
- 531 003c FFF7FEFF 		bl	HAL_PCCARD_ITCallback
- 532 0040 2268     		ldr	r2, [r4]
- 533 0042 5368     		ldr	r3, [r2, #4]
- 534 0044 23F00403 		bic	r3, r3, #4
-ARM GAS  /tmp/ccYiSGAa.s 			page 10
+ 474 001a 1370     		strb	r3, [r2]
+ 475 001c 0374     		strb	r3, [r0, #16]
+ 476 001e 0023     		movs	r3, #0
+ 477 0020 4374     		strb	r3, [r0, #17]
+ 478 0022 1846     		mov	r0, r3
+ 479 0024 7047     		bx	lr
+ 480              	.L89:
+ 481 0026 00BF     		.align	2
+ 482              	.L88:
+ 483 0028 02020098 		.word	-1744829950
+ 485              		.section	.text.HAL_PCCARD_ITCallback,"ax",%progbits
+ 486              		.align	1
+ 487              		.weak	HAL_PCCARD_ITCallback
+ 488              		.syntax unified
+ 489              		.thumb
+ 490              		.thumb_func
+ 491              		.fpu softvfp
+ 493              	HAL_PCCARD_ITCallback:
+ 494              		@ args = 0, pretend = 0, frame = 0
+ 495              		@ frame_needed = 0, uses_anonymous_args = 0
+ 496              		@ link register save eliminated.
+ 497 0000 7047     		bx	lr
+ 499              		.section	.text.HAL_PCCARD_IRQHandler,"ax",%progbits
+ 500              		.align	1
+ 501              		.global	HAL_PCCARD_IRQHandler
+ 502              		.syntax unified
+ 503              		.thumb
+ 504              		.thumb_func
+ 505              		.fpu softvfp
+ 507              	HAL_PCCARD_IRQHandler:
+ 508              		@ args = 0, pretend = 0, frame = 0
+ 509              		@ frame_needed = 0, uses_anonymous_args = 0
+ 510 0000 0368     		ldr	r3, [r0]
+ 511 0002 10B5     		push	{r4, lr}
+ 512 0004 5B68     		ldr	r3, [r3, #4]
+ 513 0006 0446     		mov	r4, r0
+ 514 0008 DB07     		lsls	r3, r3, #31
+ 515 000a 06D5     		bpl	.L92
+ 516 000c FFF7FEFF 		bl	HAL_PCCARD_ITCallback
+ 517 0010 2268     		ldr	r2, [r4]
+ 518 0012 5368     		ldr	r3, [r2, #4]
+ 519 0014 23F00103 		bic	r3, r3, #1
+ 520 0018 5360     		str	r3, [r2, #4]
+ 521              	.L92:
+ 522 001a 2368     		ldr	r3, [r4]
+ 523 001c 5B68     		ldr	r3, [r3, #4]
+ 524 001e 9907     		lsls	r1, r3, #30
+ 525 0020 07D5     		bpl	.L93
+ 526 0022 2046     		mov	r0, r4
+ 527 0024 FFF7FEFF 		bl	HAL_PCCARD_ITCallback
+ 528 0028 2268     		ldr	r2, [r4]
+ 529 002a 5368     		ldr	r3, [r2, #4]
+ 530 002c 23F00203 		bic	r3, r3, #2
+ 531 0030 5360     		str	r3, [r2, #4]
+ 532              	.L93:
+ 533 0032 2368     		ldr	r3, [r4]
+ 534 0034 5B68     		ldr	r3, [r3, #4]
+ARM GAS  /tmp/ccBDBHIE.s 			page 10
 
 
- 535 0048 5360     		str	r3, [r2, #4]
- 536              	.L94:
- 537 004a 2368     		ldr	r3, [r4]
- 538 004c 5B68     		ldr	r3, [r3, #4]
- 539 004e 5B06     		lsls	r3, r3, #25
- 540 0050 07D5     		bpl	.L91
- 541 0052 2046     		mov	r0, r4
- 542 0054 FFF7FEFF 		bl	HAL_PCCARD_ITCallback
- 543 0058 2268     		ldr	r2, [r4]
- 544 005a 5368     		ldr	r3, [r2, #4]
- 545 005c 23F04003 		bic	r3, r3, #64
- 546 0060 5360     		str	r3, [r2, #4]
- 547              	.L91:
- 548 0062 10BD     		pop	{r4, pc}
- 550              		.section	.text.HAL_PCCARD_GetState,"ax",%progbits
- 551              		.align	1
- 552              		.global	HAL_PCCARD_GetState
- 553              		.syntax unified
- 554              		.thumb
- 555              		.thumb_func
- 556              		.fpu softvfp
- 558              	HAL_PCCARD_GetState:
- 559              		@ args = 0, pretend = 0, frame = 0
- 560              		@ frame_needed = 0, uses_anonymous_args = 0
- 561              		@ link register save eliminated.
- 562 0000 007C     		ldrb	r0, [r0, #16]	@ zero_extendqisi2
- 563 0002 7047     		bx	lr
- 565              		.section	.text.HAL_PCCARD_GetStatus,"ax",%progbits
- 566              		.align	1
- 567              		.global	HAL_PCCARD_GetStatus
- 568              		.syntax unified
- 569              		.thumb
- 570              		.thumb_func
- 571              		.fpu softvfp
- 573              	HAL_PCCARD_GetStatus:
- 574              		@ args = 0, pretend = 0, frame = 0
- 575              		@ frame_needed = 0, uses_anonymous_args = 0
- 576              		@ link register save eliminated.
- 577 0000 037C     		ldrb	r3, [r0, #16]	@ zero_extendqisi2
- 578 0002 022B     		cmp	r3, #2
- 579 0004 12D0     		beq	.L115
- 580 0006 4FF08073 		mov	r3, #16777216
- 581 000a 094A     		ldr	r2, .L117
- 582 000c 1078     		ldrb	r0, [r2]	@ zero_extendqisi2
- 583 000e C0B2     		uxtb	r0, r0
- 584              	.L111:
- 585 0010 8028     		cmp	r0, #128
- 586 0012 07D1     		bne	.L112
- 587 0014 13B9     		cbnz	r3, .L113
- 588 0016 6020     		movs	r0, #96
- 589              	.L114:
- 590 0018 C0B2     		uxtb	r0, r0
- 591 001a 7047     		bx	lr
- 592              	.L113:
- 593 001c 1078     		ldrb	r0, [r2]	@ zero_extendqisi2
- 594 001e 013B     		subs	r3, r3, #1
- 595 0020 C0B2     		uxtb	r0, r0
-ARM GAS  /tmp/ccYiSGAa.s 			page 11
+ 535 0036 5A07     		lsls	r2, r3, #29
+ 536 0038 07D5     		bpl	.L94
+ 537 003a 2046     		mov	r0, r4
+ 538 003c FFF7FEFF 		bl	HAL_PCCARD_ITCallback
+ 539 0040 2268     		ldr	r2, [r4]
+ 540 0042 5368     		ldr	r3, [r2, #4]
+ 541 0044 23F00403 		bic	r3, r3, #4
+ 542 0048 5360     		str	r3, [r2, #4]
+ 543              	.L94:
+ 544 004a 2368     		ldr	r3, [r4]
+ 545 004c 5B68     		ldr	r3, [r3, #4]
+ 546 004e 5B06     		lsls	r3, r3, #25
+ 547 0050 07D5     		bpl	.L91
+ 548 0052 2046     		mov	r0, r4
+ 549 0054 FFF7FEFF 		bl	HAL_PCCARD_ITCallback
+ 550 0058 2268     		ldr	r2, [r4]
+ 551 005a 5368     		ldr	r3, [r2, #4]
+ 552 005c 23F04003 		bic	r3, r3, #64
+ 553 0060 5360     		str	r3, [r2, #4]
+ 554              	.L91:
+ 555 0062 10BD     		pop	{r4, pc}
+ 557              		.section	.text.HAL_PCCARD_GetState,"ax",%progbits
+ 558              		.align	1
+ 559              		.global	HAL_PCCARD_GetState
+ 560              		.syntax unified
+ 561              		.thumb
+ 562              		.thumb_func
+ 563              		.fpu softvfp
+ 565              	HAL_PCCARD_GetState:
+ 566              		@ args = 0, pretend = 0, frame = 0
+ 567              		@ frame_needed = 0, uses_anonymous_args = 0
+ 568              		@ link register save eliminated.
+ 569 0000 007C     		ldrb	r0, [r0, #16]	@ zero_extendqisi2
+ 570 0002 7047     		bx	lr
+ 572              		.section	.text.HAL_PCCARD_GetStatus,"ax",%progbits
+ 573              		.align	1
+ 574              		.global	HAL_PCCARD_GetStatus
+ 575              		.syntax unified
+ 576              		.thumb
+ 577              		.thumb_func
+ 578              		.fpu softvfp
+ 580              	HAL_PCCARD_GetStatus:
+ 581              		@ args = 0, pretend = 0, frame = 0
+ 582              		@ frame_needed = 0, uses_anonymous_args = 0
+ 583              		@ link register save eliminated.
+ 584 0000 037C     		ldrb	r3, [r0, #16]	@ zero_extendqisi2
+ 585 0002 022B     		cmp	r3, #2
+ 586 0004 12D0     		beq	.L115
+ 587 0006 4FF08073 		mov	r3, #16777216
+ 588 000a 094A     		ldr	r2, .L117
+ 589 000c 1078     		ldrb	r0, [r2]	@ zero_extendqisi2
+ 590 000e C0B2     		uxtb	r0, r0
+ 591              	.L111:
+ 592 0010 8028     		cmp	r0, #128
+ 593 0012 07D1     		bne	.L112
+ 594 0014 13B9     		cbnz	r3, .L113
+ 595 0016 6020     		movs	r0, #96
+ARM GAS  /tmp/ccBDBHIE.s 			page 11
 
 
- 596 0022 F5E7     		b	.L111
- 597              	.L112:
- 598 0024 002B     		cmp	r3, #0
- 599 0026 08BF     		it	eq
- 600 0028 6020     		moveq	r0, #96
- 601 002a F5E7     		b	.L114
- 602              	.L115:
- 603 002c 0120     		movs	r0, #1
- 604 002e 7047     		bx	lr
- 605              	.L118:
- 606              		.align	2
- 607              	.L117:
- 608 0030 FE01009C 		.word	-1677721090
- 610              		.section	.text.HAL_PCCARD_ReadStatus,"ax",%progbits
- 611              		.align	1
- 612              		.global	HAL_PCCARD_ReadStatus
- 613              		.syntax unified
- 614              		.thumb
- 615              		.thumb_func
- 616              		.fpu softvfp
- 618              	HAL_PCCARD_ReadStatus:
- 619              		@ args = 0, pretend = 0, frame = 0
- 620              		@ frame_needed = 0, uses_anonymous_args = 0
- 621              		@ link register save eliminated.
- 622 0000 037C     		ldrb	r3, [r0, #16]	@ zero_extendqisi2
- 623 0002 022B     		cmp	r3, #2
- 624 0004 0CD0     		beq	.L121
- 625 0006 074B     		ldr	r3, .L124
- 626 0008 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 627 000a DBB2     		uxtb	r3, r3
- 628 000c 03F06000 		and	r0, r3, #96
- 629 0010 6028     		cmp	r0, #96
- 630 0012 06D0     		beq	.L120
- 631 0014 13F0400F 		tst	r3, #64
- 632 0018 0CBF     		ite	eq
- 633 001a 8020     		moveq	r0, #128
- 634 001c 4020     		movne	r0, #64
- 635 001e 7047     		bx	lr
- 636              	.L121:
- 637 0020 0120     		movs	r0, #1
- 638              	.L120:
- 639 0022 7047     		bx	lr
- 640              	.L125:
- 641              		.align	2
- 642              	.L124:
- 643 0024 FE01009C 		.word	-1677721090
- 645              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
-ARM GAS  /tmp/ccYiSGAa.s 			page 12
+ 596              	.L114:
+ 597 0018 C0B2     		uxtb	r0, r0
+ 598 001a 7047     		bx	lr
+ 599              	.L113:
+ 600 001c 1078     		ldrb	r0, [r2]	@ zero_extendqisi2
+ 601 001e 013B     		subs	r3, r3, #1
+ 602 0020 C0B2     		uxtb	r0, r0
+ 603 0022 F5E7     		b	.L111
+ 604              	.L112:
+ 605 0024 002B     		cmp	r3, #0
+ 606 0026 08BF     		it	eq
+ 607 0028 6020     		moveq	r0, #96
+ 608 002a F5E7     		b	.L114
+ 609              	.L115:
+ 610 002c 0120     		movs	r0, #1
+ 611 002e 7047     		bx	lr
+ 612              	.L118:
+ 613              		.align	2
+ 614              	.L117:
+ 615 0030 FE01009C 		.word	-1677721090
+ 617              		.section	.text.HAL_PCCARD_ReadStatus,"ax",%progbits
+ 618              		.align	1
+ 619              		.global	HAL_PCCARD_ReadStatus
+ 620              		.syntax unified
+ 621              		.thumb
+ 622              		.thumb_func
+ 623              		.fpu softvfp
+ 625              	HAL_PCCARD_ReadStatus:
+ 626              		@ args = 0, pretend = 0, frame = 0
+ 627              		@ frame_needed = 0, uses_anonymous_args = 0
+ 628              		@ link register save eliminated.
+ 629 0000 037C     		ldrb	r3, [r0, #16]	@ zero_extendqisi2
+ 630 0002 022B     		cmp	r3, #2
+ 631 0004 0CD0     		beq	.L121
+ 632 0006 074B     		ldr	r3, .L126
+ 633 0008 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 634 000a C3B2     		uxtb	r3, r0
+ 635 000c 00F06000 		and	r0, r0, #96
+ 636 0010 6028     		cmp	r0, #96
+ 637 0012 06D0     		beq	.L120
+ 638 0014 13F0400F 		tst	r3, #64
+ 639 0018 0CBF     		ite	eq
+ 640 001a 8020     		moveq	r0, #128
+ 641 001c 4020     		movne	r0, #64
+ 642 001e 7047     		bx	lr
+ 643              	.L121:
+ 644 0020 0120     		movs	r0, #1
+ 645              	.L120:
+ 646 0022 7047     		bx	lr
+ 647              	.L127:
+ 648              		.align	2
+ 649              	.L126:
+ 650 0024 FE01009C 		.word	-1677721090
+ 652              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
+ARM GAS  /tmp/ccBDBHIE.s 			page 12
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f1xx_hal_pccard.c
-     /tmp/ccYiSGAa.s:13     .text.HAL_PCCARD_MspInit:0000000000000000 $t
-     /tmp/ccYiSGAa.s:20     .text.HAL_PCCARD_MspInit:0000000000000000 HAL_PCCARD_MspInit
-     /tmp/ccYiSGAa.s:27     .text.HAL_PCCARD_Init:0000000000000000 $t
-     /tmp/ccYiSGAa.s:34     .text.HAL_PCCARD_Init:0000000000000000 HAL_PCCARD_Init
-     /tmp/ccYiSGAa.s:76     .text.HAL_PCCARD_MspDeInit:0000000000000000 $t
-     /tmp/ccYiSGAa.s:83     .text.HAL_PCCARD_MspDeInit:0000000000000000 HAL_PCCARD_MspDeInit
-     /tmp/ccYiSGAa.s:90     .text.HAL_PCCARD_DeInit:0000000000000000 $t
-     /tmp/ccYiSGAa.s:97     .text.HAL_PCCARD_DeInit:0000000000000000 HAL_PCCARD_DeInit
-     /tmp/ccYiSGAa.s:111    .text.HAL_PCCARD_Read_ID:0000000000000000 $t
-     /tmp/ccYiSGAa.s:118    .text.HAL_PCCARD_Read_ID:0000000000000000 HAL_PCCARD_Read_ID
-     /tmp/ccYiSGAa.s:175    .text.HAL_PCCARD_Read_ID:0000000000000060 $d
-     /tmp/ccYiSGAa.s:180    .text.HAL_PCCARD_Read_Sector:0000000000000000 $t
-     /tmp/ccYiSGAa.s:187    .text.HAL_PCCARD_Read_Sector:0000000000000000 HAL_PCCARD_Read_Sector
-     /tmp/ccYiSGAa.s:267    .text.HAL_PCCARD_Read_Sector:0000000000000090 $d
-     /tmp/ccYiSGAa.s:273    .text.HAL_PCCARD_Write_Sector:0000000000000000 $t
-     /tmp/ccYiSGAa.s:280    .text.HAL_PCCARD_Write_Sector:0000000000000000 HAL_PCCARD_Write_Sector
-     /tmp/ccYiSGAa.s:358    .text.HAL_PCCARD_Write_Sector:0000000000000088 $d
-     /tmp/ccYiSGAa.s:364    .text.HAL_PCCARD_Erase_Sector:0000000000000000 $t
-     /tmp/ccYiSGAa.s:371    .text.HAL_PCCARD_Erase_Sector:0000000000000000 HAL_PCCARD_Erase_Sector
-     /tmp/ccYiSGAa.s:435    .text.HAL_PCCARD_Erase_Sector:0000000000000068 $d
-     /tmp/ccYiSGAa.s:441    .text.HAL_PCCARD_Reset:0000000000000000 $t
-     /tmp/ccYiSGAa.s:448    .text.HAL_PCCARD_Reset:0000000000000000 HAL_PCCARD_Reset
-     /tmp/ccYiSGAa.s:476    .text.HAL_PCCARD_Reset:0000000000000028 $d
-     /tmp/ccYiSGAa.s:479    .text.HAL_PCCARD_ITCallback:0000000000000000 $t
-     /tmp/ccYiSGAa.s:486    .text.HAL_PCCARD_ITCallback:0000000000000000 HAL_PCCARD_ITCallback
-     /tmp/ccYiSGAa.s:493    .text.HAL_PCCARD_IRQHandler:0000000000000000 $t
-     /tmp/ccYiSGAa.s:500    .text.HAL_PCCARD_IRQHandler:0000000000000000 HAL_PCCARD_IRQHandler
-     /tmp/ccYiSGAa.s:551    .text.HAL_PCCARD_GetState:0000000000000000 $t
-     /tmp/ccYiSGAa.s:558    .text.HAL_PCCARD_GetState:0000000000000000 HAL_PCCARD_GetState
-     /tmp/ccYiSGAa.s:566    .text.HAL_PCCARD_GetStatus:0000000000000000 $t
-     /tmp/ccYiSGAa.s:573    .text.HAL_PCCARD_GetStatus:0000000000000000 HAL_PCCARD_GetStatus
-     /tmp/ccYiSGAa.s:608    .text.HAL_PCCARD_GetStatus:0000000000000030 $d
-     /tmp/ccYiSGAa.s:611    .text.HAL_PCCARD_ReadStatus:0000000000000000 $t
-     /tmp/ccYiSGAa.s:618    .text.HAL_PCCARD_ReadStatus:0000000000000000 HAL_PCCARD_ReadStatus
-     /tmp/ccYiSGAa.s:643    .text.HAL_PCCARD_ReadStatus:0000000000000024 $d
+     /tmp/ccBDBHIE.s:14     .text.HAL_PCCARD_MspInit:0000000000000000 $t
+     /tmp/ccBDBHIE.s:22     .text.HAL_PCCARD_MspInit:0000000000000000 HAL_PCCARD_MspInit
+     /tmp/ccBDBHIE.s:29     .text.HAL_PCCARD_Init:0000000000000000 $t
+     /tmp/ccBDBHIE.s:36     .text.HAL_PCCARD_Init:0000000000000000 HAL_PCCARD_Init
+     /tmp/ccBDBHIE.s:79     .text.HAL_PCCARD_MspDeInit:0000000000000000 $t
+     /tmp/ccBDBHIE.s:86     .text.HAL_PCCARD_MspDeInit:0000000000000000 HAL_PCCARD_MspDeInit
+     /tmp/ccBDBHIE.s:93     .text.HAL_PCCARD_DeInit:0000000000000000 $t
+     /tmp/ccBDBHIE.s:100    .text.HAL_PCCARD_DeInit:0000000000000000 HAL_PCCARD_DeInit
+     /tmp/ccBDBHIE.s:114    .text.HAL_PCCARD_Read_ID:0000000000000000 $t
+     /tmp/ccBDBHIE.s:121    .text.HAL_PCCARD_Read_ID:0000000000000000 HAL_PCCARD_Read_ID
+     /tmp/ccBDBHIE.s:179    .text.HAL_PCCARD_Read_ID:0000000000000060 $d
+     /tmp/ccBDBHIE.s:184    .text.HAL_PCCARD_Read_Sector:0000000000000000 $t
+     /tmp/ccBDBHIE.s:191    .text.HAL_PCCARD_Read_Sector:0000000000000000 HAL_PCCARD_Read_Sector
+     /tmp/ccBDBHIE.s:272    .text.HAL_PCCARD_Read_Sector:0000000000000090 $d
+     /tmp/ccBDBHIE.s:278    .text.HAL_PCCARD_Write_Sector:0000000000000000 $t
+     /tmp/ccBDBHIE.s:285    .text.HAL_PCCARD_Write_Sector:0000000000000000 HAL_PCCARD_Write_Sector
+     /tmp/ccBDBHIE.s:364    .text.HAL_PCCARD_Write_Sector:0000000000000088 $d
+     /tmp/ccBDBHIE.s:370    .text.HAL_PCCARD_Erase_Sector:0000000000000000 $t
+     /tmp/ccBDBHIE.s:377    .text.HAL_PCCARD_Erase_Sector:0000000000000000 HAL_PCCARD_Erase_Sector
+     /tmp/ccBDBHIE.s:442    .text.HAL_PCCARD_Erase_Sector:0000000000000068 $d
+     /tmp/ccBDBHIE.s:448    .text.HAL_PCCARD_Reset:0000000000000000 $t
+     /tmp/ccBDBHIE.s:455    .text.HAL_PCCARD_Reset:0000000000000000 HAL_PCCARD_Reset
+     /tmp/ccBDBHIE.s:483    .text.HAL_PCCARD_Reset:0000000000000028 $d
+     /tmp/ccBDBHIE.s:486    .text.HAL_PCCARD_ITCallback:0000000000000000 $t
+     /tmp/ccBDBHIE.s:493    .text.HAL_PCCARD_ITCallback:0000000000000000 HAL_PCCARD_ITCallback
+     /tmp/ccBDBHIE.s:500    .text.HAL_PCCARD_IRQHandler:0000000000000000 $t
+     /tmp/ccBDBHIE.s:507    .text.HAL_PCCARD_IRQHandler:0000000000000000 HAL_PCCARD_IRQHandler
+     /tmp/ccBDBHIE.s:558    .text.HAL_PCCARD_GetState:0000000000000000 $t
+     /tmp/ccBDBHIE.s:565    .text.HAL_PCCARD_GetState:0000000000000000 HAL_PCCARD_GetState
+     /tmp/ccBDBHIE.s:573    .text.HAL_PCCARD_GetStatus:0000000000000000 $t
+     /tmp/ccBDBHIE.s:580    .text.HAL_PCCARD_GetStatus:0000000000000000 HAL_PCCARD_GetStatus
+     /tmp/ccBDBHIE.s:615    .text.HAL_PCCARD_GetStatus:0000000000000030 $d
+     /tmp/ccBDBHIE.s:618    .text.HAL_PCCARD_ReadStatus:0000000000000000 $t
+     /tmp/ccBDBHIE.s:625    .text.HAL_PCCARD_ReadStatus:0000000000000000 HAL_PCCARD_ReadStatus
+     /tmp/ccBDBHIE.s:650    .text.HAL_PCCARD_ReadStatus:0000000000000024 $d
 
 UNDEFINED SYMBOLS
 FSMC_PCCARD_Init

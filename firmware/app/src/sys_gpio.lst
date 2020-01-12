@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc5rVxj3.s 			page 1
+ARM GAS  /tmp/cctoVoBN.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -12,146 +12,125 @@ ARM GAS  /tmp/cc5rVxj3.s 			page 1
    9              		.eabi_attribute 34, 1
   10              		.eabi_attribute 18, 4
   11              		.file	"sys_gpio.c"
-  12              		.section	.text.SYS_GPIO_Init,"ax",%progbits
-  13              		.align	1
-  14              		.global	SYS_GPIO_Init
-  15              		.syntax unified
-  16              		.thumb
-  17              		.thumb_func
-  18              		.fpu softvfp
-  20              	SYS_GPIO_Init:
-  21              		@ args = 0, pretend = 0, frame = 32
-  22              		@ frame_needed = 0, uses_anonymous_args = 0
-  23 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
-  24 0004 1027     		movs	r7, #16
-  25 0006 0126     		movs	r6, #1
-  26 0008 4FF00208 		mov	r8, #2
-  27 000c 89B0     		sub	sp, sp, #36
-  28 000e 404C     		ldr	r4, .L2
-  29 0010 3A46     		mov	r2, r7
-  30 0012 0021     		movs	r1, #0
-  31 0014 0DEB0700 		add	r0, sp, r7
-  32 0018 FFF7FEFF 		bl	memset
-  33 001c A369     		ldr	r3, [r4, #24]
-  34 001e DFF80091 		ldr	r9, .L2+16
-  35 0022 43F00403 		orr	r3, r3, #4
-  36 0026 A361     		str	r3, [r4, #24]
-  37 0028 A369     		ldr	r3, [r4, #24]
-  38 002a 0DEB0701 		add	r1, sp, r7
-  39 002e 03F00403 		and	r3, r3, #4
-  40 0032 0393     		str	r3, [sp, #12]
-  41 0034 4846     		mov	r0, r9
-  42 0036 0025     		movs	r5, #0
-  43 0038 039B     		ldr	r3, [sp, #12]
-  44 003a 0497     		str	r7, [sp, #16]
-  45 003c 0596     		str	r6, [sp, #20]
-  46 003e CDF81C80 		str	r8, [sp, #28]
-  47 0042 FFF7FEFF 		bl	HAL_GPIO_Init
-  48 0046 4FF48073 		mov	r3, #256
-  49 004a 0DEB0701 		add	r1, sp, r7
-  50 004e 4846     		mov	r0, r9
-  51 0050 0493     		str	r3, [sp, #16]
-  52 0052 0595     		str	r5, [sp, #20]
-  53 0054 0695     		str	r5, [sp, #24]
-  54 0056 CDF81C80 		str	r8, [sp, #28]
-  55 005a FFF7FEFF 		bl	HAL_GPIO_Init
-  56 005e 3A46     		mov	r2, r7
-  57 0060 2946     		mov	r1, r5
-  58 0062 0DEB0700 		add	r0, sp, r7
-ARM GAS  /tmp/cc5rVxj3.s 			page 2
+  12              		.text
+  13              		.section	.text.SYS_GPIO_Init,"ax",%progbits
+  14              		.align	1
+  15              		.global	SYS_GPIO_Init
+  16              		.arch armv7-m
+  17              		.syntax unified
+  18              		.thumb
+  19              		.thumb_func
+  20              		.fpu softvfp
+  22              	SYS_GPIO_Init:
+  23              		@ args = 0, pretend = 0, frame = 32
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+  26 0004 354C     		ldr	r4, .L2
+  27 0006 88B0     		sub	sp, sp, #32
+  28 0008 A369     		ldr	r3, [r4, #24]
+  29 000a 0025     		movs	r5, #0
+  30 000c 43F00403 		orr	r3, r3, #4
+  31 0010 A361     		str	r3, [r4, #24]
+  32 0012 A369     		ldr	r3, [r4, #24]
+  33 0014 0126     		movs	r6, #1
+  34 0016 03F00403 		and	r3, r3, #4
+  35 001a 0393     		str	r3, [sp, #12]
+  36 001c 039B     		ldr	r3, [sp, #12]
+  37 001e 1023     		movs	r3, #16
+  38 0020 0227     		movs	r7, #2
+  39 0022 DFF8C880 		ldr	r8, .L2+16
+  40 0026 0DEB0301 		add	r1, sp, r3
+  41 002a 4046     		mov	r0, r8
+  42 002c CDE90436 		strd	r3, r6, [sp, #16]
+  43 0030 CDE90657 		strd	r5, r7, [sp, #24]
+  44 0034 FFF7FEFF 		bl	HAL_GPIO_Init
+  45 0038 4FF48073 		mov	r3, #256
+  46 003c 4046     		mov	r0, r8
+  47 003e 04A9     		add	r1, sp, #16
+  48 0040 CDE90435 		strd	r3, r5, [sp, #16]
+  49 0044 CDE90657 		strd	r5, r7, [sp, #24]
+  50 0048 FFF7FEFF 		bl	HAL_GPIO_Init
+  51 004c A369     		ldr	r3, [r4, #24]
+  52 004e 08F58068 		add	r8, r8, #1024
+  53 0052 43F00803 		orr	r3, r3, #8
+  54 0056 A361     		str	r3, [r4, #24]
+  55 0058 A369     		ldr	r3, [r4, #24]
+  56 005a 4046     		mov	r0, r8
+  57 005c 03F00803 		and	r3, r3, #8
+  58 0060 0293     		str	r3, [sp, #8]
+ARM GAS  /tmp/cctoVoBN.s 			page 2
 
 
-  59 0066 FFF7FEFF 		bl	memset
-  60 006a A369     		ldr	r3, [r4, #24]
-  61 006c 09F58069 		add	r9, r9, #1024
-  62 0070 43F00803 		orr	r3, r3, #8
-  63 0074 A361     		str	r3, [r4, #24]
-  64 0076 A369     		ldr	r3, [r4, #24]
-  65 0078 0DEB0701 		add	r1, sp, r7
-  66 007c 03F00803 		and	r3, r3, #8
-  67 0080 0293     		str	r3, [sp, #8]
-  68 0082 029B     		ldr	r3, [sp, #8]
-  69 0084 2723     		movs	r3, #39
-  70 0086 4846     		mov	r0, r9
-  71 0088 0493     		str	r3, [sp, #16]
-  72 008a 0596     		str	r6, [sp, #20]
-  73 008c CDF81C80 		str	r8, [sp, #28]
-  74 0090 FFF7FEFF 		bl	HAL_GPIO_Init
-  75 0094 4FF44073 		mov	r3, #768
-  76 0098 0DEB0701 		add	r1, sp, r7
-  77 009c 4846     		mov	r0, r9
-  78 009e 0493     		str	r3, [sp, #16]
-  79 00a0 0595     		str	r5, [sp, #20]
-  80 00a2 0695     		str	r5, [sp, #24]
-  81 00a4 CDF81C80 		str	r8, [sp, #28]
-  82 00a8 FFF7FEFF 		bl	HAL_GPIO_Init
-  83 00ac 3A46     		mov	r2, r7
-  84 00ae 2946     		mov	r1, r5
-  85 00b0 0DEB0700 		add	r0, sp, r7
-  86 00b4 FFF7FEFF 		bl	memset
-  87 00b8 A369     		ldr	r3, [r4, #24]
-  88 00ba 0DEB0701 		add	r1, sp, r7
-  89 00be 3B43     		orrs	r3, r3, r7
-  90 00c0 A361     		str	r3, [r4, #24]
-  91 00c2 A369     		ldr	r3, [r4, #24]
-  92 00c4 1348     		ldr	r0, .L2+4
-  93 00c6 3B40     		ands	r3, r3, r7
-  94 00c8 0193     		str	r3, [sp, #4]
-  95 00ca 019B     		ldr	r3, [sp, #4]
-  96 00cc 41F67073 		movw	r3, #8048
-  97 00d0 0796     		str	r6, [sp, #28]
-  98 00d2 0493     		str	r3, [sp, #16]
-  99 00d4 FFF7FEFF 		bl	HAL_GPIO_Init
- 100 00d8 3A46     		mov	r2, r7
- 101 00da 2946     		mov	r1, r5
- 102 00dc 0DEB0700 		add	r0, sp, r7
- 103 00e0 FFF7FEFF 		bl	memset
- 104 00e4 A369     		ldr	r3, [r4, #24]
- 105 00e6 0DEB0701 		add	r1, sp, r7
- 106 00ea 43F02003 		orr	r3, r3, #32
- 107 00ee A361     		str	r3, [r4, #24]
- 108 00f0 A369     		ldr	r3, [r4, #24]
- 109 00f2 0948     		ldr	r0, .L2+8
- 110 00f4 03F02003 		and	r3, r3, #32
- 111 00f8 0093     		str	r3, [sp]
- 112 00fa 009B     		ldr	r3, [sp]
- 113 00fc 0423     		movs	r3, #4
- 114 00fe 0796     		str	r6, [sp, #28]
- 115 0100 0493     		str	r3, [sp, #16]
-ARM GAS  /tmp/cc5rVxj3.s 			page 3
+  59 0062 029B     		ldr	r3, [sp, #8]
+  60 0064 2723     		movs	r3, #39
+  61 0066 04A9     		add	r1, sp, #16
+  62 0068 CDE90436 		strd	r3, r6, [sp, #16]
+  63 006c CDE90657 		strd	r5, r7, [sp, #24]
+  64 0070 FFF7FEFF 		bl	HAL_GPIO_Init
+  65 0074 4FF44073 		mov	r3, #768
+  66 0078 4046     		mov	r0, r8
+  67 007a 04A9     		add	r1, sp, #16
+  68 007c CDE90435 		strd	r3, r5, [sp, #16]
+  69 0080 CDE90657 		strd	r5, r7, [sp, #24]
+  70 0084 FFF7FEFF 		bl	HAL_GPIO_Init
+  71 0088 A369     		ldr	r3, [r4, #24]
+  72 008a 04A9     		add	r1, sp, #16
+  73 008c 43F01003 		orr	r3, r3, #16
+  74 0090 A361     		str	r3, [r4, #24]
+  75 0092 A369     		ldr	r3, [r4, #24]
+  76 0094 1248     		ldr	r0, .L2+4
+  77 0096 03F01003 		and	r3, r3, #16
+  78 009a 0193     		str	r3, [sp, #4]
+  79 009c 019B     		ldr	r3, [sp, #4]
+  80 009e 41F6F073 		movw	r3, #8176
+  81 00a2 CDE90656 		strd	r5, r6, [sp, #24]
+  82 00a6 CDE90435 		strd	r3, r5, [sp, #16]
+  83 00aa FFF7FEFF 		bl	HAL_GPIO_Init
+  84 00ae A369     		ldr	r3, [r4, #24]
+  85 00b0 0C48     		ldr	r0, .L2+8
+  86 00b2 43F02003 		orr	r3, r3, #32
+  87 00b6 A361     		str	r3, [r4, #24]
+  88 00b8 A369     		ldr	r3, [r4, #24]
+  89 00ba 04A9     		add	r1, sp, #16
+  90 00bc 03F02003 		and	r3, r3, #32
+  91 00c0 0093     		str	r3, [sp]
+  92 00c2 009B     		ldr	r3, [sp]
+  93 00c4 0423     		movs	r3, #4
+  94 00c6 CDE90656 		strd	r5, r6, [sp, #24]
+  95 00ca CDE90435 		strd	r3, r5, [sp, #16]
+  96 00ce FFF7FEFF 		bl	HAL_GPIO_Init
+  97 00d2 054B     		ldr	r3, .L2+12
+  98 00d4 1E70     		strb	r6, [r3]
+  99 00d6 08B0     		add	sp, sp, #32
+ 100              		@ sp needed
+ 101 00d8 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 102              	.L3:
+ 103              		.align	2
+ 104              	.L2:
+ 105 00dc 00100240 		.word	1073876992
+ 106 00e0 00100140 		.word	1073811456
+ 107 00e4 00140140 		.word	1073812480
+ 108 00e8 00000000 		.word	.LANCHOR0
+ 109 00ec 00080140 		.word	1073809408
+ 111              		.global	hw_gpio_init_status
+ 112              		.section	.bss.hw_gpio_init_status,"aw",%nobits
+ 113              		.set	.LANCHOR0,. + 0
+ 116              	hw_gpio_init_status:
+ 117 0000 00       		.space	1
+ 118              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
+ARM GAS  /tmp/cctoVoBN.s 			page 3
 
 
- 116 0102 FFF7FEFF 		bl	HAL_GPIO_Init
- 117 0106 054B     		ldr	r3, .L2+12
- 118 0108 1E70     		strb	r6, [r3]
- 119 010a 09B0     		add	sp, sp, #36
- 120              		@ sp needed
- 121 010c BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
- 122              	.L3:
- 123              		.align	2
- 124              	.L2:
- 125 0110 00100240 		.word	1073876992
- 126 0114 00100140 		.word	1073811456
- 127 0118 00140140 		.word	1073812480
- 128 011c 00000000 		.word	.LANCHOR0
- 129 0120 00080140 		.word	1073809408
- 131              		.global	hw_gpio_init_status
- 132              		.section	.bss.hw_gpio_init_status,"aw",%nobits
- 133              		.set	.LANCHOR0,. + 0
- 136              	hw_gpio_init_status:
- 137 0000 00       		.space	1
- 138              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
-ARM GAS  /tmp/cc5rVxj3.s 			page 4
+ARM GAS  /tmp/cctoVoBN.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 sys_gpio.c
-     /tmp/cc5rVxj3.s:13     .text.SYS_GPIO_Init:0000000000000000 $t
-     /tmp/cc5rVxj3.s:20     .text.SYS_GPIO_Init:0000000000000000 SYS_GPIO_Init
-     /tmp/cc5rVxj3.s:125    .text.SYS_GPIO_Init:0000000000000110 $d
-     /tmp/cc5rVxj3.s:136    .bss.hw_gpio_init_status:0000000000000000 hw_gpio_init_status
-     /tmp/cc5rVxj3.s:137    .bss.hw_gpio_init_status:0000000000000000 $d
+     /tmp/cctoVoBN.s:14     .text.SYS_GPIO_Init:0000000000000000 $t
+     /tmp/cctoVoBN.s:22     .text.SYS_GPIO_Init:0000000000000000 SYS_GPIO_Init
+     /tmp/cctoVoBN.s:105    .text.SYS_GPIO_Init:00000000000000dc $d
+     /tmp/cctoVoBN.s:116    .bss.hw_gpio_init_status:0000000000000000 hw_gpio_init_status
+     /tmp/cctoVoBN.s:117    .bss.hw_gpio_init_status:0000000000000000 $d
 
 UNDEFINED SYMBOLS
-memset
 HAL_GPIO_Init

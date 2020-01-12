@@ -28,8 +28,8 @@
 #define GPIO_KBM_DATA_6_PORT        GPIOC
 #define GPIO_KBM_DATA_6_PIN         GPIO_PIN_5
 
-#define GPIO_LED_DATA_PORT          GPIOC
-#define GPIO_LED_DATA_PIN           GPIO_PIN_7
+#define GPIO_LED_DATA_PORT          GPIOA
+#define GPIO_LED_DATA_PIN           GPIO_PIN_2
 
 #define GPIO_PORTEX01_INT_PORT      GPIOD
 #define GPIO_PORTEX01_INT_PIN       GPIO_PIN_2

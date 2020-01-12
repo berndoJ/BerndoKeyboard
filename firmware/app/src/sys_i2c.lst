@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccPEsEMd.s 			page 1
+ARM GAS  /tmp/cc1W342e.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -12,186 +12,181 @@ ARM GAS  /tmp/ccPEsEMd.s 			page 1
    9              		.eabi_attribute 34, 1
   10              		.eabi_attribute 18, 4
   11              		.file	"sys_i2c.c"
-  12              		.section	.text._SYS_I2C1_MspDeInitCallback,"ax",%progbits
-  13              		.align	1
-  14              		.syntax unified
-  15              		.thumb
-  16              		.thumb_func
-  17              		.fpu softvfp
-  19              	_SYS_I2C1_MspDeInitCallback:
-  20              		@ args = 0, pretend = 0, frame = 0
-  21              		@ frame_needed = 0, uses_anonymous_args = 0
-  22              		@ link register save eliminated.
-  23 0000 044A     		ldr	r2, .L2
-  24 0002 C021     		movs	r1, #192
-  25 0004 D369     		ldr	r3, [r2, #28]
-  26 0006 0448     		ldr	r0, .L2+4
-  27 0008 23F40013 		bic	r3, r3, #2097152
-  28 000c D361     		str	r3, [r2, #28]
-  29 000e FFF7FEBF 		b	HAL_GPIO_DeInit
-  30              	.L3:
-  31 0012 00BF     		.align	2
-  32              	.L2:
-  33 0014 00100240 		.word	1073876992
-  34 0018 000C0140 		.word	1073810432
-  36              		.section	.text._SYS_I2C1_MspInitCallback,"ax",%progbits
-  37              		.align	1
-  38              		.syntax unified
-  39              		.thumb
-  40              		.thumb_func
-  41              		.fpu softvfp
-  43              	_SYS_I2C1_MspInitCallback:
-  44              		@ args = 0, pretend = 0, frame = 24
-  45              		@ frame_needed = 0, uses_anonymous_args = 0
-  46 0000 10B5     		push	{r4, lr}
-  47 0002 124C     		ldr	r4, .L5
-  48 0004 86B0     		sub	sp, sp, #24
-  49 0006 1022     		movs	r2, #16
-  50 0008 0021     		movs	r1, #0
-  51 000a 02A8     		add	r0, sp, #8
-  52 000c FFF7FEFF 		bl	memset
-  53 0010 A369     		ldr	r3, [r4, #24]
-  54 0012 02A9     		add	r1, sp, #8
-  55 0014 43F00803 		orr	r3, r3, #8
-  56 0018 A361     		str	r3, [r4, #24]
-  57 001a A369     		ldr	r3, [r4, #24]
-  58 001c 0C48     		ldr	r0, .L5+4
-  59 001e 03F00803 		and	r3, r3, #8
-  60 0022 0093     		str	r3, [sp]
-ARM GAS  /tmp/ccPEsEMd.s 			page 2
+  12              		.text
+  13              		.section	.text._SYS_I2C1_MspDeInitCallback,"ax",%progbits
+  14              		.align	1
+  15              		.arch armv7-m
+  16              		.syntax unified
+  17              		.thumb
+  18              		.thumb_func
+  19              		.fpu softvfp
+  21              	_SYS_I2C1_MspDeInitCallback:
+  22              		@ args = 0, pretend = 0, frame = 0
+  23              		@ frame_needed = 0, uses_anonymous_args = 0
+  24              		@ link register save eliminated.
+  25 0000 044A     		ldr	r2, .L2
+  26 0002 C021     		movs	r1, #192
+  27 0004 D369     		ldr	r3, [r2, #28]
+  28 0006 0448     		ldr	r0, .L2+4
+  29 0008 23F40013 		bic	r3, r3, #2097152
+  30 000c D361     		str	r3, [r2, #28]
+  31 000e FFF7FEBF 		b	HAL_GPIO_DeInit
+  32              	.L3:
+  33 0012 00BF     		.align	2
+  34              	.L2:
+  35 0014 00100240 		.word	1073876992
+  36 0018 000C0140 		.word	1073810432
+  38              		.section	.text._SYS_I2C1_MspInitCallback,"ax",%progbits
+  39              		.align	1
+  40              		.syntax unified
+  41              		.thumb
+  42              		.thumb_func
+  43              		.fpu softvfp
+  45              	_SYS_I2C1_MspInitCallback:
+  46              		@ args = 0, pretend = 0, frame = 24
+  47              		@ frame_needed = 0, uses_anonymous_args = 0
+  48 0000 0023     		movs	r3, #0
+  49 0002 10B5     		push	{r4, lr}
+  50 0004 104C     		ldr	r4, .L5
+  51 0006 86B0     		sub	sp, sp, #24
+  52 0008 0493     		str	r3, [sp, #16]
+  53 000a A369     		ldr	r3, [r4, #24]
+  54 000c C022     		movs	r2, #192
+  55 000e 43F00803 		orr	r3, r3, #8
+  56 0012 A361     		str	r3, [r4, #24]
+  57 0014 A369     		ldr	r3, [r4, #24]
+  58 0016 0D48     		ldr	r0, .L5+4
+  59 0018 03F00803 		and	r3, r3, #8
+  60 001c 0093     		str	r3, [sp]
+ARM GAS  /tmp/cc1W342e.s 			page 2
 
 
-  61 0024 009B     		ldr	r3, [sp]
-  62 0026 C023     		movs	r3, #192
-  63 0028 0293     		str	r3, [sp, #8]
-  64 002a 1223     		movs	r3, #18
-  65 002c 0393     		str	r3, [sp, #12]
-  66 002e 0323     		movs	r3, #3
-  67 0030 0593     		str	r3, [sp, #20]
-  68 0032 FFF7FEFF 		bl	HAL_GPIO_Init
-  69 0036 E369     		ldr	r3, [r4, #28]
-  70 0038 43F40013 		orr	r3, r3, #2097152
-  71 003c E361     		str	r3, [r4, #28]
-  72 003e E369     		ldr	r3, [r4, #28]
-  73 0040 03F40013 		and	r3, r3, #2097152
-  74 0044 0193     		str	r3, [sp, #4]
-  75 0046 019B     		ldr	r3, [sp, #4]
-  76 0048 06B0     		add	sp, sp, #24
-  77              		@ sp needed
-  78 004a 10BD     		pop	{r4, pc}
-  79              	.L6:
-  80              		.align	2
-  81              	.L5:
-  82 004c 00100240 		.word	1073876992
-  83 0050 000C0140 		.word	1073810432
-  85              		.section	.text.SYS_I2C_Init,"ax",%progbits
-  86              		.align	1
-  87              		.global	SYS_I2C_Init
-  88              		.syntax unified
-  89              		.thumb
-  90              		.thumb_func
-  91              		.fpu softvfp
-  93              	SYS_I2C_Init:
-  94              		@ args = 0, pretend = 0, frame = 0
-  95              		@ frame_needed = 0, uses_anonymous_args = 0
-  96 0000 1248     		ldr	r0, .L9
-  97 0002 134B     		ldr	r3, .L9+4
-  98 0004 10B5     		push	{r4, lr}
-  99 0006 134C     		ldr	r4, .L9+8
- 100 0008 1860     		str	r0, [r3]
- 101 000a 134B     		ldr	r3, .L9+12
- 102 000c 4FF48042 		mov	r2, #16384
- 103 0010 80E81800 		stm	r0, {r3, r4}
- 104 0014 0023     		movs	r3, #0
- 105 0016 0124     		movs	r4, #1
- 106 0018 8360     		str	r3, [r0, #8]
- 107 001a C360     		str	r3, [r0, #12]
- 108 001c 4361     		str	r3, [r0, #20]
- 109 001e C361     		str	r3, [r0, #28]
- 110 0020 0362     		str	r3, [r0, #32]
- 111 0022 0E4B     		ldr	r3, .L9+16
- 112 0024 8461     		str	r4, [r0, #24]
- 113 0026 C367     		str	r3, [r0, #124]
- 114 0028 0D4B     		ldr	r3, .L9+20
- 115 002a 0261     		str	r2, [r0, #16]
- 116 002c C0F88030 		str	r3, [r0, #128]
- 117 0030 FFF7FEFF 		bl	HAL_I2C_Init
- 118 0034 38B1     		cbz	r0, .L8
- 119 0036 BDE81040 		pop	{r4, lr}
-ARM GAS  /tmp/ccPEsEMd.s 			page 3
+  61 001e 009B     		ldr	r3, [sp]
+  62 0020 1223     		movs	r3, #18
+  63 0022 CDE90223 		strd	r2, r3, [sp, #8]
+  64 0026 0323     		movs	r3, #3
+  65 0028 02A9     		add	r1, sp, #8
+  66 002a 0593     		str	r3, [sp, #20]
+  67 002c FFF7FEFF 		bl	HAL_GPIO_Init
+  68 0030 E369     		ldr	r3, [r4, #28]
+  69 0032 43F40013 		orr	r3, r3, #2097152
+  70 0036 E361     		str	r3, [r4, #28]
+  71 0038 E369     		ldr	r3, [r4, #28]
+  72 003a 03F40013 		and	r3, r3, #2097152
+  73 003e 0193     		str	r3, [sp, #4]
+  74 0040 019B     		ldr	r3, [sp, #4]
+  75 0042 06B0     		add	sp, sp, #24
+  76              		@ sp needed
+  77 0044 10BD     		pop	{r4, pc}
+  78              	.L6:
+  79 0046 00BF     		.align	2
+  80              	.L5:
+  81 0048 00100240 		.word	1073876992
+  82 004c 000C0140 		.word	1073810432
+  84              		.section	.rodata.SYS_I2C_Init.str1.1,"aMS",%progbits,1
+  85              	.LC0:
+  86 0000 49324331 		.ascii	"I2C1 INIT FAIL\000"
+  86      20494E49 
+  86      54204641 
+  86      494C00
+  87              	.LC1:
+  88 000f 7372632F 		.ascii	"src/sys_i2c.c\000"
+  88      7379735F 
+  88      6932632E 
+  88      6300
+  89              		.section	.text.SYS_I2C_Init,"ax",%progbits
+  90              		.align	1
+  91              		.global	SYS_I2C_Init
+  92              		.syntax unified
+  93              		.thumb
+  94              		.thumb_func
+  95              		.fpu softvfp
+  97              	SYS_I2C_Init:
+  98              		@ args = 0, pretend = 0, frame = 0
+  99              		@ frame_needed = 0, uses_anonymous_args = 0
+ 100 0000 1248     		ldr	r0, .L9
+ 101 0002 134B     		ldr	r3, .L9+4
+ 102 0004 10B5     		push	{r4, lr}
+ 103 0006 134A     		ldr	r2, .L9+8
+ 104 0008 1860     		str	r0, [r3]
+ 105 000a 134B     		ldr	r3, .L9+12
+ 106 000c 0124     		movs	r4, #1
+ 107 000e C0E90023 		strd	r2, r3, [r0]
+ 108 0012 0023     		movs	r3, #0
+ 109 0014 4FF48042 		mov	r2, #16384
+ 110 0018 C0E90233 		strd	r3, r3, [r0, #8]
+ 111 001c C0E90423 		strd	r2, r3, [r0, #16]
+ 112 0020 C0E90733 		strd	r3, r3, [r0, #28]
+ 113 0024 0D4B     		ldr	r3, .L9+16
+ARM GAS  /tmp/cc1W342e.s 			page 3
 
 
- 120 003a 0A4B     		ldr	r3, .L9+24
- 121 003c 0A4A     		ldr	r2, .L9+28
- 122 003e 1F21     		movs	r1, #31
- 123 0040 0220     		movs	r0, #2
- 124 0042 FFF7FEBF 		b	SYS_ThrowError
- 125              	.L8:
- 126 0046 094B     		ldr	r3, .L9+32
- 127 0048 1C70     		strb	r4, [r3]
- 128 004a 10BD     		pop	{r4, pc}
- 129              	.L10:
- 130              		.align	2
- 131              	.L9:
- 132 004c 00000000 		.word	.LANCHOR0
- 133 0050 00000000 		.word	hw_i2c1_handle
- 134 0054 A0860100 		.word	100000
- 135 0058 00540040 		.word	1073763328
- 136 005c 00000000 		.word	_SYS_I2C1_MspInitCallback
- 137 0060 00000000 		.word	_SYS_I2C1_MspDeInitCallback
- 138 0064 00000000 		.word	.LC0
- 139 0068 0F000000 		.word	.LC1
- 140 006c 00000000 		.word	.LANCHOR1
- 142              		.global	hw_i2c1_init_status
- 143              		.comm	hw_i2c1_handle,4,4
- 144              		.section	.bss._hw_i2c1_handle,"aw",%nobits
- 145              		.align	2
- 146              		.set	.LANCHOR0,. + 0
- 149              	_hw_i2c1_handle:
- 150 0000 00000000 		.space	132
- 150      00000000 
- 150      00000000 
- 150      00000000 
- 150      00000000 
- 151              		.section	.bss.hw_i2c1_init_status,"aw",%nobits
- 152              		.set	.LANCHOR1,. + 0
- 155              	hw_i2c1_init_status:
- 156 0000 00       		.space	1
- 157              		.section	.rodata.SYS_I2C_Init.str1.1,"aMS",%progbits,1
- 158              	.LC0:
- 159 0000 49324331 		.ascii	"I2C1 INIT FAIL\000"
- 159      20494E49 
- 159      54204641 
- 159      494C00
- 160              	.LC1:
- 161 000f 7372632F 		.ascii	"src/sys_i2c.c\000"
- 161      7379735F 
- 161      6932632E 
- 161      6300
- 162              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
-ARM GAS  /tmp/ccPEsEMd.s 			page 4
+ 114 0026 8461     		str	r4, [r0, #24]
+ 115 0028 C367     		str	r3, [r0, #124]
+ 116 002a 0D4B     		ldr	r3, .L9+20
+ 117 002c C0F88030 		str	r3, [r0, #128]
+ 118 0030 FFF7FEFF 		bl	HAL_I2C_Init
+ 119 0034 38B1     		cbz	r0, .L8
+ 120 0036 BDE81040 		pop	{r4, lr}
+ 121 003a 1F21     		movs	r1, #31
+ 122 003c 0220     		movs	r0, #2
+ 123 003e 094B     		ldr	r3, .L9+24
+ 124 0040 094A     		ldr	r2, .L9+28
+ 125 0042 FFF7FEBF 		b	SYS_ThrowError
+ 126              	.L8:
+ 127 0046 094B     		ldr	r3, .L9+32
+ 128 0048 1C70     		strb	r4, [r3]
+ 129 004a 10BD     		pop	{r4, pc}
+ 130              	.L10:
+ 131              		.align	2
+ 132              	.L9:
+ 133 004c 00000000 		.word	.LANCHOR0
+ 134 0050 00000000 		.word	hw_i2c1_handle
+ 135 0054 00540040 		.word	1073763328
+ 136 0058 A0860100 		.word	100000
+ 137 005c 00000000 		.word	_SYS_I2C1_MspInitCallback
+ 138 0060 00000000 		.word	_SYS_I2C1_MspDeInitCallback
+ 139 0064 00000000 		.word	.LC0
+ 140 0068 0F000000 		.word	.LC1
+ 141 006c 00000000 		.word	.LANCHOR1
+ 143              		.global	hw_i2c1_init_status
+ 144              		.comm	hw_i2c1_handle,4,4
+ 145              		.section	.bss._hw_i2c1_handle,"aw",%nobits
+ 146              		.align	2
+ 147              		.set	.LANCHOR0,. + 0
+ 150              	_hw_i2c1_handle:
+ 151 0000 00000000 		.space	132
+ 151      00000000 
+ 151      00000000 
+ 151      00000000 
+ 151      00000000 
+ 152              		.section	.bss.hw_i2c1_init_status,"aw",%nobits
+ 153              		.set	.LANCHOR1,. + 0
+ 156              	hw_i2c1_init_status:
+ 157 0000 00       		.space	1
+ 158              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
+ARM GAS  /tmp/cc1W342e.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 sys_i2c.c
-     /tmp/ccPEsEMd.s:13     .text._SYS_I2C1_MspDeInitCallback:0000000000000000 $t
-     /tmp/ccPEsEMd.s:19     .text._SYS_I2C1_MspDeInitCallback:0000000000000000 _SYS_I2C1_MspDeInitCallback
-     /tmp/ccPEsEMd.s:33     .text._SYS_I2C1_MspDeInitCallback:0000000000000014 $d
-     /tmp/ccPEsEMd.s:37     .text._SYS_I2C1_MspInitCallback:0000000000000000 $t
-     /tmp/ccPEsEMd.s:43     .text._SYS_I2C1_MspInitCallback:0000000000000000 _SYS_I2C1_MspInitCallback
-     /tmp/ccPEsEMd.s:82     .text._SYS_I2C1_MspInitCallback:000000000000004c $d
-     /tmp/ccPEsEMd.s:86     .text.SYS_I2C_Init:0000000000000000 $t
-     /tmp/ccPEsEMd.s:93     .text.SYS_I2C_Init:0000000000000000 SYS_I2C_Init
-     /tmp/ccPEsEMd.s:132    .text.SYS_I2C_Init:000000000000004c $d
+     /tmp/cc1W342e.s:14     .text._SYS_I2C1_MspDeInitCallback:0000000000000000 $t
+     /tmp/cc1W342e.s:21     .text._SYS_I2C1_MspDeInitCallback:0000000000000000 _SYS_I2C1_MspDeInitCallback
+     /tmp/cc1W342e.s:35     .text._SYS_I2C1_MspDeInitCallback:0000000000000014 $d
+     /tmp/cc1W342e.s:39     .text._SYS_I2C1_MspInitCallback:0000000000000000 $t
+     /tmp/cc1W342e.s:45     .text._SYS_I2C1_MspInitCallback:0000000000000000 _SYS_I2C1_MspInitCallback
+     /tmp/cc1W342e.s:81     .text._SYS_I2C1_MspInitCallback:0000000000000048 $d
+     /tmp/cc1W342e.s:90     .text.SYS_I2C_Init:0000000000000000 $t
+     /tmp/cc1W342e.s:97     .text.SYS_I2C_Init:0000000000000000 SYS_I2C_Init
+     /tmp/cc1W342e.s:133    .text.SYS_I2C_Init:000000000000004c $d
                             *COM*:0000000000000004 hw_i2c1_handle
-     /tmp/ccPEsEMd.s:155    .bss.hw_i2c1_init_status:0000000000000000 hw_i2c1_init_status
-     /tmp/ccPEsEMd.s:145    .bss._hw_i2c1_handle:0000000000000000 $d
-     /tmp/ccPEsEMd.s:149    .bss._hw_i2c1_handle:0000000000000000 _hw_i2c1_handle
-     /tmp/ccPEsEMd.s:156    .bss.hw_i2c1_init_status:0000000000000000 $d
+     /tmp/cc1W342e.s:156    .bss.hw_i2c1_init_status:0000000000000000 hw_i2c1_init_status
+     /tmp/cc1W342e.s:146    .bss._hw_i2c1_handle:0000000000000000 $d
+     /tmp/cc1W342e.s:150    .bss._hw_i2c1_handle:0000000000000000 _hw_i2c1_handle
+     /tmp/cc1W342e.s:157    .bss.hw_i2c1_init_status:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_DeInit
-memset
 HAL_GPIO_Init
 HAL_I2C_Init
 SYS_ThrowError
