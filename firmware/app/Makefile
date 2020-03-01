@@ -13,9 +13,9 @@
 # ------------------------------------------------------------------------------
 
 MODULE_NAME    = app
-MODULE_VER_MAJ = 1
-MODULE_VER_MIN = 0
-MODULE_VER_REV = 0
+MODULE_VER_MAJ = 0
+MODULE_VER_MIN = 1
+MODULE_VER_REV = 1
 TARGET_STM32   = STM32F103xE
 PROJECT_ROOT   = ..
 LIB_FOLDER     = $(PROJECT_ROOT)/lib
@@ -29,12 +29,15 @@ LINKER_SCRIPT_FILENAME = STM32F103XE_FLASH.ld
 LLIB_STM32F1HAL = $(LIB_FOLDER)/libstm32f1hal
 LLIB_PCA9555    = $(LIB_FOLDER)/libpca9555
 LLIB_NEOPIXEL32 = $(LIB_FOLDER)/libneopixel32
+LLIB_INFINIKEYS = $(LIB_FOLDER)/libinfinikeys
 
 LLIB_DIRS =  -L $(LLIB_STM32F1HAL)/bin
 LLIB_DIRS += -L $(LLIB_PCA9555)/bin
 LLIB_DIRS += -L $(LLIB_NEOPIXEL32)/bin
+LLIB_DIRS += -L $(LLIB_INFINIKEYS)/bin
 
-LLIBS  = -lpca9555
+LLIBS  = -linfinikeys
+LLIBS += -lpca9555
 LLIBS += -lneopixel32
 LLIBS += -lstm32f1hal
 LLIBS += -lc
@@ -47,6 +50,7 @@ C_SOURCES += mcu_init.c
 C_SOURCES += isr.c
 C_SOURCES += error.c
 C_SOURCES += debug.c
+C_SOURCES += console.c
 C_SOURCES += sys_clock.c
 C_SOURCES += sys_gpio.c
 C_SOURCES += sys_init.c
@@ -57,15 +61,25 @@ C_SOURCES += sys_hwb.c
 C_SOURCES += sys_timer.c
 C_SOURCES += sys_ws2812.c
 C_SOURCES += sys_dma.c
+C_SOURCES += sys_usb.c
+C_SOURCES += lib_infinikeys.c
+C_SOURCES += infinikeys_hwif/infinikeys_hwif_berndokb.c
+C_SOURCES += usbd_conf.c
+C_SOURCES += usbd_desc.c
+C_SOURCES += usbd_core.c
+C_SOURCES += usbd_ctlreq.c
+C_SOURCES += usbd_ioreq.c
+C_SOURCES += infinikeys_stm32cube_usb_hid.c
+C_SOURCES += infinikeys_stm32cube_usb_if.c
 
 ASM_SOURCES = startup_stm32f103xe.s
 
 # --- C-DEFINES ---
 C_DEFS  = -DUSE_HAL_DRIVER
 C_DEFS += -D$(TARGET_STM32)
-C_DEFS += -DMODULE_APP_VER_MAJ=$(MODULE_VER_MAJ)
-C_DEFS += -DMODULE_APP_VER_MIN=$(MODULE_VER_MIN)
-C_DEFS += -DMODULE_APP_VER_REV=$(MODULE_VER_REV)
+C_DEFS += -DMODULE_APP_VER_MAJ=$(MODULE_VER_MAJ)U
+C_DEFS += -DMODULE_APP_VER_MIN=$(MODULE_VER_MIN)U
+C_DEFS += -DMODULE_APP_VER_REV=$(MODULE_VER_REV)U
 
 # --- INCLUDE FOLDERS ---
 INC_DIRS  = -I ./inc
@@ -74,6 +88,7 @@ INC_DIRS += -I $(LLIB_STM32F1HAL)/config
 INC_DIRS += -I $(LLIB_STM32F1HAL)/cmsis/inc
 INC_DIRS += -I $(LLIB_PCA9555)/inc
 INC_DIRS += -I $(LLIB_NEOPIXEL32)/inc
+INC_DIRS += -I $(LLIB_INFINIKEYS)/inc
 
 # --- TOOLCHAIN COMMANDS ---
 GCC_PREFIX = arm-none-eabi-

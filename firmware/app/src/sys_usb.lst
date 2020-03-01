@@ -1,0 +1,406 @@
+ARM GAS  /tmp/ccF9Kg78.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 4
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"sys_usb.c"
+  12              		.text
+  13              		.section	.text.GetSerialStrDescriptor,"ax",%progbits
+  14              		.align	1
+  15              		.arch armv7-m
+  16              		.syntax unified
+  17              		.thumb
+  18              		.thumb_func
+  19              		.fpu softvfp
+  21              	GetSerialStrDescriptor:
+  22              		@ args = 0, pretend = 0, frame = 8
+  23              		@ frame_needed = 0, uses_anonymous_args = 0
+  24 0000 13B5     		push	{r0, r1, r4, lr}
+  25 0002 0C46     		mov	r4, r1
+  26 0004 6846     		mov	r0, sp
+  27 0006 0621     		movs	r1, #6
+  28 0008 FFF7FEFF 		bl	IK_USB_HW_GetUSBDescriptor
+  29 000c 019B     		ldr	r3, [sp, #4]
+  30 000e 0098     		ldr	r0, [sp]
+  31 0010 2380     		strh	r3, [r4]	@ movhi
+  32 0012 02B0     		add	sp, sp, #8
+  33              		@ sp needed
+  34 0014 10BD     		pop	{r4, pc}
+  36              		.section	.text.GetConfigurationStrDescriptor,"ax",%progbits
+  37              		.align	1
+  38              		.syntax unified
+  39              		.thumb
+  40              		.thumb_func
+  41              		.fpu softvfp
+  43              	GetConfigurationStrDescriptor:
+  44              		@ args = 0, pretend = 0, frame = 0
+  45              		@ frame_needed = 0, uses_anonymous_args = 0
+  46              		@ link register save eliminated.
+  47 0000 FFF7FEBF 		b	GetSerialStrDescriptor
+  49              		.section	.text.GetInterfaceStrDescriptor,"ax",%progbits
+  50              		.align	1
+  51              		.syntax unified
+  52              		.thumb
+  53              		.thumb_func
+  54              		.fpu softvfp
+  56              	GetInterfaceStrDescriptor:
+  57              		@ args = 0, pretend = 0, frame = 0
+  58              		@ frame_needed = 0, uses_anonymous_args = 0
+  59              		@ link register save eliminated.
+  60 0000 FFF7FEBF 		b	GetSerialStrDescriptor
+  62              		.section	.text.GetProductStrDescriptor,"ax",%progbits
+  63              		.align	1
+ARM GAS  /tmp/ccF9Kg78.s 			page 2
+
+
+  64              		.syntax unified
+  65              		.thumb
+  66              		.thumb_func
+  67              		.fpu softvfp
+  69              	GetProductStrDescriptor:
+  70              		@ args = 0, pretend = 0, frame = 8
+  71              		@ frame_needed = 0, uses_anonymous_args = 0
+  72 0000 13B5     		push	{r0, r1, r4, lr}
+  73 0002 0C46     		mov	r4, r1
+  74 0004 6846     		mov	r0, sp
+  75 0006 0521     		movs	r1, #5
+  76 0008 FFF7FEFF 		bl	IK_USB_HW_GetUSBDescriptor
+  77 000c 019B     		ldr	r3, [sp, #4]
+  78 000e 0098     		ldr	r0, [sp]
+  79 0010 2380     		strh	r3, [r4]	@ movhi
+  80 0012 02B0     		add	sp, sp, #8
+  81              		@ sp needed
+  82 0014 10BD     		pop	{r4, pc}
+  84              		.section	.text.GetManufacturerStrDescriptor,"ax",%progbits
+  85              		.align	1
+  86              		.syntax unified
+  87              		.thumb
+  88              		.thumb_func
+  89              		.fpu softvfp
+  91              	GetManufacturerStrDescriptor:
+  92              		@ args = 0, pretend = 0, frame = 8
+  93              		@ frame_needed = 0, uses_anonymous_args = 0
+  94 0000 13B5     		push	{r0, r1, r4, lr}
+  95 0002 0C46     		mov	r4, r1
+  96 0004 6846     		mov	r0, sp
+  97 0006 0421     		movs	r1, #4
+  98 0008 FFF7FEFF 		bl	IK_USB_HW_GetUSBDescriptor
+  99 000c 019B     		ldr	r3, [sp, #4]
+ 100 000e 0098     		ldr	r0, [sp]
+ 101 0010 2380     		strh	r3, [r4]	@ movhi
+ 102 0012 02B0     		add	sp, sp, #8
+ 103              		@ sp needed
+ 104 0014 10BD     		pop	{r4, pc}
+ 106              		.section	.text.GetLangIDStrDescriptor,"ax",%progbits
+ 107              		.align	1
+ 108              		.syntax unified
+ 109              		.thumb
+ 110              		.thumb_func
+ 111              		.fpu softvfp
+ 113              	GetLangIDStrDescriptor:
+ 114              		@ args = 0, pretend = 0, frame = 8
+ 115              		@ frame_needed = 0, uses_anonymous_args = 0
+ 116 0000 13B5     		push	{r0, r1, r4, lr}
+ 117 0002 0C46     		mov	r4, r1
+ 118 0004 6846     		mov	r0, sp
+ 119 0006 0321     		movs	r1, #3
+ 120 0008 FFF7FEFF 		bl	IK_USB_HW_GetUSBDescriptor
+ 121 000c 019B     		ldr	r3, [sp, #4]
+ 122 000e 0098     		ldr	r0, [sp]
+ 123 0010 2380     		strh	r3, [r4]	@ movhi
+ 124 0012 02B0     		add	sp, sp, #8
+ 125              		@ sp needed
+ARM GAS  /tmp/ccF9Kg78.s 			page 3
+
+
+ 126 0014 10BD     		pop	{r4, pc}
+ 128              		.section	.text.GetDeviceDescriptor,"ax",%progbits
+ 129              		.align	1
+ 130              		.syntax unified
+ 131              		.thumb
+ 132              		.thumb_func
+ 133              		.fpu softvfp
+ 135              	GetDeviceDescriptor:
+ 136              		@ args = 0, pretend = 0, frame = 8
+ 137              		@ frame_needed = 0, uses_anonymous_args = 0
+ 138 0000 13B5     		push	{r0, r1, r4, lr}
+ 139 0002 0C46     		mov	r4, r1
+ 140 0004 6846     		mov	r0, sp
+ 141 0006 0021     		movs	r1, #0
+ 142 0008 FFF7FEFF 		bl	IK_USB_HW_GetUSBDescriptor
+ 143 000c 019B     		ldr	r3, [sp, #4]
+ 144 000e 0098     		ldr	r0, [sp]
+ 145 0010 2380     		strh	r3, [r4]	@ movhi
+ 146 0012 02B0     		add	sp, sp, #8
+ 147              		@ sp needed
+ 148 0014 10BD     		pop	{r4, pc}
+ 150              		.section	.rodata.SYS_USB_Init.str1.1,"aMS",%progbits,1
+ 151              	.LC0:
+ 152 0000 55534244 		.ascii	"USBD-handle allocation failed.\000"
+ 152      2D68616E 
+ 152      646C6520 
+ 152      616C6C6F 
+ 152      63617469 
+ 153              	.LC1:
+ 154 001f 7372632F 		.ascii	"src/sys_usb.c\000"
+ 154      7379735F 
+ 154      7573622E 
+ 154      6300
+ 155              	.LC2:
+ 156 002d 5B535953 		.ascii	"[SYS-USB] Allocated USBD-handle memory.\000"
+ 156      2D555342 
+ 156      5D20416C 
+ 156      6C6F6361 
+ 156      74656420 
+ 157              	.LC3:
+ 158 0055 55534244 		.ascii	"USBD-init failed.\000"
+ 158      2D696E69 
+ 158      74206661 
+ 158      696C6564 
+ 158      2E00
+ 159              	.LC4:
+ 160 0067 5B535953 		.ascii	"[SYS-USB] Initialised USBD handle.\000"
+ 160      2D555342 
+ 160      5D20496E 
+ 160      69746961 
+ 160      6C697365 
+ 161              	.LC5:
+ 162 008a 55534244 		.ascii	"USBD class registration failed.\000"
+ 162      20636C61 
+ 162      73732072 
+ 162      65676973 
+ 162      74726174 
+ARM GAS  /tmp/ccF9Kg78.s 			page 4
+
+
+ 163              	.LC6:
+ 164 00aa 5B535953 		.ascii	"[SYS-USB] Registered InfiniKeys USBD class.\000"
+ 164      2D555342 
+ 164      5D205265 
+ 164      67697374 
+ 164      65726564 
+ 165              	.LC7:
+ 166 00d6 55534244 		.ascii	"USBD interface registration failed.\000"
+ 166      20696E74 
+ 166      65726661 
+ 166      63652072 
+ 166      65676973 
+ 167              	.LC8:
+ 168 00fa 5B535953 		.ascii	"[SYS-USB] Registered InfiniKeys USBD interface.\000"
+ 168      2D555342 
+ 168      5D205265 
+ 168      67697374 
+ 168      65726564 
+ 169              	.LC9:
+ 170 012a 55534244 		.ascii	"USBD port-start failed.\000"
+ 170      20706F72 
+ 170      742D7374 
+ 170      61727420 
+ 170      6661696C 
+ 171              	.LC10:
+ 172 0142 5B535953 		.ascii	"[SYS-USB] Initialised USBD. Started USB connection."
+ 172      2D555342 
+ 172      5D20496E 
+ 172      69746961 
+ 172      6C697365 
+ 173 0175 00       		.ascii	"\000"
+ 174              		.section	.text.SYS_USB_Init,"ax",%progbits
+ 175              		.align	1
+ 176              		.global	SYS_USB_Init
+ 177              		.syntax unified
+ 178              		.thumb
+ 179              		.thumb_func
+ 180              		.fpu softvfp
+ 182              	SYS_USB_Init:
+ 183              		@ args = 0, pretend = 0, frame = 0
+ 184              		@ frame_needed = 0, uses_anonymous_args = 0
+ 185 0000 10B5     		push	{r4, lr}
+ 186 0002 274C     		ldr	r4, .L30
+ 187 0004 2068     		ldr	r0, [r4]
+ 188 0006 08B1     		cbz	r0, .L9
+ 189 0008 FFF7FEFF 		bl	free
+ 190              	.L9:
+ 191 000c 4FF40970 		mov	r0, #548
+ 192 0010 FFF7FEFF 		bl	malloc
+ 193 0014 2060     		str	r0, [r4]
+ 194 0016 28B9     		cbnz	r0, .L10
+ 195 0018 3721     		movs	r1, #55
+ 196 001a 0220     		movs	r0, #2
+ 197 001c 214B     		ldr	r3, .L30+4
+ 198 001e 224A     		ldr	r2, .L30+8
+ 199 0020 FFF7FEFF 		bl	SYS_ThrowError
+ 200              	.L10:
+ARM GAS  /tmp/ccF9Kg78.s 			page 5
+
+
+ 201 0024 2148     		ldr	r0, .L30+12
+ 202 0026 FFF7FEFF 		bl	CONSOLE_PrintLn
+ 203 002a 0022     		movs	r2, #0
+ 204 002c 2049     		ldr	r1, .L30+16
+ 205 002e 2068     		ldr	r0, [r4]
+ 206 0030 FFF7FEFF 		bl	USBD_Init
+ 207 0034 28B1     		cbz	r0, .L11
+ 208 0036 3C21     		movs	r1, #60
+ 209 0038 0220     		movs	r0, #2
+ 210 003a 1E4B     		ldr	r3, .L30+20
+ 211 003c 1A4A     		ldr	r2, .L30+8
+ 212 003e FFF7FEFF 		bl	SYS_ThrowError
+ 213              	.L11:
+ 214 0042 1D48     		ldr	r0, .L30+24
+ 215 0044 FFF7FEFF 		bl	CONSOLE_PrintLn
+ 216 0048 1C49     		ldr	r1, .L30+28
+ 217 004a 2068     		ldr	r0, [r4]
+ 218 004c FFF7FEFF 		bl	USBD_RegisterClass
+ 219 0050 28B1     		cbz	r0, .L12
+ 220 0052 4121     		movs	r1, #65
+ 221 0054 0220     		movs	r0, #2
+ 222 0056 1A4B     		ldr	r3, .L30+32
+ 223 0058 134A     		ldr	r2, .L30+8
+ 224 005a FFF7FEFF 		bl	SYS_ThrowError
+ 225              	.L12:
+ 226 005e 1948     		ldr	r0, .L30+36
+ 227 0060 FFF7FEFF 		bl	CONSOLE_PrintLn
+ 228 0064 1849     		ldr	r1, .L30+40
+ 229 0066 2068     		ldr	r0, [r4]
+ 230 0068 FFF7FEFF 		bl	IK_STM32CUBE_USBD_HID_RegisterInterface
+ 231 006c 28B1     		cbz	r0, .L13
+ 232 006e 4621     		movs	r1, #70
+ 233 0070 0220     		movs	r0, #2
+ 234 0072 164B     		ldr	r3, .L30+44
+ 235 0074 0C4A     		ldr	r2, .L30+8
+ 236 0076 FFF7FEFF 		bl	SYS_ThrowError
+ 237              	.L13:
+ 238 007a 1548     		ldr	r0, .L30+48
+ 239 007c FFF7FEFF 		bl	CONSOLE_PrintLn
+ 240 0080 2068     		ldr	r0, [r4]
+ 241 0082 FFF7FEFF 		bl	USBD_Start
+ 242 0086 28B1     		cbz	r0, .L14
+ 243 0088 4B21     		movs	r1, #75
+ 244 008a 0220     		movs	r0, #2
+ 245 008c 114B     		ldr	r3, .L30+52
+ 246 008e 064A     		ldr	r2, .L30+8
+ 247 0090 FFF7FEFF 		bl	SYS_ThrowError
+ 248              	.L14:
+ 249 0094 BDE81040 		pop	{r4, lr}
+ 250 0098 0F48     		ldr	r0, .L30+56
+ 251 009a FFF7FEBF 		b	CONSOLE_PrintLn
+ 252              	.L31:
+ 253 009e 00BF     		.align	2
+ 254              	.L30:
+ 255 00a0 00000000 		.word	.LANCHOR0
+ 256 00a4 00000000 		.word	.LC0
+ 257 00a8 1F000000 		.word	.LC1
+ARM GAS  /tmp/ccF9Kg78.s 			page 6
+
+
+ 258 00ac 2D000000 		.word	.LC2
+ 259 00b0 00000000 		.word	.LANCHOR1
+ 260 00b4 55000000 		.word	.LC3
+ 261 00b8 67000000 		.word	.LC4
+ 262 00bc 00000000 		.word	IK_HID_Class
+ 263 00c0 8A000000 		.word	.LC5
+ 264 00c4 AA000000 		.word	.LC6
+ 265 00c8 00000000 		.word	IK_USBD_HID_Itf
+ 266 00cc D6000000 		.word	.LC7
+ 267 00d0 FA000000 		.word	.LC8
+ 268 00d4 2A010000 		.word	.LC9
+ 269 00d8 42010000 		.word	.LC10
+ 271              		.section	.text.SYS_USB_DeInit,"ax",%progbits
+ 272              		.align	1
+ 273              		.global	SYS_USB_DeInit
+ 274              		.syntax unified
+ 275              		.thumb
+ 276              		.thumb_func
+ 277              		.fpu softvfp
+ 279              	SYS_USB_DeInit:
+ 280              		@ args = 0, pretend = 0, frame = 0
+ 281              		@ frame_needed = 0, uses_anonymous_args = 0
+ 282 0000 10B5     		push	{r4, lr}
+ 283 0002 034C     		ldr	r4, .L33
+ 284 0004 2068     		ldr	r0, [r4]
+ 285 0006 FFF7FEFF 		bl	free
+ 286 000a 0023     		movs	r3, #0
+ 287 000c 2360     		str	r3, [r4]
+ 288 000e 10BD     		pop	{r4, pc}
+ 289              	.L34:
+ 290              		.align	2
+ 291              	.L33:
+ 292 0010 00000000 		.word	.LANCHOR0
+ 294              		.global	_IK_USB_DESCRIPTOR_DEV_QUALIF
+ 295              		.global	hw_usbd_handle
+ 296              		.section	.bss.hw_usbd_handle,"aw",%nobits
+ 297              		.align	2
+ 298              		.set	.LANCHOR0,. + 0
+ 301              	hw_usbd_handle:
+ 302 0000 00000000 		.space	4
+ 303              		.section	.data._IK_USB_DESCRIPTOR_DEV_QUALIF,"aw"
+ 306              	_IK_USB_DESCRIPTOR_DEV_QUALIF:
+ 307 0000 0A060002 		.ascii	"\012\006\000\002\000\000\000@\001\000"
+ 307      00000040 
+ 307      0100
+ 308              		.section	.data._usbd_desc,"aw"
+ 309              		.align	2
+ 310              		.set	.LANCHOR1,. + 0
+ 313              	_usbd_desc:
+ 314 0000 00000000 		.word	GetDeviceDescriptor
+ 315 0004 00000000 		.word	GetLangIDStrDescriptor
+ 316 0008 00000000 		.word	GetManufacturerStrDescriptor
+ 317 000c 00000000 		.word	GetProductStrDescriptor
+ 318 0010 00000000 		.word	GetSerialStrDescriptor
+ 319 0014 00000000 		.word	GetConfigurationStrDescriptor
+ 320 0018 00000000 		.word	GetInterfaceStrDescriptor
+ 321              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
+ARM GAS  /tmp/ccF9Kg78.s 			page 7
+
+
+ARM GAS  /tmp/ccF9Kg78.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 sys_usb.c
+     /tmp/ccF9Kg78.s:14     .text.GetSerialStrDescriptor:0000000000000000 $t
+     /tmp/ccF9Kg78.s:21     .text.GetSerialStrDescriptor:0000000000000000 GetSerialStrDescriptor
+     /tmp/ccF9Kg78.s:37     .text.GetConfigurationStrDescriptor:0000000000000000 $t
+     /tmp/ccF9Kg78.s:43     .text.GetConfigurationStrDescriptor:0000000000000000 GetConfigurationStrDescriptor
+     /tmp/ccF9Kg78.s:50     .text.GetInterfaceStrDescriptor:0000000000000000 $t
+     /tmp/ccF9Kg78.s:56     .text.GetInterfaceStrDescriptor:0000000000000000 GetInterfaceStrDescriptor
+     /tmp/ccF9Kg78.s:63     .text.GetProductStrDescriptor:0000000000000000 $t
+     /tmp/ccF9Kg78.s:69     .text.GetProductStrDescriptor:0000000000000000 GetProductStrDescriptor
+     /tmp/ccF9Kg78.s:85     .text.GetManufacturerStrDescriptor:0000000000000000 $t
+     /tmp/ccF9Kg78.s:91     .text.GetManufacturerStrDescriptor:0000000000000000 GetManufacturerStrDescriptor
+     /tmp/ccF9Kg78.s:107    .text.GetLangIDStrDescriptor:0000000000000000 $t
+     /tmp/ccF9Kg78.s:113    .text.GetLangIDStrDescriptor:0000000000000000 GetLangIDStrDescriptor
+     /tmp/ccF9Kg78.s:129    .text.GetDeviceDescriptor:0000000000000000 $t
+     /tmp/ccF9Kg78.s:135    .text.GetDeviceDescriptor:0000000000000000 GetDeviceDescriptor
+     /tmp/ccF9Kg78.s:175    .text.SYS_USB_Init:0000000000000000 $t
+     /tmp/ccF9Kg78.s:182    .text.SYS_USB_Init:0000000000000000 SYS_USB_Init
+     /tmp/ccF9Kg78.s:255    .text.SYS_USB_Init:00000000000000a0 $d
+     /tmp/ccF9Kg78.s:272    .text.SYS_USB_DeInit:0000000000000000 $t
+     /tmp/ccF9Kg78.s:279    .text.SYS_USB_DeInit:0000000000000000 SYS_USB_DeInit
+     /tmp/ccF9Kg78.s:292    .text.SYS_USB_DeInit:0000000000000010 $d
+     /tmp/ccF9Kg78.s:306    .data._IK_USB_DESCRIPTOR_DEV_QUALIF:0000000000000000 _IK_USB_DESCRIPTOR_DEV_QUALIF
+     /tmp/ccF9Kg78.s:301    .bss.hw_usbd_handle:0000000000000000 hw_usbd_handle
+     /tmp/ccF9Kg78.s:297    .bss.hw_usbd_handle:0000000000000000 $d
+     /tmp/ccF9Kg78.s:309    .data._usbd_desc:0000000000000000 $d
+     /tmp/ccF9Kg78.s:313    .data._usbd_desc:0000000000000000 _usbd_desc
+
+UNDEFINED SYMBOLS
+IK_USB_HW_GetUSBDescriptor
+free
+malloc
+SYS_ThrowError
+CONSOLE_PrintLn
+USBD_Init
+USBD_RegisterClass
+IK_STM32CUBE_USBD_HID_RegisterInterface
+USBD_Start
+IK_HID_Class
+IK_USBD_HID_Itf

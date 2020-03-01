@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccJlflsf.s 			page 1
+ARM GAS  /tmp/ccdjdTPL.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccJlflsf.s 			page 1
   52              	.L1:
   53 003e 02B0     		add	sp, sp, #8
   54              		@ sp needed
-ARM GAS  /tmp/ccJlflsf.s 			page 2
+ARM GAS  /tmp/ccdjdTPL.s 			page 2
 
 
   55 0040 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
@@ -67,96 +67,154 @@ ARM GAS  /tmp/ccJlflsf.s 			page 1
   58              	.L3:
   59 0044 00000000 		.word	.LC0
   60 0048 00000000 		.word	hw_uart1_handle
-  62              		.section	.rodata.SYS_ThrowError.str1.1,"aMS",%progbits,1
+  62              		.section	.rodata.SYS_ThrowError.part.0.str1.1,"aMS",%progbits,1
   63              	.LC1:
-  64 0000 5741524E 		.ascii	"WARNING\000"
-  64      494E4700 
-  65              	.LC2:
-  66 0008 4552524F 		.ascii	"ERROR\000"
-  66      5200
-  67              	.LC3:
-  68 000e 46415441 		.ascii	"FATAL ERROR\000"
-  68      4C204552 
-  68      524F5200 
-  69              		.section	.text.SYS_ThrowError,"ax",%progbits
-  70              		.align	1
-  71              		.global	SYS_ThrowError
-  72              		.syntax unified
-  73              		.thumb
-  74              		.thumb_func
-  75              		.fpu softvfp
-  77              	SYS_ThrowError:
-  78              		@ args = 0, pretend = 0, frame = 0
-  79              		@ frame_needed = 0, uses_anonymous_args = 0
-  80 0000 10B5     		push	{r4, lr}
-  81 0002 0446     		mov	r4, r0
-  82 0004 012C     		cmp	r4, #1
-  83 0006 0846     		mov	r0, r1
-  84 0008 1146     		mov	r1, r2
-  85 000a 1A46     		mov	r2, r3
-  86 000c 0BD0     		beq	.L6
-  87 000e 022C     		cmp	r4, #2
-  88 0010 0FD0     		beq	.L7
-  89 0012 F4B9     		cbnz	r4, .L5
-  90 0014 0F4B     		ldr	r3, .L13
-  91 0016 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-  92 0018 012B     		cmp	r3, #1
-  93 001a 1AD1     		bne	.L5
-  94 001c 0E4B     		ldr	r3, .L13+4
-  95              	.L12:
-  96 001e BDE81040 		pop	{r4, lr}
-  97 0022 FFF7FEBF 		b	_SYS_Error_NotifyDebug.part.0
-  98              	.L6:
-  99 0026 0B4B     		ldr	r3, .L13
- 100 0028 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 101 002a 012B     		cmp	r3, #1
- 102 002c 11D1     		bne	.L5
- 103 002e 0B4B     		ldr	r3, .L13+8
- 104 0030 F5E7     		b	.L12
- 105              	.L7:
- 106 0032 084B     		ldr	r3, .L13
- 107 0034 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 108 0036 012B     		cmp	r3, #1
- 109 0038 02D1     		bne	.L9
-ARM GAS  /tmp/ccJlflsf.s 			page 3
+  64 0000 46415441 		.ascii	"FATAL ERROR\000"
+  64      4C204552 
+  64      524F5200 
+  65              		.section	.text.SYS_ThrowError.part.0,"ax",%progbits
+  66              		.align	1
+  67              		.syntax unified
+  68              		.thumb
+  69              		.thumb_func
+  70              		.fpu softvfp
+  72              	SYS_ThrowError.part.0:
+  73              		@ Volatile: function does not return.
+  74              		@ args = 0, pretend = 0, frame = 0
+  75              		@ frame_needed = 0, uses_anonymous_args = 0
+  76 0000 08B5     		push	{r3, lr}
+  77 0002 084B     		ldr	r3, .L9
+  78 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  79 0006 012B     		cmp	r3, #1
+  80 0008 02D1     		bne	.L6
+  81 000a 074B     		ldr	r3, .L9+4
+  82 000c FFF7FEFF 		bl	_SYS_Error_NotifyDebug.part.0
+  83              	.L6:
+  84 0010 064B     		ldr	r3, .L9+8
+  85 0012 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+  86 0014 012A     		cmp	r2, #1
+  87 0016 03D1     		bne	.L7
+  88 0018 1021     		movs	r1, #16
+  89 001a 0548     		ldr	r0, .L9+12
+  90 001c FFF7FEFF 		bl	HAL_GPIO_WritePin
+  91              	.L7:
+  92              	.L8:
+  93 0020 FEE7     		b	.L8
+  94              	.L10:
+  95 0022 00BF     		.align	2
+  96              	.L9:
+  97 0024 00000000 		.word	hw_uart1_init_status
+  98 0028 00000000 		.word	.LC1
+  99 002c 00000000 		.word	hw_gpio_init_status
+ 100 0030 00080140 		.word	1073809408
+ 102              		.section	.rodata.SYS_ThrowError.str1.1,"aMS",%progbits,1
+ 103              	.LC2:
+ 104 0000 5741524E 		.ascii	"WARNING\000"
+ 104      494E4700 
+ 105              	.LC3:
+ 106 0008 4552524F 		.ascii	"ERROR\000"
+ 106      5200
+ 107              		.section	.text.SYS_ThrowError,"ax",%progbits
+ 108              		.align	1
+ 109              		.global	SYS_ThrowError
+ 110              		.syntax unified
+ARM GAS  /tmp/ccdjdTPL.s 			page 3
 
 
- 110 003a 094B     		ldr	r3, .L13+12
- 111 003c FFF7FEFF 		bl	_SYS_Error_NotifyDebug.part.0
- 112              	.L9:
- 113 0040 084B     		ldr	r3, .L13+16
- 114 0042 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
- 115 0044 012A     		cmp	r2, #1
- 116 0046 03D1     		bne	.L10
- 117 0048 1021     		movs	r1, #16
- 118 004a 0748     		ldr	r0, .L13+20
- 119 004c FFF7FEFF 		bl	HAL_GPIO_WritePin
- 120              	.L10:
- 121              	.L11:
- 122 0050 FEE7     		b	.L11
- 123              	.L5:
- 124 0052 10BD     		pop	{r4, pc}
- 125              	.L14:
- 126              		.align	2
- 127              	.L13:
- 128 0054 00000000 		.word	hw_uart1_init_status
- 129 0058 00000000 		.word	.LC1
- 130 005c 08000000 		.word	.LC2
- 131 0060 0E000000 		.word	.LC3
- 132 0064 00000000 		.word	hw_gpio_init_status
- 133 0068 00080140 		.word	1073809408
- 135              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
-ARM GAS  /tmp/ccJlflsf.s 			page 4
+ 111              		.thumb
+ 112              		.thumb_func
+ 113              		.fpu softvfp
+ 115              	SYS_ThrowError:
+ 116              		@ args = 0, pretend = 0, frame = 0
+ 117              		@ frame_needed = 0, uses_anonymous_args = 0
+ 118 0000 10B5     		push	{r4, lr}
+ 119 0002 0446     		mov	r4, r0
+ 120 0004 012C     		cmp	r4, #1
+ 121 0006 0846     		mov	r0, r1
+ 122 0008 1146     		mov	r1, r2
+ 123 000a 1A46     		mov	r2, r3
+ 124 000c 0BD0     		beq	.L12
+ 125 000e 022C     		cmp	r4, #2
+ 126 0010 0FD0     		beq	.L13
+ 127 0012 84B9     		cbnz	r4, .L11
+ 128 0014 084B     		ldr	r3, .L16
+ 129 0016 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 130 0018 012B     		cmp	r3, #1
+ 131 001a 0CD1     		bne	.L11
+ 132 001c 074B     		ldr	r3, .L16+4
+ 133              	.L15:
+ 134 001e BDE81040 		pop	{r4, lr}
+ 135 0022 FFF7FEBF 		b	_SYS_Error_NotifyDebug.part.0
+ 136              	.L12:
+ 137 0026 044B     		ldr	r3, .L16
+ 138 0028 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 139 002a 012B     		cmp	r3, #1
+ 140 002c 03D1     		bne	.L11
+ 141 002e 044B     		ldr	r3, .L16+8
+ 142 0030 F5E7     		b	.L15
+ 143              	.L13:
+ 144 0032 FFF7FEFF 		bl	SYS_ThrowError.part.0
+ 145              	.L11:
+ 146 0036 10BD     		pop	{r4, pc}
+ 147              	.L17:
+ 148              		.align	2
+ 149              	.L16:
+ 150 0038 00000000 		.word	hw_uart1_init_status
+ 151 003c 00000000 		.word	.LC2
+ 152 0040 08000000 		.word	.LC3
+ 154              		.section	.rodata.Error_Handler.str1.1,"aMS",%progbits,1
+ 155              	.LC4:
+ 156 0000 4572726F 		.ascii	"Error Handler invoked.\000"
+ 156      72204861 
+ 156      6E646C65 
+ 156      7220696E 
+ 156      766F6B65 
+ 157              	.LC5:
+ 158 0017 7372632F 		.ascii	"src/error.c\000"
+ 158      6572726F 
+ 158      722E6300 
+ 159              		.section	.text.Error_Handler,"ax",%progbits
+ 160              		.align	1
+ 161              		.global	Error_Handler
+ 162              		.syntax unified
+ 163              		.thumb
+ARM GAS  /tmp/ccdjdTPL.s 			page 4
+
+
+ 164              		.thumb_func
+ 165              		.fpu softvfp
+ 167              	Error_Handler:
+ 168              		@ Volatile: function does not return.
+ 169              		@ args = 0, pretend = 0, frame = 0
+ 170              		@ frame_needed = 0, uses_anonymous_args = 0
+ 171 0000 3820     		movs	r0, #56
+ 172 0002 08B5     		push	{r3, lr}
+ 173 0004 014A     		ldr	r2, .L19
+ 174 0006 0249     		ldr	r1, .L19+4
+ 175 0008 FFF7FEFF 		bl	SYS_ThrowError.part.0
+ 176              	.L20:
+ 177              		.align	2
+ 178              	.L19:
+ 179 000c 00000000 		.word	.LC4
+ 180 0010 17000000 		.word	.LC5
+ 182              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
+ARM GAS  /tmp/ccdjdTPL.s 			page 5
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 error.c
-     /tmp/ccJlflsf.s:17     .text._SYS_Error_NotifyDebug.part.0:0000000000000000 $t
-     /tmp/ccJlflsf.s:24     .text._SYS_Error_NotifyDebug.part.0:0000000000000000 _SYS_Error_NotifyDebug.part.0
-     /tmp/ccJlflsf.s:59     .text._SYS_Error_NotifyDebug.part.0:0000000000000044 $d
-     /tmp/ccJlflsf.s:70     .text.SYS_ThrowError:0000000000000000 $t
-     /tmp/ccJlflsf.s:77     .text.SYS_ThrowError:0000000000000000 SYS_ThrowError
-     /tmp/ccJlflsf.s:128    .text.SYS_ThrowError:0000000000000054 $d
+     /tmp/ccdjdTPL.s:17     .text._SYS_Error_NotifyDebug.part.0:0000000000000000 $t
+     /tmp/ccdjdTPL.s:24     .text._SYS_Error_NotifyDebug.part.0:0000000000000000 _SYS_Error_NotifyDebug.part.0
+     /tmp/ccdjdTPL.s:59     .text._SYS_Error_NotifyDebug.part.0:0000000000000044 $d
+     /tmp/ccdjdTPL.s:66     .text.SYS_ThrowError.part.0:0000000000000000 $t
+     /tmp/ccdjdTPL.s:72     .text.SYS_ThrowError.part.0:0000000000000000 SYS_ThrowError.part.0
+     /tmp/ccdjdTPL.s:97     .text.SYS_ThrowError.part.0:0000000000000024 $d
+     /tmp/ccdjdTPL.s:108    .text.SYS_ThrowError:0000000000000000 $t
+     /tmp/ccdjdTPL.s:115    .text.SYS_ThrowError:0000000000000000 SYS_ThrowError
+     /tmp/ccdjdTPL.s:150    .text.SYS_ThrowError:0000000000000038 $d
+     /tmp/ccdjdTPL.s:160    .text.Error_Handler:0000000000000000 $t
+     /tmp/ccdjdTPL.s:167    .text.Error_Handler:0000000000000000 Error_Handler
+     /tmp/ccdjdTPL.s:179    .text.Error_Handler:000000000000000c $d
 
 UNDEFINED SYMBOLS
 malloc

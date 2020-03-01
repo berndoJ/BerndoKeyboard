@@ -1,0 +1,172 @@
+ARM GAS  /tmp/cccEpx39.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 4
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"infinikeys.c"
+  12              		.text
+  13              		.section	.rodata.IK_Init.str1.1,"aMS",%progbits,1
+  14              	.LC0:
+  15 0000 496E6974 		.ascii	"Initialised Infini-Keys.\012\000"
+  15      69616C69 
+  15      73656420 
+  15      496E6669 
+  15      6E692D4B 
+  16              		.section	.text.IK_Init,"ax",%progbits
+  17              		.align	1
+  18              		.global	IK_Init
+  19              		.arch armv7-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu softvfp
+  25              	IK_Init:
+  26              		@ args = 0, pretend = 0, frame = 0
+  27              		@ frame_needed = 0, uses_anonymous_args = 0
+  28 0000 10B5     		push	{r4, lr}
+  29 0002 10B9     		cbnz	r0, .L2
+  30              	.L4:
+  31 0004 0124     		movs	r4, #1
+  32              	.L3:
+  33 0006 2046     		mov	r0, r4
+  34 0008 10BD     		pop	{r4, pc}
+  35              	.L2:
+  36 000a 104C     		ldr	r4, .L5
+  37 000c 2060     		str	r0, [r4]
+  38 000e FFF7FEFF 		bl	IK_USB_Init
+  39 0012 0028     		cmp	r0, #0
+  40 0014 F6D1     		bne	.L4
+  41 0016 2068     		ldr	r0, [r4]
+  42 0018 1830     		adds	r0, r0, #24
+  43 001a FFF7FEFF 		bl	IK_CFG_Init
+  44 001e 0028     		cmp	r0, #0
+  45 0020 F0D1     		bne	.L4
+  46 0022 FFF7FEFF 		bl	IK_KBM_Init
+  47 0026 0028     		cmp	r0, #0
+  48 0028 ECD1     		bne	.L4
+  49 002a 2068     		ldr	r0, [r4]
+  50 002c 1C30     		adds	r0, r0, #28
+  51 002e FFF7FEFF 		bl	IK_SWACQ_Init
+  52 0032 0028     		cmp	r0, #0
+  53 0034 E6D1     		bne	.L4
+  54 0036 2068     		ldr	r0, [r4]
+ARM GAS  /tmp/cccEpx39.s 			page 2
+
+
+  55 0038 2030     		adds	r0, r0, #32
+  56 003a FFF7FEFF 		bl	IK_DEBUG_Init
+  57 003e 0446     		mov	r4, r0
+  58 0040 0028     		cmp	r0, #0
+  59 0042 DFD1     		bne	.L4
+  60 0044 0248     		ldr	r0, .L5+4
+  61 0046 FFF7FEFF 		bl	IK_DEBUG_PrintMessage
+  62 004a DCE7     		b	.L3
+  63              	.L6:
+  64              		.align	2
+  65              	.L5:
+  66 004c 00000000 		.word	.LANCHOR0
+  67 0050 00000000 		.word	.LC0
+  69              		.section	.rodata.IK_DeInit.str1.1,"aMS",%progbits,1
+  70              	.LC1:
+  71 0000 44652D69 		.ascii	"De-initialising Infini-Keys...\012\000"
+  71      6E697469 
+  71      616C6973 
+  71      696E6720 
+  71      496E6669 
+  72              		.section	.text.IK_DeInit,"ax",%progbits
+  73              		.align	1
+  74              		.global	IK_DeInit
+  75              		.syntax unified
+  76              		.thumb
+  77              		.thumb_func
+  78              		.fpu softvfp
+  80              	IK_DeInit:
+  81              		@ args = 0, pretend = 0, frame = 0
+  82              		@ frame_needed = 0, uses_anonymous_args = 0
+  83 0000 08B5     		push	{r3, lr}
+  84 0002 0748     		ldr	r0, .L8
+  85 0004 FFF7FEFF 		bl	IK_DEBUG_PrintMessage
+  86 0008 FFF7FEFF 		bl	IK_DEBUG_DeInit
+  87 000c FFF7FEFF 		bl	IK_SWACQ_DeInit
+  88 0010 FFF7FEFF 		bl	IK_KBM_DeInit
+  89 0014 FFF7FEFF 		bl	IK_CFG_DeInit
+  90 0018 BDE80840 		pop	{r3, lr}
+  91 001c FFF7FEBF 		b	IK_USB_DeInit
+  92              	.L9:
+  93              		.align	2
+  94              	.L8:
+  95 0020 00000000 		.word	.LC1
+  97              		.section	.rodata.IK_Tick.str1.1,"aMS",%progbits,1
+  98              	.LC2:
+  99 0000 496E766F 		.ascii	"Invoked TICK.\012\000"
+  99      6B656420 
+  99      5449434B 
+  99      2E0A00
+ 100              		.section	.text.IK_Tick,"ax",%progbits
+ 101              		.align	1
+ 102              		.global	IK_Tick
+ 103              		.syntax unified
+ 104              		.thumb
+ 105              		.thumb_func
+ 106              		.fpu softvfp
+ 108              	IK_Tick:
+ARM GAS  /tmp/cccEpx39.s 			page 3
+
+
+ 109              		@ args = 0, pretend = 0, frame = 0
+ 110              		@ frame_needed = 0, uses_anonymous_args = 0
+ 111 0000 08B5     		push	{r3, lr}
+ 112 0002 0448     		ldr	r0, .L11
+ 113 0004 FFF7FEFF 		bl	IK_DEBUG_PrintMessage
+ 114 0008 FFF7FEFF 		bl	IK_CFG_Tick
+ 115 000c BDE80840 		pop	{r3, lr}
+ 116 0010 FFF7FEBF 		b	IK_SWACQ_PollTick
+ 117              	.L12:
+ 118              		.align	2
+ 119              	.L11:
+ 120 0014 00000000 		.word	.LC2
+ 122              		.section	.bss._init,"aw",%nobits
+ 123              		.align	2
+ 124              		.set	.LANCHOR0,. + 0
+ 127              	_init:
+ 128 0000 00000000 		.space	4
+ 129              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
+ARM GAS  /tmp/cccEpx39.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 infinikeys.c
+     /tmp/cccEpx39.s:17     .text.IK_Init:0000000000000000 $t
+     /tmp/cccEpx39.s:25     .text.IK_Init:0000000000000000 IK_Init
+     /tmp/cccEpx39.s:66     .text.IK_Init:000000000000004c $d
+     /tmp/cccEpx39.s:73     .text.IK_DeInit:0000000000000000 $t
+     /tmp/cccEpx39.s:80     .text.IK_DeInit:0000000000000000 IK_DeInit
+     /tmp/cccEpx39.s:95     .text.IK_DeInit:0000000000000020 $d
+     /tmp/cccEpx39.s:101    .text.IK_Tick:0000000000000000 $t
+     /tmp/cccEpx39.s:108    .text.IK_Tick:0000000000000000 IK_Tick
+     /tmp/cccEpx39.s:120    .text.IK_Tick:0000000000000014 $d
+     /tmp/cccEpx39.s:123    .bss._init:0000000000000000 $d
+     /tmp/cccEpx39.s:127    .bss._init:0000000000000000 _init
+
+UNDEFINED SYMBOLS
+IK_USB_Init
+IK_CFG_Init
+IK_KBM_Init
+IK_SWACQ_Init
+IK_DEBUG_Init
+IK_DEBUG_PrintMessage
+IK_DEBUG_DeInit
+IK_SWACQ_DeInit
+IK_KBM_DeInit
+IK_CFG_DeInit
+IK_USB_DeInit
+IK_CFG_Tick
+IK_SWACQ_PollTick

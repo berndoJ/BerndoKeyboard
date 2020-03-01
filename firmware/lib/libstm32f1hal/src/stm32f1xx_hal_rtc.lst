@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cci9GTYO.s 			page 1
+ARM GAS  /tmp/ccn0avGQ.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cci9GTYO.s 			page 1
   59              		.section	.text.RTC_ByteToBcd2,"ax",%progbits
   60              		.align	1
   61              		.syntax unified
-ARM GAS  /tmp/cci9GTYO.s 			page 2
+ARM GAS  /tmp/ccn0avGQ.s 			page 2
 
 
   62              		.thumb
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cci9GTYO.s 			page 1
  121 0018 1019     		adds	r0, r2, r4
  122 001a 4FF4C872 		mov	r2, #400
  123 001e 03F2CF73 		addw	r3, r3, #1999
-ARM GAS  /tmp/cci9GTYO.s 			page 3
+ARM GAS  /tmp/ccn0avGQ.s 			page 3
 
 
  124 0022 B3FBF2F2 		udiv	r2, r3, r2
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cci9GTYO.s 			page 1
  180 0028 EFD9     		bls	.L14
  181 002a 0320     		movs	r0, #3
  182 002c F6E7     		b	.L15
-ARM GAS  /tmp/cci9GTYO.s 			page 4
+ARM GAS  /tmp/ccn0avGQ.s 			page 4
 
 
  184              		.section	.text.RTC_ExitInitMode,"ax",%progbits
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cci9GTYO.s 			page 1
  241 001e 18BF     		it	ne
  242 0020 0120     		movne	r0, #1
  243              	.L24:
-ARM GAS  /tmp/cci9GTYO.s 			page 5
+ARM GAS  /tmp/ccn0avGQ.s 			page 5
 
 
  244 0022 38BD     		pop	{r3, r4, r5, pc}
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cci9GTYO.s 			page 1
  304              		@ frame_needed = 0, uses_anonymous_args = 0
  305              		@ link register save eliminated.
  306 0000 7047     		bx	lr
-ARM GAS  /tmp/cci9GTYO.s 			page 6
+ARM GAS  /tmp/ccn0avGQ.s 			page 6
 
 
  308              		.section	.text.HAL_RTC_SetTime,"ax",%progbits
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cci9GTYO.s 			page 1
  363 0062 0644     		add	r6, r6, r0
  364 0064 E2E7     		b	.L34
  365              	.L35:
-ARM GAS  /tmp/cci9GTYO.s 			page 7
+ARM GAS  /tmp/ccn0avGQ.s 			page 7
 
 
  366 0066 2268     		ldr	r2, [r4]
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cci9GTYO.s 			page 1
  422 0024 4FF46163 		mov	r3, #3600
  423 0028 B0FBF3F2 		udiv	r2, r0, r3
  424 002c 3C24     		movs	r4, #60
-ARM GAS  /tmp/cci9GTYO.s 			page 8
+ARM GAS  /tmp/ccn0avGQ.s 			page 8
 
 
  425 002e 03FB1203 		mls	r3, r3, r2, r0
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cci9GTYO.s 			page 1
  479              	.L66:
  480 00b4 5FB1     		cbz	r7, .L90
  481 00b6 3078     		ldrb	r0, [r6]	@ zero_extendqisi2
-ARM GAS  /tmp/cci9GTYO.s 			page 9
+ARM GAS  /tmp/ccn0avGQ.s 			page 9
 
 
  482 00b8 FFF7FEFF 		bl	RTC_ByteToBcd2
@@ -538,7 +538,7 @@ ARM GAS  /tmp/cci9GTYO.s 			page 1
  536 0128 02FB13E3 		mls	r3, r2, r3, lr
  537 012c 9BB2     		uxth	r3, r3
  538 012e 7BB9     		cbnz	r3, .L72
-ARM GAS  /tmp/cci9GTYO.s 			page 10
+ARM GAS  /tmp/ccn0avGQ.s 			page 10
 
 
  539 0130 BEFBF1F3 		udiv	r3, lr, r1
@@ -598,7 +598,7 @@ ARM GAS  /tmp/cci9GTYO.s 			page 1
  595 0010 4AD0     		beq	.L96
  596 0012 0123     		movs	r3, #1
  597 0014 6074     		strb	r0, [r4, #17]
-ARM GAS  /tmp/cci9GTYO.s 			page 11
+ARM GAS  /tmp/ccn0avGQ.s 			page 11
 
 
  598 0016 2374     		strb	r3, [r4, #16]
@@ -658,7 +658,7 @@ ARM GAS  /tmp/cci9GTYO.s 			page 1
  652 0090 2046     		mov	r0, r4
  653 0092 FFF7FEFF 		bl	RTC_WriteAlarmCounter
  654 0096 18B1     		cbz	r0, .L99
-ARM GAS  /tmp/cci9GTYO.s 			page 12
+ARM GAS  /tmp/ccn0avGQ.s 			page 12
 
 
  655 0098 0423     		movs	r3, #4
@@ -718,7 +718,7 @@ ARM GAS  /tmp/cci9GTYO.s 			page 1
  711 0036 6770     		strb	r7, [r4, #1]
  712 0038 AA7B     		ldrb	r2, [r5, #14]	@ zero_extendqisi2
  713 003a A270     		strb	r2, [r4, #2]
-ARM GAS  /tmp/cci9GTYO.s 			page 13
+ARM GAS  /tmp/ccn0avGQ.s 			page 13
 
 
  714 003c 002E     		cmp	r6, #0
@@ -778,7 +778,7 @@ ARM GAS  /tmp/cci9GTYO.s 			page 1
  770 004c 08FB0636 		mla	r6, r8, r6, r3
  771 0050 9DF80630 		ldrb	r3, [sp, #6]	@ zero_extendqisi2
  772 0054 2878     		ldrb	r0, [r5]	@ zero_extendqisi2
-ARM GAS  /tmp/cci9GTYO.s 			page 14
+ARM GAS  /tmp/ccn0avGQ.s 			page 14
 
 
  773 0056 95F801A0 		ldrb	r10, [r5, #1]	@ zero_extendqisi2
@@ -838,7 +838,7 @@ ARM GAS  /tmp/cci9GTYO.s 			page 1
  829 000a 0446     		mov	r4, r0
  830 000c ADF80420 		strh	r2, [sp, #4]	@ movhi
  831 0010 8DF80620 		strb	r2, [sp, #6]
-ARM GAS  /tmp/cci9GTYO.s 			page 15
+ARM GAS  /tmp/ccn0avGQ.s 			page 15
 
 
  832 0014 18B9     		cbnz	r0, .L136
@@ -898,7 +898,7 @@ ARM GAS  /tmp/cci9GTYO.s 			page 1
  886 0094 FFF7FEFF 		bl	RTC_Bcd2ToByte
  887 0098 7843     		muls	r0, r7, r0
  888 009a 08FB0101 		mla	r1, r8, r1, r0
-ARM GAS  /tmp/cci9GTYO.s 			page 16
+ARM GAS  /tmp/ccn0avGQ.s 			page 16
 
 
  889 009e 2846     		mov	r0, r5
@@ -958,7 +958,7 @@ ARM GAS  /tmp/cci9GTYO.s 			page 1
  945 002c E5B2     		uxtb	r5, r4
  946 002e 06FB1434 		mls	r4, r6, r4, r3
  947 0032 E4B2     		uxtb	r4, r4
-ARM GAS  /tmp/cci9GTYO.s 			page 17
+ARM GAS  /tmp/ccn0avGQ.s 			page 17
 
 
  948 0034 0870     		strb	r0, [r1]
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/cci9GTYO.s 			page 1
  1004 0032 1AE0     		b	.L156
  1005              	.L157:
  1006 0034 6FF00202 		mvn	r2, #2
-ARM GAS  /tmp/cci9GTYO.s 			page 18
+ARM GAS  /tmp/ccn0avGQ.s 			page 18
 
 
  1007 0038 2368     		ldr	r3, [r4]
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/cci9GTYO.s 			page 1
  1065 000e 9B07     		lsls	r3, r3, #30
  1066 0010 05D5     		bpl	.L163
  1067 0012 FFF7FEFF 		bl	HAL_RTC_AlarmAEventCallback
-ARM GAS  /tmp/cci9GTYO.s 			page 19
+ARM GAS  /tmp/ccn0avGQ.s 			page 19
 
 
  1068 0016 6FF00202 		mvn	r2, #2
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/cci9GTYO.s 			page 1
  1124 0038 0020     		movs	r0, #0
  1125 003a 6374     		strb	r3, [r4, #17]
  1126 003c F3E7     		b	.L173
-ARM GAS  /tmp/cci9GTYO.s 			page 20
+ARM GAS  /tmp/ccn0avGQ.s 			page 20
 
 
  1128              		.section	.text.HAL_RTC_GetState,"ax",%progbits
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/cci9GTYO.s 			page 1
  1186              		.thumb
  1187              		.thumb_func
  1188              		.fpu softvfp
-ARM GAS  /tmp/cci9GTYO.s 			page 21
+ARM GAS  /tmp/ccn0avGQ.s 			page 21
 
 
  1190              	HAL_RTC_Init:
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/cci9GTYO.s 			page 1
  1244 006a 23F00F03 		bic	r3, r3, #15
  1245 006e 43EA1043 		orr	r3, r3, r0, lsr #16
  1246 0072 9360     		str	r3, [r2, #8]
-ARM GAS  /tmp/cci9GTYO.s 			page 22
+ARM GAS  /tmp/ccn0avGQ.s 			page 22
 
 
  1247 0074 D368     		ldr	r3, [r2, #12]
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/cci9GTYO.s 			page 1
  1303 002a 9860     		str	r0, [r3, #8]
  1304 002c 1860     		str	r0, [r3]
  1305 002e 5860     		str	r0, [r3, #4]
-ARM GAS  /tmp/cci9GTYO.s 			page 23
+ARM GAS  /tmp/ccn0avGQ.s 			page 23
 
 
  1306 0030 2046     		mov	r0, r4
@@ -1344,71 +1344,71 @@ ARM GAS  /tmp/cci9GTYO.s 			page 1
  1326 005c 2846     		mov	r0, r5
  1327 005e 70BD     		pop	{r4, r5, r6, pc}
  1329              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
-ARM GAS  /tmp/cci9GTYO.s 			page 24
+ARM GAS  /tmp/ccn0avGQ.s 			page 24
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f1xx_hal_rtc.c
-     /tmp/cci9GTYO.s:14     .text.RTC_ReadTimeCounter:0000000000000000 $t
-     /tmp/cci9GTYO.s:21     .text.RTC_ReadTimeCounter:0000000000000000 RTC_ReadTimeCounter
-     /tmp/cci9GTYO.s:42     .text.RTC_ReadAlarmCounter:0000000000000000 $t
-     /tmp/cci9GTYO.s:48     .text.RTC_ReadAlarmCounter:0000000000000000 RTC_ReadAlarmCounter
-     /tmp/cci9GTYO.s:60     .text.RTC_ByteToBcd2:0000000000000000 $t
-     /tmp/cci9GTYO.s:66     .text.RTC_ByteToBcd2:0000000000000000 RTC_ByteToBcd2
-     /tmp/cci9GTYO.s:84     .text.RTC_Bcd2ToByte:0000000000000000 $t
-     /tmp/cci9GTYO.s:90     .text.RTC_Bcd2ToByte:0000000000000000 RTC_Bcd2ToByte
-     /tmp/cci9GTYO.s:102    .text.RTC_WeekDayNum:0000000000000000 $t
-     /tmp/cci9GTYO.s:108    .text.RTC_WeekDayNum:0000000000000000 RTC_WeekDayNum
-     /tmp/cci9GTYO.s:152    .text.RTC_EnterInitMode:0000000000000000 $t
-     /tmp/cci9GTYO.s:158    .text.RTC_EnterInitMode:0000000000000000 RTC_EnterInitMode
-     /tmp/cci9GTYO.s:185    .text.RTC_ExitInitMode:0000000000000000 $t
-     /tmp/cci9GTYO.s:191    .text.RTC_ExitInitMode:0000000000000000 RTC_ExitInitMode
-     /tmp/cci9GTYO.s:219    .text.RTC_WriteTimeCounter:0000000000000000 $t
-     /tmp/cci9GTYO.s:225    .text.RTC_WriteTimeCounter:0000000000000000 RTC_WriteTimeCounter
-     /tmp/cci9GTYO.s:250    .text.RTC_WriteAlarmCounter:0000000000000000 $t
-     /tmp/cci9GTYO.s:256    .text.RTC_WriteAlarmCounter:0000000000000000 RTC_WriteAlarmCounter
-     /tmp/cci9GTYO.s:281    .text.HAL_RTC_MspInit:0000000000000000 $t
-     /tmp/cci9GTYO.s:288    .text.HAL_RTC_MspInit:0000000000000000 HAL_RTC_MspInit
-     /tmp/cci9GTYO.s:295    .text.HAL_RTC_MspDeInit:0000000000000000 $t
-     /tmp/cci9GTYO.s:302    .text.HAL_RTC_MspDeInit:0000000000000000 HAL_RTC_MspDeInit
-     /tmp/cci9GTYO.s:309    .text.HAL_RTC_SetTime:0000000000000000 $t
-     /tmp/cci9GTYO.s:316    .text.HAL_RTC_SetTime:0000000000000000 HAL_RTC_SetTime
-     /tmp/cci9GTYO.s:395    .text.HAL_RTC_GetTime:0000000000000000 $t
-     /tmp/cci9GTYO.s:402    .text.HAL_RTC_GetTime:0000000000000000 HAL_RTC_GetTime
-     /tmp/cci9GTYO.s:573    .text.HAL_RTC_GetTime:0000000000000168 $d
-     /tmp/cci9GTYO.s:577    .text.HAL_RTC_SetDate:0000000000000000 $t
-     /tmp/cci9GTYO.s:584    .text.HAL_RTC_SetDate:0000000000000000 HAL_RTC_SetDate
-     /tmp/cci9GTYO.s:669    .text.HAL_RTC_SetDate:00000000000000ac $d
-     /tmp/cci9GTYO.s:673    .text.HAL_RTC_GetDate:0000000000000000 $t
-     /tmp/cci9GTYO.s:680    .text.HAL_RTC_GetDate:0000000000000000 HAL_RTC_GetDate
-     /tmp/cci9GTYO.s:727    .text.HAL_RTC_SetAlarm:0000000000000000 $t
-     /tmp/cci9GTYO.s:734    .text.HAL_RTC_SetAlarm:0000000000000000 HAL_RTC_SetAlarm
-     /tmp/cci9GTYO.s:815    .text.HAL_RTC_SetAlarm_IT:0000000000000000 $t
-     /tmp/cci9GTYO.s:822    .text.HAL_RTC_SetAlarm_IT:0000000000000000 HAL_RTC_SetAlarm_IT
-     /tmp/cci9GTYO.s:917    .text.HAL_RTC_SetAlarm_IT:00000000000000d8 $d
-     /tmp/cci9GTYO.s:920    .text.HAL_RTC_GetAlarm:0000000000000000 $t
-     /tmp/cci9GTYO.s:927    .text.HAL_RTC_GetAlarm:0000000000000000 HAL_RTC_GetAlarm
-     /tmp/cci9GTYO.s:971    .text.HAL_RTC_DeactivateAlarm:0000000000000000 $t
-     /tmp/cci9GTYO.s:978    .text.HAL_RTC_DeactivateAlarm:0000000000000000 HAL_RTC_DeactivateAlarm
-     /tmp/cci9GTYO.s:1034   .text.HAL_RTC_AlarmAEventCallback:0000000000000000 $t
-     /tmp/cci9GTYO.s:1041   .text.HAL_RTC_AlarmAEventCallback:0000000000000000 HAL_RTC_AlarmAEventCallback
-     /tmp/cci9GTYO.s:1048   .text.HAL_RTC_AlarmIRQHandler:0000000000000000 $t
-     /tmp/cci9GTYO.s:1055   .text.HAL_RTC_AlarmIRQHandler:0000000000000000 HAL_RTC_AlarmIRQHandler
-     /tmp/cci9GTYO.s:1081   .text.HAL_RTC_AlarmIRQHandler:000000000000002c $d
-     /tmp/cci9GTYO.s:1084   .text.HAL_RTC_PollForAlarmAEvent:0000000000000000 $t
-     /tmp/cci9GTYO.s:1091   .text.HAL_RTC_PollForAlarmAEvent:0000000000000000 HAL_RTC_PollForAlarmAEvent
-     /tmp/cci9GTYO.s:1129   .text.HAL_RTC_GetState:0000000000000000 $t
-     /tmp/cci9GTYO.s:1136   .text.HAL_RTC_GetState:0000000000000000 HAL_RTC_GetState
-     /tmp/cci9GTYO.s:1144   .text.HAL_RTC_WaitForSynchro:0000000000000000 $t
-     /tmp/cci9GTYO.s:1151   .text.HAL_RTC_WaitForSynchro:0000000000000000 HAL_RTC_WaitForSynchro
-     /tmp/cci9GTYO.s:1183   .text.HAL_RTC_Init:0000000000000000 $t
-     /tmp/cci9GTYO.s:1190   .text.HAL_RTC_Init:0000000000000000 HAL_RTC_Init
-     /tmp/cci9GTYO.s:1269   .text.HAL_RTC_Init:0000000000000098 $d
-ARM GAS  /tmp/cci9GTYO.s 			page 25
+     /tmp/ccn0avGQ.s:14     .text.RTC_ReadTimeCounter:0000000000000000 $t
+     /tmp/ccn0avGQ.s:21     .text.RTC_ReadTimeCounter:0000000000000000 RTC_ReadTimeCounter
+     /tmp/ccn0avGQ.s:42     .text.RTC_ReadAlarmCounter:0000000000000000 $t
+     /tmp/ccn0avGQ.s:48     .text.RTC_ReadAlarmCounter:0000000000000000 RTC_ReadAlarmCounter
+     /tmp/ccn0avGQ.s:60     .text.RTC_ByteToBcd2:0000000000000000 $t
+     /tmp/ccn0avGQ.s:66     .text.RTC_ByteToBcd2:0000000000000000 RTC_ByteToBcd2
+     /tmp/ccn0avGQ.s:84     .text.RTC_Bcd2ToByte:0000000000000000 $t
+     /tmp/ccn0avGQ.s:90     .text.RTC_Bcd2ToByte:0000000000000000 RTC_Bcd2ToByte
+     /tmp/ccn0avGQ.s:102    .text.RTC_WeekDayNum:0000000000000000 $t
+     /tmp/ccn0avGQ.s:108    .text.RTC_WeekDayNum:0000000000000000 RTC_WeekDayNum
+     /tmp/ccn0avGQ.s:152    .text.RTC_EnterInitMode:0000000000000000 $t
+     /tmp/ccn0avGQ.s:158    .text.RTC_EnterInitMode:0000000000000000 RTC_EnterInitMode
+     /tmp/ccn0avGQ.s:185    .text.RTC_ExitInitMode:0000000000000000 $t
+     /tmp/ccn0avGQ.s:191    .text.RTC_ExitInitMode:0000000000000000 RTC_ExitInitMode
+     /tmp/ccn0avGQ.s:219    .text.RTC_WriteTimeCounter:0000000000000000 $t
+     /tmp/ccn0avGQ.s:225    .text.RTC_WriteTimeCounter:0000000000000000 RTC_WriteTimeCounter
+     /tmp/ccn0avGQ.s:250    .text.RTC_WriteAlarmCounter:0000000000000000 $t
+     /tmp/ccn0avGQ.s:256    .text.RTC_WriteAlarmCounter:0000000000000000 RTC_WriteAlarmCounter
+     /tmp/ccn0avGQ.s:281    .text.HAL_RTC_MspInit:0000000000000000 $t
+     /tmp/ccn0avGQ.s:288    .text.HAL_RTC_MspInit:0000000000000000 HAL_RTC_MspInit
+     /tmp/ccn0avGQ.s:295    .text.HAL_RTC_MspDeInit:0000000000000000 $t
+     /tmp/ccn0avGQ.s:302    .text.HAL_RTC_MspDeInit:0000000000000000 HAL_RTC_MspDeInit
+     /tmp/ccn0avGQ.s:309    .text.HAL_RTC_SetTime:0000000000000000 $t
+     /tmp/ccn0avGQ.s:316    .text.HAL_RTC_SetTime:0000000000000000 HAL_RTC_SetTime
+     /tmp/ccn0avGQ.s:395    .text.HAL_RTC_GetTime:0000000000000000 $t
+     /tmp/ccn0avGQ.s:402    .text.HAL_RTC_GetTime:0000000000000000 HAL_RTC_GetTime
+     /tmp/ccn0avGQ.s:573    .text.HAL_RTC_GetTime:0000000000000168 $d
+     /tmp/ccn0avGQ.s:577    .text.HAL_RTC_SetDate:0000000000000000 $t
+     /tmp/ccn0avGQ.s:584    .text.HAL_RTC_SetDate:0000000000000000 HAL_RTC_SetDate
+     /tmp/ccn0avGQ.s:669    .text.HAL_RTC_SetDate:00000000000000ac $d
+     /tmp/ccn0avGQ.s:673    .text.HAL_RTC_GetDate:0000000000000000 $t
+     /tmp/ccn0avGQ.s:680    .text.HAL_RTC_GetDate:0000000000000000 HAL_RTC_GetDate
+     /tmp/ccn0avGQ.s:727    .text.HAL_RTC_SetAlarm:0000000000000000 $t
+     /tmp/ccn0avGQ.s:734    .text.HAL_RTC_SetAlarm:0000000000000000 HAL_RTC_SetAlarm
+     /tmp/ccn0avGQ.s:815    .text.HAL_RTC_SetAlarm_IT:0000000000000000 $t
+     /tmp/ccn0avGQ.s:822    .text.HAL_RTC_SetAlarm_IT:0000000000000000 HAL_RTC_SetAlarm_IT
+     /tmp/ccn0avGQ.s:917    .text.HAL_RTC_SetAlarm_IT:00000000000000d8 $d
+     /tmp/ccn0avGQ.s:920    .text.HAL_RTC_GetAlarm:0000000000000000 $t
+     /tmp/ccn0avGQ.s:927    .text.HAL_RTC_GetAlarm:0000000000000000 HAL_RTC_GetAlarm
+     /tmp/ccn0avGQ.s:971    .text.HAL_RTC_DeactivateAlarm:0000000000000000 $t
+     /tmp/ccn0avGQ.s:978    .text.HAL_RTC_DeactivateAlarm:0000000000000000 HAL_RTC_DeactivateAlarm
+     /tmp/ccn0avGQ.s:1034   .text.HAL_RTC_AlarmAEventCallback:0000000000000000 $t
+     /tmp/ccn0avGQ.s:1041   .text.HAL_RTC_AlarmAEventCallback:0000000000000000 HAL_RTC_AlarmAEventCallback
+     /tmp/ccn0avGQ.s:1048   .text.HAL_RTC_AlarmIRQHandler:0000000000000000 $t
+     /tmp/ccn0avGQ.s:1055   .text.HAL_RTC_AlarmIRQHandler:0000000000000000 HAL_RTC_AlarmIRQHandler
+     /tmp/ccn0avGQ.s:1081   .text.HAL_RTC_AlarmIRQHandler:000000000000002c $d
+     /tmp/ccn0avGQ.s:1084   .text.HAL_RTC_PollForAlarmAEvent:0000000000000000 $t
+     /tmp/ccn0avGQ.s:1091   .text.HAL_RTC_PollForAlarmAEvent:0000000000000000 HAL_RTC_PollForAlarmAEvent
+     /tmp/ccn0avGQ.s:1129   .text.HAL_RTC_GetState:0000000000000000 $t
+     /tmp/ccn0avGQ.s:1136   .text.HAL_RTC_GetState:0000000000000000 HAL_RTC_GetState
+     /tmp/ccn0avGQ.s:1144   .text.HAL_RTC_WaitForSynchro:0000000000000000 $t
+     /tmp/ccn0avGQ.s:1151   .text.HAL_RTC_WaitForSynchro:0000000000000000 HAL_RTC_WaitForSynchro
+     /tmp/ccn0avGQ.s:1183   .text.HAL_RTC_Init:0000000000000000 $t
+     /tmp/ccn0avGQ.s:1190   .text.HAL_RTC_Init:0000000000000000 HAL_RTC_Init
+     /tmp/ccn0avGQ.s:1269   .text.HAL_RTC_Init:0000000000000098 $d
+ARM GAS  /tmp/ccn0avGQ.s 			page 25
 
 
-     /tmp/cci9GTYO.s:1272   .text.HAL_RTC_DeInit:0000000000000000 $t
-     /tmp/cci9GTYO.s:1279   .text.HAL_RTC_DeInit:0000000000000000 HAL_RTC_DeInit
+     /tmp/ccn0avGQ.s:1272   .text.HAL_RTC_DeInit:0000000000000000 $t
+     /tmp/ccn0avGQ.s:1279   .text.HAL_RTC_DeInit:0000000000000000 HAL_RTC_DeInit
 
 UNDEFINED SYMBOLS
 HAL_GetTick

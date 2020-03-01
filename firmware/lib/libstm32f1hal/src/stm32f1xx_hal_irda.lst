@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccfm8A8j.s 			page 1
+ARM GAS  /tmp/ccqLTgpr.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccfm8A8j.s 			page 1
   58 0016 14E0     		b	.L6
   59              	.L8:
   60 0018 6B1C     		adds	r3, r5, #1
-ARM GAS  /tmp/ccfm8A8j.s 			page 2
+ARM GAS  /tmp/ccqLTgpr.s 			page 2
 
 
   61 001a F7D0     		beq	.L4
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccfm8A8j.s 			page 1
  119 0016 FFF7FEFF 		bl	HAL_IRDA_MspInit
  120              	.L14:
  121 001a 2423     		movs	r3, #36
-ARM GAS  /tmp/ccfm8A8j.s 			page 3
+ARM GAS  /tmp/ccqLTgpr.s 			page 3
 
 
  122 001c 84F83530 		strb	r3, [r4, #53]
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccfm8A8j.s 			page 1
  176 00a6 9A69     		ldr	r2, [r3, #24]
  177 00a8 217D     		ldrb	r1, [r4, #20]	@ zero_extendqisi2
  178 00aa 22F0FF02 		bic	r2, r2, #255
-ARM GAS  /tmp/ccfm8A8j.s 			page 4
+ARM GAS  /tmp/ccqLTgpr.s 			page 4
 
 
  179 00ae 0A43     		orrs	r2, r2, r1
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccfm8A8j.s 			page 1
  237 000e D368     		ldr	r3, [r2, #12]
  238 0010 23F40053 		bic	r3, r3, #8192
  239 0014 D360     		str	r3, [r2, #12]
-ARM GAS  /tmp/ccfm8A8j.s 			page 5
+ARM GAS  /tmp/ccqLTgpr.s 			page 5
 
 
  240 0016 FFF7FEFF 		bl	HAL_IRDA_MspDeInit
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccfm8A8j.s 			page 1
  296 0050 FFF7FEFF 		bl	IRDA_WaitOnFlagUntilTimeout.constprop.0
  297 0054 A0B9     		cbnz	r0, .L32
  298 0056 2023     		movs	r3, #32
-ARM GAS  /tmp/ccfm8A8j.s 			page 6
+ARM GAS  /tmp/ccqLTgpr.s 			page 6
 
 
  299 0058 84F83400 		strb	r0, [r4, #52]
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccfm8A8j.s 			page 1
  355              	HAL_IRDA_Receive:
  356              		@ args = 0, pretend = 0, frame = 0
  357              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccfm8A8j.s 			page 7
+ARM GAS  /tmp/ccqLTgpr.s 			page 7
 
 
  358 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccfm8A8j.s 			page 1
  412 007e 5B68     		ldr	r3, [r3, #4]
  413 0080 32B9     		cbnz	r2, .L43
  414 0082 2946     		mov	r1, r5
-ARM GAS  /tmp/ccfm8A8j.s 			page 8
+ARM GAS  /tmp/ccqLTgpr.s 			page 8
 
 
  415 0084 C3F30803 		ubfx	r3, r3, #0, #9
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccfm8A8j.s 			page 1
  471 001c C161     		str	r1, [r0, #28]
  472 001e 0168     		ldr	r1, [r0]
  473 0020 8363     		str	r3, [r0, #56]
-ARM GAS  /tmp/ccfm8A8j.s 			page 9
+ARM GAS  /tmp/ccqLTgpr.s 			page 9
 
 
  474 0022 80F83430 		strb	r3, [r0, #52]
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccfm8A8j.s 			page 1
  530 0044 7047     		bx	lr
  532              		.section	.text.HAL_IRDA_Transmit_DMA,"ax",%progbits
  533              		.align	1
-ARM GAS  /tmp/ccfm8A8j.s 			page 10
+ARM GAS  /tmp/ccqLTgpr.s 			page 10
 
 
  534              		.global	HAL_IRDA_Transmit_DMA
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccfm8A8j.s 			page 1
  589              	.L72:
  590              		.align	2
  591              	.L71:
-ARM GAS  /tmp/ccfm8A8j.s 			page 11
+ARM GAS  /tmp/ccqLTgpr.s 			page 11
 
 
  592 0068 00000000 		.word	IRDA_DMATransmitCplt
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccfm8A8j.s 			page 1
  648 0060 DA68     		ldr	r2, [r3, #12]
  649 0062 42F48072 		orr	r2, r2, #256
  650 0066 DA60     		str	r2, [r3, #12]
-ARM GAS  /tmp/ccfm8A8j.s 			page 12
+ARM GAS  /tmp/ccqLTgpr.s 			page 12
 
 
  651 0068 5A69     		ldr	r2, [r3, #20]
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccfm8A8j.s 			page 1
  707 0032 0BD5     		bpl	.L84
  708 0034 DA68     		ldr	r2, [r3, #12]
  709 0036 22F48072 		bic	r2, r2, #256
-ARM GAS  /tmp/ccfm8A8j.s 			page 13
+ARM GAS  /tmp/ccqLTgpr.s 			page 13
 
 
  710 003a DA60     		str	r2, [r3, #12]
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccfm8A8j.s 			page 1
  766 0044 42F00102 		orr	r2, r2, #1
  767 0048 5A61     		str	r2, [r3, #20]
  768 004a 5A69     		ldr	r2, [r3, #20]
-ARM GAS  /tmp/ccfm8A8j.s 			page 14
+ARM GAS  /tmp/ccqLTgpr.s 			page 14
 
 
  769 004c 42F04002 		orr	r2, r2, #64
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccfm8A8j.s 			page 1
  825 0046 206B     		ldr	r0, [r4, #48]
  826 0048 22F04002 		bic	r2, r2, #64
  827 004c 5A61     		str	r2, [r3, #20]
-ARM GAS  /tmp/ccfm8A8j.s 			page 15
+ARM GAS  /tmp/ccqLTgpr.s 			page 15
 
 
  828 004e 08B1     		cbz	r0, .L101
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccfm8A8j.s 			page 1
  884 0050 6084     		strh	r0, [r4, #34]	@ movhi
  885 0052 6085     		strh	r0, [r4, #42]	@ movhi
  886 0054 A063     		str	r0, [r4, #56]
-ARM GAS  /tmp/ccfm8A8j.s 			page 16
+ARM GAS  /tmp/ccqLTgpr.s 			page 16
 
 
  887 0056 84F83630 		strb	r3, [r4, #54]
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccfm8A8j.s 			page 1
  945 0014 5A61     		str	r2, [r3, #20]
  946 0016 5A69     		ldr	r2, [r3, #20]
  947 0018 5206     		lsls	r2, r2, #25
-ARM GAS  /tmp/ccfm8A8j.s 			page 17
+ARM GAS  /tmp/ccqLTgpr.s 			page 17
 
 
  948 001a 09D5     		bpl	.L136
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccfm8A8j.s 			page 1
  1006 0026 FFF7FEFF 		bl	HAL_IRDA_TxCpltCallback
  1007 002a FBE7     		b	.L142
  1009              		.section	.text.HAL_IRDA_TxHalfCpltCallback,"ax",%progbits
-ARM GAS  /tmp/ccfm8A8j.s 			page 18
+ARM GAS  /tmp/ccqLTgpr.s 			page 18
 
 
  1010              		.align	1
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccfm8A8j.s 			page 1
  1071 0014 DA68     		ldr	r2, [r3, #12]
  1072 0016 22F48072 		bic	r2, r2, #256
  1073 001a DA60     		str	r2, [r3, #12]
-ARM GAS  /tmp/ccfm8A8j.s 			page 19
+ARM GAS  /tmp/ccqLTgpr.s 			page 19
 
 
  1074 001c 5A69     		ldr	r2, [r3, #20]
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccfm8A8j.s 			page 1
  1130 004e 80F83630 		strb	r3, [r0, #54]
  1131 0052 FFF7FEFF 		bl	HAL_IRDA_RxCpltCallback
  1132              	.L157:
-ARM GAS  /tmp/ccfm8A8j.s 			page 20
+ARM GAS  /tmp/ccqLTgpr.s 			page 20
 
 
  1133 0056 0020     		movs	r0, #0
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccfm8A8j.s 			page 1
  1193              		@ args = 0, pretend = 0, frame = 0
  1194              		@ frame_needed = 0, uses_anonymous_args = 0
  1195              		@ link register save eliminated.
-ARM GAS  /tmp/ccfm8A8j.s 			page 21
+ARM GAS  /tmp/ccqLTgpr.s 			page 21
 
 
  1196 0000 7047     		bx	lr
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccfm8A8j.s 			page 1
  1254 0004 1A68     		ldr	r2, [r3]
  1255 0006 0446     		mov	r4, r0
  1256 0008 1607     		lsls	r6, r2, #28
-ARM GAS  /tmp/ccfm8A8j.s 			page 22
+ARM GAS  /tmp/ccqLTgpr.s 			page 22
 
 
  1257 000a D968     		ldr	r1, [r3, #12]
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccfm8A8j.s 			page 1
  1311 007c 5B69     		ldr	r3, [r3, #20]
  1312 007e A56B     		ldr	r5, [r4, #56]
  1313 0080 03F04003 		and	r3, r3, #64
-ARM GAS  /tmp/ccfm8A8j.s 			page 23
+ARM GAS  /tmp/ccqLTgpr.s 			page 23
 
 
  1314 0084 05F00805 		and	r5, r5, #8
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccfm8A8j.s 			page 1
  1368 00f8 6284     		strh	r2, [r4, #34]	@ movhi
  1369 00fa 002A     		cmp	r2, #0
  1370 00fc DFD1     		bne	.L172
-ARM GAS  /tmp/ccfm8A8j.s 			page 24
+ARM GAS  /tmp/ccqLTgpr.s 			page 24
 
 
  1371 00fe DA68     		ldr	r2, [r3, #12]
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccfm8A8j.s 			page 1
  1428              		.weak	HAL_IRDA_AbortCpltCallback
  1429              		.syntax unified
  1430              		.thumb
-ARM GAS  /tmp/ccfm8A8j.s 			page 25
+ARM GAS  /tmp/ccqLTgpr.s 			page 25
 
 
  1431              		.thumb_func
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccfm8A8j.s 			page 1
  1488 004a 21F04001 		bic	r1, r1, #64
  1489 004e 5161     		str	r1, [r2, #20]
  1490 0050 08B3     		cbz	r0, .L262
-ARM GAS  /tmp/ccfm8A8j.s 			page 26
+ARM GAS  /tmp/ccqLTgpr.s 			page 26
 
 
  1491 0052 FFF7FEFF 		bl	HAL_DMA_Abort_IT
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccfm8A8j.s 			page 1
  1547 0008 5363     		str	r3, [r2, #52]
  1548 000a C26A     		ldr	r2, [r0, #44]
  1549 000c 0AB1     		cbz	r2, .L287
-ARM GAS  /tmp/ccfm8A8j.s 			page 27
+ARM GAS  /tmp/ccqLTgpr.s 			page 27
 
 
  1550 000e 526B     		ldr	r2, [r2, #52]
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccfm8A8j.s 			page 1
  1609              		.global	HAL_IRDA_AbortTransmit_IT
  1610              		.syntax unified
  1611              		.thumb
-ARM GAS  /tmp/ccfm8A8j.s 			page 28
+ARM GAS  /tmp/ccqLTgpr.s 			page 28
 
 
  1612              		.thumb_func
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccfm8A8j.s 			page 1
  1669 0002 0023     		movs	r3, #0
  1670 0004 406A     		ldr	r0, [r0, #36]
  1671 0006 4384     		strh	r3, [r0, #34]	@ movhi
-ARM GAS  /tmp/ccfm8A8j.s 			page 29
+ARM GAS  /tmp/ccqLTgpr.s 			page 29
 
 
  1672 0008 2023     		movs	r3, #32
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccfm8A8j.s 			page 1
  1730              	.L313:
  1731 0040 4385     		strh	r3, [r0, #42]	@ movhi
  1732              	.L318:
-ARM GAS  /tmp/ccfm8A8j.s 			page 30
+ARM GAS  /tmp/ccqLTgpr.s 			page 30
 
 
  1733 0042 2023     		movs	r3, #32
@@ -1798,110 +1798,110 @@ ARM GAS  /tmp/ccfm8A8j.s 			page 1
  1793 0000 806B     		ldr	r0, [r0, #56]
  1794 0002 7047     		bx	lr
  1796              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
-ARM GAS  /tmp/ccfm8A8j.s 			page 31
+ARM GAS  /tmp/ccqLTgpr.s 			page 31
 
 
-ARM GAS  /tmp/ccfm8A8j.s 			page 32
+ARM GAS  /tmp/ccqLTgpr.s 			page 32
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f1xx_hal_irda.c
-     /tmp/ccfm8A8j.s:14     .text.IRDA_EndRxTransfer:0000000000000000 $t
-     /tmp/ccfm8A8j.s:21     .text.IRDA_EndRxTransfer:0000000000000000 IRDA_EndRxTransfer
-     /tmp/ccfm8A8j.s:37     .text.IRDA_WaitOnFlagUntilTimeout.constprop.0:0000000000000000 $t
-     /tmp/ccfm8A8j.s:43     .text.IRDA_WaitOnFlagUntilTimeout.constprop.0:0000000000000000 IRDA_WaitOnFlagUntilTimeout.constprop.0
-     /tmp/ccfm8A8j.s:87     .text.HAL_IRDA_MspInit:0000000000000000 $t
-     /tmp/ccfm8A8j.s:94     .text.HAL_IRDA_MspInit:0000000000000000 HAL_IRDA_MspInit
-     /tmp/ccfm8A8j.s:101    .text.HAL_IRDA_Init:0000000000000000 $t
-     /tmp/ccfm8A8j.s:108    .text.HAL_IRDA_Init:0000000000000000 HAL_IRDA_Init
-     /tmp/ccfm8A8j.s:204    .text.HAL_IRDA_Init:00000000000000e0 $d
-     /tmp/ccfm8A8j.s:207    .text.HAL_IRDA_MspDeInit:0000000000000000 $t
-     /tmp/ccfm8A8j.s:214    .text.HAL_IRDA_MspDeInit:0000000000000000 HAL_IRDA_MspDeInit
-     /tmp/ccfm8A8j.s:221    .text.HAL_IRDA_DeInit:0000000000000000 $t
-     /tmp/ccfm8A8j.s:228    .text.HAL_IRDA_DeInit:0000000000000000 HAL_IRDA_DeInit
-     /tmp/ccfm8A8j.s:253    .text.HAL_IRDA_Transmit:0000000000000000 $t
-     /tmp/ccfm8A8j.s:260    .text.HAL_IRDA_Transmit:0000000000000000 HAL_IRDA_Transmit
-     /tmp/ccfm8A8j.s:348    .text.HAL_IRDA_Receive:0000000000000000 $t
-     /tmp/ccfm8A8j.s:355    .text.HAL_IRDA_Receive:0000000000000000 HAL_IRDA_Receive
-     /tmp/ccfm8A8j.s:448    .text.HAL_IRDA_Transmit_IT:0000000000000000 $t
-     /tmp/ccfm8A8j.s:455    .text.HAL_IRDA_Transmit_IT:0000000000000000 HAL_IRDA_Transmit_IT
-     /tmp/ccfm8A8j.s:489    .text.HAL_IRDA_Receive_IT:0000000000000000 $t
-     /tmp/ccfm8A8j.s:496    .text.HAL_IRDA_Receive_IT:0000000000000000 HAL_IRDA_Receive_IT
-     /tmp/ccfm8A8j.s:533    .text.HAL_IRDA_Transmit_DMA:0000000000000000 $t
-     /tmp/ccfm8A8j.s:540    .text.HAL_IRDA_Transmit_DMA:0000000000000000 HAL_IRDA_Transmit_DMA
-     /tmp/ccfm8A8j.s:592    .text.HAL_IRDA_Transmit_DMA:0000000000000068 $d
-     /tmp/ccfm8A8j.s:985    .text.IRDA_DMATransmitCplt:0000000000000000 IRDA_DMATransmitCplt
-     /tmp/ccfm8A8j.s:1030   .text.IRDA_DMATransmitHalfCplt:0000000000000000 IRDA_DMATransmitHalfCplt
-     /tmp/ccfm8A8j.s:1205   .text.IRDA_DMAError:0000000000000000 IRDA_DMAError
-     /tmp/ccfm8A8j.s:597    .text.HAL_IRDA_Receive_DMA:0000000000000000 $t
-     /tmp/ccfm8A8j.s:604    .text.HAL_IRDA_Receive_DMA:0000000000000000 HAL_IRDA_Receive_DMA
-     /tmp/ccfm8A8j.s:670    .text.HAL_IRDA_Receive_DMA:0000000000000084 $d
-     /tmp/ccfm8A8j.s:1059   .text.IRDA_DMAReceiveCplt:0000000000000000 IRDA_DMAReceiveCplt
-     /tmp/ccfm8A8j.s:1176   .text.IRDA_DMAReceiveHalfCplt:0000000000000000 IRDA_DMAReceiveHalfCplt
-     /tmp/ccfm8A8j.s:675    .text.HAL_IRDA_DMAPause:0000000000000000 $t
-     /tmp/ccfm8A8j.s:682    .text.HAL_IRDA_DMAPause:0000000000000000 HAL_IRDA_DMAPause
-     /tmp/ccfm8A8j.s:727    .text.HAL_IRDA_DMAResume:0000000000000000 $t
-     /tmp/ccfm8A8j.s:734    .text.HAL_IRDA_DMAResume:0000000000000000 HAL_IRDA_DMAResume
-     /tmp/ccfm8A8j.s:784    .text.HAL_IRDA_DMAStop:0000000000000000 $t
-     /tmp/ccfm8A8j.s:791    .text.HAL_IRDA_DMAStop:0000000000000000 HAL_IRDA_DMAStop
-     /tmp/ccfm8A8j.s:838    .text.HAL_IRDA_Abort:0000000000000000 $t
-     /tmp/ccfm8A8j.s:845    .text.HAL_IRDA_Abort:0000000000000000 HAL_IRDA_Abort
-     /tmp/ccfm8A8j.s:892    .text.HAL_IRDA_AbortTransmit:0000000000000000 $t
-     /tmp/ccfm8A8j.s:899    .text.HAL_IRDA_AbortTransmit:0000000000000000 HAL_IRDA_AbortTransmit
-     /tmp/ccfm8A8j.s:927    .text.HAL_IRDA_AbortReceive:0000000000000000 $t
-     /tmp/ccfm8A8j.s:934    .text.HAL_IRDA_AbortReceive:0000000000000000 HAL_IRDA_AbortReceive
-     /tmp/ccfm8A8j.s:965    .text.HAL_IRDA_TxCpltCallback:0000000000000000 $t
-     /tmp/ccfm8A8j.s:972    .text.HAL_IRDA_TxCpltCallback:0000000000000000 HAL_IRDA_TxCpltCallback
-     /tmp/ccfm8A8j.s:979    .text.IRDA_DMATransmitCplt:0000000000000000 $t
-     /tmp/ccfm8A8j.s:1010   .text.HAL_IRDA_TxHalfCpltCallback:0000000000000000 $t
-     /tmp/ccfm8A8j.s:1017   .text.HAL_IRDA_TxHalfCpltCallback:0000000000000000 HAL_IRDA_TxHalfCpltCallback
-     /tmp/ccfm8A8j.s:1024   .text.IRDA_DMATransmitHalfCplt:0000000000000000 $t
-     /tmp/ccfm8A8j.s:1039   .text.HAL_IRDA_RxCpltCallback:0000000000000000 $t
-     /tmp/ccfm8A8j.s:1046   .text.HAL_IRDA_RxCpltCallback:0000000000000000 HAL_IRDA_RxCpltCallback
-     /tmp/ccfm8A8j.s:1053   .text.IRDA_DMAReceiveCplt:0000000000000000 $t
-     /tmp/ccfm8A8j.s:1087   .text.IRDA_Receive_IT:0000000000000000 $t
-     /tmp/ccfm8A8j.s:1093   .text.IRDA_Receive_IT:0000000000000000 IRDA_Receive_IT
-ARM GAS  /tmp/ccfm8A8j.s 			page 33
+     /tmp/ccqLTgpr.s:14     .text.IRDA_EndRxTransfer:0000000000000000 $t
+     /tmp/ccqLTgpr.s:21     .text.IRDA_EndRxTransfer:0000000000000000 IRDA_EndRxTransfer
+     /tmp/ccqLTgpr.s:37     .text.IRDA_WaitOnFlagUntilTimeout.constprop.0:0000000000000000 $t
+     /tmp/ccqLTgpr.s:43     .text.IRDA_WaitOnFlagUntilTimeout.constprop.0:0000000000000000 IRDA_WaitOnFlagUntilTimeout.constprop.0
+     /tmp/ccqLTgpr.s:87     .text.HAL_IRDA_MspInit:0000000000000000 $t
+     /tmp/ccqLTgpr.s:94     .text.HAL_IRDA_MspInit:0000000000000000 HAL_IRDA_MspInit
+     /tmp/ccqLTgpr.s:101    .text.HAL_IRDA_Init:0000000000000000 $t
+     /tmp/ccqLTgpr.s:108    .text.HAL_IRDA_Init:0000000000000000 HAL_IRDA_Init
+     /tmp/ccqLTgpr.s:204    .text.HAL_IRDA_Init:00000000000000e0 $d
+     /tmp/ccqLTgpr.s:207    .text.HAL_IRDA_MspDeInit:0000000000000000 $t
+     /tmp/ccqLTgpr.s:214    .text.HAL_IRDA_MspDeInit:0000000000000000 HAL_IRDA_MspDeInit
+     /tmp/ccqLTgpr.s:221    .text.HAL_IRDA_DeInit:0000000000000000 $t
+     /tmp/ccqLTgpr.s:228    .text.HAL_IRDA_DeInit:0000000000000000 HAL_IRDA_DeInit
+     /tmp/ccqLTgpr.s:253    .text.HAL_IRDA_Transmit:0000000000000000 $t
+     /tmp/ccqLTgpr.s:260    .text.HAL_IRDA_Transmit:0000000000000000 HAL_IRDA_Transmit
+     /tmp/ccqLTgpr.s:348    .text.HAL_IRDA_Receive:0000000000000000 $t
+     /tmp/ccqLTgpr.s:355    .text.HAL_IRDA_Receive:0000000000000000 HAL_IRDA_Receive
+     /tmp/ccqLTgpr.s:448    .text.HAL_IRDA_Transmit_IT:0000000000000000 $t
+     /tmp/ccqLTgpr.s:455    .text.HAL_IRDA_Transmit_IT:0000000000000000 HAL_IRDA_Transmit_IT
+     /tmp/ccqLTgpr.s:489    .text.HAL_IRDA_Receive_IT:0000000000000000 $t
+     /tmp/ccqLTgpr.s:496    .text.HAL_IRDA_Receive_IT:0000000000000000 HAL_IRDA_Receive_IT
+     /tmp/ccqLTgpr.s:533    .text.HAL_IRDA_Transmit_DMA:0000000000000000 $t
+     /tmp/ccqLTgpr.s:540    .text.HAL_IRDA_Transmit_DMA:0000000000000000 HAL_IRDA_Transmit_DMA
+     /tmp/ccqLTgpr.s:592    .text.HAL_IRDA_Transmit_DMA:0000000000000068 $d
+     /tmp/ccqLTgpr.s:985    .text.IRDA_DMATransmitCplt:0000000000000000 IRDA_DMATransmitCplt
+     /tmp/ccqLTgpr.s:1030   .text.IRDA_DMATransmitHalfCplt:0000000000000000 IRDA_DMATransmitHalfCplt
+     /tmp/ccqLTgpr.s:1205   .text.IRDA_DMAError:0000000000000000 IRDA_DMAError
+     /tmp/ccqLTgpr.s:597    .text.HAL_IRDA_Receive_DMA:0000000000000000 $t
+     /tmp/ccqLTgpr.s:604    .text.HAL_IRDA_Receive_DMA:0000000000000000 HAL_IRDA_Receive_DMA
+     /tmp/ccqLTgpr.s:670    .text.HAL_IRDA_Receive_DMA:0000000000000084 $d
+     /tmp/ccqLTgpr.s:1059   .text.IRDA_DMAReceiveCplt:0000000000000000 IRDA_DMAReceiveCplt
+     /tmp/ccqLTgpr.s:1176   .text.IRDA_DMAReceiveHalfCplt:0000000000000000 IRDA_DMAReceiveHalfCplt
+     /tmp/ccqLTgpr.s:675    .text.HAL_IRDA_DMAPause:0000000000000000 $t
+     /tmp/ccqLTgpr.s:682    .text.HAL_IRDA_DMAPause:0000000000000000 HAL_IRDA_DMAPause
+     /tmp/ccqLTgpr.s:727    .text.HAL_IRDA_DMAResume:0000000000000000 $t
+     /tmp/ccqLTgpr.s:734    .text.HAL_IRDA_DMAResume:0000000000000000 HAL_IRDA_DMAResume
+     /tmp/ccqLTgpr.s:784    .text.HAL_IRDA_DMAStop:0000000000000000 $t
+     /tmp/ccqLTgpr.s:791    .text.HAL_IRDA_DMAStop:0000000000000000 HAL_IRDA_DMAStop
+     /tmp/ccqLTgpr.s:838    .text.HAL_IRDA_Abort:0000000000000000 $t
+     /tmp/ccqLTgpr.s:845    .text.HAL_IRDA_Abort:0000000000000000 HAL_IRDA_Abort
+     /tmp/ccqLTgpr.s:892    .text.HAL_IRDA_AbortTransmit:0000000000000000 $t
+     /tmp/ccqLTgpr.s:899    .text.HAL_IRDA_AbortTransmit:0000000000000000 HAL_IRDA_AbortTransmit
+     /tmp/ccqLTgpr.s:927    .text.HAL_IRDA_AbortReceive:0000000000000000 $t
+     /tmp/ccqLTgpr.s:934    .text.HAL_IRDA_AbortReceive:0000000000000000 HAL_IRDA_AbortReceive
+     /tmp/ccqLTgpr.s:965    .text.HAL_IRDA_TxCpltCallback:0000000000000000 $t
+     /tmp/ccqLTgpr.s:972    .text.HAL_IRDA_TxCpltCallback:0000000000000000 HAL_IRDA_TxCpltCallback
+     /tmp/ccqLTgpr.s:979    .text.IRDA_DMATransmitCplt:0000000000000000 $t
+     /tmp/ccqLTgpr.s:1010   .text.HAL_IRDA_TxHalfCpltCallback:0000000000000000 $t
+     /tmp/ccqLTgpr.s:1017   .text.HAL_IRDA_TxHalfCpltCallback:0000000000000000 HAL_IRDA_TxHalfCpltCallback
+     /tmp/ccqLTgpr.s:1024   .text.IRDA_DMATransmitHalfCplt:0000000000000000 $t
+     /tmp/ccqLTgpr.s:1039   .text.HAL_IRDA_RxCpltCallback:0000000000000000 $t
+     /tmp/ccqLTgpr.s:1046   .text.HAL_IRDA_RxCpltCallback:0000000000000000 HAL_IRDA_RxCpltCallback
+     /tmp/ccqLTgpr.s:1053   .text.IRDA_DMAReceiveCplt:0000000000000000 $t
+     /tmp/ccqLTgpr.s:1087   .text.IRDA_Receive_IT:0000000000000000 $t
+     /tmp/ccqLTgpr.s:1093   .text.IRDA_Receive_IT:0000000000000000 IRDA_Receive_IT
+ARM GAS  /tmp/ccqLTgpr.s 			page 33
 
 
-     /tmp/ccfm8A8j.s:1156   .text.HAL_IRDA_RxHalfCpltCallback:0000000000000000 $t
-     /tmp/ccfm8A8j.s:1163   .text.HAL_IRDA_RxHalfCpltCallback:0000000000000000 HAL_IRDA_RxHalfCpltCallback
-     /tmp/ccfm8A8j.s:1170   .text.IRDA_DMAReceiveHalfCplt:0000000000000000 $t
-     /tmp/ccfm8A8j.s:1185   .text.HAL_IRDA_ErrorCallback:0000000000000000 $t
-     /tmp/ccfm8A8j.s:1192   .text.HAL_IRDA_ErrorCallback:0000000000000000 HAL_IRDA_ErrorCallback
-     /tmp/ccfm8A8j.s:1199   .text.IRDA_DMAError:0000000000000000 $t
-     /tmp/ccfm8A8j.s:1242   .text.HAL_IRDA_IRQHandler:0000000000000000 $t
-     /tmp/ccfm8A8j.s:1249   .text.HAL_IRDA_IRQHandler:0000000000000000 HAL_IRDA_IRQHandler
-     /tmp/ccfm8A8j.s:1406   .text.HAL_IRDA_IRQHandler:0000000000000144 $d
-     /tmp/ccfm8A8j.s:1415   .text.IRDA_DMAAbortOnError:0000000000000000 IRDA_DMAAbortOnError
-     /tmp/ccfm8A8j.s:1409   .text.IRDA_DMAAbortOnError:0000000000000000 $t
-     /tmp/ccfm8A8j.s:1427   .text.HAL_IRDA_AbortCpltCallback:0000000000000000 $t
-     /tmp/ccfm8A8j.s:1434   .text.HAL_IRDA_AbortCpltCallback:0000000000000000 HAL_IRDA_AbortCpltCallback
-     /tmp/ccfm8A8j.s:1441   .text.HAL_IRDA_Abort_IT:0000000000000000 $t
-     /tmp/ccfm8A8j.s:1448   .text.HAL_IRDA_Abort_IT:0000000000000000 HAL_IRDA_Abort_IT
-     /tmp/ccfm8A8j.s:1530   .text.HAL_IRDA_Abort_IT:00000000000000a0 $d
-     /tmp/ccfm8A8j.s:1570   .text.IRDA_DMATxAbortCallback:0000000000000000 IRDA_DMATxAbortCallback
-     /tmp/ccfm8A8j.s:1540   .text.IRDA_DMARxAbortCallback:0000000000000000 IRDA_DMARxAbortCallback
-     /tmp/ccfm8A8j.s:1534   .text.IRDA_DMARxAbortCallback:0000000000000000 $t
-     /tmp/ccfm8A8j.s:1564   .text.IRDA_DMATxAbortCallback:0000000000000000 $t
-     /tmp/ccfm8A8j.s:1594   .text.HAL_IRDA_AbortTransmitCpltCallback:0000000000000000 $t
-     /tmp/ccfm8A8j.s:1601   .text.HAL_IRDA_AbortTransmitCpltCallback:0000000000000000 HAL_IRDA_AbortTransmitCpltCallback
-     /tmp/ccfm8A8j.s:1608   .text.HAL_IRDA_AbortTransmit_IT:0000000000000000 $t
-     /tmp/ccfm8A8j.s:1615   .text.HAL_IRDA_AbortTransmit_IT:0000000000000000 HAL_IRDA_AbortTransmit_IT
-     /tmp/ccfm8A8j.s:1656   .text.HAL_IRDA_AbortTransmit_IT:000000000000004c $d
-     /tmp/ccfm8A8j.s:1665   .text.IRDA_DMATxOnlyAbortCallback:0000000000000000 IRDA_DMATxOnlyAbortCallback
-     /tmp/ccfm8A8j.s:1659   .text.IRDA_DMATxOnlyAbortCallback:0000000000000000 $t
-     /tmp/ccfm8A8j.s:1678   .text.HAL_IRDA_AbortReceiveCpltCallback:0000000000000000 $t
-     /tmp/ccfm8A8j.s:1685   .text.HAL_IRDA_AbortReceiveCpltCallback:0000000000000000 HAL_IRDA_AbortReceiveCpltCallback
-     /tmp/ccfm8A8j.s:1692   .text.HAL_IRDA_AbortReceive_IT:0000000000000000 $t
-     /tmp/ccfm8A8j.s:1699   .text.HAL_IRDA_AbortReceive_IT:0000000000000000 HAL_IRDA_AbortReceive_IT
-     /tmp/ccfm8A8j.s:1743   .text.HAL_IRDA_AbortReceive_IT:0000000000000054 $d
-     /tmp/ccfm8A8j.s:1752   .text.IRDA_DMARxOnlyAbortCallback:0000000000000000 IRDA_DMARxOnlyAbortCallback
-     /tmp/ccfm8A8j.s:1746   .text.IRDA_DMARxOnlyAbortCallback:0000000000000000 $t
-     /tmp/ccfm8A8j.s:1765   .text.HAL_IRDA_GetState:0000000000000000 $t
-     /tmp/ccfm8A8j.s:1772   .text.HAL_IRDA_GetState:0000000000000000 HAL_IRDA_GetState
-     /tmp/ccfm8A8j.s:1782   .text.HAL_IRDA_GetError:0000000000000000 $t
-     /tmp/ccfm8A8j.s:1789   .text.HAL_IRDA_GetError:0000000000000000 HAL_IRDA_GetError
+     /tmp/ccqLTgpr.s:1156   .text.HAL_IRDA_RxHalfCpltCallback:0000000000000000 $t
+     /tmp/ccqLTgpr.s:1163   .text.HAL_IRDA_RxHalfCpltCallback:0000000000000000 HAL_IRDA_RxHalfCpltCallback
+     /tmp/ccqLTgpr.s:1170   .text.IRDA_DMAReceiveHalfCplt:0000000000000000 $t
+     /tmp/ccqLTgpr.s:1185   .text.HAL_IRDA_ErrorCallback:0000000000000000 $t
+     /tmp/ccqLTgpr.s:1192   .text.HAL_IRDA_ErrorCallback:0000000000000000 HAL_IRDA_ErrorCallback
+     /tmp/ccqLTgpr.s:1199   .text.IRDA_DMAError:0000000000000000 $t
+     /tmp/ccqLTgpr.s:1242   .text.HAL_IRDA_IRQHandler:0000000000000000 $t
+     /tmp/ccqLTgpr.s:1249   .text.HAL_IRDA_IRQHandler:0000000000000000 HAL_IRDA_IRQHandler
+     /tmp/ccqLTgpr.s:1406   .text.HAL_IRDA_IRQHandler:0000000000000144 $d
+     /tmp/ccqLTgpr.s:1415   .text.IRDA_DMAAbortOnError:0000000000000000 IRDA_DMAAbortOnError
+     /tmp/ccqLTgpr.s:1409   .text.IRDA_DMAAbortOnError:0000000000000000 $t
+     /tmp/ccqLTgpr.s:1427   .text.HAL_IRDA_AbortCpltCallback:0000000000000000 $t
+     /tmp/ccqLTgpr.s:1434   .text.HAL_IRDA_AbortCpltCallback:0000000000000000 HAL_IRDA_AbortCpltCallback
+     /tmp/ccqLTgpr.s:1441   .text.HAL_IRDA_Abort_IT:0000000000000000 $t
+     /tmp/ccqLTgpr.s:1448   .text.HAL_IRDA_Abort_IT:0000000000000000 HAL_IRDA_Abort_IT
+     /tmp/ccqLTgpr.s:1530   .text.HAL_IRDA_Abort_IT:00000000000000a0 $d
+     /tmp/ccqLTgpr.s:1570   .text.IRDA_DMATxAbortCallback:0000000000000000 IRDA_DMATxAbortCallback
+     /tmp/ccqLTgpr.s:1540   .text.IRDA_DMARxAbortCallback:0000000000000000 IRDA_DMARxAbortCallback
+     /tmp/ccqLTgpr.s:1534   .text.IRDA_DMARxAbortCallback:0000000000000000 $t
+     /tmp/ccqLTgpr.s:1564   .text.IRDA_DMATxAbortCallback:0000000000000000 $t
+     /tmp/ccqLTgpr.s:1594   .text.HAL_IRDA_AbortTransmitCpltCallback:0000000000000000 $t
+     /tmp/ccqLTgpr.s:1601   .text.HAL_IRDA_AbortTransmitCpltCallback:0000000000000000 HAL_IRDA_AbortTransmitCpltCallback
+     /tmp/ccqLTgpr.s:1608   .text.HAL_IRDA_AbortTransmit_IT:0000000000000000 $t
+     /tmp/ccqLTgpr.s:1615   .text.HAL_IRDA_AbortTransmit_IT:0000000000000000 HAL_IRDA_AbortTransmit_IT
+     /tmp/ccqLTgpr.s:1656   .text.HAL_IRDA_AbortTransmit_IT:000000000000004c $d
+     /tmp/ccqLTgpr.s:1665   .text.IRDA_DMATxOnlyAbortCallback:0000000000000000 IRDA_DMATxOnlyAbortCallback
+     /tmp/ccqLTgpr.s:1659   .text.IRDA_DMATxOnlyAbortCallback:0000000000000000 $t
+     /tmp/ccqLTgpr.s:1678   .text.HAL_IRDA_AbortReceiveCpltCallback:0000000000000000 $t
+     /tmp/ccqLTgpr.s:1685   .text.HAL_IRDA_AbortReceiveCpltCallback:0000000000000000 HAL_IRDA_AbortReceiveCpltCallback
+     /tmp/ccqLTgpr.s:1692   .text.HAL_IRDA_AbortReceive_IT:0000000000000000 $t
+     /tmp/ccqLTgpr.s:1699   .text.HAL_IRDA_AbortReceive_IT:0000000000000000 HAL_IRDA_AbortReceive_IT
+     /tmp/ccqLTgpr.s:1743   .text.HAL_IRDA_AbortReceive_IT:0000000000000054 $d
+     /tmp/ccqLTgpr.s:1752   .text.IRDA_DMARxOnlyAbortCallback:0000000000000000 IRDA_DMARxOnlyAbortCallback
+     /tmp/ccqLTgpr.s:1746   .text.IRDA_DMARxOnlyAbortCallback:0000000000000000 $t
+     /tmp/ccqLTgpr.s:1765   .text.HAL_IRDA_GetState:0000000000000000 $t
+     /tmp/ccqLTgpr.s:1772   .text.HAL_IRDA_GetState:0000000000000000 HAL_IRDA_GetState
+     /tmp/ccqLTgpr.s:1782   .text.HAL_IRDA_GetError:0000000000000000 $t
+     /tmp/ccqLTgpr.s:1789   .text.HAL_IRDA_GetError:0000000000000000 HAL_IRDA_GetError
 
 UNDEFINED SYMBOLS
 HAL_GetTick

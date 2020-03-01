@@ -10,7 +10,10 @@
 #include "sys_timer.h"
 #include "sys_hwb.h"
 #include "sys_ws2812.h"
+#include "sys_usb.h"
+#include "lib_infinikeys.h"
 #include "error.h"
+#include "console.h"
 #include "pca9555.h"
 #include "neopixel32.h"
 #include "stm32f1xx_hal.h"
@@ -33,14 +36,32 @@ int main(void)
     // Initialise interfaces and timers.
     SYS_I2C_Init();
     SYS_USART_Init();
+    CONSOLE_Init(hw_uart1_handle);
     SYS_Timer_Init();
 
     SYS_PostPortInit();
 
+    CONSOLE_ClearScreen();
+    CONSOLE_PrintLn(WELCOMEMSG_LINE_0);
+    CONSOLE_PrintLn(WELCOMEMSG_LINE_1);
+    CONSOLE_PrintLn(WELCOMEMSG_LINE_2);
+    CONSOLE_PrintLn(WELCOMEMSG_LINE_3);
+    CONSOLE_PrintLn(WELCOMEMSG_LINE_4);
+    CONSOLE_PrintLn(WELCOMEMSG_LINE_5);
+    CONSOLE_PrintLn("BerndoKeyboard Firmware v%i.%i.%i.", MODULE_APP_VER_MAJ, MODULE_APP_VER_MIN, MODULE_APP_VER_REV);
+    CONSOLE_Print("\n");
+
+    CONSOLE_PrintLn("[BKF] Initialising USB...");
+
+    SYS_USB_Init();
+
+    CONSOLE_PrintLn("[BKF] Initialising libraries...");
+
     // Initialise libraries.
     SYS_PCA9555_Init();
     SYS_WS2812_Init();
-
+    LIB_Infinikeys_Init();
+    
     SYS_PostLibInit();
 
     // Send init complete message.
@@ -62,7 +83,7 @@ int main(void)
     PCA9555_ConfigPortPinMode(hw_portex1_handle, 0, 0x00); // Config PORT0 as OUTPUT.
     PCA9555_ConfigPortPinMode(hw_portex1_handle, 1, 0x00); // Config PORT1 as OUTPUT.
 
-    uint8_t x = 0, l = 0;
+    uint8_t l = 0;
 
     while (1)
     {
@@ -71,16 +92,10 @@ int main(void)
         l = !l;
         HAL_GPIO_WritePin(GPIO_USER_LED_0_PORT, GPIO_USER_LED_0_PIN, (GPIO_PinState) l);
 
-        x++;
-        
-        uint8_t y = x % 8;
-        uint8_t z = x / 8;
-        
-        if (z >= 1 && y >= 7)
-            x = 0;
+        // Invoke InfiniKeys tick function.
+        IK_Tick();
 
-        PCA9555_WritePort(hw_portex0_handle, !z, 0x00);
-        PCA9555_WritePort(hw_portex0_handle, z, 0x01 << y);
+        IK_USB_HW_SOFCallback();
     }
 
     return 0;

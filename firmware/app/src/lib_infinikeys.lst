@@ -1,0 +1,121 @@
+ARM GAS  /tmp/cckKQM9n.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 4
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"lib_infinikeys.c"
+  12              		.text
+  13              		.section	.text.LIB_Infinikeys_Init,"ax",%progbits
+  14              		.align	1
+  15              		.global	LIB_Infinikeys_Init
+  16              		.arch armv7-m
+  17              		.syntax unified
+  18              		.thumb
+  19              		.thumb_func
+  20              		.fpu softvfp
+  22              	LIB_Infinikeys_Init:
+  23              		@ args = 0, pretend = 0, frame = 16
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25 0000 1FB5     		push	{r0, r1, r2, r3, r4, lr}
+  26 0002 0B48     		ldr	r0, .L4
+  27 0004 FFF7FEFF 		bl	IK_Init
+  28 0008 70B9     		cbnz	r0, .L1
+  29 000a 0A4B     		ldr	r3, .L4+4
+  30 000c 0193     		str	r3, [sp, #4]
+  31 000e 0A23     		movs	r3, #10
+  32 0010 ADF80830 		strh	r3, [sp, #8]	@ movhi
+  33 0014 084B     		ldr	r3, .L4+8
+  34 0016 0393     		str	r3, [sp, #12]
+  35 0018 04AB     		add	r3, sp, #16
+  36 001a 13E90700 		ldmdb	r3, {r0, r1, r2}
+  37 001e FFF7FEFF 		bl	IK_CFG_SetConfig
+  38 0022 0122     		movs	r2, #1
+  39 0024 054B     		ldr	r3, .L4+12
+  40 0026 1A70     		strb	r2, [r3]
+  41              	.L1:
+  42 0028 05B0     		add	sp, sp, #20
+  43              		@ sp needed
+  44 002a 5DF804FB 		ldr	pc, [sp], #4
+  45              	.L5:
+  46 002e 00BF     		.align	2
+  47              	.L4:
+  48 0030 00000000 		.word	.LANCHOR0
+  49 0034 010000FF 		.word	-16777215
+  50 0038 00000000 		.word	.LANCHOR1
+  51 003c 00000000 		.word	.LANCHOR2
+  53              		.global	lib_infinikeys_init_struct
+  54              		.section	.rodata.str1.1,"aMS",%progbits,1
+  55              	.LC0:
+  56 0000 4265726E 		.ascii	"Berndorfer Electronics\000"
+  56      646F7266 
+  56      65722045 
+  56      6C656374 
+ARM GAS  /tmp/cckKQM9n.s 			page 2
+
+
+  56      726F6E69 
+  57              	.LC1:
+  58 0017 4265726E 		.ascii	"BerndoKeyboard\000"
+  58      646F4B65 
+  58      79626F61 
+  58      726400
+  59              	.LC2:
+  60 0026 534E2D30 		.ascii	"SN-000001\000"
+  60      30303030 
+  60      3100
+  61              		.global	lib_infinikeys_init_status
+  62              		.section	.bss.lib_infinikeys_init_status,"aw",%nobits
+  63              		.set	.LANCHOR2,. + 0
+  66              	lib_infinikeys_init_status:
+  67 0000 00       		.space	1
+  68              		.section	.data._ikmatrix_cfg_tmp,"aw"
+  69              		.set	.LANCHOR1,. + 0
+  72              	_ikmatrix_cfg_tmp:
+  73 0000 00010002 		.ascii	"\000\001\000\002\000\001\004\000\000\000"
+  73      00010400 
+  73      0000
+  74              		.section	.data.lib_infinikeys_init_struct,"aw"
+  75              		.align	2
+  76              		.set	.LANCHOR0,. + 0
+  79              	lib_infinikeys_init_struct:
+  80 0000 00000000 		.word	infinikeys_hwif_berndokb_usb
+  81 0004 8304     		.short	1155
+  82 0006 0104     		.short	1025
+  83 0008 0904     		.short	1033
+  84 000a 0000     		.space	2
+  85 000c 00000000 		.word	.LC0
+  86 0010 17000000 		.word	.LC1
+  87 0014 26000000 		.word	.LC2
+  88 0018 00000000 		.word	infinikeys_hwif_berndokb_cfgmem
+  89 001c 00000000 		.word	infinikeys_hwif_berndokb_kbmatrix
+  90 0020 00000000 		.word	infinikeys_hwif_berndokb_debug
+  91              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
+ARM GAS  /tmp/cckKQM9n.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 lib_infinikeys.c
+     /tmp/cckKQM9n.s:14     .text.LIB_Infinikeys_Init:0000000000000000 $t
+     /tmp/cckKQM9n.s:22     .text.LIB_Infinikeys_Init:0000000000000000 LIB_Infinikeys_Init
+     /tmp/cckKQM9n.s:48     .text.LIB_Infinikeys_Init:0000000000000030 $d
+     /tmp/cckKQM9n.s:79     .data.lib_infinikeys_init_struct:0000000000000000 lib_infinikeys_init_struct
+     /tmp/cckKQM9n.s:66     .bss.lib_infinikeys_init_status:0000000000000000 lib_infinikeys_init_status
+     /tmp/cckKQM9n.s:67     .bss.lib_infinikeys_init_status:0000000000000000 $d
+     /tmp/cckKQM9n.s:72     .data._ikmatrix_cfg_tmp:0000000000000000 _ikmatrix_cfg_tmp
+     /tmp/cckKQM9n.s:75     .data.lib_infinikeys_init_struct:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+IK_Init
+IK_CFG_SetConfig
+infinikeys_hwif_berndokb_usb
+infinikeys_hwif_berndokb_cfgmem
+infinikeys_hwif_berndokb_kbmatrix
+infinikeys_hwif_berndokb_debug

@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccqzSs8f.s 			page 1
+ARM GAS  /tmp/ccHuwdLh.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccqzSs8f.s 			page 1
   60 0004 80F83D30 		strb	r3, [r0, #61]
   61 0008 D0F8A430 		ldr	r3, [r0, #164]
   62 000c 1847     		bx	r3	@ indirect register sibling call
-ARM GAS  /tmp/ccqzSs8f.s 			page 2
+ARM GAS  /tmp/ccHuwdLh.s 			page 2
 
 
   64              		.section	.text.TIM_CCxNChannelCmd,"ax",%progbits
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccqzSs8f.s 			page 1
  123 001e 236F     		ldr	r3, [r4, #112]
  124 0020 0BB9     		cbnz	r3, .L9
  125 0022 264B     		ldr	r3, .L11
-ARM GAS  /tmp/ccqzSs8f.s 			page 3
+ARM GAS  /tmp/ccHuwdLh.s 			page 3
 
 
  126 0024 2367     		str	r3, [r4, #112]
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccqzSs8f.s 			page 1
  180 00a6 5A68     		ldr	r2, [r3, #4]
  181 00a8 42F05002 		orr	r2, r2, #80
  182 00ac 5A60     		str	r2, [r3, #4]
-ARM GAS  /tmp/ccqzSs8f.s 			page 4
+ARM GAS  /tmp/ccHuwdLh.s 			page 4
 
 
  183 00ae 0123     		movs	r3, #1
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccqzSs8f.s 			page 1
  239              	.L16:
  240 0044 00000000 		.word	HAL_TIMEx_HallSensor_MspDeInit
  242              		.section	.text.HAL_TIMEx_HallSensor_Start,"ax",%progbits
-ARM GAS  /tmp/ccqzSs8f.s 			page 5
+ARM GAS  /tmp/ccHuwdLh.s 			page 5
 
 
  243              		.align	1
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccqzSs8f.s 			page 1
  300 002c 0020     		movs	r0, #0
  301 002e 10BD     		pop	{r4, pc}
  303              		.section	.text.HAL_TIMEx_HallSensor_Start_IT,"ax",%progbits
-ARM GAS  /tmp/ccqzSs8f.s 			page 6
+ARM GAS  /tmp/ccHuwdLh.s 			page 6
 
 
  304              		.align	1
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccqzSs8f.s 			page 1
  361 0028 1142     		tst	r1, r2
  362 002a 02BF     		ittt	eq
  363 002c 1A68     		ldreq	r2, [r3]
-ARM GAS  /tmp/ccqzSs8f.s 			page 7
+ARM GAS  /tmp/ccHuwdLh.s 			page 7
 
 
  364 002e 22F00102 		biceq	r2, r2, #1
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccqzSs8f.s 			page 1
  420 0050 2368     		ldr	r3, [r4]
  421 0052 DA68     		ldr	r2, [r3, #12]
  422 0054 42F40072 		orr	r2, r2, #512
-ARM GAS  /tmp/ccqzSs8f.s 			page 8
+ARM GAS  /tmp/ccHuwdLh.s 			page 8
 
 
  423 0058 DA60     		str	r2, [r3, #12]
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccqzSs8f.s 			page 1
  480              		.global	HAL_TIMEx_OCN_Start
  481              		.syntax unified
  482              		.thumb
-ARM GAS  /tmp/ccqzSs8f.s 			page 9
+ARM GAS  /tmp/ccHuwdLh.s 			page 9
 
 
  483              		.thumb_func
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccqzSs8f.s 			page 1
  540 0032 08D1     		bne	.L57
  541 0034 40F24442 		movw	r2, #1092
  542 0038 196A     		ldr	r1, [r3, #32]
-ARM GAS  /tmp/ccqzSs8f.s 			page 10
+ARM GAS  /tmp/ccHuwdLh.s 			page 10
 
 
  543 003a 1142     		tst	r1, r2
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccqzSs8f.s 			page 1
  599 004e C368     		ldr	r3, [r0, #12]
  600 0050 43F00803 		orr	r3, r3, #8
  601 0054 DFE7     		b	.L66
-ARM GAS  /tmp/ccqzSs8f.s 			page 11
+ARM GAS  /tmp/ccHuwdLh.s 			page 11
 
 
  603              		.section	.text.HAL_TIMEx_OCN_Stop_IT,"ax",%progbits
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccqzSs8f.s 			page 1
  658 0064 22F00102 		biceq	r2, r2, #1
  659 0068 1A60     		streq	r2, [r3]
  660              	.L73:
-ARM GAS  /tmp/ccqzSs8f.s 			page 12
+ARM GAS  /tmp/ccHuwdLh.s 			page 12
 
 
  661 006a 0020     		movs	r0, #0
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccqzSs8f.s 			page 1
  717 0042 0663     		str	r6, [r0, #48]
  718 0044 FFF7FEFF 		bl	HAL_DMA_Start_IT
  719 0048 0028     		cmp	r0, #0
-ARM GAS  /tmp/ccqzSs8f.s 			page 13
+ARM GAS  /tmp/ccHuwdLh.s 			page 13
 
 
  720 004a E8D1     		bne	.L82
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccqzSs8f.s 			page 1
  774 00be 43F40063 		orr	r3, r3, #2048
  775 00c2 C7E7     		b	.L90
  776              	.L92:
-ARM GAS  /tmp/ccqzSs8f.s 			page 14
+ARM GAS  /tmp/ccHuwdLh.s 			page 14
 
 
  777              		.align	2
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccqzSs8f.s 			page 1
  833 0058 1142     		tst	r1, r2
  834 005a 02BF     		ittt	eq
  835 005c 1A68     		ldreq	r2, [r3]
-ARM GAS  /tmp/ccqzSs8f.s 			page 15
+ARM GAS  /tmp/ccHuwdLh.s 			page 15
 
 
  836 005e 22F00102 		biceq	r2, r2, #1
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccqzSs8f.s 			page 1
  896 0000 FFF7FEBF 		b	HAL_TIMEx_OCN_Start_IT
  898              		.section	.text.HAL_TIMEx_PWMN_Stop_IT,"ax",%progbits
  899              		.align	1
-ARM GAS  /tmp/ccqzSs8f.s 			page 16
+ARM GAS  /tmp/ccHuwdLh.s 			page 16
 
 
  900              		.global	HAL_TIMEx_PWMN_Stop_IT
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccqzSs8f.s 			page 1
  961 0018 10BD     		pop	{r4, pc}
  963              		.section	.text.HAL_TIMEx_OnePulseN_Stop,"ax",%progbits
  964              		.align	1
-ARM GAS  /tmp/ccqzSs8f.s 			page 17
+ARM GAS  /tmp/ccHuwdLh.s 			page 17
 
 
  965              		.global	HAL_TIMEx_OnePulseN_Stop
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccqzSs8f.s 			page 1
  1024 0010 C368     		ldr	r3, [r0, #12]
  1025 0012 23F00403 		bic	r3, r3, #4
  1026 0016 C360     		str	r3, [r0, #12]
-ARM GAS  /tmp/ccqzSs8f.s 			page 18
+ARM GAS  /tmp/ccHuwdLh.s 			page 18
 
 
  1027 0018 FFF7FEFF 		bl	TIM_CCxNChannelCmd
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccqzSs8f.s 			page 1
  1083 0026 5968     		ldr	r1, [r3, #4]
  1084 0028 41F00101 		orr	r1, r1, #1
  1085 002c 5960     		str	r1, [r3, #4]
-ARM GAS  /tmp/ccqzSs8f.s 			page 19
+ARM GAS  /tmp/ccHuwdLh.s 			page 19
 
 
  1086 002e 5968     		ldr	r1, [r3, #4]
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccqzSs8f.s 			page 1
  1142 003a 5A60     		str	r2, [r3, #4]
  1143 003c DA68     		ldr	r2, [r3, #12]
  1144 003e 22F40052 		bic	r2, r2, #8192
-ARM GAS  /tmp/ccqzSs8f.s 			page 20
+ARM GAS  /tmp/ccHuwdLh.s 			page 20
 
 
  1145 0042 DA60     		str	r2, [r3, #12]
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccqzSs8f.s 			page 1
  1201 004a DA68     		ldr	r2, [r3, #12]
  1202 004c 22F02002 		bic	r2, r2, #32
  1203 0050 DA60     		str	r2, [r3, #12]
-ARM GAS  /tmp/ccqzSs8f.s 			page 21
+ARM GAS  /tmp/ccHuwdLh.s 			page 21
 
 
  1204 0052 DA68     		ldr	r2, [r3, #12]
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccqzSs8f.s 			page 1
  1261              		.syntax unified
  1262              		.thumb
  1263              		.thumb_func
-ARM GAS  /tmp/ccqzSs8f.s 			page 22
+ARM GAS  /tmp/ccHuwdLh.s 			page 22
 
 
  1264              		.fpu softvfp
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccqzSs8f.s 			page 1
  1322              		.thumb_func
  1323              		.fpu softvfp
  1325              	HAL_TIMEx_CommutCallback:
-ARM GAS  /tmp/ccqzSs8f.s 			page 23
+ARM GAS  /tmp/ccHuwdLh.s 			page 23
 
 
  1326              		@ args = 0, pretend = 0, frame = 0
@@ -1363,97 +1363,97 @@ ARM GAS  /tmp/ccqzSs8f.s 			page 1
  1371 0000 90F83D00 		ldrb	r0, [r0, #61]	@ zero_extendqisi2
  1372 0004 7047     		bx	lr
  1374              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
-ARM GAS  /tmp/ccqzSs8f.s 			page 24
+ARM GAS  /tmp/ccHuwdLh.s 			page 24
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f1xx_hal_tim_ex.c
-     /tmp/ccqzSs8f.s:14     .text.HAL_TIMEx_HallSensor_MspInit:0000000000000000 $t
-     /tmp/ccqzSs8f.s:22     .text.HAL_TIMEx_HallSensor_MspInit:0000000000000000 HAL_TIMEx_HallSensor_MspInit
-     /tmp/ccqzSs8f.s:29     .text.TIMEx_DMACommutationCplt:0000000000000000 $t
-     /tmp/ccqzSs8f.s:36     .text.TIMEx_DMACommutationCplt:0000000000000000 TIMEx_DMACommutationCplt
-     /tmp/ccqzSs8f.s:47     .text.TIMEx_DMACommutationHalfCplt:0000000000000000 $t
-     /tmp/ccqzSs8f.s:54     .text.TIMEx_DMACommutationHalfCplt:0000000000000000 TIMEx_DMACommutationHalfCplt
-     /tmp/ccqzSs8f.s:65     .text.TIM_CCxNChannelCmd:0000000000000000 $t
-     /tmp/ccqzSs8f.s:71     .text.TIM_CCxNChannelCmd:0000000000000000 TIM_CCxNChannelCmd
-     /tmp/ccqzSs8f.s:88     .text.HAL_TIMEx_HallSensor_MspDeInit:0000000000000000 $t
-     /tmp/ccqzSs8f.s:95     .text.HAL_TIMEx_HallSensor_MspDeInit:0000000000000000 HAL_TIMEx_HallSensor_MspDeInit
-     /tmp/ccqzSs8f.s:102    .text.HAL_TIMEx_HallSensor_Init:0000000000000000 $t
-     /tmp/ccqzSs8f.s:109    .text.HAL_TIMEx_HallSensor_Init:0000000000000000 HAL_TIMEx_HallSensor_Init
-     /tmp/ccqzSs8f.s:195    .text.HAL_TIMEx_HallSensor_Init:00000000000000bc $d
-     /tmp/ccqzSs8f.s:198    .text.HAL_TIMEx_HallSensor_DeInit:0000000000000000 $t
-     /tmp/ccqzSs8f.s:205    .text.HAL_TIMEx_HallSensor_DeInit:0000000000000000 HAL_TIMEx_HallSensor_DeInit
-     /tmp/ccqzSs8f.s:240    .text.HAL_TIMEx_HallSensor_DeInit:0000000000000044 $d
-     /tmp/ccqzSs8f.s:243    .text.HAL_TIMEx_HallSensor_Start:0000000000000000 $t
-     /tmp/ccqzSs8f.s:250    .text.HAL_TIMEx_HallSensor_Start:0000000000000000 HAL_TIMEx_HallSensor_Start
-     /tmp/ccqzSs8f.s:271    .text.HAL_TIMEx_HallSensor_Stop:0000000000000000 $t
-     /tmp/ccqzSs8f.s:278    .text.HAL_TIMEx_HallSensor_Stop:0000000000000000 HAL_TIMEx_HallSensor_Stop
-     /tmp/ccqzSs8f.s:304    .text.HAL_TIMEx_HallSensor_Start_IT:0000000000000000 $t
-     /tmp/ccqzSs8f.s:311    .text.HAL_TIMEx_HallSensor_Start_IT:0000000000000000 HAL_TIMEx_HallSensor_Start_IT
-     /tmp/ccqzSs8f.s:335    .text.HAL_TIMEx_HallSensor_Stop_IT:0000000000000000 $t
-     /tmp/ccqzSs8f.s:342    .text.HAL_TIMEx_HallSensor_Stop_IT:0000000000000000 HAL_TIMEx_HallSensor_Stop_IT
-     /tmp/ccqzSs8f.s:371    .text.HAL_TIMEx_HallSensor_Start_DMA:0000000000000000 $t
-     /tmp/ccqzSs8f.s:378    .text.HAL_TIMEx_HallSensor_Start_DMA:0000000000000000 HAL_TIMEx_HallSensor_Start_DMA
-     /tmp/ccqzSs8f.s:435    .text.HAL_TIMEx_HallSensor_Start_DMA:0000000000000070 $d
-     /tmp/ccqzSs8f.s:440    .text.HAL_TIMEx_HallSensor_Stop_DMA:0000000000000000 $t
-     /tmp/ccqzSs8f.s:447    .text.HAL_TIMEx_HallSensor_Stop_DMA:0000000000000000 HAL_TIMEx_HallSensor_Stop_DMA
-     /tmp/ccqzSs8f.s:479    .text.HAL_TIMEx_OCN_Start:0000000000000000 $t
-     /tmp/ccqzSs8f.s:486    .text.HAL_TIMEx_OCN_Start:0000000000000000 HAL_TIMEx_OCN_Start
-     /tmp/ccqzSs8f.s:509    .text.HAL_TIMEx_OCN_Stop:0000000000000000 $t
-     /tmp/ccqzSs8f.s:516    .text.HAL_TIMEx_OCN_Stop:0000000000000000 HAL_TIMEx_OCN_Stop
-     /tmp/ccqzSs8f.s:553    .text.HAL_TIMEx_OCN_Start_IT:0000000000000000 $t
-     /tmp/ccqzSs8f.s:560    .text.HAL_TIMEx_OCN_Start_IT:0000000000000000 HAL_TIMEx_OCN_Start_IT
-     /tmp/ccqzSs8f.s:604    .text.HAL_TIMEx_OCN_Stop_IT:0000000000000000 $t
-     /tmp/ccqzSs8f.s:611    .text.HAL_TIMEx_OCN_Stop_IT:0000000000000000 HAL_TIMEx_OCN_Stop_IT
-     /tmp/ccqzSs8f.s:673    .text.HAL_TIMEx_OCN_Start_DMA:0000000000000000 $t
-     /tmp/ccqzSs8f.s:680    .text.HAL_TIMEx_OCN_Start_DMA:0000000000000000 HAL_TIMEx_OCN_Start_DMA
-     /tmp/ccqzSs8f.s:779    .text.HAL_TIMEx_OCN_Start_DMA:00000000000000c4 $d
-     /tmp/ccqzSs8f.s:784    .text.HAL_TIMEx_OCN_Stop_DMA:0000000000000000 $t
-     /tmp/ccqzSs8f.s:791    .text.HAL_TIMEx_OCN_Stop_DMA:0000000000000000 HAL_TIMEx_OCN_Stop_DMA
-     /tmp/ccqzSs8f.s:857    .text.HAL_TIMEx_PWMN_Start:0000000000000000 $t
-     /tmp/ccqzSs8f.s:864    .text.HAL_TIMEx_PWMN_Start:0000000000000000 HAL_TIMEx_PWMN_Start
-     /tmp/ccqzSs8f.s:871    .text.HAL_TIMEx_PWMN_Stop:0000000000000000 $t
-     /tmp/ccqzSs8f.s:878    .text.HAL_TIMEx_PWMN_Stop:0000000000000000 HAL_TIMEx_PWMN_Stop
-     /tmp/ccqzSs8f.s:885    .text.HAL_TIMEx_PWMN_Start_IT:0000000000000000 $t
-     /tmp/ccqzSs8f.s:892    .text.HAL_TIMEx_PWMN_Start_IT:0000000000000000 HAL_TIMEx_PWMN_Start_IT
-     /tmp/ccqzSs8f.s:899    .text.HAL_TIMEx_PWMN_Stop_IT:0000000000000000 $t
-     /tmp/ccqzSs8f.s:906    .text.HAL_TIMEx_PWMN_Stop_IT:0000000000000000 HAL_TIMEx_PWMN_Stop_IT
-     /tmp/ccqzSs8f.s:913    .text.HAL_TIMEx_PWMN_Start_DMA:0000000000000000 $t
-     /tmp/ccqzSs8f.s:920    .text.HAL_TIMEx_PWMN_Start_DMA:0000000000000000 HAL_TIMEx_PWMN_Start_DMA
-     /tmp/ccqzSs8f.s:927    .text.HAL_TIMEx_PWMN_Stop_DMA:0000000000000000 $t
-     /tmp/ccqzSs8f.s:934    .text.HAL_TIMEx_PWMN_Stop_DMA:0000000000000000 HAL_TIMEx_PWMN_Stop_DMA
-     /tmp/ccqzSs8f.s:941    .text.HAL_TIMEx_OnePulseN_Start:0000000000000000 $t
-ARM GAS  /tmp/ccqzSs8f.s 			page 25
+     /tmp/ccHuwdLh.s:14     .text.HAL_TIMEx_HallSensor_MspInit:0000000000000000 $t
+     /tmp/ccHuwdLh.s:22     .text.HAL_TIMEx_HallSensor_MspInit:0000000000000000 HAL_TIMEx_HallSensor_MspInit
+     /tmp/ccHuwdLh.s:29     .text.TIMEx_DMACommutationCplt:0000000000000000 $t
+     /tmp/ccHuwdLh.s:36     .text.TIMEx_DMACommutationCplt:0000000000000000 TIMEx_DMACommutationCplt
+     /tmp/ccHuwdLh.s:47     .text.TIMEx_DMACommutationHalfCplt:0000000000000000 $t
+     /tmp/ccHuwdLh.s:54     .text.TIMEx_DMACommutationHalfCplt:0000000000000000 TIMEx_DMACommutationHalfCplt
+     /tmp/ccHuwdLh.s:65     .text.TIM_CCxNChannelCmd:0000000000000000 $t
+     /tmp/ccHuwdLh.s:71     .text.TIM_CCxNChannelCmd:0000000000000000 TIM_CCxNChannelCmd
+     /tmp/ccHuwdLh.s:88     .text.HAL_TIMEx_HallSensor_MspDeInit:0000000000000000 $t
+     /tmp/ccHuwdLh.s:95     .text.HAL_TIMEx_HallSensor_MspDeInit:0000000000000000 HAL_TIMEx_HallSensor_MspDeInit
+     /tmp/ccHuwdLh.s:102    .text.HAL_TIMEx_HallSensor_Init:0000000000000000 $t
+     /tmp/ccHuwdLh.s:109    .text.HAL_TIMEx_HallSensor_Init:0000000000000000 HAL_TIMEx_HallSensor_Init
+     /tmp/ccHuwdLh.s:195    .text.HAL_TIMEx_HallSensor_Init:00000000000000bc $d
+     /tmp/ccHuwdLh.s:198    .text.HAL_TIMEx_HallSensor_DeInit:0000000000000000 $t
+     /tmp/ccHuwdLh.s:205    .text.HAL_TIMEx_HallSensor_DeInit:0000000000000000 HAL_TIMEx_HallSensor_DeInit
+     /tmp/ccHuwdLh.s:240    .text.HAL_TIMEx_HallSensor_DeInit:0000000000000044 $d
+     /tmp/ccHuwdLh.s:243    .text.HAL_TIMEx_HallSensor_Start:0000000000000000 $t
+     /tmp/ccHuwdLh.s:250    .text.HAL_TIMEx_HallSensor_Start:0000000000000000 HAL_TIMEx_HallSensor_Start
+     /tmp/ccHuwdLh.s:271    .text.HAL_TIMEx_HallSensor_Stop:0000000000000000 $t
+     /tmp/ccHuwdLh.s:278    .text.HAL_TIMEx_HallSensor_Stop:0000000000000000 HAL_TIMEx_HallSensor_Stop
+     /tmp/ccHuwdLh.s:304    .text.HAL_TIMEx_HallSensor_Start_IT:0000000000000000 $t
+     /tmp/ccHuwdLh.s:311    .text.HAL_TIMEx_HallSensor_Start_IT:0000000000000000 HAL_TIMEx_HallSensor_Start_IT
+     /tmp/ccHuwdLh.s:335    .text.HAL_TIMEx_HallSensor_Stop_IT:0000000000000000 $t
+     /tmp/ccHuwdLh.s:342    .text.HAL_TIMEx_HallSensor_Stop_IT:0000000000000000 HAL_TIMEx_HallSensor_Stop_IT
+     /tmp/ccHuwdLh.s:371    .text.HAL_TIMEx_HallSensor_Start_DMA:0000000000000000 $t
+     /tmp/ccHuwdLh.s:378    .text.HAL_TIMEx_HallSensor_Start_DMA:0000000000000000 HAL_TIMEx_HallSensor_Start_DMA
+     /tmp/ccHuwdLh.s:435    .text.HAL_TIMEx_HallSensor_Start_DMA:0000000000000070 $d
+     /tmp/ccHuwdLh.s:440    .text.HAL_TIMEx_HallSensor_Stop_DMA:0000000000000000 $t
+     /tmp/ccHuwdLh.s:447    .text.HAL_TIMEx_HallSensor_Stop_DMA:0000000000000000 HAL_TIMEx_HallSensor_Stop_DMA
+     /tmp/ccHuwdLh.s:479    .text.HAL_TIMEx_OCN_Start:0000000000000000 $t
+     /tmp/ccHuwdLh.s:486    .text.HAL_TIMEx_OCN_Start:0000000000000000 HAL_TIMEx_OCN_Start
+     /tmp/ccHuwdLh.s:509    .text.HAL_TIMEx_OCN_Stop:0000000000000000 $t
+     /tmp/ccHuwdLh.s:516    .text.HAL_TIMEx_OCN_Stop:0000000000000000 HAL_TIMEx_OCN_Stop
+     /tmp/ccHuwdLh.s:553    .text.HAL_TIMEx_OCN_Start_IT:0000000000000000 $t
+     /tmp/ccHuwdLh.s:560    .text.HAL_TIMEx_OCN_Start_IT:0000000000000000 HAL_TIMEx_OCN_Start_IT
+     /tmp/ccHuwdLh.s:604    .text.HAL_TIMEx_OCN_Stop_IT:0000000000000000 $t
+     /tmp/ccHuwdLh.s:611    .text.HAL_TIMEx_OCN_Stop_IT:0000000000000000 HAL_TIMEx_OCN_Stop_IT
+     /tmp/ccHuwdLh.s:673    .text.HAL_TIMEx_OCN_Start_DMA:0000000000000000 $t
+     /tmp/ccHuwdLh.s:680    .text.HAL_TIMEx_OCN_Start_DMA:0000000000000000 HAL_TIMEx_OCN_Start_DMA
+     /tmp/ccHuwdLh.s:779    .text.HAL_TIMEx_OCN_Start_DMA:00000000000000c4 $d
+     /tmp/ccHuwdLh.s:784    .text.HAL_TIMEx_OCN_Stop_DMA:0000000000000000 $t
+     /tmp/ccHuwdLh.s:791    .text.HAL_TIMEx_OCN_Stop_DMA:0000000000000000 HAL_TIMEx_OCN_Stop_DMA
+     /tmp/ccHuwdLh.s:857    .text.HAL_TIMEx_PWMN_Start:0000000000000000 $t
+     /tmp/ccHuwdLh.s:864    .text.HAL_TIMEx_PWMN_Start:0000000000000000 HAL_TIMEx_PWMN_Start
+     /tmp/ccHuwdLh.s:871    .text.HAL_TIMEx_PWMN_Stop:0000000000000000 $t
+     /tmp/ccHuwdLh.s:878    .text.HAL_TIMEx_PWMN_Stop:0000000000000000 HAL_TIMEx_PWMN_Stop
+     /tmp/ccHuwdLh.s:885    .text.HAL_TIMEx_PWMN_Start_IT:0000000000000000 $t
+     /tmp/ccHuwdLh.s:892    .text.HAL_TIMEx_PWMN_Start_IT:0000000000000000 HAL_TIMEx_PWMN_Start_IT
+     /tmp/ccHuwdLh.s:899    .text.HAL_TIMEx_PWMN_Stop_IT:0000000000000000 $t
+     /tmp/ccHuwdLh.s:906    .text.HAL_TIMEx_PWMN_Stop_IT:0000000000000000 HAL_TIMEx_PWMN_Stop_IT
+     /tmp/ccHuwdLh.s:913    .text.HAL_TIMEx_PWMN_Start_DMA:0000000000000000 $t
+     /tmp/ccHuwdLh.s:920    .text.HAL_TIMEx_PWMN_Start_DMA:0000000000000000 HAL_TIMEx_PWMN_Start_DMA
+     /tmp/ccHuwdLh.s:927    .text.HAL_TIMEx_PWMN_Stop_DMA:0000000000000000 $t
+     /tmp/ccHuwdLh.s:934    .text.HAL_TIMEx_PWMN_Stop_DMA:0000000000000000 HAL_TIMEx_PWMN_Stop_DMA
+     /tmp/ccHuwdLh.s:941    .text.HAL_TIMEx_OnePulseN_Start:0000000000000000 $t
+ARM GAS  /tmp/ccHuwdLh.s 			page 25
 
 
-     /tmp/ccqzSs8f.s:948    .text.HAL_TIMEx_OnePulseN_Start:0000000000000000 HAL_TIMEx_OnePulseN_Start
-     /tmp/ccqzSs8f.s:964    .text.HAL_TIMEx_OnePulseN_Stop:0000000000000000 $t
-     /tmp/ccqzSs8f.s:971    .text.HAL_TIMEx_OnePulseN_Stop:0000000000000000 HAL_TIMEx_OnePulseN_Stop
-     /tmp/ccqzSs8f.s:978    .text.HAL_TIMEx_OnePulseN_Start_IT:0000000000000000 $t
-     /tmp/ccqzSs8f.s:985    .text.HAL_TIMEx_OnePulseN_Start_IT:0000000000000000 HAL_TIMEx_OnePulseN_Start_IT
-     /tmp/ccqzSs8f.s:1007   .text.HAL_TIMEx_OnePulseN_Stop_IT:0000000000000000 $t
-     /tmp/ccqzSs8f.s:1014   .text.HAL_TIMEx_OnePulseN_Stop_IT:0000000000000000 HAL_TIMEx_OnePulseN_Stop_IT
-     /tmp/ccqzSs8f.s:1057   .text.HAL_TIMEx_ConfigCommutEvent:0000000000000000 $t
-     /tmp/ccqzSs8f.s:1064   .text.HAL_TIMEx_ConfigCommutEvent:0000000000000000 HAL_TIMEx_ConfigCommutEvent
-     /tmp/ccqzSs8f.s:1108   .text.HAL_TIMEx_ConfigCommutEvent_IT:0000000000000000 $t
-     /tmp/ccqzSs8f.s:1115   .text.HAL_TIMEx_ConfigCommutEvent_IT:0000000000000000 HAL_TIMEx_ConfigCommutEvent_IT
-     /tmp/ccqzSs8f.s:1159   .text.HAL_TIMEx_ConfigCommutEvent_DMA:0000000000000000 $t
-     /tmp/ccqzSs8f.s:1166   .text.HAL_TIMEx_ConfigCommutEvent_DMA:0000000000000000 HAL_TIMEx_ConfigCommutEvent_DMA
-     /tmp/ccqzSs8f.s:1218   .text.HAL_TIMEx_ConfigCommutEvent_DMA:0000000000000068 $d
-     /tmp/ccqzSs8f.s:1223   .text.HAL_TIMEx_MasterConfigSynchronization:0000000000000000 $t
-     /tmp/ccqzSs8f.s:1230   .text.HAL_TIMEx_MasterConfigSynchronization:0000000000000000 HAL_TIMEx_MasterConfigSynchronization
-     /tmp/ccqzSs8f.s:1259   .text.HAL_TIMEx_ConfigBreakDeadTime:0000000000000000 $t
-     /tmp/ccqzSs8f.s:1266   .text.HAL_TIMEx_ConfigBreakDeadTime:0000000000000000 HAL_TIMEx_ConfigBreakDeadTime
-     /tmp/ccqzSs8f.s:1303   .text.HAL_TIMEx_RemapConfig:0000000000000000 $t
-     /tmp/ccqzSs8f.s:1310   .text.HAL_TIMEx_RemapConfig:0000000000000000 HAL_TIMEx_RemapConfig
-     /tmp/ccqzSs8f.s:1318   .text.HAL_TIMEx_CommutCallback:0000000000000000 $t
-     /tmp/ccqzSs8f.s:1325   .text.HAL_TIMEx_CommutCallback:0000000000000000 HAL_TIMEx_CommutCallback
-     /tmp/ccqzSs8f.s:1332   .text.HAL_TIMEx_CommutHalfCpltCallback:0000000000000000 $t
-     /tmp/ccqzSs8f.s:1339   .text.HAL_TIMEx_CommutHalfCpltCallback:0000000000000000 HAL_TIMEx_CommutHalfCpltCallback
-     /tmp/ccqzSs8f.s:1346   .text.HAL_TIMEx_BreakCallback:0000000000000000 $t
-     /tmp/ccqzSs8f.s:1353   .text.HAL_TIMEx_BreakCallback:0000000000000000 HAL_TIMEx_BreakCallback
-     /tmp/ccqzSs8f.s:1360   .text.HAL_TIMEx_HallSensor_GetState:0000000000000000 $t
-     /tmp/ccqzSs8f.s:1367   .text.HAL_TIMEx_HallSensor_GetState:0000000000000000 HAL_TIMEx_HallSensor_GetState
+     /tmp/ccHuwdLh.s:948    .text.HAL_TIMEx_OnePulseN_Start:0000000000000000 HAL_TIMEx_OnePulseN_Start
+     /tmp/ccHuwdLh.s:964    .text.HAL_TIMEx_OnePulseN_Stop:0000000000000000 $t
+     /tmp/ccHuwdLh.s:971    .text.HAL_TIMEx_OnePulseN_Stop:0000000000000000 HAL_TIMEx_OnePulseN_Stop
+     /tmp/ccHuwdLh.s:978    .text.HAL_TIMEx_OnePulseN_Start_IT:0000000000000000 $t
+     /tmp/ccHuwdLh.s:985    .text.HAL_TIMEx_OnePulseN_Start_IT:0000000000000000 HAL_TIMEx_OnePulseN_Start_IT
+     /tmp/ccHuwdLh.s:1007   .text.HAL_TIMEx_OnePulseN_Stop_IT:0000000000000000 $t
+     /tmp/ccHuwdLh.s:1014   .text.HAL_TIMEx_OnePulseN_Stop_IT:0000000000000000 HAL_TIMEx_OnePulseN_Stop_IT
+     /tmp/ccHuwdLh.s:1057   .text.HAL_TIMEx_ConfigCommutEvent:0000000000000000 $t
+     /tmp/ccHuwdLh.s:1064   .text.HAL_TIMEx_ConfigCommutEvent:0000000000000000 HAL_TIMEx_ConfigCommutEvent
+     /tmp/ccHuwdLh.s:1108   .text.HAL_TIMEx_ConfigCommutEvent_IT:0000000000000000 $t
+     /tmp/ccHuwdLh.s:1115   .text.HAL_TIMEx_ConfigCommutEvent_IT:0000000000000000 HAL_TIMEx_ConfigCommutEvent_IT
+     /tmp/ccHuwdLh.s:1159   .text.HAL_TIMEx_ConfigCommutEvent_DMA:0000000000000000 $t
+     /tmp/ccHuwdLh.s:1166   .text.HAL_TIMEx_ConfigCommutEvent_DMA:0000000000000000 HAL_TIMEx_ConfigCommutEvent_DMA
+     /tmp/ccHuwdLh.s:1218   .text.HAL_TIMEx_ConfigCommutEvent_DMA:0000000000000068 $d
+     /tmp/ccHuwdLh.s:1223   .text.HAL_TIMEx_MasterConfigSynchronization:0000000000000000 $t
+     /tmp/ccHuwdLh.s:1230   .text.HAL_TIMEx_MasterConfigSynchronization:0000000000000000 HAL_TIMEx_MasterConfigSynchronization
+     /tmp/ccHuwdLh.s:1259   .text.HAL_TIMEx_ConfigBreakDeadTime:0000000000000000 $t
+     /tmp/ccHuwdLh.s:1266   .text.HAL_TIMEx_ConfigBreakDeadTime:0000000000000000 HAL_TIMEx_ConfigBreakDeadTime
+     /tmp/ccHuwdLh.s:1303   .text.HAL_TIMEx_RemapConfig:0000000000000000 $t
+     /tmp/ccHuwdLh.s:1310   .text.HAL_TIMEx_RemapConfig:0000000000000000 HAL_TIMEx_RemapConfig
+     /tmp/ccHuwdLh.s:1318   .text.HAL_TIMEx_CommutCallback:0000000000000000 $t
+     /tmp/ccHuwdLh.s:1325   .text.HAL_TIMEx_CommutCallback:0000000000000000 HAL_TIMEx_CommutCallback
+     /tmp/ccHuwdLh.s:1332   .text.HAL_TIMEx_CommutHalfCpltCallback:0000000000000000 $t
+     /tmp/ccHuwdLh.s:1339   .text.HAL_TIMEx_CommutHalfCpltCallback:0000000000000000 HAL_TIMEx_CommutHalfCpltCallback
+     /tmp/ccHuwdLh.s:1346   .text.HAL_TIMEx_BreakCallback:0000000000000000 $t
+     /tmp/ccHuwdLh.s:1353   .text.HAL_TIMEx_BreakCallback:0000000000000000 HAL_TIMEx_BreakCallback
+     /tmp/ccHuwdLh.s:1360   .text.HAL_TIMEx_HallSensor_GetState:0000000000000000 $t
+     /tmp/ccHuwdLh.s:1367   .text.HAL_TIMEx_HallSensor_GetState:0000000000000000 HAL_TIMEx_HallSensor_GetState
 
 UNDEFINED SYMBOLS
 TIM_ResetCallback

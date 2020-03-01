@@ -1,0 +1,428 @@
+ARM GAS  /tmp/cc7WagoM.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 4
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"infinikeys_stm32cube_usb_hid.c"
+  12              		.text
+  13              		.section	.text.IK_STM32CUBE_USBD_HID_GetConfigDescriptor,"ax",%progbits
+  14              		.align	1
+  15              		.arch armv7-m
+  16              		.syntax unified
+  17              		.thumb
+  18              		.thumb_func
+  19              		.fpu softvfp
+  21              	IK_STM32CUBE_USBD_HID_GetConfigDescriptor:
+  22              		@ args = 0, pretend = 0, frame = 0
+  23              		@ frame_needed = 0, uses_anonymous_args = 0
+  24              		@ link register save eliminated.
+  25 0000 2923     		movs	r3, #41
+  26 0002 0380     		strh	r3, [r0]	@ movhi
+  27 0004 0048     		ldr	r0, .L2
+  28 0006 7047     		bx	lr
+  29              	.L3:
+  30              		.align	2
+  31              	.L2:
+  32 0008 00000000 		.word	IK_USB_DESCRIPTOR_CONFIG
+  34              		.section	.text.IK_STM32CUBE_USBD_HID_GetDeviceQualifierDescriptor,"ax",%progbits
+  35              		.align	1
+  36              		.syntax unified
+  37              		.thumb
+  38              		.thumb_func
+  39              		.fpu softvfp
+  41              	IK_STM32CUBE_USBD_HID_GetDeviceQualifierDescriptor:
+  42              		@ args = 0, pretend = 0, frame = 0
+  43              		@ frame_needed = 0, uses_anonymous_args = 0
+  44              		@ link register save eliminated.
+  45 0000 0A23     		movs	r3, #10
+  46 0002 0380     		strh	r3, [r0]	@ movhi
+  47 0004 0048     		ldr	r0, .L5
+  48 0006 7047     		bx	lr
+  49              	.L6:
+  50              		.align	2
+  51              	.L5:
+  52 0008 00000000 		.word	_IK_USB_DESCRIPTOR_DEV_QUALIF
+  54              		.section	.text.IK_STM32CUBE_USBD_HID_DataIn,"ax",%progbits
+  55              		.align	1
+  56              		.syntax unified
+  57              		.thumb
+  58              		.thumb_func
+  59              		.fpu softvfp
+  61              	IK_STM32CUBE_USBD_HID_DataIn:
+  62              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  /tmp/cc7WagoM.s 			page 2
+
+
+  63              		@ frame_needed = 0, uses_anonymous_args = 0
+  64              		@ link register save eliminated.
+  65 0000 D0F81832 		ldr	r3, [r0, #536]
+  66 0004 0020     		movs	r0, #0
+  67 0006 83F86000 		strb	r0, [r3, #96]
+  68 000a 7047     		bx	lr
+  70              		.section	.text.IK_STM32CUBE_USBD_HID_EP0RecieveReady,"ax",%progbits
+  71              		.align	1
+  72              		.syntax unified
+  73              		.thumb
+  74              		.thumb_func
+  75              		.fpu softvfp
+  77              	IK_STM32CUBE_USBD_HID_EP0RecieveReady:
+  78              		@ args = 0, pretend = 0, frame = 0
+  79              		@ frame_needed = 0, uses_anonymous_args = 0
+  80 0000 10B5     		push	{r4, lr}
+  81 0002 D0F81842 		ldr	r4, [r0, #536]
+  82 0006 E36D     		ldr	r3, [r4, #92]
+  83 0008 012B     		cmp	r3, #1
+  84 000a 06D1     		bne	.L9
+  85 000c D0F81C32 		ldr	r3, [r0, #540]
+  86 0010 2046     		mov	r0, r4
+  87 0012 DB68     		ldr	r3, [r3, #12]
+  88 0014 9847     		blx	r3
+  89 0016 0023     		movs	r3, #0
+  90 0018 E365     		str	r3, [r4, #92]
+  91              	.L9:
+  92 001a 0020     		movs	r0, #0
+  93 001c 10BD     		pop	{r4, pc}
+  95              		.section	.text.IK_STM32CUBE_USBD_HID_DataOut,"ax",%progbits
+  96              		.align	1
+  97              		.syntax unified
+  98              		.thumb
+  99              		.thumb_func
+ 100              		.fpu softvfp
+ 102              	IK_STM32CUBE_USBD_HID_DataOut:
+ 103              		@ args = 0, pretend = 0, frame = 0
+ 104              		@ frame_needed = 0, uses_anonymous_args = 0
+ 105 0000 38B5     		push	{r3, r4, r5, lr}
+ 106 0002 D0E98653 		ldrd	r5, r3, [r0, #536]
+ 107 0006 0446     		mov	r4, r0
+ 108 0008 DB68     		ldr	r3, [r3, #12]
+ 109 000a 2846     		mov	r0, r5
+ 110 000c 9847     		blx	r3
+ 111 000e 5023     		movs	r3, #80
+ 112 0010 2A46     		mov	r2, r5
+ 113 0012 0121     		movs	r1, #1
+ 114 0014 2046     		mov	r0, r4
+ 115 0016 FFF7FEFF 		bl	USBD_LL_PrepareReceive
+ 116 001a 0020     		movs	r0, #0
+ 117 001c 38BD     		pop	{r3, r4, r5, pc}
+ 119              		.section	.text.IK_STM32CUBE_USBD_HID_Setup,"ax",%progbits
+ 120              		.align	1
+ 121              		.syntax unified
+ 122              		.thumb
+ 123              		.thumb_func
+ 124              		.fpu softvfp
+ARM GAS  /tmp/cc7WagoM.s 			page 3
+
+
+ 126              	IK_STM32CUBE_USBD_HID_Setup:
+ 127              		@ args = 0, pretend = 0, frame = 0
+ 128              		@ frame_needed = 0, uses_anonymous_args = 0
+ 129 0000 38B5     		push	{r3, r4, r5, lr}
+ 130 0002 0C78     		ldrb	r4, [r1]	@ zero_extendqisi2
+ 131 0004 0346     		mov	r3, r0
+ 132 0006 14F06004 		ands	r4, r4, #96
+ 133 000a D0F81852 		ldr	r5, [r0, #536]
+ 134 000e 03D0     		beq	.L12
+ 135 0010 202C     		cmp	r4, #32
+ 136 0012 2AD0     		beq	.L13
+ 137              	.L27:
+ 138 0014 0024     		movs	r4, #0
+ 139 0016 14E0     		b	.L14
+ 140              	.L12:
+ 141 0018 4A78     		ldrb	r2, [r1, #1]	@ zero_extendqisi2
+ 142 001a 0A2A     		cmp	r2, #10
+ 143 001c 1ED0     		beq	.L15
+ 144 001e 0B2A     		cmp	r2, #11
+ 145 0020 20D0     		beq	.L16
+ 146 0022 062A     		cmp	r2, #6
+ 147 0024 0DD1     		bne	.L14
+ 148 0026 4A88     		ldrh	r2, [r1, #2]
+ 149 0028 120A     		lsrs	r2, r2, #8
+ 150 002a 222A     		cmp	r2, #34
+ 151 002c 0BD1     		bne	.L17
+ 152 002e CA88     		ldrh	r2, [r1, #6]
+ 153 0030 D0F81C12 		ldr	r1, [r0, #540]
+ 154 0034 5B2A     		cmp	r2, #91
+ 155 0036 28BF     		it	cs
+ 156 0038 5B22     		movcs	r2, #91
+ 157 003a 0968     		ldr	r1, [r1]
+ 158              	.L18:
+ 159 003c 1846     		mov	r0, r3
+ 160              	.L28:
+ 161 003e FFF7FEFF 		bl	USBD_CtlSendData
+ 162              	.L14:
+ 163 0042 2046     		mov	r0, r4
+ 164 0044 38BD     		pop	{r3, r4, r5, pc}
+ 165              	.L17:
+ 166 0046 212A     		cmp	r2, #33
+ 167 0048 05D1     		bne	.L26
+ 168 004a CA88     		ldrh	r2, [r1, #6]
+ 169 004c 1C49     		ldr	r1, .L30
+ 170 004e 092A     		cmp	r2, #9
+ 171 0050 28BF     		it	cs
+ 172 0052 0922     		movcs	r2, #9
+ 173 0054 F2E7     		b	.L18
+ 174              	.L26:
+ 175 0056 2246     		mov	r2, r4
+ 176 0058 2146     		mov	r1, r4
+ 177 005a EFE7     		b	.L18
+ 178              	.L15:
+ 179 005c 0122     		movs	r2, #1
+ 180 005e 05F15801 		add	r1, r5, #88
+ 181 0062 ECE7     		b	.L28
+ 182              	.L16:
+ARM GAS  /tmp/cc7WagoM.s 			page 4
+
+
+ 183 0064 8B78     		ldrb	r3, [r1, #2]	@ zero_extendqisi2
+ 184 0066 AB65     		str	r3, [r5, #88]
+ 185 0068 EBE7     		b	.L14
+ 186              	.L13:
+ 187 006a 4A78     		ldrb	r2, [r1, #1]	@ zero_extendqisi2
+ 188 006c 023A     		subs	r2, r2, #2
+ 189 006e 092A     		cmp	r2, #9
+ 190 0070 20D8     		bhi	.L19
+ 191 0072 DFE802F0 		tbb	[pc, r2]
+ 192              	.L21:
+ 193 0076 13       		.byte	(.L25-.L21)/2
+ 194 0077 08       		.byte	(.L24-.L21)/2
+ 195 0078 1F       		.byte	(.L19-.L21)/2
+ 196 0079 1F       		.byte	(.L19-.L21)/2
+ 197 007a 1F       		.byte	(.L19-.L21)/2
+ 198 007b 1F       		.byte	(.L19-.L21)/2
+ 199 007c 1F       		.byte	(.L19-.L21)/2
+ 200 007d 17       		.byte	(.L23-.L21)/2
+ 201 007e 0F       		.byte	(.L22-.L21)/2
+ 202 007f 05       		.byte	(.L20-.L21)/2
+ 203              		.p2align 1
+ 204              	.L20:
+ 205 0080 8B78     		ldrb	r3, [r1, #2]	@ zero_extendqisi2
+ 206 0082 2B65     		str	r3, [r5, #80]
+ 207 0084 C6E7     		b	.L27
+ 208              	.L24:
+ 209 0086 0122     		movs	r2, #1
+ 210 0088 05F15001 		add	r1, r5, #80
+ 211              	.L29:
+ 212 008c 1846     		mov	r0, r3
+ 213 008e FFF7FEFF 		bl	USBD_CtlSendData
+ 214 0092 BFE7     		b	.L27
+ 215              	.L22:
+ 216 0094 4B88     		ldrh	r3, [r1, #2]
+ 217 0096 1B0A     		lsrs	r3, r3, #8
+ 218 0098 6B65     		str	r3, [r5, #84]
+ 219 009a BBE7     		b	.L27
+ 220              	.L25:
+ 221 009c 0122     		movs	r2, #1
+ 222 009e 05F15401 		add	r1, r5, #84
+ 223 00a2 F3E7     		b	.L29
+ 224              	.L23:
+ 225 00a4 0122     		movs	r2, #1
+ 226 00a6 1846     		mov	r0, r3
+ 227 00a8 EA65     		str	r2, [r5, #92]
+ 228 00aa 8A79     		ldrb	r2, [r1, #6]	@ zero_extendqisi2
+ 229 00ac 2946     		mov	r1, r5
+ 230 00ae FFF7FEFF 		bl	USBD_CtlPrepareRx
+ 231 00b2 AFE7     		b	.L27
+ 232              	.L19:
+ 233 00b4 1846     		mov	r0, r3
+ 234 00b6 FFF7FEFF 		bl	USBD_CtlError
+ 235 00ba 0224     		movs	r4, #2
+ 236 00bc C1E7     		b	.L14
+ 237              	.L31:
+ 238 00be 00BF     		.align	2
+ 239              	.L30:
+ARM GAS  /tmp/cc7WagoM.s 			page 5
+
+
+ 240 00c0 00000000 		.word	IK_USB_DESCRIPTOR_HID_REPORT
+ 242              		.section	.text.IK_STM32CUBE_USBD_HID_DeInit,"ax",%progbits
+ 243              		.align	1
+ 244              		.syntax unified
+ 245              		.thumb
+ 246              		.thumb_func
+ 247              		.fpu softvfp
+ 249              	IK_STM32CUBE_USBD_HID_DeInit:
+ 250              		@ args = 0, pretend = 0, frame = 0
+ 251              		@ frame_needed = 0, uses_anonymous_args = 0
+ 252 0000 10B5     		push	{r4, lr}
+ 253 0002 0446     		mov	r4, r0
+ 254 0004 8121     		movs	r1, #129
+ 255 0006 FFF7FEFF 		bl	USBD_LL_CloseEP
+ 256 000a 0121     		movs	r1, #1
+ 257 000c 2046     		mov	r0, r4
+ 258 000e FFF7FEFF 		bl	USBD_LL_CloseEP
+ 259 0012 D4F81832 		ldr	r3, [r4, #536]
+ 260 0016 53B1     		cbz	r3, .L33
+ 261 0018 D4F81C32 		ldr	r3, [r4, #540]
+ 262 001c 9B68     		ldr	r3, [r3, #8]
+ 263 001e 9847     		blx	r3
+ 264 0020 D4F81802 		ldr	r0, [r4, #536]
+ 265 0024 FFF7FEFF 		bl	USBD_static_free
+ 266 0028 0023     		movs	r3, #0
+ 267 002a C4F81832 		str	r3, [r4, #536]
+ 268              	.L33:
+ 269 002e 0020     		movs	r0, #0
+ 270 0030 10BD     		pop	{r4, pc}
+ 272              		.section	.text.IK_STM32CUBE_USBD_HID_Init,"ax",%progbits
+ 273              		.align	1
+ 274              		.syntax unified
+ 275              		.thumb
+ 276              		.thumb_func
+ 277              		.fpu softvfp
+ 279              	IK_STM32CUBE_USBD_HID_Init:
+ 280              		@ args = 0, pretend = 0, frame = 0
+ 281              		@ frame_needed = 0, uses_anonymous_args = 0
+ 282 0000 70B5     		push	{r4, r5, r6, lr}
+ 283 0002 0446     		mov	r4, r0
+ 284 0004 0A23     		movs	r3, #10
+ 285 0006 0322     		movs	r2, #3
+ 286 0008 8121     		movs	r1, #129
+ 287 000a FFF7FEFF 		bl	USBD_LL_OpenEP
+ 288 000e 0A23     		movs	r3, #10
+ 289 0010 0322     		movs	r2, #3
+ 290 0012 0121     		movs	r1, #1
+ 291 0014 2046     		mov	r0, r4
+ 292 0016 FFF7FEFF 		bl	USBD_LL_OpenEP
+ 293 001a 6420     		movs	r0, #100
+ 294 001c FFF7FEFF 		bl	USBD_static_malloc
+ 295 0020 0546     		mov	r5, r0
+ 296 0022 C4F81802 		str	r0, [r4, #536]
+ 297 0026 70B1     		cbz	r0, .L39
+ 298 0028 0026     		movs	r6, #0
+ 299 002a 80F86060 		strb	r6, [r0, #96]
+ 300 002e D4F81C32 		ldr	r3, [r4, #540]
+ARM GAS  /tmp/cc7WagoM.s 			page 6
+
+
+ 301 0032 5B68     		ldr	r3, [r3, #4]
+ 302 0034 9847     		blx	r3
+ 303 0036 5023     		movs	r3, #80
+ 304 0038 2A46     		mov	r2, r5
+ 305 003a 0121     		movs	r1, #1
+ 306 003c 2046     		mov	r0, r4
+ 307 003e FFF7FEFF 		bl	USBD_LL_PrepareReceive
+ 308 0042 3046     		mov	r0, r6
+ 309              	.L38:
+ 310 0044 70BD     		pop	{r4, r5, r6, pc}
+ 311              	.L39:
+ 312 0046 0220     		movs	r0, #2
+ 313 0048 FCE7     		b	.L38
+ 315              		.section	.text.IK_STM32CUBE_USBD_HID_SendReport,"ax",%progbits
+ 316              		.align	1
+ 317              		.global	IK_STM32CUBE_USBD_HID_SendReport
+ 318              		.syntax unified
+ 319              		.thumb
+ 320              		.thumb_func
+ 321              		.fpu softvfp
+ 323              	IK_STM32CUBE_USBD_HID_SendReport:
+ 324              		@ args = 0, pretend = 0, frame = 0
+ 325              		@ frame_needed = 0, uses_anonymous_args = 0
+ 326 0000 10B5     		push	{r4, lr}
+ 327 0002 1346     		mov	r3, r2
+ 328 0004 90F8FC21 		ldrb	r2, [r0, #508]	@ zero_extendqisi2
+ 329 0008 032A     		cmp	r2, #3
+ 330 000a 0BD1     		bne	.L41
+ 331 000c D0F81822 		ldr	r2, [r0, #536]
+ 332 0010 92F86040 		ldrb	r4, [r2, #96]	@ zero_extendqisi2
+ 333 0014 34B9     		cbnz	r4, .L41
+ 334 0016 0124     		movs	r4, #1
+ 335 0018 82F86040 		strb	r4, [r2, #96]
+ 336 001c 0A46     		mov	r2, r1
+ 337 001e 8121     		movs	r1, #129
+ 338 0020 FFF7FEFF 		bl	USBD_LL_Transmit
+ 339              	.L41:
+ 340 0024 0020     		movs	r0, #0
+ 341 0026 10BD     		pop	{r4, pc}
+ 343              		.section	.text.IK_STM32CUBE_USBD_HID_RegisterInterface,"ax",%progbits
+ 344              		.align	1
+ 345              		.global	IK_STM32CUBE_USBD_HID_RegisterInterface
+ 346              		.syntax unified
+ 347              		.thumb
+ 348              		.thumb_func
+ 349              		.fpu softvfp
+ 351              	IK_STM32CUBE_USBD_HID_RegisterInterface:
+ 352              		@ args = 0, pretend = 0, frame = 0
+ 353              		@ frame_needed = 0, uses_anonymous_args = 0
+ 354              		@ link register save eliminated.
+ 355 0000 19B1     		cbz	r1, .L44
+ 356 0002 C0F81C12 		str	r1, [r0, #540]
+ 357 0006 0020     		movs	r0, #0
+ 358 0008 7047     		bx	lr
+ 359              	.L44:
+ 360 000a 0220     		movs	r0, #2
+ 361 000c 7047     		bx	lr
+ARM GAS  /tmp/cc7WagoM.s 			page 7
+
+
+ 363              		.global	IK_HID_Class
+ 364              		.section	.data.IK_HID_Class,"aw"
+ 365              		.align	2
+ 368              	IK_HID_Class:
+ 369 0000 00000000 		.word	IK_STM32CUBE_USBD_HID_Init
+ 370 0004 00000000 		.word	IK_STM32CUBE_USBD_HID_DeInit
+ 371 0008 00000000 		.word	IK_STM32CUBE_USBD_HID_Setup
+ 372 000c 00000000 		.word	0
+ 373 0010 00000000 		.word	IK_STM32CUBE_USBD_HID_EP0RecieveReady
+ 374 0014 00000000 		.word	IK_STM32CUBE_USBD_HID_DataIn
+ 375 0018 00000000 		.word	IK_STM32CUBE_USBD_HID_DataOut
+ 376 001c 00000000 		.word	0
+ 377 0020 00000000 		.word	0
+ 378 0024 00000000 		.word	0
+ 379 0028 00000000 		.word	IK_STM32CUBE_USBD_HID_GetConfigDescriptor
+ 380 002c 00000000 		.word	IK_STM32CUBE_USBD_HID_GetConfigDescriptor
+ 381 0030 00000000 		.word	IK_STM32CUBE_USBD_HID_GetConfigDescriptor
+ 382 0034 00000000 		.word	IK_STM32CUBE_USBD_HID_GetDeviceQualifierDescriptor
+ 383              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
+ARM GAS  /tmp/cc7WagoM.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 infinikeys_stm32cube_usb_hid.c
+     /tmp/cc7WagoM.s:14     .text.IK_STM32CUBE_USBD_HID_GetConfigDescriptor:0000000000000000 $t
+     /tmp/cc7WagoM.s:21     .text.IK_STM32CUBE_USBD_HID_GetConfigDescriptor:0000000000000000 IK_STM32CUBE_USBD_HID_GetConfigDescriptor
+     /tmp/cc7WagoM.s:32     .text.IK_STM32CUBE_USBD_HID_GetConfigDescriptor:0000000000000008 $d
+     /tmp/cc7WagoM.s:35     .text.IK_STM32CUBE_USBD_HID_GetDeviceQualifierDescriptor:0000000000000000 $t
+     /tmp/cc7WagoM.s:41     .text.IK_STM32CUBE_USBD_HID_GetDeviceQualifierDescriptor:0000000000000000 IK_STM32CUBE_USBD_HID_GetDeviceQualifierDescriptor
+     /tmp/cc7WagoM.s:52     .text.IK_STM32CUBE_USBD_HID_GetDeviceQualifierDescriptor:0000000000000008 $d
+     /tmp/cc7WagoM.s:55     .text.IK_STM32CUBE_USBD_HID_DataIn:0000000000000000 $t
+     /tmp/cc7WagoM.s:61     .text.IK_STM32CUBE_USBD_HID_DataIn:0000000000000000 IK_STM32CUBE_USBD_HID_DataIn
+     /tmp/cc7WagoM.s:71     .text.IK_STM32CUBE_USBD_HID_EP0RecieveReady:0000000000000000 $t
+     /tmp/cc7WagoM.s:77     .text.IK_STM32CUBE_USBD_HID_EP0RecieveReady:0000000000000000 IK_STM32CUBE_USBD_HID_EP0RecieveReady
+     /tmp/cc7WagoM.s:96     .text.IK_STM32CUBE_USBD_HID_DataOut:0000000000000000 $t
+     /tmp/cc7WagoM.s:102    .text.IK_STM32CUBE_USBD_HID_DataOut:0000000000000000 IK_STM32CUBE_USBD_HID_DataOut
+     /tmp/cc7WagoM.s:120    .text.IK_STM32CUBE_USBD_HID_Setup:0000000000000000 $t
+     /tmp/cc7WagoM.s:126    .text.IK_STM32CUBE_USBD_HID_Setup:0000000000000000 IK_STM32CUBE_USBD_HID_Setup
+     /tmp/cc7WagoM.s:193    .text.IK_STM32CUBE_USBD_HID_Setup:0000000000000076 $d
+     /tmp/cc7WagoM.s:203    .text.IK_STM32CUBE_USBD_HID_Setup:0000000000000080 $t
+     /tmp/cc7WagoM.s:240    .text.IK_STM32CUBE_USBD_HID_Setup:00000000000000c0 $d
+     /tmp/cc7WagoM.s:243    .text.IK_STM32CUBE_USBD_HID_DeInit:0000000000000000 $t
+     /tmp/cc7WagoM.s:249    .text.IK_STM32CUBE_USBD_HID_DeInit:0000000000000000 IK_STM32CUBE_USBD_HID_DeInit
+     /tmp/cc7WagoM.s:273    .text.IK_STM32CUBE_USBD_HID_Init:0000000000000000 $t
+     /tmp/cc7WagoM.s:279    .text.IK_STM32CUBE_USBD_HID_Init:0000000000000000 IK_STM32CUBE_USBD_HID_Init
+     /tmp/cc7WagoM.s:316    .text.IK_STM32CUBE_USBD_HID_SendReport:0000000000000000 $t
+     /tmp/cc7WagoM.s:323    .text.IK_STM32CUBE_USBD_HID_SendReport:0000000000000000 IK_STM32CUBE_USBD_HID_SendReport
+     /tmp/cc7WagoM.s:344    .text.IK_STM32CUBE_USBD_HID_RegisterInterface:0000000000000000 $t
+     /tmp/cc7WagoM.s:351    .text.IK_STM32CUBE_USBD_HID_RegisterInterface:0000000000000000 IK_STM32CUBE_USBD_HID_RegisterInterface
+     /tmp/cc7WagoM.s:368    .data.IK_HID_Class:0000000000000000 IK_HID_Class
+     /tmp/cc7WagoM.s:365    .data.IK_HID_Class:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+IK_USB_DESCRIPTOR_CONFIG
+_IK_USB_DESCRIPTOR_DEV_QUALIF
+USBD_LL_PrepareReceive
+USBD_CtlSendData
+USBD_CtlPrepareRx
+USBD_CtlError
+IK_USB_DESCRIPTOR_HID_REPORT
+USBD_LL_CloseEP
+USBD_static_free
+USBD_LL_OpenEP
+USBD_static_malloc
+USBD_LL_Transmit

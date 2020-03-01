@@ -1,0 +1,414 @@
+ARM GAS  /tmp/ccp1bsLG.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 4
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"infinikeys_kbmatrix.c"
+  12              		.text
+  13              		.section	.text.IK_KBM_Init,"ax",%progbits
+  14              		.align	1
+  15              		.global	IK_KBM_Init
+  16              		.arch armv7-m
+  17              		.syntax unified
+  18              		.thumb
+  19              		.thumb_func
+  20              		.fpu softvfp
+  22              	IK_KBM_Init:
+  23              		@ args = 0, pretend = 0, frame = 0
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25 0000 08B5     		push	{r3, lr}
+  26 0002 034B     		ldr	r3, .L2
+  27 0004 93E80300 		ldm	r3, {r0, r1}
+  28 0008 FFF7FEFF 		bl	IK_CFG_KLT_AddItem
+  29 000c 0020     		movs	r0, #0
+  30 000e 08BD     		pop	{r3, pc}
+  31              	.L3:
+  32              		.align	2
+  33              	.L2:
+  34 0010 00000000 		.word	.LANCHOR0
+  36              		.section	.text.IK_KBM_DeInit,"ax",%progbits
+  37              		.align	1
+  38              		.global	IK_KBM_DeInit
+  39              		.syntax unified
+  40              		.thumb
+  41              		.thumb_func
+  42              		.fpu softvfp
+  44              	IK_KBM_DeInit:
+  45              		@ args = 0, pretend = 0, frame = 0
+  46              		@ frame_needed = 0, uses_anonymous_args = 0
+  47              		@ link register save eliminated.
+  48 0000 0020     		movs	r0, #0
+  49 0002 7047     		bx	lr
+  51              		.section	.text.IK_KBM_RetrieveKeyInfo,"ax",%progbits
+  52              		.align	1
+  53              		.global	IK_KBM_RetrieveKeyInfo
+  54              		.syntax unified
+  55              		.thumb
+  56              		.thumb_func
+  57              		.fpu softvfp
+  59              	IK_KBM_RetrieveKeyInfo:
+  60              		@ args = 0, pretend = 0, frame = 16
+  61              		@ frame_needed = 0, uses_anonymous_args = 0
+  62 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+ARM GAS  /tmp/ccp1bsLG.s 			page 2
+
+
+  63 0004 0446     		mov	r4, r0
+  64 0006 9046     		mov	r8, r2
+  65 0008 0D46     		mov	r5, r1
+  66 000a 85B0     		sub	sp, sp, #20
+  67 000c 31B9     		cbnz	r1, .L6
+  68 000e 0180     		strh	r1, [r0]	@ movhi
+  69 0010 8170     		strb	r1, [r0, #2]
+  70 0012 4160     		str	r1, [r0, #4]
+  71              	.L5:
+  72 0014 2046     		mov	r0, r4
+  73 0016 05B0     		add	sp, sp, #20
+  74              		@ sp needed
+  75 0018 BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+  76              	.L6:
+  77 001c 2A49     		ldr	r1, .L25
+  78 001e 01A8     		add	r0, sp, #4
+  79 0020 FFF7FEFF 		bl	IK_CFG_GetConfig
+  80 0024 019B     		ldr	r3, [sp, #4]
+  81 0026 13B1     		cbz	r3, .L8
+  82 0028 BDF80870 		ldrh	r7, [sp, #8]
+  83 002c 27B9     		cbnz	r7, .L9
+  84              	.L8:
+  85 002e 0023     		movs	r3, #0
+  86 0030 2380     		strh	r3, [r4]	@ movhi
+  87 0032 A370     		strb	r3, [r4, #2]
+  88              	.L24:
+  89 0034 6360     		str	r3, [r4, #4]
+  90 0036 EDE7     		b	.L5
+  91              	.L9:
+  92 0038 0398     		ldr	r0, [sp, #12]
+  93 003a 0028     		cmp	r0, #0
+  94 003c F7D0     		beq	.L8
+  95 003e 0023     		movs	r3, #0
+  96 0040 A7F1030E 		sub	lr, r7, #3
+  97              	.L11:
+  98 0044 7345     		cmp	r3, lr
+  99 0046 F2DA     		bge	.L8
+ 100 0048 9A1C     		adds	r2, r3, #2
+ 101 004a 591C     		adds	r1, r3, #1
+ 102 004c 92B2     		uxth	r2, r2
+ 103 004e 89B2     		uxth	r1, r1
+ 104 0050 825C     		ldrb	r2, [r0, r2]	@ zero_extendqisi2
+ 105 0052 415C     		ldrb	r1, [r0, r1]	@ zero_extendqisi2
+ 106 0054 10F80390 		ldrb	r9, [r0, r3]	@ zero_extendqisi2
+ 107 0058 01EB0221 		add	r1, r1, r2, lsl #8
+ 108 005c 0022     		movs	r2, #0
+ 109 005e 0333     		adds	r3, r3, #3
+ 110 0060 9BB2     		uxth	r3, r3
+ 111 0062 89B2     		uxth	r1, r1
+ 112              	.L12:
+ 113 0064 96B2     		uxth	r6, r2
+ 114 0066 B142     		cmp	r1, r6
+ 115 0068 ECD9     		bls	.L11
+ 116 006a 9F42     		cmp	r7, r3
+ 117 006c EAD9     		bls	.L11
+ 118 006e C845     		cmp	r8, r9
+ 119 0070 27D1     		bne	.L13
+ARM GAS  /tmp/ccp1bsLG.s 			page 3
+
+
+ 120 0072 5E1C     		adds	r6, r3, #1
+ 121 0074 B6B2     		uxth	r6, r6
+ 122 0076 10F806C0 		ldrb	ip, [r0, r6]	@ zero_extendqisi2
+ 123 007a C65C     		ldrb	r6, [r0, r3]	@ zero_extendqisi2
+ 124 007c 06EB0C26 		add	r6, r6, ip, lsl #8
+ 125 0080 B6B2     		uxth	r6, r6
+ 126 0082 03F1070C 		add	ip, r3, #7
+ 127 0086 B542     		cmp	r5, r6
+ 128 0088 1FFA8CFC 		uxth	ip, ip
+ 129 008c 18D1     		bne	.L17
+ 130 008e 9A1C     		adds	r2, r3, #2
+ 131 0090 92B2     		uxth	r2, r2
+ 132 0092 875C     		ldrb	r7, [r0, r2]	@ zero_extendqisi2
+ 133 0094 DA1C     		adds	r2, r3, #3
+ 134 0096 92B2     		uxth	r2, r2
+ 135 0098 815C     		ldrb	r1, [r0, r2]	@ zero_extendqisi2
+ 136 009a 1A1D     		adds	r2, r3, #4
+ 137 009c 92B2     		uxth	r2, r2
+ 138 009e 865C     		ldrb	r6, [r0, r2]	@ zero_extendqisi2
+ 139 00a0 5A1D     		adds	r2, r3, #5
+ 140 00a2 92B2     		uxth	r2, r2
+ 141 00a4 10F802C0 		ldrb	ip, [r0, r2]	@ zero_extendqisi2
+ 142 00a8 9A1D     		adds	r2, r3, #6
+ 143 00aa 92B2     		uxth	r2, r2
+ 144 00ac 835C     		ldrb	r3, [r0, r2]	@ zero_extendqisi2
+ 145 00ae 2580     		strh	r5, [r4]	@ movhi
+ 146 00b0 1B06     		lsls	r3, r3, #24
+ 147 00b2 03EB0C43 		add	r3, r3, ip, lsl #16
+ 148 00b6 0B44     		add	r3, r3, r1
+ 149 00b8 A770     		strb	r7, [r4, #2]
+ 150 00ba 03EB0623 		add	r3, r3, r6, lsl #8
+ 151 00be B9E7     		b	.L24
+ 152              	.L17:
+ 153 00c0 6346     		mov	r3, ip
+ 154              	.L13:
+ 155 00c2 0132     		adds	r2, r2, #1
+ 156 00c4 CEE7     		b	.L12
+ 157              	.L26:
+ 158 00c6 00BF     		.align	2
+ 159              	.L25:
+ 160 00c8 010000FF 		.word	-16777215
+ 162              		.section	.rodata.IK_KBM_KeystrokeEvent.str1.1,"aMS",%progbits,1
+ 163              	.LC0:
+ 164 0000 4B657973 		.ascii	"KeystrokeEvent INVOKED: K: %i T: %i.\012\000"
+ 164      74726F6B 
+ 164      65457665 
+ 164      6E742049 
+ 164      4E564F4B 
+ 165              		.section	.text.IK_KBM_KeystrokeEvent,"ax",%progbits
+ 166              		.align	1
+ 167              		.global	IK_KBM_KeystrokeEvent
+ 168              		.syntax unified
+ 169              		.thumb
+ 170              		.thumb_func
+ 171              		.fpu softvfp
+ 173              	IK_KBM_KeystrokeEvent:
+ 174              		@ args = 0, pretend = 0, frame = 16
+ARM GAS  /tmp/ccp1bsLG.s 			page 4
+
+
+ 175              		@ frame_needed = 0, uses_anonymous_args = 0
+ 176 0000 7FB5     		push	{r0, r1, r2, r3, r4, r5, r6, lr}
+ 177 0002 85B2     		uxth	r5, r0
+ 178 0004 324E     		ldr	r6, .L40
+ 179 0006 C0F30744 		ubfx	r4, r0, #16, #8
+ 180 000a 2246     		mov	r2, r4
+ 181 000c 2946     		mov	r1, r5
+ 182 000e 0190     		str	r0, [sp, #4]
+ 183 0010 3048     		ldr	r0, .L40+4
+ 184 0012 FFF7FEFF 		bl	IK_DEBUG_PrintMessage
+ 185 0016 2946     		mov	r1, r5
+ 186 0018 02A8     		add	r0, sp, #8
+ 187 001a 3278     		ldrb	r2, [r6]	@ zero_extendqisi2
+ 188 001c FFF7FEFF 		bl	IK_KBM_RetrieveKeyInfo
+ 189 0020 BDF80810 		ldrh	r1, [sp, #8]
+ 190 0024 3046     		mov	r0, r6
+ 191 0026 69B1     		cbz	r1, .L28
+ 192 0028 8D42     		cmp	r5, r1
+ 193 002a 0BD1     		bne	.L28
+ 194 002c 2A4B     		ldr	r3, .L40+8
+ 195 002e 1A88     		ldrh	r2, [r3]
+ 196 0030 AA42     		cmp	r2, r5
+ 197 0032 1D46     		mov	r5, r3
+ 198 0034 09D1     		bne	.L29
+ 199 0036 3278     		ldrb	r2, [r6]	@ zero_extendqisi2
+ 200 0038 3AB1     		cbz	r2, .L29
+ 201 003a 012C     		cmp	r4, #1
+ 202 003c 02D1     		bne	.L28
+ 203 003e 0022     		movs	r2, #0
+ 204 0040 3270     		strb	r2, [r6]
+ 205 0042 1A80     		strh	r2, [r3]	@ movhi
+ 206              	.L28:
+ 207 0044 0020     		movs	r0, #0
+ 208 0046 04B0     		add	sp, sp, #16
+ 209              		@ sp needed
+ 210 0048 70BD     		pop	{r4, r5, r6, pc}
+ 211              	.L29:
+ 212 004a 9DF80A20 		ldrb	r2, [sp, #10]	@ zero_extendqisi2
+ 213 004e 039B     		ldr	r3, [sp, #12]
+ 214 0050 022A     		cmp	r2, #2
+ 215 0052 1DD0     		beq	.L30
+ 216 0054 032A     		cmp	r2, #3
+ 217 0056 34D0     		beq	.L31
+ 218 0058 012A     		cmp	r2, #1
+ 219 005a F3D1     		bne	.L28
+ 220 005c 54B9     		cbnz	r4, .L32
+ 221 005e 1F48     		ldr	r0, .L40+12
+ 222 0060 C3F3C401 		ubfx	r1, r3, #3, #5
+ 223 0064 03F00703 		and	r3, r3, #7
+ 224 0068 02FA03F3 		lsl	r3, r2, r3
+ 225 006c 425C     		ldrb	r2, [r0, r1]	@ zero_extendqisi2
+ 226 006e 1343     		orrs	r3, r3, r2
+ 227 0070 4354     		strb	r3, [r0, r1]
+ 228 0072 E7E7     		b	.L28
+ 229              	.L32:
+ 230 0074 012C     		cmp	r4, #1
+ 231 0076 E5D1     		bne	.L28
+ARM GAS  /tmp/ccp1bsLG.s 			page 5
+
+
+ 232 0078 1849     		ldr	r1, .L40+12
+ 233 007a C3F3C402 		ubfx	r2, r3, #3, #5
+ 234 007e 885C     		ldrb	r0, [r1, r2]	@ zero_extendqisi2
+ 235 0080 03F00703 		and	r3, r3, #7
+ 236 0084 04FA03F3 		lsl	r3, r4, r3
+ 237 0088 20EA0303 		bic	r3, r0, r3
+ 238 008c 8B54     		strb	r3, [r1, r2]
+ 239 008e D9E7     		b	.L28
+ 240              	.L30:
+ 241 0090 54B9     		cbnz	r4, .L33
+ 242 0092 DBB2     		uxtb	r3, r3
+ 243 0094 072B     		cmp	r3, #7
+ 244 0096 D5D8     		bhi	.L28
+ 245 0098 0122     		movs	r2, #1
+ 246 009a 1149     		ldr	r1, .L40+16
+ 247 009c 02FA03F3 		lsl	r3, r2, r3
+ 248 00a0 0A78     		ldrb	r2, [r1]	@ zero_extendqisi2
+ 249 00a2 1343     		orrs	r3, r3, r2
+ 250 00a4 0B70     		strb	r3, [r1]
+ 251 00a6 CDE7     		b	.L28
+ 252              	.L33:
+ 253 00a8 012C     		cmp	r4, #1
+ 254 00aa CBD1     		bne	.L28
+ 255 00ac DBB2     		uxtb	r3, r3
+ 256 00ae 072B     		cmp	r3, #7
+ 257 00b0 C8D8     		bhi	.L28
+ 258 00b2 0B4A     		ldr	r2, .L40+16
+ 259 00b4 04FA03F3 		lsl	r3, r4, r3
+ 260 00b8 1078     		ldrb	r0, [r2]	@ zero_extendqisi2
+ 261 00ba 20EA0303 		bic	r3, r0, r3
+ 262 00be 1370     		strb	r3, [r2]
+ 263 00c0 C0E7     		b	.L28
+ 264              	.L31:
+ 265 00c2 0278     		ldrb	r2, [r0]	@ zero_extendqisi2
+ 266 00c4 2243     		orrs	r2, r4, r2
+ 267 00c6 04BF     		itt	eq
+ 268 00c8 0370     		strbeq	r3, [r0]
+ 269 00ca 2980     		strheq	r1, [r5]	@ movhi
+ 270 00cc BAE7     		b	.L28
+ 271              	.L41:
+ 272 00ce 00BF     		.align	2
+ 273              	.L40:
+ 274 00d0 00000000 		.word	.LANCHOR1
+ 275 00d4 00000000 		.word	.LC0
+ 276 00d8 00000000 		.word	.LANCHOR2
+ 277 00dc 00000000 		.word	.LANCHOR3
+ 278 00e0 00000000 		.word	.LANCHOR4
+ 280              		.section	.text.IK_KBM_SendHIDReport,"ax",%progbits
+ 281              		.align	1
+ 282              		.global	IK_KBM_SendHIDReport
+ 283              		.syntax unified
+ 284              		.thumb
+ 285              		.thumb_func
+ 286              		.fpu softvfp
+ 288              	IK_KBM_SendHIDReport:
+ 289              		@ args = 0, pretend = 0, frame = 8
+ 290              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /tmp/ccp1bsLG.s 			page 6
+
+
+ 291 0000 37B5     		push	{r0, r1, r2, r4, r5, lr}
+ 292 0002 2220     		movs	r0, #34
+ 293 0004 FFF7FEFF 		bl	malloc
+ 294 0008 0446     		mov	r4, r0
+ 295 000a F0B1     		cbz	r0, .L45
+ 296 000c 104B     		ldr	r3, .L47
+ 297 000e 821C     		adds	r2, r0, #2
+ 298 0010 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 299 0012 0370     		strb	r3, [r0]
+ 300 0014 0023     		movs	r3, #0
+ 301 0016 4370     		strb	r3, [r0, #1]
+ 302 0018 0E4B     		ldr	r3, .L47+4
+ 303 001a 03F12001 		add	r1, r3, #32
+ 304              	.L44:
+ 305 001e 53F8040B 		ldr	r0, [r3], #4	@ unaligned
+ 306 0022 8B42     		cmp	r3, r1
+ 307 0024 42F8040B 		str	r0, [r2], #4	@ unaligned
+ 308 0028 F9D1     		bne	.L44
+ 309 002a 2223     		movs	r3, #34
+ 310 002c 0094     		str	r4, [sp]
+ 311 002e 0193     		str	r3, [sp, #4]
+ 312 0030 02AB     		add	r3, sp, #8
+ 313 0032 0120     		movs	r0, #1
+ 314 0034 13E90600 		ldmdb	r3, {r1, r2}
+ 315 0038 FFF7FEFF 		bl	IK_USB_SendHIDReport
+ 316 003c 0546     		mov	r5, r0
+ 317 003e 2046     		mov	r0, r4
+ 318 0040 FFF7FEFF 		bl	free
+ 319              	.L43:
+ 320 0044 2846     		mov	r0, r5
+ 321 0046 03B0     		add	sp, sp, #12
+ 322              		@ sp needed
+ 323 0048 30BD     		pop	{r4, r5, pc}
+ 324              	.L45:
+ 325 004a 0125     		movs	r5, #1
+ 326 004c FAE7     		b	.L43
+ 327              	.L48:
+ 328 004e 00BF     		.align	2
+ 329              	.L47:
+ 330 0050 00000000 		.word	.LANCHOR4
+ 331 0054 00000000 		.word	.LANCHOR3
+ 333              		.section	.bss._cur_keylayer,"aw",%nobits
+ 334              		.set	.LANCHOR1,. + 0
+ 337              	_cur_keylayer:
+ 338 0000 00       		.space	1
+ 339              		.section	.bss._hid_modifier_byte,"aw",%nobits
+ 340              		.set	.LANCHOR4,. + 0
+ 343              	_hid_modifier_byte:
+ 344 0000 00       		.space	1
+ 345              		.section	.bss._hid_pressed_bitmap,"aw",%nobits
+ 346              		.set	.LANCHOR3,. + 0
+ 349              	_hid_pressed_bitmap:
+ 350 0000 00000000 		.space	32
+ 350      00000000 
+ 350      00000000 
+ 350      00000000 
+ 350      00000000 
+ARM GAS  /tmp/ccp1bsLG.s 			page 7
+
+
+ 351              		.section	.bss._klsw_keycode,"aw",%nobits
+ 352              		.align	1
+ 353              		.set	.LANCHOR2,. + 0
+ 356              	_klsw_keycode:
+ 357 0000 0000     		.space	2
+ 358              		.section	.rodata._kbm_cfg_keyboardmatrix_kltitem,"a"
+ 359              		.align	2
+ 360              		.set	.LANCHOR0,. + 0
+ 363              	_kbm_cfg_keyboardmatrix_kltitem:
+ 364 0000 010000FF 		.word	-16777215
+ 365 0004 8000     		.short	128
+ 366 0006 03       		.byte	3
+ 367 0007 00       		.space	1
+ 368              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
+ARM GAS  /tmp/ccp1bsLG.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 infinikeys_kbmatrix.c
+     /tmp/ccp1bsLG.s:14     .text.IK_KBM_Init:0000000000000000 $t
+     /tmp/ccp1bsLG.s:22     .text.IK_KBM_Init:0000000000000000 IK_KBM_Init
+     /tmp/ccp1bsLG.s:34     .text.IK_KBM_Init:0000000000000010 $d
+     /tmp/ccp1bsLG.s:37     .text.IK_KBM_DeInit:0000000000000000 $t
+     /tmp/ccp1bsLG.s:44     .text.IK_KBM_DeInit:0000000000000000 IK_KBM_DeInit
+     /tmp/ccp1bsLG.s:52     .text.IK_KBM_RetrieveKeyInfo:0000000000000000 $t
+     /tmp/ccp1bsLG.s:59     .text.IK_KBM_RetrieveKeyInfo:0000000000000000 IK_KBM_RetrieveKeyInfo
+     /tmp/ccp1bsLG.s:160    .text.IK_KBM_RetrieveKeyInfo:00000000000000c8 $d
+     /tmp/ccp1bsLG.s:166    .text.IK_KBM_KeystrokeEvent:0000000000000000 $t
+     /tmp/ccp1bsLG.s:173    .text.IK_KBM_KeystrokeEvent:0000000000000000 IK_KBM_KeystrokeEvent
+     /tmp/ccp1bsLG.s:274    .text.IK_KBM_KeystrokeEvent:00000000000000d0 $d
+     /tmp/ccp1bsLG.s:281    .text.IK_KBM_SendHIDReport:0000000000000000 $t
+     /tmp/ccp1bsLG.s:288    .text.IK_KBM_SendHIDReport:0000000000000000 IK_KBM_SendHIDReport
+     /tmp/ccp1bsLG.s:330    .text.IK_KBM_SendHIDReport:0000000000000050 $d
+     /tmp/ccp1bsLG.s:337    .bss._cur_keylayer:0000000000000000 _cur_keylayer
+     /tmp/ccp1bsLG.s:338    .bss._cur_keylayer:0000000000000000 $d
+     /tmp/ccp1bsLG.s:343    .bss._hid_modifier_byte:0000000000000000 _hid_modifier_byte
+     /tmp/ccp1bsLG.s:344    .bss._hid_modifier_byte:0000000000000000 $d
+     /tmp/ccp1bsLG.s:349    .bss._hid_pressed_bitmap:0000000000000000 _hid_pressed_bitmap
+     /tmp/ccp1bsLG.s:350    .bss._hid_pressed_bitmap:0000000000000000 $d
+     /tmp/ccp1bsLG.s:352    .bss._klsw_keycode:0000000000000000 $d
+     /tmp/ccp1bsLG.s:356    .bss._klsw_keycode:0000000000000000 _klsw_keycode
+     /tmp/ccp1bsLG.s:359    .rodata._kbm_cfg_keyboardmatrix_kltitem:0000000000000000 $d
+     /tmp/ccp1bsLG.s:363    .rodata._kbm_cfg_keyboardmatrix_kltitem:0000000000000000 _kbm_cfg_keyboardmatrix_kltitem
+
+UNDEFINED SYMBOLS
+IK_CFG_KLT_AddItem
+IK_CFG_GetConfig
+IK_DEBUG_PrintMessage
+malloc
+IK_USB_SendHIDReport
+free

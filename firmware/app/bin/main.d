@@ -56,7 +56,17 @@ bin/main.o: src/main.c inc/main.h inc/sys_def.h inc/sys_dma.h \
  ../lib/libstm32f1hal/inc/stm32f1xx_hal_mmc.h inc/sys_usart.h \
  inc/sys_pca9555.h ../lib/libpca9555/inc/pca9555.h inc/sys_timer.h \
  inc/sys_hwb.h inc/sys_ws2812.h ../lib/libneopixel32/inc/neopixel32.h \
- inc/error.h
+ inc/sys_usb.h inc/usbd_core.h inc/usbd_conf.h inc/main.h inc/usbd_def.h \
+ inc/usbd_ioreq.h inc/usbd_ctlreq.h inc/usbd_desc.h inc/lib_infinikeys.h \
+ ../lib/libinfinikeys/inc/infinikeys.h \
+ ../lib/libinfinikeys/inc/infinikeys_def.h \
+ ../lib/libinfinikeys/inc/infinikeys_hwif.h \
+ ../lib/libinfinikeys/inc/infinikeys_usb.h \
+ ../lib/libinfinikeys/inc/infinikeys_cfg.h \
+ ../lib/libinfinikeys/inc/infinikeys_kbmatrix.h \
+ ../lib/libinfinikeys/inc/infinikeys_swacq.h \
+ ../lib/libinfinikeys/inc/infinikeys_debug.h \
+ inc/infinikeys_hwif/infinikeys_hwif_berndokb.h inc/error.h inc/console.h
 
 inc/main.h:
 
@@ -196,4 +206,42 @@ inc/sys_ws2812.h:
 
 ../lib/libneopixel32/inc/neopixel32.h:
 
+inc/sys_usb.h:
+
+inc/usbd_core.h:
+
+inc/usbd_conf.h:
+
+inc/main.h:
+
+inc/usbd_def.h:
+
+inc/usbd_ioreq.h:
+
+inc/usbd_ctlreq.h:
+
+inc/usbd_desc.h:
+
+inc/lib_infinikeys.h:
+
+../lib/libinfinikeys/inc/infinikeys.h:
+
+../lib/libinfinikeys/inc/infinikeys_def.h:
+
+../lib/libinfinikeys/inc/infinikeys_hwif.h:
+
+../lib/libinfinikeys/inc/infinikeys_usb.h:
+
+../lib/libinfinikeys/inc/infinikeys_cfg.h:
+
+../lib/libinfinikeys/inc/infinikeys_kbmatrix.h:
+
+../lib/libinfinikeys/inc/infinikeys_swacq.h:
+
+../lib/libinfinikeys/inc/infinikeys_debug.h:
+
+inc/infinikeys_hwif/infinikeys_hwif_berndokb.h:
+
 inc/error.h:
+
+inc/console.h:

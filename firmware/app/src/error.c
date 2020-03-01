@@ -49,3 +49,9 @@ static void _SYS_Error_NotifyDebug(uint32_t line_number, const char* file_name, 
         }
     }
 }
+
+// Linked with Error_Handler of HAL library.
+void Error_Handler(void)
+{
+    SYS_ThrowError(SYSERR_FATAL_ERROR, __LINE__, __FILE__, "Error Handler invoked.");
+}
