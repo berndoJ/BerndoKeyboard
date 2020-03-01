@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc7kQaPg.s 			page 1
+ARM GAS  /tmp/ccsVPUqV.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -12,88 +12,244 @@ ARM GAS  /tmp/cc7kQaPg.s 			page 1
    9              		.eabi_attribute 34, 1
   10              		.eabi_attribute 18, 4
   11              		.file	"infinikeys_usb_desc.c"
-  12              		.text
-  13              		.global	IK_USB_DESCRIPTOR_LANGID
-  14              		.global	IK_USB_DESCRIPTOR_HID_REPORT
-  15              		.global	IK_USB_DESCRIPTOR_CONFIG
-  16              		.global	IK_USB_DESCRIPTOR_DEVICE
-  17              		.section	.data.IK_USB_DESCRIPTOR_CONFIG,"aw"
-  20              	IK_USB_DESCRIPTOR_CONFIG:
-  21 0000 09022900 		.ascii	"\011\002)\000\001\001\000\200\372\011\004\000\000\002"
-  21      01010080 
-  21      FA090400 
-  21      0002
-  22 000e 03000000 		.ascii	"\003\000\000\000\011!\021\001\000\001\"\216\000\007"
-  22      09211101 
-  22      0001228E 
-  22      0007
-  23 001c 05810308 		.ascii	"\005\201\003\010\000\005\007\005\001\003\010\000\005"
-  23      00050705 
-  23      01030800 
-  23      05
-  24              		.section	.data.IK_USB_DESCRIPTOR_DEVICE,"aw"
-  27              	IK_USB_DESCRIPTOR_DEVICE:
-  28 0000 12010002 		.ascii	"\022\001\000\002\000\000\000@\203\004\000\004\000\002"
-  28      00000040 
-  28      83040004 
-  28      0002
-  29 000e 01020301 		.ascii	"\001\002\003\001"
-  30              		.section	.data.IK_USB_DESCRIPTOR_HID_REPORT,"aw"
-  33              	IK_USB_DESCRIPTOR_HID_REPORT:
-  34 0000 05010906 		.ascii	"\005\001\011\006\241\001\205\001u\001\225\010\005\007"
-  34      A1018501 
-  34      75019508 
-  34      0507
-  35 000e 19E029E7 		.ascii	"\031\340)\347\025\000%\001\201\002u\010\225\001\201"
-  35      15002501 
-  35      81027508 
-  35      950181
-  36 001d 03750195 		.ascii	"\003u\001\225\005\005\010\031\001)\005\221\002u\003"
-  36      05050819 
-  36      01290591 
-  36      027503
-  37 002c 95019103 		.ascii	"\225\001\221\003u\010\225\006\005\007\031\000)\377\025"
-  37      75089506 
-  37      05071900 
-  37      29FF15
-  38 003b 0025FF81 		.ascii	"\000%\377\201\000\205\002u\001\225\010\005\007\031\340"
-  38      00850275 
-ARM GAS  /tmp/cc7kQaPg.s 			page 2
+  12              		.global	IK_USB_DESCRIPTOR_LANGID
+  13              		.global	IK_USB_DESCRIPTOR_HID_REPORT
+  14              		.global	IK_USB_DESCRIPTOR_CONFIG
+  15              		.global	IK_USB_DESCRIPTOR_DEVICE
+  16              		.section	.data.IK_USB_DESCRIPTOR_CONFIG,"aw",%progbits
+  19              	IK_USB_DESCRIPTOR_CONFIG:
+  20 0000 09       		.byte	9
+  21 0001 02       		.byte	2
+  22 0002 29       		.byte	41
+  23 0003 00       		.byte	0
+  24 0004 01       		.byte	1
+  25 0005 01       		.byte	1
+  26 0006 00       		.byte	0
+  27 0007 80       		.byte	-128
+  28 0008 FA       		.byte	-6
+  29 0009 09       		.byte	9
+  30 000a 04       		.byte	4
+  31 000b 00       		.byte	0
+  32 000c 00       		.byte	0
+  33 000d 02       		.byte	2
+  34 000e 03       		.byte	3
+  35 000f 00       		.byte	0
+  36 0010 00       		.byte	0
+  37 0011 00       		.byte	0
+  38 0012 09       		.byte	9
+  39 0013 21       		.byte	33
+  40 0014 11       		.byte	17
+  41 0015 01       		.byte	1
+  42 0016 00       		.byte	0
+  43 0017 01       		.byte	1
+  44 0018 22       		.byte	34
+  45 0019 8E       		.byte	-114
+  46 001a 00       		.byte	0
+  47 001b 07       		.byte	7
+  48 001c 05       		.byte	5
+  49 001d 81       		.byte	-127
+  50 001e 03       		.byte	3
+  51 001f 08       		.byte	8
+  52 0020 00       		.byte	0
+  53 0021 05       		.byte	5
+  54 0022 07       		.byte	7
+  55 0023 05       		.byte	5
+  56 0024 01       		.byte	1
+  57 0025 03       		.byte	3
+  58 0026 08       		.byte	8
+  59 0027 00       		.byte	0
+ARM GAS  /tmp/ccsVPUqV.s 			page 2
 
 
-  38      01950805 
-  38      0719E0
-  39 004a 29E71500 		.ascii	")\347\025\000%\001\201\002u\001\225\005\005\010\031"
-  39      25018102 
-  39      75019505 
-  39      050819
-  40 0059 01290591 		.ascii	"\001)\005\221\002u\003\225\001\221\003u\001\225\377"
-  40      02750395 
-  40      01910375 
-  40      0195FF
-  41 0068 05071900 		.ascii	"\005\007\031\000)\377\025\000%\001\201\002\300\006\000"
-  41      29FF1500 
-  41      25018102 
-  41      C00600
-  42 0077 FF0901A1 		.ascii	"\377\011\001\241\001\205\003\006\000\377\011\001\025"
-  42      01850306 
-  42      00FF0901 
-  42      15
-  43 0084 0025FF75 		.ascii	"\000%\377u\010\225@\221\002\300"
-  43      08954091 
-  43      02C0
-  44              		.section	.data.IK_USB_DESCRIPTOR_LANGID,"aw"
-  47              	IK_USB_DESCRIPTOR_LANGID:
-  48 0000 04030000 		.ascii	"\004\003\000\000"
-  49              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
-ARM GAS  /tmp/cc7kQaPg.s 			page 3
+  60 0028 05       		.byte	5
+  61              		.section	.data.IK_USB_DESCRIPTOR_DEVICE,"aw",%progbits
+  64              	IK_USB_DESCRIPTOR_DEVICE:
+  65 0000 12       		.byte	18
+  66 0001 01       		.byte	1
+  67 0002 00       		.byte	0
+  68 0003 02       		.byte	2
+  69 0004 00       		.byte	0
+  70 0005 00       		.byte	0
+  71 0006 00       		.byte	0
+  72 0007 40       		.byte	64
+  73 0008 83       		.byte	-125
+  74 0009 04       		.byte	4
+  75 000a 00       		.byte	0
+  76 000b 04       		.byte	4
+  77 000c 00       		.byte	0
+  78 000d 02       		.byte	2
+  79 000e 01       		.byte	1
+  80 000f 02       		.byte	2
+  81 0010 03       		.byte	3
+  82 0011 01       		.byte	1
+  83              		.section	.data.IK_USB_DESCRIPTOR_HID_REPORT,"aw",%progbits
+  86              	IK_USB_DESCRIPTOR_HID_REPORT:
+  87 0000 05       		.byte	5
+  88 0001 01       		.byte	1
+  89 0002 09       		.byte	9
+  90 0003 06       		.byte	6
+  91 0004 A1       		.byte	-95
+  92 0005 01       		.byte	1
+  93 0006 85       		.byte	-123
+  94 0007 01       		.byte	1
+  95 0008 75       		.byte	117
+  96 0009 01       		.byte	1
+  97 000a 95       		.byte	-107
+  98 000b 08       		.byte	8
+  99 000c 05       		.byte	5
+ 100 000d 07       		.byte	7
+ 101 000e 19       		.byte	25
+ 102 000f E0       		.byte	-32
+ 103 0010 29       		.byte	41
+ 104 0011 E7       		.byte	-25
+ 105 0012 15       		.byte	21
+ 106 0013 00       		.byte	0
+ 107 0014 25       		.byte	37
+ 108 0015 01       		.byte	1
+ 109 0016 81       		.byte	-127
+ 110 0017 02       		.byte	2
+ 111 0018 75       		.byte	117
+ 112 0019 08       		.byte	8
+ 113 001a 95       		.byte	-107
+ 114 001b 01       		.byte	1
+ 115 001c 81       		.byte	-127
+ 116 001d 03       		.byte	3
+ 117 001e 75       		.byte	117
+ 118 001f 01       		.byte	1
+ 119 0020 95       		.byte	-107
+ 120 0021 05       		.byte	5
+ARM GAS  /tmp/ccsVPUqV.s 			page 3
+
+
+ 121 0022 05       		.byte	5
+ 122 0023 08       		.byte	8
+ 123 0024 19       		.byte	25
+ 124 0025 01       		.byte	1
+ 125 0026 29       		.byte	41
+ 126 0027 05       		.byte	5
+ 127 0028 91       		.byte	-111
+ 128 0029 02       		.byte	2
+ 129 002a 75       		.byte	117
+ 130 002b 03       		.byte	3
+ 131 002c 95       		.byte	-107
+ 132 002d 01       		.byte	1
+ 133 002e 91       		.byte	-111
+ 134 002f 03       		.byte	3
+ 135 0030 75       		.byte	117
+ 136 0031 08       		.byte	8
+ 137 0032 95       		.byte	-107
+ 138 0033 06       		.byte	6
+ 139 0034 05       		.byte	5
+ 140 0035 07       		.byte	7
+ 141 0036 19       		.byte	25
+ 142 0037 00       		.byte	0
+ 143 0038 29       		.byte	41
+ 144 0039 FF       		.byte	-1
+ 145 003a 15       		.byte	21
+ 146 003b 00       		.byte	0
+ 147 003c 25       		.byte	37
+ 148 003d FF       		.byte	-1
+ 149 003e 81       		.byte	-127
+ 150 003f 00       		.byte	0
+ 151 0040 85       		.byte	-123
+ 152 0041 02       		.byte	2
+ 153 0042 75       		.byte	117
+ 154 0043 01       		.byte	1
+ 155 0044 95       		.byte	-107
+ 156 0045 08       		.byte	8
+ 157 0046 05       		.byte	5
+ 158 0047 07       		.byte	7
+ 159 0048 19       		.byte	25
+ 160 0049 E0       		.byte	-32
+ 161 004a 29       		.byte	41
+ 162 004b E7       		.byte	-25
+ 163 004c 15       		.byte	21
+ 164 004d 00       		.byte	0
+ 165 004e 25       		.byte	37
+ 166 004f 01       		.byte	1
+ 167 0050 81       		.byte	-127
+ 168 0051 02       		.byte	2
+ 169 0052 75       		.byte	117
+ 170 0053 01       		.byte	1
+ 171 0054 95       		.byte	-107
+ 172 0055 05       		.byte	5
+ 173 0056 05       		.byte	5
+ 174 0057 08       		.byte	8
+ 175 0058 19       		.byte	25
+ 176 0059 01       		.byte	1
+ 177 005a 29       		.byte	41
+ARM GAS  /tmp/ccsVPUqV.s 			page 4
+
+
+ 178 005b 05       		.byte	5
+ 179 005c 91       		.byte	-111
+ 180 005d 02       		.byte	2
+ 181 005e 75       		.byte	117
+ 182 005f 03       		.byte	3
+ 183 0060 95       		.byte	-107
+ 184 0061 01       		.byte	1
+ 185 0062 91       		.byte	-111
+ 186 0063 03       		.byte	3
+ 187 0064 75       		.byte	117
+ 188 0065 01       		.byte	1
+ 189 0066 95       		.byte	-107
+ 190 0067 FF       		.byte	-1
+ 191 0068 05       		.byte	5
+ 192 0069 07       		.byte	7
+ 193 006a 19       		.byte	25
+ 194 006b 00       		.byte	0
+ 195 006c 29       		.byte	41
+ 196 006d FF       		.byte	-1
+ 197 006e 15       		.byte	21
+ 198 006f 00       		.byte	0
+ 199 0070 25       		.byte	37
+ 200 0071 01       		.byte	1
+ 201 0072 81       		.byte	-127
+ 202 0073 02       		.byte	2
+ 203 0074 C0       		.byte	-64
+ 204 0075 06       		.byte	6
+ 205 0076 00       		.byte	0
+ 206 0077 FF       		.byte	-1
+ 207 0078 09       		.byte	9
+ 208 0079 01       		.byte	1
+ 209 007a A1       		.byte	-95
+ 210 007b 01       		.byte	1
+ 211 007c 85       		.byte	-123
+ 212 007d 03       		.byte	3
+ 213 007e 06       		.byte	6
+ 214 007f 00       		.byte	0
+ 215 0080 FF       		.byte	-1
+ 216 0081 09       		.byte	9
+ 217 0082 01       		.byte	1
+ 218 0083 15       		.byte	21
+ 219 0084 00       		.byte	0
+ 220 0085 25       		.byte	37
+ 221 0086 FF       		.byte	-1
+ 222 0087 75       		.byte	117
+ 223 0088 08       		.byte	8
+ 224 0089 95       		.byte	-107
+ 225 008a 40       		.byte	64
+ 226 008b 91       		.byte	-111
+ 227 008c 02       		.byte	2
+ 228 008d C0       		.byte	-64
+ 229              		.section	.data.IK_USB_DESCRIPTOR_LANGID,"aw",%progbits
+ 232              	IK_USB_DESCRIPTOR_LANGID:
+ 233 0000 04       		.byte	4
+ 234 0001 03       		.byte	3
+ 235 0002 00       		.byte	0
+ 236 0003 00       		.byte	0
+ARM GAS  /tmp/ccsVPUqV.s 			page 5
+
+
+ 237              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
+ARM GAS  /tmp/ccsVPUqV.s 			page 6
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 infinikeys_usb_desc.c
-     /tmp/cc7kQaPg.s:47     .data.IK_USB_DESCRIPTOR_LANGID:0000000000000000 IK_USB_DESCRIPTOR_LANGID
-     /tmp/cc7kQaPg.s:33     .data.IK_USB_DESCRIPTOR_HID_REPORT:0000000000000000 IK_USB_DESCRIPTOR_HID_REPORT
-     /tmp/cc7kQaPg.s:20     .data.IK_USB_DESCRIPTOR_CONFIG:0000000000000000 IK_USB_DESCRIPTOR_CONFIG
-     /tmp/cc7kQaPg.s:27     .data.IK_USB_DESCRIPTOR_DEVICE:0000000000000000 IK_USB_DESCRIPTOR_DEVICE
+     /tmp/ccsVPUqV.s:232    .data.IK_USB_DESCRIPTOR_LANGID:0000000000000000 IK_USB_DESCRIPTOR_LANGID
+     /tmp/ccsVPUqV.s:86     .data.IK_USB_DESCRIPTOR_HID_REPORT:0000000000000000 IK_USB_DESCRIPTOR_HID_REPORT
+     /tmp/ccsVPUqV.s:19     .data.IK_USB_DESCRIPTOR_CONFIG:0000000000000000 IK_USB_DESCRIPTOR_CONFIG
+     /tmp/ccsVPUqV.s:64     .data.IK_USB_DESCRIPTOR_DEVICE:0000000000000000 IK_USB_DESCRIPTOR_DEVICE
 
 NO UNDEFINED SYMBOLS

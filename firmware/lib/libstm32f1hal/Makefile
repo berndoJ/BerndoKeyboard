@@ -109,6 +109,7 @@ C_SRC += stm32f1xx_ll_utils.c
 INC  = -I ./inc
 INC += -I ./cmsis/inc
 INC += -I ./config
+INC += -I ../../app/inc
 
 # ------------------------------------------------------------------------------
 

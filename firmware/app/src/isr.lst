@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccEV2Wjz.s 			page 1
+ARM GAS  /tmp/cci9pCtl.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -12,298 +12,316 @@ ARM GAS  /tmp/ccEV2Wjz.s 			page 1
    9              		.eabi_attribute 34, 1
   10              		.eabi_attribute 18, 4
   11              		.file	"isr.c"
-  12              		.text
-  13              		.section	.text.NMI_Handler,"ax",%progbits
-  14              		.align	1
-  15              		.global	NMI_Handler
-  16              		.arch armv7-m
-  17              		.syntax unified
-  18              		.thumb
-  19              		.thumb_func
-  20              		.fpu softvfp
-  22              	NMI_Handler:
-  23              		@ args = 0, pretend = 0, frame = 0
-  24              		@ frame_needed = 0, uses_anonymous_args = 0
-  25              		@ link register save eliminated.
-  26 0000 7047     		bx	lr
-  28              		.section	.text.HardFault_Handler,"ax",%progbits
-  29              		.align	1
-  30              		.global	HardFault_Handler
-  31              		.syntax unified
-  32              		.thumb
-  33              		.thumb_func
-  34              		.fpu softvfp
-  36              	HardFault_Handler:
-  37              		@ Volatile: function does not return.
-  38              		@ args = 0, pretend = 0, frame = 0
-  39              		@ frame_needed = 0, uses_anonymous_args = 0
-  40 0000 08B5     		push	{r3, lr}
-  41 0002 0C4B     		ldr	r3, .L5
-  42 0004 1C78     		ldrb	r4, [r3]	@ zero_extendqisi2
-  43 0006 012C     		cmp	r4, #1
-  44 0008 13D1     		bne	.L3
-  45 000a 2246     		mov	r2, r4
-  46 000c 1021     		movs	r1, #16
-  47 000e 0A48     		ldr	r0, .L5+4
-  48 0010 FFF7FEFF 		bl	HAL_GPIO_WritePin
-  49 0014 0022     		movs	r2, #0
-  50 0016 2146     		mov	r1, r4
-  51 0018 0848     		ldr	r0, .L5+8
-  52 001a FFF7FEFF 		bl	HAL_GPIO_WritePin
-  53 001e 0022     		movs	r2, #0
-  54 0020 0221     		movs	r1, #2
-  55 0022 0648     		ldr	r0, .L5+8
-  56 0024 FFF7FEFF 		bl	HAL_GPIO_WritePin
-  57 0028 0022     		movs	r2, #0
-  58 002a 0421     		movs	r1, #4
-  59 002c 0348     		ldr	r0, .L5+8
-  60 002e FFF7FEFF 		bl	HAL_GPIO_WritePin
-ARM GAS  /tmp/ccEV2Wjz.s 			page 2
+  12              		.section	.text.NMI_Handler,"ax",%progbits
+  13              		.align	1
+  14              		.global	NMI_Handler
+  15              		.syntax unified
+  16              		.thumb
+  17              		.thumb_func
+  18              		.fpu softvfp
+  20              	NMI_Handler:
+  21              		@ args = 0, pretend = 0, frame = 0
+  22              		@ frame_needed = 0, uses_anonymous_args = 0
+  23              		@ link register save eliminated.
+  24 0000 7047     		bx	lr
+  26              		.section	.text.HardFault_Handler,"ax",%progbits
+  27              		.align	1
+  28              		.global	HardFault_Handler
+  29              		.syntax unified
+  30              		.thumb
+  31              		.thumb_func
+  32              		.fpu softvfp
+  34              	HardFault_Handler:
+  35              		@ Volatile: function does not return.
+  36              		@ args = 0, pretend = 0, frame = 0
+  37              		@ frame_needed = 0, uses_anonymous_args = 0
+  38 0000 08B5     		push	{r3, lr}
+  39 0002 0C4B     		ldr	r3, .L5
+  40 0004 1C78     		ldrb	r4, [r3]	@ zero_extendqisi2
+  41 0006 012C     		cmp	r4, #1
+  42 0008 13D1     		bne	.L3
+  43 000a 2246     		mov	r2, r4
+  44 000c 1021     		movs	r1, #16
+  45 000e 0A48     		ldr	r0, .L5+4
+  46 0010 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  47 0014 0022     		movs	r2, #0
+  48 0016 2146     		mov	r1, r4
+  49 0018 0848     		ldr	r0, .L5+8
+  50 001a FFF7FEFF 		bl	HAL_GPIO_WritePin
+  51 001e 0022     		movs	r2, #0
+  52 0020 0221     		movs	r1, #2
+  53 0022 0648     		ldr	r0, .L5+8
+  54 0024 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  55 0028 0022     		movs	r2, #0
+  56 002a 0421     		movs	r1, #4
+  57 002c 0348     		ldr	r0, .L5+8
+  58 002e FFF7FEFF 		bl	HAL_GPIO_WritePin
+  59              	.L3:
+  60              	.L4:
+ARM GAS  /tmp/cci9pCtl.s 			page 2
 
 
-  61              	.L3:
-  62              	.L4:
-  63 0032 FEE7     		b	.L4
-  64              	.L6:
-  65              		.align	2
-  66              	.L5:
-  67 0034 00000000 		.word	hw_gpio_init_status
-  68 0038 00080140 		.word	1073809408
-  69 003c 000C0140 		.word	1073810432
-  71              		.section	.text.MemManage_Handler,"ax",%progbits
-  72              		.align	1
-  73              		.global	MemManage_Handler
-  74              		.syntax unified
-  75              		.thumb
-  76              		.thumb_func
-  77              		.fpu softvfp
-  79              	MemManage_Handler:
-  80              		@ Volatile: function does not return.
-  81              		@ args = 0, pretend = 0, frame = 0
-  82              		@ frame_needed = 0, uses_anonymous_args = 0
-  83 0000 08B5     		push	{r3, lr}
-  84 0002 0C4B     		ldr	r3, .L10
-  85 0004 1C78     		ldrb	r4, [r3]	@ zero_extendqisi2
-  86 0006 012C     		cmp	r4, #1
-  87 0008 13D1     		bne	.L8
-  88 000a 2246     		mov	r2, r4
-  89 000c 1021     		movs	r1, #16
-  90 000e 0A48     		ldr	r0, .L10+4
-  91 0010 FFF7FEFF 		bl	HAL_GPIO_WritePin
-  92 0014 2246     		mov	r2, r4
-  93 0016 2146     		mov	r1, r4
-  94 0018 0848     		ldr	r0, .L10+8
-  95 001a FFF7FEFF 		bl	HAL_GPIO_WritePin
-  96 001e 0022     		movs	r2, #0
-  97 0020 0221     		movs	r1, #2
-  98 0022 0648     		ldr	r0, .L10+8
-  99 0024 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 100 0028 0022     		movs	r2, #0
- 101 002a 0421     		movs	r1, #4
- 102 002c 0348     		ldr	r0, .L10+8
- 103 002e FFF7FEFF 		bl	HAL_GPIO_WritePin
- 104              	.L8:
- 105              	.L9:
- 106 0032 FEE7     		b	.L9
- 107              	.L11:
- 108              		.align	2
- 109              	.L10:
- 110 0034 00000000 		.word	hw_gpio_init_status
- 111 0038 00080140 		.word	1073809408
- 112 003c 000C0140 		.word	1073810432
- 114              		.section	.text.BusFault_Handler,"ax",%progbits
- 115              		.align	1
- 116              		.global	BusFault_Handler
- 117              		.syntax unified
- 118              		.thumb
- 119              		.thumb_func
- 120              		.fpu softvfp
-ARM GAS  /tmp/ccEV2Wjz.s 			page 3
+  61 0032 FEE7     		b	.L4
+  62              	.L6:
+  63              		.align	2
+  64              	.L5:
+  65 0034 00000000 		.word	hw_gpio_init_status
+  66 0038 00080140 		.word	1073809408
+  67 003c 000C0140 		.word	1073810432
+  69              		.section	.text.MemManage_Handler,"ax",%progbits
+  70              		.align	1
+  71              		.global	MemManage_Handler
+  72              		.syntax unified
+  73              		.thumb
+  74              		.thumb_func
+  75              		.fpu softvfp
+  77              	MemManage_Handler:
+  78              		@ Volatile: function does not return.
+  79              		@ args = 0, pretend = 0, frame = 0
+  80              		@ frame_needed = 0, uses_anonymous_args = 0
+  81 0000 08B5     		push	{r3, lr}
+  82 0002 0C4B     		ldr	r3, .L10
+  83 0004 1C78     		ldrb	r4, [r3]	@ zero_extendqisi2
+  84 0006 012C     		cmp	r4, #1
+  85 0008 13D1     		bne	.L8
+  86 000a 2246     		mov	r2, r4
+  87 000c 1021     		movs	r1, #16
+  88 000e 0A48     		ldr	r0, .L10+4
+  89 0010 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  90 0014 2246     		mov	r2, r4
+  91 0016 2146     		mov	r1, r4
+  92 0018 0848     		ldr	r0, .L10+8
+  93 001a FFF7FEFF 		bl	HAL_GPIO_WritePin
+  94 001e 0022     		movs	r2, #0
+  95 0020 0221     		movs	r1, #2
+  96 0022 0648     		ldr	r0, .L10+8
+  97 0024 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  98 0028 0022     		movs	r2, #0
+  99 002a 0421     		movs	r1, #4
+ 100 002c 0348     		ldr	r0, .L10+8
+ 101 002e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 102              	.L8:
+ 103              	.L9:
+ 104 0032 FEE7     		b	.L9
+ 105              	.L11:
+ 106              		.align	2
+ 107              	.L10:
+ 108 0034 00000000 		.word	hw_gpio_init_status
+ 109 0038 00080140 		.word	1073809408
+ 110 003c 000C0140 		.word	1073810432
+ 112              		.section	.text.BusFault_Handler,"ax",%progbits
+ 113              		.align	1
+ 114              		.global	BusFault_Handler
+ 115              		.syntax unified
+ 116              		.thumb
+ 117              		.thumb_func
+ 118              		.fpu softvfp
+ 120              	BusFault_Handler:
+ 121              		@ Volatile: function does not return.
+ARM GAS  /tmp/cci9pCtl.s 			page 3
 
 
- 122              	BusFault_Handler:
- 123              		@ Volatile: function does not return.
- 124              		@ args = 0, pretend = 0, frame = 0
- 125              		@ frame_needed = 0, uses_anonymous_args = 0
- 126 0000 08B5     		push	{r3, lr}
- 127 0002 0C4B     		ldr	r3, .L15
- 128 0004 1C78     		ldrb	r4, [r3]	@ zero_extendqisi2
- 129 0006 012C     		cmp	r4, #1
- 130 0008 13D1     		bne	.L13
- 131 000a 2246     		mov	r2, r4
- 132 000c 1021     		movs	r1, #16
- 133 000e 0A48     		ldr	r0, .L15+4
- 134 0010 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 135 0014 0022     		movs	r2, #0
- 136 0016 2146     		mov	r1, r4
- 137 0018 0848     		ldr	r0, .L15+8
- 138 001a FFF7FEFF 		bl	HAL_GPIO_WritePin
- 139 001e 2246     		mov	r2, r4
- 140 0020 0221     		movs	r1, #2
- 141 0022 0648     		ldr	r0, .L15+8
- 142 0024 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 143 0028 0022     		movs	r2, #0
- 144 002a 0421     		movs	r1, #4
- 145 002c 0348     		ldr	r0, .L15+8
- 146 002e FFF7FEFF 		bl	HAL_GPIO_WritePin
- 147              	.L13:
- 148              	.L14:
- 149 0032 FEE7     		b	.L14
- 150              	.L16:
- 151              		.align	2
- 152              	.L15:
- 153 0034 00000000 		.word	hw_gpio_init_status
- 154 0038 00080140 		.word	1073809408
- 155 003c 000C0140 		.word	1073810432
- 157              		.section	.text.UsageFault_Handler,"ax",%progbits
- 158              		.align	1
- 159              		.global	UsageFault_Handler
- 160              		.syntax unified
- 161              		.thumb
- 162              		.thumb_func
- 163              		.fpu softvfp
- 165              	UsageFault_Handler:
- 166              		@ Volatile: function does not return.
- 167              		@ args = 0, pretend = 0, frame = 0
- 168              		@ frame_needed = 0, uses_anonymous_args = 0
- 169 0000 08B5     		push	{r3, lr}
- 170 0002 0C4B     		ldr	r3, .L20
- 171 0004 1C78     		ldrb	r4, [r3]	@ zero_extendqisi2
- 172 0006 012C     		cmp	r4, #1
- 173 0008 13D1     		bne	.L18
- 174 000a 2246     		mov	r2, r4
- 175 000c 1021     		movs	r1, #16
- 176 000e 0A48     		ldr	r0, .L20+4
- 177 0010 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 178 0014 2246     		mov	r2, r4
- 179 0016 2146     		mov	r1, r4
- 180 0018 0848     		ldr	r0, .L20+8
-ARM GAS  /tmp/ccEV2Wjz.s 			page 4
+ 122              		@ args = 0, pretend = 0, frame = 0
+ 123              		@ frame_needed = 0, uses_anonymous_args = 0
+ 124 0000 08B5     		push	{r3, lr}
+ 125 0002 0C4B     		ldr	r3, .L15
+ 126 0004 1C78     		ldrb	r4, [r3]	@ zero_extendqisi2
+ 127 0006 012C     		cmp	r4, #1
+ 128 0008 13D1     		bne	.L13
+ 129 000a 2246     		mov	r2, r4
+ 130 000c 1021     		movs	r1, #16
+ 131 000e 0A48     		ldr	r0, .L15+4
+ 132 0010 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 133 0014 0022     		movs	r2, #0
+ 134 0016 2146     		mov	r1, r4
+ 135 0018 0848     		ldr	r0, .L15+8
+ 136 001a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 137 001e 2246     		mov	r2, r4
+ 138 0020 0221     		movs	r1, #2
+ 139 0022 0648     		ldr	r0, .L15+8
+ 140 0024 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 141 0028 0022     		movs	r2, #0
+ 142 002a 0421     		movs	r1, #4
+ 143 002c 0348     		ldr	r0, .L15+8
+ 144 002e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 145              	.L13:
+ 146              	.L14:
+ 147 0032 FEE7     		b	.L14
+ 148              	.L16:
+ 149              		.align	2
+ 150              	.L15:
+ 151 0034 00000000 		.word	hw_gpio_init_status
+ 152 0038 00080140 		.word	1073809408
+ 153 003c 000C0140 		.word	1073810432
+ 155              		.section	.text.UsageFault_Handler,"ax",%progbits
+ 156              		.align	1
+ 157              		.global	UsageFault_Handler
+ 158              		.syntax unified
+ 159              		.thumb
+ 160              		.thumb_func
+ 161              		.fpu softvfp
+ 163              	UsageFault_Handler:
+ 164              		@ Volatile: function does not return.
+ 165              		@ args = 0, pretend = 0, frame = 0
+ 166              		@ frame_needed = 0, uses_anonymous_args = 0
+ 167 0000 08B5     		push	{r3, lr}
+ 168 0002 0C4B     		ldr	r3, .L20
+ 169 0004 1C78     		ldrb	r4, [r3]	@ zero_extendqisi2
+ 170 0006 012C     		cmp	r4, #1
+ 171 0008 13D1     		bne	.L18
+ 172 000a 2246     		mov	r2, r4
+ 173 000c 1021     		movs	r1, #16
+ 174 000e 0A48     		ldr	r0, .L20+4
+ 175 0010 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 176 0014 2246     		mov	r2, r4
+ 177 0016 2146     		mov	r1, r4
+ 178 0018 0848     		ldr	r0, .L20+8
+ 179 001a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 180 001e 2246     		mov	r2, r4
+ARM GAS  /tmp/cci9pCtl.s 			page 4
 
 
- 181 001a FFF7FEFF 		bl	HAL_GPIO_WritePin
- 182 001e 2246     		mov	r2, r4
- 183 0020 0221     		movs	r1, #2
- 184 0022 0648     		ldr	r0, .L20+8
- 185 0024 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 186 0028 0022     		movs	r2, #0
- 187 002a 0421     		movs	r1, #4
- 188 002c 0348     		ldr	r0, .L20+8
- 189 002e FFF7FEFF 		bl	HAL_GPIO_WritePin
- 190              	.L18:
- 191              	.L19:
- 192 0032 FEE7     		b	.L19
- 193              	.L21:
- 194              		.align	2
- 195              	.L20:
- 196 0034 00000000 		.word	hw_gpio_init_status
- 197 0038 00080140 		.word	1073809408
- 198 003c 000C0140 		.word	1073810432
- 200              		.section	.text.SVC_Handler,"ax",%progbits
- 201              		.align	1
- 202              		.global	SVC_Handler
- 203              		.syntax unified
- 204              		.thumb
- 205              		.thumb_func
- 206              		.fpu softvfp
- 208              	SVC_Handler:
- 209              		@ args = 0, pretend = 0, frame = 0
- 210              		@ frame_needed = 0, uses_anonymous_args = 0
- 211              		@ link register save eliminated.
- 212 0000 7047     		bx	lr
- 214              		.section	.text.DebugMon_Handler,"ax",%progbits
- 215              		.align	1
- 216              		.global	DebugMon_Handler
- 217              		.syntax unified
- 218              		.thumb
- 219              		.thumb_func
- 220              		.fpu softvfp
- 222              	DebugMon_Handler:
- 223              		@ args = 0, pretend = 0, frame = 0
- 224              		@ frame_needed = 0, uses_anonymous_args = 0
- 225              		@ link register save eliminated.
- 226 0000 7047     		bx	lr
- 228              		.section	.text.PendSV_Handler,"ax",%progbits
- 229              		.align	1
- 230              		.global	PendSV_Handler
- 231              		.syntax unified
- 232              		.thumb
- 233              		.thumb_func
- 234              		.fpu softvfp
- 236              	PendSV_Handler:
- 237              		@ args = 0, pretend = 0, frame = 0
- 238              		@ frame_needed = 0, uses_anonymous_args = 0
- 239              		@ link register save eliminated.
- 240 0000 7047     		bx	lr
- 242              		.section	.text.SysTick_Handler,"ax",%progbits
- 243              		.align	1
- 244              		.global	SysTick_Handler
-ARM GAS  /tmp/ccEV2Wjz.s 			page 5
+ 181 0020 0221     		movs	r1, #2
+ 182 0022 0648     		ldr	r0, .L20+8
+ 183 0024 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 184 0028 0022     		movs	r2, #0
+ 185 002a 0421     		movs	r1, #4
+ 186 002c 0348     		ldr	r0, .L20+8
+ 187 002e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 188              	.L18:
+ 189              	.L19:
+ 190 0032 FEE7     		b	.L19
+ 191              	.L21:
+ 192              		.align	2
+ 193              	.L20:
+ 194 0034 00000000 		.word	hw_gpio_init_status
+ 195 0038 00080140 		.word	1073809408
+ 196 003c 000C0140 		.word	1073810432
+ 198              		.section	.text.SVC_Handler,"ax",%progbits
+ 199              		.align	1
+ 200              		.global	SVC_Handler
+ 201              		.syntax unified
+ 202              		.thumb
+ 203              		.thumb_func
+ 204              		.fpu softvfp
+ 206              	SVC_Handler:
+ 207              		@ args = 0, pretend = 0, frame = 0
+ 208              		@ frame_needed = 0, uses_anonymous_args = 0
+ 209              		@ link register save eliminated.
+ 210 0000 7047     		bx	lr
+ 212              		.section	.text.DebugMon_Handler,"ax",%progbits
+ 213              		.align	1
+ 214              		.global	DebugMon_Handler
+ 215              		.syntax unified
+ 216              		.thumb
+ 217              		.thumb_func
+ 218              		.fpu softvfp
+ 220              	DebugMon_Handler:
+ 221              		@ args = 0, pretend = 0, frame = 0
+ 222              		@ frame_needed = 0, uses_anonymous_args = 0
+ 223              		@ link register save eliminated.
+ 224 0000 7047     		bx	lr
+ 226              		.section	.text.PendSV_Handler,"ax",%progbits
+ 227              		.align	1
+ 228              		.global	PendSV_Handler
+ 229              		.syntax unified
+ 230              		.thumb
+ 231              		.thumb_func
+ 232              		.fpu softvfp
+ 234              	PendSV_Handler:
+ 235              		@ args = 0, pretend = 0, frame = 0
+ 236              		@ frame_needed = 0, uses_anonymous_args = 0
+ 237              		@ link register save eliminated.
+ 238 0000 7047     		bx	lr
+ 240              		.section	.text.SysTick_Handler,"ax",%progbits
+ 241              		.align	1
+ 242              		.global	SysTick_Handler
+ 243              		.syntax unified
+ 244              		.thumb
+ARM GAS  /tmp/cci9pCtl.s 			page 5
 
 
- 245              		.syntax unified
- 246              		.thumb
- 247              		.thumb_func
- 248              		.fpu softvfp
- 250              	SysTick_Handler:
- 251              		@ args = 0, pretend = 0, frame = 0
- 252              		@ frame_needed = 0, uses_anonymous_args = 0
- 253              		@ link register save eliminated.
- 254 0000 FFF7FEBF 		b	HAL_IncTick
- 256              		.section	.text.DMA1_Channel1_IRQHandler,"ax",%progbits
- 257              		.align	1
- 258              		.global	DMA1_Channel1_IRQHandler
- 259              		.syntax unified
- 260              		.thumb
- 261              		.thumb_func
- 262              		.fpu softvfp
- 264              	DMA1_Channel1_IRQHandler:
- 265              		@ args = 0, pretend = 0, frame = 0
- 266              		@ frame_needed = 0, uses_anonymous_args = 0
- 267 0000 08B5     		push	{r3, lr}
- 268 0002 054B     		ldr	r3, .L27
- 269 0004 1868     		ldr	r0, [r3]
- 270 0006 FFF7FEFF 		bl	HAL_DMA_IRQHandler
- 271 000a 044B     		ldr	r3, .L27+4
- 272 000c 1868     		ldr	r0, [r3]
- 273 000e BDE80840 		pop	{r3, lr}
- 274 0012 FFF7FEBF 		b	NP32_DMAComplete_Callback
- 275              	.L28:
- 276 0016 00BF     		.align	2
- 277              	.L27:
- 278 0018 00000000 		.word	hw_timer2_ch3_dma_handle
- 279 001c 00000000 		.word	hw_ws2812_handle
- 281              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
-ARM GAS  /tmp/ccEV2Wjz.s 			page 6
+ 245              		.thumb_func
+ 246              		.fpu softvfp
+ 248              	SysTick_Handler:
+ 249              		@ args = 0, pretend = 0, frame = 0
+ 250              		@ frame_needed = 0, uses_anonymous_args = 0
+ 251              		@ link register save eliminated.
+ 252 0000 FFF7FEBF 		b	HAL_IncTick
+ 254              		.section	.text.DMA1_Channel1_IRQHandler,"ax",%progbits
+ 255              		.align	1
+ 256              		.global	DMA1_Channel1_IRQHandler
+ 257              		.syntax unified
+ 258              		.thumb
+ 259              		.thumb_func
+ 260              		.fpu softvfp
+ 262              	DMA1_Channel1_IRQHandler:
+ 263              		@ args = 0, pretend = 0, frame = 0
+ 264              		@ frame_needed = 0, uses_anonymous_args = 0
+ 265 0000 08B5     		push	{r3, lr}
+ 266 0002 054B     		ldr	r3, .L27
+ 267 0004 1868     		ldr	r0, [r3]
+ 268 0006 FFF7FEFF 		bl	HAL_DMA_IRQHandler
+ 269 000a 044B     		ldr	r3, .L27+4
+ 270 000c 1868     		ldr	r0, [r3]
+ 271 000e BDE80840 		pop	{r3, lr}
+ 272 0012 FFF7FEBF 		b	NP32_DMAComplete_Callback
+ 273              	.L28:
+ 274 0016 00BF     		.align	2
+ 275              	.L27:
+ 276 0018 00000000 		.word	hw_timer2_ch3_dma_handle
+ 277 001c 00000000 		.word	hw_ws2812_handle
+ 279              		.section	.text.USB_LP_CAN1_RX0_IRQHandler,"ax",%progbits
+ 280              		.align	1
+ 281              		.global	USB_LP_CAN1_RX0_IRQHandler
+ 282              		.syntax unified
+ 283              		.thumb
+ 284              		.thumb_func
+ 285              		.fpu softvfp
+ 287              	USB_LP_CAN1_RX0_IRQHandler:
+ 288              		@ args = 0, pretend = 0, frame = 0
+ 289              		@ frame_needed = 0, uses_anonymous_args = 0
+ 290              		@ link register save eliminated.
+ 291 0000 0148     		ldr	r0, .L30
+ 292 0002 FFF7FEBF 		b	HAL_PCD_IRQHandler
+ 293              	.L31:
+ 294 0006 00BF     		.align	2
+ 295              	.L30:
+ 296 0008 00000000 		.word	hpcd_USB_FS
+ 298              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
+ARM GAS  /tmp/cci9pCtl.s 			page 6
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 isr.c
-     /tmp/ccEV2Wjz.s:14     .text.NMI_Handler:0000000000000000 $t
-     /tmp/ccEV2Wjz.s:22     .text.NMI_Handler:0000000000000000 NMI_Handler
-     /tmp/ccEV2Wjz.s:29     .text.HardFault_Handler:0000000000000000 $t
-     /tmp/ccEV2Wjz.s:36     .text.HardFault_Handler:0000000000000000 HardFault_Handler
-     /tmp/ccEV2Wjz.s:67     .text.HardFault_Handler:0000000000000034 $d
-     /tmp/ccEV2Wjz.s:72     .text.MemManage_Handler:0000000000000000 $t
-     /tmp/ccEV2Wjz.s:79     .text.MemManage_Handler:0000000000000000 MemManage_Handler
-     /tmp/ccEV2Wjz.s:110    .text.MemManage_Handler:0000000000000034 $d
-     /tmp/ccEV2Wjz.s:115    .text.BusFault_Handler:0000000000000000 $t
-     /tmp/ccEV2Wjz.s:122    .text.BusFault_Handler:0000000000000000 BusFault_Handler
-     /tmp/ccEV2Wjz.s:153    .text.BusFault_Handler:0000000000000034 $d
-     /tmp/ccEV2Wjz.s:158    .text.UsageFault_Handler:0000000000000000 $t
-     /tmp/ccEV2Wjz.s:165    .text.UsageFault_Handler:0000000000000000 UsageFault_Handler
-     /tmp/ccEV2Wjz.s:196    .text.UsageFault_Handler:0000000000000034 $d
-     /tmp/ccEV2Wjz.s:201    .text.SVC_Handler:0000000000000000 $t
-     /tmp/ccEV2Wjz.s:208    .text.SVC_Handler:0000000000000000 SVC_Handler
-     /tmp/ccEV2Wjz.s:215    .text.DebugMon_Handler:0000000000000000 $t
-     /tmp/ccEV2Wjz.s:222    .text.DebugMon_Handler:0000000000000000 DebugMon_Handler
-     /tmp/ccEV2Wjz.s:229    .text.PendSV_Handler:0000000000000000 $t
-     /tmp/ccEV2Wjz.s:236    .text.PendSV_Handler:0000000000000000 PendSV_Handler
-     /tmp/ccEV2Wjz.s:243    .text.SysTick_Handler:0000000000000000 $t
-     /tmp/ccEV2Wjz.s:250    .text.SysTick_Handler:0000000000000000 SysTick_Handler
-     /tmp/ccEV2Wjz.s:257    .text.DMA1_Channel1_IRQHandler:0000000000000000 $t
-     /tmp/ccEV2Wjz.s:264    .text.DMA1_Channel1_IRQHandler:0000000000000000 DMA1_Channel1_IRQHandler
-     /tmp/ccEV2Wjz.s:278    .text.DMA1_Channel1_IRQHandler:0000000000000018 $d
+     /tmp/cci9pCtl.s:13     .text.NMI_Handler:0000000000000000 $t
+     /tmp/cci9pCtl.s:20     .text.NMI_Handler:0000000000000000 NMI_Handler
+     /tmp/cci9pCtl.s:27     .text.HardFault_Handler:0000000000000000 $t
+     /tmp/cci9pCtl.s:34     .text.HardFault_Handler:0000000000000000 HardFault_Handler
+     /tmp/cci9pCtl.s:65     .text.HardFault_Handler:0000000000000034 $d
+     /tmp/cci9pCtl.s:70     .text.MemManage_Handler:0000000000000000 $t
+     /tmp/cci9pCtl.s:77     .text.MemManage_Handler:0000000000000000 MemManage_Handler
+     /tmp/cci9pCtl.s:108    .text.MemManage_Handler:0000000000000034 $d
+     /tmp/cci9pCtl.s:113    .text.BusFault_Handler:0000000000000000 $t
+     /tmp/cci9pCtl.s:120    .text.BusFault_Handler:0000000000000000 BusFault_Handler
+     /tmp/cci9pCtl.s:151    .text.BusFault_Handler:0000000000000034 $d
+     /tmp/cci9pCtl.s:156    .text.UsageFault_Handler:0000000000000000 $t
+     /tmp/cci9pCtl.s:163    .text.UsageFault_Handler:0000000000000000 UsageFault_Handler
+     /tmp/cci9pCtl.s:194    .text.UsageFault_Handler:0000000000000034 $d
+     /tmp/cci9pCtl.s:199    .text.SVC_Handler:0000000000000000 $t
+     /tmp/cci9pCtl.s:206    .text.SVC_Handler:0000000000000000 SVC_Handler
+     /tmp/cci9pCtl.s:213    .text.DebugMon_Handler:0000000000000000 $t
+     /tmp/cci9pCtl.s:220    .text.DebugMon_Handler:0000000000000000 DebugMon_Handler
+     /tmp/cci9pCtl.s:227    .text.PendSV_Handler:0000000000000000 $t
+     /tmp/cci9pCtl.s:234    .text.PendSV_Handler:0000000000000000 PendSV_Handler
+     /tmp/cci9pCtl.s:241    .text.SysTick_Handler:0000000000000000 $t
+     /tmp/cci9pCtl.s:248    .text.SysTick_Handler:0000000000000000 SysTick_Handler
+     /tmp/cci9pCtl.s:255    .text.DMA1_Channel1_IRQHandler:0000000000000000 $t
+     /tmp/cci9pCtl.s:262    .text.DMA1_Channel1_IRQHandler:0000000000000000 DMA1_Channel1_IRQHandler
+     /tmp/cci9pCtl.s:276    .text.DMA1_Channel1_IRQHandler:0000000000000018 $d
+     /tmp/cci9pCtl.s:280    .text.USB_LP_CAN1_RX0_IRQHandler:0000000000000000 $t
+     /tmp/cci9pCtl.s:287    .text.USB_LP_CAN1_RX0_IRQHandler:0000000000000000 USB_LP_CAN1_RX0_IRQHandler
+     /tmp/cci9pCtl.s:296    .text.USB_LP_CAN1_RX0_IRQHandler:0000000000000008 $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_WritePin
@@ -313,3 +331,5 @@ HAL_DMA_IRQHandler
 NP32_DMAComplete_Callback
 hw_timer2_ch3_dma_handle
 hw_ws2812_handle
+HAL_PCD_IRQHandler
+hpcd_USB_FS

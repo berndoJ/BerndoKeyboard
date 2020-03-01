@@ -1853,7 +1853,7 @@ HAL_StatusTypeDef USB_SetCurrentMode(USB_TypeDef *USBx, USB_ModeTypeDef mode)
   *         the configuration information for the specified USBx peripheral.
   * @retval HAL status
   */
-HAL_StatusTypeDef USB_DevInit(USB_TypeDef *USBx, USB_CfgTypeDef cfg)
+HAL_StatusTypeDef  USB_DevInit(USB_TypeDef *USBx, USB_CfgTypeDef cfg)
 {
   /* Prevent unused argument(s) compilation warning */
   UNUSED(cfg);

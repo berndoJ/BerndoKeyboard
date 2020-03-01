@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccXHAkeo.s 			page 1
+ARM GAS  /tmp/ccXR1kgS.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -12,67 +12,65 @@ ARM GAS  /tmp/ccXHAkeo.s 			page 1
    9              		.eabi_attribute 34, 1
   10              		.eabi_attribute 18, 4
   11              		.file	"sys_hwb.c"
-  12              		.text
-  13              		.section	.text.SYS_HWB_Read,"ax",%progbits
-  14              		.align	1
-  15              		.global	SYS_HWB_Read
-  16              		.arch armv7-m
-  17              		.syntax unified
-  18              		.thumb
-  19              		.thumb_func
-  20              		.fpu softvfp
-  22              	SYS_HWB_Read:
-  23              		@ args = 0, pretend = 0, frame = 0
-  24              		@ frame_needed = 0, uses_anonymous_args = 0
-  25 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
-  26 0002 4FF48071 		mov	r1, #256
-  27 0006 1348     		ldr	r0, .L2
-  28 0008 FFF7FEFF 		bl	HAL_GPIO_ReadPin
-  29 000c 124D     		ldr	r5, .L2+4
-  30 000e 0646     		mov	r6, r0
-  31 0010 4FF48071 		mov	r1, #256
-  32 0014 2846     		mov	r0, r5
-  33 0016 FFF7FEFF 		bl	HAL_GPIO_ReadPin
-  34 001a 4FF40071 		mov	r1, #512
-  35 001e 0746     		mov	r7, r0
-  36 0020 2846     		mov	r0, r5
-  37 0022 FFF7FEFF 		bl	HAL_GPIO_ReadPin
-  38 0026 4FF48051 		mov	r1, #4096
-  39 002a 8400     		lsls	r4, r0, #2
-  40 002c 2846     		mov	r0, r5
-  41 002e FFF7FEFF 		bl	HAL_GPIO_ReadPin
-  42 0032 44EA4704 		orr	r4, r4, r7, lsl #1
-  43 0036 3443     		orrs	r4, r4, r6
-  44 0038 64B2     		sxtb	r4, r4
-  45 003a 44EAC004 		orr	r4, r4, r0, lsl #3
-  46 003e 4021     		movs	r1, #64
-  47 0040 0648     		ldr	r0, .L2+8
-  48 0042 FFF7FEFF 		bl	HAL_GPIO_ReadPin
-  49 0046 64B2     		sxtb	r4, r4
-  50 0048 054B     		ldr	r3, .L2+12
-  51 004a 44EA0014 		orr	r4, r4, r0, lsl #4
-  52 004e 1C70     		strb	r4, [r3]
-  53 0050 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
-  54              	.L3:
-  55 0052 00BF     		.align	2
-  56              	.L2:
-  57 0054 00080140 		.word	1073809408
-  58 0058 000C0140 		.word	1073810432
-ARM GAS  /tmp/ccXHAkeo.s 			page 2
+  12              		.section	.text.SYS_HWB_Read,"ax",%progbits
+  13              		.align	1
+  14              		.global	SYS_HWB_Read
+  15              		.syntax unified
+  16              		.thumb
+  17              		.thumb_func
+  18              		.fpu softvfp
+  20              	SYS_HWB_Read:
+  21              		@ args = 0, pretend = 0, frame = 0
+  22              		@ frame_needed = 0, uses_anonymous_args = 0
+  23 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  24 0002 4FF48071 		mov	r1, #256
+  25 0006 1348     		ldr	r0, .L2
+  26 0008 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+  27 000c 124D     		ldr	r5, .L2+4
+  28 000e 0646     		mov	r6, r0
+  29 0010 4FF48071 		mov	r1, #256
+  30 0014 2846     		mov	r0, r5
+  31 0016 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+  32 001a 4FF40071 		mov	r1, #512
+  33 001e 0746     		mov	r7, r0
+  34 0020 2846     		mov	r0, r5
+  35 0022 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+  36 0026 4FF48051 		mov	r1, #4096
+  37 002a 8400     		lsls	r4, r0, #2
+  38 002c 2846     		mov	r0, r5
+  39 002e FFF7FEFF 		bl	HAL_GPIO_ReadPin
+  40 0032 44EA4704 		orr	r4, r4, r7, lsl #1
+  41 0036 3443     		orrs	r4, r4, r6
+  42 0038 64B2     		sxtb	r4, r4
+  43 003a 44EAC004 		orr	r4, r4, r0, lsl #3
+  44 003e 4021     		movs	r1, #64
+  45 0040 0648     		ldr	r0, .L2+8
+  46 0042 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+  47 0046 64B2     		sxtb	r4, r4
+  48 0048 054B     		ldr	r3, .L2+12
+  49 004a 44EA0010 		orr	r0, r4, r0, lsl #4
+  50 004e 1870     		strb	r0, [r3]
+  51 0050 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+  52              	.L3:
+  53 0052 00BF     		.align	2
+  54              	.L2:
+  55 0054 00080140 		.word	1073809408
+  56 0058 000C0140 		.word	1073810432
+  57 005c 00100140 		.word	1073811456
+  58 0060 00000000 		.word	sys_hwbyte
+ARM GAS  /tmp/ccXR1kgS.s 			page 2
 
 
-  59 005c 00100140 		.word	1073811456
-  60 0060 00000000 		.word	sys_hwbyte
-  62              		.comm	sys_hwbyte,1,1
-  63              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
-ARM GAS  /tmp/ccXHAkeo.s 			page 3
+  60              		.comm	sys_hwbyte,1,1
+  61              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
+ARM GAS  /tmp/ccXR1kgS.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 sys_hwb.c
-     /tmp/ccXHAkeo.s:14     .text.SYS_HWB_Read:0000000000000000 $t
-     /tmp/ccXHAkeo.s:22     .text.SYS_HWB_Read:0000000000000000 SYS_HWB_Read
-     /tmp/ccXHAkeo.s:57     .text.SYS_HWB_Read:0000000000000054 $d
+     /tmp/ccXR1kgS.s:13     .text.SYS_HWB_Read:0000000000000000 $t
+     /tmp/ccXR1kgS.s:20     .text.SYS_HWB_Read:0000000000000000 SYS_HWB_Read
+     /tmp/ccXR1kgS.s:55     .text.SYS_HWB_Read:0000000000000054 $d
                             *COM*:0000000000000001 sys_hwbyte
 
 UNDEFINED SYMBOLS

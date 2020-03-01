@@ -50,6 +50,12 @@ clean:
 .PHONY: rebuild
 rebuild: clean all
 
+.PHONY: deploy
+deploy: $(FLASH_FOLDER)/$(BINNAME).hex
+	@echo "[$(PROJECTNAME)] Deploying flash image to device..."
+	@st-flash --format ihex write $(FLASH_FOLDER)/$(BINNAME).hex
+	@echo "[$(PROJECTNAME)] Successfully written flash image."
+
 .PHONY: doc
 doc:
 	@doxygen Doxyfile

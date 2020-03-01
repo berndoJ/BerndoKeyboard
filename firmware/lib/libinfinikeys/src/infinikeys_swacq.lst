@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccj7HGuQ.s 			page 1
+ARM GAS  /tmp/ccCjfoO5.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -12,377 +12,371 @@ ARM GAS  /tmp/ccj7HGuQ.s 			page 1
    9              		.eabi_attribute 34, 1
   10              		.eabi_attribute 18, 4
   11              		.file	"infinikeys_swacq.c"
-  12              		.text
-  13              		.section	.text.IK_SWACQ_PollTick,"ax",%progbits
-  14              		.align	1
-  15              		.global	IK_SWACQ_PollTick
-  16              		.arch armv7-m
-  17              		.syntax unified
-  18              		.thumb
-  19              		.thumb_func
-  20              		.fpu softvfp
-  22              	IK_SWACQ_PollTick:
-  23              		@ args = 0, pretend = 0, frame = 0
-  24              		@ frame_needed = 0, uses_anonymous_args = 0
-  25 0000 08B5     		push	{r3, lr}
-  26 0002 034B     		ldr	r3, .L2
-  27 0004 1B68     		ldr	r3, [r3]
-  28 0006 1B68     		ldr	r3, [r3]
-  29 0008 1B68     		ldr	r3, [r3]
-  30 000a 9847     		blx	r3
-  31 000c 0020     		movs	r0, #0
-  32 000e 08BD     		pop	{r3, pc}
-  33              	.L3:
-  34              		.align	2
-  35              	.L2:
-  36 0010 00000000 		.word	.LANCHOR0
-  38              		.section	.text.IK_SWACQ_AllocKeyStateBuffer,"ax",%progbits
-  39              		.align	1
-  40              		.global	IK_SWACQ_AllocKeyStateBuffer
-  41              		.syntax unified
-  42              		.thumb
-  43              		.thumb_func
-  44              		.fpu softvfp
-  46              	IK_SWACQ_AllocKeyStateBuffer:
-  47              		@ args = 0, pretend = 0, frame = 0
-  48              		@ frame_needed = 0, uses_anonymous_args = 0
-  49 0000 074B     		ldr	r3, .L5
-  50 0002 10B5     		push	{r4, lr}
-  51 0004 8400     		lsls	r4, r0, #2
-  52 0006 1880     		strh	r0, [r3]	@ movhi
-  53 0008 2046     		mov	r0, r4
-  54 000a FFF7FEFF 		bl	malloc
-  55 000e 054B     		ldr	r3, .L5+4
-  56 0010 2246     		mov	r2, r4
-  57 0012 0021     		movs	r1, #0
-  58 0014 1860     		str	r0, [r3]
-  59 0016 FFF7FEFF 		bl	memset
-  60 001a 0020     		movs	r0, #0
-ARM GAS  /tmp/ccj7HGuQ.s 			page 2
+  12              		.section	.text.IK_SWACQ_PollTick,"ax",%progbits
+  13              		.align	1
+  14              		.global	IK_SWACQ_PollTick
+  15              		.syntax unified
+  16              		.thumb
+  17              		.thumb_func
+  18              		.fpu softvfp
+  20              	IK_SWACQ_PollTick:
+  21              		@ args = 0, pretend = 0, frame = 0
+  22              		@ frame_needed = 0, uses_anonymous_args = 0
+  23 0000 08B5     		push	{r3, lr}
+  24 0002 034B     		ldr	r3, .L2
+  25 0004 1B68     		ldr	r3, [r3]
+  26 0006 1B68     		ldr	r3, [r3]
+  27 0008 1B68     		ldr	r3, [r3]
+  28 000a 9847     		blx	r3
+  29 000c 0020     		movs	r0, #0
+  30 000e 08BD     		pop	{r3, pc}
+  31              	.L3:
+  32              		.align	2
+  33              	.L2:
+  34 0010 00000000 		.word	.LANCHOR0
+  36              		.section	.text.IK_SWACQ_AllocKeyStateBuffer,"ax",%progbits
+  37              		.align	1
+  38              		.global	IK_SWACQ_AllocKeyStateBuffer
+  39              		.syntax unified
+  40              		.thumb
+  41              		.thumb_func
+  42              		.fpu softvfp
+  44              	IK_SWACQ_AllocKeyStateBuffer:
+  45              		@ args = 0, pretend = 0, frame = 0
+  46              		@ frame_needed = 0, uses_anonymous_args = 0
+  47 0000 074B     		ldr	r3, .L5
+  48 0002 10B5     		push	{r4, lr}
+  49 0004 8400     		lsls	r4, r0, #2
+  50 0006 1880     		strh	r0, [r3]	@ movhi
+  51 0008 2046     		mov	r0, r4
+  52 000a FFF7FEFF 		bl	malloc
+  53 000e 054B     		ldr	r3, .L5+4
+  54 0010 2246     		mov	r2, r4
+  55 0012 0021     		movs	r1, #0
+  56 0014 1860     		str	r0, [r3]
+  57 0016 FFF7FEFF 		bl	memset
+  58 001a 0020     		movs	r0, #0
+  59 001c 10BD     		pop	{r4, pc}
+  60              	.L6:
+ARM GAS  /tmp/ccCjfoO5.s 			page 2
 
 
-  61 001c 10BD     		pop	{r4, pc}
-  62              	.L6:
-  63 001e 00BF     		.align	2
-  64              	.L5:
-  65 0020 00000000 		.word	.LANCHOR1
-  66 0024 00000000 		.word	.LANCHOR2
-  68              		.section	.text.IK_SWACQ_Init,"ax",%progbits
-  69              		.align	1
-  70              		.global	IK_SWACQ_Init
-  71              		.syntax unified
-  72              		.thumb
-  73              		.thumb_func
-  74              		.fpu softvfp
-  76              	IK_SWACQ_Init:
-  77              		@ args = 0, pretend = 0, frame = 0
-  78              		@ frame_needed = 0, uses_anonymous_args = 0
-  79 0000 08B5     		push	{r3, lr}
-  80 0002 08B9     		cbnz	r0, .L8
-  81              	.L10:
-  82 0004 0120     		movs	r0, #1
-  83              	.L9:
-  84 0006 08BD     		pop	{r3, pc}
-  85              	.L8:
-  86 0008 0368     		ldr	r3, [r0]
-  87 000a 002B     		cmp	r3, #0
-  88 000c FAD0     		beq	.L10
-  89 000e 064B     		ldr	r3, .L14
-  90 0010 1860     		str	r0, [r3]
-  91 0012 8020     		movs	r0, #128
-  92 0014 FFF7FEFF 		bl	IK_SWACQ_AllocKeyStateBuffer
-  93 0018 0028     		cmp	r0, #0
-  94 001a F3D1     		bne	.L10
-  95 001c 034B     		ldr	r3, .L14+4
-  96 001e 1868     		ldr	r0, [r3]
-  97 0020 B0FA80F0 		clz	r0, r0
-  98 0024 4009     		lsrs	r0, r0, #5
-  99 0026 EEE7     		b	.L9
- 100              	.L15:
- 101              		.align	2
- 102              	.L14:
- 103 0028 00000000 		.word	.LANCHOR0
- 104 002c 00000000 		.word	.LANCHOR2
- 106              		.section	.text.IK_SWACQ_FreeKeyStateBuffer,"ax",%progbits
- 107              		.align	1
- 108              		.global	IK_SWACQ_FreeKeyStateBuffer
- 109              		.syntax unified
- 110              		.thumb
- 111              		.thumb_func
- 112              		.fpu softvfp
- 114              	IK_SWACQ_FreeKeyStateBuffer:
- 115              		@ args = 0, pretend = 0, frame = 0
- 116              		@ frame_needed = 0, uses_anonymous_args = 0
- 117 0000 08B5     		push	{r3, lr}
- 118 0002 034B     		ldr	r3, .L17
- 119 0004 1868     		ldr	r0, [r3]
- 120 0006 FFF7FEFF 		bl	free
- 121 000a 0020     		movs	r0, #0
-ARM GAS  /tmp/ccj7HGuQ.s 			page 3
+  61 001e 00BF     		.align	2
+  62              	.L5:
+  63 0020 00000000 		.word	.LANCHOR1
+  64 0024 00000000 		.word	.LANCHOR2
+  66              		.section	.text.IK_SWACQ_Init,"ax",%progbits
+  67              		.align	1
+  68              		.global	IK_SWACQ_Init
+  69              		.syntax unified
+  70              		.thumb
+  71              		.thumb_func
+  72              		.fpu softvfp
+  74              	IK_SWACQ_Init:
+  75              		@ args = 0, pretend = 0, frame = 0
+  76              		@ frame_needed = 0, uses_anonymous_args = 0
+  77 0000 08B5     		push	{r3, lr}
+  78 0002 08B9     		cbnz	r0, .L8
+  79              	.L10:
+  80 0004 0120     		movs	r0, #1
+  81 0006 08BD     		pop	{r3, pc}
+  82              	.L8:
+  83 0008 0368     		ldr	r3, [r0]
+  84 000a 002B     		cmp	r3, #0
+  85 000c FAD0     		beq	.L10
+  86 000e 064B     		ldr	r3, .L14
+  87 0010 1860     		str	r0, [r3]
+  88 0012 8020     		movs	r0, #128
+  89 0014 FFF7FEFF 		bl	IK_SWACQ_AllocKeyStateBuffer
+  90 0018 0028     		cmp	r0, #0
+  91 001a F3D1     		bne	.L10
+  92 001c 034B     		ldr	r3, .L14+4
+  93 001e 1868     		ldr	r0, [r3]
+  94 0020 B0FA80F0 		clz	r0, r0
+  95 0024 4009     		lsrs	r0, r0, #5
+  96 0026 08BD     		pop	{r3, pc}
+  97              	.L15:
+  98              		.align	2
+  99              	.L14:
+ 100 0028 00000000 		.word	.LANCHOR0
+ 101 002c 00000000 		.word	.LANCHOR2
+ 103              		.section	.text.IK_SWACQ_FreeKeyStateBuffer,"ax",%progbits
+ 104              		.align	1
+ 105              		.global	IK_SWACQ_FreeKeyStateBuffer
+ 106              		.syntax unified
+ 107              		.thumb
+ 108              		.thumb_func
+ 109              		.fpu softvfp
+ 111              	IK_SWACQ_FreeKeyStateBuffer:
+ 112              		@ args = 0, pretend = 0, frame = 0
+ 113              		@ frame_needed = 0, uses_anonymous_args = 0
+ 114 0000 08B5     		push	{r3, lr}
+ 115 0002 034B     		ldr	r3, .L17
+ 116 0004 1868     		ldr	r0, [r3]
+ 117 0006 FFF7FEFF 		bl	free
+ 118 000a 0020     		movs	r0, #0
+ 119 000c 08BD     		pop	{r3, pc}
+ 120              	.L18:
+ 121 000e 00BF     		.align	2
+ARM GAS  /tmp/ccCjfoO5.s 			page 3
 
 
- 122 000c 08BD     		pop	{r3, pc}
- 123              	.L18:
- 124 000e 00BF     		.align	2
- 125              	.L17:
- 126 0010 00000000 		.word	.LANCHOR2
- 128              		.section	.text.IK_SWACQ_DeInit,"ax",%progbits
- 129              		.align	1
- 130              		.global	IK_SWACQ_DeInit
- 131              		.syntax unified
- 132              		.thumb
- 133              		.thumb_func
- 134              		.fpu softvfp
- 136              	IK_SWACQ_DeInit:
- 137              		@ args = 0, pretend = 0, frame = 0
- 138              		@ frame_needed = 0, uses_anonymous_args = 0
- 139 0000 08B5     		push	{r3, lr}
- 140 0002 FFF7FEFF 		bl	IK_SWACQ_FreeKeyStateBuffer
- 141 0006 0020     		movs	r0, #0
- 142 0008 08BD     		pop	{r3, pc}
- 144              		.section	.text.IK_SWACQ_ReAllocKeyStateBuffer,"ax",%progbits
- 145              		.align	1
- 146              		.global	IK_SWACQ_ReAllocKeyStateBuffer
- 147              		.syntax unified
- 148              		.thumb
- 149              		.thumb_func
- 150              		.fpu softvfp
- 152              	IK_SWACQ_ReAllocKeyStateBuffer:
- 153              		@ args = 0, pretend = 0, frame = 0
- 154              		@ frame_needed = 0, uses_anonymous_args = 0
- 155 0000 70B5     		push	{r4, r5, r6, lr}
- 156 0002 0446     		mov	r4, r0
- 157 0004 18B9     		cbnz	r0, .L21
- 158 0006 BDE87040 		pop	{r4, r5, r6, lr}
- 159 000a FFF7FEBF 		b	IK_SWACQ_FreeKeyStateBuffer
- 160              	.L21:
- 161 000e 0B4B     		ldr	r3, .L25
- 162 0010 0B4E     		ldr	r6, .L25+4
- 163 0012 1D88     		ldrh	r5, [r3]
- 164 0014 8100     		lsls	r1, r0, #2
- 165 0016 1880     		strh	r0, [r3]	@ movhi
- 166 0018 3068     		ldr	r0, [r6]
- 167 001a FFF7FEFF 		bl	realloc
- 168 001e 3060     		str	r0, [r6]
- 169 0020 50B1     		cbz	r0, .L23
- 170 0022 A542     		cmp	r5, r4
- 171 0024 06D2     		bcs	.L24
- 172 0026 621B     		subs	r2, r4, r5
- 173 0028 0021     		movs	r1, #0
- 174 002a 9200     		lsls	r2, r2, #2
- 175 002c 00EB0510 		add	r0, r0, r5, lsl #4
- 176 0030 FFF7FEFF 		bl	memset
- 177              	.L24:
- 178 0034 0020     		movs	r0, #0
- 179 0036 00E0     		b	.L22
- 180              	.L23:
- 181 0038 0120     		movs	r0, #1
- 182              	.L22:
-ARM GAS  /tmp/ccj7HGuQ.s 			page 4
+ 122              	.L17:
+ 123 0010 00000000 		.word	.LANCHOR2
+ 125              		.section	.text.IK_SWACQ_DeInit,"ax",%progbits
+ 126              		.align	1
+ 127              		.global	IK_SWACQ_DeInit
+ 128              		.syntax unified
+ 129              		.thumb
+ 130              		.thumb_func
+ 131              		.fpu softvfp
+ 133              	IK_SWACQ_DeInit:
+ 134              		@ args = 0, pretend = 0, frame = 0
+ 135              		@ frame_needed = 0, uses_anonymous_args = 0
+ 136 0000 08B5     		push	{r3, lr}
+ 137 0002 FFF7FEFF 		bl	IK_SWACQ_FreeKeyStateBuffer
+ 138 0006 0020     		movs	r0, #0
+ 139 0008 08BD     		pop	{r3, pc}
+ 141              		.section	.text.IK_SWACQ_ReAllocKeyStateBuffer,"ax",%progbits
+ 142              		.align	1
+ 143              		.global	IK_SWACQ_ReAllocKeyStateBuffer
+ 144              		.syntax unified
+ 145              		.thumb
+ 146              		.thumb_func
+ 147              		.fpu softvfp
+ 149              	IK_SWACQ_ReAllocKeyStateBuffer:
+ 150              		@ args = 0, pretend = 0, frame = 0
+ 151              		@ frame_needed = 0, uses_anonymous_args = 0
+ 152 0000 70B5     		push	{r4, r5, r6, lr}
+ 153 0002 0446     		mov	r4, r0
+ 154 0004 18B9     		cbnz	r0, .L21
+ 155 0006 BDE87040 		pop	{r4, r5, r6, lr}
+ 156 000a FFF7FEBF 		b	IK_SWACQ_FreeKeyStateBuffer
+ 157              	.L21:
+ 158 000e 0B4B     		ldr	r3, .L25
+ 159 0010 0B4E     		ldr	r6, .L25+4
+ 160 0012 1D88     		ldrh	r5, [r3]
+ 161 0014 8100     		lsls	r1, r0, #2
+ 162 0016 1880     		strh	r0, [r3]	@ movhi
+ 163 0018 3068     		ldr	r0, [r6]
+ 164 001a FFF7FEFF 		bl	realloc
+ 165 001e 3060     		str	r0, [r6]
+ 166 0020 50B1     		cbz	r0, .L23
+ 167 0022 A542     		cmp	r5, r4
+ 168 0024 06D2     		bcs	.L24
+ 169 0026 621B     		subs	r2, r4, r5
+ 170 0028 9200     		lsls	r2, r2, #2
+ 171 002a 0021     		movs	r1, #0
+ 172 002c 00EB0510 		add	r0, r0, r5, lsl #4
+ 173 0030 FFF7FEFF 		bl	memset
+ 174              	.L24:
+ 175 0034 0020     		movs	r0, #0
+ 176 0036 70BD     		pop	{r4, r5, r6, pc}
+ 177              	.L23:
+ 178 0038 0120     		movs	r0, #1
+ 179 003a 70BD     		pop	{r4, r5, r6, pc}
+ 180              	.L26:
+ 181              		.align	2
+ 182              	.L25:
+ARM GAS  /tmp/ccCjfoO5.s 			page 4
 
 
- 183 003a 70BD     		pop	{r4, r5, r6, pc}
- 184              	.L26:
- 185              		.align	2
- 186              	.L25:
- 187 003c 00000000 		.word	.LANCHOR1
- 188 0040 00000000 		.word	.LANCHOR2
- 190              		.section	.text.IK_SWACQ_GetBufferedKeyState,"ax",%progbits
- 191              		.align	1
- 192              		.global	IK_SWACQ_GetBufferedKeyState
- 193              		.syntax unified
- 194              		.thumb
- 195              		.thumb_func
- 196              		.fpu softvfp
- 198              	IK_SWACQ_GetBufferedKeyState:
- 199              		@ args = 0, pretend = 0, frame = 0
- 200              		@ frame_needed = 0, uses_anonymous_args = 0
- 201 0000 0346     		mov	r3, r0
- 202 0002 70B5     		push	{r4, r5, r6, lr}
- 203 0004 48B1     		cbz	r0, .L33
- 204 0006 0B4A     		ldr	r2, .L34
- 205 0008 1168     		ldr	r1, [r2]
- 206 000a 81B1     		cbz	r1, .L32
- 207 000c 0A4A     		ldr	r2, .L34+4
- 208 000e 0D1F     		subs	r5, r1, #4
- 209 0010 1488     		ldrh	r4, [r2]
- 210 0012 0022     		movs	r2, #0
- 211              	.L29:
- 212 0014 90B2     		uxth	r0, r2
- 213 0016 8442     		cmp	r4, r0
- 214 0018 01D8     		bhi	.L30
- 215              	.L33:
- 216 001a 0020     		movs	r0, #0
- 217 001c 06E0     		b	.L27
- 218              	.L30:
- 219 001e 01EB8200 		add	r0, r1, r2, lsl #2
- 220 0022 0132     		adds	r2, r2, #1
- 221 0024 35F82260 		ldrh	r6, [r5, r2, lsl #2]
- 222 0028 9E42     		cmp	r6, r3
- 223 002a F3D1     		bne	.L29
- 224              	.L27:
- 225 002c 70BD     		pop	{r4, r5, r6, pc}
- 226              	.L32:
- 227 002e 0846     		mov	r0, r1
- 228 0030 FCE7     		b	.L27
- 229              	.L35:
- 230 0032 00BF     		.align	2
- 231              	.L34:
- 232 0034 00000000 		.word	.LANCHOR2
- 233 0038 00000000 		.word	.LANCHOR1
- 235              		.section	.text.IK_SWACQ_GetInitialisedBufferedKeyState,"ax",%progbits
- 236              		.align	1
- 237              		.global	IK_SWACQ_GetInitialisedBufferedKeyState
- 238              		.syntax unified
- 239              		.thumb
- 240              		.thumb_func
- 241              		.fpu softvfp
- 243              	IK_SWACQ_GetInitialisedBufferedKeyState:
-ARM GAS  /tmp/ccj7HGuQ.s 			page 5
+ 183 003c 00000000 		.word	.LANCHOR1
+ 184 0040 00000000 		.word	.LANCHOR2
+ 186              		.section	.text.IK_SWACQ_GetBufferedKeyState,"ax",%progbits
+ 187              		.align	1
+ 188              		.global	IK_SWACQ_GetBufferedKeyState
+ 189              		.syntax unified
+ 190              		.thumb
+ 191              		.thumb_func
+ 192              		.fpu softvfp
+ 194              	IK_SWACQ_GetBufferedKeyState:
+ 195              		@ args = 0, pretend = 0, frame = 0
+ 196              		@ frame_needed = 0, uses_anonymous_args = 0
+ 197 0000 30B5     		push	{r4, r5, lr}
+ 198 0002 40B1     		cbz	r0, .L36
+ 199 0004 094B     		ldr	r3, .L37
+ 200 0006 1B68     		ldr	r3, [r3]
+ 201 0008 33B1     		cbz	r3, .L27
+ 202 000a 094A     		ldr	r2, .L37+4
+ 203 000c 1588     		ldrh	r5, [r2]
+ 204 000e 0022     		movs	r2, #0
+ 205              	.L29:
+ 206 0010 91B2     		uxth	r1, r2
+ 207 0012 8D42     		cmp	r5, r1
+ 208 0014 02D8     		bhi	.L30
+ 209              	.L36:
+ 210 0016 0023     		movs	r3, #0
+ 211              	.L27:
+ 212 0018 1846     		mov	r0, r3
+ 213 001a 30BD     		pop	{r4, r5, pc}
+ 214              	.L30:
+ 215 001c 9100     		lsls	r1, r2, #2
+ 216 001e 5C18     		adds	r4, r3, r1
+ 217 0020 595A     		ldrh	r1, [r3, r1]
+ 218 0022 0132     		adds	r2, r2, #1
+ 219 0024 8142     		cmp	r1, r0
+ 220 0026 F3D1     		bne	.L29
+ 221 0028 2346     		mov	r3, r4
+ 222 002a F5E7     		b	.L27
+ 223              	.L38:
+ 224              		.align	2
+ 225              	.L37:
+ 226 002c 00000000 		.word	.LANCHOR2
+ 227 0030 00000000 		.word	.LANCHOR1
+ 229              		.section	.text.IK_SWACQ_GetInitialisedBufferedKeyState,"ax",%progbits
+ 230              		.align	1
+ 231              		.global	IK_SWACQ_GetInitialisedBufferedKeyState
+ 232              		.syntax unified
+ 233              		.thumb
+ 234              		.thumb_func
+ 235              		.fpu softvfp
+ 237              	IK_SWACQ_GetInitialisedBufferedKeyState:
+ 238              		@ args = 0, pretend = 0, frame = 0
+ 239              		@ frame_needed = 0, uses_anonymous_args = 0
+ 240 0000 70B5     		push	{r4, r5, r6, lr}
+ 241 0002 0646     		mov	r6, r0
+ 242 0004 E0B1     		cbz	r0, .L43
+ 243 0006 104B     		ldr	r3, .L46
+ARM GAS  /tmp/ccCjfoO5.s 			page 5
 
 
- 244              		@ args = 0, pretend = 0, frame = 0
- 245              		@ frame_needed = 0, uses_anonymous_args = 0
- 246 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
- 247 0002 0546     		mov	r5, r0
- 248 0004 F0B1     		cbz	r0, .L40
- 249 0006 114B     		ldr	r3, .L43
- 250 0008 1E68     		ldr	r6, [r3]
- 251 000a EEB1     		cbz	r6, .L41
- 252 000c FFF7FEFF 		bl	IK_SWACQ_GetBufferedKeyState
- 253 0010 0446     		mov	r4, r0
- 254 0012 A8B9     		cbnz	r0, .L36
- 255 0014 0E4B     		ldr	r3, .L43+4
- 256 0016 371F     		subs	r7, r6, #4
- 257 0018 1888     		ldrh	r0, [r3]
- 258 001a 2346     		mov	r3, r4
- 259              	.L38:
- 260 001c 9AB2     		uxth	r2, r3
- 261 001e 9042     		cmp	r0, r2
- 262 0020 04D8     		bhi	.L39
- 263 0022 1030     		adds	r0, r0, #16
- 264 0024 80B2     		uxth	r0, r0
- 265 0026 FFF7FEFF 		bl	IK_SWACQ_ReAllocKeyStateBuffer
- 266 002a 09E0     		b	.L36
- 267              	.L39:
- 268 002c 06EB8302 		add	r2, r6, r3, lsl #2
- 269 0030 0133     		adds	r3, r3, #1
- 270 0032 37F82310 		ldrh	r1, [r7, r3, lsl #2]
- 271 0036 0029     		cmp	r1, #0
- 272 0038 F0D1     		bne	.L38
- 273 003a 1446     		mov	r4, r2
- 274 003c 1580     		strh	r5, [r2]	@ movhi
- 275 003e 9170     		strb	r1, [r2, #2]
- 276              	.L36:
- 277 0040 2046     		mov	r0, r4
- 278 0042 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 279              	.L40:
- 280 0044 0446     		mov	r4, r0
- 281 0046 FBE7     		b	.L36
- 282              	.L41:
- 283 0048 3446     		mov	r4, r6
- 284 004a F9E7     		b	.L36
- 285              	.L44:
- 286              		.align	2
- 287              	.L43:
- 288 004c 00000000 		.word	.LANCHOR2
- 289 0050 00000000 		.word	.LANCHOR1
- 291              		.section	.text.IK_SWACQ_PollStatusReportCallback,"ax",%progbits
- 292              		.align	1
- 293              		.global	IK_SWACQ_PollStatusReportCallback
- 294              		.syntax unified
- 295              		.thumb
- 296              		.thumb_func
- 297              		.fpu softvfp
- 299              	IK_SWACQ_PollStatusReportCallback:
- 300              		@ args = 0, pretend = 0, frame = 16
- 301              		@ frame_needed = 0, uses_anonymous_args = 0
- 302 0000 30B5     		push	{r4, r5, lr}
-ARM GAS  /tmp/ccj7HGuQ.s 			page 6
+ 244 0008 1D68     		ldr	r5, [r3]
+ 245 000a DDB1     		cbz	r5, .L44
+ 246 000c FFF7FEFF 		bl	IK_SWACQ_GetBufferedKeyState
+ 247 0010 0446     		mov	r4, r0
+ 248 0012 98B9     		cbnz	r0, .L39
+ 249 0014 0D4B     		ldr	r3, .L46+4
+ 250 0016 1888     		ldrh	r0, [r3]
+ 251 0018 2346     		mov	r3, r4
+ 252              	.L41:
+ 253 001a 9AB2     		uxth	r2, r3
+ 254 001c 9042     		cmp	r0, r2
+ 255 001e 04D8     		bhi	.L42
+ 256 0020 1030     		adds	r0, r0, #16
+ 257 0022 80B2     		uxth	r0, r0
+ 258 0024 FFF7FEFF 		bl	IK_SWACQ_ReAllocKeyStateBuffer
+ 259 0028 08E0     		b	.L39
+ 260              	.L42:
+ 261 002a 9900     		lsls	r1, r3, #2
+ 262 002c 6A18     		adds	r2, r5, r1
+ 263 002e 695A     		ldrh	r1, [r5, r1]
+ 264 0030 0133     		adds	r3, r3, #1
+ 265 0032 0029     		cmp	r1, #0
+ 266 0034 F1D1     		bne	.L41
+ 267 0036 1446     		mov	r4, r2
+ 268 0038 1680     		strh	r6, [r2]	@ movhi
+ 269 003a 9170     		strb	r1, [r2, #2]
+ 270              	.L39:
+ 271 003c 2046     		mov	r0, r4
+ 272 003e 70BD     		pop	{r4, r5, r6, pc}
+ 273              	.L43:
+ 274 0040 0446     		mov	r4, r0
+ 275 0042 FBE7     		b	.L39
+ 276              	.L44:
+ 277 0044 2C46     		mov	r4, r5
+ 278 0046 F9E7     		b	.L39
+ 279              	.L47:
+ 280              		.align	2
+ 281              	.L46:
+ 282 0048 00000000 		.word	.LANCHOR2
+ 283 004c 00000000 		.word	.LANCHOR1
+ 285              		.section	.text.IK_SWACQ_PollStatusReportCallback,"ax",%progbits
+ 286              		.align	1
+ 287              		.global	IK_SWACQ_PollStatusReportCallback
+ 288              		.syntax unified
+ 289              		.thumb
+ 290              		.thumb_func
+ 291              		.fpu softvfp
+ 293              	IK_SWACQ_PollStatusReportCallback:
+ 294              		@ args = 0, pretend = 0, frame = 16
+ 295              		@ frame_needed = 0, uses_anonymous_args = 0
+ 296 0000 30B5     		push	{r4, r5, lr}
+ 297 0002 85B2     		uxth	r5, r0
+ 298 0004 85B0     		sub	sp, sp, #20
+ 299 0006 0190     		str	r0, [sp, #4]
+ 300 0008 15B9     		cbnz	r5, .L49
+ 301              	.L51:
+ 302 000a 0120     		movs	r0, #1
+ARM GAS  /tmp/ccCjfoO5.s 			page 6
 
 
- 303 0002 85B2     		uxth	r5, r0
- 304 0004 85B0     		sub	sp, sp, #20
- 305 0006 0190     		str	r0, [sp, #4]
- 306 0008 15B9     		cbnz	r5, .L46
- 307              	.L48:
- 308 000a 0120     		movs	r0, #1
- 309              	.L47:
- 310 000c 05B0     		add	sp, sp, #20
- 311              		@ sp needed
- 312 000e 30BD     		pop	{r4, r5, pc}
- 313              	.L46:
- 314 0010 2846     		mov	r0, r5
- 315 0012 9DF80640 		ldrb	r4, [sp, #6]	@ zero_extendqisi2
- 316 0016 FFF7FEFF 		bl	IK_SWACQ_GetInitialisedBufferedKeyState
- 317 001a 0028     		cmp	r0, #0
- 318 001c F5D0     		beq	.L48
- 319 001e 8378     		ldrb	r3, [r0, #2]	@ zero_extendqisi2
- 320 0020 A342     		cmp	r3, r4
- 321 0022 0AD0     		beq	.L49
- 322 0024 8470     		strb	r4, [r0, #2]
- 323 0026 013C     		subs	r4, r4, #1
- 324 0028 18BF     		it	ne
- 325 002a 0124     		movne	r4, #1
- 326 002c ADF80C50 		strh	r5, [sp, #12]	@ movhi
- 327 0030 8DF80E40 		strb	r4, [sp, #14]
- 328 0034 0398     		ldr	r0, [sp, #12]
- 329 0036 FFF7FEFF 		bl	IK_KBM_KeystrokeEvent
- 330              	.L49:
- 331 003a 0020     		movs	r0, #0
- 332 003c E6E7     		b	.L47
- 334              		.section	.bss._swacq_init,"aw",%nobits
- 335              		.align	2
- 336              		.set	.LANCHOR0,. + 0
- 339              	_swacq_init:
- 340 0000 00000000 		.space	4
- 341              		.section	.bss._swacq_ks_buf,"aw",%nobits
- 342              		.align	2
- 343              		.set	.LANCHOR2,. + 0
- 346              	_swacq_ks_buf:
- 347 0000 00000000 		.space	4
- 348              		.section	.bss._swacq_ks_buf_cur_size,"aw",%nobits
- 349              		.align	1
- 350              		.set	.LANCHOR1,. + 0
- 353              	_swacq_ks_buf_cur_size:
- 354 0000 0000     		.space	2
- 355              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
-ARM GAS  /tmp/ccj7HGuQ.s 			page 7
+ 303              	.L50:
+ 304 000c 05B0     		add	sp, sp, #20
+ 305              		@ sp needed
+ 306 000e 30BD     		pop	{r4, r5, pc}
+ 307              	.L49:
+ 308 0010 2846     		mov	r0, r5
+ 309 0012 9DF80640 		ldrb	r4, [sp, #6]	@ zero_extendqisi2
+ 310 0016 FFF7FEFF 		bl	IK_SWACQ_GetInitialisedBufferedKeyState
+ 311 001a 0028     		cmp	r0, #0
+ 312 001c F5D0     		beq	.L51
+ 313 001e 8378     		ldrb	r3, [r0, #2]	@ zero_extendqisi2
+ 314 0020 A342     		cmp	r3, r4
+ 315 0022 0BD0     		beq	.L52
+ 316 0024 8470     		strb	r4, [r0, #2]
+ 317 0026 14F1FF34 		adds	r4, r4, #-1
+ 318 002a 18BF     		it	ne
+ 319 002c 0124     		movne	r4, #1
+ 320 002e ADF80C50 		strh	r5, [sp, #12]	@ movhi
+ 321 0032 8DF80E40 		strb	r4, [sp, #14]
+ 322 0036 0398     		ldr	r0, [sp, #12]
+ 323 0038 FFF7FEFF 		bl	IK_KBM_KeystrokeEvent
+ 324              	.L52:
+ 325 003c 0020     		movs	r0, #0
+ 326 003e E5E7     		b	.L50
+ 328              		.section	.bss._swacq_init,"aw",%nobits
+ 329              		.align	2
+ 330              		.set	.LANCHOR0,. + 0
+ 333              	_swacq_init:
+ 334 0000 00000000 		.space	4
+ 335              		.section	.bss._swacq_ks_buf,"aw",%nobits
+ 336              		.align	2
+ 337              		.set	.LANCHOR2,. + 0
+ 340              	_swacq_ks_buf:
+ 341 0000 00000000 		.space	4
+ 342              		.section	.bss._swacq_ks_buf_cur_size,"aw",%nobits
+ 343              		.align	1
+ 344              		.set	.LANCHOR1,. + 0
+ 347              	_swacq_ks_buf_cur_size:
+ 348 0000 0000     		.space	2
+ 349              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
+ARM GAS  /tmp/ccCjfoO5.s 			page 7
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 infinikeys_swacq.c
-     /tmp/ccj7HGuQ.s:14     .text.IK_SWACQ_PollTick:0000000000000000 $t
-     /tmp/ccj7HGuQ.s:22     .text.IK_SWACQ_PollTick:0000000000000000 IK_SWACQ_PollTick
-     /tmp/ccj7HGuQ.s:36     .text.IK_SWACQ_PollTick:0000000000000010 $d
-     /tmp/ccj7HGuQ.s:39     .text.IK_SWACQ_AllocKeyStateBuffer:0000000000000000 $t
-     /tmp/ccj7HGuQ.s:46     .text.IK_SWACQ_AllocKeyStateBuffer:0000000000000000 IK_SWACQ_AllocKeyStateBuffer
-     /tmp/ccj7HGuQ.s:65     .text.IK_SWACQ_AllocKeyStateBuffer:0000000000000020 $d
-     /tmp/ccj7HGuQ.s:69     .text.IK_SWACQ_Init:0000000000000000 $t
-     /tmp/ccj7HGuQ.s:76     .text.IK_SWACQ_Init:0000000000000000 IK_SWACQ_Init
-     /tmp/ccj7HGuQ.s:103    .text.IK_SWACQ_Init:0000000000000028 $d
-     /tmp/ccj7HGuQ.s:107    .text.IK_SWACQ_FreeKeyStateBuffer:0000000000000000 $t
-     /tmp/ccj7HGuQ.s:114    .text.IK_SWACQ_FreeKeyStateBuffer:0000000000000000 IK_SWACQ_FreeKeyStateBuffer
-     /tmp/ccj7HGuQ.s:126    .text.IK_SWACQ_FreeKeyStateBuffer:0000000000000010 $d
-     /tmp/ccj7HGuQ.s:129    .text.IK_SWACQ_DeInit:0000000000000000 $t
-     /tmp/ccj7HGuQ.s:136    .text.IK_SWACQ_DeInit:0000000000000000 IK_SWACQ_DeInit
-     /tmp/ccj7HGuQ.s:145    .text.IK_SWACQ_ReAllocKeyStateBuffer:0000000000000000 $t
-     /tmp/ccj7HGuQ.s:152    .text.IK_SWACQ_ReAllocKeyStateBuffer:0000000000000000 IK_SWACQ_ReAllocKeyStateBuffer
-     /tmp/ccj7HGuQ.s:187    .text.IK_SWACQ_ReAllocKeyStateBuffer:000000000000003c $d
-     /tmp/ccj7HGuQ.s:191    .text.IK_SWACQ_GetBufferedKeyState:0000000000000000 $t
-     /tmp/ccj7HGuQ.s:198    .text.IK_SWACQ_GetBufferedKeyState:0000000000000000 IK_SWACQ_GetBufferedKeyState
-     /tmp/ccj7HGuQ.s:232    .text.IK_SWACQ_GetBufferedKeyState:0000000000000034 $d
-     /tmp/ccj7HGuQ.s:236    .text.IK_SWACQ_GetInitialisedBufferedKeyState:0000000000000000 $t
-     /tmp/ccj7HGuQ.s:243    .text.IK_SWACQ_GetInitialisedBufferedKeyState:0000000000000000 IK_SWACQ_GetInitialisedBufferedKeyState
-     /tmp/ccj7HGuQ.s:288    .text.IK_SWACQ_GetInitialisedBufferedKeyState:000000000000004c $d
-     /tmp/ccj7HGuQ.s:292    .text.IK_SWACQ_PollStatusReportCallback:0000000000000000 $t
-     /tmp/ccj7HGuQ.s:299    .text.IK_SWACQ_PollStatusReportCallback:0000000000000000 IK_SWACQ_PollStatusReportCallback
-     /tmp/ccj7HGuQ.s:335    .bss._swacq_init:0000000000000000 $d
-     /tmp/ccj7HGuQ.s:339    .bss._swacq_init:0000000000000000 _swacq_init
-     /tmp/ccj7HGuQ.s:342    .bss._swacq_ks_buf:0000000000000000 $d
-     /tmp/ccj7HGuQ.s:346    .bss._swacq_ks_buf:0000000000000000 _swacq_ks_buf
-     /tmp/ccj7HGuQ.s:349    .bss._swacq_ks_buf_cur_size:0000000000000000 $d
-     /tmp/ccj7HGuQ.s:353    .bss._swacq_ks_buf_cur_size:0000000000000000 _swacq_ks_buf_cur_size
+     /tmp/ccCjfoO5.s:13     .text.IK_SWACQ_PollTick:0000000000000000 $t
+     /tmp/ccCjfoO5.s:20     .text.IK_SWACQ_PollTick:0000000000000000 IK_SWACQ_PollTick
+     /tmp/ccCjfoO5.s:34     .text.IK_SWACQ_PollTick:0000000000000010 $d
+     /tmp/ccCjfoO5.s:37     .text.IK_SWACQ_AllocKeyStateBuffer:0000000000000000 $t
+     /tmp/ccCjfoO5.s:44     .text.IK_SWACQ_AllocKeyStateBuffer:0000000000000000 IK_SWACQ_AllocKeyStateBuffer
+     /tmp/ccCjfoO5.s:63     .text.IK_SWACQ_AllocKeyStateBuffer:0000000000000020 $d
+     /tmp/ccCjfoO5.s:67     .text.IK_SWACQ_Init:0000000000000000 $t
+     /tmp/ccCjfoO5.s:74     .text.IK_SWACQ_Init:0000000000000000 IK_SWACQ_Init
+     /tmp/ccCjfoO5.s:100    .text.IK_SWACQ_Init:0000000000000028 $d
+     /tmp/ccCjfoO5.s:104    .text.IK_SWACQ_FreeKeyStateBuffer:0000000000000000 $t
+     /tmp/ccCjfoO5.s:111    .text.IK_SWACQ_FreeKeyStateBuffer:0000000000000000 IK_SWACQ_FreeKeyStateBuffer
+     /tmp/ccCjfoO5.s:123    .text.IK_SWACQ_FreeKeyStateBuffer:0000000000000010 $d
+     /tmp/ccCjfoO5.s:126    .text.IK_SWACQ_DeInit:0000000000000000 $t
+     /tmp/ccCjfoO5.s:133    .text.IK_SWACQ_DeInit:0000000000000000 IK_SWACQ_DeInit
+     /tmp/ccCjfoO5.s:142    .text.IK_SWACQ_ReAllocKeyStateBuffer:0000000000000000 $t
+     /tmp/ccCjfoO5.s:149    .text.IK_SWACQ_ReAllocKeyStateBuffer:0000000000000000 IK_SWACQ_ReAllocKeyStateBuffer
+     /tmp/ccCjfoO5.s:183    .text.IK_SWACQ_ReAllocKeyStateBuffer:000000000000003c $d
+     /tmp/ccCjfoO5.s:187    .text.IK_SWACQ_GetBufferedKeyState:0000000000000000 $t
+     /tmp/ccCjfoO5.s:194    .text.IK_SWACQ_GetBufferedKeyState:0000000000000000 IK_SWACQ_GetBufferedKeyState
+     /tmp/ccCjfoO5.s:226    .text.IK_SWACQ_GetBufferedKeyState:000000000000002c $d
+     /tmp/ccCjfoO5.s:230    .text.IK_SWACQ_GetInitialisedBufferedKeyState:0000000000000000 $t
+     /tmp/ccCjfoO5.s:237    .text.IK_SWACQ_GetInitialisedBufferedKeyState:0000000000000000 IK_SWACQ_GetInitialisedBufferedKeyState
+     /tmp/ccCjfoO5.s:282    .text.IK_SWACQ_GetInitialisedBufferedKeyState:0000000000000048 $d
+     /tmp/ccCjfoO5.s:286    .text.IK_SWACQ_PollStatusReportCallback:0000000000000000 $t
+     /tmp/ccCjfoO5.s:293    .text.IK_SWACQ_PollStatusReportCallback:0000000000000000 IK_SWACQ_PollStatusReportCallback
+     /tmp/ccCjfoO5.s:329    .bss._swacq_init:0000000000000000 $d
+     /tmp/ccCjfoO5.s:333    .bss._swacq_init:0000000000000000 _swacq_init
+     /tmp/ccCjfoO5.s:336    .bss._swacq_ks_buf:0000000000000000 $d
+     /tmp/ccCjfoO5.s:340    .bss._swacq_ks_buf:0000000000000000 _swacq_ks_buf
+     /tmp/ccCjfoO5.s:343    .bss._swacq_ks_buf_cur_size:0000000000000000 $d
+     /tmp/ccCjfoO5.s:347    .bss._swacq_ks_buf_cur_size:0000000000000000 _swacq_ks_buf_cur_size
 
 UNDEFINED SYMBOLS
 malloc

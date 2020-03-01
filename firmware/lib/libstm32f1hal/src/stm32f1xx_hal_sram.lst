@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccyFdaTw.s 			page 1
+ARM GAS  /tmp/ccuQWGh2.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -12,272 +12,272 @@ ARM GAS  /tmp/ccyFdaTw.s 			page 1
    9              		.eabi_attribute 34, 1
   10              		.eabi_attribute 18, 4
   11              		.file	"stm32f1xx_hal_sram.c"
-  12              		.text
-  13              		.section	.text.HAL_SRAM_MspInit,"ax",%progbits
-  14              		.align	1
-  15              		.weak	HAL_SRAM_MspInit
-  16              		.arch armv7-m
-  17              		.syntax unified
-  18              		.thumb
-  19              		.thumb_func
-  20              		.fpu softvfp
-  22              	HAL_SRAM_MspInit:
-  23              		@ args = 0, pretend = 0, frame = 0
-  24              		@ frame_needed = 0, uses_anonymous_args = 0
-  25              		@ link register save eliminated.
-  26 0000 7047     		bx	lr
-  28              		.section	.text.HAL_SRAM_Init,"ax",%progbits
-  29              		.align	1
-  30              		.global	HAL_SRAM_Init
-  31              		.syntax unified
-  32              		.thumb
-  33              		.thumb_func
-  34              		.fpu softvfp
-  36              	HAL_SRAM_Init:
-  37              		@ args = 0, pretend = 0, frame = 0
-  38              		@ frame_needed = 0, uses_anonymous_args = 0
-  39 0000 70B5     		push	{r4, r5, r6, lr}
-  40 0002 0E46     		mov	r6, r1
-  41 0004 1546     		mov	r5, r2
-  42 0006 0446     		mov	r4, r0
-  43 0008 28B3     		cbz	r0, .L5
-  44 000a 90F84130 		ldrb	r3, [r0, #65]	@ zero_extendqisi2
-  45 000e 03F0FF02 		and	r2, r3, #255
-  46 0012 1BB9     		cbnz	r3, .L4
-  47 0014 80F84020 		strb	r2, [r0, #64]
-  48 0018 FFF7FEFF 		bl	HAL_SRAM_MspInit
-  49              	.L4:
-  50 001c 04F10801 		add	r1, r4, #8
-  51 0020 2068     		ldr	r0, [r4]
-  52 0022 FFF7FEFF 		bl	FSMC_NORSRAM_Init
-  53 0026 3146     		mov	r1, r6
-  54 0028 A268     		ldr	r2, [r4, #8]
-  55 002a 2068     		ldr	r0, [r4]
-  56 002c FFF7FEFF 		bl	FSMC_NORSRAM_Timing_Init
-  57 0030 2946     		mov	r1, r5
-  58 0032 236B     		ldr	r3, [r4, #48]
-  59 0034 A268     		ldr	r2, [r4, #8]
-  60 0036 6068     		ldr	r0, [r4, #4]
-ARM GAS  /tmp/ccyFdaTw.s 			page 2
+  12              		.section	.text.HAL_SRAM_MspInit,"ax",%progbits
+  13              		.align	1
+  14              		.weak	HAL_SRAM_MspInit
+  15              		.syntax unified
+  16              		.thumb
+  17              		.thumb_func
+  18              		.fpu softvfp
+  20              	HAL_SRAM_MspInit:
+  21              		@ args = 0, pretend = 0, frame = 0
+  22              		@ frame_needed = 0, uses_anonymous_args = 0
+  23              		@ link register save eliminated.
+  24 0000 7047     		bx	lr
+  26              		.section	.text.HAL_SRAM_Init,"ax",%progbits
+  27              		.align	1
+  28              		.global	HAL_SRAM_Init
+  29              		.syntax unified
+  30              		.thumb
+  31              		.thumb_func
+  32              		.fpu softvfp
+  34              	HAL_SRAM_Init:
+  35              		@ args = 0, pretend = 0, frame = 0
+  36              		@ frame_needed = 0, uses_anonymous_args = 0
+  37 0000 70B5     		push	{r4, r5, r6, lr}
+  38 0002 0E46     		mov	r6, r1
+  39 0004 1546     		mov	r5, r2
+  40 0006 0446     		mov	r4, r0
+  41 0008 28B3     		cbz	r0, .L5
+  42 000a 90F84130 		ldrb	r3, [r0, #65]	@ zero_extendqisi2
+  43 000e 03F0FF02 		and	r2, r3, #255
+  44 0012 1BB9     		cbnz	r3, .L4
+  45 0014 80F84020 		strb	r2, [r0, #64]
+  46 0018 FFF7FEFF 		bl	HAL_SRAM_MspInit
+  47              	.L4:
+  48 001c 04F10801 		add	r1, r4, #8
+  49 0020 2068     		ldr	r0, [r4]
+  50 0022 FFF7FEFF 		bl	FSMC_NORSRAM_Init
+  51 0026 A268     		ldr	r2, [r4, #8]
+  52 0028 3146     		mov	r1, r6
+  53 002a 2068     		ldr	r0, [r4]
+  54 002c FFF7FEFF 		bl	FSMC_NORSRAM_Timing_Init
+  55 0030 236B     		ldr	r3, [r4, #48]
+  56 0032 A268     		ldr	r2, [r4, #8]
+  57 0034 2946     		mov	r1, r5
+  58 0036 6068     		ldr	r0, [r4, #4]
+  59 0038 FFF7FEFF 		bl	FSMC_NORSRAM_Extended_Timing_Init
+  60 003c A168     		ldr	r1, [r4, #8]
+ARM GAS  /tmp/ccuQWGh2.s 			page 2
 
 
-  61 0038 FFF7FEFF 		bl	FSMC_NORSRAM_Extended_Timing_Init
-  62 003c A168     		ldr	r1, [r4, #8]
-  63 003e 2268     		ldr	r2, [r4]
-  64 0040 0020     		movs	r0, #0
-  65 0042 52F82130 		ldr	r3, [r2, r1, lsl #2]
-  66 0046 43F00103 		orr	r3, r3, #1
-  67 004a 42F82130 		str	r3, [r2, r1, lsl #2]
-  68 004e 0123     		movs	r3, #1
-  69 0050 84F84130 		strb	r3, [r4, #65]
-  70              	.L3:
-  71 0054 70BD     		pop	{r4, r5, r6, pc}
-  72              	.L5:
-  73 0056 0120     		movs	r0, #1
-  74 0058 FCE7     		b	.L3
-  76              		.section	.text.HAL_SRAM_MspDeInit,"ax",%progbits
-  77              		.align	1
-  78              		.weak	HAL_SRAM_MspDeInit
-  79              		.syntax unified
-  80              		.thumb
-  81              		.thumb_func
-  82              		.fpu softvfp
-  84              	HAL_SRAM_MspDeInit:
-  85              		@ args = 0, pretend = 0, frame = 0
-  86              		@ frame_needed = 0, uses_anonymous_args = 0
-  87              		@ link register save eliminated.
-  88 0000 7047     		bx	lr
-  90              		.section	.text.HAL_SRAM_DeInit,"ax",%progbits
-  91              		.align	1
-  92              		.global	HAL_SRAM_DeInit
-  93              		.syntax unified
-  94              		.thumb
-  95              		.thumb_func
-  96              		.fpu softvfp
-  98              	HAL_SRAM_DeInit:
-  99              		@ args = 0, pretend = 0, frame = 0
- 100              		@ frame_needed = 0, uses_anonymous_args = 0
- 101 0000 10B5     		push	{r4, lr}
- 102 0002 0446     		mov	r4, r0
- 103 0004 FFF7FEFF 		bl	HAL_SRAM_MspDeInit
- 104 0008 D4E90112 		ldrd	r1, r2, [r4, #4]
- 105 000c 2068     		ldr	r0, [r4]
- 106 000e FFF7FEFF 		bl	FSMC_NORSRAM_DeInit
- 107 0012 0020     		movs	r0, #0
- 108 0014 84F84100 		strb	r0, [r4, #65]
- 109 0018 84F84000 		strb	r0, [r4, #64]
- 110 001c 10BD     		pop	{r4, pc}
- 112              		.section	.text.HAL_SRAM_DMA_XferCpltCallback,"ax",%progbits
- 113              		.align	1
- 114              		.weak	HAL_SRAM_DMA_XferCpltCallback
- 115              		.syntax unified
- 116              		.thumb
- 117              		.thumb_func
- 118              		.fpu softvfp
- 120              	HAL_SRAM_DMA_XferCpltCallback:
- 121              		@ args = 0, pretend = 0, frame = 0
- 122              		@ frame_needed = 0, uses_anonymous_args = 0
- 123              		@ link register save eliminated.
-ARM GAS  /tmp/ccyFdaTw.s 			page 3
+  61 003e 2268     		ldr	r2, [r4]
+  62 0040 0020     		movs	r0, #0
+  63 0042 52F82130 		ldr	r3, [r2, r1, lsl #2]
+  64 0046 43F00103 		orr	r3, r3, #1
+  65 004a 42F82130 		str	r3, [r2, r1, lsl #2]
+  66 004e 0123     		movs	r3, #1
+  67 0050 84F84130 		strb	r3, [r4, #65]
+  68 0054 70BD     		pop	{r4, r5, r6, pc}
+  69              	.L5:
+  70 0056 0120     		movs	r0, #1
+  71 0058 70BD     		pop	{r4, r5, r6, pc}
+  73              		.section	.text.HAL_SRAM_MspDeInit,"ax",%progbits
+  74              		.align	1
+  75              		.weak	HAL_SRAM_MspDeInit
+  76              		.syntax unified
+  77              		.thumb
+  78              		.thumb_func
+  79              		.fpu softvfp
+  81              	HAL_SRAM_MspDeInit:
+  82              		@ args = 0, pretend = 0, frame = 0
+  83              		@ frame_needed = 0, uses_anonymous_args = 0
+  84              		@ link register save eliminated.
+  85 0000 7047     		bx	lr
+  87              		.section	.text.HAL_SRAM_DeInit,"ax",%progbits
+  88              		.align	1
+  89              		.global	HAL_SRAM_DeInit
+  90              		.syntax unified
+  91              		.thumb
+  92              		.thumb_func
+  93              		.fpu softvfp
+  95              	HAL_SRAM_DeInit:
+  96              		@ args = 0, pretend = 0, frame = 0
+  97              		@ frame_needed = 0, uses_anonymous_args = 0
+  98 0000 10B5     		push	{r4, lr}
+  99 0002 0446     		mov	r4, r0
+ 100 0004 FFF7FEFF 		bl	HAL_SRAM_MspDeInit
+ 101 0008 94E80700 		ldm	r4, {r0, r1, r2}
+ 102 000c FFF7FEFF 		bl	FSMC_NORSRAM_DeInit
+ 103 0010 0020     		movs	r0, #0
+ 104 0012 84F84100 		strb	r0, [r4, #65]
+ 105 0016 84F84000 		strb	r0, [r4, #64]
+ 106 001a 10BD     		pop	{r4, pc}
+ 108              		.section	.text.HAL_SRAM_DMA_XferCpltCallback,"ax",%progbits
+ 109              		.align	1
+ 110              		.weak	HAL_SRAM_DMA_XferCpltCallback
+ 111              		.syntax unified
+ 112              		.thumb
+ 113              		.thumb_func
+ 114              		.fpu softvfp
+ 116              	HAL_SRAM_DMA_XferCpltCallback:
+ 117              		@ args = 0, pretend = 0, frame = 0
+ 118              		@ frame_needed = 0, uses_anonymous_args = 0
+ 119              		@ link register save eliminated.
+ 120 0000 7047     		bx	lr
+ 122              		.section	.text.SRAM_DMACpltProt,"ax",%progbits
+ 123              		.align	1
+ 124              		.syntax unified
+ARM GAS  /tmp/ccuQWGh2.s 			page 3
 
 
- 124 0000 7047     		bx	lr
- 126              		.section	.text.SRAM_DMACpltProt,"ax",%progbits
- 127              		.align	1
- 128              		.syntax unified
- 129              		.thumb
- 130              		.thumb_func
- 131              		.fpu softvfp
- 133              	SRAM_DMACpltProt:
- 134              		@ args = 0, pretend = 0, frame = 0
- 135              		@ frame_needed = 0, uses_anonymous_args = 0
- 136 0000 0268     		ldr	r2, [r0]
- 137 0002 08B5     		push	{r3, lr}
- 138 0004 1368     		ldr	r3, [r2]
- 139 0006 416A     		ldr	r1, [r0, #36]
- 140 0008 23F00103 		bic	r3, r3, #1
- 141 000c 1360     		str	r3, [r2]
- 142 000e 0423     		movs	r3, #4
- 143 0010 81F84130 		strb	r3, [r1, #65]
- 144 0014 FFF7FEFF 		bl	HAL_SRAM_DMA_XferCpltCallback
- 145 0018 08BD     		pop	{r3, pc}
- 147              		.section	.text.SRAM_DMACplt,"ax",%progbits
- 148              		.align	1
- 149              		.syntax unified
- 150              		.thumb
- 151              		.thumb_func
- 152              		.fpu softvfp
- 154              	SRAM_DMACplt:
- 155              		@ args = 0, pretend = 0, frame = 0
- 156              		@ frame_needed = 0, uses_anonymous_args = 0
- 157 0000 0268     		ldr	r2, [r0]
- 158 0002 08B5     		push	{r3, lr}
- 159 0004 1368     		ldr	r3, [r2]
- 160 0006 416A     		ldr	r1, [r0, #36]
- 161 0008 23F00103 		bic	r3, r3, #1
- 162 000c 1360     		str	r3, [r2]
- 163 000e 0123     		movs	r3, #1
- 164 0010 81F84130 		strb	r3, [r1, #65]
- 165 0014 FFF7FEFF 		bl	HAL_SRAM_DMA_XferCpltCallback
- 166 0018 08BD     		pop	{r3, pc}
- 168              		.section	.text.HAL_SRAM_DMA_XferErrorCallback,"ax",%progbits
- 169              		.align	1
- 170              		.weak	HAL_SRAM_DMA_XferErrorCallback
- 171              		.syntax unified
- 172              		.thumb
- 173              		.thumb_func
- 174              		.fpu softvfp
- 176              	HAL_SRAM_DMA_XferErrorCallback:
- 177              		@ args = 0, pretend = 0, frame = 0
- 178              		@ frame_needed = 0, uses_anonymous_args = 0
- 179              		@ link register save eliminated.
- 180 0000 7047     		bx	lr
- 182              		.section	.text.SRAM_DMAError,"ax",%progbits
- 183              		.align	1
- 184              		.syntax unified
- 185              		.thumb
- 186              		.thumb_func
- 187              		.fpu softvfp
-ARM GAS  /tmp/ccyFdaTw.s 			page 4
+ 125              		.thumb
+ 126              		.thumb_func
+ 127              		.fpu softvfp
+ 129              	SRAM_DMACpltProt:
+ 130              		@ args = 0, pretend = 0, frame = 0
+ 131              		@ frame_needed = 0, uses_anonymous_args = 0
+ 132 0000 0268     		ldr	r2, [r0]
+ 133 0002 08B5     		push	{r3, lr}
+ 134 0004 1368     		ldr	r3, [r2]
+ 135 0006 416A     		ldr	r1, [r0, #36]
+ 136 0008 23F00103 		bic	r3, r3, #1
+ 137 000c 1360     		str	r3, [r2]
+ 138 000e 0423     		movs	r3, #4
+ 139 0010 81F84130 		strb	r3, [r1, #65]
+ 140 0014 FFF7FEFF 		bl	HAL_SRAM_DMA_XferCpltCallback
+ 141 0018 08BD     		pop	{r3, pc}
+ 143              		.section	.text.SRAM_DMACplt,"ax",%progbits
+ 144              		.align	1
+ 145              		.syntax unified
+ 146              		.thumb
+ 147              		.thumb_func
+ 148              		.fpu softvfp
+ 150              	SRAM_DMACplt:
+ 151              		@ args = 0, pretend = 0, frame = 0
+ 152              		@ frame_needed = 0, uses_anonymous_args = 0
+ 153 0000 0268     		ldr	r2, [r0]
+ 154 0002 08B5     		push	{r3, lr}
+ 155 0004 1368     		ldr	r3, [r2]
+ 156 0006 416A     		ldr	r1, [r0, #36]
+ 157 0008 23F00103 		bic	r3, r3, #1
+ 158 000c 1360     		str	r3, [r2]
+ 159 000e 0123     		movs	r3, #1
+ 160 0010 81F84130 		strb	r3, [r1, #65]
+ 161 0014 FFF7FEFF 		bl	HAL_SRAM_DMA_XferCpltCallback
+ 162 0018 08BD     		pop	{r3, pc}
+ 164              		.section	.text.HAL_SRAM_DMA_XferErrorCallback,"ax",%progbits
+ 165              		.align	1
+ 166              		.weak	HAL_SRAM_DMA_XferErrorCallback
+ 167              		.syntax unified
+ 168              		.thumb
+ 169              		.thumb_func
+ 170              		.fpu softvfp
+ 172              	HAL_SRAM_DMA_XferErrorCallback:
+ 173              		@ args = 0, pretend = 0, frame = 0
+ 174              		@ frame_needed = 0, uses_anonymous_args = 0
+ 175              		@ link register save eliminated.
+ 176 0000 7047     		bx	lr
+ 178              		.section	.text.SRAM_DMAError,"ax",%progbits
+ 179              		.align	1
+ 180              		.syntax unified
+ 181              		.thumb
+ 182              		.thumb_func
+ 183              		.fpu softvfp
+ 185              	SRAM_DMAError:
+ 186              		@ args = 0, pretend = 0, frame = 0
+ 187              		@ frame_needed = 0, uses_anonymous_args = 0
+ 188 0000 0268     		ldr	r2, [r0]
+ARM GAS  /tmp/ccuQWGh2.s 			page 4
 
 
- 189              	SRAM_DMAError:
- 190              		@ args = 0, pretend = 0, frame = 0
- 191              		@ frame_needed = 0, uses_anonymous_args = 0
- 192 0000 0268     		ldr	r2, [r0]
- 193 0002 08B5     		push	{r3, lr}
- 194 0004 1368     		ldr	r3, [r2]
- 195 0006 416A     		ldr	r1, [r0, #36]
- 196 0008 23F00103 		bic	r3, r3, #1
- 197 000c 1360     		str	r3, [r2]
- 198 000e 0323     		movs	r3, #3
- 199 0010 81F84130 		strb	r3, [r1, #65]
- 200 0014 FFF7FEFF 		bl	HAL_SRAM_DMA_XferErrorCallback
- 201 0018 08BD     		pop	{r3, pc}
- 203              		.section	.text.HAL_SRAM_Read_8b,"ax",%progbits
- 204              		.align	1
- 205              		.global	HAL_SRAM_Read_8b
- 206              		.syntax unified
- 207              		.thumb
- 208              		.thumb_func
- 209              		.fpu softvfp
- 211              	HAL_SRAM_Read_8b:
- 212              		@ args = 0, pretend = 0, frame = 0
- 213              		@ frame_needed = 0, uses_anonymous_args = 0
- 214 0000 70B5     		push	{r4, r5, r6, lr}
- 215 0002 0446     		mov	r4, r0
- 216 0004 90F84100 		ldrb	r0, [r0, #65]	@ zero_extendqisi2
- 217 0008 0128     		cmp	r0, #1
- 218 000a C5B2     		uxtb	r5, r0
- 219 000c 01D0     		beq	.L14
- 220 000e 042D     		cmp	r5, #4
- 221 0010 18D1     		bne	.L18
- 222              	.L14:
- 223 0012 94F84000 		ldrb	r0, [r4, #64]	@ zero_extendqisi2
- 224 0016 0128     		cmp	r0, #1
- 225 0018 4FF00200 		mov	r0, #2
- 226 001c 0CD0     		beq	.L15
- 227 001e 0126     		movs	r6, #1
- 228 0020 84F84100 		strb	r0, [r4, #65]
- 229 0024 84F84060 		strb	r6, [r4, #64]
- 230 0028 0B44     		add	r3, r3, r1
- 231              	.L16:
- 232 002a 9942     		cmp	r1, r3
- 233 002c 05D1     		bne	.L17
- 234 002e 0020     		movs	r0, #0
- 235 0030 84F84150 		strb	r5, [r4, #65]
- 236 0034 84F84000 		strb	r0, [r4, #64]
- 237              	.L15:
- 238 0038 70BD     		pop	{r4, r5, r6, pc}
- 239              	.L17:
- 240 003a 11F8010B 		ldrb	r0, [r1], #1	@ zero_extendqisi2
- 241 003e 02F8010B 		strb	r0, [r2], #1
- 242 0042 F2E7     		b	.L16
- 243              	.L18:
- 244 0044 0120     		movs	r0, #1
- 245 0046 F7E7     		b	.L15
- 247              		.section	.text.HAL_SRAM_Write_8b,"ax",%progbits
- 248              		.align	1
-ARM GAS  /tmp/ccyFdaTw.s 			page 5
+ 189 0002 08B5     		push	{r3, lr}
+ 190 0004 1368     		ldr	r3, [r2]
+ 191 0006 416A     		ldr	r1, [r0, #36]
+ 192 0008 23F00103 		bic	r3, r3, #1
+ 193 000c 1360     		str	r3, [r2]
+ 194 000e 0323     		movs	r3, #3
+ 195 0010 81F84130 		strb	r3, [r1, #65]
+ 196 0014 FFF7FEFF 		bl	HAL_SRAM_DMA_XferErrorCallback
+ 197 0018 08BD     		pop	{r3, pc}
+ 199              		.section	.text.HAL_SRAM_Read_8b,"ax",%progbits
+ 200              		.align	1
+ 201              		.global	HAL_SRAM_Read_8b
+ 202              		.syntax unified
+ 203              		.thumb
+ 204              		.thumb_func
+ 205              		.fpu softvfp
+ 207              	HAL_SRAM_Read_8b:
+ 208              		@ args = 0, pretend = 0, frame = 0
+ 209              		@ frame_needed = 0, uses_anonymous_args = 0
+ 210 0000 70B5     		push	{r4, r5, r6, lr}
+ 211 0002 90F84150 		ldrb	r5, [r0, #65]	@ zero_extendqisi2
+ 212 0006 EDB2     		uxtb	r5, r5
+ 213 0008 012D     		cmp	r5, #1
+ 214 000a 01D0     		beq	.L14
+ 215 000c 042D     		cmp	r5, #4
+ 216 000e 19D1     		bne	.L18
+ 217              	.L14:
+ 218 0010 90F84040 		ldrb	r4, [r0, #64]	@ zero_extendqisi2
+ 219 0014 012C     		cmp	r4, #1
+ 220 0016 4FF00204 		mov	r4, #2
+ 221 001a 15D0     		beq	.L19
+ 222 001c 0126     		movs	r6, #1
+ 223 001e 80F84140 		strb	r4, [r0, #65]
+ 224 0022 80F84060 		strb	r6, [r0, #64]
+ 225 0026 0B44     		add	r3, r3, r1
+ 226              	.L16:
+ 227 0028 9942     		cmp	r1, r3
+ 228 002a 06D1     		bne	.L17
+ 229 002c 0023     		movs	r3, #0
+ 230 002e 80F84150 		strb	r5, [r0, #65]
+ 231 0032 80F84030 		strb	r3, [r0, #64]
+ 232 0036 1846     		mov	r0, r3
+ 233 0038 70BD     		pop	{r4, r5, r6, pc}
+ 234              	.L17:
+ 235 003a 11F8014B 		ldrb	r4, [r1], #1	@ zero_extendqisi2
+ 236 003e 02F8014B 		strb	r4, [r2], #1
+ 237 0042 F1E7     		b	.L16
+ 238              	.L18:
+ 239 0044 0120     		movs	r0, #1
+ 240 0046 70BD     		pop	{r4, r5, r6, pc}
+ 241              	.L19:
+ 242 0048 2046     		mov	r0, r4
+ 243 004a 70BD     		pop	{r4, r5, r6, pc}
+ 245              		.section	.text.HAL_SRAM_Write_8b,"ax",%progbits
+ 246              		.align	1
+ 247              		.global	HAL_SRAM_Write_8b
+ 248              		.syntax unified
+ARM GAS  /tmp/ccuQWGh2.s 			page 5
 
 
- 249              		.global	HAL_SRAM_Write_8b
- 250              		.syntax unified
- 251              		.thumb
- 252              		.thumb_func
- 253              		.fpu softvfp
- 255              	HAL_SRAM_Write_8b:
- 256              		@ args = 0, pretend = 0, frame = 0
- 257              		@ frame_needed = 0, uses_anonymous_args = 0
- 258 0000 30B5     		push	{r4, r5, lr}
- 259 0002 0446     		mov	r4, r0
- 260 0004 90F84100 		ldrb	r0, [r0, #65]	@ zero_extendqisi2
- 261 0008 0128     		cmp	r0, #1
- 262 000a C5B2     		uxtb	r5, r0
- 263 000c 18D1     		bne	.L27
- 264 000e 94F84000 		ldrb	r0, [r4, #64]	@ zero_extendqisi2
- 265 0012 0128     		cmp	r0, #1
- 266 0014 4FF00200 		mov	r0, #2
- 267 0018 0CD0     		beq	.L24
- 268 001a 84F84050 		strb	r5, [r4, #64]
- 269 001e 84F84100 		strb	r0, [r4, #65]
- 270 0022 1344     		add	r3, r3, r2
- 271              	.L25:
- 272 0024 9A42     		cmp	r2, r3
- 273 0026 06D1     		bne	.L26
- 274 0028 0123     		movs	r3, #1
- 275 002a 0020     		movs	r0, #0
- 276 002c 84F84130 		strb	r3, [r4, #65]
- 277 0030 84F84000 		strb	r0, [r4, #64]
- 278              	.L24:
- 279 0034 30BD     		pop	{r4, r5, pc}
- 280              	.L26:
- 281 0036 12F8010B 		ldrb	r0, [r2], #1	@ zero_extendqisi2
- 282 003a 01F8010B 		strb	r0, [r1], #1
- 283 003e F1E7     		b	.L25
- 284              	.L27:
- 285 0040 0120     		movs	r0, #1
- 286 0042 F7E7     		b	.L24
+ 249              		.thumb
+ 250              		.thumb_func
+ 251              		.fpu softvfp
+ 253              	HAL_SRAM_Write_8b:
+ 254              		@ args = 0, pretend = 0, frame = 0
+ 255              		@ frame_needed = 0, uses_anonymous_args = 0
+ 256 0000 30B5     		push	{r4, r5, lr}
+ 257 0002 90F84150 		ldrb	r5, [r0, #65]	@ zero_extendqisi2
+ 258 0006 EDB2     		uxtb	r5, r5
+ 259 0008 012D     		cmp	r5, #1
+ 260 000a 19D1     		bne	.L27
+ 261 000c 90F84040 		ldrb	r4, [r0, #64]	@ zero_extendqisi2
+ 262 0010 012C     		cmp	r4, #1
+ 263 0012 4FF00204 		mov	r4, #2
+ 264 0016 15D0     		beq	.L28
+ 265 0018 80F84050 		strb	r5, [r0, #64]
+ 266 001c 80F84140 		strb	r4, [r0, #65]
+ 267 0020 1344     		add	r3, r3, r2
+ 268              	.L25:
+ 269 0022 9A42     		cmp	r2, r3
+ 270 0024 07D1     		bne	.L26
+ 271 0026 0123     		movs	r3, #1
+ 272 0028 80F84130 		strb	r3, [r0, #65]
+ 273 002c 0023     		movs	r3, #0
+ 274 002e 80F84030 		strb	r3, [r0, #64]
+ 275 0032 1846     		mov	r0, r3
+ 276 0034 30BD     		pop	{r4, r5, pc}
+ 277              	.L26:
+ 278 0036 12F8014B 		ldrb	r4, [r2], #1	@ zero_extendqisi2
+ 279 003a 01F8014B 		strb	r4, [r1], #1
+ 280 003e F0E7     		b	.L25
+ 281              	.L27:
+ 282 0040 0120     		movs	r0, #1
+ 283 0042 30BD     		pop	{r4, r5, pc}
+ 284              	.L28:
+ 285 0044 2046     		mov	r0, r4
+ 286 0046 30BD     		pop	{r4, r5, pc}
  288              		.section	.text.HAL_SRAM_Read_16b,"ax",%progbits
  289              		.align	1
  290              		.global	HAL_SRAM_Read_16b
@@ -289,425 +289,427 @@ ARM GAS  /tmp/ccyFdaTw.s 			page 1
  297              		@ args = 0, pretend = 0, frame = 0
  298              		@ frame_needed = 0, uses_anonymous_args = 0
  299 0000 70B5     		push	{r4, r5, r6, lr}
- 300 0002 0446     		mov	r4, r0
- 301 0004 90F84100 		ldrb	r0, [r0, #65]	@ zero_extendqisi2
- 302 0008 0128     		cmp	r0, #1
- 303 000a C5B2     		uxtb	r5, r0
- 304 000c 01D0     		beq	.L30
- 305 000e 042D     		cmp	r5, #4
- 306 0010 23D1     		bne	.L35
- 307              	.L30:
- 308 0012 94F84000 		ldrb	r0, [r4, #64]	@ zero_extendqisi2
-ARM GAS  /tmp/ccyFdaTw.s 			page 6
+ 300 0002 90F84150 		ldrb	r5, [r0, #65]	@ zero_extendqisi2
+ 301 0006 EDB2     		uxtb	r5, r5
+ 302 0008 012D     		cmp	r5, #1
+ 303 000a 01D0     		beq	.L30
+ 304 000c 042D     		cmp	r5, #4
+ 305 000e 24D1     		bne	.L35
+ 306              	.L30:
+ 307 0010 90F84040 		ldrb	r4, [r0, #64]	@ zero_extendqisi2
+ 308 0014 012C     		cmp	r4, #1
+ARM GAS  /tmp/ccuQWGh2.s 			page 6
 
 
- 309 0016 0128     		cmp	r0, #1
- 310 0018 4FF00200 		mov	r0, #2
- 311 001c 12D0     		beq	.L31
- 312 001e 0126     		movs	r6, #1
- 313 0020 84F84100 		strb	r0, [r4, #65]
- 314 0024 84F84060 		strb	r6, [r4, #64]
- 315 0028 1E40     		ands	r6, r6, r3
- 316              	.L32:
- 317 002a 9E42     		cmp	r6, r3
- 318 002c 1046     		mov	r0, r2
- 319 002e 02F10402 		add	r2, r2, #4
- 320 0032 08D1     		bne	.L33
- 321 0034 0EB1     		cbz	r6, .L34
- 322 0036 0B68     		ldr	r3, [r1]
- 323 0038 0380     		strh	r3, [r0]	@ movhi
- 324              	.L34:
- 325 003a 0020     		movs	r0, #0
- 326 003c 84F84150 		strb	r5, [r4, #65]
- 327 0040 84F84000 		strb	r0, [r4, #64]
- 328              	.L31:
- 329 0044 70BD     		pop	{r4, r5, r6, pc}
- 330              	.L33:
- 331 0046 0868     		ldr	r0, [r1]
- 332 0048 023B     		subs	r3, r3, #2
- 333 004a 22F8040C 		strh	r0, [r2, #-4]	@ movhi
- 334 004e 51F8040B 		ldr	r0, [r1], #4
- 335 0052 000C     		lsrs	r0, r0, #16
- 336 0054 22F8020C 		strh	r0, [r2, #-2]	@ movhi
- 337 0058 E7E7     		b	.L32
- 338              	.L35:
- 339 005a 0120     		movs	r0, #1
- 340 005c F2E7     		b	.L31
- 342              		.section	.text.HAL_SRAM_Write_16b,"ax",%progbits
- 343              		.align	1
- 344              		.global	HAL_SRAM_Write_16b
- 345              		.syntax unified
- 346              		.thumb
- 347              		.thumb_func
- 348              		.fpu softvfp
- 350              	HAL_SRAM_Write_16b:
- 351              		@ args = 0, pretend = 0, frame = 0
- 352              		@ frame_needed = 0, uses_anonymous_args = 0
- 353 0000 70B5     		push	{r4, r5, r6, lr}
- 354 0002 0446     		mov	r4, r0
- 355 0004 90F84100 		ldrb	r0, [r0, #65]	@ zero_extendqisi2
- 356 0008 0128     		cmp	r0, #1
- 357 000a C5B2     		uxtb	r5, r0
- 358 000c 2AD1     		bne	.L48
- 359 000e 94F84000 		ldrb	r0, [r4, #64]	@ zero_extendqisi2
- 360 0012 0128     		cmp	r0, #1
- 361 0014 4FF00200 		mov	r0, #2
- 362 0018 17D0     		beq	.L44
- 363 001a 84F84050 		strb	r5, [r4, #64]
- 364 001e 84F84100 		strb	r0, [r4, #65]
- 365 0022 03F00105 		and	r5, r3, #1
- 366              	.L45:
- 367 0026 9D42     		cmp	r5, r3
-ARM GAS  /tmp/ccyFdaTw.s 			page 7
+ 309 0016 4FF00204 		mov	r4, #2
+ 310 001a 20D0     		beq	.L36
+ 311 001c 0126     		movs	r6, #1
+ 312 001e 80F84140 		strb	r4, [r0, #65]
+ 313 0022 80F84060 		strb	r6, [r0, #64]
+ 314 0026 1E40     		ands	r6, r6, r3
+ 315              	.L32:
+ 316 0028 B342     		cmp	r3, r6
+ 317 002a 1446     		mov	r4, r2
+ 318 002c 02F10402 		add	r2, r2, #4
+ 319 0030 09D1     		bne	.L33
+ 320 0032 0BB1     		cbz	r3, .L34
+ 321 0034 0B68     		ldr	r3, [r1]
+ 322 0036 2380     		strh	r3, [r4]	@ movhi
+ 323              	.L34:
+ 324 0038 0023     		movs	r3, #0
+ 325 003a 80F84150 		strb	r5, [r0, #65]
+ 326 003e 80F84030 		strb	r3, [r0, #64]
+ 327 0042 1846     		mov	r0, r3
+ 328 0044 70BD     		pop	{r4, r5, r6, pc}
+ 329              	.L33:
+ 330 0046 0C68     		ldr	r4, [r1]
+ 331 0048 023B     		subs	r3, r3, #2
+ 332 004a 22F8044C 		strh	r4, [r2, #-4]	@ movhi
+ 333 004e 51F8044B 		ldr	r4, [r1], #4
+ 334 0052 240C     		lsrs	r4, r4, #16
+ 335 0054 22F8024C 		strh	r4, [r2, #-2]	@ movhi
+ 336 0058 E6E7     		b	.L32
+ 337              	.L35:
+ 338 005a 0120     		movs	r0, #1
+ 339 005c 70BD     		pop	{r4, r5, r6, pc}
+ 340              	.L36:
+ 341 005e 2046     		mov	r0, r4
+ 342 0060 70BD     		pop	{r4, r5, r6, pc}
+ 344              		.section	.text.HAL_SRAM_Write_16b,"ax",%progbits
+ 345              		.align	1
+ 346              		.global	HAL_SRAM_Write_16b
+ 347              		.syntax unified
+ 348              		.thumb
+ 349              		.thumb_func
+ 350              		.fpu softvfp
+ 352              	HAL_SRAM_Write_16b:
+ 353              		@ args = 0, pretend = 0, frame = 0
+ 354              		@ frame_needed = 0, uses_anonymous_args = 0
+ 355 0000 70B5     		push	{r4, r5, r6, lr}
+ 356 0002 90F84150 		ldrb	r5, [r0, #65]	@ zero_extendqisi2
+ 357 0006 EDB2     		uxtb	r5, r5
+ 358 0008 012D     		cmp	r5, #1
+ 359 000a 2BD1     		bne	.L48
+ 360 000c 90F84040 		ldrb	r4, [r0, #64]	@ zero_extendqisi2
+ 361 0010 012C     		cmp	r4, #1
+ 362 0012 4FF00204 		mov	r4, #2
+ 363 0016 27D0     		beq	.L49
+ 364 0018 80F84050 		strb	r5, [r0, #64]
+ 365 001c 80F84140 		strb	r4, [r0, #65]
+ 366 0020 03F00105 		and	r5, r3, #1
+ 367              	.L45:
+ARM GAS  /tmp/ccuQWGh2.s 			page 7
 
 
- 368 0028 1046     		mov	r0, r2
- 369 002a 02F10402 		add	r2, r2, #4
- 370 002e 0DD1     		bne	.L46
- 371 0030 2DB1     		cbz	r5, .L47
- 372 0032 0B68     		ldr	r3, [r1]
- 373 0034 0288     		ldrh	r2, [r0]
- 374 0036 1B0C     		lsrs	r3, r3, #16
- 375 0038 1B04     		lsls	r3, r3, #16
- 376 003a 1343     		orrs	r3, r3, r2
- 377 003c 0B60     		str	r3, [r1]
- 378              	.L47:
- 379 003e 0123     		movs	r3, #1
- 380 0040 0020     		movs	r0, #0
- 381 0042 84F84130 		strb	r3, [r4, #65]
- 382 0046 84F84000 		strb	r0, [r4, #64]
- 383              	.L44:
- 384 004a 70BD     		pop	{r4, r5, r6, pc}
- 385              	.L46:
- 386 004c 32F8040C 		ldrh	r0, [r2, #-4]
- 387 0050 32F8026C 		ldrh	r6, [r2, #-2]
- 388 0054 0860     		str	r0, [r1]
- 389 0056 0868     		ldr	r0, [r1]
- 390 0058 023B     		subs	r3, r3, #2
- 391 005a 40EA0640 		orr	r0, r0, r6, lsl #16
- 392 005e 41F8040B 		str	r0, [r1], #4
- 393 0062 E0E7     		b	.L45
- 394              	.L48:
- 395 0064 0120     		movs	r0, #1
- 396 0066 F0E7     		b	.L44
- 398              		.section	.text.HAL_SRAM_Read_32b,"ax",%progbits
- 399              		.align	1
- 400              		.global	HAL_SRAM_Read_32b
- 401              		.syntax unified
- 402              		.thumb
- 403              		.thumb_func
- 404              		.fpu softvfp
- 406              	HAL_SRAM_Read_32b:
- 407              		@ args = 0, pretend = 0, frame = 0
- 408              		@ frame_needed = 0, uses_anonymous_args = 0
- 409 0000 70B5     		push	{r4, r5, r6, lr}
- 410 0002 0446     		mov	r4, r0
- 411 0004 90F84100 		ldrb	r0, [r0, #65]	@ zero_extendqisi2
- 412 0008 0128     		cmp	r0, #1
- 413 000a C5B2     		uxtb	r5, r0
- 414 000c 01D0     		beq	.L54
- 415 000e 042D     		cmp	r5, #4
- 416 0010 19D1     		bne	.L58
- 417              	.L54:
- 418 0012 94F84000 		ldrb	r0, [r4, #64]	@ zero_extendqisi2
- 419 0016 0128     		cmp	r0, #1
- 420 0018 4FF00200 		mov	r0, #2
- 421 001c 0CD0     		beq	.L55
- 422 001e 0126     		movs	r6, #1
- 423 0020 84F84100 		strb	r0, [r4, #65]
- 424 0024 0020     		movs	r0, #0
- 425 0026 84F84060 		strb	r6, [r4, #64]
- 426              	.L56:
-ARM GAS  /tmp/ccyFdaTw.s 			page 8
+ 368 0024 AB42     		cmp	r3, r5
+ 369 0026 1446     		mov	r4, r2
+ 370 0028 02F10402 		add	r2, r2, #4
+ 371 002c 0ED1     		bne	.L46
+ 372 002e 2BB1     		cbz	r3, .L47
+ 373 0030 0B68     		ldr	r3, [r1]
+ 374 0032 2288     		ldrh	r2, [r4]
+ 375 0034 1B0C     		lsrs	r3, r3, #16
+ 376 0036 1B04     		lsls	r3, r3, #16
+ 377 0038 1343     		orrs	r3, r3, r2
+ 378 003a 0B60     		str	r3, [r1]
+ 379              	.L47:
+ 380 003c 0123     		movs	r3, #1
+ 381 003e 80F84130 		strb	r3, [r0, #65]
+ 382 0042 0023     		movs	r3, #0
+ 383 0044 80F84030 		strb	r3, [r0, #64]
+ 384 0048 1846     		mov	r0, r3
+ 385 004a 70BD     		pop	{r4, r5, r6, pc}
+ 386              	.L46:
+ 387 004c 32F8044C 		ldrh	r4, [r2, #-4]
+ 388 0050 32F8026C 		ldrh	r6, [r2, #-2]
+ 389 0054 0C60     		str	r4, [r1]
+ 390 0056 0C68     		ldr	r4, [r1]
+ 391 0058 023B     		subs	r3, r3, #2
+ 392 005a 44EA0644 		orr	r4, r4, r6, lsl #16
+ 393 005e 41F8044B 		str	r4, [r1], #4
+ 394 0062 DFE7     		b	.L45
+ 395              	.L48:
+ 396 0064 0120     		movs	r0, #1
+ 397 0066 70BD     		pop	{r4, r5, r6, pc}
+ 398              	.L49:
+ 399 0068 2046     		mov	r0, r4
+ 400 006a 70BD     		pop	{r4, r5, r6, pc}
+ 402              		.section	.text.HAL_SRAM_Read_32b,"ax",%progbits
+ 403              		.align	1
+ 404              		.global	HAL_SRAM_Read_32b
+ 405              		.syntax unified
+ 406              		.thumb
+ 407              		.thumb_func
+ 408              		.fpu softvfp
+ 410              	HAL_SRAM_Read_32b:
+ 411              		@ args = 0, pretend = 0, frame = 0
+ 412              		@ frame_needed = 0, uses_anonymous_args = 0
+ 413 0000 70B5     		push	{r4, r5, r6, lr}
+ 414 0002 90F84150 		ldrb	r5, [r0, #65]	@ zero_extendqisi2
+ 415 0006 EDB2     		uxtb	r5, r5
+ 416 0008 012D     		cmp	r5, #1
+ 417 000a 01D0     		beq	.L54
+ 418 000c 042D     		cmp	r5, #4
+ 419 000e 17D1     		bne	.L58
+ 420              	.L54:
+ 421 0010 90F84040 		ldrb	r4, [r0, #64]	@ zero_extendqisi2
+ 422 0014 012C     		cmp	r4, #1
+ 423 0016 4FF00204 		mov	r4, #2
+ 424 001a 13D0     		beq	.L59
+ 425 001c 0126     		movs	r6, #1
+ 426 001e 80F84140 		strb	r4, [r0, #65]
+ARM GAS  /tmp/ccuQWGh2.s 			page 8
 
 
- 427 002a 8342     		cmp	r3, r0
- 428 002c 05D1     		bne	.L57
- 429 002e 0020     		movs	r0, #0
- 430 0030 84F84150 		strb	r5, [r4, #65]
- 431 0034 84F84000 		strb	r0, [r4, #64]
- 432              	.L55:
- 433 0038 70BD     		pop	{r4, r5, r6, pc}
+ 427 0022 80F84060 		strb	r6, [r0, #64]
+ 428              	.L56:
+ 429 0026 2BB9     		cbnz	r3, .L57
+ 430 0028 80F84150 		strb	r5, [r0, #65]
+ 431 002c 80F84030 		strb	r3, [r0, #64]
+ 432 0030 1846     		mov	r0, r3
+ 433 0032 70BD     		pop	{r4, r5, r6, pc}
  434              	.L57:
- 435 003a 51F82060 		ldr	r6, [r1, r0, lsl #2]
- 436 003e 42F82060 		str	r6, [r2, r0, lsl #2]
- 437 0042 0130     		adds	r0, r0, #1
- 438 0044 F1E7     		b	.L56
+ 435 0034 51F8044B 		ldr	r4, [r1], #4
+ 436 0038 013B     		subs	r3, r3, #1
+ 437 003a 42F8044B 		str	r4, [r2], #4
+ 438 003e F2E7     		b	.L56
  439              	.L58:
- 440 0046 0120     		movs	r0, #1
- 441 0048 F6E7     		b	.L55
- 443              		.section	.text.HAL_SRAM_Write_32b,"ax",%progbits
- 444              		.align	1
- 445              		.global	HAL_SRAM_Write_32b
- 446              		.syntax unified
- 447              		.thumb
- 448              		.thumb_func
- 449              		.fpu softvfp
- 451              	HAL_SRAM_Write_32b:
- 452              		@ args = 0, pretend = 0, frame = 0
- 453              		@ frame_needed = 0, uses_anonymous_args = 0
- 454 0000 30B5     		push	{r4, r5, lr}
- 455 0002 0446     		mov	r4, r0
- 456 0004 90F84100 		ldrb	r0, [r0, #65]	@ zero_extendqisi2
- 457 0008 0128     		cmp	r0, #1
- 458 000a C5B2     		uxtb	r5, r0
- 459 000c 19D1     		bne	.L67
- 460 000e 94F84000 		ldrb	r0, [r4, #64]	@ zero_extendqisi2
- 461 0012 0128     		cmp	r0, #1
- 462 0014 4FF00200 		mov	r0, #2
- 463 0018 0CD0     		beq	.L64
- 464 001a 84F84100 		strb	r0, [r4, #65]
- 465 001e 0020     		movs	r0, #0
- 466 0020 84F84050 		strb	r5, [r4, #64]
- 467              	.L65:
- 468 0024 8342     		cmp	r3, r0
- 469 0026 06D1     		bne	.L66
- 470 0028 0123     		movs	r3, #1
- 471 002a 0020     		movs	r0, #0
- 472 002c 84F84130 		strb	r3, [r4, #65]
- 473 0030 84F84000 		strb	r0, [r4, #64]
- 474              	.L64:
- 475 0034 30BD     		pop	{r4, r5, pc}
- 476              	.L66:
- 477 0036 52F82050 		ldr	r5, [r2, r0, lsl #2]
- 478 003a 41F82050 		str	r5, [r1, r0, lsl #2]
- 479 003e 0130     		adds	r0, r0, #1
- 480 0040 F0E7     		b	.L65
- 481              	.L67:
- 482 0042 0120     		movs	r0, #1
- 483 0044 F6E7     		b	.L64
- 485              		.section	.text.HAL_SRAM_Read_DMA,"ax",%progbits
- 486              		.align	1
-ARM GAS  /tmp/ccyFdaTw.s 			page 9
+ 440 0040 0120     		movs	r0, #1
+ 441 0042 70BD     		pop	{r4, r5, r6, pc}
+ 442              	.L59:
+ 443 0044 2046     		mov	r0, r4
+ 444 0046 70BD     		pop	{r4, r5, r6, pc}
+ 446              		.section	.text.HAL_SRAM_Write_32b,"ax",%progbits
+ 447              		.align	1
+ 448              		.global	HAL_SRAM_Write_32b
+ 449              		.syntax unified
+ 450              		.thumb
+ 451              		.thumb_func
+ 452              		.fpu softvfp
+ 454              	HAL_SRAM_Write_32b:
+ 455              		@ args = 0, pretend = 0, frame = 0
+ 456              		@ frame_needed = 0, uses_anonymous_args = 0
+ 457 0000 30B5     		push	{r4, r5, lr}
+ 458 0002 90F84150 		ldrb	r5, [r0, #65]	@ zero_extendqisi2
+ 459 0006 EDB2     		uxtb	r5, r5
+ 460 0008 012D     		cmp	r5, #1
+ 461 000a 17D1     		bne	.L67
+ 462 000c 90F84040 		ldrb	r4, [r0, #64]	@ zero_extendqisi2
+ 463 0010 012C     		cmp	r4, #1
+ 464 0012 4FF00204 		mov	r4, #2
+ 465 0016 13D0     		beq	.L68
+ 466 0018 80F84050 		strb	r5, [r0, #64]
+ 467 001c 80F84140 		strb	r4, [r0, #65]
+ 468              	.L65:
+ 469 0020 33B9     		cbnz	r3, .L66
+ 470 0022 0122     		movs	r2, #1
+ 471 0024 80F84030 		strb	r3, [r0, #64]
+ 472 0028 80F84120 		strb	r2, [r0, #65]
+ 473 002c 1846     		mov	r0, r3
+ 474 002e 30BD     		pop	{r4, r5, pc}
+ 475              	.L66:
+ 476 0030 52F8044B 		ldr	r4, [r2], #4
+ 477 0034 013B     		subs	r3, r3, #1
+ 478 0036 41F8044B 		str	r4, [r1], #4
+ 479 003a F1E7     		b	.L65
+ 480              	.L67:
+ 481 003c 0120     		movs	r0, #1
+ 482 003e 30BD     		pop	{r4, r5, pc}
+ 483              	.L68:
+ 484 0040 2046     		mov	r0, r4
+ 485 0042 30BD     		pop	{r4, r5, pc}
+ARM GAS  /tmp/ccuQWGh2.s 			page 9
 
 
- 487              		.global	HAL_SRAM_Read_DMA
- 488              		.syntax unified
- 489              		.thumb
- 490              		.thumb_func
- 491              		.fpu softvfp
- 493              	HAL_SRAM_Read_DMA:
- 494              		@ args = 0, pretend = 0, frame = 0
- 495              		@ frame_needed = 0, uses_anonymous_args = 0
- 496 0000 70B5     		push	{r4, r5, r6, lr}
- 497 0002 0446     		mov	r4, r0
- 498 0004 90F84100 		ldrb	r0, [r0, #65]	@ zero_extendqisi2
- 499 0008 0128     		cmp	r0, #1
- 500 000a C5B2     		uxtb	r5, r0
- 501 000c 01D0     		beq	.L70
- 502 000e 042D     		cmp	r5, #4
- 503 0010 19D1     		bne	.L74
- 504              	.L70:
- 505 0012 94F84000 		ldrb	r0, [r4, #64]	@ zero_extendqisi2
- 506 0016 0128     		cmp	r0, #1
- 507 0018 4FF00200 		mov	r0, #2
- 508 001c 12D0     		beq	.L71
- 509 001e 0126     		movs	r6, #1
- 510 0020 B542     		cmp	r5, r6
- 511 0022 84F84100 		strb	r0, [r4, #65]
- 512 0026 08BF     		it	eq
- 513 0028 084D     		ldreq	r5, .L80
- 514 002a 606C     		ldr	r0, [r4, #68]
- 515 002c 18BF     		it	ne
- 516 002e 084D     		ldrne	r5, .L80+4
- 517 0030 84F84060 		strb	r6, [r4, #64]
- 518 0034 8562     		str	r5, [r0, #40]
- 519 0036 074D     		ldr	r5, .L80+8
- 520 0038 0563     		str	r5, [r0, #48]
- 521 003a FFF7FEFF 		bl	HAL_DMA_Start_IT
- 522 003e 0023     		movs	r3, #0
- 523 0040 84F84030 		strb	r3, [r4, #64]
- 524              	.L71:
- 525 0044 70BD     		pop	{r4, r5, r6, pc}
- 526              	.L74:
- 527 0046 0120     		movs	r0, #1
- 528 0048 FCE7     		b	.L71
- 529              	.L81:
- 530 004a 00BF     		.align	2
- 531              	.L80:
- 532 004c 00000000 		.word	SRAM_DMACplt
- 533 0050 00000000 		.word	SRAM_DMACpltProt
- 534 0054 00000000 		.word	SRAM_DMAError
- 536              		.section	.text.HAL_SRAM_Write_DMA,"ax",%progbits
- 537              		.align	1
- 538              		.global	HAL_SRAM_Write_DMA
- 539              		.syntax unified
- 540              		.thumb
- 541              		.thumb_func
- 542              		.fpu softvfp
- 544              	HAL_SRAM_Write_DMA:
- 545              		@ args = 0, pretend = 0, frame = 0
- 546              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccyFdaTw.s 			page 10
+ 487              		.section	.text.HAL_SRAM_Read_DMA,"ax",%progbits
+ 488              		.align	1
+ 489              		.global	HAL_SRAM_Read_DMA
+ 490              		.syntax unified
+ 491              		.thumb
+ 492              		.thumb_func
+ 493              		.fpu softvfp
+ 495              	HAL_SRAM_Read_DMA:
+ 496              		@ args = 0, pretend = 0, frame = 0
+ 497              		@ frame_needed = 0, uses_anonymous_args = 0
+ 498 0000 70B5     		push	{r4, r5, r6, lr}
+ 499 0002 90F84150 		ldrb	r5, [r0, #65]	@ zero_extendqisi2
+ 500 0006 0446     		mov	r4, r0
+ 501 0008 EDB2     		uxtb	r5, r5
+ 502 000a 012D     		cmp	r5, #1
+ 503 000c 01D0     		beq	.L70
+ 504 000e 042D     		cmp	r5, #4
+ 505 0010 19D1     		bne	.L74
+ 506              	.L70:
+ 507 0012 94F84000 		ldrb	r0, [r4, #64]	@ zero_extendqisi2
+ 508 0016 0128     		cmp	r0, #1
+ 509 0018 4FF00200 		mov	r0, #2
+ 510 001c 14D0     		beq	.L71
+ 511 001e 0126     		movs	r6, #1
+ 512 0020 B542     		cmp	r5, r6
+ 513 0022 84F84100 		strb	r0, [r4, #65]
+ 514 0026 08BF     		it	eq
+ 515 0028 084D     		ldreq	r5, .L80
+ 516 002a 606C     		ldr	r0, [r4, #68]
+ 517 002c 18BF     		it	ne
+ 518 002e 084D     		ldrne	r5, .L80+4
+ 519 0030 84F84060 		strb	r6, [r4, #64]
+ 520 0034 8562     		str	r5, [r0, #40]
+ 521 0036 074D     		ldr	r5, .L80+8
+ 522 0038 0563     		str	r5, [r0, #48]
+ 523 003a FFF7FEFF 		bl	HAL_DMA_Start_IT
+ 524 003e 0023     		movs	r3, #0
+ 525 0040 84F84030 		strb	r3, [r4, #64]
+ 526 0044 70BD     		pop	{r4, r5, r6, pc}
+ 527              	.L74:
+ 528 0046 0120     		movs	r0, #1
+ 529              	.L71:
+ 530 0048 70BD     		pop	{r4, r5, r6, pc}
+ 531              	.L81:
+ 532 004a 00BF     		.align	2
+ 533              	.L80:
+ 534 004c 00000000 		.word	SRAM_DMACplt
+ 535 0050 00000000 		.word	SRAM_DMACpltProt
+ 536 0054 00000000 		.word	SRAM_DMAError
+ 538              		.section	.text.HAL_SRAM_Write_DMA,"ax",%progbits
+ 539              		.align	1
+ 540              		.global	HAL_SRAM_Write_DMA
+ 541              		.syntax unified
+ 542              		.thumb
+ 543              		.thumb_func
+ 544              		.fpu softvfp
+ 546              	HAL_SRAM_Write_DMA:
+ARM GAS  /tmp/ccuQWGh2.s 			page 10
 
 
- 547 0000 70B5     		push	{r4, r5, r6, lr}
- 548 0002 0D46     		mov	r5, r1
- 549 0004 1146     		mov	r1, r2
- 550 0006 90F84120 		ldrb	r2, [r0, #65]	@ zero_extendqisi2
- 551 000a 0446     		mov	r4, r0
- 552 000c 012A     		cmp	r2, #1
- 553 000e D6B2     		uxtb	r6, r2
- 554 0010 14D1     		bne	.L84
- 555 0012 90F84020 		ldrb	r2, [r0, #64]	@ zero_extendqisi2
- 556 0016 0220     		movs	r0, #2
- 557 0018 012A     		cmp	r2, #1
- 558 001a 0ED0     		beq	.L83
- 559 001c 84F84100 		strb	r0, [r4, #65]
- 560 0020 074A     		ldr	r2, .L86
- 561 0022 606C     		ldr	r0, [r4, #68]
- 562 0024 84F84060 		strb	r6, [r4, #64]
- 563 0028 8262     		str	r2, [r0, #40]
- 564 002a 064A     		ldr	r2, .L86+4
- 565 002c 0263     		str	r2, [r0, #48]
- 566 002e 2A46     		mov	r2, r5
- 567 0030 FFF7FEFF 		bl	HAL_DMA_Start_IT
- 568 0034 0023     		movs	r3, #0
- 569 0036 84F84030 		strb	r3, [r4, #64]
- 570              	.L83:
- 571 003a 70BD     		pop	{r4, r5, r6, pc}
- 572              	.L84:
- 573 003c 0120     		movs	r0, #1
- 574 003e FCE7     		b	.L83
- 575              	.L87:
- 576              		.align	2
- 577              	.L86:
- 578 0040 00000000 		.word	SRAM_DMACplt
- 579 0044 00000000 		.word	SRAM_DMAError
- 581              		.section	.text.HAL_SRAM_WriteOperation_Enable,"ax",%progbits
- 582              		.align	1
- 583              		.global	HAL_SRAM_WriteOperation_Enable
- 584              		.syntax unified
- 585              		.thumb
- 586              		.thumb_func
- 587              		.fpu softvfp
- 589              	HAL_SRAM_WriteOperation_Enable:
- 590              		@ args = 0, pretend = 0, frame = 0
- 591              		@ frame_needed = 0, uses_anonymous_args = 0
- 592 0000 38B5     		push	{r3, r4, r5, lr}
- 593 0002 90F84130 		ldrb	r3, [r0, #65]	@ zero_extendqisi2
- 594 0006 0446     		mov	r4, r0
- 595 0008 042B     		cmp	r3, #4
- 596 000a 13D1     		bne	.L90
- 597 000c 90F84030 		ldrb	r3, [r0, #64]	@ zero_extendqisi2
- 598 0010 0220     		movs	r0, #2
- 599 0012 012B     		cmp	r3, #1
- 600 0014 0DD0     		beq	.L89
- 601 0016 0125     		movs	r5, #1
- 602 0018 84F84100 		strb	r0, [r4, #65]
- 603 001c A168     		ldr	r1, [r4, #8]
- 604 001e 2068     		ldr	r0, [r4]
- 605 0020 84F84050 		strb	r5, [r4, #64]
-ARM GAS  /tmp/ccyFdaTw.s 			page 11
+ 547              		@ args = 0, pretend = 0, frame = 0
+ 548              		@ frame_needed = 0, uses_anonymous_args = 0
+ 549 0000 38B5     		push	{r3, r4, r5, lr}
+ 550 0002 0D46     		mov	r5, r1
+ 551 0004 1146     		mov	r1, r2
+ 552 0006 90F84120 		ldrb	r2, [r0, #65]	@ zero_extendqisi2
+ 553 000a 0446     		mov	r4, r0
+ 554 000c D2B2     		uxtb	r2, r2
+ 555 000e 012A     		cmp	r2, #1
+ 556 0010 15D1     		bne	.L84
+ 557 0012 90F84000 		ldrb	r0, [r0, #64]	@ zero_extendqisi2
+ 558 0016 0128     		cmp	r0, #1
+ 559 0018 4FF00200 		mov	r0, #2
+ 560 001c 10D0     		beq	.L83
+ 561 001e 84F84020 		strb	r2, [r4, #64]
+ 562 0022 84F84100 		strb	r0, [r4, #65]
+ 563 0026 074A     		ldr	r2, .L86
+ 564 0028 606C     		ldr	r0, [r4, #68]
+ 565 002a 8262     		str	r2, [r0, #40]
+ 566 002c 064A     		ldr	r2, .L86+4
+ 567 002e 0263     		str	r2, [r0, #48]
+ 568 0030 2A46     		mov	r2, r5
+ 569 0032 FFF7FEFF 		bl	HAL_DMA_Start_IT
+ 570 0036 0023     		movs	r3, #0
+ 571 0038 84F84030 		strb	r3, [r4, #64]
+ 572 003c 38BD     		pop	{r3, r4, r5, pc}
+ 573              	.L84:
+ 574 003e 0120     		movs	r0, #1
+ 575              	.L83:
+ 576 0040 38BD     		pop	{r3, r4, r5, pc}
+ 577              	.L87:
+ 578 0042 00BF     		.align	2
+ 579              	.L86:
+ 580 0044 00000000 		.word	SRAM_DMACplt
+ 581 0048 00000000 		.word	SRAM_DMAError
+ 583              		.section	.text.HAL_SRAM_WriteOperation_Enable,"ax",%progbits
+ 584              		.align	1
+ 585              		.global	HAL_SRAM_WriteOperation_Enable
+ 586              		.syntax unified
+ 587              		.thumb
+ 588              		.thumb_func
+ 589              		.fpu softvfp
+ 591              	HAL_SRAM_WriteOperation_Enable:
+ 592              		@ args = 0, pretend = 0, frame = 0
+ 593              		@ frame_needed = 0, uses_anonymous_args = 0
+ 594 0000 38B5     		push	{r3, r4, r5, lr}
+ 595 0002 90F84130 		ldrb	r3, [r0, #65]	@ zero_extendqisi2
+ 596 0006 0446     		mov	r4, r0
+ 597 0008 042B     		cmp	r3, #4
+ 598 000a 13D1     		bne	.L90
+ 599 000c 90F84030 		ldrb	r3, [r0, #64]	@ zero_extendqisi2
+ 600 0010 0220     		movs	r0, #2
+ 601 0012 012B     		cmp	r3, #1
+ 602 0014 0FD0     		beq	.L89
+ 603 0016 0125     		movs	r5, #1
+ 604 0018 84F84100 		strb	r0, [r4, #65]
+ 605 001c 84F84050 		strb	r5, [r4, #64]
+ARM GAS  /tmp/ccuQWGh2.s 			page 11
 
 
- 606 0024 FFF7FEFF 		bl	FSMC_NORSRAM_WriteOperation_Enable
- 607 0028 0020     		movs	r0, #0
- 608 002a 84F84150 		strb	r5, [r4, #65]
- 609 002e 84F84000 		strb	r0, [r4, #64]
- 610              	.L89:
- 611 0032 38BD     		pop	{r3, r4, r5, pc}
- 612              	.L90:
- 613 0034 0120     		movs	r0, #1
- 614 0036 FCE7     		b	.L89
- 616              		.section	.text.HAL_SRAM_WriteOperation_Disable,"ax",%progbits
- 617              		.align	1
- 618              		.global	HAL_SRAM_WriteOperation_Disable
- 619              		.syntax unified
- 620              		.thumb
- 621              		.thumb_func
- 622              		.fpu softvfp
- 624              	HAL_SRAM_WriteOperation_Disable:
- 625              		@ args = 0, pretend = 0, frame = 0
- 626              		@ frame_needed = 0, uses_anonymous_args = 0
- 627 0000 10B5     		push	{r4, lr}
- 628 0002 90F84130 		ldrb	r3, [r0, #65]	@ zero_extendqisi2
- 629 0006 0446     		mov	r4, r0
- 630 0008 012B     		cmp	r3, #1
- 631 000a DAB2     		uxtb	r2, r3
- 632 000c 13D1     		bne	.L94
- 633 000e 90F84030 		ldrb	r3, [r0, #64]	@ zero_extendqisi2
- 634 0012 0220     		movs	r0, #2
- 635 0014 012B     		cmp	r3, #1
- 636 0016 0DD0     		beq	.L93
- 637 0018 84F84100 		strb	r0, [r4, #65]
- 638 001c A168     		ldr	r1, [r4, #8]
- 639 001e 2068     		ldr	r0, [r4]
- 640 0020 84F84020 		strb	r2, [r4, #64]
- 641 0024 FFF7FEFF 		bl	FSMC_NORSRAM_WriteOperation_Disable
- 642 0028 0423     		movs	r3, #4
- 643 002a 0020     		movs	r0, #0
- 644 002c 84F84130 		strb	r3, [r4, #65]
- 645 0030 84F84000 		strb	r0, [r4, #64]
- 646              	.L93:
- 647 0034 10BD     		pop	{r4, pc}
- 648              	.L94:
- 649 0036 0120     		movs	r0, #1
- 650 0038 FCE7     		b	.L93
- 652              		.section	.text.HAL_SRAM_GetState,"ax",%progbits
- 653              		.align	1
- 654              		.global	HAL_SRAM_GetState
- 655              		.syntax unified
- 656              		.thumb
- 657              		.thumb_func
- 658              		.fpu softvfp
- 660              	HAL_SRAM_GetState:
- 661              		@ args = 0, pretend = 0, frame = 0
- 662              		@ frame_needed = 0, uses_anonymous_args = 0
- 663              		@ link register save eliminated.
- 664 0000 90F84100 		ldrb	r0, [r0, #65]	@ zero_extendqisi2
- 665 0004 7047     		bx	lr
- 667              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
-ARM GAS  /tmp/ccyFdaTw.s 			page 12
+ 606 0020 A168     		ldr	r1, [r4, #8]
+ 607 0022 2068     		ldr	r0, [r4]
+ 608 0024 FFF7FEFF 		bl	FSMC_NORSRAM_WriteOperation_Enable
+ 609 0028 0020     		movs	r0, #0
+ 610 002a 84F84150 		strb	r5, [r4, #65]
+ 611 002e 84F84000 		strb	r0, [r4, #64]
+ 612 0032 38BD     		pop	{r3, r4, r5, pc}
+ 613              	.L90:
+ 614 0034 0120     		movs	r0, #1
+ 615              	.L89:
+ 616 0036 38BD     		pop	{r3, r4, r5, pc}
+ 618              		.section	.text.HAL_SRAM_WriteOperation_Disable,"ax",%progbits
+ 619              		.align	1
+ 620              		.global	HAL_SRAM_WriteOperation_Disable
+ 621              		.syntax unified
+ 622              		.thumb
+ 623              		.thumb_func
+ 624              		.fpu softvfp
+ 626              	HAL_SRAM_WriteOperation_Disable:
+ 627              		@ args = 0, pretend = 0, frame = 0
+ 628              		@ frame_needed = 0, uses_anonymous_args = 0
+ 629 0000 90F84130 		ldrb	r3, [r0, #65]	@ zero_extendqisi2
+ 630 0004 10B5     		push	{r4, lr}
+ 631 0006 DBB2     		uxtb	r3, r3
+ 632 0008 012B     		cmp	r3, #1
+ 633 000a 0446     		mov	r4, r0
+ 634 000c 13D1     		bne	.L94
+ 635 000e 90F84020 		ldrb	r2, [r0, #64]	@ zero_extendqisi2
+ 636 0012 0220     		movs	r0, #2
+ 637 0014 012A     		cmp	r2, #1
+ 638 0016 0FD0     		beq	.L93
+ 639 0018 84F84030 		strb	r3, [r4, #64]
+ 640 001c 84F84100 		strb	r0, [r4, #65]
+ 641 0020 A168     		ldr	r1, [r4, #8]
+ 642 0022 2068     		ldr	r0, [r4]
+ 643 0024 FFF7FEFF 		bl	FSMC_NORSRAM_WriteOperation_Disable
+ 644 0028 0423     		movs	r3, #4
+ 645 002a 0020     		movs	r0, #0
+ 646 002c 84F84130 		strb	r3, [r4, #65]
+ 647 0030 84F84000 		strb	r0, [r4, #64]
+ 648 0034 10BD     		pop	{r4, pc}
+ 649              	.L94:
+ 650 0036 0120     		movs	r0, #1
+ 651              	.L93:
+ 652 0038 10BD     		pop	{r4, pc}
+ 654              		.section	.text.HAL_SRAM_GetState,"ax",%progbits
+ 655              		.align	1
+ 656              		.global	HAL_SRAM_GetState
+ 657              		.syntax unified
+ 658              		.thumb
+ 659              		.thumb_func
+ 660              		.fpu softvfp
+ 662              	HAL_SRAM_GetState:
+ 663              		@ args = 0, pretend = 0, frame = 0
+ 664              		@ frame_needed = 0, uses_anonymous_args = 0
+ 665              		@ link register save eliminated.
+ 666 0000 90F84100 		ldrb	r0, [r0, #65]	@ zero_extendqisi2
+ARM GAS  /tmp/ccuQWGh2.s 			page 12
 
 
-ARM GAS  /tmp/ccyFdaTw.s 			page 13
+ 667 0004 7047     		bx	lr
+ 669              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
+ARM GAS  /tmp/ccuQWGh2.s 			page 13
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f1xx_hal_sram.c
-     /tmp/ccyFdaTw.s:14     .text.HAL_SRAM_MspInit:0000000000000000 $t
-     /tmp/ccyFdaTw.s:22     .text.HAL_SRAM_MspInit:0000000000000000 HAL_SRAM_MspInit
-     /tmp/ccyFdaTw.s:29     .text.HAL_SRAM_Init:0000000000000000 $t
-     /tmp/ccyFdaTw.s:36     .text.HAL_SRAM_Init:0000000000000000 HAL_SRAM_Init
-     /tmp/ccyFdaTw.s:77     .text.HAL_SRAM_MspDeInit:0000000000000000 $t
-     /tmp/ccyFdaTw.s:84     .text.HAL_SRAM_MspDeInit:0000000000000000 HAL_SRAM_MspDeInit
-     /tmp/ccyFdaTw.s:91     .text.HAL_SRAM_DeInit:0000000000000000 $t
-     /tmp/ccyFdaTw.s:98     .text.HAL_SRAM_DeInit:0000000000000000 HAL_SRAM_DeInit
-     /tmp/ccyFdaTw.s:113    .text.HAL_SRAM_DMA_XferCpltCallback:0000000000000000 $t
-     /tmp/ccyFdaTw.s:120    .text.HAL_SRAM_DMA_XferCpltCallback:0000000000000000 HAL_SRAM_DMA_XferCpltCallback
-     /tmp/ccyFdaTw.s:127    .text.SRAM_DMACpltProt:0000000000000000 $t
-     /tmp/ccyFdaTw.s:133    .text.SRAM_DMACpltProt:0000000000000000 SRAM_DMACpltProt
-     /tmp/ccyFdaTw.s:148    .text.SRAM_DMACplt:0000000000000000 $t
-     /tmp/ccyFdaTw.s:154    .text.SRAM_DMACplt:0000000000000000 SRAM_DMACplt
-     /tmp/ccyFdaTw.s:169    .text.HAL_SRAM_DMA_XferErrorCallback:0000000000000000 $t
-     /tmp/ccyFdaTw.s:176    .text.HAL_SRAM_DMA_XferErrorCallback:0000000000000000 HAL_SRAM_DMA_XferErrorCallback
-     /tmp/ccyFdaTw.s:183    .text.SRAM_DMAError:0000000000000000 $t
-     /tmp/ccyFdaTw.s:189    .text.SRAM_DMAError:0000000000000000 SRAM_DMAError
-     /tmp/ccyFdaTw.s:204    .text.HAL_SRAM_Read_8b:0000000000000000 $t
-     /tmp/ccyFdaTw.s:211    .text.HAL_SRAM_Read_8b:0000000000000000 HAL_SRAM_Read_8b
-     /tmp/ccyFdaTw.s:248    .text.HAL_SRAM_Write_8b:0000000000000000 $t
-     /tmp/ccyFdaTw.s:255    .text.HAL_SRAM_Write_8b:0000000000000000 HAL_SRAM_Write_8b
-     /tmp/ccyFdaTw.s:289    .text.HAL_SRAM_Read_16b:0000000000000000 $t
-     /tmp/ccyFdaTw.s:296    .text.HAL_SRAM_Read_16b:0000000000000000 HAL_SRAM_Read_16b
-     /tmp/ccyFdaTw.s:343    .text.HAL_SRAM_Write_16b:0000000000000000 $t
-     /tmp/ccyFdaTw.s:350    .text.HAL_SRAM_Write_16b:0000000000000000 HAL_SRAM_Write_16b
-     /tmp/ccyFdaTw.s:399    .text.HAL_SRAM_Read_32b:0000000000000000 $t
-     /tmp/ccyFdaTw.s:406    .text.HAL_SRAM_Read_32b:0000000000000000 HAL_SRAM_Read_32b
-     /tmp/ccyFdaTw.s:444    .text.HAL_SRAM_Write_32b:0000000000000000 $t
-     /tmp/ccyFdaTw.s:451    .text.HAL_SRAM_Write_32b:0000000000000000 HAL_SRAM_Write_32b
-     /tmp/ccyFdaTw.s:486    .text.HAL_SRAM_Read_DMA:0000000000000000 $t
-     /tmp/ccyFdaTw.s:493    .text.HAL_SRAM_Read_DMA:0000000000000000 HAL_SRAM_Read_DMA
-     /tmp/ccyFdaTw.s:532    .text.HAL_SRAM_Read_DMA:000000000000004c $d
-     /tmp/ccyFdaTw.s:537    .text.HAL_SRAM_Write_DMA:0000000000000000 $t
-     /tmp/ccyFdaTw.s:544    .text.HAL_SRAM_Write_DMA:0000000000000000 HAL_SRAM_Write_DMA
-     /tmp/ccyFdaTw.s:578    .text.HAL_SRAM_Write_DMA:0000000000000040 $d
-     /tmp/ccyFdaTw.s:582    .text.HAL_SRAM_WriteOperation_Enable:0000000000000000 $t
-     /tmp/ccyFdaTw.s:589    .text.HAL_SRAM_WriteOperation_Enable:0000000000000000 HAL_SRAM_WriteOperation_Enable
-     /tmp/ccyFdaTw.s:617    .text.HAL_SRAM_WriteOperation_Disable:0000000000000000 $t
-     /tmp/ccyFdaTw.s:624    .text.HAL_SRAM_WriteOperation_Disable:0000000000000000 HAL_SRAM_WriteOperation_Disable
-     /tmp/ccyFdaTw.s:653    .text.HAL_SRAM_GetState:0000000000000000 $t
-     /tmp/ccyFdaTw.s:660    .text.HAL_SRAM_GetState:0000000000000000 HAL_SRAM_GetState
+     /tmp/ccuQWGh2.s:13     .text.HAL_SRAM_MspInit:0000000000000000 $t
+     /tmp/ccuQWGh2.s:20     .text.HAL_SRAM_MspInit:0000000000000000 HAL_SRAM_MspInit
+     /tmp/ccuQWGh2.s:27     .text.HAL_SRAM_Init:0000000000000000 $t
+     /tmp/ccuQWGh2.s:34     .text.HAL_SRAM_Init:0000000000000000 HAL_SRAM_Init
+     /tmp/ccuQWGh2.s:74     .text.HAL_SRAM_MspDeInit:0000000000000000 $t
+     /tmp/ccuQWGh2.s:81     .text.HAL_SRAM_MspDeInit:0000000000000000 HAL_SRAM_MspDeInit
+     /tmp/ccuQWGh2.s:88     .text.HAL_SRAM_DeInit:0000000000000000 $t
+     /tmp/ccuQWGh2.s:95     .text.HAL_SRAM_DeInit:0000000000000000 HAL_SRAM_DeInit
+     /tmp/ccuQWGh2.s:109    .text.HAL_SRAM_DMA_XferCpltCallback:0000000000000000 $t
+     /tmp/ccuQWGh2.s:116    .text.HAL_SRAM_DMA_XferCpltCallback:0000000000000000 HAL_SRAM_DMA_XferCpltCallback
+     /tmp/ccuQWGh2.s:123    .text.SRAM_DMACpltProt:0000000000000000 $t
+     /tmp/ccuQWGh2.s:129    .text.SRAM_DMACpltProt:0000000000000000 SRAM_DMACpltProt
+     /tmp/ccuQWGh2.s:144    .text.SRAM_DMACplt:0000000000000000 $t
+     /tmp/ccuQWGh2.s:150    .text.SRAM_DMACplt:0000000000000000 SRAM_DMACplt
+     /tmp/ccuQWGh2.s:165    .text.HAL_SRAM_DMA_XferErrorCallback:0000000000000000 $t
+     /tmp/ccuQWGh2.s:172    .text.HAL_SRAM_DMA_XferErrorCallback:0000000000000000 HAL_SRAM_DMA_XferErrorCallback
+     /tmp/ccuQWGh2.s:179    .text.SRAM_DMAError:0000000000000000 $t
+     /tmp/ccuQWGh2.s:185    .text.SRAM_DMAError:0000000000000000 SRAM_DMAError
+     /tmp/ccuQWGh2.s:200    .text.HAL_SRAM_Read_8b:0000000000000000 $t
+     /tmp/ccuQWGh2.s:207    .text.HAL_SRAM_Read_8b:0000000000000000 HAL_SRAM_Read_8b
+     /tmp/ccuQWGh2.s:246    .text.HAL_SRAM_Write_8b:0000000000000000 $t
+     /tmp/ccuQWGh2.s:253    .text.HAL_SRAM_Write_8b:0000000000000000 HAL_SRAM_Write_8b
+     /tmp/ccuQWGh2.s:289    .text.HAL_SRAM_Read_16b:0000000000000000 $t
+     /tmp/ccuQWGh2.s:296    .text.HAL_SRAM_Read_16b:0000000000000000 HAL_SRAM_Read_16b
+     /tmp/ccuQWGh2.s:345    .text.HAL_SRAM_Write_16b:0000000000000000 $t
+     /tmp/ccuQWGh2.s:352    .text.HAL_SRAM_Write_16b:0000000000000000 HAL_SRAM_Write_16b
+     /tmp/ccuQWGh2.s:403    .text.HAL_SRAM_Read_32b:0000000000000000 $t
+     /tmp/ccuQWGh2.s:410    .text.HAL_SRAM_Read_32b:0000000000000000 HAL_SRAM_Read_32b
+     /tmp/ccuQWGh2.s:447    .text.HAL_SRAM_Write_32b:0000000000000000 $t
+     /tmp/ccuQWGh2.s:454    .text.HAL_SRAM_Write_32b:0000000000000000 HAL_SRAM_Write_32b
+     /tmp/ccuQWGh2.s:488    .text.HAL_SRAM_Read_DMA:0000000000000000 $t
+     /tmp/ccuQWGh2.s:495    .text.HAL_SRAM_Read_DMA:0000000000000000 HAL_SRAM_Read_DMA
+     /tmp/ccuQWGh2.s:534    .text.HAL_SRAM_Read_DMA:000000000000004c $d
+     /tmp/ccuQWGh2.s:539    .text.HAL_SRAM_Write_DMA:0000000000000000 $t
+     /tmp/ccuQWGh2.s:546    .text.HAL_SRAM_Write_DMA:0000000000000000 HAL_SRAM_Write_DMA
+     /tmp/ccuQWGh2.s:580    .text.HAL_SRAM_Write_DMA:0000000000000044 $d
+     /tmp/ccuQWGh2.s:584    .text.HAL_SRAM_WriteOperation_Enable:0000000000000000 $t
+     /tmp/ccuQWGh2.s:591    .text.HAL_SRAM_WriteOperation_Enable:0000000000000000 HAL_SRAM_WriteOperation_Enable
+     /tmp/ccuQWGh2.s:619    .text.HAL_SRAM_WriteOperation_Disable:0000000000000000 $t
+     /tmp/ccuQWGh2.s:626    .text.HAL_SRAM_WriteOperation_Disable:0000000000000000 HAL_SRAM_WriteOperation_Disable
+     /tmp/ccuQWGh2.s:655    .text.HAL_SRAM_GetState:0000000000000000 $t
+     /tmp/ccuQWGh2.s:662    .text.HAL_SRAM_GetState:0000000000000000 HAL_SRAM_GetState
 
 UNDEFINED SYMBOLS
 FSMC_NORSRAM_Init

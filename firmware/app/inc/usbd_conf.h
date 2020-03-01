@@ -34,6 +34,7 @@
 #include "main.h"
 #include "stm32f1xx.h"
 #include "stm32f1xx_hal.h"
+#include "console.h"
 
 /* USER CODE BEGIN INCLUDE */
 
@@ -115,25 +116,25 @@ void USBD_static_free(void *p);
 /* DEBUG macros */
 
 #if (USBD_DEBUG_LEVEL > 0)
-#define USBD_UsrLog(...)    printf(__VA_ARGS__);\
-                            printf("\n");
+#define USBD_UsrLog(...)    CONSOLE_PrintLn(__VA_ARGS__);\
+                            CONSOLE_PrintLn("\n");
 #else
 #define USBD_UsrLog(...)
 #endif
 
 #if (USBD_DEBUG_LEVEL > 1)
 
-#define USBD_ErrLog(...)    printf("ERROR: ") ;\
-                            printf(__VA_ARGS__);\
-                            printf("\n");
+#define USBD_ErrLog(...)    CONSOLE_PrintLn("ERROR: ") ;\
+                            CONSOLE_PrintLn(__VA_ARGS__);\
+                            CONSOLE_PrintLn("\n");
 #else
 #define USBD_ErrLog(...)
 #endif
 
 #if (USBD_DEBUG_LEVEL > 2)
-#define USBD_DbgLog(...)    printf("DEBUG : ") ;\
-                            printf(__VA_ARGS__);\
-                            printf("\n");
+#define USBD_DbgLog(...)    CONSOLE_PrintLn("DEBUG : ") ;\
+                            CONSOLE_PrintLn(__VA_ARGS__);\
+                            CONSOLE_PrintLn("\n");
 #else
 #define USBD_DbgLog(...)
 #endif

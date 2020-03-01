@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cck8V2eh.s 			page 1
+ARM GAS  /tmp/ccwxgWeS.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -12,343 +12,345 @@ ARM GAS  /tmp/cck8V2eh.s 			page 1
    9              		.eabi_attribute 34, 1
   10              		.eabi_attribute 18, 4
   11              		.file	"infinikeys_usb.c"
-  12              		.text
-  13              		.section	.text._IK_USB_CharToStrDescBuf,"ax",%progbits
-  14              		.align	1
-  15              		.arch armv7-m
-  16              		.syntax unified
-  17              		.thumb
-  18              		.thumb_func
-  19              		.fpu softvfp
-  21              	_IK_USB_CharToStrDescBuf:
-  22              		@ args = 0, pretend = 0, frame = 0
-  23              		@ frame_needed = 0, uses_anonymous_args = 0
-  24 0000 70B5     		push	{r4, r5, r6, lr}
-  25 0002 90B1     		cbz	r0, .L2
-  26 0004 441E     		subs	r4, r0, #1
-  27 0006 2246     		mov	r2, r4
-  28 0008 0023     		movs	r3, #0
-  29              	.L3:
-  30 000a 12F8011F 		ldrb	r1, [r2, #1]!	@ zero_extendqisi2
-  31 000e 0133     		adds	r3, r3, #1
-  32 0010 DBB2     		uxtb	r3, r3
-  33 0012 0029     		cmp	r1, #0
-  34 0014 F9D1     		bne	.L3
-  35 0016 5B00     		lsls	r3, r3, #1
-  36 0018 D8B2     		uxtb	r0, r3
-  37 001a 0323     		movs	r3, #3
-  38 001c 074A     		ldr	r2, .L8
-  39 001e 5370     		strb	r3, [r2, #1]
-  40 0020 0223     		movs	r3, #2
-  41 0022 1070     		strb	r0, [r2]
-  42              	.L4:
-  43 0024 14F8016F 		ldrb	r6, [r4, #1]!	@ zero_extendqisi2
-  44 0028 06B9     		cbnz	r6, .L5
-  45              	.L2:
-  46 002a 70BD     		pop	{r4, r5, r6, pc}
-  47              	.L5:
-  48 002c 5D1C     		adds	r5, r3, #1
-  49 002e D654     		strb	r6, [r2, r3]
-  50 0030 EDB2     		uxtb	r5, r5
-  51 0032 0233     		adds	r3, r3, #2
-  52 0034 DBB2     		uxtb	r3, r3
-  53 0036 5155     		strb	r1, [r2, r5]
-  54 0038 F4E7     		b	.L4
-  55              	.L9:
-  56 003a 00BF     		.align	2
-  57              	.L8:
-  58 003c 00000000 		.word	.LANCHOR0
-ARM GAS  /tmp/cck8V2eh.s 			page 2
+  12              		.section	.text._IK_USB_CharToStrDescBuf,"ax",%progbits
+  13              		.align	1
+  14              		.syntax unified
+  15              		.thumb
+  16              		.thumb_func
+  17              		.fpu softvfp
+  19              	_IK_USB_CharToStrDescBuf:
+  20              		@ args = 0, pretend = 0, frame = 0
+  21              		@ frame_needed = 0, uses_anonymous_args = 0
+  22 0000 70B5     		push	{r4, r5, r6, lr}
+  23 0002 D8B1     		cbz	r0, .L6
+  24 0004 0246     		mov	r2, r0
+  25              	.L3:
+  26 0006 131A     		subs	r3, r2, r0
+  27 0008 12F8014B 		ldrb	r4, [r2], #1	@ zero_extendqisi2
+  28 000c DBB2     		uxtb	r3, r3
+  29 000e 002C     		cmp	r4, #0
+  30 0010 F9D1     		bne	.L3
+  31 0012 0322     		movs	r2, #3
+  32 0014 0A49     		ldr	r1, .L8
+  33 0016 0133     		adds	r3, r3, #1
+  34 0018 4A70     		strb	r2, [r1, #1]
+  35 001a 0222     		movs	r2, #2
+  36 001c 5B00     		lsls	r3, r3, #1
+  37 001e DBB2     		uxtb	r3, r3
+  38 0020 0B70     		strb	r3, [r1]
+  39 0022 0138     		subs	r0, r0, #1
+  40              	.L4:
+  41 0024 10F8016F 		ldrb	r6, [r0, #1]!	@ zero_extendqisi2
+  42 0028 0EB9     		cbnz	r6, .L5
+  43              	.L2:
+  44 002a 1846     		mov	r0, r3
+  45 002c 70BD     		pop	{r4, r5, r6, pc}
+  46              	.L5:
+  47 002e 551C     		adds	r5, r2, #1
+  48 0030 8E54     		strb	r6, [r1, r2]
+  49 0032 EDB2     		uxtb	r5, r5
+  50 0034 0232     		adds	r2, r2, #2
+  51 0036 D2B2     		uxtb	r2, r2
+  52 0038 4C55     		strb	r4, [r1, r5]
+  53 003a F3E7     		b	.L4
+  54              	.L6:
+  55 003c 0346     		mov	r3, r0
+  56 003e F4E7     		b	.L2
+  57              	.L9:
+  58              		.align	2
+ARM GAS  /tmp/ccwxgWeS.s 			page 2
 
 
-  60              		.section	.text.IK_USB_Init,"ax",%progbits
-  61              		.align	1
-  62              		.global	IK_USB_Init
-  63              		.syntax unified
-  64              		.thumb
-  65              		.thumb_func
-  66              		.fpu softvfp
-  68              	IK_USB_Init:
-  69              		@ args = 0, pretend = 0, frame = 0
-  70              		@ frame_needed = 0, uses_anonymous_args = 0
-  71 0000 08B5     		push	{r3, lr}
-  72 0002 A0B1     		cbz	r0, .L13
-  73 0004 0168     		ldr	r1, [r0]
-  74 0006 91B1     		cbz	r1, .L13
-  75 0008 0A4B     		ldr	r3, .L14
-  76 000a 8288     		ldrh	r2, [r0, #4]
-  77 000c 1860     		str	r0, [r3]
-  78 000e 0A4B     		ldr	r3, .L14+4
-  79 0010 1A72     		strb	r2, [r3, #8]
-  80 0012 120A     		lsrs	r2, r2, #8
-  81 0014 5A72     		strb	r2, [r3, #9]
-  82 0016 8279     		ldrb	r2, [r0, #6]	@ zero_extendqisi2
-  83 0018 9A72     		strb	r2, [r3, #10]
-  84 001a DA72     		strb	r2, [r3, #11]
-  85 001c 0389     		ldrh	r3, [r0, #8]
-  86 001e 074A     		ldr	r2, .L14+8
-  87 0020 9370     		strb	r3, [r2, #2]
-  88 0022 1B0A     		lsrs	r3, r3, #8
-  89 0024 D370     		strb	r3, [r2, #3]
-  90 0026 0B68     		ldr	r3, [r1]
-  91 0028 9847     		blx	r3
-  92 002a 0020     		movs	r0, #0
-  93              	.L11:
-  94 002c 08BD     		pop	{r3, pc}
-  95              	.L13:
-  96 002e 0120     		movs	r0, #1
-  97 0030 FCE7     		b	.L11
-  98              	.L15:
-  99 0032 00BF     		.align	2
- 100              	.L14:
- 101 0034 00000000 		.word	.LANCHOR1
- 102 0038 00000000 		.word	IK_USB_DESCRIPTOR_DEVICE
- 103 003c 00000000 		.word	IK_USB_DESCRIPTOR_LANGID
- 105              		.section	.text.IK_USB_DeInit,"ax",%progbits
- 106              		.align	1
- 107              		.global	IK_USB_DeInit
- 108              		.syntax unified
- 109              		.thumb
- 110              		.thumb_func
- 111              		.fpu softvfp
- 113              	IK_USB_DeInit:
- 114              		@ args = 0, pretend = 0, frame = 0
- 115              		@ frame_needed = 0, uses_anonymous_args = 0
- 116 0000 10B5     		push	{r4, lr}
- 117 0002 054C     		ldr	r4, .L27
- 118 0004 2268     		ldr	r2, [r4]
- 119 0006 22B1     		cbz	r2, .L17
-ARM GAS  /tmp/cck8V2eh.s 			page 3
+  59              	.L8:
+  60 0040 00000000 		.word	.LANCHOR0
+  62              		.section	.text.IK_USB_Init,"ax",%progbits
+  63              		.align	1
+  64              		.global	IK_USB_Init
+  65              		.syntax unified
+  66              		.thumb
+  67              		.thumb_func
+  68              		.fpu softvfp
+  70              	IK_USB_Init:
+  71              		@ args = 0, pretend = 0, frame = 0
+  72              		@ frame_needed = 0, uses_anonymous_args = 0
+  73 0000 08B5     		push	{r3, lr}
+  74 0002 A0B1     		cbz	r0, .L13
+  75 0004 0168     		ldr	r1, [r0]
+  76 0006 91B1     		cbz	r1, .L13
+  77 0008 0A4B     		ldr	r3, .L14
+  78 000a 8288     		ldrh	r2, [r0, #4]
+  79 000c 1860     		str	r0, [r3]
+  80 000e 0A4B     		ldr	r3, .L14+4
+  81 0010 1A72     		strb	r2, [r3, #8]
+  82 0012 120A     		lsrs	r2, r2, #8
+  83 0014 5A72     		strb	r2, [r3, #9]
+  84 0016 8279     		ldrb	r2, [r0, #6]	@ zero_extendqisi2
+  85 0018 9A72     		strb	r2, [r3, #10]
+  86 001a DA72     		strb	r2, [r3, #11]
+  87 001c 0389     		ldrh	r3, [r0, #8]
+  88 001e 074A     		ldr	r2, .L14+8
+  89 0020 9370     		strb	r3, [r2, #2]
+  90 0022 1B0A     		lsrs	r3, r3, #8
+  91 0024 D370     		strb	r3, [r2, #3]
+  92 0026 0B68     		ldr	r3, [r1]
+  93 0028 9847     		blx	r3
+  94 002a 0020     		movs	r0, #0
+  95 002c 08BD     		pop	{r3, pc}
+  96              	.L13:
+  97 002e 0120     		movs	r0, #1
+  98 0030 08BD     		pop	{r3, pc}
+  99              	.L15:
+ 100 0032 00BF     		.align	2
+ 101              	.L14:
+ 102 0034 00000000 		.word	.LANCHOR1
+ 103 0038 00000000 		.word	IK_USB_DESCRIPTOR_DEVICE
+ 104 003c 00000000 		.word	IK_USB_DESCRIPTOR_LANGID
+ 106              		.section	.text.IK_USB_DeInit,"ax",%progbits
+ 107              		.align	1
+ 108              		.global	IK_USB_DeInit
+ 109              		.syntax unified
+ 110              		.thumb
+ 111              		.thumb_func
+ 112              		.fpu softvfp
+ 114              	IK_USB_DeInit:
+ 115              		@ args = 0, pretend = 0, frame = 0
+ 116              		@ frame_needed = 0, uses_anonymous_args = 0
+ 117 0000 10B5     		push	{r4, lr}
+ 118 0002 054C     		ldr	r4, .L27
+ 119 0004 2268     		ldr	r2, [r4]
+ARM GAS  /tmp/ccwxgWeS.s 			page 3
 
 
- 120 0008 1368     		ldr	r3, [r2]
- 121 000a 13B1     		cbz	r3, .L17
- 122 000c 5B68     		ldr	r3, [r3, #4]
- 123 000e 03B1     		cbz	r3, .L17
- 124 0010 9847     		blx	r3
- 125              	.L17:
- 126 0012 0020     		movs	r0, #0
- 127 0014 2060     		str	r0, [r4]
- 128 0016 10BD     		pop	{r4, pc}
- 129              	.L28:
- 130              		.align	2
- 131              	.L27:
- 132 0018 00000000 		.word	.LANCHOR1
- 134              		.section	.text.IK_USB_SendHIDReport,"ax",%progbits
- 135              		.align	1
- 136              		.global	IK_USB_SendHIDReport
- 137              		.syntax unified
- 138              		.thumb
- 139              		.thumb_func
- 140              		.fpu softvfp
- 142              	IK_USB_SendHIDReport:
- 143              		@ args = 0, pretend = 0, frame = 16
- 144              		@ frame_needed = 0, uses_anonymous_args = 0
- 145 0000 2DE9FF41 		push	{r0, r1, r2, r3, r4, r5, r6, r7, r8, lr}
- 146 0004 6B46     		mov	r3, sp
- 147 0006 83E80600 		stm	r3, {r1, r2}
- 148 000a 164B     		ldr	r3, .L42
- 149 000c 0646     		mov	r6, r0
- 150 000e 1D68     		ldr	r5, [r3]
- 151 0010 25B9     		cbnz	r5, .L30
+ 120 0006 22B1     		cbz	r2, .L17
+ 121 0008 1368     		ldr	r3, [r2]
+ 122 000a 13B1     		cbz	r3, .L17
+ 123 000c 5B68     		ldr	r3, [r3, #4]
+ 124 000e 03B1     		cbz	r3, .L17
+ 125 0010 9847     		blx	r3
+ 126              	.L17:
+ 127 0012 0020     		movs	r0, #0
+ 128 0014 2060     		str	r0, [r4]
+ 129 0016 10BD     		pop	{r4, pc}
+ 130              	.L28:
+ 131              		.align	2
+ 132              	.L27:
+ 133 0018 00000000 		.word	.LANCHOR1
+ 135              		.section	.text.IK_USB_SendHIDReport,"ax",%progbits
+ 136              		.align	1
+ 137              		.global	IK_USB_SendHIDReport
+ 138              		.syntax unified
+ 139              		.thumb
+ 140              		.thumb_func
+ 141              		.fpu softvfp
+ 143              	IK_USB_SendHIDReport:
+ 144              		@ args = 0, pretend = 0, frame = 16
+ 145              		@ frame_needed = 0, uses_anonymous_args = 0
+ 146 0000 2DE9FF41 		push	{r0, r1, r2, r3, r4, r5, r6, r7, r8, lr}
+ 147 0004 164B     		ldr	r3, .L42
+ 148 0006 8046     		mov	r8, r0
+ 149 0008 1D68     		ldr	r5, [r3]
+ 150 000a 8DE80600 		stm	sp, {r1, r2}
+ 151 000e 25B9     		cbnz	r5, .L30
  152              	.L32:
- 153 0012 0125     		movs	r5, #1
+ 153 0010 0125     		movs	r5, #1
  154              	.L31:
- 155 0014 2846     		mov	r0, r5
- 156 0016 04B0     		add	sp, sp, #16
+ 155 0012 2846     		mov	r0, r5
+ 156 0014 04B0     		add	sp, sp, #16
  157              		@ sp needed
- 158 0018 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 158 0016 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
  159              	.L30:
- 160 001c 2B68     		ldr	r3, [r5]
- 161 001e 002B     		cmp	r3, #0
- 162 0020 F7D0     		beq	.L32
- 163 0022 9B68     		ldr	r3, [r3, #8]
- 164 0024 002B     		cmp	r3, #0
- 165 0026 F4D0     		beq	.L32
- 166 0028 DDF80480 		ldr	r8, [sp, #4]
- 167 002c 08F10107 		add	r7, r8, #1
- 168 0030 3846     		mov	r0, r7
- 169 0032 FFF7FEFF 		bl	malloc
- 170 0036 0446     		mov	r4, r0
- 171 0038 0028     		cmp	r0, #0
- 172 003a EAD0     		beq	.L32
- 173 003c 4246     		mov	r2, r8
- 174 003e 0099     		ldr	r1, [sp]
- 175 0040 00F8016B 		strb	r6, [r0], #1
- 176 0044 FFF7FEFF 		bl	memcpy
- 177 0048 CDE90247 		strd	r4, r7, [sp, #8]
- 178 004c 2B68     		ldr	r3, [r5]
-ARM GAS  /tmp/cck8V2eh.s 			page 4
+ 160 001a 2B68     		ldr	r3, [r5]
+ 161 001c 002B     		cmp	r3, #0
+ 162 001e F7D0     		beq	.L32
+ 163 0020 9B68     		ldr	r3, [r3, #8]
+ 164 0022 002B     		cmp	r3, #0
+ 165 0024 F4D0     		beq	.L32
+ 166 0026 019F     		ldr	r7, [sp, #4]
+ 167 0028 7E1C     		adds	r6, r7, #1
+ 168 002a 3046     		mov	r0, r6
+ 169 002c FFF7FEFF 		bl	malloc
+ 170 0030 0446     		mov	r4, r0
+ 171 0032 0028     		cmp	r0, #0
+ 172 0034 ECD0     		beq	.L32
+ 173 0036 3A46     		mov	r2, r7
+ 174 0038 0099     		ldr	r1, [sp]
+ 175 003a 00F8018B 		strb	r8, [r0], #1
+ 176 003e FFF7FEFF 		bl	memcpy
+ 177 0042 2B68     		ldr	r3, [r5]
+ 178 0044 0294     		str	r4, [sp, #8]
+ARM GAS  /tmp/ccwxgWeS.s 			page 4
 
 
- 179 004e 04A9     		add	r1, sp, #16
- 180 0050 0122     		movs	r2, #1
- 181 0052 11E90300 		ldmdb	r1, {r0, r1}
- 182 0056 9B68     		ldr	r3, [r3, #8]
- 183 0058 9847     		blx	r3
- 184 005a 0546     		mov	r5, r0
- 185 005c 2046     		mov	r0, r4
- 186 005e FFF7FEFF 		bl	free
- 187 0062 D7E7     		b	.L31
- 188              	.L43:
- 189              		.align	2
- 190              	.L42:
- 191 0064 00000000 		.word	.LANCHOR1
- 193              		.section	.text.IK_USB_HW_GetUSBDescriptor,"ax",%progbits
- 194              		.align	1
- 195              		.global	IK_USB_HW_GetUSBDescriptor
- 196              		.syntax unified
- 197              		.thumb
- 198              		.thumb_func
- 199              		.fpu softvfp
- 201              	IK_USB_HW_GetUSBDescriptor:
- 202              		@ args = 0, pretend = 0, frame = 0
- 203              		@ frame_needed = 0, uses_anonymous_args = 0
- 204 0000 10B5     		push	{r4, lr}
- 205 0002 0446     		mov	r4, r0
- 206 0004 0629     		cmp	r1, #6
- 207 0006 20D8     		bhi	.L45
- 208 0008 DFE801F0 		tbb	[pc, r1]
- 209              	.L47:
- 210 000c 22       		.byte	(.L54-.L47)/2
- 211 000d 04       		.byte	(.L52-.L47)/2
- 212 000e 0A       		.byte	(.L51-.L47)/2
- 213 000f 0D       		.byte	(.L50-.L47)/2
- 214 0010 10       		.byte	(.L49-.L47)/2
- 215 0011 17       		.byte	(.L48-.L47)/2
- 216 0012 1B       		.byte	(.L46-.L47)/2
- 217 0013 00       		.p2align 1
- 218              	.L52:
- 219 0014 2920     		movs	r0, #41
- 220 0016 104B     		ldr	r3, .L56
- 221              	.L53:
- 222 0018 C4E90030 		strd	r3, r0, [r4]
- 223 001c 2046     		mov	r0, r4
- 224 001e 10BD     		pop	{r4, pc}
- 225              	.L51:
- 226 0020 8E20     		movs	r0, #142
- 227 0022 0E4B     		ldr	r3, .L56+4
- 228 0024 F8E7     		b	.L53
- 229              	.L50:
- 230 0026 0420     		movs	r0, #4
- 231 0028 0D4B     		ldr	r3, .L56+8
- 232 002a F5E7     		b	.L53
- 233              	.L49:
- 234 002c 0D4B     		ldr	r3, .L56+12
- 235 002e 1B68     		ldr	r3, [r3]
- 236 0030 D868     		ldr	r0, [r3, #12]
- 237              	.L55:
-ARM GAS  /tmp/cck8V2eh.s 			page 5
+ 179 0046 0396     		str	r6, [sp, #12]
+ 180 0048 04A9     		add	r1, sp, #16
+ 181 004a 9B68     		ldr	r3, [r3, #8]
+ 182 004c 0122     		movs	r2, #1
+ 183 004e 11E90300 		ldmdb	r1, {r0, r1}
+ 184 0052 9847     		blx	r3
+ 185 0054 0546     		mov	r5, r0
+ 186 0056 2046     		mov	r0, r4
+ 187 0058 FFF7FEFF 		bl	free
+ 188 005c D9E7     		b	.L31
+ 189              	.L43:
+ 190 005e 00BF     		.align	2
+ 191              	.L42:
+ 192 0060 00000000 		.word	.LANCHOR1
+ 194              		.section	.text.IK_USB_HW_GetUSBDescriptor,"ax",%progbits
+ 195              		.align	1
+ 196              		.global	IK_USB_HW_GetUSBDescriptor
+ 197              		.syntax unified
+ 198              		.thumb
+ 199              		.thumb_func
+ 200              		.fpu softvfp
+ 202              	IK_USB_HW_GetUSBDescriptor:
+ 203              		@ args = 0, pretend = 0, frame = 0
+ 204              		@ frame_needed = 0, uses_anonymous_args = 0
+ 205 0000 10B5     		push	{r4, lr}
+ 206 0002 0446     		mov	r4, r0
+ 207 0004 0629     		cmp	r1, #6
+ 208 0006 20D8     		bhi	.L45
+ 209 0008 DFE801F0 		tbb	[pc, r1]
+ 210              	.L47:
+ 211 000c 22       		.byte	(.L54-.L47)/2
+ 212 000d 04       		.byte	(.L48-.L47)/2
+ 213 000e 0A       		.byte	(.L49-.L47)/2
+ 214 000f 0D       		.byte	(.L50-.L47)/2
+ 215 0010 10       		.byte	(.L51-.L47)/2
+ 216 0011 17       		.byte	(.L52-.L47)/2
+ 217 0012 1B       		.byte	(.L53-.L47)/2
+ 218 0013 00       		.p2align 1
+ 219              	.L48:
+ 220 0014 2920     		movs	r0, #41
+ 221 0016 104B     		ldr	r3, .L56
+ 222              	.L46:
+ 223 0018 6060     		str	r0, [r4, #4]
+ 224 001a 2360     		str	r3, [r4]
+ 225 001c 2046     		mov	r0, r4
+ 226 001e 10BD     		pop	{r4, pc}
+ 227              	.L49:
+ 228 0020 8E20     		movs	r0, #142
+ 229 0022 0E4B     		ldr	r3, .L56+4
+ 230 0024 F8E7     		b	.L46
+ 231              	.L50:
+ 232 0026 0420     		movs	r0, #4
+ 233 0028 0D4B     		ldr	r3, .L56+8
+ 234 002a F5E7     		b	.L46
+ 235              	.L51:
+ 236 002c 0D4B     		ldr	r3, .L56+12
+ 237 002e 1B68     		ldr	r3, [r3]
+ARM GAS  /tmp/ccwxgWeS.s 			page 5
 
 
- 238 0032 FFF7FEFF 		bl	_IK_USB_CharToStrDescBuf
- 239 0036 0C4B     		ldr	r3, .L56+16
- 240 0038 EEE7     		b	.L53
- 241              	.L48:
- 242 003a 0A4B     		ldr	r3, .L56+12
- 243 003c 1B68     		ldr	r3, [r3]
- 244 003e 1869     		ldr	r0, [r3, #16]
- 245 0040 F7E7     		b	.L55
- 246              	.L46:
- 247 0042 084B     		ldr	r3, .L56+12
- 248 0044 1B68     		ldr	r3, [r3]
- 249 0046 5869     		ldr	r0, [r3, #20]
- 250 0048 F3E7     		b	.L55
- 251              	.L45:
- 252 004a 0020     		movs	r0, #0
- 253 004c 0346     		mov	r3, r0
- 254 004e E3E7     		b	.L53
- 255              	.L54:
- 256 0050 1220     		movs	r0, #18
- 257 0052 064B     		ldr	r3, .L56+20
- 258 0054 E0E7     		b	.L53
- 259              	.L57:
- 260 0056 00BF     		.align	2
- 261              	.L56:
- 262 0058 00000000 		.word	IK_USB_DESCRIPTOR_CONFIG
- 263 005c 00000000 		.word	IK_USB_DESCRIPTOR_HID_REPORT
- 264 0060 00000000 		.word	IK_USB_DESCRIPTOR_LANGID
- 265 0064 00000000 		.word	.LANCHOR1
- 266 0068 00000000 		.word	.LANCHOR0
- 267 006c 00000000 		.word	IK_USB_DESCRIPTOR_DEVICE
- 269              		.section	.text.IK_USB_HW_ReceiveUSB,"ax",%progbits
- 270              		.align	1
- 271              		.global	IK_USB_HW_ReceiveUSB
- 272              		.syntax unified
- 273              		.thumb
- 274              		.thumb_func
- 275              		.fpu softvfp
- 277              	IK_USB_HW_ReceiveUSB:
- 278              		@ args = 0, pretend = 0, frame = 8
- 279              		@ frame_needed = 0, uses_anonymous_args = 0
- 280              		@ link register save eliminated.
- 281 0000 82B0     		sub	sp, sp, #8
- 282 0002 02AB     		add	r3, sp, #8
- 283 0004 03E90300 		stmdb	r3, {r0, r1}
- 284 0008 0020     		movs	r0, #0
- 285 000a 02B0     		add	sp, sp, #8
- 286              		@ sp needed
- 287 000c 7047     		bx	lr
- 289              		.section	.text.IK_USB_HW_SOFCallback,"ax",%progbits
- 290              		.align	1
- 291              		.global	IK_USB_HW_SOFCallback
- 292              		.syntax unified
- 293              		.thumb
- 294              		.thumb_func
- 295              		.fpu softvfp
- 297              	IK_USB_HW_SOFCallback:
- 298              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/cck8V2eh.s 			page 6
+ 238 0030 D868     		ldr	r0, [r3, #12]
+ 239              	.L55:
+ 240 0032 FFF7FEFF 		bl	_IK_USB_CharToStrDescBuf
+ 241 0036 0C4B     		ldr	r3, .L56+16
+ 242 0038 EEE7     		b	.L46
+ 243              	.L52:
+ 244 003a 0A4B     		ldr	r3, .L56+12
+ 245 003c 1B68     		ldr	r3, [r3]
+ 246 003e 1869     		ldr	r0, [r3, #16]
+ 247 0040 F7E7     		b	.L55
+ 248              	.L53:
+ 249 0042 084B     		ldr	r3, .L56+12
+ 250 0044 1B68     		ldr	r3, [r3]
+ 251 0046 5869     		ldr	r0, [r3, #20]
+ 252 0048 F3E7     		b	.L55
+ 253              	.L45:
+ 254 004a 0020     		movs	r0, #0
+ 255 004c 0346     		mov	r3, r0
+ 256 004e E3E7     		b	.L46
+ 257              	.L54:
+ 258 0050 1220     		movs	r0, #18
+ 259 0052 064B     		ldr	r3, .L56+20
+ 260 0054 E0E7     		b	.L46
+ 261              	.L57:
+ 262 0056 00BF     		.align	2
+ 263              	.L56:
+ 264 0058 00000000 		.word	IK_USB_DESCRIPTOR_CONFIG
+ 265 005c 00000000 		.word	IK_USB_DESCRIPTOR_HID_REPORT
+ 266 0060 00000000 		.word	IK_USB_DESCRIPTOR_LANGID
+ 267 0064 00000000 		.word	.LANCHOR1
+ 268 0068 00000000 		.word	.LANCHOR0
+ 269 006c 00000000 		.word	IK_USB_DESCRIPTOR_DEVICE
+ 271              		.section	.text.IK_USB_HW_ReceiveUSB,"ax",%progbits
+ 272              		.align	1
+ 273              		.global	IK_USB_HW_ReceiveUSB
+ 274              		.syntax unified
+ 275              		.thumb
+ 276              		.thumb_func
+ 277              		.fpu softvfp
+ 279              	IK_USB_HW_ReceiveUSB:
+ 280              		@ args = 0, pretend = 0, frame = 8
+ 281              		@ frame_needed = 0, uses_anonymous_args = 0
+ 282              		@ link register save eliminated.
+ 283 0000 82B0     		sub	sp, sp, #8
+ 284 0002 02AB     		add	r3, sp, #8
+ 285 0004 03E90300 		stmdb	r3, {r0, r1}
+ 286 0008 0020     		movs	r0, #0
+ 287 000a 02B0     		add	sp, sp, #8
+ 288              		@ sp needed
+ 289 000c 7047     		bx	lr
+ 291              		.section	.text.IK_USB_HW_SOFCallback,"ax",%progbits
+ 292              		.align	1
+ 293              		.global	IK_USB_HW_SOFCallback
+ 294              		.syntax unified
+ 295              		.thumb
+ 296              		.thumb_func
+ 297              		.fpu softvfp
+ARM GAS  /tmp/ccwxgWeS.s 			page 6
 
 
- 299              		@ frame_needed = 0, uses_anonymous_args = 0
- 300              		@ link register save eliminated.
- 301 0000 FFF7FEBF 		b	IK_KBM_SendHIDReport
- 303              		.section	.bss._usb_init,"aw",%nobits
- 304              		.align	2
- 305              		.set	.LANCHOR1,. + 0
- 308              	_usb_init:
- 309 0000 00000000 		.space	4
- 310              		.section	.bss._usb_str_desc_buf,"aw",%nobits
- 311              		.set	.LANCHOR0,. + 0
- 314              	_usb_str_desc_buf:
- 315 0000 00000000 		.space	128
- 315      00000000 
- 315      00000000 
- 315      00000000 
- 315      00000000 
- 316              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
-ARM GAS  /tmp/cck8V2eh.s 			page 7
+ 299              	IK_USB_HW_SOFCallback:
+ 300              		@ args = 0, pretend = 0, frame = 0
+ 301              		@ frame_needed = 0, uses_anonymous_args = 0
+ 302              		@ link register save eliminated.
+ 303 0000 FFF7FEBF 		b	IK_KBM_SendHIDReport
+ 305              		.section	.bss._usb_init,"aw",%nobits
+ 306              		.align	2
+ 307              		.set	.LANCHOR1,. + 0
+ 310              	_usb_init:
+ 311 0000 00000000 		.space	4
+ 312              		.section	.bss._usb_str_desc_buf,"aw",%nobits
+ 313              		.set	.LANCHOR0,. + 0
+ 316              	_usb_str_desc_buf:
+ 317 0000 00000000 		.space	128
+ 317      00000000 
+ 317      00000000 
+ 317      00000000 
+ 317      00000000 
+ 318              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
+ARM GAS  /tmp/ccwxgWeS.s 			page 7
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 infinikeys_usb.c
-     /tmp/cck8V2eh.s:14     .text._IK_USB_CharToStrDescBuf:0000000000000000 $t
-     /tmp/cck8V2eh.s:21     .text._IK_USB_CharToStrDescBuf:0000000000000000 _IK_USB_CharToStrDescBuf
-     /tmp/cck8V2eh.s:58     .text._IK_USB_CharToStrDescBuf:000000000000003c $d
-     /tmp/cck8V2eh.s:61     .text.IK_USB_Init:0000000000000000 $t
-     /tmp/cck8V2eh.s:68     .text.IK_USB_Init:0000000000000000 IK_USB_Init
-     /tmp/cck8V2eh.s:101    .text.IK_USB_Init:0000000000000034 $d
-     /tmp/cck8V2eh.s:106    .text.IK_USB_DeInit:0000000000000000 $t
-     /tmp/cck8V2eh.s:113    .text.IK_USB_DeInit:0000000000000000 IK_USB_DeInit
-     /tmp/cck8V2eh.s:132    .text.IK_USB_DeInit:0000000000000018 $d
-     /tmp/cck8V2eh.s:135    .text.IK_USB_SendHIDReport:0000000000000000 $t
-     /tmp/cck8V2eh.s:142    .text.IK_USB_SendHIDReport:0000000000000000 IK_USB_SendHIDReport
-     /tmp/cck8V2eh.s:191    .text.IK_USB_SendHIDReport:0000000000000064 $d
-     /tmp/cck8V2eh.s:194    .text.IK_USB_HW_GetUSBDescriptor:0000000000000000 $t
-     /tmp/cck8V2eh.s:201    .text.IK_USB_HW_GetUSBDescriptor:0000000000000000 IK_USB_HW_GetUSBDescriptor
-     /tmp/cck8V2eh.s:210    .text.IK_USB_HW_GetUSBDescriptor:000000000000000c $d
-     /tmp/cck8V2eh.s:262    .text.IK_USB_HW_GetUSBDescriptor:0000000000000058 $d
-     /tmp/cck8V2eh.s:270    .text.IK_USB_HW_ReceiveUSB:0000000000000000 $t
-     /tmp/cck8V2eh.s:277    .text.IK_USB_HW_ReceiveUSB:0000000000000000 IK_USB_HW_ReceiveUSB
-     /tmp/cck8V2eh.s:290    .text.IK_USB_HW_SOFCallback:0000000000000000 $t
-     /tmp/cck8V2eh.s:297    .text.IK_USB_HW_SOFCallback:0000000000000000 IK_USB_HW_SOFCallback
-     /tmp/cck8V2eh.s:304    .bss._usb_init:0000000000000000 $d
-     /tmp/cck8V2eh.s:308    .bss._usb_init:0000000000000000 _usb_init
-     /tmp/cck8V2eh.s:314    .bss._usb_str_desc_buf:0000000000000000 _usb_str_desc_buf
-     /tmp/cck8V2eh.s:315    .bss._usb_str_desc_buf:0000000000000000 $d
-     /tmp/cck8V2eh.s:217    .text.IK_USB_HW_GetUSBDescriptor:0000000000000013 $d
-     /tmp/cck8V2eh.s:217    .text.IK_USB_HW_GetUSBDescriptor:0000000000000014 $t
+     /tmp/ccwxgWeS.s:13     .text._IK_USB_CharToStrDescBuf:0000000000000000 $t
+     /tmp/ccwxgWeS.s:19     .text._IK_USB_CharToStrDescBuf:0000000000000000 _IK_USB_CharToStrDescBuf
+     /tmp/ccwxgWeS.s:60     .text._IK_USB_CharToStrDescBuf:0000000000000040 $d
+     /tmp/ccwxgWeS.s:63     .text.IK_USB_Init:0000000000000000 $t
+     /tmp/ccwxgWeS.s:70     .text.IK_USB_Init:0000000000000000 IK_USB_Init
+     /tmp/ccwxgWeS.s:102    .text.IK_USB_Init:0000000000000034 $d
+     /tmp/ccwxgWeS.s:107    .text.IK_USB_DeInit:0000000000000000 $t
+     /tmp/ccwxgWeS.s:114    .text.IK_USB_DeInit:0000000000000000 IK_USB_DeInit
+     /tmp/ccwxgWeS.s:133    .text.IK_USB_DeInit:0000000000000018 $d
+     /tmp/ccwxgWeS.s:136    .text.IK_USB_SendHIDReport:0000000000000000 $t
+     /tmp/ccwxgWeS.s:143    .text.IK_USB_SendHIDReport:0000000000000000 IK_USB_SendHIDReport
+     /tmp/ccwxgWeS.s:192    .text.IK_USB_SendHIDReport:0000000000000060 $d
+     /tmp/ccwxgWeS.s:195    .text.IK_USB_HW_GetUSBDescriptor:0000000000000000 $t
+     /tmp/ccwxgWeS.s:202    .text.IK_USB_HW_GetUSBDescriptor:0000000000000000 IK_USB_HW_GetUSBDescriptor
+     /tmp/ccwxgWeS.s:211    .text.IK_USB_HW_GetUSBDescriptor:000000000000000c $d
+     /tmp/ccwxgWeS.s:264    .text.IK_USB_HW_GetUSBDescriptor:0000000000000058 $d
+     /tmp/ccwxgWeS.s:272    .text.IK_USB_HW_ReceiveUSB:0000000000000000 $t
+     /tmp/ccwxgWeS.s:279    .text.IK_USB_HW_ReceiveUSB:0000000000000000 IK_USB_HW_ReceiveUSB
+     /tmp/ccwxgWeS.s:292    .text.IK_USB_HW_SOFCallback:0000000000000000 $t
+     /tmp/ccwxgWeS.s:299    .text.IK_USB_HW_SOFCallback:0000000000000000 IK_USB_HW_SOFCallback
+     /tmp/ccwxgWeS.s:306    .bss._usb_init:0000000000000000 $d
+     /tmp/ccwxgWeS.s:310    .bss._usb_init:0000000000000000 _usb_init
+     /tmp/ccwxgWeS.s:316    .bss._usb_str_desc_buf:0000000000000000 _usb_str_desc_buf
+     /tmp/ccwxgWeS.s:317    .bss._usb_str_desc_buf:0000000000000000 $d
+     /tmp/ccwxgWeS.s:218    .text.IK_USB_HW_GetUSBDescriptor:0000000000000013 $d
+     /tmp/ccwxgWeS.s:218    .text.IK_USB_HW_GetUSBDescriptor:0000000000000014 $t
 
 UNDEFINED SYMBOLS
 IK_USB_DESCRIPTOR_DEVICE

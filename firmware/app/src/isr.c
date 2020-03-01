@@ -5,6 +5,8 @@
 #include "neopixel32.h"
 #include "stm32f1xx_hal.h"
 
+extern PCD_HandleTypeDef hpcd_USB_FS;
+
 void NMI_Handler(void)
 {
 
@@ -83,3 +85,9 @@ void DMA1_Channel1_IRQHandler(void)
     HAL_DMA_IRQHandler(hw_timer2_ch3_dma_handle);
     NP32_DMAComplete_Callback(hw_ws2812_handle);
 }
+
+void USB_LP_CAN1_RX0_IRQHandler(void)
+{
+    HAL_PCD_IRQHandler(&hpcd_USB_FS);
+}
+

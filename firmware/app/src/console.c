@@ -42,12 +42,37 @@ void CONSOLE_Print(const char *format, ...)
     free(fmsg);
 }
 
+void CONSOLE_vPrint(const char *format, va_list args)
+{
+    uint32_t flen;
+    char *fmsg;
+
+    // Check for valid handle.
+    if (_console_usart == NULL)
+        return;
+
+    // Allocate the buffer for fmsg.
+    fmsg = (char *) malloc(strlen(format) + 256);
+
+    if (fmsg == NULL)
+        return;
+
+    // sprintf the message with format to fmsg.
+    flen = (uint32_t) vsprintf(fmsg, format, args);
+
+    // Print to U(S)ART.
+    HAL_UART_Transmit(_console_usart, (uint8_t *) fmsg, flen, 10);
+
+    // De-allocate memory for message.
+    free(fmsg);
+}
+
 void CONSOLE_PrintLn(const char *format, ...)
 {
     va_list args;
 
     va_start(args, format);
-    CONSOLE_Print(format, args);
+    CONSOLE_vPrint(format, args);
     va_end(args);
 
     CONSOLE_Print("\n");

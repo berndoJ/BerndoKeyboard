@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccsX9qc0.s 			page 1
+ARM GAS  /tmp/ccXMaQgQ.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -12,69 +12,64 @@ ARM GAS  /tmp/ccsX9qc0.s 			page 1
    9              		.eabi_attribute 34, 1
   10              		.eabi_attribute 18, 4
   11              		.file	"infinikeys_stm32cube_usb_if.c"
-  12              		.text
-  13              		.section	.text.IK_USBD_HID_Init,"ax",%progbits
-  14              		.align	1
-  15              		.arch armv7-m
-  16              		.syntax unified
-  17              		.thumb
-  18              		.thumb_func
-  19              		.fpu softvfp
-  21              	IK_USBD_HID_Init:
-  22              		@ args = 0, pretend = 0, frame = 0
-  23              		@ frame_needed = 0, uses_anonymous_args = 0
-  24              		@ link register save eliminated.
-  25 0000 0020     		movs	r0, #0
-  26 0002 7047     		bx	lr
-  28              		.section	.text.IK_USBD_HID_OutEvent,"ax",%progbits
-  29              		.align	1
-  30              		.syntax unified
-  31              		.thumb
-  32              		.thumb_func
-  33              		.fpu softvfp
-  35              	IK_USBD_HID_OutEvent:
-  36              		@ args = 0, pretend = 0, frame = 0
-  37              		@ frame_needed = 0, uses_anonymous_args = 0
-  38              		@ link register save eliminated.
-  39 0000 0020     		movs	r0, #0
-  40 0002 7047     		bx	lr
-  42              		.section	.text.IK_USBD_HID_DeInit,"ax",%progbits
-  43              		.align	1
-  44              		.syntax unified
-  45              		.thumb
-  46              		.thumb_func
-  47              		.fpu softvfp
-  49              	IK_USBD_HID_DeInit:
-  50              		@ args = 0, pretend = 0, frame = 0
-  51              		@ frame_needed = 0, uses_anonymous_args = 0
-  52              		@ link register save eliminated.
-  53 0000 0020     		movs	r0, #0
-  54 0002 7047     		bx	lr
-  56              		.global	IK_USBD_HID_Itf
-  57              		.section	.data.IK_USBD_HID_Itf,"aw"
-  58              		.align	2
-  61              	IK_USBD_HID_Itf:
-  62 0000 00000000 		.word	IK_USB_DESCRIPTOR_HID_REPORT
-  63 0004 00000000 		.word	IK_USBD_HID_Init
-  64 0008 00000000 		.word	IK_USBD_HID_DeInit
-  65 000c 00000000 		.word	IK_USBD_HID_OutEvent
-ARM GAS  /tmp/ccsX9qc0.s 			page 2
-
-
-  66              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
-ARM GAS  /tmp/ccsX9qc0.s 			page 3
+  12              		.section	.text.IK_USBD_HID_DeInit,"ax",%progbits
+  13              		.align	1
+  14              		.syntax unified
+  15              		.thumb
+  16              		.thumb_func
+  17              		.fpu softvfp
+  19              	IK_USBD_HID_DeInit:
+  20              		@ args = 0, pretend = 0, frame = 0
+  21              		@ frame_needed = 0, uses_anonymous_args = 0
+  22              		@ link register save eliminated.
+  23 0000 0020     		movs	r0, #0
+  24 0002 7047     		bx	lr
+  26              		.section	.text.IK_USBD_HID_OutEvent,"ax",%progbits
+  27              		.align	1
+  28              		.syntax unified
+  29              		.thumb
+  30              		.thumb_func
+  31              		.fpu softvfp
+  33              	IK_USBD_HID_OutEvent:
+  34              		@ args = 0, pretend = 0, frame = 0
+  35              		@ frame_needed = 0, uses_anonymous_args = 0
+  36              		@ link register save eliminated.
+  37 0000 0020     		movs	r0, #0
+  38 0002 7047     		bx	lr
+  40              		.section	.text.IK_USBD_HID_Init,"ax",%progbits
+  41              		.align	1
+  42              		.syntax unified
+  43              		.thumb
+  44              		.thumb_func
+  45              		.fpu softvfp
+  47              	IK_USBD_HID_Init:
+  48              		@ args = 0, pretend = 0, frame = 0
+  49              		@ frame_needed = 0, uses_anonymous_args = 0
+  50              		@ link register save eliminated.
+  51 0000 0020     		movs	r0, #0
+  52 0002 7047     		bx	lr
+  54              		.global	IK_USBD_HID_Itf
+  55              		.section	.data.IK_USBD_HID_Itf,"aw",%progbits
+  56              		.align	2
+  59              	IK_USBD_HID_Itf:
+  60 0000 00000000 		.word	IK_USB_DESCRIPTOR_HID_REPORT
+  61 0004 00000000 		.word	IK_USBD_HID_Init
+  62 0008 00000000 		.word	IK_USBD_HID_DeInit
+  63 000c 00000000 		.word	IK_USBD_HID_OutEvent
+  64              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
+ARM GAS  /tmp/ccXMaQgQ.s 			page 2
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 infinikeys_stm32cube_usb_if.c
-     /tmp/ccsX9qc0.s:14     .text.IK_USBD_HID_Init:0000000000000000 $t
-     /tmp/ccsX9qc0.s:21     .text.IK_USBD_HID_Init:0000000000000000 IK_USBD_HID_Init
-     /tmp/ccsX9qc0.s:29     .text.IK_USBD_HID_OutEvent:0000000000000000 $t
-     /tmp/ccsX9qc0.s:35     .text.IK_USBD_HID_OutEvent:0000000000000000 IK_USBD_HID_OutEvent
-     /tmp/ccsX9qc0.s:43     .text.IK_USBD_HID_DeInit:0000000000000000 $t
-     /tmp/ccsX9qc0.s:49     .text.IK_USBD_HID_DeInit:0000000000000000 IK_USBD_HID_DeInit
-     /tmp/ccsX9qc0.s:61     .data.IK_USBD_HID_Itf:0000000000000000 IK_USBD_HID_Itf
-     /tmp/ccsX9qc0.s:58     .data.IK_USBD_HID_Itf:0000000000000000 $d
+     /tmp/ccXMaQgQ.s:13     .text.IK_USBD_HID_DeInit:0000000000000000 $t
+     /tmp/ccXMaQgQ.s:19     .text.IK_USBD_HID_DeInit:0000000000000000 IK_USBD_HID_DeInit
+     /tmp/ccXMaQgQ.s:27     .text.IK_USBD_HID_OutEvent:0000000000000000 $t
+     /tmp/ccXMaQgQ.s:33     .text.IK_USBD_HID_OutEvent:0000000000000000 IK_USBD_HID_OutEvent
+     /tmp/ccXMaQgQ.s:41     .text.IK_USBD_HID_Init:0000000000000000 $t
+     /tmp/ccXMaQgQ.s:47     .text.IK_USBD_HID_Init:0000000000000000 IK_USBD_HID_Init
+     /tmp/ccXMaQgQ.s:59     .data.IK_USBD_HID_Itf:0000000000000000 IK_USBD_HID_Itf
+     /tmp/ccXMaQgQ.s:56     .data.IK_USBD_HID_Itf:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 IK_USB_DESCRIPTOR_HID_REPORT

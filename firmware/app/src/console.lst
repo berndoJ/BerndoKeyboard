@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc8Tb1Pe.s 			page 1
+ARM GAS  /tmp/ccXdvcVs.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -12,153 +12,191 @@ ARM GAS  /tmp/cc8Tb1Pe.s 			page 1
    9              		.eabi_attribute 34, 1
   10              		.eabi_attribute 18, 4
   11              		.file	"console.c"
-  12              		.text
-  13              		.section	.text.CONSOLE_Init,"ax",%progbits
-  14              		.align	1
-  15              		.global	CONSOLE_Init
-  16              		.arch armv7-m
-  17              		.syntax unified
-  18              		.thumb
-  19              		.thumb_func
-  20              		.fpu softvfp
-  22              	CONSOLE_Init:
-  23              		@ args = 0, pretend = 0, frame = 0
-  24              		@ frame_needed = 0, uses_anonymous_args = 0
-  25              		@ link register save eliminated.
-  26 0000 08B1     		cbz	r0, .L1
-  27 0002 014B     		ldr	r3, .L6
-  28 0004 1860     		str	r0, [r3]
-  29              	.L1:
-  30 0006 7047     		bx	lr
-  31              	.L7:
-  32              		.align	2
-  33              	.L6:
-  34 0008 00000000 		.word	.LANCHOR0
-  36              		.section	.text.CONSOLE_Print,"ax",%progbits
-  37              		.align	1
-  38              		.global	CONSOLE_Print
-  39              		.syntax unified
-  40              		.thumb
-  41              		.thumb_func
-  42              		.fpu softvfp
-  44              	CONSOLE_Print:
-  45              		@ args = 4, pretend = 16, frame = 8
-  46              		@ frame_needed = 0, uses_anonymous_args = 1
-  47 0000 0FB4     		push	{r0, r1, r2, r3}
-  48 0002 73B5     		push	{r0, r1, r4, r5, r6, lr}
-  49 0004 0F4D     		ldr	r5, .L17
-  50 0006 069E     		ldr	r6, [sp, #24]
-  51 0008 2B68     		ldr	r3, [r5]
-  52 000a B3B1     		cbz	r3, .L8
-  53 000c 3046     		mov	r0, r6
-  54 000e FFF7FEFF 		bl	strlen
-  55 0012 00F58070 		add	r0, r0, #256
-  56 0016 FFF7FEFF 		bl	malloc
-  57 001a 0446     		mov	r4, r0
-  58 001c 68B1     		cbz	r0, .L8
-  59 001e 07AA     		add	r2, sp, #28
-  60 0020 3146     		mov	r1, r6
-ARM GAS  /tmp/cc8Tb1Pe.s 			page 2
+  12              		.section	.text.CONSOLE_Init,"ax",%progbits
+  13              		.align	1
+  14              		.global	CONSOLE_Init
+  15              		.syntax unified
+  16              		.thumb
+  17              		.thumb_func
+  18              		.fpu softvfp
+  20              	CONSOLE_Init:
+  21              		@ args = 0, pretend = 0, frame = 0
+  22              		@ frame_needed = 0, uses_anonymous_args = 0
+  23              		@ link register save eliminated.
+  24 0000 08B1     		cbz	r0, .L1
+  25 0002 014B     		ldr	r3, .L6
+  26 0004 1860     		str	r0, [r3]
+  27              	.L1:
+  28 0006 7047     		bx	lr
+  29              	.L7:
+  30              		.align	2
+  31              	.L6:
+  32 0008 00000000 		.word	.LANCHOR0
+  34              		.section	.text.CONSOLE_Print,"ax",%progbits
+  35              		.align	1
+  36              		.global	CONSOLE_Print
+  37              		.syntax unified
+  38              		.thumb
+  39              		.thumb_func
+  40              		.fpu softvfp
+  42              	CONSOLE_Print:
+  43              		@ args = 4, pretend = 16, frame = 8
+  44              		@ frame_needed = 0, uses_anonymous_args = 1
+  45 0000 0FB4     		push	{r0, r1, r2, r3}
+  46 0002 37B5     		push	{r0, r1, r2, r4, r5, lr}
+  47 0004 0F4D     		ldr	r5, .L17
+  48 0006 2B68     		ldr	r3, [r5]
+  49 0008 B3B1     		cbz	r3, .L8
+  50 000a 0698     		ldr	r0, [sp, #24]
+  51 000c FFF7FEFF 		bl	strlen
+  52 0010 00F58070 		add	r0, r0, #256
+  53 0014 FFF7FEFF 		bl	malloc
+  54 0018 0446     		mov	r4, r0
+  55 001a 68B1     		cbz	r0, .L8
+  56 001c 07AA     		add	r2, sp, #28
+  57 001e 0699     		ldr	r1, [sp, #24]
+  58 0020 0192     		str	r2, [sp, #4]
+  59 0022 FFF7FEFF 		bl	vsprintf
+  60 0026 0A23     		movs	r3, #10
+ARM GAS  /tmp/ccXdvcVs.s 			page 2
 
 
-  61 0022 0192     		str	r2, [sp, #4]
-  62 0024 FFF7FEFF 		bl	vsprintf
-  63 0028 0A23     		movs	r3, #10
-  64 002a 82B2     		uxth	r2, r0
-  65 002c 2146     		mov	r1, r4
-  66 002e 2868     		ldr	r0, [r5]
-  67 0030 FFF7FEFF 		bl	HAL_UART_Transmit
-  68 0034 2046     		mov	r0, r4
-  69 0036 FFF7FEFF 		bl	free
-  70              	.L8:
-  71 003a 02B0     		add	sp, sp, #8
-  72              		@ sp needed
-  73 003c BDE87040 		pop	{r4, r5, r6, lr}
-  74 0040 04B0     		add	sp, sp, #16
-  75 0042 7047     		bx	lr
-  76              	.L18:
-  77              		.align	2
-  78              	.L17:
-  79 0044 00000000 		.word	.LANCHOR0
-  81              		.section	.rodata.CONSOLE_PrintLn.str1.1,"aMS",%progbits,1
-  82              	.LC0:
-  83 0000 0A00     		.ascii	"\012\000"
-  84              		.section	.text.CONSOLE_PrintLn,"ax",%progbits
-  85              		.align	1
-  86              		.global	CONSOLE_PrintLn
-  87              		.syntax unified
-  88              		.thumb
-  89              		.thumb_func
-  90              		.fpu softvfp
-  92              	CONSOLE_PrintLn:
-  93              		@ args = 4, pretend = 16, frame = 8
-  94              		@ frame_needed = 0, uses_anonymous_args = 1
-  95 0000 0FB4     		push	{r0, r1, r2, r3}
-  96 0002 07B5     		push	{r0, r1, r2, lr}
-  97 0004 04A9     		add	r1, sp, #16
-  98 0006 51F8040B 		ldr	r0, [r1], #4
-  99 000a 0191     		str	r1, [sp, #4]
- 100 000c FFF7FEFF 		bl	CONSOLE_Print
- 101 0010 0348     		ldr	r0, .L20
- 102 0012 FFF7FEFF 		bl	CONSOLE_Print
- 103 0016 03B0     		add	sp, sp, #12
- 104              		@ sp needed
- 105 0018 5DF804EB 		ldr	lr, [sp], #4
- 106 001c 04B0     		add	sp, sp, #16
- 107 001e 7047     		bx	lr
- 108              	.L21:
- 109              		.align	2
- 110              	.L20:
- 111 0020 00000000 		.word	.LC0
- 113              		.section	.rodata.CONSOLE_ClearScreen.str1.1,"aMS",%progbits,1
- 114              	.LC1:
- 115 0000 1B5B324A 		.ascii	"\033[2J\033[H\000"
- 115      1B5B4800 
- 116              		.section	.text.CONSOLE_ClearScreen,"ax",%progbits
- 117              		.align	1
- 118              		.global	CONSOLE_ClearScreen
- 119              		.syntax unified
-ARM GAS  /tmp/cc8Tb1Pe.s 			page 3
+  61 0028 82B2     		uxth	r2, r0
+  62 002a 2146     		mov	r1, r4
+  63 002c 2868     		ldr	r0, [r5]
+  64 002e FFF7FEFF 		bl	HAL_UART_Transmit
+  65 0032 2046     		mov	r0, r4
+  66 0034 FFF7FEFF 		bl	free
+  67              	.L8:
+  68 0038 03B0     		add	sp, sp, #12
+  69              		@ sp needed
+  70 003a BDE83040 		pop	{r4, r5, lr}
+  71 003e 04B0     		add	sp, sp, #16
+  72 0040 7047     		bx	lr
+  73              	.L18:
+  74 0042 00BF     		.align	2
+  75              	.L17:
+  76 0044 00000000 		.word	.LANCHOR0
+  78              		.section	.text.CONSOLE_vPrint,"ax",%progbits
+  79              		.align	1
+  80              		.global	CONSOLE_vPrint
+  81              		.syntax unified
+  82              		.thumb
+  83              		.thumb_func
+  84              		.fpu softvfp
+  86              	CONSOLE_vPrint:
+  87              		@ args = 0, pretend = 0, frame = 0
+  88              		@ frame_needed = 0, uses_anonymous_args = 0
+  89 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  90 0002 0E4D     		ldr	r5, .L26
+  91 0004 0646     		mov	r6, r0
+  92 0006 2B68     		ldr	r3, [r5]
+  93 0008 0F46     		mov	r7, r1
+  94 000a B3B1     		cbz	r3, .L19
+  95 000c FFF7FEFF 		bl	strlen
+  96 0010 00F58070 		add	r0, r0, #256
+  97 0014 FFF7FEFF 		bl	malloc
+  98 0018 0446     		mov	r4, r0
+  99 001a 70B1     		cbz	r0, .L19
+ 100 001c 3A46     		mov	r2, r7
+ 101 001e 3146     		mov	r1, r6
+ 102 0020 FFF7FEFF 		bl	vsprintf
+ 103 0024 0A23     		movs	r3, #10
+ 104 0026 82B2     		uxth	r2, r0
+ 105 0028 2146     		mov	r1, r4
+ 106 002a 2868     		ldr	r0, [r5]
+ 107 002c FFF7FEFF 		bl	HAL_UART_Transmit
+ 108 0030 2046     		mov	r0, r4
+ 109 0032 BDE8F840 		pop	{r3, r4, r5, r6, r7, lr}
+ 110 0036 FFF7FEBF 		b	free
+ 111              	.L19:
+ 112 003a F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 113              	.L27:
+ 114              		.align	2
+ 115              	.L26:
+ 116 003c 00000000 		.word	.LANCHOR0
+ 118              		.section	.text.CONSOLE_PrintLn,"ax",%progbits
+ 119              		.align	1
+ 120              		.global	CONSOLE_PrintLn
+ARM GAS  /tmp/ccXdvcVs.s 			page 3
 
 
- 120              		.thumb
- 121              		.thumb_func
- 122              		.fpu softvfp
- 124              	CONSOLE_ClearScreen:
- 125              		@ args = 0, pretend = 0, frame = 0
- 126              		@ frame_needed = 0, uses_anonymous_args = 0
- 127              		@ link register save eliminated.
- 128 0000 0148     		ldr	r0, .L23
- 129 0002 FFF7FEBF 		b	CONSOLE_Print
- 130              	.L24:
- 131 0006 00BF     		.align	2
- 132              	.L23:
- 133 0008 00000000 		.word	.LC1
- 135              		.section	.bss._console_usart,"aw",%nobits
- 136              		.align	2
- 137              		.set	.LANCHOR0,. + 0
- 140              	_console_usart:
- 141 0000 00000000 		.space	4
- 142              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
-ARM GAS  /tmp/cc8Tb1Pe.s 			page 4
+ 121              		.syntax unified
+ 122              		.thumb
+ 123              		.thumb_func
+ 124              		.fpu softvfp
+ 126              	CONSOLE_PrintLn:
+ 127              		@ args = 4, pretend = 16, frame = 8
+ 128              		@ frame_needed = 0, uses_anonymous_args = 1
+ 129 0000 0FB4     		push	{r0, r1, r2, r3}
+ 130 0002 07B5     		push	{r0, r1, r2, lr}
+ 131 0004 04A9     		add	r1, sp, #16
+ 132 0006 51F8040B 		ldr	r0, [r1], #4
+ 133 000a 0191     		str	r1, [sp, #4]
+ 134 000c FFF7FEFF 		bl	CONSOLE_vPrint
+ 135 0010 0348     		ldr	r0, .L29
+ 136 0012 FFF7FEFF 		bl	CONSOLE_Print
+ 137 0016 03B0     		add	sp, sp, #12
+ 138              		@ sp needed
+ 139 0018 5DF804EB 		ldr	lr, [sp], #4
+ 140 001c 04B0     		add	sp, sp, #16
+ 141 001e 7047     		bx	lr
+ 142              	.L30:
+ 143              		.align	2
+ 144              	.L29:
+ 145 0020 00000000 		.word	.LC0
+ 147              		.section	.text.CONSOLE_ClearScreen,"ax",%progbits
+ 148              		.align	1
+ 149              		.global	CONSOLE_ClearScreen
+ 150              		.syntax unified
+ 151              		.thumb
+ 152              		.thumb_func
+ 153              		.fpu softvfp
+ 155              	CONSOLE_ClearScreen:
+ 156              		@ args = 0, pretend = 0, frame = 0
+ 157              		@ frame_needed = 0, uses_anonymous_args = 0
+ 158              		@ link register save eliminated.
+ 159 0000 0148     		ldr	r0, .L32
+ 160 0002 FFF7FEBF 		b	CONSOLE_Print
+ 161              	.L33:
+ 162 0006 00BF     		.align	2
+ 163              	.L32:
+ 164 0008 00000000 		.word	.LC1
+ 166              		.section	.bss._console_usart,"aw",%nobits
+ 167              		.align	2
+ 168              		.set	.LANCHOR0,. + 0
+ 171              	_console_usart:
+ 172 0000 00000000 		.space	4
+ 173              		.section	.rodata.CONSOLE_ClearScreen.str1.1,"aMS",%progbits,1
+ 174              	.LC1:
+ 175 0000 1B5B324A 		.ascii	"\033[2J\033[H\000"
+ 175      1B5B4800 
+ 176              		.section	.rodata.CONSOLE_PrintLn.str1.1,"aMS",%progbits,1
+ 177              	.LC0:
+ 178 0000 0A00     		.ascii	"\012\000"
+ 179              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
+ARM GAS  /tmp/ccXdvcVs.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 console.c
-     /tmp/cc8Tb1Pe.s:14     .text.CONSOLE_Init:0000000000000000 $t
-     /tmp/cc8Tb1Pe.s:22     .text.CONSOLE_Init:0000000000000000 CONSOLE_Init
-     /tmp/cc8Tb1Pe.s:34     .text.CONSOLE_Init:0000000000000008 $d
-     /tmp/cc8Tb1Pe.s:37     .text.CONSOLE_Print:0000000000000000 $t
-     /tmp/cc8Tb1Pe.s:44     .text.CONSOLE_Print:0000000000000000 CONSOLE_Print
-     /tmp/cc8Tb1Pe.s:79     .text.CONSOLE_Print:0000000000000044 $d
-     /tmp/cc8Tb1Pe.s:85     .text.CONSOLE_PrintLn:0000000000000000 $t
-     /tmp/cc8Tb1Pe.s:92     .text.CONSOLE_PrintLn:0000000000000000 CONSOLE_PrintLn
-     /tmp/cc8Tb1Pe.s:111    .text.CONSOLE_PrintLn:0000000000000020 $d
-     /tmp/cc8Tb1Pe.s:117    .text.CONSOLE_ClearScreen:0000000000000000 $t
-     /tmp/cc8Tb1Pe.s:124    .text.CONSOLE_ClearScreen:0000000000000000 CONSOLE_ClearScreen
-     /tmp/cc8Tb1Pe.s:133    .text.CONSOLE_ClearScreen:0000000000000008 $d
-     /tmp/cc8Tb1Pe.s:136    .bss._console_usart:0000000000000000 $d
-     /tmp/cc8Tb1Pe.s:140    .bss._console_usart:0000000000000000 _console_usart
+     /tmp/ccXdvcVs.s:13     .text.CONSOLE_Init:0000000000000000 $t
+     /tmp/ccXdvcVs.s:20     .text.CONSOLE_Init:0000000000000000 CONSOLE_Init
+     /tmp/ccXdvcVs.s:32     .text.CONSOLE_Init:0000000000000008 $d
+     /tmp/ccXdvcVs.s:35     .text.CONSOLE_Print:0000000000000000 $t
+     /tmp/ccXdvcVs.s:42     .text.CONSOLE_Print:0000000000000000 CONSOLE_Print
+     /tmp/ccXdvcVs.s:76     .text.CONSOLE_Print:0000000000000044 $d
+     /tmp/ccXdvcVs.s:79     .text.CONSOLE_vPrint:0000000000000000 $t
+     /tmp/ccXdvcVs.s:86     .text.CONSOLE_vPrint:0000000000000000 CONSOLE_vPrint
+     /tmp/ccXdvcVs.s:116    .text.CONSOLE_vPrint:000000000000003c $d
+     /tmp/ccXdvcVs.s:119    .text.CONSOLE_PrintLn:0000000000000000 $t
+     /tmp/ccXdvcVs.s:126    .text.CONSOLE_PrintLn:0000000000000000 CONSOLE_PrintLn
+     /tmp/ccXdvcVs.s:145    .text.CONSOLE_PrintLn:0000000000000020 $d
+     /tmp/ccXdvcVs.s:148    .text.CONSOLE_ClearScreen:0000000000000000 $t
+     /tmp/ccXdvcVs.s:155    .text.CONSOLE_ClearScreen:0000000000000000 CONSOLE_ClearScreen
+     /tmp/ccXdvcVs.s:164    .text.CONSOLE_ClearScreen:0000000000000008 $d
+     /tmp/ccXdvcVs.s:167    .bss._console_usart:0000000000000000 $d
+     /tmp/ccXdvcVs.s:171    .bss._console_usart:0000000000000000 _console_usart
 
 UNDEFINED SYMBOLS
 strlen

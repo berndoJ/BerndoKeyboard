@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccJY0FmE.s 			page 1
+ARM GAS  /tmp/ccchu7dp.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -12,811 +12,806 @@ ARM GAS  /tmp/ccJY0FmE.s 			page 1
    9              		.eabi_attribute 34, 1
   10              		.eabi_attribute 18, 4
   11              		.file	"usbd_conf.c"
-  12              		.text
-  13              		.section	.text.HAL_PCD_MspInit,"ax",%progbits
-  14              		.align	1
-  15              		.global	HAL_PCD_MspInit
-  16              		.arch armv7-m
-  17              		.syntax unified
-  18              		.thumb
-  19              		.thumb_func
-  20              		.fpu softvfp
-  22              	HAL_PCD_MspInit:
-  23              		@ args = 0, pretend = 0, frame = 8
-  24              		@ frame_needed = 0, uses_anonymous_args = 0
-  25 0000 07B5     		push	{r0, r1, r2, lr}
-  26 0002 0E4B     		ldr	r3, .L3
-  27 0004 0268     		ldr	r2, [r0]
-  28 0006 9A42     		cmp	r2, r3
-  29 0008 15D1     		bne	.L1
-  30 000a 03F5DA33 		add	r3, r3, #111616
-  31 000e DA69     		ldr	r2, [r3, #28]
-  32 0010 1420     		movs	r0, #20
-  33 0012 42F40002 		orr	r2, r2, #8388608
-  34 0016 DA61     		str	r2, [r3, #28]
-  35 0018 0022     		movs	r2, #0
-  36 001a DB69     		ldr	r3, [r3, #28]
-  37 001c 1146     		mov	r1, r2
-  38 001e 03F40003 		and	r3, r3, #8388608
-  39 0022 0193     		str	r3, [sp, #4]
-  40 0024 019B     		ldr	r3, [sp, #4]
-  41 0026 FFF7FEFF 		bl	HAL_NVIC_SetPriority
-  42 002a 1420     		movs	r0, #20
-  43 002c 03B0     		add	sp, sp, #12
+  12              		.section	.text.HAL_PCD_MspInit,"ax",%progbits
+  13              		.align	1
+  14              		.global	HAL_PCD_MspInit
+  15              		.syntax unified
+  16              		.thumb
+  17              		.thumb_func
+  18              		.fpu softvfp
+  20              	HAL_PCD_MspInit:
+  21              		@ args = 0, pretend = 0, frame = 8
+  22              		@ frame_needed = 0, uses_anonymous_args = 0
+  23 0000 07B5     		push	{r0, r1, r2, lr}
+  24 0002 0D4B     		ldr	r3, .L3
+  25 0004 0268     		ldr	r2, [r0]
+  26 0006 9A42     		cmp	r2, r3
+  27 0008 12D1     		bne	.L1
+  28 000a 03F5DA33 		add	r3, r3, #111616
+  29 000e DA69     		ldr	r2, [r3, #28]
+  30 0010 1420     		movs	r0, #20
+  31 0012 42F40002 		orr	r2, r2, #8388608
+  32 0016 DA61     		str	r2, [r3, #28]
+  33 0018 0022     		movs	r2, #0
+  34 001a DB69     		ldr	r3, [r3, #28]
+  35 001c 1146     		mov	r1, r2
+  36 001e 03F40003 		and	r3, r3, #8388608
+  37 0022 0193     		str	r3, [sp, #4]
+  38 0024 019B     		ldr	r3, [sp, #4]
+  39 0026 FFF7FEFF 		bl	HAL_NVIC_SetPriority
+  40 002a 1420     		movs	r0, #20
+  41 002c FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+  42              	.L1:
+  43 0030 03B0     		add	sp, sp, #12
   44              		@ sp needed
-  45 002e 5DF804EB 		ldr	lr, [sp], #4
-  46 0032 FFF7FEBF 		b	HAL_NVIC_EnableIRQ
-  47              	.L1:
-  48 0036 03B0     		add	sp, sp, #12
-  49              		@ sp needed
-  50 0038 5DF804FB 		ldr	pc, [sp], #4
-  51              	.L4:
-  52              		.align	2
-  53              	.L3:
-  54 003c 005C0040 		.word	1073765376
-  56              		.section	.text.HAL_PCD_MspDeInit,"ax",%progbits
-  57              		.align	1
-  58              		.global	HAL_PCD_MspDeInit
-  59              		.syntax unified
-ARM GAS  /tmp/ccJY0FmE.s 			page 2
+  45 0032 5DF804FB 		ldr	pc, [sp], #4
+  46              	.L4:
+  47 0036 00BF     		.align	2
+  48              	.L3:
+  49 0038 005C0040 		.word	1073765376
+  51              		.section	.text.HAL_PCD_MspDeInit,"ax",%progbits
+  52              		.align	1
+  53              		.global	HAL_PCD_MspDeInit
+  54              		.syntax unified
+  55              		.thumb
+  56              		.thumb_func
+  57              		.fpu softvfp
+  59              	HAL_PCD_MspDeInit:
+  60              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  /tmp/ccchu7dp.s 			page 2
 
 
-  60              		.thumb
-  61              		.thumb_func
-  62              		.fpu softvfp
-  64              	HAL_PCD_MspDeInit:
-  65              		@ args = 0, pretend = 0, frame = 0
-  66              		@ frame_needed = 0, uses_anonymous_args = 0
-  67              		@ link register save eliminated.
-  68 0000 0268     		ldr	r2, [r0]
-  69 0002 064B     		ldr	r3, .L7
-  70 0004 9A42     		cmp	r2, r3
-  71 0006 07D1     		bne	.L5
-  72 0008 054A     		ldr	r2, .L7+4
-  73 000a 1420     		movs	r0, #20
-  74 000c D369     		ldr	r3, [r2, #28]
-  75 000e 23F40003 		bic	r3, r3, #8388608
-  76 0012 D361     		str	r3, [r2, #28]
-  77 0014 FFF7FEBF 		b	HAL_NVIC_DisableIRQ
-  78              	.L5:
-  79 0018 7047     		bx	lr
-  80              	.L8:
-  81 001a 00BF     		.align	2
-  82              	.L7:
-  83 001c 005C0040 		.word	1073765376
-  84 0020 00100240 		.word	1073876992
-  86              		.section	.text.HAL_PCD_SetupStageCallback,"ax",%progbits
-  87              		.align	1
-  88              		.global	HAL_PCD_SetupStageCallback
-  89              		.syntax unified
-  90              		.thumb
-  91              		.thumb_func
-  92              		.fpu softvfp
-  94              	HAL_PCD_SetupStageCallback:
-  95              		@ args = 0, pretend = 0, frame = 0
-  96              		@ frame_needed = 0, uses_anonymous_args = 0
-  97              		@ link register save eliminated.
-  98 0000 00F50C71 		add	r1, r0, #560
-  99 0004 D0F86802 		ldr	r0, [r0, #616]
- 100 0008 FFF7FEBF 		b	USBD_LL_SetupStage
- 102              		.section	.text.HAL_PCD_DataOutStageCallback,"ax",%progbits
- 103              		.align	1
- 104              		.global	HAL_PCD_DataOutStageCallback
- 105              		.syntax unified
- 106              		.thumb
- 107              		.thumb_func
- 108              		.fpu softvfp
- 110              	HAL_PCD_DataOutStageCallback:
- 111              		@ args = 0, pretend = 0, frame = 0
- 112              		@ frame_needed = 0, uses_anonymous_args = 0
- 113              		@ link register save eliminated.
- 114 0000 00EB4113 		add	r3, r0, r1, lsl #5
- 115 0004 D3F83C21 		ldr	r2, [r3, #316]
- 116 0008 D0F86802 		ldr	r0, [r0, #616]
- 117 000c FFF7FEBF 		b	USBD_LL_DataOutStage
- 119              		.section	.text.HAL_PCD_DataInStageCallback,"ax",%progbits
- 120              		.align	1
- 121              		.global	HAL_PCD_DataInStageCallback
- 122              		.syntax unified
-ARM GAS  /tmp/ccJY0FmE.s 			page 3
+  61              		@ frame_needed = 0, uses_anonymous_args = 0
+  62              		@ link register save eliminated.
+  63 0000 0268     		ldr	r2, [r0]
+  64 0002 064B     		ldr	r3, .L7
+  65 0004 9A42     		cmp	r2, r3
+  66 0006 07D1     		bne	.L5
+  67 0008 054A     		ldr	r2, .L7+4
+  68 000a 1420     		movs	r0, #20
+  69 000c D369     		ldr	r3, [r2, #28]
+  70 000e 23F40003 		bic	r3, r3, #8388608
+  71 0012 D361     		str	r3, [r2, #28]
+  72 0014 FFF7FEBF 		b	HAL_NVIC_DisableIRQ
+  73              	.L5:
+  74 0018 7047     		bx	lr
+  75              	.L8:
+  76 001a 00BF     		.align	2
+  77              	.L7:
+  78 001c 005C0040 		.word	1073765376
+  79 0020 00100240 		.word	1073876992
+  81              		.section	.text.HAL_PCD_SetupStageCallback,"ax",%progbits
+  82              		.align	1
+  83              		.global	HAL_PCD_SetupStageCallback
+  84              		.syntax unified
+  85              		.thumb
+  86              		.thumb_func
+  87              		.fpu softvfp
+  89              	HAL_PCD_SetupStageCallback:
+  90              		@ args = 0, pretend = 0, frame = 0
+  91              		@ frame_needed = 0, uses_anonymous_args = 0
+  92              		@ link register save eliminated.
+  93 0000 00F50C71 		add	r1, r0, #560
+  94 0004 D0F86802 		ldr	r0, [r0, #616]
+  95 0008 FFF7FEBF 		b	USBD_LL_SetupStage
+  97              		.section	.text.HAL_PCD_DataOutStageCallback,"ax",%progbits
+  98              		.align	1
+  99              		.global	HAL_PCD_DataOutStageCallback
+ 100              		.syntax unified
+ 101              		.thumb
+ 102              		.thumb_func
+ 103              		.fpu softvfp
+ 105              	HAL_PCD_DataOutStageCallback:
+ 106              		@ args = 0, pretend = 0, frame = 0
+ 107              		@ frame_needed = 0, uses_anonymous_args = 0
+ 108              		@ link register save eliminated.
+ 109 0000 00EB4113 		add	r3, r0, r1, lsl #5
+ 110 0004 D3F83C21 		ldr	r2, [r3, #316]
+ 111 0008 D0F86802 		ldr	r0, [r0, #616]
+ 112 000c FFF7FEBF 		b	USBD_LL_DataOutStage
+ 114              		.section	.text.HAL_PCD_DataInStageCallback,"ax",%progbits
+ 115              		.align	1
+ 116              		.global	HAL_PCD_DataInStageCallback
+ 117              		.syntax unified
+ 118              		.thumb
+ 119              		.thumb_func
+ 120              		.fpu softvfp
+ 122              	HAL_PCD_DataInStageCallback:
+ 123              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  /tmp/ccchu7dp.s 			page 3
 
 
- 123              		.thumb
- 124              		.thumb_func
- 125              		.fpu softvfp
- 127              	HAL_PCD_DataInStageCallback:
- 128              		@ args = 0, pretend = 0, frame = 0
- 129              		@ frame_needed = 0, uses_anonymous_args = 0
- 130              		@ link register save eliminated.
- 131 0000 00EB4113 		add	r3, r0, r1, lsl #5
- 132 0004 DA6B     		ldr	r2, [r3, #60]
- 133 0006 D0F86802 		ldr	r0, [r0, #616]
- 134 000a FFF7FEBF 		b	USBD_LL_DataInStage
- 136              		.section	.text.HAL_PCD_SOFCallback,"ax",%progbits
- 137              		.align	1
- 138              		.global	HAL_PCD_SOFCallback
- 139              		.syntax unified
- 140              		.thumb
- 141              		.thumb_func
- 142              		.fpu softvfp
- 144              	HAL_PCD_SOFCallback:
- 145              		@ args = 0, pretend = 0, frame = 0
- 146              		@ frame_needed = 0, uses_anonymous_args = 0
- 147              		@ link register save eliminated.
- 148 0000 D0F86802 		ldr	r0, [r0, #616]
- 149 0004 FFF7FEBF 		b	USBD_LL_SOF
- 151              		.section	.text.HAL_PCD_ResetCallback,"ax",%progbits
- 152              		.align	1
- 153              		.global	HAL_PCD_ResetCallback
- 154              		.syntax unified
- 155              		.thumb
- 156              		.thumb_func
- 157              		.fpu softvfp
- 159              	HAL_PCD_ResetCallback:
- 160              		@ args = 0, pretend = 0, frame = 0
- 161              		@ frame_needed = 0, uses_anonymous_args = 0
- 162 0000 8368     		ldr	r3, [r0, #8]
- 163 0002 10B5     		push	{r4, lr}
- 164 0004 022B     		cmp	r3, #2
- 165 0006 0446     		mov	r4, r0
- 166 0008 01D0     		beq	.L14
- 167 000a FFF7FEFF 		bl	Error_Handler
- 168              	.L14:
- 169 000e D4F86802 		ldr	r0, [r4, #616]
- 170 0012 0121     		movs	r1, #1
- 171 0014 FFF7FEFF 		bl	USBD_LL_SetSpeed
- 172 0018 D4F86802 		ldr	r0, [r4, #616]
- 173 001c BDE81040 		pop	{r4, lr}
- 174 0020 FFF7FEBF 		b	USBD_LL_Reset
- 176              		.section	.text.HAL_PCD_SuspendCallback,"ax",%progbits
- 177              		.align	1
- 178              		.global	HAL_PCD_SuspendCallback
- 179              		.syntax unified
- 180              		.thumb
- 181              		.thumb_func
- 182              		.fpu softvfp
- 184              	HAL_PCD_SuspendCallback:
- 185              		@ args = 0, pretend = 0, frame = 0
- 186              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccJY0FmE.s 			page 4
+ 124              		@ frame_needed = 0, uses_anonymous_args = 0
+ 125              		@ link register save eliminated.
+ 126 0000 00EB4113 		add	r3, r0, r1, lsl #5
+ 127 0004 DA6B     		ldr	r2, [r3, #60]
+ 128 0006 D0F86802 		ldr	r0, [r0, #616]
+ 129 000a FFF7FEBF 		b	USBD_LL_DataInStage
+ 131              		.section	.text.HAL_PCD_SOFCallback,"ax",%progbits
+ 132              		.align	1
+ 133              		.global	HAL_PCD_SOFCallback
+ 134              		.syntax unified
+ 135              		.thumb
+ 136              		.thumb_func
+ 137              		.fpu softvfp
+ 139              	HAL_PCD_SOFCallback:
+ 140              		@ args = 0, pretend = 0, frame = 0
+ 141              		@ frame_needed = 0, uses_anonymous_args = 0
+ 142              		@ link register save eliminated.
+ 143 0000 D0F86802 		ldr	r0, [r0, #616]
+ 144 0004 FFF7FEBF 		b	USBD_LL_SOF
+ 146              		.section	.text.HAL_PCD_ResetCallback,"ax",%progbits
+ 147              		.align	1
+ 148              		.global	HAL_PCD_ResetCallback
+ 149              		.syntax unified
+ 150              		.thumb
+ 151              		.thumb_func
+ 152              		.fpu softvfp
+ 154              	HAL_PCD_ResetCallback:
+ 155              		@ args = 0, pretend = 0, frame = 0
+ 156              		@ frame_needed = 0, uses_anonymous_args = 0
+ 157 0000 8368     		ldr	r3, [r0, #8]
+ 158 0002 10B5     		push	{r4, lr}
+ 159 0004 022B     		cmp	r3, #2
+ 160 0006 0446     		mov	r4, r0
+ 161 0008 01D0     		beq	.L14
+ 162 000a FFF7FEFF 		bl	Error_Handler
+ 163              	.L14:
+ 164 000e D4F86802 		ldr	r0, [r4, #616]
+ 165 0012 0121     		movs	r1, #1
+ 166 0014 FFF7FEFF 		bl	USBD_LL_SetSpeed
+ 167 0018 D4F86802 		ldr	r0, [r4, #616]
+ 168 001c BDE81040 		pop	{r4, lr}
+ 169 0020 FFF7FEBF 		b	USBD_LL_Reset
+ 171              		.section	.text.HAL_PCD_SuspendCallback,"ax",%progbits
+ 172              		.align	1
+ 173              		.global	HAL_PCD_SuspendCallback
+ 174              		.syntax unified
+ 175              		.thumb
+ 176              		.thumb_func
+ 177              		.fpu softvfp
+ 179              	HAL_PCD_SuspendCallback:
+ 180              		@ args = 0, pretend = 0, frame = 0
+ 181              		@ frame_needed = 0, uses_anonymous_args = 0
+ 182 0000 10B5     		push	{r4, lr}
+ 183 0002 0446     		mov	r4, r0
+ 184 0004 D0F86802 		ldr	r0, [r0, #616]
+ 185 0008 FFF7FEFF 		bl	USBD_LL_Suspend
+ 186 000c A369     		ldr	r3, [r4, #24]
+ARM GAS  /tmp/ccchu7dp.s 			page 4
 
 
- 187 0000 10B5     		push	{r4, lr}
- 188 0002 0446     		mov	r4, r0
- 189 0004 D0F86802 		ldr	r0, [r0, #616]
- 190 0008 FFF7FEFF 		bl	USBD_LL_Suspend
- 191 000c A369     		ldr	r3, [r4, #24]
- 192 000e 23B1     		cbz	r3, .L18
- 193 0010 024A     		ldr	r2, .L23
- 194 0012 1369     		ldr	r3, [r2, #16]
- 195 0014 43F00603 		orr	r3, r3, #6
- 196 0018 1361     		str	r3, [r2, #16]
- 197              	.L18:
- 198 001a 10BD     		pop	{r4, pc}
- 199              	.L24:
- 200              		.align	2
- 201              	.L23:
- 202 001c 00ED00E0 		.word	-536810240
- 204              		.section	.text.HAL_PCD_ResumeCallback,"ax",%progbits
- 205              		.align	1
- 206              		.global	HAL_PCD_ResumeCallback
- 207              		.syntax unified
- 208              		.thumb
- 209              		.thumb_func
- 210              		.fpu softvfp
- 212              	HAL_PCD_ResumeCallback:
- 213              		@ args = 0, pretend = 0, frame = 0
- 214              		@ frame_needed = 0, uses_anonymous_args = 0
- 215              		@ link register save eliminated.
- 216 0000 D0F86802 		ldr	r0, [r0, #616]
- 217 0004 FFF7FEBF 		b	USBD_LL_Resume
- 219              		.section	.text.HAL_PCD_ISOOUTIncompleteCallback,"ax",%progbits
- 220              		.align	1
- 221              		.global	HAL_PCD_ISOOUTIncompleteCallback
- 222              		.syntax unified
- 223              		.thumb
- 224              		.thumb_func
- 225              		.fpu softvfp
- 227              	HAL_PCD_ISOOUTIncompleteCallback:
- 228              		@ args = 0, pretend = 0, frame = 0
- 229              		@ frame_needed = 0, uses_anonymous_args = 0
- 230              		@ link register save eliminated.
- 231 0000 D0F86802 		ldr	r0, [r0, #616]
- 232 0004 FFF7FEBF 		b	USBD_LL_IsoOUTIncomplete
- 234              		.section	.text.HAL_PCD_ISOINIncompleteCallback,"ax",%progbits
- 235              		.align	1
- 236              		.global	HAL_PCD_ISOINIncompleteCallback
- 237              		.syntax unified
- 238              		.thumb
- 239              		.thumb_func
- 240              		.fpu softvfp
- 242              	HAL_PCD_ISOINIncompleteCallback:
- 243              		@ args = 0, pretend = 0, frame = 0
- 244              		@ frame_needed = 0, uses_anonymous_args = 0
- 245              		@ link register save eliminated.
- 246 0000 D0F86802 		ldr	r0, [r0, #616]
- 247 0004 FFF7FEBF 		b	USBD_LL_IsoINIncomplete
- 249              		.section	.text.HAL_PCD_ConnectCallback,"ax",%progbits
- 250              		.align	1
-ARM GAS  /tmp/ccJY0FmE.s 			page 5
+ 187 000e 23B1     		cbz	r3, .L18
+ 188 0010 024A     		ldr	r2, .L23
+ 189 0012 1369     		ldr	r3, [r2, #16]
+ 190 0014 43F00603 		orr	r3, r3, #6
+ 191 0018 1361     		str	r3, [r2, #16]
+ 192              	.L18:
+ 193 001a 10BD     		pop	{r4, pc}
+ 194              	.L24:
+ 195              		.align	2
+ 196              	.L23:
+ 197 001c 00ED00E0 		.word	-536810240
+ 199              		.section	.text.HAL_PCD_ResumeCallback,"ax",%progbits
+ 200              		.align	1
+ 201              		.global	HAL_PCD_ResumeCallback
+ 202              		.syntax unified
+ 203              		.thumb
+ 204              		.thumb_func
+ 205              		.fpu softvfp
+ 207              	HAL_PCD_ResumeCallback:
+ 208              		@ args = 0, pretend = 0, frame = 0
+ 209              		@ frame_needed = 0, uses_anonymous_args = 0
+ 210              		@ link register save eliminated.
+ 211 0000 D0F86802 		ldr	r0, [r0, #616]
+ 212 0004 FFF7FEBF 		b	USBD_LL_Resume
+ 214              		.section	.text.HAL_PCD_ISOOUTIncompleteCallback,"ax",%progbits
+ 215              		.align	1
+ 216              		.global	HAL_PCD_ISOOUTIncompleteCallback
+ 217              		.syntax unified
+ 218              		.thumb
+ 219              		.thumb_func
+ 220              		.fpu softvfp
+ 222              	HAL_PCD_ISOOUTIncompleteCallback:
+ 223              		@ args = 0, pretend = 0, frame = 0
+ 224              		@ frame_needed = 0, uses_anonymous_args = 0
+ 225              		@ link register save eliminated.
+ 226 0000 D0F86802 		ldr	r0, [r0, #616]
+ 227 0004 FFF7FEBF 		b	USBD_LL_IsoOUTIncomplete
+ 229              		.section	.text.HAL_PCD_ISOINIncompleteCallback,"ax",%progbits
+ 230              		.align	1
+ 231              		.global	HAL_PCD_ISOINIncompleteCallback
+ 232              		.syntax unified
+ 233              		.thumb
+ 234              		.thumb_func
+ 235              		.fpu softvfp
+ 237              	HAL_PCD_ISOINIncompleteCallback:
+ 238              		@ args = 0, pretend = 0, frame = 0
+ 239              		@ frame_needed = 0, uses_anonymous_args = 0
+ 240              		@ link register save eliminated.
+ 241 0000 D0F86802 		ldr	r0, [r0, #616]
+ 242 0004 FFF7FEBF 		b	USBD_LL_IsoINIncomplete
+ 244              		.section	.text.HAL_PCD_ConnectCallback,"ax",%progbits
+ 245              		.align	1
+ 246              		.global	HAL_PCD_ConnectCallback
+ 247              		.syntax unified
+ 248              		.thumb
+ 249              		.thumb_func
+ 250              		.fpu softvfp
+ARM GAS  /tmp/ccchu7dp.s 			page 5
 
 
- 251              		.global	HAL_PCD_ConnectCallback
- 252              		.syntax unified
- 253              		.thumb
- 254              		.thumb_func
- 255              		.fpu softvfp
- 257              	HAL_PCD_ConnectCallback:
- 258              		@ args = 0, pretend = 0, frame = 0
- 259              		@ frame_needed = 0, uses_anonymous_args = 0
- 260              		@ link register save eliminated.
- 261 0000 D0F86802 		ldr	r0, [r0, #616]
- 262 0004 FFF7FEBF 		b	USBD_LL_DevConnected
- 264              		.section	.text.HAL_PCD_DisconnectCallback,"ax",%progbits
- 265              		.align	1
- 266              		.global	HAL_PCD_DisconnectCallback
- 267              		.syntax unified
- 268              		.thumb
- 269              		.thumb_func
- 270              		.fpu softvfp
- 272              	HAL_PCD_DisconnectCallback:
- 273              		@ args = 0, pretend = 0, frame = 0
- 274              		@ frame_needed = 0, uses_anonymous_args = 0
- 275              		@ link register save eliminated.
- 276 0000 D0F86802 		ldr	r0, [r0, #616]
- 277 0004 FFF7FEBF 		b	USBD_LL_DevDisconnected
- 279              		.section	.rodata.USBD_LL_Init.str1.1,"aMS",%progbits,1
- 280              	.LC0:
- 281 0000 54726163 		.ascii	"Trace 1-0\000"
- 281      6520312D 
- 281      3000
- 282              	.LC1:
- 283 000a 54726163 		.ascii	"Trace 1-1\000"
- 283      6520312D 
- 283      3100
- 284              	.LC2:
- 285 0014 54726163 		.ascii	"Trace 1-2\000"
- 285      6520312D 
- 285      3200
- 286              		.section	.text.USBD_LL_Init,"ax",%progbits
- 287              		.align	1
- 288              		.global	USBD_LL_Init
- 289              		.syntax unified
- 290              		.thumb
- 291              		.thumb_func
- 292              		.fpu softvfp
- 294              	USBD_LL_Init:
- 295              		@ args = 0, pretend = 0, frame = 0
- 296              		@ frame_needed = 0, uses_anonymous_args = 0
- 297 0000 38B5     		push	{r3, r4, r5, lr}
- 298 0002 0823     		movs	r3, #8
- 299 0004 1D4C     		ldr	r4, .L35
- 300 0006 1E4A     		ldr	r2, .L35+4
- 301 0008 C4F86802 		str	r0, [r4, #616]
- 302 000c C4E90023 		strd	r2, r3, [r4]
- 303 0010 0223     		movs	r3, #2
- 304 0012 A360     		str	r3, [r4, #8]
- 305 0014 0023     		movs	r3, #0
- 306 0016 C0F82042 		str	r4, [r0, #544]
-ARM GAS  /tmp/ccJY0FmE.s 			page 6
+ 252              	HAL_PCD_ConnectCallback:
+ 253              		@ args = 0, pretend = 0, frame = 0
+ 254              		@ frame_needed = 0, uses_anonymous_args = 0
+ 255              		@ link register save eliminated.
+ 256 0000 D0F86802 		ldr	r0, [r0, #616]
+ 257 0004 FFF7FEBF 		b	USBD_LL_DevConnected
+ 259              		.section	.text.HAL_PCD_DisconnectCallback,"ax",%progbits
+ 260              		.align	1
+ 261              		.global	HAL_PCD_DisconnectCallback
+ 262              		.syntax unified
+ 263              		.thumb
+ 264              		.thumb_func
+ 265              		.fpu softvfp
+ 267              	HAL_PCD_DisconnectCallback:
+ 268              		@ args = 0, pretend = 0, frame = 0
+ 269              		@ frame_needed = 0, uses_anonymous_args = 0
+ 270              		@ link register save eliminated.
+ 271 0000 D0F86802 		ldr	r0, [r0, #616]
+ 272 0004 FFF7FEBF 		b	USBD_LL_DevDisconnected
+ 274              		.section	.text.USBD_LL_Init,"ax",%progbits
+ 275              		.align	1
+ 276              		.global	USBD_LL_Init
+ 277              		.syntax unified
+ 278              		.thumb
+ 279              		.thumb_func
+ 280              		.fpu softvfp
+ 282              	USBD_LL_Init:
+ 283              		@ args = 0, pretend = 0, frame = 0
+ 284              		@ frame_needed = 0, uses_anonymous_args = 0
+ 285 0000 38B5     		push	{r3, r4, r5, lr}
+ 286 0002 0822     		movs	r2, #8
+ 287 0004 0223     		movs	r3, #2
+ 288 0006 1D4C     		ldr	r4, .L35
+ 289 0008 1D49     		ldr	r1, .L35+4
+ 290 000a C4F86802 		str	r0, [r4, #616]
+ 291 000e 84E80E00 		stm	r4, {r1, r2, r3}
+ 292 0012 0023     		movs	r3, #0
+ 293 0014 C0F82042 		str	r4, [r0, #544]
+ 294 0018 0546     		mov	r5, r0
+ 295 001a 1A48     		ldr	r0, .L35+8
+ 296 001c A361     		str	r3, [r4, #24]
+ 297 001e E361     		str	r3, [r4, #28]
+ 298 0020 2362     		str	r3, [r4, #32]
+ 299 0022 FFF7FEFF 		bl	CONSOLE_PrintLn
+ 300 0026 2046     		mov	r0, r4
+ 301 0028 FFF7FEFF 		bl	HAL_PCD_Init
+ 302 002c 08B1     		cbz	r0, .L31
+ 303 002e FFF7FEFF 		bl	Error_Handler
+ 304              	.L31:
+ 305 0032 1548     		ldr	r0, .L35+12
+ 306 0034 FFF7FEFF 		bl	CONSOLE_PrintLn
+ 307 0038 0022     		movs	r2, #0
+ 308 003a 1823     		movs	r3, #24
+ 309 003c 1146     		mov	r1, r2
+ 310 003e D5F82002 		ldr	r0, [r5, #544]
+ 311 0042 FFF7FEFF 		bl	HAL_PCDEx_PMAConfig
+ 312 0046 5823     		movs	r3, #88
+ARM GAS  /tmp/ccchu7dp.s 			page 6
 
 
- 307 001a 0546     		mov	r5, r0
- 308 001c 1948     		ldr	r0, .L35+8
- 309 001e C4E90633 		strd	r3, r3, [r4, #24]
- 310 0022 2362     		str	r3, [r4, #32]
- 311 0024 FFF7FEFF 		bl	CONSOLE_PrintLn
- 312 0028 2046     		mov	r0, r4
- 313 002a FFF7FEFF 		bl	HAL_PCD_Init
- 314 002e 08B1     		cbz	r0, .L31
- 315 0030 FFF7FEFF 		bl	Error_Handler
- 316              	.L31:
- 317 0034 1448     		ldr	r0, .L35+12
- 318 0036 FFF7FEFF 		bl	CONSOLE_PrintLn
- 319 003a 0022     		movs	r2, #0
- 320 003c 1823     		movs	r3, #24
- 321 003e 1146     		mov	r1, r2
- 322 0040 D5F82002 		ldr	r0, [r5, #544]
- 323 0044 FFF7FEFF 		bl	HAL_PCDEx_PMAConfig
- 324 0048 5823     		movs	r3, #88
- 325 004a 0022     		movs	r2, #0
- 326 004c 8021     		movs	r1, #128
- 327 004e D5F82002 		ldr	r0, [r5, #544]
- 328 0052 FFF7FEFF 		bl	HAL_PCDEx_PMAConfig
- 329 0056 0D48     		ldr	r0, .L35+16
- 330 0058 FFF7FEFF 		bl	CONSOLE_PrintLn
- 331 005c 9823     		movs	r3, #152
- 332 005e 0022     		movs	r2, #0
- 333 0060 8121     		movs	r1, #129
- 334 0062 D5F82002 		ldr	r0, [r5, #544]
- 335 0066 FFF7FEFF 		bl	HAL_PCDEx_PMAConfig
- 336 006a D823     		movs	r3, #216
- 337 006c 0022     		movs	r2, #0
- 338 006e 0121     		movs	r1, #1
- 339 0070 D5F82002 		ldr	r0, [r5, #544]
- 340 0074 FFF7FEFF 		bl	HAL_PCDEx_PMAConfig
- 341 0078 0020     		movs	r0, #0
- 342 007a 38BD     		pop	{r3, r4, r5, pc}
- 343              	.L36:
- 344              		.align	2
- 345              	.L35:
- 346 007c 00000000 		.word	hpcd_USB_FS
- 347 0080 005C0040 		.word	1073765376
- 348 0084 00000000 		.word	.LC0
- 349 0088 0A000000 		.word	.LC1
- 350 008c 14000000 		.word	.LC2
- 352              		.section	.text.USBD_LL_DeInit,"ax",%progbits
- 353              		.align	1
- 354              		.global	USBD_LL_DeInit
- 355              		.syntax unified
- 356              		.thumb
- 357              		.thumb_func
- 358              		.fpu softvfp
- 360              	USBD_LL_DeInit:
- 361              		@ args = 0, pretend = 0, frame = 0
- 362              		@ frame_needed = 0, uses_anonymous_args = 0
- 363 0000 08B5     		push	{r3, lr}
- 364 0002 D0F82002 		ldr	r0, [r0, #544]
- 365 0006 FFF7FEFF 		bl	HAL_PCD_DeInit
-ARM GAS  /tmp/ccJY0FmE.s 			page 7
+ 313 0048 0022     		movs	r2, #0
+ 314 004a 8021     		movs	r1, #128
+ 315 004c D5F82002 		ldr	r0, [r5, #544]
+ 316 0050 FFF7FEFF 		bl	HAL_PCDEx_PMAConfig
+ 317 0054 0D48     		ldr	r0, .L35+16
+ 318 0056 FFF7FEFF 		bl	CONSOLE_PrintLn
+ 319 005a 9823     		movs	r3, #152
+ 320 005c 0022     		movs	r2, #0
+ 321 005e 8121     		movs	r1, #129
+ 322 0060 D5F82002 		ldr	r0, [r5, #544]
+ 323 0064 FFF7FEFF 		bl	HAL_PCDEx_PMAConfig
+ 324 0068 D823     		movs	r3, #216
+ 325 006a 0022     		movs	r2, #0
+ 326 006c 0121     		movs	r1, #1
+ 327 006e D5F82002 		ldr	r0, [r5, #544]
+ 328 0072 FFF7FEFF 		bl	HAL_PCDEx_PMAConfig
+ 329 0076 0020     		movs	r0, #0
+ 330 0078 38BD     		pop	{r3, r4, r5, pc}
+ 331              	.L36:
+ 332 007a 00BF     		.align	2
+ 333              	.L35:
+ 334 007c 00000000 		.word	hpcd_USB_FS
+ 335 0080 005C0040 		.word	1073765376
+ 336 0084 00000000 		.word	.LC0
+ 337 0088 0A000000 		.word	.LC1
+ 338 008c 14000000 		.word	.LC2
+ 340              		.section	.text.USBD_LL_DeInit,"ax",%progbits
+ 341              		.align	1
+ 342              		.global	USBD_LL_DeInit
+ 343              		.syntax unified
+ 344              		.thumb
+ 345              		.thumb_func
+ 346              		.fpu softvfp
+ 348              	USBD_LL_DeInit:
+ 349              		@ args = 0, pretend = 0, frame = 0
+ 350              		@ frame_needed = 0, uses_anonymous_args = 0
+ 351 0000 08B5     		push	{r3, lr}
+ 352 0002 D0F82002 		ldr	r0, [r0, #544]
+ 353 0006 FFF7FEFF 		bl	HAL_PCD_DeInit
+ 354 000a 0328     		cmp	r0, #3
+ 355 000c 9ABF     		itte	ls
+ 356 000e 024B     		ldrls	r3, .L40
+ 357 0010 185C     		ldrbls	r0, [r3, r0]	@ zero_extendqisi2
+ 358 0012 0220     		movhi	r0, #2
+ 359 0014 08BD     		pop	{r3, pc}
+ 360              	.L41:
+ 361 0016 00BF     		.align	2
+ 362              	.L40:
+ 363 0018 00000000 		.word	.LANCHOR0
+ 365              		.section	.text.USBD_LL_Start,"ax",%progbits
+ 366              		.align	1
+ 367              		.global	USBD_LL_Start
+ 368              		.syntax unified
+ 369              		.thumb
+ 370              		.thumb_func
+ 371              		.fpu softvfp
+ 373              	USBD_LL_Start:
+ARM GAS  /tmp/ccchu7dp.s 			page 7
 
 
- 366 000a 0328     		cmp	r0, #3
- 367 000c 96BF     		itet	ls
- 368 000e 024B     		ldrls	r3, .L40
- 369 0010 0220     		movhi	r0, #2
- 370 0012 185C     		ldrbls	r0, [r3, r0]	@ zero_extendqisi2
- 371 0014 08BD     		pop	{r3, pc}
- 372              	.L41:
- 373 0016 00BF     		.align	2
- 374              	.L40:
- 375 0018 00000000 		.word	.LANCHOR0
- 377              		.section	.text.USBD_LL_Start,"ax",%progbits
- 378              		.align	1
- 379              		.global	USBD_LL_Start
- 380              		.syntax unified
- 381              		.thumb
- 382              		.thumb_func
- 383              		.fpu softvfp
- 385              	USBD_LL_Start:
- 386              		@ args = 0, pretend = 0, frame = 0
- 387              		@ frame_needed = 0, uses_anonymous_args = 0
- 388 0000 08B5     		push	{r3, lr}
- 389 0002 D0F82002 		ldr	r0, [r0, #544]
- 390 0006 FFF7FEFF 		bl	HAL_PCD_Start
- 391 000a 0328     		cmp	r0, #3
- 392 000c 96BF     		itet	ls
- 393 000e 024B     		ldrls	r3, .L45
- 394 0010 0220     		movhi	r0, #2
- 395 0012 185C     		ldrbls	r0, [r3, r0]	@ zero_extendqisi2
- 396 0014 08BD     		pop	{r3, pc}
- 397              	.L46:
- 398 0016 00BF     		.align	2
- 399              	.L45:
- 400 0018 00000000 		.word	.LANCHOR0
- 402              		.section	.text.USBD_LL_Stop,"ax",%progbits
- 403              		.align	1
- 404              		.global	USBD_LL_Stop
- 405              		.syntax unified
- 406              		.thumb
- 407              		.thumb_func
- 408              		.fpu softvfp
- 410              	USBD_LL_Stop:
- 411              		@ args = 0, pretend = 0, frame = 0
- 412              		@ frame_needed = 0, uses_anonymous_args = 0
- 413 0000 08B5     		push	{r3, lr}
- 414 0002 D0F82002 		ldr	r0, [r0, #544]
- 415 0006 FFF7FEFF 		bl	HAL_PCD_Stop
- 416 000a 0328     		cmp	r0, #3
- 417 000c 96BF     		itet	ls
- 418 000e 024B     		ldrls	r3, .L50
- 419 0010 0220     		movhi	r0, #2
- 420 0012 185C     		ldrbls	r0, [r3, r0]	@ zero_extendqisi2
- 421 0014 08BD     		pop	{r3, pc}
- 422              	.L51:
- 423 0016 00BF     		.align	2
- 424              	.L50:
- 425 0018 00000000 		.word	.LANCHOR0
- 427              		.section	.text.USBD_LL_OpenEP,"ax",%progbits
-ARM GAS  /tmp/ccJY0FmE.s 			page 8
+ 374              		@ args = 0, pretend = 0, frame = 0
+ 375              		@ frame_needed = 0, uses_anonymous_args = 0
+ 376 0000 08B5     		push	{r3, lr}
+ 377 0002 D0F82002 		ldr	r0, [r0, #544]
+ 378 0006 FFF7FEFF 		bl	HAL_PCD_Start
+ 379 000a 0328     		cmp	r0, #3
+ 380 000c 9ABF     		itte	ls
+ 381 000e 024B     		ldrls	r3, .L45
+ 382 0010 185C     		ldrbls	r0, [r3, r0]	@ zero_extendqisi2
+ 383 0012 0220     		movhi	r0, #2
+ 384 0014 08BD     		pop	{r3, pc}
+ 385              	.L46:
+ 386 0016 00BF     		.align	2
+ 387              	.L45:
+ 388 0018 00000000 		.word	.LANCHOR0
+ 390              		.section	.text.USBD_LL_Stop,"ax",%progbits
+ 391              		.align	1
+ 392              		.global	USBD_LL_Stop
+ 393              		.syntax unified
+ 394              		.thumb
+ 395              		.thumb_func
+ 396              		.fpu softvfp
+ 398              	USBD_LL_Stop:
+ 399              		@ args = 0, pretend = 0, frame = 0
+ 400              		@ frame_needed = 0, uses_anonymous_args = 0
+ 401 0000 08B5     		push	{r3, lr}
+ 402 0002 D0F82002 		ldr	r0, [r0, #544]
+ 403 0006 FFF7FEFF 		bl	HAL_PCD_Stop
+ 404 000a 0328     		cmp	r0, #3
+ 405 000c 9ABF     		itte	ls
+ 406 000e 024B     		ldrls	r3, .L50
+ 407 0010 185C     		ldrbls	r0, [r3, r0]	@ zero_extendqisi2
+ 408 0012 0220     		movhi	r0, #2
+ 409 0014 08BD     		pop	{r3, pc}
+ 410              	.L51:
+ 411 0016 00BF     		.align	2
+ 412              	.L50:
+ 413 0018 00000000 		.word	.LANCHOR0
+ 415              		.section	.text.USBD_LL_OpenEP,"ax",%progbits
+ 416              		.align	1
+ 417              		.global	USBD_LL_OpenEP
+ 418              		.syntax unified
+ 419              		.thumb
+ 420              		.thumb_func
+ 421              		.fpu softvfp
+ 423              	USBD_LL_OpenEP:
+ 424              		@ args = 0, pretend = 0, frame = 0
+ 425              		@ frame_needed = 0, uses_anonymous_args = 0
+ 426 0000 10B5     		push	{r4, lr}
+ 427 0002 1C46     		mov	r4, r3
+ 428 0004 D0F82002 		ldr	r0, [r0, #544]
+ 429 0008 1346     		mov	r3, r2
+ 430 000a 2246     		mov	r2, r4
+ 431 000c FFF7FEFF 		bl	HAL_PCD_EP_Open
+ 432 0010 0328     		cmp	r0, #3
+ 433 0012 9ABF     		itte	ls
+ 434 0014 014B     		ldrls	r3, .L55
+ARM GAS  /tmp/ccchu7dp.s 			page 8
 
 
- 428              		.align	1
- 429              		.global	USBD_LL_OpenEP
- 430              		.syntax unified
- 431              		.thumb
- 432              		.thumb_func
- 433              		.fpu softvfp
- 435              	USBD_LL_OpenEP:
- 436              		@ args = 0, pretend = 0, frame = 0
- 437              		@ frame_needed = 0, uses_anonymous_args = 0
- 438 0000 10B5     		push	{r4, lr}
- 439 0002 1446     		mov	r4, r2
- 440 0004 D0F82002 		ldr	r0, [r0, #544]
- 441 0008 1A46     		mov	r2, r3
- 442 000a 2346     		mov	r3, r4
- 443 000c FFF7FEFF 		bl	HAL_PCD_EP_Open
- 444 0010 0328     		cmp	r0, #3
- 445 0012 96BF     		itet	ls
- 446 0014 014B     		ldrls	r3, .L55
- 447 0016 0220     		movhi	r0, #2
- 448 0018 185C     		ldrbls	r0, [r3, r0]	@ zero_extendqisi2
- 449 001a 10BD     		pop	{r4, pc}
- 450              	.L56:
- 451              		.align	2
- 452              	.L55:
- 453 001c 00000000 		.word	.LANCHOR0
- 455              		.section	.text.USBD_LL_CloseEP,"ax",%progbits
- 456              		.align	1
- 457              		.global	USBD_LL_CloseEP
- 458              		.syntax unified
- 459              		.thumb
- 460              		.thumb_func
- 461              		.fpu softvfp
- 463              	USBD_LL_CloseEP:
- 464              		@ args = 0, pretend = 0, frame = 0
- 465              		@ frame_needed = 0, uses_anonymous_args = 0
- 466 0000 08B5     		push	{r3, lr}
- 467 0002 D0F82002 		ldr	r0, [r0, #544]
- 468 0006 FFF7FEFF 		bl	HAL_PCD_EP_Close
- 469 000a 0328     		cmp	r0, #3
- 470 000c 96BF     		itet	ls
- 471 000e 024B     		ldrls	r3, .L60
- 472 0010 0220     		movhi	r0, #2
- 473 0012 185C     		ldrbls	r0, [r3, r0]	@ zero_extendqisi2
- 474 0014 08BD     		pop	{r3, pc}
- 475              	.L61:
- 476 0016 00BF     		.align	2
- 477              	.L60:
- 478 0018 00000000 		.word	.LANCHOR0
- 480              		.section	.text.USBD_LL_FlushEP,"ax",%progbits
- 481              		.align	1
- 482              		.global	USBD_LL_FlushEP
- 483              		.syntax unified
- 484              		.thumb
- 485              		.thumb_func
- 486              		.fpu softvfp
- 488              	USBD_LL_FlushEP:
- 489              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccJY0FmE.s 			page 9
+ 435 0016 185C     		ldrbls	r0, [r3, r0]	@ zero_extendqisi2
+ 436 0018 0220     		movhi	r0, #2
+ 437 001a 10BD     		pop	{r4, pc}
+ 438              	.L56:
+ 439              		.align	2
+ 440              	.L55:
+ 441 001c 00000000 		.word	.LANCHOR0
+ 443              		.section	.text.USBD_LL_CloseEP,"ax",%progbits
+ 444              		.align	1
+ 445              		.global	USBD_LL_CloseEP
+ 446              		.syntax unified
+ 447              		.thumb
+ 448              		.thumb_func
+ 449              		.fpu softvfp
+ 451              	USBD_LL_CloseEP:
+ 452              		@ args = 0, pretend = 0, frame = 0
+ 453              		@ frame_needed = 0, uses_anonymous_args = 0
+ 454 0000 08B5     		push	{r3, lr}
+ 455 0002 D0F82002 		ldr	r0, [r0, #544]
+ 456 0006 FFF7FEFF 		bl	HAL_PCD_EP_Close
+ 457 000a 0328     		cmp	r0, #3
+ 458 000c 9ABF     		itte	ls
+ 459 000e 024B     		ldrls	r3, .L60
+ 460 0010 185C     		ldrbls	r0, [r3, r0]	@ zero_extendqisi2
+ 461 0012 0220     		movhi	r0, #2
+ 462 0014 08BD     		pop	{r3, pc}
+ 463              	.L61:
+ 464 0016 00BF     		.align	2
+ 465              	.L60:
+ 466 0018 00000000 		.word	.LANCHOR0
+ 468              		.section	.text.USBD_LL_FlushEP,"ax",%progbits
+ 469              		.align	1
+ 470              		.global	USBD_LL_FlushEP
+ 471              		.syntax unified
+ 472              		.thumb
+ 473              		.thumb_func
+ 474              		.fpu softvfp
+ 476              	USBD_LL_FlushEP:
+ 477              		@ args = 0, pretend = 0, frame = 0
+ 478              		@ frame_needed = 0, uses_anonymous_args = 0
+ 479 0000 08B5     		push	{r3, lr}
+ 480 0002 D0F82002 		ldr	r0, [r0, #544]
+ 481 0006 FFF7FEFF 		bl	HAL_PCD_EP_Flush
+ 482 000a 0328     		cmp	r0, #3
+ 483 000c 9ABF     		itte	ls
+ 484 000e 024B     		ldrls	r3, .L65
+ 485 0010 185C     		ldrbls	r0, [r3, r0]	@ zero_extendqisi2
+ 486 0012 0220     		movhi	r0, #2
+ 487 0014 08BD     		pop	{r3, pc}
+ 488              	.L66:
+ 489 0016 00BF     		.align	2
+ 490              	.L65:
+ 491 0018 00000000 		.word	.LANCHOR0
+ 493              		.section	.text.USBD_LL_StallEP,"ax",%progbits
+ 494              		.align	1
+ 495              		.global	USBD_LL_StallEP
+ 496              		.syntax unified
+ARM GAS  /tmp/ccchu7dp.s 			page 9
 
 
- 490              		@ frame_needed = 0, uses_anonymous_args = 0
- 491 0000 08B5     		push	{r3, lr}
- 492 0002 D0F82002 		ldr	r0, [r0, #544]
- 493 0006 FFF7FEFF 		bl	HAL_PCD_EP_Flush
- 494 000a 0328     		cmp	r0, #3
- 495 000c 96BF     		itet	ls
- 496 000e 024B     		ldrls	r3, .L65
- 497 0010 0220     		movhi	r0, #2
- 498 0012 185C     		ldrbls	r0, [r3, r0]	@ zero_extendqisi2
- 499 0014 08BD     		pop	{r3, pc}
- 500              	.L66:
- 501 0016 00BF     		.align	2
- 502              	.L65:
- 503 0018 00000000 		.word	.LANCHOR0
- 505              		.section	.text.USBD_LL_StallEP,"ax",%progbits
- 506              		.align	1
- 507              		.global	USBD_LL_StallEP
- 508              		.syntax unified
- 509              		.thumb
- 510              		.thumb_func
- 511              		.fpu softvfp
- 513              	USBD_LL_StallEP:
- 514              		@ args = 0, pretend = 0, frame = 0
- 515              		@ frame_needed = 0, uses_anonymous_args = 0
- 516 0000 08B5     		push	{r3, lr}
- 517 0002 D0F82002 		ldr	r0, [r0, #544]
- 518 0006 FFF7FEFF 		bl	HAL_PCD_EP_SetStall
- 519 000a 0328     		cmp	r0, #3
- 520 000c 96BF     		itet	ls
- 521 000e 024B     		ldrls	r3, .L70
- 522 0010 0220     		movhi	r0, #2
- 523 0012 185C     		ldrbls	r0, [r3, r0]	@ zero_extendqisi2
- 524 0014 08BD     		pop	{r3, pc}
- 525              	.L71:
- 526 0016 00BF     		.align	2
- 527              	.L70:
- 528 0018 00000000 		.word	.LANCHOR0
- 530              		.section	.text.USBD_LL_ClearStallEP,"ax",%progbits
- 531              		.align	1
- 532              		.global	USBD_LL_ClearStallEP
- 533              		.syntax unified
- 534              		.thumb
- 535              		.thumb_func
- 536              		.fpu softvfp
- 538              	USBD_LL_ClearStallEP:
- 539              		@ args = 0, pretend = 0, frame = 0
- 540              		@ frame_needed = 0, uses_anonymous_args = 0
- 541 0000 08B5     		push	{r3, lr}
- 542 0002 D0F82002 		ldr	r0, [r0, #544]
- 543 0006 FFF7FEFF 		bl	HAL_PCD_EP_ClrStall
- 544 000a 0328     		cmp	r0, #3
- 545 000c 96BF     		itet	ls
- 546 000e 024B     		ldrls	r3, .L75
- 547 0010 0220     		movhi	r0, #2
- 548 0012 185C     		ldrbls	r0, [r3, r0]	@ zero_extendqisi2
- 549 0014 08BD     		pop	{r3, pc}
- 550              	.L76:
-ARM GAS  /tmp/ccJY0FmE.s 			page 10
+ 497              		.thumb
+ 498              		.thumb_func
+ 499              		.fpu softvfp
+ 501              	USBD_LL_StallEP:
+ 502              		@ args = 0, pretend = 0, frame = 0
+ 503              		@ frame_needed = 0, uses_anonymous_args = 0
+ 504 0000 08B5     		push	{r3, lr}
+ 505 0002 D0F82002 		ldr	r0, [r0, #544]
+ 506 0006 FFF7FEFF 		bl	HAL_PCD_EP_SetStall
+ 507 000a 0328     		cmp	r0, #3
+ 508 000c 9ABF     		itte	ls
+ 509 000e 024B     		ldrls	r3, .L70
+ 510 0010 185C     		ldrbls	r0, [r3, r0]	@ zero_extendqisi2
+ 511 0012 0220     		movhi	r0, #2
+ 512 0014 08BD     		pop	{r3, pc}
+ 513              	.L71:
+ 514 0016 00BF     		.align	2
+ 515              	.L70:
+ 516 0018 00000000 		.word	.LANCHOR0
+ 518              		.section	.text.USBD_LL_ClearStallEP,"ax",%progbits
+ 519              		.align	1
+ 520              		.global	USBD_LL_ClearStallEP
+ 521              		.syntax unified
+ 522              		.thumb
+ 523              		.thumb_func
+ 524              		.fpu softvfp
+ 526              	USBD_LL_ClearStallEP:
+ 527              		@ args = 0, pretend = 0, frame = 0
+ 528              		@ frame_needed = 0, uses_anonymous_args = 0
+ 529 0000 08B5     		push	{r3, lr}
+ 530 0002 D0F82002 		ldr	r0, [r0, #544]
+ 531 0006 FFF7FEFF 		bl	HAL_PCD_EP_ClrStall
+ 532 000a 0328     		cmp	r0, #3
+ 533 000c 9ABF     		itte	ls
+ 534 000e 024B     		ldrls	r3, .L75
+ 535 0010 185C     		ldrbls	r0, [r3, r0]	@ zero_extendqisi2
+ 536 0012 0220     		movhi	r0, #2
+ 537 0014 08BD     		pop	{r3, pc}
+ 538              	.L76:
+ 539 0016 00BF     		.align	2
+ 540              	.L75:
+ 541 0018 00000000 		.word	.LANCHOR0
+ 543              		.section	.text.USBD_LL_IsStallEP,"ax",%progbits
+ 544              		.align	1
+ 545              		.global	USBD_LL_IsStallEP
+ 546              		.syntax unified
+ 547              		.thumb
+ 548              		.thumb_func
+ 549              		.fpu softvfp
+ 551              	USBD_LL_IsStallEP:
+ 552              		@ args = 0, pretend = 0, frame = 0
+ 553              		@ frame_needed = 0, uses_anonymous_args = 0
+ 554              		@ link register save eliminated.
+ 555 0000 0A06     		lsls	r2, r1, #24
+ 556 0002 D0F82032 		ldr	r3, [r0, #544]
+ 557 0006 45BF     		ittet	mi
+ 558 0008 01F07F01 		andmi	r1, r1, #127
+ARM GAS  /tmp/ccchu7dp.s 			page 10
 
 
- 551 0016 00BF     		.align	2
- 552              	.L75:
- 553 0018 00000000 		.word	.LANCHOR0
- 555              		.section	.text.USBD_LL_IsStallEP,"ax",%progbits
- 556              		.align	1
- 557              		.global	USBD_LL_IsStallEP
- 558              		.syntax unified
- 559              		.thumb
- 560              		.thumb_func
- 561              		.fpu softvfp
- 563              	USBD_LL_IsStallEP:
- 564              		@ args = 0, pretend = 0, frame = 0
- 565              		@ frame_needed = 0, uses_anonymous_args = 0
- 566              		@ link register save eliminated.
- 567 0000 0A06     		lsls	r2, r1, #24
- 568 0002 D0F82032 		ldr	r3, [r0, #544]
- 569 0006 45BF     		ittet	mi
- 570 0008 01F07F01 		andmi	r1, r1, #127
- 571 000c 03EB4111 		addmi	r1, r3, r1, lsl #5
- 572 0010 03EB4111 		addpl	r1, r3, r1, lsl #5
- 573 0014 91F82A00 		ldrbmi	r0, [r1, #42]	@ zero_extendqisi2
- 574 0018 58BF     		it	pl
- 575 001a 91F82A01 		ldrbpl	r0, [r1, #298]	@ zero_extendqisi2
- 576 001e 7047     		bx	lr
- 578              		.section	.text.USBD_LL_SetUSBAddress,"ax",%progbits
- 579              		.align	1
- 580              		.global	USBD_LL_SetUSBAddress
- 581              		.syntax unified
- 582              		.thumb
- 583              		.thumb_func
- 584              		.fpu softvfp
- 586              	USBD_LL_SetUSBAddress:
- 587              		@ args = 0, pretend = 0, frame = 0
- 588              		@ frame_needed = 0, uses_anonymous_args = 0
- 589 0000 08B5     		push	{r3, lr}
- 590 0002 D0F82002 		ldr	r0, [r0, #544]
- 591 0006 FFF7FEFF 		bl	HAL_PCD_SetAddress
- 592 000a 0328     		cmp	r0, #3
- 593 000c 96BF     		itet	ls
- 594 000e 024B     		ldrls	r3, .L83
- 595 0010 0220     		movhi	r0, #2
- 596 0012 185C     		ldrbls	r0, [r3, r0]	@ zero_extendqisi2
- 597 0014 08BD     		pop	{r3, pc}
- 598              	.L84:
- 599 0016 00BF     		.align	2
- 600              	.L83:
- 601 0018 00000000 		.word	.LANCHOR0
- 603              		.section	.text.USBD_LL_Transmit,"ax",%progbits
- 604              		.align	1
- 605              		.global	USBD_LL_Transmit
- 606              		.syntax unified
- 607              		.thumb
- 608              		.thumb_func
- 609              		.fpu softvfp
- 611              	USBD_LL_Transmit:
- 612              		@ args = 0, pretend = 0, frame = 0
- 613              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccJY0FmE.s 			page 11
+ 559 000c 03EB4113 		addmi	r3, r3, r1, lsl #5
+ 560 0010 03EB4113 		addpl	r3, r3, r1, lsl #5
+ 561 0014 93F82A00 		ldrbmi	r0, [r3, #42]	@ zero_extendqisi2
+ 562 0018 58BF     		it	pl
+ 563 001a 93F82A01 		ldrbpl	r0, [r3, #298]	@ zero_extendqisi2
+ 564 001e 7047     		bx	lr
+ 566              		.section	.text.USBD_LL_SetUSBAddress,"ax",%progbits
+ 567              		.align	1
+ 568              		.global	USBD_LL_SetUSBAddress
+ 569              		.syntax unified
+ 570              		.thumb
+ 571              		.thumb_func
+ 572              		.fpu softvfp
+ 574              	USBD_LL_SetUSBAddress:
+ 575              		@ args = 0, pretend = 0, frame = 0
+ 576              		@ frame_needed = 0, uses_anonymous_args = 0
+ 577 0000 08B5     		push	{r3, lr}
+ 578 0002 D0F82002 		ldr	r0, [r0, #544]
+ 579 0006 FFF7FEFF 		bl	HAL_PCD_SetAddress
+ 580 000a 0328     		cmp	r0, #3
+ 581 000c 9ABF     		itte	ls
+ 582 000e 024B     		ldrls	r3, .L83
+ 583 0010 185C     		ldrbls	r0, [r3, r0]	@ zero_extendqisi2
+ 584 0012 0220     		movhi	r0, #2
+ 585 0014 08BD     		pop	{r3, pc}
+ 586              	.L84:
+ 587 0016 00BF     		.align	2
+ 588              	.L83:
+ 589 0018 00000000 		.word	.LANCHOR0
+ 591              		.section	.text.USBD_LL_Transmit,"ax",%progbits
+ 592              		.align	1
+ 593              		.global	USBD_LL_Transmit
+ 594              		.syntax unified
+ 595              		.thumb
+ 596              		.thumb_func
+ 597              		.fpu softvfp
+ 599              	USBD_LL_Transmit:
+ 600              		@ args = 0, pretend = 0, frame = 0
+ 601              		@ frame_needed = 0, uses_anonymous_args = 0
+ 602 0000 08B5     		push	{r3, lr}
+ 603 0002 D0F82002 		ldr	r0, [r0, #544]
+ 604 0006 FFF7FEFF 		bl	HAL_PCD_EP_Transmit
+ 605 000a 0328     		cmp	r0, #3
+ 606 000c 9ABF     		itte	ls
+ 607 000e 024B     		ldrls	r3, .L88
+ 608 0010 185C     		ldrbls	r0, [r3, r0]	@ zero_extendqisi2
+ 609 0012 0220     		movhi	r0, #2
+ 610 0014 08BD     		pop	{r3, pc}
+ 611              	.L89:
+ 612 0016 00BF     		.align	2
+ 613              	.L88:
+ 614 0018 00000000 		.word	.LANCHOR0
+ 616              		.section	.text.USBD_LL_PrepareReceive,"ax",%progbits
+ 617              		.align	1
+ 618              		.global	USBD_LL_PrepareReceive
+ 619              		.syntax unified
+ 620              		.thumb
+ARM GAS  /tmp/ccchu7dp.s 			page 11
 
 
- 614 0000 08B5     		push	{r3, lr}
- 615 0002 D0F82002 		ldr	r0, [r0, #544]
- 616 0006 FFF7FEFF 		bl	HAL_PCD_EP_Transmit
- 617 000a 0328     		cmp	r0, #3
- 618 000c 96BF     		itet	ls
- 619 000e 024B     		ldrls	r3, .L88
- 620 0010 0220     		movhi	r0, #2
- 621 0012 185C     		ldrbls	r0, [r3, r0]	@ zero_extendqisi2
- 622 0014 08BD     		pop	{r3, pc}
- 623              	.L89:
- 624 0016 00BF     		.align	2
- 625              	.L88:
- 626 0018 00000000 		.word	.LANCHOR0
- 628              		.section	.text.USBD_LL_PrepareReceive,"ax",%progbits
- 629              		.align	1
- 630              		.global	USBD_LL_PrepareReceive
- 631              		.syntax unified
- 632              		.thumb
- 633              		.thumb_func
- 634              		.fpu softvfp
- 636              	USBD_LL_PrepareReceive:
- 637              		@ args = 0, pretend = 0, frame = 0
- 638              		@ frame_needed = 0, uses_anonymous_args = 0
- 639 0000 08B5     		push	{r3, lr}
- 640 0002 D0F82002 		ldr	r0, [r0, #544]
- 641 0006 FFF7FEFF 		bl	HAL_PCD_EP_Receive
- 642 000a 0328     		cmp	r0, #3
- 643 000c 96BF     		itet	ls
- 644 000e 024B     		ldrls	r3, .L93
- 645 0010 0220     		movhi	r0, #2
- 646 0012 185C     		ldrbls	r0, [r3, r0]	@ zero_extendqisi2
- 647 0014 08BD     		pop	{r3, pc}
- 648              	.L94:
- 649 0016 00BF     		.align	2
- 650              	.L93:
- 651 0018 00000000 		.word	.LANCHOR0
- 653              		.section	.text.USBD_LL_GetRxDataSize,"ax",%progbits
- 654              		.align	1
- 655              		.global	USBD_LL_GetRxDataSize
- 656              		.syntax unified
- 657              		.thumb
- 658              		.thumb_func
- 659              		.fpu softvfp
- 661              	USBD_LL_GetRxDataSize:
- 662              		@ args = 0, pretend = 0, frame = 0
- 663              		@ frame_needed = 0, uses_anonymous_args = 0
- 664              		@ link register save eliminated.
- 665 0000 D0F82002 		ldr	r0, [r0, #544]
- 666 0004 FFF7FEBF 		b	HAL_PCD_EP_GetRxCount
- 668              		.section	.text.USBD_LL_Delay,"ax",%progbits
- 669              		.align	1
- 670              		.global	USBD_LL_Delay
- 671              		.syntax unified
- 672              		.thumb
- 673              		.thumb_func
- 674              		.fpu softvfp
- 676              	USBD_LL_Delay:
-ARM GAS  /tmp/ccJY0FmE.s 			page 12
+ 621              		.thumb_func
+ 622              		.fpu softvfp
+ 624              	USBD_LL_PrepareReceive:
+ 625              		@ args = 0, pretend = 0, frame = 0
+ 626              		@ frame_needed = 0, uses_anonymous_args = 0
+ 627 0000 08B5     		push	{r3, lr}
+ 628 0002 D0F82002 		ldr	r0, [r0, #544]
+ 629 0006 FFF7FEFF 		bl	HAL_PCD_EP_Receive
+ 630 000a 0328     		cmp	r0, #3
+ 631 000c 9ABF     		itte	ls
+ 632 000e 024B     		ldrls	r3, .L93
+ 633 0010 185C     		ldrbls	r0, [r3, r0]	@ zero_extendqisi2
+ 634 0012 0220     		movhi	r0, #2
+ 635 0014 08BD     		pop	{r3, pc}
+ 636              	.L94:
+ 637 0016 00BF     		.align	2
+ 638              	.L93:
+ 639 0018 00000000 		.word	.LANCHOR0
+ 641              		.section	.text.USBD_LL_GetRxDataSize,"ax",%progbits
+ 642              		.align	1
+ 643              		.global	USBD_LL_GetRxDataSize
+ 644              		.syntax unified
+ 645              		.thumb
+ 646              		.thumb_func
+ 647              		.fpu softvfp
+ 649              	USBD_LL_GetRxDataSize:
+ 650              		@ args = 0, pretend = 0, frame = 0
+ 651              		@ frame_needed = 0, uses_anonymous_args = 0
+ 652              		@ link register save eliminated.
+ 653 0000 D0F82002 		ldr	r0, [r0, #544]
+ 654 0004 FFF7FEBF 		b	HAL_PCD_EP_GetRxCount
+ 656              		.section	.text.USBD_LL_Delay,"ax",%progbits
+ 657              		.align	1
+ 658              		.global	USBD_LL_Delay
+ 659              		.syntax unified
+ 660              		.thumb
+ 661              		.thumb_func
+ 662              		.fpu softvfp
+ 664              	USBD_LL_Delay:
+ 665              		@ args = 0, pretend = 0, frame = 0
+ 666              		@ frame_needed = 0, uses_anonymous_args = 0
+ 667              		@ link register save eliminated.
+ 668 0000 FFF7FEBF 		b	HAL_Delay
+ 670              		.section	.text.USBD_static_malloc,"ax",%progbits
+ 671              		.align	1
+ 672              		.global	USBD_static_malloc
+ 673              		.syntax unified
+ 674              		.thumb
+ 675              		.thumb_func
+ 676              		.fpu softvfp
+ 678              	USBD_static_malloc:
+ 679              		@ args = 0, pretend = 0, frame = 0
+ 680              		@ frame_needed = 0, uses_anonymous_args = 0
+ 681              		@ link register save eliminated.
+ 682 0000 0048     		ldr	r0, .L98
+ 683 0002 7047     		bx	lr
+ 684              	.L99:
+ARM GAS  /tmp/ccchu7dp.s 			page 12
 
 
- 677              		@ args = 0, pretend = 0, frame = 0
- 678              		@ frame_needed = 0, uses_anonymous_args = 0
- 679              		@ link register save eliminated.
- 680 0000 FFF7FEBF 		b	HAL_Delay
- 682              		.section	.text.USBD_static_malloc,"ax",%progbits
- 683              		.align	1
- 684              		.global	USBD_static_malloc
- 685              		.syntax unified
- 686              		.thumb
- 687              		.thumb_func
- 688              		.fpu softvfp
- 690              	USBD_static_malloc:
- 691              		@ args = 0, pretend = 0, frame = 0
- 692              		@ frame_needed = 0, uses_anonymous_args = 0
- 693              		@ link register save eliminated.
- 694 0000 0048     		ldr	r0, .L98
- 695 0002 7047     		bx	lr
- 696              	.L99:
- 697              		.align	2
- 698              	.L98:
- 699 0004 00000000 		.word	.LANCHOR1
- 701              		.section	.text.USBD_static_free,"ax",%progbits
- 702              		.align	1
- 703              		.global	USBD_static_free
- 704              		.syntax unified
- 705              		.thumb
- 706              		.thumb_func
- 707              		.fpu softvfp
- 709              	USBD_static_free:
- 710              		@ args = 0, pretend = 0, frame = 0
- 711              		@ frame_needed = 0, uses_anonymous_args = 0
- 712              		@ link register save eliminated.
- 713 0000 7047     		bx	lr
- 715              		.section	.text.HAL_PCDEx_SetConnectionState,"ax",%progbits
- 716              		.align	1
- 717              		.global	HAL_PCDEx_SetConnectionState
- 718              		.syntax unified
- 719              		.thumb
- 720              		.thumb_func
- 721              		.fpu softvfp
- 723              	HAL_PCDEx_SetConnectionState:
- 724              		@ args = 0, pretend = 0, frame = 0
- 725              		@ frame_needed = 0, uses_anonymous_args = 0
- 726              		@ link register save eliminated.
- 727 0000 7047     		bx	lr
- 729              		.comm	hpcd_USB_FS,620,4
- 730              		.section	.bss.mem.10947,"aw",%nobits
- 731              		.align	2
- 732              		.set	.LANCHOR1,. + 0
- 735              	mem.10947:
- 736 0000 00000000 		.space	104
- 736      00000000 
- 736      00000000 
- 736      00000000 
- 736      00000000 
- 737              		.section	.rodata.CSWTCH.3,"a"
- 738              		.set	.LANCHOR0,. + 0
-ARM GAS  /tmp/ccJY0FmE.s 			page 13
+ 685              		.align	2
+ 686              	.L98:
+ 687 0004 00000000 		.word	.LANCHOR1
+ 689              		.section	.text.USBD_static_free,"ax",%progbits
+ 690              		.align	1
+ 691              		.global	USBD_static_free
+ 692              		.syntax unified
+ 693              		.thumb
+ 694              		.thumb_func
+ 695              		.fpu softvfp
+ 697              	USBD_static_free:
+ 698              		@ args = 0, pretend = 0, frame = 0
+ 699              		@ frame_needed = 0, uses_anonymous_args = 0
+ 700              		@ link register save eliminated.
+ 701 0000 7047     		bx	lr
+ 703              		.section	.text.HAL_PCDEx_SetConnectionState,"ax",%progbits
+ 704              		.align	1
+ 705              		.global	HAL_PCDEx_SetConnectionState
+ 706              		.syntax unified
+ 707              		.thumb
+ 708              		.thumb_func
+ 709              		.fpu softvfp
+ 711              	HAL_PCDEx_SetConnectionState:
+ 712              		@ args = 0, pretend = 0, frame = 0
+ 713              		@ frame_needed = 0, uses_anonymous_args = 0
+ 714              		@ link register save eliminated.
+ 715 0000 7047     		bx	lr
+ 717              		.comm	hpcd_USB_FS,620,4
+ 718              		.section	.bss.mem.10818,"aw",%nobits
+ 719              		.align	2
+ 720              		.set	.LANCHOR1,. + 0
+ 723              	mem.10818:
+ 724 0000 00000000 		.space	104
+ 724      00000000 
+ 724      00000000 
+ 724      00000000 
+ 724      00000000 
+ 725              		.section	.rodata.CSWTCH.4,"a",%progbits
+ 726              		.set	.LANCHOR0,. + 0
+ 729              	CSWTCH.4:
+ 730 0000 00       		.byte	0
+ 731 0001 02       		.byte	2
+ 732 0002 01       		.byte	1
+ 733 0003 02       		.byte	2
+ 734              		.section	.rodata.USBD_LL_Init.str1.1,"aMS",%progbits,1
+ 735              	.LC0:
+ 736 0000 54726163 		.ascii	"Trace 1-0\000"
+ 736      6520312D 
+ 736      3000
+ 737              	.LC1:
+ 738 000a 54726163 		.ascii	"Trace 1-1\000"
+ 738      6520312D 
+ 738      3100
+ 739              	.LC2:
+ 740 0014 54726163 		.ascii	"Trace 1-2\000"
+ 740      6520312D 
+ 740      3200
+ARM GAS  /tmp/ccchu7dp.s 			page 13
 
 
- 741              	CSWTCH.3:
- 742 0000 00       		.byte	0
- 743 0001 02       		.byte	2
- 744 0002 01       		.byte	1
- 745 0003 02       		.byte	2
- 746              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
-ARM GAS  /tmp/ccJY0FmE.s 			page 14
+ 741              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
+ARM GAS  /tmp/ccchu7dp.s 			page 14
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 usbd_conf.c
-     /tmp/ccJY0FmE.s:14     .text.HAL_PCD_MspInit:0000000000000000 $t
-     /tmp/ccJY0FmE.s:22     .text.HAL_PCD_MspInit:0000000000000000 HAL_PCD_MspInit
-     /tmp/ccJY0FmE.s:54     .text.HAL_PCD_MspInit:000000000000003c $d
-     /tmp/ccJY0FmE.s:57     .text.HAL_PCD_MspDeInit:0000000000000000 $t
-     /tmp/ccJY0FmE.s:64     .text.HAL_PCD_MspDeInit:0000000000000000 HAL_PCD_MspDeInit
-     /tmp/ccJY0FmE.s:83     .text.HAL_PCD_MspDeInit:000000000000001c $d
-     /tmp/ccJY0FmE.s:87     .text.HAL_PCD_SetupStageCallback:0000000000000000 $t
-     /tmp/ccJY0FmE.s:94     .text.HAL_PCD_SetupStageCallback:0000000000000000 HAL_PCD_SetupStageCallback
-     /tmp/ccJY0FmE.s:103    .text.HAL_PCD_DataOutStageCallback:0000000000000000 $t
-     /tmp/ccJY0FmE.s:110    .text.HAL_PCD_DataOutStageCallback:0000000000000000 HAL_PCD_DataOutStageCallback
-     /tmp/ccJY0FmE.s:120    .text.HAL_PCD_DataInStageCallback:0000000000000000 $t
-     /tmp/ccJY0FmE.s:127    .text.HAL_PCD_DataInStageCallback:0000000000000000 HAL_PCD_DataInStageCallback
-     /tmp/ccJY0FmE.s:137    .text.HAL_PCD_SOFCallback:0000000000000000 $t
-     /tmp/ccJY0FmE.s:144    .text.HAL_PCD_SOFCallback:0000000000000000 HAL_PCD_SOFCallback
-     /tmp/ccJY0FmE.s:152    .text.HAL_PCD_ResetCallback:0000000000000000 $t
-     /tmp/ccJY0FmE.s:159    .text.HAL_PCD_ResetCallback:0000000000000000 HAL_PCD_ResetCallback
-     /tmp/ccJY0FmE.s:177    .text.HAL_PCD_SuspendCallback:0000000000000000 $t
-     /tmp/ccJY0FmE.s:184    .text.HAL_PCD_SuspendCallback:0000000000000000 HAL_PCD_SuspendCallback
-     /tmp/ccJY0FmE.s:202    .text.HAL_PCD_SuspendCallback:000000000000001c $d
-     /tmp/ccJY0FmE.s:205    .text.HAL_PCD_ResumeCallback:0000000000000000 $t
-     /tmp/ccJY0FmE.s:212    .text.HAL_PCD_ResumeCallback:0000000000000000 HAL_PCD_ResumeCallback
-     /tmp/ccJY0FmE.s:220    .text.HAL_PCD_ISOOUTIncompleteCallback:0000000000000000 $t
-     /tmp/ccJY0FmE.s:227    .text.HAL_PCD_ISOOUTIncompleteCallback:0000000000000000 HAL_PCD_ISOOUTIncompleteCallback
-     /tmp/ccJY0FmE.s:235    .text.HAL_PCD_ISOINIncompleteCallback:0000000000000000 $t
-     /tmp/ccJY0FmE.s:242    .text.HAL_PCD_ISOINIncompleteCallback:0000000000000000 HAL_PCD_ISOINIncompleteCallback
-     /tmp/ccJY0FmE.s:250    .text.HAL_PCD_ConnectCallback:0000000000000000 $t
-     /tmp/ccJY0FmE.s:257    .text.HAL_PCD_ConnectCallback:0000000000000000 HAL_PCD_ConnectCallback
-     /tmp/ccJY0FmE.s:265    .text.HAL_PCD_DisconnectCallback:0000000000000000 $t
-     /tmp/ccJY0FmE.s:272    .text.HAL_PCD_DisconnectCallback:0000000000000000 HAL_PCD_DisconnectCallback
-     /tmp/ccJY0FmE.s:287    .text.USBD_LL_Init:0000000000000000 $t
-     /tmp/ccJY0FmE.s:294    .text.USBD_LL_Init:0000000000000000 USBD_LL_Init
-     /tmp/ccJY0FmE.s:346    .text.USBD_LL_Init:000000000000007c $d
+     /tmp/ccchu7dp.s:13     .text.HAL_PCD_MspInit:0000000000000000 $t
+     /tmp/ccchu7dp.s:20     .text.HAL_PCD_MspInit:0000000000000000 HAL_PCD_MspInit
+     /tmp/ccchu7dp.s:49     .text.HAL_PCD_MspInit:0000000000000038 $d
+     /tmp/ccchu7dp.s:52     .text.HAL_PCD_MspDeInit:0000000000000000 $t
+     /tmp/ccchu7dp.s:59     .text.HAL_PCD_MspDeInit:0000000000000000 HAL_PCD_MspDeInit
+     /tmp/ccchu7dp.s:78     .text.HAL_PCD_MspDeInit:000000000000001c $d
+     /tmp/ccchu7dp.s:82     .text.HAL_PCD_SetupStageCallback:0000000000000000 $t
+     /tmp/ccchu7dp.s:89     .text.HAL_PCD_SetupStageCallback:0000000000000000 HAL_PCD_SetupStageCallback
+     /tmp/ccchu7dp.s:98     .text.HAL_PCD_DataOutStageCallback:0000000000000000 $t
+     /tmp/ccchu7dp.s:105    .text.HAL_PCD_DataOutStageCallback:0000000000000000 HAL_PCD_DataOutStageCallback
+     /tmp/ccchu7dp.s:115    .text.HAL_PCD_DataInStageCallback:0000000000000000 $t
+     /tmp/ccchu7dp.s:122    .text.HAL_PCD_DataInStageCallback:0000000000000000 HAL_PCD_DataInStageCallback
+     /tmp/ccchu7dp.s:132    .text.HAL_PCD_SOFCallback:0000000000000000 $t
+     /tmp/ccchu7dp.s:139    .text.HAL_PCD_SOFCallback:0000000000000000 HAL_PCD_SOFCallback
+     /tmp/ccchu7dp.s:147    .text.HAL_PCD_ResetCallback:0000000000000000 $t
+     /tmp/ccchu7dp.s:154    .text.HAL_PCD_ResetCallback:0000000000000000 HAL_PCD_ResetCallback
+     /tmp/ccchu7dp.s:172    .text.HAL_PCD_SuspendCallback:0000000000000000 $t
+     /tmp/ccchu7dp.s:179    .text.HAL_PCD_SuspendCallback:0000000000000000 HAL_PCD_SuspendCallback
+     /tmp/ccchu7dp.s:197    .text.HAL_PCD_SuspendCallback:000000000000001c $d
+     /tmp/ccchu7dp.s:200    .text.HAL_PCD_ResumeCallback:0000000000000000 $t
+     /tmp/ccchu7dp.s:207    .text.HAL_PCD_ResumeCallback:0000000000000000 HAL_PCD_ResumeCallback
+     /tmp/ccchu7dp.s:215    .text.HAL_PCD_ISOOUTIncompleteCallback:0000000000000000 $t
+     /tmp/ccchu7dp.s:222    .text.HAL_PCD_ISOOUTIncompleteCallback:0000000000000000 HAL_PCD_ISOOUTIncompleteCallback
+     /tmp/ccchu7dp.s:230    .text.HAL_PCD_ISOINIncompleteCallback:0000000000000000 $t
+     /tmp/ccchu7dp.s:237    .text.HAL_PCD_ISOINIncompleteCallback:0000000000000000 HAL_PCD_ISOINIncompleteCallback
+     /tmp/ccchu7dp.s:245    .text.HAL_PCD_ConnectCallback:0000000000000000 $t
+     /tmp/ccchu7dp.s:252    .text.HAL_PCD_ConnectCallback:0000000000000000 HAL_PCD_ConnectCallback
+     /tmp/ccchu7dp.s:260    .text.HAL_PCD_DisconnectCallback:0000000000000000 $t
+     /tmp/ccchu7dp.s:267    .text.HAL_PCD_DisconnectCallback:0000000000000000 HAL_PCD_DisconnectCallback
+     /tmp/ccchu7dp.s:275    .text.USBD_LL_Init:0000000000000000 $t
+     /tmp/ccchu7dp.s:282    .text.USBD_LL_Init:0000000000000000 USBD_LL_Init
+     /tmp/ccchu7dp.s:334    .text.USBD_LL_Init:000000000000007c $d
                             *COM*:000000000000026c hpcd_USB_FS
-     /tmp/ccJY0FmE.s:353    .text.USBD_LL_DeInit:0000000000000000 $t
-     /tmp/ccJY0FmE.s:360    .text.USBD_LL_DeInit:0000000000000000 USBD_LL_DeInit
-     /tmp/ccJY0FmE.s:375    .text.USBD_LL_DeInit:0000000000000018 $d
-     /tmp/ccJY0FmE.s:378    .text.USBD_LL_Start:0000000000000000 $t
-     /tmp/ccJY0FmE.s:385    .text.USBD_LL_Start:0000000000000000 USBD_LL_Start
-     /tmp/ccJY0FmE.s:400    .text.USBD_LL_Start:0000000000000018 $d
-     /tmp/ccJY0FmE.s:403    .text.USBD_LL_Stop:0000000000000000 $t
-     /tmp/ccJY0FmE.s:410    .text.USBD_LL_Stop:0000000000000000 USBD_LL_Stop
-     /tmp/ccJY0FmE.s:425    .text.USBD_LL_Stop:0000000000000018 $d
-     /tmp/ccJY0FmE.s:428    .text.USBD_LL_OpenEP:0000000000000000 $t
-     /tmp/ccJY0FmE.s:435    .text.USBD_LL_OpenEP:0000000000000000 USBD_LL_OpenEP
-     /tmp/ccJY0FmE.s:453    .text.USBD_LL_OpenEP:000000000000001c $d
-     /tmp/ccJY0FmE.s:456    .text.USBD_LL_CloseEP:0000000000000000 $t
-     /tmp/ccJY0FmE.s:463    .text.USBD_LL_CloseEP:0000000000000000 USBD_LL_CloseEP
-     /tmp/ccJY0FmE.s:478    .text.USBD_LL_CloseEP:0000000000000018 $d
-     /tmp/ccJY0FmE.s:481    .text.USBD_LL_FlushEP:0000000000000000 $t
-     /tmp/ccJY0FmE.s:488    .text.USBD_LL_FlushEP:0000000000000000 USBD_LL_FlushEP
-     /tmp/ccJY0FmE.s:503    .text.USBD_LL_FlushEP:0000000000000018 $d
-     /tmp/ccJY0FmE.s:506    .text.USBD_LL_StallEP:0000000000000000 $t
-     /tmp/ccJY0FmE.s:513    .text.USBD_LL_StallEP:0000000000000000 USBD_LL_StallEP
-     /tmp/ccJY0FmE.s:528    .text.USBD_LL_StallEP:0000000000000018 $d
-     /tmp/ccJY0FmE.s:531    .text.USBD_LL_ClearStallEP:0000000000000000 $t
-ARM GAS  /tmp/ccJY0FmE.s 			page 15
+     /tmp/ccchu7dp.s:341    .text.USBD_LL_DeInit:0000000000000000 $t
+     /tmp/ccchu7dp.s:348    .text.USBD_LL_DeInit:0000000000000000 USBD_LL_DeInit
+     /tmp/ccchu7dp.s:363    .text.USBD_LL_DeInit:0000000000000018 $d
+     /tmp/ccchu7dp.s:366    .text.USBD_LL_Start:0000000000000000 $t
+     /tmp/ccchu7dp.s:373    .text.USBD_LL_Start:0000000000000000 USBD_LL_Start
+     /tmp/ccchu7dp.s:388    .text.USBD_LL_Start:0000000000000018 $d
+     /tmp/ccchu7dp.s:391    .text.USBD_LL_Stop:0000000000000000 $t
+     /tmp/ccchu7dp.s:398    .text.USBD_LL_Stop:0000000000000000 USBD_LL_Stop
+     /tmp/ccchu7dp.s:413    .text.USBD_LL_Stop:0000000000000018 $d
+     /tmp/ccchu7dp.s:416    .text.USBD_LL_OpenEP:0000000000000000 $t
+     /tmp/ccchu7dp.s:423    .text.USBD_LL_OpenEP:0000000000000000 USBD_LL_OpenEP
+     /tmp/ccchu7dp.s:441    .text.USBD_LL_OpenEP:000000000000001c $d
+     /tmp/ccchu7dp.s:444    .text.USBD_LL_CloseEP:0000000000000000 $t
+     /tmp/ccchu7dp.s:451    .text.USBD_LL_CloseEP:0000000000000000 USBD_LL_CloseEP
+     /tmp/ccchu7dp.s:466    .text.USBD_LL_CloseEP:0000000000000018 $d
+     /tmp/ccchu7dp.s:469    .text.USBD_LL_FlushEP:0000000000000000 $t
+     /tmp/ccchu7dp.s:476    .text.USBD_LL_FlushEP:0000000000000000 USBD_LL_FlushEP
+     /tmp/ccchu7dp.s:491    .text.USBD_LL_FlushEP:0000000000000018 $d
+     /tmp/ccchu7dp.s:494    .text.USBD_LL_StallEP:0000000000000000 $t
+     /tmp/ccchu7dp.s:501    .text.USBD_LL_StallEP:0000000000000000 USBD_LL_StallEP
+     /tmp/ccchu7dp.s:516    .text.USBD_LL_StallEP:0000000000000018 $d
+     /tmp/ccchu7dp.s:519    .text.USBD_LL_ClearStallEP:0000000000000000 $t
+ARM GAS  /tmp/ccchu7dp.s 			page 15
 
 
-     /tmp/ccJY0FmE.s:538    .text.USBD_LL_ClearStallEP:0000000000000000 USBD_LL_ClearStallEP
-     /tmp/ccJY0FmE.s:553    .text.USBD_LL_ClearStallEP:0000000000000018 $d
-     /tmp/ccJY0FmE.s:556    .text.USBD_LL_IsStallEP:0000000000000000 $t
-     /tmp/ccJY0FmE.s:563    .text.USBD_LL_IsStallEP:0000000000000000 USBD_LL_IsStallEP
-     /tmp/ccJY0FmE.s:579    .text.USBD_LL_SetUSBAddress:0000000000000000 $t
-     /tmp/ccJY0FmE.s:586    .text.USBD_LL_SetUSBAddress:0000000000000000 USBD_LL_SetUSBAddress
-     /tmp/ccJY0FmE.s:601    .text.USBD_LL_SetUSBAddress:0000000000000018 $d
-     /tmp/ccJY0FmE.s:604    .text.USBD_LL_Transmit:0000000000000000 $t
-     /tmp/ccJY0FmE.s:611    .text.USBD_LL_Transmit:0000000000000000 USBD_LL_Transmit
-     /tmp/ccJY0FmE.s:626    .text.USBD_LL_Transmit:0000000000000018 $d
-     /tmp/ccJY0FmE.s:629    .text.USBD_LL_PrepareReceive:0000000000000000 $t
-     /tmp/ccJY0FmE.s:636    .text.USBD_LL_PrepareReceive:0000000000000000 USBD_LL_PrepareReceive
-     /tmp/ccJY0FmE.s:651    .text.USBD_LL_PrepareReceive:0000000000000018 $d
-     /tmp/ccJY0FmE.s:654    .text.USBD_LL_GetRxDataSize:0000000000000000 $t
-     /tmp/ccJY0FmE.s:661    .text.USBD_LL_GetRxDataSize:0000000000000000 USBD_LL_GetRxDataSize
-     /tmp/ccJY0FmE.s:669    .text.USBD_LL_Delay:0000000000000000 $t
-     /tmp/ccJY0FmE.s:676    .text.USBD_LL_Delay:0000000000000000 USBD_LL_Delay
-     /tmp/ccJY0FmE.s:683    .text.USBD_static_malloc:0000000000000000 $t
-     /tmp/ccJY0FmE.s:690    .text.USBD_static_malloc:0000000000000000 USBD_static_malloc
-     /tmp/ccJY0FmE.s:699    .text.USBD_static_malloc:0000000000000004 $d
-     /tmp/ccJY0FmE.s:702    .text.USBD_static_free:0000000000000000 $t
-     /tmp/ccJY0FmE.s:709    .text.USBD_static_free:0000000000000000 USBD_static_free
-     /tmp/ccJY0FmE.s:716    .text.HAL_PCDEx_SetConnectionState:0000000000000000 $t
-     /tmp/ccJY0FmE.s:723    .text.HAL_PCDEx_SetConnectionState:0000000000000000 HAL_PCDEx_SetConnectionState
-     /tmp/ccJY0FmE.s:731    .bss.mem.10947:0000000000000000 $d
-     /tmp/ccJY0FmE.s:735    .bss.mem.10947:0000000000000000 mem.10947
-     /tmp/ccJY0FmE.s:741    .rodata.CSWTCH.3:0000000000000000 CSWTCH.3
+     /tmp/ccchu7dp.s:526    .text.USBD_LL_ClearStallEP:0000000000000000 USBD_LL_ClearStallEP
+     /tmp/ccchu7dp.s:541    .text.USBD_LL_ClearStallEP:0000000000000018 $d
+     /tmp/ccchu7dp.s:544    .text.USBD_LL_IsStallEP:0000000000000000 $t
+     /tmp/ccchu7dp.s:551    .text.USBD_LL_IsStallEP:0000000000000000 USBD_LL_IsStallEP
+     /tmp/ccchu7dp.s:567    .text.USBD_LL_SetUSBAddress:0000000000000000 $t
+     /tmp/ccchu7dp.s:574    .text.USBD_LL_SetUSBAddress:0000000000000000 USBD_LL_SetUSBAddress
+     /tmp/ccchu7dp.s:589    .text.USBD_LL_SetUSBAddress:0000000000000018 $d
+     /tmp/ccchu7dp.s:592    .text.USBD_LL_Transmit:0000000000000000 $t
+     /tmp/ccchu7dp.s:599    .text.USBD_LL_Transmit:0000000000000000 USBD_LL_Transmit
+     /tmp/ccchu7dp.s:614    .text.USBD_LL_Transmit:0000000000000018 $d
+     /tmp/ccchu7dp.s:617    .text.USBD_LL_PrepareReceive:0000000000000000 $t
+     /tmp/ccchu7dp.s:624    .text.USBD_LL_PrepareReceive:0000000000000000 USBD_LL_PrepareReceive
+     /tmp/ccchu7dp.s:639    .text.USBD_LL_PrepareReceive:0000000000000018 $d
+     /tmp/ccchu7dp.s:642    .text.USBD_LL_GetRxDataSize:0000000000000000 $t
+     /tmp/ccchu7dp.s:649    .text.USBD_LL_GetRxDataSize:0000000000000000 USBD_LL_GetRxDataSize
+     /tmp/ccchu7dp.s:657    .text.USBD_LL_Delay:0000000000000000 $t
+     /tmp/ccchu7dp.s:664    .text.USBD_LL_Delay:0000000000000000 USBD_LL_Delay
+     /tmp/ccchu7dp.s:671    .text.USBD_static_malloc:0000000000000000 $t
+     /tmp/ccchu7dp.s:678    .text.USBD_static_malloc:0000000000000000 USBD_static_malloc
+     /tmp/ccchu7dp.s:687    .text.USBD_static_malloc:0000000000000004 $d
+     /tmp/ccchu7dp.s:690    .text.USBD_static_free:0000000000000000 $t
+     /tmp/ccchu7dp.s:697    .text.USBD_static_free:0000000000000000 USBD_static_free
+     /tmp/ccchu7dp.s:704    .text.HAL_PCDEx_SetConnectionState:0000000000000000 $t
+     /tmp/ccchu7dp.s:711    .text.HAL_PCDEx_SetConnectionState:0000000000000000 HAL_PCDEx_SetConnectionState
+     /tmp/ccchu7dp.s:719    .bss.mem.10818:0000000000000000 $d
+     /tmp/ccchu7dp.s:723    .bss.mem.10818:0000000000000000 mem.10818
+     /tmp/ccchu7dp.s:729    .rodata.CSWTCH.4:0000000000000000 CSWTCH.4
 
 UNDEFINED SYMBOLS
 HAL_NVIC_SetPriority
@@ -847,7 +842,7 @@ HAL_PCD_EP_Flush
 HAL_PCD_EP_SetStall
 HAL_PCD_EP_ClrStall
 HAL_PCD_SetAddress
-ARM GAS  /tmp/ccJY0FmE.s 			page 16
+ARM GAS  /tmp/ccchu7dp.s 			page 16
 
 
 HAL_PCD_EP_Transmit

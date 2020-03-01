@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccYO80BL.s 			page 1
+ARM GAS  /tmp/cccqaI5V.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -12,79 +12,76 @@ ARM GAS  /tmp/ccYO80BL.s 			page 1
    9              		.eabi_attribute 34, 1
   10              		.eabi_attribute 18, 4
   11              		.file	"stm32f1xx_hal_iwdg.c"
-  12              		.text
-  13              		.section	.text.HAL_IWDG_Init,"ax",%progbits
-  14              		.align	1
-  15              		.global	HAL_IWDG_Init
-  16              		.arch armv7-m
-  17              		.syntax unified
-  18              		.thumb
-  19              		.thumb_func
-  20              		.fpu softvfp
-  22              	HAL_IWDG_Init:
-  23              		@ args = 0, pretend = 0, frame = 0
-  24              		@ frame_needed = 0, uses_anonymous_args = 0
-  25 0000 38B5     		push	{r3, r4, r5, lr}
-  26 0002 0446     		mov	r4, r0
-  27 0004 D8B1     		cbz	r0, .L5
-  28 0006 4CF6CC42 		movw	r2, #52428
-  29 000a 0368     		ldr	r3, [r0]
-  30 000c 1A60     		str	r2, [r3]
-  31 000e 45F25552 		movw	r2, #21845
-  32 0012 1A60     		str	r2, [r3]
-  33 0014 4268     		ldr	r2, [r0, #4]
-  34 0016 5A60     		str	r2, [r3, #4]
-  35 0018 8268     		ldr	r2, [r0, #8]
-  36 001a 9A60     		str	r2, [r3, #8]
-  37 001c FFF7FEFF 		bl	HAL_GetTick
-  38 0020 0546     		mov	r5, r0
-  39              	.L3:
-  40 0022 2368     		ldr	r3, [r4]
-  41 0024 D868     		ldr	r0, [r3, #12]
-  42 0026 18B9     		cbnz	r0, .L4
-  43 0028 4AF6AA22 		movw	r2, #43690
-  44 002c 1A60     		str	r2, [r3]
-  45              	.L2:
-  46 002e 38BD     		pop	{r3, r4, r5, pc}
-  47              	.L4:
-  48 0030 FFF7FEFF 		bl	HAL_GetTick
-  49 0034 401B     		subs	r0, r0, r5
-  50 0036 3028     		cmp	r0, #48
-  51 0038 F3D9     		bls	.L3
-  52 003a 0320     		movs	r0, #3
-  53 003c F7E7     		b	.L2
-  54              	.L5:
-  55 003e 0120     		movs	r0, #1
-  56 0040 F5E7     		b	.L2
-  58              		.section	.text.HAL_IWDG_Refresh,"ax",%progbits
-  59              		.align	1
-ARM GAS  /tmp/ccYO80BL.s 			page 2
+  12              		.section	.text.HAL_IWDG_Init,"ax",%progbits
+  13              		.align	1
+  14              		.global	HAL_IWDG_Init
+  15              		.syntax unified
+  16              		.thumb
+  17              		.thumb_func
+  18              		.fpu softvfp
+  20              	HAL_IWDG_Init:
+  21              		@ args = 0, pretend = 0, frame = 0
+  22              		@ frame_needed = 0, uses_anonymous_args = 0
+  23 0000 38B5     		push	{r3, r4, r5, lr}
+  24 0002 0446     		mov	r4, r0
+  25 0004 D8B1     		cbz	r0, .L5
+  26 0006 4CF6CC42 		movw	r2, #52428
+  27 000a 0368     		ldr	r3, [r0]
+  28 000c 1A60     		str	r2, [r3]
+  29 000e 45F25552 		movw	r2, #21845
+  30 0012 1A60     		str	r2, [r3]
+  31 0014 4268     		ldr	r2, [r0, #4]
+  32 0016 5A60     		str	r2, [r3, #4]
+  33 0018 8268     		ldr	r2, [r0, #8]
+  34 001a 9A60     		str	r2, [r3, #8]
+  35 001c FFF7FEFF 		bl	HAL_GetTick
+  36 0020 0546     		mov	r5, r0
+  37              	.L3:
+  38 0022 2368     		ldr	r3, [r4]
+  39 0024 D868     		ldr	r0, [r3, #12]
+  40 0026 18B9     		cbnz	r0, .L4
+  41 0028 4AF6AA22 		movw	r2, #43690
+  42 002c 1A60     		str	r2, [r3]
+  43 002e 38BD     		pop	{r3, r4, r5, pc}
+  44              	.L4:
+  45 0030 FFF7FEFF 		bl	HAL_GetTick
+  46 0034 401B     		subs	r0, r0, r5
+  47 0036 3028     		cmp	r0, #48
+  48 0038 F3D9     		bls	.L3
+  49 003a 0320     		movs	r0, #3
+  50 003c 38BD     		pop	{r3, r4, r5, pc}
+  51              	.L5:
+  52 003e 0120     		movs	r0, #1
+  53 0040 38BD     		pop	{r3, r4, r5, pc}
+  55              		.section	.text.HAL_IWDG_Refresh,"ax",%progbits
+  56              		.align	1
+  57              		.global	HAL_IWDG_Refresh
+  58              		.syntax unified
+  59              		.thumb
+ARM GAS  /tmp/cccqaI5V.s 			page 2
 
 
-  60              		.global	HAL_IWDG_Refresh
-  61              		.syntax unified
-  62              		.thumb
-  63              		.thumb_func
-  64              		.fpu softvfp
-  66              	HAL_IWDG_Refresh:
-  67              		@ args = 0, pretend = 0, frame = 0
-  68              		@ frame_needed = 0, uses_anonymous_args = 0
-  69              		@ link register save eliminated.
-  70 0000 4AF6AA22 		movw	r2, #43690
-  71 0004 0368     		ldr	r3, [r0]
-  72 0006 0020     		movs	r0, #0
-  73 0008 1A60     		str	r2, [r3]
-  74 000a 7047     		bx	lr
-  76              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
-ARM GAS  /tmp/ccYO80BL.s 			page 3
+  60              		.thumb_func
+  61              		.fpu softvfp
+  63              	HAL_IWDG_Refresh:
+  64              		@ args = 0, pretend = 0, frame = 0
+  65              		@ frame_needed = 0, uses_anonymous_args = 0
+  66              		@ link register save eliminated.
+  67 0000 4AF6AA22 		movw	r2, #43690
+  68 0004 0368     		ldr	r3, [r0]
+  69 0006 0020     		movs	r0, #0
+  70 0008 1A60     		str	r2, [r3]
+  71 000a 7047     		bx	lr
+  73              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
+ARM GAS  /tmp/cccqaI5V.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f1xx_hal_iwdg.c
-     /tmp/ccYO80BL.s:14     .text.HAL_IWDG_Init:0000000000000000 $t
-     /tmp/ccYO80BL.s:22     .text.HAL_IWDG_Init:0000000000000000 HAL_IWDG_Init
-     /tmp/ccYO80BL.s:59     .text.HAL_IWDG_Refresh:0000000000000000 $t
-     /tmp/ccYO80BL.s:66     .text.HAL_IWDG_Refresh:0000000000000000 HAL_IWDG_Refresh
+     /tmp/cccqaI5V.s:13     .text.HAL_IWDG_Init:0000000000000000 $t
+     /tmp/cccqaI5V.s:20     .text.HAL_IWDG_Init:0000000000000000 HAL_IWDG_Init
+     /tmp/cccqaI5V.s:56     .text.HAL_IWDG_Refresh:0000000000000000 $t
+     /tmp/cccqaI5V.s:63     .text.HAL_IWDG_Refresh:0000000000000000 HAL_IWDG_Refresh
 
 UNDEFINED SYMBOLS
 HAL_GetTick

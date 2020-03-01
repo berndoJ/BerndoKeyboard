@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccbex5GY.s 			page 1
+ARM GAS  /tmp/ccoMUQ18.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -12,149 +12,146 @@ ARM GAS  /tmp/ccbex5GY.s 			page 1
    9              		.eabi_attribute 34, 1
   10              		.eabi_attribute 18, 4
   11              		.file	"infinikeys_debug.c"
-  12              		.text
-  13              		.section	.text.IK_DEBUG_Init,"ax",%progbits
-  14              		.align	1
-  15              		.global	IK_DEBUG_Init
-  16              		.arch armv7-m
-  17              		.syntax unified
-  18              		.thumb
-  19              		.thumb_func
-  20              		.fpu softvfp
-  22              	IK_DEBUG_Init:
-  23              		@ args = 0, pretend = 0, frame = 0
-  24              		@ frame_needed = 0, uses_anonymous_args = 0
-  25              		@ link register save eliminated.
-  26 0000 28B1     		cbz	r0, .L4
-  27 0002 0368     		ldr	r3, [r0]
-  28 0004 1BB1     		cbz	r3, .L4
-  29 0006 034B     		ldr	r3, .L5
-  30 0008 1860     		str	r0, [r3]
-  31 000a 0020     		movs	r0, #0
-  32 000c 7047     		bx	lr
-  33              	.L4:
-  34 000e 0120     		movs	r0, #1
-  35 0010 7047     		bx	lr
-  36              	.L6:
-  37 0012 00BF     		.align	2
-  38              	.L5:
-  39 0014 00000000 		.word	.LANCHOR0
-  41              		.section	.text.IK_DEBUG_DeInit,"ax",%progbits
-  42              		.align	1
-  43              		.global	IK_DEBUG_DeInit
-  44              		.syntax unified
-  45              		.thumb
-  46              		.thumb_func
-  47              		.fpu softvfp
-  49              	IK_DEBUG_DeInit:
-  50              		@ args = 0, pretend = 0, frame = 0
-  51              		@ frame_needed = 0, uses_anonymous_args = 0
-  52              		@ link register save eliminated.
-  53 0000 0020     		movs	r0, #0
-  54 0002 014B     		ldr	r3, .L8
-  55 0004 1860     		str	r0, [r3]
-  56 0006 7047     		bx	lr
-  57              	.L9:
-  58              		.align	2
-  59              	.L8:
-  60 0008 00000000 		.word	.LANCHOR0
-ARM GAS  /tmp/ccbex5GY.s 			page 2
+  12              		.section	.text.IK_DEBUG_Init,"ax",%progbits
+  13              		.align	1
+  14              		.global	IK_DEBUG_Init
+  15              		.syntax unified
+  16              		.thumb
+  17              		.thumb_func
+  18              		.fpu softvfp
+  20              	IK_DEBUG_Init:
+  21              		@ args = 0, pretend = 0, frame = 0
+  22              		@ frame_needed = 0, uses_anonymous_args = 0
+  23              		@ link register save eliminated.
+  24 0000 28B1     		cbz	r0, .L4
+  25 0002 0368     		ldr	r3, [r0]
+  26 0004 1BB1     		cbz	r3, .L4
+  27 0006 034B     		ldr	r3, .L5
+  28 0008 1860     		str	r0, [r3]
+  29 000a 0020     		movs	r0, #0
+  30 000c 7047     		bx	lr
+  31              	.L4:
+  32 000e 0120     		movs	r0, #1
+  33 0010 7047     		bx	lr
+  34              	.L6:
+  35 0012 00BF     		.align	2
+  36              	.L5:
+  37 0014 00000000 		.word	.LANCHOR0
+  39              		.section	.text.IK_DEBUG_DeInit,"ax",%progbits
+  40              		.align	1
+  41              		.global	IK_DEBUG_DeInit
+  42              		.syntax unified
+  43              		.thumb
+  44              		.thumb_func
+  45              		.fpu softvfp
+  47              	IK_DEBUG_DeInit:
+  48              		@ args = 0, pretend = 0, frame = 0
+  49              		@ frame_needed = 0, uses_anonymous_args = 0
+  50              		@ link register save eliminated.
+  51 0000 0020     		movs	r0, #0
+  52 0002 014B     		ldr	r3, .L8
+  53 0004 1860     		str	r0, [r3]
+  54 0006 7047     		bx	lr
+  55              	.L9:
+  56              		.align	2
+  57              	.L8:
+  58 0008 00000000 		.word	.LANCHOR0
+  60              		.section	.text.IK_DEBUG_PrintMessage,"ax",%progbits
+  61              		.align	1
+ARM GAS  /tmp/ccoMUQ18.s 			page 2
 
 
-  62              		.section	.rodata.IK_DEBUG_PrintMessage.str1.1,"aMS",%progbits,1
-  63              	.LC0:
-  64 0000 5B494B5D 		.ascii	"[IK] \000"
-  64      2000
-  65              		.section	.text.IK_DEBUG_PrintMessage,"ax",%progbits
-  66              		.align	1
-  67              		.global	IK_DEBUG_PrintMessage
-  68              		.syntax unified
-  69              		.thumb
-  70              		.thumb_func
-  71              		.fpu softvfp
-  73              	IK_DEBUG_PrintMessage:
-  74              		@ args = 4, pretend = 16, frame = 8
-  75              		@ frame_needed = 0, uses_anonymous_args = 1
-  76 0000 0FB4     		push	{r0, r1, r2, r3}
-  77 0002 73B5     		push	{r0, r1, r4, r5, r6, lr}
-  78 0004 184E     		ldr	r6, .L23
-  79 0006 069D     		ldr	r5, [sp, #24]
-  80 0008 3368     		ldr	r3, [r6]
-  81 000a 33B9     		cbnz	r3, .L11
-  82              	.L13:
-  83 000c 0125     		movs	r5, #1
-  84              	.L12:
-  85 000e 2846     		mov	r0, r5
-  86 0010 02B0     		add	sp, sp, #8
-  87              		@ sp needed
-  88 0012 BDE87040 		pop	{r4, r5, r6, lr}
-  89 0016 04B0     		add	sp, sp, #16
-  90 0018 7047     		bx	lr
-  91              	.L11:
-  92 001a 1B68     		ldr	r3, [r3]
-  93 001c 002B     		cmp	r3, #0
-  94 001e F5D0     		beq	.L13
-  95 0020 1B68     		ldr	r3, [r3]
-  96 0022 002B     		cmp	r3, #0
-  97 0024 F2D0     		beq	.L13
-  98 0026 2846     		mov	r0, r5
-  99 0028 FFF7FEFF 		bl	strlen
- 100 002c 00F58070 		add	r0, r0, #256
- 101 0030 FFF7FEFF 		bl	malloc
- 102 0034 0446     		mov	r4, r0
- 103 0036 0028     		cmp	r0, #0
- 104 0038 E8D0     		beq	.L13
- 105 003a 07AA     		add	r2, sp, #28
- 106 003c 2946     		mov	r1, r5
- 107 003e 0192     		str	r2, [sp, #4]
- 108 0040 FFF7FEFF 		bl	vsprintf
- 109 0044 0546     		mov	r5, r0
- 110 0046 3368     		ldr	r3, [r6]
- 111 0048 0621     		movs	r1, #6
- 112 004a 1B68     		ldr	r3, [r3]
- 113 004c 0748     		ldr	r0, .L23+4
- 114 004e 1B68     		ldr	r3, [r3]
- 115 0050 9847     		blx	r3
- 116 0052 3368     		ldr	r3, [r6]
- 117 0054 2946     		mov	r1, r5
- 118 0056 1B68     		ldr	r3, [r3]
-ARM GAS  /tmp/ccbex5GY.s 			page 3
+  62              		.global	IK_DEBUG_PrintMessage
+  63              		.syntax unified
+  64              		.thumb
+  65              		.thumb_func
+  66              		.fpu softvfp
+  68              	IK_DEBUG_PrintMessage:
+  69              		@ args = 4, pretend = 16, frame = 8
+  70              		@ frame_needed = 0, uses_anonymous_args = 1
+  71 0000 0FB4     		push	{r0, r1, r2, r3}
+  72 0002 73B5     		push	{r0, r1, r4, r5, r6, lr}
+  73 0004 184C     		ldr	r4, .L23
+  74 0006 2368     		ldr	r3, [r4]
+  75 0008 33B9     		cbnz	r3, .L11
+  76              	.L13:
+  77 000a 0124     		movs	r4, #1
+  78              	.L12:
+  79 000c 2046     		mov	r0, r4
+  80 000e 02B0     		add	sp, sp, #8
+  81              		@ sp needed
+  82 0010 BDE87040 		pop	{r4, r5, r6, lr}
+  83 0014 04B0     		add	sp, sp, #16
+  84 0016 7047     		bx	lr
+  85              	.L11:
+  86 0018 1B68     		ldr	r3, [r3]
+  87 001a 002B     		cmp	r3, #0
+  88 001c F5D0     		beq	.L13
+  89 001e 1B68     		ldr	r3, [r3]
+  90 0020 002B     		cmp	r3, #0
+  91 0022 F2D0     		beq	.L13
+  92 0024 0698     		ldr	r0, [sp, #24]
+  93 0026 FFF7FEFF 		bl	strlen
+  94 002a 00F58070 		add	r0, r0, #256
+  95 002e FFF7FEFF 		bl	malloc
+  96 0032 0546     		mov	r5, r0
+  97 0034 0028     		cmp	r0, #0
+  98 0036 E8D0     		beq	.L13
+  99 0038 07AA     		add	r2, sp, #28
+ 100 003a 0699     		ldr	r1, [sp, #24]
+ 101 003c 0192     		str	r2, [sp, #4]
+ 102 003e FFF7FEFF 		bl	vsprintf
+ 103 0042 0646     		mov	r6, r0
+ 104 0044 2368     		ldr	r3, [r4]
+ 105 0046 0621     		movs	r1, #6
+ 106 0048 1B68     		ldr	r3, [r3]
+ 107 004a 0848     		ldr	r0, .L23+4
+ 108 004c 1B68     		ldr	r3, [r3]
+ 109 004e 9847     		blx	r3
+ 110 0050 2368     		ldr	r3, [r4]
+ 111 0052 3146     		mov	r1, r6
+ 112 0054 1B68     		ldr	r3, [r3]
+ 113 0056 2846     		mov	r0, r5
+ 114 0058 1B68     		ldr	r3, [r3]
+ 115 005a 9847     		blx	r3
+ 116 005c 0446     		mov	r4, r0
+ 117 005e 2846     		mov	r0, r5
+ 118 0060 FFF7FEFF 		bl	free
+ 119 0064 D2E7     		b	.L12
+ARM GAS  /tmp/ccoMUQ18.s 			page 3
 
 
- 119 0058 2046     		mov	r0, r4
- 120 005a 1B68     		ldr	r3, [r3]
- 121 005c 9847     		blx	r3
- 122 005e 0546     		mov	r5, r0
- 123 0060 2046     		mov	r0, r4
- 124 0062 FFF7FEFF 		bl	free
- 125 0066 D2E7     		b	.L12
- 126              	.L24:
+ 120              	.L24:
+ 121 0066 00BF     		.align	2
+ 122              	.L23:
+ 123 0068 00000000 		.word	.LANCHOR0
+ 124 006c 00000000 		.word	.LC0
+ 126              		.section	.bss._debug_init,"aw",%nobits
  127              		.align	2
- 128              	.L23:
- 129 0068 00000000 		.word	.LANCHOR0
- 130 006c 00000000 		.word	.LC0
- 132              		.section	.bss._debug_init,"aw",%nobits
- 133              		.align	2
- 134              		.set	.LANCHOR0,. + 0
- 137              	_debug_init:
- 138 0000 00000000 		.space	4
- 139              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
-ARM GAS  /tmp/ccbex5GY.s 			page 4
+ 128              		.set	.LANCHOR0,. + 0
+ 131              	_debug_init:
+ 132 0000 00000000 		.space	4
+ 133              		.section	.rodata.IK_DEBUG_PrintMessage.str1.1,"aMS",%progbits,1
+ 134              	.LC0:
+ 135 0000 5B494B5D 		.ascii	"[IK] \000"
+ 135      2000
+ 136              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
+ARM GAS  /tmp/ccoMUQ18.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 infinikeys_debug.c
-     /tmp/ccbex5GY.s:14     .text.IK_DEBUG_Init:0000000000000000 $t
-     /tmp/ccbex5GY.s:22     .text.IK_DEBUG_Init:0000000000000000 IK_DEBUG_Init
-     /tmp/ccbex5GY.s:39     .text.IK_DEBUG_Init:0000000000000014 $d
-     /tmp/ccbex5GY.s:42     .text.IK_DEBUG_DeInit:0000000000000000 $t
-     /tmp/ccbex5GY.s:49     .text.IK_DEBUG_DeInit:0000000000000000 IK_DEBUG_DeInit
-     /tmp/ccbex5GY.s:60     .text.IK_DEBUG_DeInit:0000000000000008 $d
-     /tmp/ccbex5GY.s:66     .text.IK_DEBUG_PrintMessage:0000000000000000 $t
-     /tmp/ccbex5GY.s:73     .text.IK_DEBUG_PrintMessage:0000000000000000 IK_DEBUG_PrintMessage
-     /tmp/ccbex5GY.s:129    .text.IK_DEBUG_PrintMessage:0000000000000068 $d
-     /tmp/ccbex5GY.s:133    .bss._debug_init:0000000000000000 $d
-     /tmp/ccbex5GY.s:137    .bss._debug_init:0000000000000000 _debug_init
+     /tmp/ccoMUQ18.s:13     .text.IK_DEBUG_Init:0000000000000000 $t
+     /tmp/ccoMUQ18.s:20     .text.IK_DEBUG_Init:0000000000000000 IK_DEBUG_Init
+     /tmp/ccoMUQ18.s:37     .text.IK_DEBUG_Init:0000000000000014 $d
+     /tmp/ccoMUQ18.s:40     .text.IK_DEBUG_DeInit:0000000000000000 $t
+     /tmp/ccoMUQ18.s:47     .text.IK_DEBUG_DeInit:0000000000000000 IK_DEBUG_DeInit
+     /tmp/ccoMUQ18.s:58     .text.IK_DEBUG_DeInit:0000000000000008 $d
+     /tmp/ccoMUQ18.s:61     .text.IK_DEBUG_PrintMessage:0000000000000000 $t
+     /tmp/ccoMUQ18.s:68     .text.IK_DEBUG_PrintMessage:0000000000000000 IK_DEBUG_PrintMessage
+     /tmp/ccoMUQ18.s:123    .text.IK_DEBUG_PrintMessage:0000000000000068 $d
+     /tmp/ccoMUQ18.s:127    .bss._debug_init:0000000000000000 $d
+     /tmp/ccoMUQ18.s:131    .bss._debug_init:0000000000000000 _debug_init
 
 UNDEFINED SYMBOLS
 strlen
