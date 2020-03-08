@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cco5mVwR.s 			page 1
+ARM GAS  /tmp/ccLNbEHT.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cco5mVwR.s 			page 1
   58 000a D0F8B432 		ldr	r3, [r0, #692]
   59 000e 0179     		ldrb	r1, [r0, #4]	@ zero_extendqisi2
   60 0010 5B68     		ldr	r3, [r3, #4]
-ARM GAS  /tmp/cco5mVwR.s 			page 2
+ARM GAS  /tmp/ccLNbEHT.s 			page 2
 
 
   61 0012 9847     		blx	r3
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cco5mVwR.s 			page 1
  121 000c 9847     		blx	r3
  122 000e 2046     		mov	r0, r4
  123 0010 FFF7FEFF 		bl	USBD_LL_Stop
-ARM GAS  /tmp/cco5mVwR.s 			page 3
+ARM GAS  /tmp/ccLNbEHT.s 			page 3
 
 
  124 0014 0020     		movs	r0, #0
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cco5mVwR.s 			page 1
  185              		.align	1
  186              		.global	USBD_LL_SetupStage
  187              		.syntax unified
-ARM GAS  /tmp/cco5mVwR.s 			page 4
+ARM GAS  /tmp/ccLNbEHT.s 			page 4
 
 
  188              		.thumb
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cco5mVwR.s 			page 1
  245 0002 0546     		mov	r5, r0
  246 0004 1646     		mov	r6, r2
  247 0006 49BB     		cbnz	r1, .L32
-ARM GAS  /tmp/cco5mVwR.s 			page 5
+ARM GAS  /tmp/ccLNbEHT.s 			page 5
 
 
  248 0008 D0F89432 		ldr	r3, [r0, #660]
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cco5mVwR.s 			page 1
  303              		.fpu softvfp
  305              	USBD_LL_DataInStage:
  306              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/cco5mVwR.s 			page 6
+ARM GAS  /tmp/ccLNbEHT.s 			page 6
 
 
  307              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cco5mVwR.s 			page 1
  361 007a 2046     		mov	r0, r4
  362 007c 9847     		blx	r3
  363              	.L52:
-ARM GAS  /tmp/cco5mVwR.s 			page 7
+ARM GAS  /tmp/ccLNbEHT.s 			page 7
 
 
  364 007e 8021     		movs	r1, #128
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cco5mVwR.s 			page 1
  420 002e 6662     		str	r6, [r4, #36]
  421 0030 84F89C52 		strb	r5, [r4, #668]
  422 0034 C4F89412 		str	r1, [r4, #660]
-ARM GAS  /tmp/cco5mVwR.s 			page 8
+ARM GAS  /tmp/ccLNbEHT.s 			page 8
 
 
  423 0038 6160     		str	r1, [r4, #4]
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cco5mVwR.s 			page 1
  483 0006 04BF     		itt	eq
  484 0008 90F89D32 		ldrbeq	r3, [r0, #669]	@ zero_extendqisi2
  485 000c 80F89C32 		strbeq	r3, [r0, #668]
-ARM GAS  /tmp/cco5mVwR.s 			page 9
+ARM GAS  /tmp/ccLNbEHT.s 			page 9
 
 
  486 0010 0020     		movs	r0, #0
@@ -538,7 +538,7 @@ ARM GAS  /tmp/cco5mVwR.s 			page 1
  547              		.thumb_func
  548              		.fpu softvfp
  550              	USBD_LL_DevConnected:
-ARM GAS  /tmp/cco5mVwR.s 			page 10
+ARM GAS  /tmp/ccLNbEHT.s 			page 10
 
 
  551              		@ args = 0, pretend = 0, frame = 0
@@ -566,51 +566,51 @@ ARM GAS  /tmp/cco5mVwR.s 			page 1
  575 0012 0020     		movs	r0, #0
  576 0014 08BD     		pop	{r3, pc}
  578              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
-ARM GAS  /tmp/cco5mVwR.s 			page 11
+ARM GAS  /tmp/ccLNbEHT.s 			page 11
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 usbd_core.c
-     /tmp/cco5mVwR.s:13     .text.USBD_Init:0000000000000000 $t
-     /tmp/cco5mVwR.s:20     .text.USBD_Init:0000000000000000 USBD_Init
-     /tmp/cco5mVwR.s:44     .text.USBD_DeInit:0000000000000000 $t
-     /tmp/cco5mVwR.s:51     .text.USBD_DeInit:0000000000000000 USBD_DeInit
-     /tmp/cco5mVwR.s:70     .text.USBD_RegisterClass:0000000000000000 $t
-     /tmp/cco5mVwR.s:77     .text.USBD_RegisterClass:0000000000000000 USBD_RegisterClass
-     /tmp/cco5mVwR.s:90     .text.USBD_Start:0000000000000000 $t
-     /tmp/cco5mVwR.s:97     .text.USBD_Start:0000000000000000 USBD_Start
-     /tmp/cco5mVwR.s:106    .text.USBD_Stop:0000000000000000 $t
-     /tmp/cco5mVwR.s:113    .text.USBD_Stop:0000000000000000 USBD_Stop
-     /tmp/cco5mVwR.s:128    .text.USBD_RunTestMode:0000000000000000 $t
-     /tmp/cco5mVwR.s:135    .text.USBD_RunTestMode:0000000000000000 USBD_RunTestMode
-     /tmp/cco5mVwR.s:143    .text.USBD_SetClassConfig:0000000000000000 $t
-     /tmp/cco5mVwR.s:150    .text.USBD_SetClassConfig:0000000000000000 USBD_SetClassConfig
-     /tmp/cco5mVwR.s:167    .text.USBD_ClrClassConfig:0000000000000000 $t
-     /tmp/cco5mVwR.s:174    .text.USBD_ClrClassConfig:0000000000000000 USBD_ClrClassConfig
-     /tmp/cco5mVwR.s:185    .text.USBD_LL_SetupStage:0000000000000000 $t
-     /tmp/cco5mVwR.s:192    .text.USBD_LL_SetupStage:0000000000000000 USBD_LL_SetupStage
-     /tmp/cco5mVwR.s:234    .text.USBD_LL_DataOutStage:0000000000000000 $t
-     /tmp/cco5mVwR.s:241    .text.USBD_LL_DataOutStage:0000000000000000 USBD_LL_DataOutStage
-     /tmp/cco5mVwR.s:298    .text.USBD_LL_DataInStage:0000000000000000 $t
-     /tmp/cco5mVwR.s:305    .text.USBD_LL_DataInStage:0000000000000000 USBD_LL_DataInStage
-     /tmp/cco5mVwR.s:392    .text.USBD_LL_Reset:0000000000000000 $t
-     /tmp/cco5mVwR.s:399    .text.USBD_LL_Reset:0000000000000000 USBD_LL_Reset
-     /tmp/cco5mVwR.s:435    .text.USBD_LL_SetSpeed:0000000000000000 $t
-     /tmp/cco5mVwR.s:442    .text.USBD_LL_SetSpeed:0000000000000000 USBD_LL_SetSpeed
-     /tmp/cco5mVwR.s:451    .text.USBD_LL_Suspend:0000000000000000 $t
-     /tmp/cco5mVwR.s:458    .text.USBD_LL_Suspend:0000000000000000 USBD_LL_Suspend
-     /tmp/cco5mVwR.s:470    .text.USBD_LL_Resume:0000000000000000 $t
-     /tmp/cco5mVwR.s:477    .text.USBD_LL_Resume:0000000000000000 USBD_LL_Resume
-     /tmp/cco5mVwR.s:490    .text.USBD_LL_SOF:0000000000000000 $t
-     /tmp/cco5mVwR.s:497    .text.USBD_LL_SOF:0000000000000000 USBD_LL_SOF
-     /tmp/cco5mVwR.s:513    .text.USBD_LL_IsoINIncomplete:0000000000000000 $t
-     /tmp/cco5mVwR.s:520    .text.USBD_LL_IsoINIncomplete:0000000000000000 USBD_LL_IsoINIncomplete
-     /tmp/cco5mVwR.s:528    .text.USBD_LL_IsoOUTIncomplete:0000000000000000 $t
-     /tmp/cco5mVwR.s:535    .text.USBD_LL_IsoOUTIncomplete:0000000000000000 USBD_LL_IsoOUTIncomplete
-     /tmp/cco5mVwR.s:543    .text.USBD_LL_DevConnected:0000000000000000 $t
-     /tmp/cco5mVwR.s:550    .text.USBD_LL_DevConnected:0000000000000000 USBD_LL_DevConnected
-     /tmp/cco5mVwR.s:558    .text.USBD_LL_DevDisconnected:0000000000000000 $t
-     /tmp/cco5mVwR.s:565    .text.USBD_LL_DevDisconnected:0000000000000000 USBD_LL_DevDisconnected
+     /tmp/ccLNbEHT.s:13     .text.USBD_Init:0000000000000000 $t
+     /tmp/ccLNbEHT.s:20     .text.USBD_Init:0000000000000000 USBD_Init
+     /tmp/ccLNbEHT.s:44     .text.USBD_DeInit:0000000000000000 $t
+     /tmp/ccLNbEHT.s:51     .text.USBD_DeInit:0000000000000000 USBD_DeInit
+     /tmp/ccLNbEHT.s:70     .text.USBD_RegisterClass:0000000000000000 $t
+     /tmp/ccLNbEHT.s:77     .text.USBD_RegisterClass:0000000000000000 USBD_RegisterClass
+     /tmp/ccLNbEHT.s:90     .text.USBD_Start:0000000000000000 $t
+     /tmp/ccLNbEHT.s:97     .text.USBD_Start:0000000000000000 USBD_Start
+     /tmp/ccLNbEHT.s:106    .text.USBD_Stop:0000000000000000 $t
+     /tmp/ccLNbEHT.s:113    .text.USBD_Stop:0000000000000000 USBD_Stop
+     /tmp/ccLNbEHT.s:128    .text.USBD_RunTestMode:0000000000000000 $t
+     /tmp/ccLNbEHT.s:135    .text.USBD_RunTestMode:0000000000000000 USBD_RunTestMode
+     /tmp/ccLNbEHT.s:143    .text.USBD_SetClassConfig:0000000000000000 $t
+     /tmp/ccLNbEHT.s:150    .text.USBD_SetClassConfig:0000000000000000 USBD_SetClassConfig
+     /tmp/ccLNbEHT.s:167    .text.USBD_ClrClassConfig:0000000000000000 $t
+     /tmp/ccLNbEHT.s:174    .text.USBD_ClrClassConfig:0000000000000000 USBD_ClrClassConfig
+     /tmp/ccLNbEHT.s:185    .text.USBD_LL_SetupStage:0000000000000000 $t
+     /tmp/ccLNbEHT.s:192    .text.USBD_LL_SetupStage:0000000000000000 USBD_LL_SetupStage
+     /tmp/ccLNbEHT.s:234    .text.USBD_LL_DataOutStage:0000000000000000 $t
+     /tmp/ccLNbEHT.s:241    .text.USBD_LL_DataOutStage:0000000000000000 USBD_LL_DataOutStage
+     /tmp/ccLNbEHT.s:298    .text.USBD_LL_DataInStage:0000000000000000 $t
+     /tmp/ccLNbEHT.s:305    .text.USBD_LL_DataInStage:0000000000000000 USBD_LL_DataInStage
+     /tmp/ccLNbEHT.s:392    .text.USBD_LL_Reset:0000000000000000 $t
+     /tmp/ccLNbEHT.s:399    .text.USBD_LL_Reset:0000000000000000 USBD_LL_Reset
+     /tmp/ccLNbEHT.s:435    .text.USBD_LL_SetSpeed:0000000000000000 $t
+     /tmp/ccLNbEHT.s:442    .text.USBD_LL_SetSpeed:0000000000000000 USBD_LL_SetSpeed
+     /tmp/ccLNbEHT.s:451    .text.USBD_LL_Suspend:0000000000000000 $t
+     /tmp/ccLNbEHT.s:458    .text.USBD_LL_Suspend:0000000000000000 USBD_LL_Suspend
+     /tmp/ccLNbEHT.s:470    .text.USBD_LL_Resume:0000000000000000 $t
+     /tmp/ccLNbEHT.s:477    .text.USBD_LL_Resume:0000000000000000 USBD_LL_Resume
+     /tmp/ccLNbEHT.s:490    .text.USBD_LL_SOF:0000000000000000 $t
+     /tmp/ccLNbEHT.s:497    .text.USBD_LL_SOF:0000000000000000 USBD_LL_SOF
+     /tmp/ccLNbEHT.s:513    .text.USBD_LL_IsoINIncomplete:0000000000000000 $t
+     /tmp/ccLNbEHT.s:520    .text.USBD_LL_IsoINIncomplete:0000000000000000 USBD_LL_IsoINIncomplete
+     /tmp/ccLNbEHT.s:528    .text.USBD_LL_IsoOUTIncomplete:0000000000000000 $t
+     /tmp/ccLNbEHT.s:535    .text.USBD_LL_IsoOUTIncomplete:0000000000000000 USBD_LL_IsoOUTIncomplete
+     /tmp/ccLNbEHT.s:543    .text.USBD_LL_DevConnected:0000000000000000 $t
+     /tmp/ccLNbEHT.s:550    .text.USBD_LL_DevConnected:0000000000000000 USBD_LL_DevConnected
+     /tmp/ccLNbEHT.s:558    .text.USBD_LL_DevDisconnected:0000000000000000 $t
+     /tmp/ccLNbEHT.s:565    .text.USBD_LL_DevDisconnected:0000000000000000 USBD_LL_DevDisconnected
 
 UNDEFINED SYMBOLS
 USBD_LL_Init
@@ -626,7 +626,7 @@ USBD_CtlContinueRx
 USBD_CtlSendStatus
 USBD_CtlContinueSendData
 USBD_LL_PrepareReceive
-ARM GAS  /tmp/cco5mVwR.s 			page 12
+ARM GAS  /tmp/ccLNbEHT.s 			page 12
 
 
 USBD_CtlReceiveStatus

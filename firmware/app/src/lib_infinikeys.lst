@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccbzeqwr.s 			page 1
+ARM GAS  /tmp/ccH4zytg.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -23,104 +23,1086 @@ ARM GAS  /tmp/ccbzeqwr.s 			page 1
   21              		@ args = 0, pretend = 0, frame = 16
   22              		@ frame_needed = 0, uses_anonymous_args = 0
   23 0000 1FB5     		push	{r0, r1, r2, r3, r4, lr}
-  24 0002 0B48     		ldr	r0, .L4
+  24 0002 0D48     		ldr	r0, .L8
   25 0004 FFF7FEFF 		bl	IK_Init
-  26 0008 70B9     		cbnz	r0, .L1
-  27 000a 0A4B     		ldr	r3, .L4+4
+  26 0008 98B9     		cbnz	r0, .L1
+  27 000a 0C4B     		ldr	r3, .L8+4
   28 000c 0193     		str	r3, [sp, #4]
-  29 000e 0A23     		movs	r3, #10
-  30 0010 ADF80830 		strh	r3, [sp, #8]	@ movhi
-  31 0014 084B     		ldr	r3, .L4+8
-  32 0016 0393     		str	r3, [sp, #12]
-  33 0018 04AB     		add	r3, sp, #16
-  34 001a 13E90700 		ldmdb	r3, {r0, r1, r2}
-  35 001e FFF7FEFF 		bl	IK_CFG_SetConfig
-  36 0022 0122     		movs	r2, #1
-  37 0024 054B     		ldr	r3, .L4+12
-  38 0026 1A70     		strb	r2, [r3]
-  39              	.L1:
-  40 0028 05B0     		add	sp, sp, #20
-  41              		@ sp needed
-  42 002a 5DF804FB 		ldr	pc, [sp], #4
-  43              	.L5:
-  44 002e 00BF     		.align	2
-  45              	.L4:
-  46 0030 00000000 		.word	.LANCHOR0
-  47 0034 010000FF 		.word	-16777215
-  48 0038 00000000 		.word	.LANCHOR1
-  49 003c 00000000 		.word	.LANCHOR2
-  51              		.global	lib_infinikeys_init_struct
-  52              		.global	lib_infinikeys_init_status
-  53              		.section	.bss.lib_infinikeys_init_status,"aw",%nobits
-  54              		.set	.LANCHOR2,. + 0
-  57              	lib_infinikeys_init_status:
-  58 0000 00       		.space	1
-  59              		.section	.data._ikmatrix_cfg_tmp,"aw",%progbits
-  60              		.set	.LANCHOR1,. + 0
-  63              	_ikmatrix_cfg_tmp:
-ARM GAS  /tmp/ccbzeqwr.s 			page 2
+  29 000e 40F29F33 		movw	r3, #927
+  30 0012 ADF80830 		strh	r3, [sp, #8]	@ movhi
+  31 0016 0A4B     		ldr	r3, .L8+8
+  32 0018 0393     		str	r3, [sp, #12]
+  33 001a 04AB     		add	r3, sp, #16
+  34 001c 13E90700 		ldmdb	r3, {r0, r1, r2}
+  35 0020 FFF7FEFF 		bl	IK_CFG_SetConfig
+  36 0024 10B1     		cbz	r0, .L3
+  37 0026 0748     		ldr	r0, .L8+12
+  38 0028 FFF7FEFF 		bl	CONSOLE_PrintLn
+  39              	.L3:
+  40 002c 0122     		movs	r2, #1
+  41 002e 064B     		ldr	r3, .L8+16
+  42 0030 1A70     		strb	r2, [r3]
+  43              	.L1:
+  44 0032 05B0     		add	sp, sp, #20
+  45              		@ sp needed
+  46 0034 5DF804FB 		ldr	pc, [sp], #4
+  47              	.L9:
+  48              		.align	2
+  49              	.L8:
+  50 0038 00000000 		.word	.LANCHOR0
+  51 003c 010000FF 		.word	-16777215
+  52 0040 00000000 		.word	.LANCHOR1
+  53 0044 00000000 		.word	.LC0
+  54 0048 00000000 		.word	.LANCHOR2
+  56              		.global	lib_infinikeys_init_struct
+  57              		.global	lib_infinikeys_init_status
+  58              		.section	.bss.lib_infinikeys_init_status,"aw",%nobits
+  59              		.set	.LANCHOR2,. + 0
+ARM GAS  /tmp/ccH4zytg.s 			page 2
 
 
-  64 0000 00       		.byte	0
-  65 0001 01       		.byte	1
-  66 0002 00       		.byte	0
-  67 0003 02       		.byte	2
-  68 0004 00       		.byte	0
-  69 0005 01       		.byte	1
-  70 0006 04       		.byte	4
-  71 0007 00       		.byte	0
-  72 0008 00       		.byte	0
-  73 0009 00       		.byte	0
-  74              		.section	.data.lib_infinikeys_init_struct,"aw",%progbits
-  75              		.align	2
-  76              		.set	.LANCHOR0,. + 0
-  79              	lib_infinikeys_init_struct:
-  80 0000 00000000 		.word	infinikeys_hwif_berndokb_usb
-  81 0004 8304     		.short	1155
-  82 0006 0400     		.short	4
-  83 0008 0904     		.short	1033
-  84 000a 0000     		.space	2
-  85 000c 00000000 		.word	.LC0
-  86 0010 17000000 		.word	.LC1
-  87 0014 39000000 		.word	.LC2
-  88 0018 00000000 		.word	infinikeys_hwif_berndokb_cfgmem
-  89 001c 00000000 		.word	infinikeys_hwif_berndokb_kbmatrix
-  90 0020 00000000 		.word	infinikeys_hwif_berndokb_debug
-  91              		.section	.rodata.str1.1,"aMS",%progbits,1
-  92              	.LC0:
-  93 0000 4265726E 		.ascii	"Berndorfer Electronics\000"
-  93      646F7266 
-  93      65722045 
-  93      6C656374 
-  93      726F6E69 
-  94              	.LC1:
-  95 0017 4265726E 		.ascii	"BerndoKeyboard-TESTFW-08-03-B0005\000"
-  95      646F4B65 
-  95      79626F61 
-  95      72642D54 
-  95      45535446 
-  96              	.LC2:
-  97 0039 534E2D30 		.ascii	"SN-000001\000"
-  97      30303030 
-  97      3100
-  98              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
-ARM GAS  /tmp/ccbzeqwr.s 			page 3
+  62              	lib_infinikeys_init_status:
+  63 0000 00       		.space	1
+  64              		.section	.data._ikmatrix_cfg_tmp,"aw",%progbits
+  65              		.set	.LANCHOR1,. + 0
+  68              	_ikmatrix_cfg_tmp:
+  69 0000 00       		.byte	0
+  70 0001 84       		.byte	-124
+  71 0002 00       		.byte	0
+  72 0003 01       		.byte	1
+  73 0004 00       		.byte	0
+  74 0005 00       		.byte	0
+  75 0006 00       		.byte	0
+  76 0007 00       		.byte	0
+  77 0008 00       		.byte	0
+  78 0009 00       		.byte	0
+  79 000a 02       		.byte	2
+  80 000b 00       		.byte	0
+  81 000c 01       		.byte	1
+  82 000d 29       		.byte	41
+  83 000e 00       		.byte	0
+  84 000f 00       		.byte	0
+  85 0010 00       		.byte	0
+  86 0011 03       		.byte	3
+  87 0012 00       		.byte	0
+  88 0013 01       		.byte	1
+  89 0014 3A       		.byte	58
+  90 0015 00       		.byte	0
+  91 0016 00       		.byte	0
+  92 0017 00       		.byte	0
+  93 0018 04       		.byte	4
+  94 0019 00       		.byte	0
+  95 001a 01       		.byte	1
+  96 001b 3B       		.byte	59
+  97 001c 00       		.byte	0
+  98 001d 00       		.byte	0
+  99 001e 00       		.byte	0
+ 100 001f 05       		.byte	5
+ 101 0020 00       		.byte	0
+ 102 0021 01       		.byte	1
+ 103 0022 3C       		.byte	60
+ 104 0023 00       		.byte	0
+ 105 0024 00       		.byte	0
+ 106 0025 00       		.byte	0
+ 107 0026 06       		.byte	6
+ 108 0027 00       		.byte	0
+ 109 0028 01       		.byte	1
+ 110 0029 3D       		.byte	61
+ 111 002a 00       		.byte	0
+ 112 002b 00       		.byte	0
+ 113 002c 00       		.byte	0
+ 114 002d 07       		.byte	7
+ 115 002e 00       		.byte	0
+ 116 002f 01       		.byte	1
+ 117 0030 3E       		.byte	62
+ 118 0031 00       		.byte	0
+ 119 0032 00       		.byte	0
+ 120 0033 00       		.byte	0
+ARM GAS  /tmp/ccH4zytg.s 			page 3
+
+
+ 121 0034 08       		.byte	8
+ 122 0035 00       		.byte	0
+ 123 0036 01       		.byte	1
+ 124 0037 3F       		.byte	63
+ 125 0038 00       		.byte	0
+ 126 0039 00       		.byte	0
+ 127 003a 00       		.byte	0
+ 128 003b 09       		.byte	9
+ 129 003c 00       		.byte	0
+ 130 003d 01       		.byte	1
+ 131 003e 40       		.byte	64
+ 132 003f 00       		.byte	0
+ 133 0040 00       		.byte	0
+ 134 0041 00       		.byte	0
+ 135 0042 0A       		.byte	10
+ 136 0043 00       		.byte	0
+ 137 0044 01       		.byte	1
+ 138 0045 41       		.byte	65
+ 139 0046 00       		.byte	0
+ 140 0047 00       		.byte	0
+ 141 0048 00       		.byte	0
+ 142 0049 0B       		.byte	11
+ 143 004a 00       		.byte	0
+ 144 004b 01       		.byte	1
+ 145 004c 42       		.byte	66
+ 146 004d 00       		.byte	0
+ 147 004e 00       		.byte	0
+ 148 004f 00       		.byte	0
+ 149 0050 0C       		.byte	12
+ 150 0051 00       		.byte	0
+ 151 0052 01       		.byte	1
+ 152 0053 43       		.byte	67
+ 153 0054 00       		.byte	0
+ 154 0055 00       		.byte	0
+ 155 0056 00       		.byte	0
+ 156 0057 0D       		.byte	13
+ 157 0058 00       		.byte	0
+ 158 0059 01       		.byte	1
+ 159 005a 44       		.byte	68
+ 160 005b 00       		.byte	0
+ 161 005c 00       		.byte	0
+ 162 005d 00       		.byte	0
+ 163 005e 0E       		.byte	14
+ 164 005f 00       		.byte	0
+ 165 0060 01       		.byte	1
+ 166 0061 45       		.byte	69
+ 167 0062 00       		.byte	0
+ 168 0063 00       		.byte	0
+ 169 0064 00       		.byte	0
+ 170 0065 0F       		.byte	15
+ 171 0066 00       		.byte	0
+ 172 0067 01       		.byte	1
+ 173 0068 68       		.byte	104
+ 174 0069 00       		.byte	0
+ 175 006a 00       		.byte	0
+ 176 006b 00       		.byte	0
+ 177 006c 10       		.byte	16
+ARM GAS  /tmp/ccH4zytg.s 			page 4
+
+
+ 178 006d 00       		.byte	0
+ 179 006e 01       		.byte	1
+ 180 006f 69       		.byte	105
+ 181 0070 00       		.byte	0
+ 182 0071 00       		.byte	0
+ 183 0072 00       		.byte	0
+ 184 0073 11       		.byte	17
+ 185 0074 00       		.byte	0
+ 186 0075 01       		.byte	1
+ 187 0076 46       		.byte	70
+ 188 0077 00       		.byte	0
+ 189 0078 00       		.byte	0
+ 190 0079 00       		.byte	0
+ 191 007a 12       		.byte	18
+ 192 007b 00       		.byte	0
+ 193 007c 01       		.byte	1
+ 194 007d 47       		.byte	71
+ 195 007e 00       		.byte	0
+ 196 007f 00       		.byte	0
+ 197 0080 00       		.byte	0
+ 198 0081 14       		.byte	20
+ 199 0082 00       		.byte	0
+ 200 0083 01       		.byte	1
+ 201 0084 53       		.byte	83
+ 202 0085 00       		.byte	0
+ 203 0086 00       		.byte	0
+ 204 0087 00       		.byte	0
+ 205 0088 15       		.byte	21
+ 206 0089 00       		.byte	0
+ 207 008a 01       		.byte	1
+ 208 008b 54       		.byte	84
+ 209 008c 00       		.byte	0
+ 210 008d 00       		.byte	0
+ 211 008e 00       		.byte	0
+ 212 008f 16       		.byte	22
+ 213 0090 00       		.byte	0
+ 214 0091 01       		.byte	1
+ 215 0092 55       		.byte	85
+ 216 0093 00       		.byte	0
+ 217 0094 00       		.byte	0
+ 218 0095 00       		.byte	0
+ 219 0096 17       		.byte	23
+ 220 0097 00       		.byte	0
+ 221 0098 00       		.byte	0
+ 222 0099 00       		.byte	0
+ 223 009a 00       		.byte	0
+ 224 009b 00       		.byte	0
+ 225 009c 00       		.byte	0
+ 226 009d 18       		.byte	24
+ 227 009e 00       		.byte	0
+ 228 009f 01       		.byte	1
+ 229 00a0 55       		.byte	85
+ 230 00a1 00       		.byte	0
+ 231 00a2 00       		.byte	0
+ 232 00a3 00       		.byte	0
+ 233 00a4 19       		.byte	25
+ 234 00a5 00       		.byte	0
+ARM GAS  /tmp/ccH4zytg.s 			page 5
+
+
+ 235 00a6 00       		.byte	0
+ 236 00a7 00       		.byte	0
+ 237 00a8 00       		.byte	0
+ 238 00a9 00       		.byte	0
+ 239 00aa 00       		.byte	0
+ 240 00ab 1A       		.byte	26
+ 241 00ac 00       		.byte	0
+ 242 00ad 01       		.byte	1
+ 243 00ae 67       		.byte	103
+ 244 00af 00       		.byte	0
+ 245 00b0 00       		.byte	0
+ 246 00b1 00       		.byte	0
+ 247 00b2 1B       		.byte	27
+ 248 00b3 00       		.byte	0
+ 249 00b4 01       		.byte	1
+ 250 00b5 CF       		.byte	-49
+ 251 00b6 00       		.byte	0
+ 252 00b7 00       		.byte	0
+ 253 00b8 00       		.byte	0
+ 254 00b9 1C       		.byte	28
+ 255 00ba 00       		.byte	0
+ 256 00bb 01       		.byte	1
+ 257 00bc C9       		.byte	-55
+ 258 00bd 00       		.byte	0
+ 259 00be 00       		.byte	0
+ 260 00bf 00       		.byte	0
+ 261 00c0 1D       		.byte	29
+ 262 00c1 00       		.byte	0
+ 263 00c2 01       		.byte	1
+ 264 00c3 C7       		.byte	-57
+ 265 00c4 00       		.byte	0
+ 266 00c5 00       		.byte	0
+ 267 00c6 00       		.byte	0
+ 268 00c7 1E       		.byte	30
+ 269 00c8 00       		.byte	0
+ 270 00c9 00       		.byte	0
+ 271 00ca 00       		.byte	0
+ 272 00cb 00       		.byte	0
+ 273 00cc 00       		.byte	0
+ 274 00cd 00       		.byte	0
+ 275 00ce 1F       		.byte	31
+ 276 00cf 00       		.byte	0
+ 277 00d0 01       		.byte	1
+ 278 00d1 B8       		.byte	-72
+ 279 00d2 00       		.byte	0
+ 280 00d3 00       		.byte	0
+ 281 00d4 00       		.byte	0
+ 282 00d5 20       		.byte	32
+ 283 00d6 00       		.byte	0
+ 284 00d7 01       		.byte	1
+ 285 00d8 B6       		.byte	-74
+ 286 00d9 00       		.byte	0
+ 287 00da 00       		.byte	0
+ 288 00db 00       		.byte	0
+ 289 00dc 21       		.byte	33
+ 290 00dd 00       		.byte	0
+ 291 00de 01       		.byte	1
+ARM GAS  /tmp/ccH4zytg.s 			page 6
+
+
+ 292 00df B7       		.byte	-73
+ 293 00e0 00       		.byte	0
+ 294 00e1 00       		.byte	0
+ 295 00e2 00       		.byte	0
+ 296 00e3 22       		.byte	34
+ 297 00e4 00       		.byte	0
+ 298 00e5 01       		.byte	1
+ 299 00e6 B9       		.byte	-71
+ 300 00e7 00       		.byte	0
+ 301 00e8 00       		.byte	0
+ 302 00e9 00       		.byte	0
+ 303 00ea 23       		.byte	35
+ 304 00eb 00       		.byte	0
+ 305 00ec 00       		.byte	0
+ 306 00ed 00       		.byte	0
+ 307 00ee 00       		.byte	0
+ 308 00ef 00       		.byte	0
+ 309 00f0 00       		.byte	0
+ 310 00f1 24       		.byte	36
+ 311 00f2 00       		.byte	0
+ 312 00f3 00       		.byte	0
+ 313 00f4 00       		.byte	0
+ 314 00f5 00       		.byte	0
+ 315 00f6 00       		.byte	0
+ 316 00f7 00       		.byte	0
+ 317 00f8 25       		.byte	37
+ 318 00f9 00       		.byte	0
+ 319 00fa 01       		.byte	1
+ 320 00fb C5       		.byte	-59
+ 321 00fc 00       		.byte	0
+ 322 00fd 00       		.byte	0
+ 323 00fe 00       		.byte	0
+ 324 00ff 26       		.byte	38
+ 325 0100 00       		.byte	0
+ 326 0101 01       		.byte	1
+ 327 0102 C6       		.byte	-58
+ 328 0103 00       		.byte	0
+ 329 0104 00       		.byte	0
+ 330 0105 00       		.byte	0
+ 331 0106 27       		.byte	39
+ 332 0107 00       		.byte	0
+ 333 0108 01       		.byte	1
+ 334 0109 7A       		.byte	122
+ 335 010a 00       		.byte	0
+ 336 010b 00       		.byte	0
+ 337 010c 00       		.byte	0
+ 338 010d 28       		.byte	40
+ 339 010e 00       		.byte	0
+ 340 010f 01       		.byte	1
+ 341 0110 80       		.byte	-128
+ 342 0111 00       		.byte	0
+ 343 0112 00       		.byte	0
+ 344 0113 00       		.byte	0
+ 345 0114 2A       		.byte	42
+ 346 0115 00       		.byte	0
+ 347 0116 01       		.byte	1
+ 348 0117 5F       		.byte	95
+ARM GAS  /tmp/ccH4zytg.s 			page 7
+
+
+ 349 0118 00       		.byte	0
+ 350 0119 00       		.byte	0
+ 351 011a 00       		.byte	0
+ 352 011b 2B       		.byte	43
+ 353 011c 00       		.byte	0
+ 354 011d 01       		.byte	1
+ 355 011e 60       		.byte	96
+ 356 011f 00       		.byte	0
+ 357 0120 00       		.byte	0
+ 358 0121 00       		.byte	0
+ 359 0122 2C       		.byte	44
+ 360 0123 00       		.byte	0
+ 361 0124 01       		.byte	1
+ 362 0125 61       		.byte	97
+ 363 0126 00       		.byte	0
+ 364 0127 00       		.byte	0
+ 365 0128 00       		.byte	0
+ 366 0129 2D       		.byte	45
+ 367 012a 00       		.byte	0
+ 368 012b 00       		.byte	0
+ 369 012c 00       		.byte	0
+ 370 012d 00       		.byte	0
+ 371 012e 00       		.byte	0
+ 372 012f 00       		.byte	0
+ 373 0130 2E       		.byte	46
+ 374 0131 00       		.byte	0
+ 375 0132 01       		.byte	1
+ 376 0133 35       		.byte	53
+ 377 0134 00       		.byte	0
+ 378 0135 00       		.byte	0
+ 379 0136 00       		.byte	0
+ 380 0137 2F       		.byte	47
+ 381 0138 00       		.byte	0
+ 382 0139 01       		.byte	1
+ 383 013a 1E       		.byte	30
+ 384 013b 00       		.byte	0
+ 385 013c 00       		.byte	0
+ 386 013d 00       		.byte	0
+ 387 013e 30       		.byte	48
+ 388 013f 00       		.byte	0
+ 389 0140 01       		.byte	1
+ 390 0141 1F       		.byte	31
+ 391 0142 00       		.byte	0
+ 392 0143 00       		.byte	0
+ 393 0144 00       		.byte	0
+ 394 0145 31       		.byte	49
+ 395 0146 00       		.byte	0
+ 396 0147 01       		.byte	1
+ 397 0148 20       		.byte	32
+ 398 0149 00       		.byte	0
+ 399 014a 00       		.byte	0
+ 400 014b 00       		.byte	0
+ 401 014c 32       		.byte	50
+ 402 014d 00       		.byte	0
+ 403 014e 01       		.byte	1
+ 404 014f 21       		.byte	33
+ 405 0150 00       		.byte	0
+ARM GAS  /tmp/ccH4zytg.s 			page 8
+
+
+ 406 0151 00       		.byte	0
+ 407 0152 00       		.byte	0
+ 408 0153 33       		.byte	51
+ 409 0154 00       		.byte	0
+ 410 0155 01       		.byte	1
+ 411 0156 22       		.byte	34
+ 412 0157 00       		.byte	0
+ 413 0158 00       		.byte	0
+ 414 0159 00       		.byte	0
+ 415 015a 34       		.byte	52
+ 416 015b 00       		.byte	0
+ 417 015c 01       		.byte	1
+ 418 015d 23       		.byte	35
+ 419 015e 00       		.byte	0
+ 420 015f 00       		.byte	0
+ 421 0160 00       		.byte	0
+ 422 0161 35       		.byte	53
+ 423 0162 00       		.byte	0
+ 424 0163 01       		.byte	1
+ 425 0164 24       		.byte	36
+ 426 0165 00       		.byte	0
+ 427 0166 00       		.byte	0
+ 428 0167 00       		.byte	0
+ 429 0168 36       		.byte	54
+ 430 0169 00       		.byte	0
+ 431 016a 01       		.byte	1
+ 432 016b 25       		.byte	37
+ 433 016c 00       		.byte	0
+ 434 016d 00       		.byte	0
+ 435 016e 00       		.byte	0
+ 436 016f 37       		.byte	55
+ 437 0170 00       		.byte	0
+ 438 0171 01       		.byte	1
+ 439 0172 26       		.byte	38
+ 440 0173 00       		.byte	0
+ 441 0174 00       		.byte	0
+ 442 0175 00       		.byte	0
+ 443 0176 38       		.byte	56
+ 444 0177 00       		.byte	0
+ 445 0178 01       		.byte	1
+ 446 0179 27       		.byte	39
+ 447 017a 00       		.byte	0
+ 448 017b 00       		.byte	0
+ 449 017c 00       		.byte	0
+ 450 017d 39       		.byte	57
+ 451 017e 00       		.byte	0
+ 452 017f 01       		.byte	1
+ 453 0180 2D       		.byte	45
+ 454 0181 00       		.byte	0
+ 455 0182 00       		.byte	0
+ 456 0183 00       		.byte	0
+ 457 0184 3A       		.byte	58
+ 458 0185 00       		.byte	0
+ 459 0186 01       		.byte	1
+ 460 0187 2E       		.byte	46
+ 461 0188 00       		.byte	0
+ 462 0189 00       		.byte	0
+ARM GAS  /tmp/ccH4zytg.s 			page 9
+
+
+ 463 018a 00       		.byte	0
+ 464 018b 3B       		.byte	59
+ 465 018c 00       		.byte	0
+ 466 018d 01       		.byte	1
+ 467 018e 2A       		.byte	42
+ 468 018f 00       		.byte	0
+ 469 0190 00       		.byte	0
+ 470 0191 00       		.byte	0
+ 471 0192 3D       		.byte	61
+ 472 0193 00       		.byte	0
+ 473 0194 01       		.byte	1
+ 474 0195 49       		.byte	73
+ 475 0196 00       		.byte	0
+ 476 0197 00       		.byte	0
+ 477 0198 00       		.byte	0
+ 478 0199 3E       		.byte	62
+ 479 019a 00       		.byte	0
+ 480 019b 01       		.byte	1
+ 481 019c 48       		.byte	72
+ 482 019d 00       		.byte	0
+ 483 019e 00       		.byte	0
+ 484 019f 00       		.byte	0
+ 485 01a0 40       		.byte	64
+ 486 01a1 00       		.byte	0
+ 487 01a2 01       		.byte	1
+ 488 01a3 5C       		.byte	92
+ 489 01a4 00       		.byte	0
+ 490 01a5 00       		.byte	0
+ 491 01a6 00       		.byte	0
+ 492 01a7 41       		.byte	65
+ 493 01a8 00       		.byte	0
+ 494 01a9 01       		.byte	1
+ 495 01aa 5D       		.byte	93
+ 496 01ab 00       		.byte	0
+ 497 01ac 00       		.byte	0
+ 498 01ad 00       		.byte	0
+ 499 01ae 42       		.byte	66
+ 500 01af 00       		.byte	0
+ 501 01b0 01       		.byte	1
+ 502 01b1 5E       		.byte	94
+ 503 01b2 00       		.byte	0
+ 504 01b3 00       		.byte	0
+ 505 01b4 00       		.byte	0
+ 506 01b5 43       		.byte	67
+ 507 01b6 00       		.byte	0
+ 508 01b7 00       		.byte	0
+ 509 01b8 00       		.byte	0
+ 510 01b9 00       		.byte	0
+ 511 01ba 00       		.byte	0
+ 512 01bb 00       		.byte	0
+ 513 01bc 44       		.byte	68
+ 514 01bd 00       		.byte	0
+ 515 01be 01       		.byte	1
+ 516 01bf 2B       		.byte	43
+ 517 01c0 00       		.byte	0
+ 518 01c1 00       		.byte	0
+ 519 01c2 00       		.byte	0
+ARM GAS  /tmp/ccH4zytg.s 			page 10
+
+
+ 520 01c3 45       		.byte	69
+ 521 01c4 00       		.byte	0
+ 522 01c5 01       		.byte	1
+ 523 01c6 14       		.byte	20
+ 524 01c7 00       		.byte	0
+ 525 01c8 00       		.byte	0
+ 526 01c9 00       		.byte	0
+ 527 01ca 46       		.byte	70
+ 528 01cb 00       		.byte	0
+ 529 01cc 01       		.byte	1
+ 530 01cd 1A       		.byte	26
+ 531 01ce 00       		.byte	0
+ 532 01cf 00       		.byte	0
+ 533 01d0 00       		.byte	0
+ 534 01d1 47       		.byte	71
+ 535 01d2 00       		.byte	0
+ 536 01d3 01       		.byte	1
+ 537 01d4 08       		.byte	8
+ 538 01d5 00       		.byte	0
+ 539 01d6 00       		.byte	0
+ 540 01d7 00       		.byte	0
+ 541 01d8 48       		.byte	72
+ 542 01d9 00       		.byte	0
+ 543 01da 01       		.byte	1
+ 544 01db 15       		.byte	21
+ 545 01dc 00       		.byte	0
+ 546 01dd 00       		.byte	0
+ 547 01de 00       		.byte	0
+ 548 01df 49       		.byte	73
+ 549 01e0 00       		.byte	0
+ 550 01e1 01       		.byte	1
+ 551 01e2 17       		.byte	23
+ 552 01e3 00       		.byte	0
+ 553 01e4 00       		.byte	0
+ 554 01e5 00       		.byte	0
+ 555 01e6 4A       		.byte	74
+ 556 01e7 00       		.byte	0
+ 557 01e8 01       		.byte	1
+ 558 01e9 1C       		.byte	28
+ 559 01ea 00       		.byte	0
+ 560 01eb 00       		.byte	0
+ 561 01ec 00       		.byte	0
+ 562 01ed 4B       		.byte	75
+ 563 01ee 00       		.byte	0
+ 564 01ef 01       		.byte	1
+ 565 01f0 18       		.byte	24
+ 566 01f1 00       		.byte	0
+ 567 01f2 00       		.byte	0
+ 568 01f3 00       		.byte	0
+ 569 01f4 4C       		.byte	76
+ 570 01f5 00       		.byte	0
+ 571 01f6 01       		.byte	1
+ 572 01f7 0C       		.byte	12
+ 573 01f8 00       		.byte	0
+ 574 01f9 00       		.byte	0
+ 575 01fa 00       		.byte	0
+ 576 01fb 4D       		.byte	77
+ARM GAS  /tmp/ccH4zytg.s 			page 11
+
+
+ 577 01fc 00       		.byte	0
+ 578 01fd 01       		.byte	1
+ 579 01fe 12       		.byte	18
+ 580 01ff 00       		.byte	0
+ 581 0200 00       		.byte	0
+ 582 0201 00       		.byte	0
+ 583 0202 4E       		.byte	78
+ 584 0203 00       		.byte	0
+ 585 0204 01       		.byte	1
+ 586 0205 13       		.byte	19
+ 587 0206 00       		.byte	0
+ 588 0207 00       		.byte	0
+ 589 0208 00       		.byte	0
+ 590 0209 4F       		.byte	79
+ 591 020a 00       		.byte	0
+ 592 020b 01       		.byte	1
+ 593 020c 2F       		.byte	47
+ 594 020d 00       		.byte	0
+ 595 020e 00       		.byte	0
+ 596 020f 00       		.byte	0
+ 597 0210 50       		.byte	80
+ 598 0211 00       		.byte	0
+ 599 0212 01       		.byte	1
+ 600 0213 30       		.byte	48
+ 601 0214 00       		.byte	0
+ 602 0215 00       		.byte	0
+ 603 0216 00       		.byte	0
+ 604 0217 51       		.byte	81
+ 605 0218 00       		.byte	0
+ 606 0219 01       		.byte	1
+ 607 021a 28       		.byte	40
+ 608 021b 00       		.byte	0
+ 609 021c 00       		.byte	0
+ 610 021d 00       		.byte	0
+ 611 021e 53       		.byte	83
+ 612 021f 00       		.byte	0
+ 613 0220 01       		.byte	1
+ 614 0221 4C       		.byte	76
+ 615 0222 00       		.byte	0
+ 616 0223 00       		.byte	0
+ 617 0224 00       		.byte	0
+ 618 0225 54       		.byte	84
+ 619 0226 00       		.byte	0
+ 620 0227 01       		.byte	1
+ 621 0228 81       		.byte	-127
+ 622 0229 00       		.byte	0
+ 623 022a 00       		.byte	0
+ 624 022b 00       		.byte	0
+ 625 022c 55       		.byte	85
+ 626 022d 00       		.byte	0
+ 627 022e 01       		.byte	1
+ 628 022f 4F       		.byte	79
+ 629 0230 00       		.byte	0
+ 630 0231 00       		.byte	0
+ 631 0232 00       		.byte	0
+ 632 0233 56       		.byte	86
+ 633 0234 00       		.byte	0
+ARM GAS  /tmp/ccH4zytg.s 			page 12
+
+
+ 634 0235 01       		.byte	1
+ 635 0236 59       		.byte	89
+ 636 0237 00       		.byte	0
+ 637 0238 00       		.byte	0
+ 638 0239 00       		.byte	0
+ 639 023a 57       		.byte	87
+ 640 023b 00       		.byte	0
+ 641 023c 01       		.byte	1
+ 642 023d 5A       		.byte	90
+ 643 023e 00       		.byte	0
+ 644 023f 00       		.byte	0
+ 645 0240 00       		.byte	0
+ 646 0241 58       		.byte	88
+ 647 0242 00       		.byte	0
+ 648 0243 01       		.byte	1
+ 649 0244 5B       		.byte	91
+ 650 0245 00       		.byte	0
+ 651 0246 00       		.byte	0
+ 652 0247 00       		.byte	0
+ 653 0248 59       		.byte	89
+ 654 0249 00       		.byte	0
+ 655 024a 00       		.byte	0
+ 656 024b 00       		.byte	0
+ 657 024c 00       		.byte	0
+ 658 024d 00       		.byte	0
+ 659 024e 00       		.byte	0
+ 660 024f 5A       		.byte	90
+ 661 0250 00       		.byte	0
+ 662 0251 01       		.byte	1
+ 663 0252 39       		.byte	57
+ 664 0253 00       		.byte	0
+ 665 0254 00       		.byte	0
+ 666 0255 00       		.byte	0
+ 667 0256 5B       		.byte	91
+ 668 0257 00       		.byte	0
+ 669 0258 01       		.byte	1
+ 670 0259 04       		.byte	4
+ 671 025a 00       		.byte	0
+ 672 025b 00       		.byte	0
+ 673 025c 00       		.byte	0
+ 674 025d 5C       		.byte	92
+ 675 025e 00       		.byte	0
+ 676 025f 01       		.byte	1
+ 677 0260 16       		.byte	22
+ 678 0261 00       		.byte	0
+ 679 0262 00       		.byte	0
+ 680 0263 00       		.byte	0
+ 681 0264 5D       		.byte	93
+ 682 0265 00       		.byte	0
+ 683 0266 01       		.byte	1
+ 684 0267 07       		.byte	7
+ 685 0268 00       		.byte	0
+ 686 0269 00       		.byte	0
+ 687 026a 00       		.byte	0
+ 688 026b 5E       		.byte	94
+ 689 026c 00       		.byte	0
+ 690 026d 01       		.byte	1
+ARM GAS  /tmp/ccH4zytg.s 			page 13
+
+
+ 691 026e 09       		.byte	9
+ 692 026f 00       		.byte	0
+ 693 0270 00       		.byte	0
+ 694 0271 00       		.byte	0
+ 695 0272 5F       		.byte	95
+ 696 0273 00       		.byte	0
+ 697 0274 01       		.byte	1
+ 698 0275 0A       		.byte	10
+ 699 0276 00       		.byte	0
+ 700 0277 00       		.byte	0
+ 701 0278 00       		.byte	0
+ 702 0279 60       		.byte	96
+ 703 027a 00       		.byte	0
+ 704 027b 01       		.byte	1
+ 705 027c 0B       		.byte	11
+ 706 027d 00       		.byte	0
+ 707 027e 00       		.byte	0
+ 708 027f 00       		.byte	0
+ 709 0280 61       		.byte	97
+ 710 0281 00       		.byte	0
+ 711 0282 01       		.byte	1
+ 712 0283 0D       		.byte	13
+ 713 0284 00       		.byte	0
+ 714 0285 00       		.byte	0
+ 715 0286 00       		.byte	0
+ 716 0287 62       		.byte	98
+ 717 0288 00       		.byte	0
+ 718 0289 01       		.byte	1
+ 719 028a 0E       		.byte	14
+ 720 028b 00       		.byte	0
+ 721 028c 00       		.byte	0
+ 722 028d 00       		.byte	0
+ 723 028e 63       		.byte	99
+ 724 028f 00       		.byte	0
+ 725 0290 01       		.byte	1
+ 726 0291 0F       		.byte	15
+ 727 0292 00       		.byte	0
+ 728 0293 00       		.byte	0
+ 729 0294 00       		.byte	0
+ 730 0295 64       		.byte	100
+ 731 0296 00       		.byte	0
+ 732 0297 01       		.byte	1
+ 733 0298 33       		.byte	51
+ 734 0299 00       		.byte	0
+ 735 029a 00       		.byte	0
+ 736 029b 00       		.byte	0
+ 737 029c 65       		.byte	101
+ 738 029d 00       		.byte	0
+ 739 029e 01       		.byte	1
+ 740 029f 34       		.byte	52
+ 741 02a0 00       		.byte	0
+ 742 02a1 00       		.byte	0
+ 743 02a2 00       		.byte	0
+ 744 02a3 66       		.byte	102
+ 745 02a4 00       		.byte	0
+ 746 02a5 01       		.byte	1
+ 747 02a6 31       		.byte	49
+ARM GAS  /tmp/ccH4zytg.s 			page 14
+
+
+ 748 02a7 00       		.byte	0
+ 749 02a8 00       		.byte	0
+ 750 02a9 00       		.byte	0
+ 751 02aa 69       		.byte	105
+ 752 02ab 00       		.byte	0
+ 753 02ac 01       		.byte	1
+ 754 02ad 4A       		.byte	74
+ 755 02ae 00       		.byte	0
+ 756 02af 00       		.byte	0
+ 757 02b0 00       		.byte	0
+ 758 02b1 6A       		.byte	106
+ 759 02b2 00       		.byte	0
+ 760 02b3 01       		.byte	1
+ 761 02b4 4B       		.byte	75
+ 762 02b5 00       		.byte	0
+ 763 02b6 00       		.byte	0
+ 764 02b7 00       		.byte	0
+ 765 02b8 6B       		.byte	107
+ 766 02b9 00       		.byte	0
+ 767 02ba 01       		.byte	1
+ 768 02bb 52       		.byte	82
+ 769 02bc 00       		.byte	0
+ 770 02bd 00       		.byte	0
+ 771 02be 00       		.byte	0
+ 772 02bf 6C       		.byte	108
+ 773 02c0 00       		.byte	0
+ 774 02c1 01       		.byte	1
+ 775 02c2 62       		.byte	98
+ 776 02c3 00       		.byte	0
+ 777 02c4 00       		.byte	0
+ 778 02c5 00       		.byte	0
+ 779 02c6 6E       		.byte	110
+ 780 02c7 00       		.byte	0
+ 781 02c8 01       		.byte	1
+ 782 02c9 56       		.byte	86
+ 783 02ca 00       		.byte	0
+ 784 02cb 00       		.byte	0
+ 785 02cc 00       		.byte	0
+ 786 02cd 6F       		.byte	111
+ 787 02ce 00       		.byte	0
+ 788 02cf 00       		.byte	0
+ 789 02d0 00       		.byte	0
+ 790 02d1 00       		.byte	0
+ 791 02d2 00       		.byte	0
+ 792 02d3 00       		.byte	0
+ 793 02d4 70       		.byte	112
+ 794 02d5 00       		.byte	0
+ 795 02d6 01       		.byte	1
+ 796 02d7 02       		.byte	2
+ 797 02d8 00       		.byte	0
+ 798 02d9 00       		.byte	0
+ 799 02da 00       		.byte	0
+ 800 02db 71       		.byte	113
+ 801 02dc 00       		.byte	0
+ 802 02dd 01       		.byte	1
+ 803 02de 64       		.byte	100
+ 804 02df 00       		.byte	0
+ARM GAS  /tmp/ccH4zytg.s 			page 15
+
+
+ 805 02e0 00       		.byte	0
+ 806 02e1 00       		.byte	0
+ 807 02e2 72       		.byte	114
+ 808 02e3 00       		.byte	0
+ 809 02e4 01       		.byte	1
+ 810 02e5 1D       		.byte	29
+ 811 02e6 00       		.byte	0
+ 812 02e7 00       		.byte	0
+ 813 02e8 00       		.byte	0
+ 814 02e9 73       		.byte	115
+ 815 02ea 00       		.byte	0
+ 816 02eb 01       		.byte	1
+ 817 02ec 1B       		.byte	27
+ 818 02ed 00       		.byte	0
+ 819 02ee 00       		.byte	0
+ 820 02ef 00       		.byte	0
+ 821 02f0 74       		.byte	116
+ 822 02f1 00       		.byte	0
+ 823 02f2 01       		.byte	1
+ 824 02f3 06       		.byte	6
+ 825 02f4 00       		.byte	0
+ 826 02f5 00       		.byte	0
+ 827 02f6 00       		.byte	0
+ 828 02f7 75       		.byte	117
+ 829 02f8 00       		.byte	0
+ 830 02f9 01       		.byte	1
+ 831 02fa 19       		.byte	25
+ 832 02fb 00       		.byte	0
+ 833 02fc 00       		.byte	0
+ 834 02fd 00       		.byte	0
+ 835 02fe 76       		.byte	118
+ 836 02ff 00       		.byte	0
+ 837 0300 01       		.byte	1
+ 838 0301 05       		.byte	5
+ 839 0302 00       		.byte	0
+ 840 0303 00       		.byte	0
+ 841 0304 00       		.byte	0
+ 842 0305 77       		.byte	119
+ 843 0306 00       		.byte	0
+ 844 0307 01       		.byte	1
+ 845 0308 11       		.byte	17
+ 846 0309 00       		.byte	0
+ 847 030a 00       		.byte	0
+ 848 030b 00       		.byte	0
+ 849 030c 78       		.byte	120
+ 850 030d 00       		.byte	0
+ 851 030e 01       		.byte	1
+ 852 030f 10       		.byte	16
+ 853 0310 00       		.byte	0
+ 854 0311 00       		.byte	0
+ 855 0312 00       		.byte	0
+ 856 0313 79       		.byte	121
+ 857 0314 00       		.byte	0
+ 858 0315 01       		.byte	1
+ 859 0316 36       		.byte	54
+ 860 0317 00       		.byte	0
+ 861 0318 00       		.byte	0
+ARM GAS  /tmp/ccH4zytg.s 			page 16
+
+
+ 862 0319 00       		.byte	0
+ 863 031a 7A       		.byte	122
+ 864 031b 00       		.byte	0
+ 865 031c 01       		.byte	1
+ 866 031d 37       		.byte	55
+ 867 031e 00       		.byte	0
+ 868 031f 00       		.byte	0
+ 869 0320 00       		.byte	0
+ 870 0321 7B       		.byte	123
+ 871 0322 00       		.byte	0
+ 872 0323 01       		.byte	1
+ 873 0324 38       		.byte	56
+ 874 0325 00       		.byte	0
+ 875 0326 00       		.byte	0
+ 876 0327 00       		.byte	0
+ 877 0328 7D       		.byte	125
+ 878 0329 00       		.byte	0
+ 879 032a 02       		.byte	2
+ 880 032b 05       		.byte	5
+ 881 032c 00       		.byte	0
+ 882 032d 00       		.byte	0
+ 883 032e 00       		.byte	0
+ 884 032f 7F       		.byte	127
+ 885 0330 00       		.byte	0
+ 886 0331 01       		.byte	1
+ 887 0332 4D       		.byte	77
+ 888 0333 00       		.byte	0
+ 889 0334 00       		.byte	0
+ 890 0335 00       		.byte	0
+ 891 0336 80       		.byte	-128
+ 892 0337 00       		.byte	0
+ 893 0338 01       		.byte	1
+ 894 0339 4E       		.byte	78
+ 895 033a 00       		.byte	0
+ 896 033b 00       		.byte	0
+ 897 033c 00       		.byte	0
+ 898 033d 81       		.byte	-127
+ 899 033e 00       		.byte	0
+ 900 033f 01       		.byte	1
+ 901 0340 51       		.byte	81
+ 902 0341 00       		.byte	0
+ 903 0342 00       		.byte	0
+ 904 0343 00       		.byte	0
+ 905 0344 82       		.byte	-126
+ 906 0345 00       		.byte	0
+ 907 0346 01       		.byte	1
+ 908 0347 63       		.byte	99
+ 909 0348 00       		.byte	0
+ 910 0349 00       		.byte	0
+ 911 034a 00       		.byte	0
+ 912 034b 84       		.byte	-124
+ 913 034c 00       		.byte	0
+ 914 034d 01       		.byte	1
+ 915 034e 57       		.byte	87
+ 916 034f 00       		.byte	0
+ 917 0350 00       		.byte	0
+ 918 0351 00       		.byte	0
+ARM GAS  /tmp/ccH4zytg.s 			page 17
+
+
+ 919 0352 85       		.byte	-123
+ 920 0353 00       		.byte	0
+ 921 0354 00       		.byte	0
+ 922 0355 00       		.byte	0
+ 923 0356 00       		.byte	0
+ 924 0357 00       		.byte	0
+ 925 0358 00       		.byte	0
+ 926 0359 86       		.byte	-122
+ 927 035a 00       		.byte	0
+ 928 035b 02       		.byte	2
+ 929 035c 00       		.byte	0
+ 930 035d 00       		.byte	0
+ 931 035e 00       		.byte	0
+ 932 035f 00       		.byte	0
+ 933 0360 87       		.byte	-121
+ 934 0361 00       		.byte	0
+ 935 0362 02       		.byte	2
+ 936 0363 03       		.byte	3
+ 937 0364 00       		.byte	0
+ 938 0365 00       		.byte	0
+ 939 0366 00       		.byte	0
+ 940 0367 88       		.byte	-120
+ 941 0368 00       		.byte	0
+ 942 0369 02       		.byte	2
+ 943 036a 02       		.byte	2
+ 944 036b 00       		.byte	0
+ 945 036c 00       		.byte	0
+ 946 036d 00       		.byte	0
+ 947 036e 8C       		.byte	-116
+ 948 036f 00       		.byte	0
+ 949 0370 01       		.byte	1
+ 950 0371 2C       		.byte	44
+ 951 0372 00       		.byte	0
+ 952 0373 00       		.byte	0
+ 953 0374 00       		.byte	0
+ 954 0375 90       		.byte	-112
+ 955 0376 00       		.byte	0
+ 956 0377 02       		.byte	2
+ 957 0378 06       		.byte	6
+ 958 0379 00       		.byte	0
+ 959 037a 00       		.byte	0
+ 960 037b 00       		.byte	0
+ 961 037c 91       		.byte	-111
+ 962 037d 00       		.byte	0
+ 963 037e 02       		.byte	2
+ 964 037f 07       		.byte	7
+ 965 0380 00       		.byte	0
+ 966 0381 00       		.byte	0
+ 967 0382 00       		.byte	0
+ 968 0383 92       		.byte	-110
+ 969 0384 00       		.byte	0
+ 970 0385 00       		.byte	0
+ 971 0386 00       		.byte	0
+ 972 0387 00       		.byte	0
+ 973 0388 00       		.byte	0
+ 974 0389 00       		.byte	0
+ 975 038a 93       		.byte	-109
+ARM GAS  /tmp/ccH4zytg.s 			page 18
+
+
+ 976 038b 00       		.byte	0
+ 977 038c 02       		.byte	2
+ 978 038d 04       		.byte	4
+ 979 038e 00       		.byte	0
+ 980 038f 00       		.byte	0
+ 981 0390 00       		.byte	0
+ 982 0391 97       		.byte	-105
+ 983 0392 00       		.byte	0
+ 984 0393 01       		.byte	1
+ 985 0394 50       		.byte	80
+ 986 0395 00       		.byte	0
+ 987 0396 00       		.byte	0
+ 988 0397 00       		.byte	0
+ 989 0398 9A       		.byte	-102
+ 990 0399 00       		.byte	0
+ 991 039a 01       		.byte	1
+ 992 039b 58       		.byte	88
+ 993 039c 00       		.byte	0
+ 994 039d 00       		.byte	0
+ 995 039e 00       		.byte	0
+ 996              		.section	.data.lib_infinikeys_init_struct,"aw",%progbits
+ 997              		.align	2
+ 998              		.set	.LANCHOR0,. + 0
+ 1001              	lib_infinikeys_init_struct:
+ 1002 0000 00000000 		.word	infinikeys_hwif_berndokb_usb
+ 1003 0004 8304     		.short	1155
+ 1004 0006 0400     		.short	4
+ 1005 0008 0904     		.short	1033
+ 1006 000a 0000     		.space	2
+ 1007 000c 00000000 		.word	.LC1
+ 1008 0010 17000000 		.word	.LC2
+ 1009 0014 39000000 		.word	.LC3
+ 1010 0018 00000000 		.word	infinikeys_hwif_berndokb_cfgmem
+ 1011 001c 00000000 		.word	infinikeys_hwif_berndokb_kbmatrix
+ 1012 0020 00000000 		.word	infinikeys_hwif_berndokb_debug
+ 1013              		.section	.rodata.LIB_Infinikeys_Init.str1.1,"aMS",%progbits,1
+ 1014              	.LC0:
+ 1015 0000 4552524F 		.ascii	"ERROR: Failed to set keyboard-matrix configuration!"
+ 1015      523A2046 
+ 1015      61696C65 
+ 1015      6420746F 
+ 1015      20736574 
+ 1016 0033 00       		.ascii	"\000"
+ 1017              		.section	.rodata.str1.1,"aMS",%progbits,1
+ 1018              	.LC1:
+ 1019 0000 4265726E 		.ascii	"Berndorfer Electronics\000"
+ 1019      646F7266 
+ 1019      65722045 
+ 1019      6C656374 
+ 1019      726F6E69 
+ 1020              	.LC2:
+ 1021 0017 4265726E 		.ascii	"BerndoKeyboard-TESTFW-08-03-B0005\000"
+ 1021      646F4B65 
+ 1021      79626F61 
+ 1021      72642D54 
+ 1021      45535446 
+ 1022              	.LC3:
+ARM GAS  /tmp/ccH4zytg.s 			page 19
+
+
+ 1023 0039 534E2D30 		.ascii	"SN-000001\000"
+ 1023      30303030 
+ 1023      3100
+ 1024              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
+ARM GAS  /tmp/ccH4zytg.s 			page 20
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 lib_infinikeys.c
-     /tmp/ccbzeqwr.s:13     .text.LIB_Infinikeys_Init:0000000000000000 $t
-     /tmp/ccbzeqwr.s:20     .text.LIB_Infinikeys_Init:0000000000000000 LIB_Infinikeys_Init
-     /tmp/ccbzeqwr.s:46     .text.LIB_Infinikeys_Init:0000000000000030 $d
-     /tmp/ccbzeqwr.s:79     .data.lib_infinikeys_init_struct:0000000000000000 lib_infinikeys_init_struct
-     /tmp/ccbzeqwr.s:57     .bss.lib_infinikeys_init_status:0000000000000000 lib_infinikeys_init_status
-     /tmp/ccbzeqwr.s:58     .bss.lib_infinikeys_init_status:0000000000000000 $d
-     /tmp/ccbzeqwr.s:63     .data._ikmatrix_cfg_tmp:0000000000000000 _ikmatrix_cfg_tmp
-     /tmp/ccbzeqwr.s:75     .data.lib_infinikeys_init_struct:0000000000000000 $d
+     /tmp/ccH4zytg.s:13     .text.LIB_Infinikeys_Init:0000000000000000 $t
+     /tmp/ccH4zytg.s:20     .text.LIB_Infinikeys_Init:0000000000000000 LIB_Infinikeys_Init
+     /tmp/ccH4zytg.s:50     .text.LIB_Infinikeys_Init:0000000000000038 $d
+     /tmp/ccH4zytg.s:1001   .data.lib_infinikeys_init_struct:0000000000000000 lib_infinikeys_init_struct
+     /tmp/ccH4zytg.s:62     .bss.lib_infinikeys_init_status:0000000000000000 lib_infinikeys_init_status
+     /tmp/ccH4zytg.s:63     .bss.lib_infinikeys_init_status:0000000000000000 $d
+     /tmp/ccH4zytg.s:68     .data._ikmatrix_cfg_tmp:0000000000000000 _ikmatrix_cfg_tmp
+     /tmp/ccH4zytg.s:997    .data.lib_infinikeys_init_struct:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 IK_Init
 IK_CFG_SetConfig
+CONSOLE_PrintLn
 infinikeys_hwif_berndokb_usb
 infinikeys_hwif_berndokb_cfgmem
 infinikeys_hwif_berndokb_kbmatrix

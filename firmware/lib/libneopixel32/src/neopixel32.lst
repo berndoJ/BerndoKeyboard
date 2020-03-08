@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccCe9pTw.s 			page 1
+ARM GAS  /tmp/ccWRz0G6.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccCe9pTw.s 			page 1
   57              		.fpu softvfp
   59              	NP32_DeInit:
   60              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccCe9pTw.s 			page 2
+ARM GAS  /tmp/ccWRz0G6.s 			page 2
 
 
   61              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccCe9pTw.s 			page 1
  117 0040 0288     		ldrh	r2, [r0]
  118 0042 99B2     		uxth	r1, r3
  119 0044 6A43     		muls	r2, r5, r2
-ARM GAS  /tmp/ccCe9pTw.s 			page 3
+ARM GAS  /tmp/ccWRz0G6.s 			page 3
 
 
  120 0046 3032     		adds	r2, r2, #48
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccCe9pTw.s 			page 1
  174              	.L24:
  175 00d8 47FA01FE 		asr	lr, r7, r1
  176 00dc 1EF0010F 		tst	lr, #1
-ARM GAS  /tmp/ccCe9pTw.s 			page 4
+ARM GAS  /tmp/ccWRz0G6.s 			page 4
 
 
  177 00e0 0CBF     		ite	eq
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccCe9pTw.s 			page 1
  235 001c 6428     		cmp	r0, #100
  236 001e 28BF     		it	cs
  237 0020 6420     		movcs	r0, #100
-ARM GAS  /tmp/ccCe9pTw.s 			page 5
+ARM GAS  /tmp/ccWRz0G6.s 			page 5
 
 
  238 0022 3C2B     		cmp	r3, #60
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccCe9pTw.s 			page 1
  292 009e 93FBF2F3 		sdiv	r3, r3, r2
  293 00a2 013B     		subs	r3, r3, #1
  294 00a4 0B70     		strb	r3, [r1]
-ARM GAS  /tmp/ccCe9pTw.s 			page 6
+ARM GAS  /tmp/ccWRz0G6.s 			page 6
 
 
  295 00a6 FF23     		movs	r3, #255
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccCe9pTw.s 			page 1
  350              		.global	NP32_SetLED_RGB
  351              		.syntax unified
  352              		.thumb
-ARM GAS  /tmp/ccCe9pTw.s 			page 7
+ARM GAS  /tmp/ccWRz0G6.s 			page 7
 
 
  353              		.thumb_func
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccCe9pTw.s 			page 1
  411              		.syntax unified
  412              		.thumb
  413              		.thumb_func
-ARM GAS  /tmp/ccCe9pTw.s 			page 8
+ARM GAS  /tmp/ccWRz0G6.s 			page 8
 
 
  414              		.fpu softvfp
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccCe9pTw.s 			page 1
  472              		.syntax unified
  473              		.thumb
  474              		.thumb_func
-ARM GAS  /tmp/ccCe9pTw.s 			page 9
+ARM GAS  /tmp/ccWRz0G6.s 			page 9
 
 
  475              		.fpu softvfp
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccCe9pTw.s 			page 1
  532 000e FFF7FEFF 		bl	NP32_HSV_To_RGB
  533 0012 039B     		ldr	r3, [sp, #12]
  534 0014 3246     		mov	r2, r6
-ARM GAS  /tmp/ccCe9pTw.s 			page 10
+ARM GAS  /tmp/ccWRz0G6.s 			page 10
 
 
  535 0016 2946     		mov	r1, r5
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccCe9pTw.s 			page 1
  593 0022 AB18     		adds	r3, r5, r2
  594 0024 AE54     		strb	r6, [r5, r2]
  595 0026 5E70     		strb	r6, [r3, #1]
-ARM GAS  /tmp/ccCe9pTw.s 			page 11
+ARM GAS  /tmp/ccWRz0G6.s 			page 11
 
 
  596 0028 9E70     		strb	r6, [r3, #2]
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccCe9pTw.s 			page 1
  653              		.global	NP32_RotateLeft
  654              		.syntax unified
  655              		.thumb
-ARM GAS  /tmp/ccCe9pTw.s 			page 12
+ARM GAS  /tmp/ccWRz0G6.s 			page 12
 
 
  656              		.thumb_func
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccCe9pTw.s 			page 1
  711 007c BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
  713              		.section	.text.NP32_RotateRight,"ax",%progbits
  714              		.align	1
-ARM GAS  /tmp/ccCe9pTw.s 			page 13
+ARM GAS  /tmp/ccWRz0G6.s 			page 13
 
 
  715              		.global	NP32_RotateRight
@@ -775,43 +775,43 @@ ARM GAS  /tmp/ccCe9pTw.s 			page 1
  767 006e 4FF0FF30 		mov	r0, #-1
  768 0072 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
  770              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
-ARM GAS  /tmp/ccCe9pTw.s 			page 14
+ARM GAS  /tmp/ccWRz0G6.s 			page 14
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 neopixel32.c
-     /tmp/ccCe9pTw.s:13     .text.NP32_Init:0000000000000000 $t
-     /tmp/ccCe9pTw.s:20     .text.NP32_Init:0000000000000000 NP32_Init
-     /tmp/ccCe9pTw.s:52     .text.NP32_DeInit:0000000000000000 $t
-     /tmp/ccCe9pTw.s:59     .text.NP32_DeInit:0000000000000000 NP32_DeInit
-     /tmp/ccCe9pTw.s:73     .text.NP32_Update:0000000000000000 $t
-     /tmp/ccCe9pTw.s:80     .text.NP32_Update:0000000000000000 NP32_Update
-     /tmp/ccCe9pTw.s:195    .text.NP32_DMAComplete_Callback:0000000000000000 $t
-     /tmp/ccCe9pTw.s:202    .text.NP32_DMAComplete_Callback:0000000000000000 NP32_DMAComplete_Callback
-     /tmp/ccCe9pTw.s:214    .text.NP32_HSV_To_RGB:0000000000000000 $t
-     /tmp/ccCe9pTw.s:221    .text.NP32_HSV_To_RGB:0000000000000000 NP32_HSV_To_RGB
-     /tmp/ccCe9pTw.s:349    .text.NP32_SetLED_RGB:0000000000000000 $t
-     /tmp/ccCe9pTw.s:356    .text.NP32_SetLED_RGB:0000000000000000 NP32_SetLED_RGB
-     /tmp/ccCe9pTw.s:382    .text.NP32_SetLED_HSV:0000000000000000 $t
-     /tmp/ccCe9pTw.s:389    .text.NP32_SetLED_HSV:0000000000000000 NP32_SetLED_HSV
-     /tmp/ccCe9pTw.s:409    .text.NP32_SetAllLEDs_RGB:0000000000000000 $t
-     /tmp/ccCe9pTw.s:416    .text.NP32_SetAllLEDs_RGB:0000000000000000 NP32_SetAllLEDs_RGB
-     /tmp/ccCe9pTw.s:446    .text.NP32_SetAllLEDs_HSV:0000000000000000 $t
-     /tmp/ccCe9pTw.s:453    .text.NP32_SetAllLEDs_HSV:0000000000000000 NP32_SetAllLEDs_HSV
-     /tmp/ccCe9pTw.s:470    .text.NP32_SetLEDSpan_RGB:0000000000000000 $t
-     /tmp/ccCe9pTw.s:477    .text.NP32_SetLEDSpan_RGB:0000000000000000 NP32_SetLEDSpan_RGB
-     /tmp/ccCe9pTw.s:515    .text.NP32_SetLEDSpan_HSV:0000000000000000 $t
-     /tmp/ccCe9pTw.s:522    .text.NP32_SetLEDSpan_HSV:0000000000000000 NP32_SetLEDSpan_HSV
-     /tmp/ccCe9pTw.s:543    .text.NP32_ClearAllLEDs:0000000000000000 $t
-     /tmp/ccCe9pTw.s:550    .text.NP32_ClearAllLEDs:0000000000000000 NP32_ClearAllLEDs
-     /tmp/ccCe9pTw.s:565    .text.NP32_ShiftLeft:0000000000000000 $t
-     /tmp/ccCe9pTw.s:572    .text.NP32_ShiftLeft:0000000000000000 NP32_ShiftLeft
-     /tmp/ccCe9pTw.s:611    .text.NP32_ShiftRight:0000000000000000 $t
-     /tmp/ccCe9pTw.s:618    .text.NP32_ShiftRight:0000000000000000 NP32_ShiftRight
-     /tmp/ccCe9pTw.s:652    .text.NP32_RotateLeft:0000000000000000 $t
-     /tmp/ccCe9pTw.s:659    .text.NP32_RotateLeft:0000000000000000 NP32_RotateLeft
-     /tmp/ccCe9pTw.s:714    .text.NP32_RotateRight:0000000000000000 $t
-     /tmp/ccCe9pTw.s:721    .text.NP32_RotateRight:0000000000000000 NP32_RotateRight
+     /tmp/ccWRz0G6.s:13     .text.NP32_Init:0000000000000000 $t
+     /tmp/ccWRz0G6.s:20     .text.NP32_Init:0000000000000000 NP32_Init
+     /tmp/ccWRz0G6.s:52     .text.NP32_DeInit:0000000000000000 $t
+     /tmp/ccWRz0G6.s:59     .text.NP32_DeInit:0000000000000000 NP32_DeInit
+     /tmp/ccWRz0G6.s:73     .text.NP32_Update:0000000000000000 $t
+     /tmp/ccWRz0G6.s:80     .text.NP32_Update:0000000000000000 NP32_Update
+     /tmp/ccWRz0G6.s:195    .text.NP32_DMAComplete_Callback:0000000000000000 $t
+     /tmp/ccWRz0G6.s:202    .text.NP32_DMAComplete_Callback:0000000000000000 NP32_DMAComplete_Callback
+     /tmp/ccWRz0G6.s:214    .text.NP32_HSV_To_RGB:0000000000000000 $t
+     /tmp/ccWRz0G6.s:221    .text.NP32_HSV_To_RGB:0000000000000000 NP32_HSV_To_RGB
+     /tmp/ccWRz0G6.s:349    .text.NP32_SetLED_RGB:0000000000000000 $t
+     /tmp/ccWRz0G6.s:356    .text.NP32_SetLED_RGB:0000000000000000 NP32_SetLED_RGB
+     /tmp/ccWRz0G6.s:382    .text.NP32_SetLED_HSV:0000000000000000 $t
+     /tmp/ccWRz0G6.s:389    .text.NP32_SetLED_HSV:0000000000000000 NP32_SetLED_HSV
+     /tmp/ccWRz0G6.s:409    .text.NP32_SetAllLEDs_RGB:0000000000000000 $t
+     /tmp/ccWRz0G6.s:416    .text.NP32_SetAllLEDs_RGB:0000000000000000 NP32_SetAllLEDs_RGB
+     /tmp/ccWRz0G6.s:446    .text.NP32_SetAllLEDs_HSV:0000000000000000 $t
+     /tmp/ccWRz0G6.s:453    .text.NP32_SetAllLEDs_HSV:0000000000000000 NP32_SetAllLEDs_HSV
+     /tmp/ccWRz0G6.s:470    .text.NP32_SetLEDSpan_RGB:0000000000000000 $t
+     /tmp/ccWRz0G6.s:477    .text.NP32_SetLEDSpan_RGB:0000000000000000 NP32_SetLEDSpan_RGB
+     /tmp/ccWRz0G6.s:515    .text.NP32_SetLEDSpan_HSV:0000000000000000 $t
+     /tmp/ccWRz0G6.s:522    .text.NP32_SetLEDSpan_HSV:0000000000000000 NP32_SetLEDSpan_HSV
+     /tmp/ccWRz0G6.s:543    .text.NP32_ClearAllLEDs:0000000000000000 $t
+     /tmp/ccWRz0G6.s:550    .text.NP32_ClearAllLEDs:0000000000000000 NP32_ClearAllLEDs
+     /tmp/ccWRz0G6.s:565    .text.NP32_ShiftLeft:0000000000000000 $t
+     /tmp/ccWRz0G6.s:572    .text.NP32_ShiftLeft:0000000000000000 NP32_ShiftLeft
+     /tmp/ccWRz0G6.s:611    .text.NP32_ShiftRight:0000000000000000 $t
+     /tmp/ccWRz0G6.s:618    .text.NP32_ShiftRight:0000000000000000 NP32_ShiftRight
+     /tmp/ccWRz0G6.s:652    .text.NP32_RotateLeft:0000000000000000 $t
+     /tmp/ccWRz0G6.s:659    .text.NP32_RotateLeft:0000000000000000 NP32_RotateLeft
+     /tmp/ccWRz0G6.s:714    .text.NP32_RotateRight:0000000000000000 $t
+     /tmp/ccWRz0G6.s:721    .text.NP32_RotateRight:0000000000000000 NP32_RotateRight
 
 UNDEFINED SYMBOLS
 calloc

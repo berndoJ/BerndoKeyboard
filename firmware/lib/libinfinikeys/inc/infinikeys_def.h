@@ -34,6 +34,9 @@
 
 #define IK_UNUSED(x)            (void)(x)
 
+#define IK_MIN(a,b)             (a < b ? a : b)
+#define IK_MAX(a,b)             (a > b ? a : b)
+
 /**
  * \brief Function return status representation.
  */

@@ -1,0 +1,555 @@
+BerndoKeyboard Keyboard-Matrix Configuration
+--------------------------------------------
+
+Key Types:
+  [0]: None
+  [1]: HID
+  [2]: HID-Modifier
+  [3]: Key-Layer-Switch
+  [4]: Action
+
+
+0x00,                       // Key Layer: 0h
+0x84, 0x00,                 // Key Layer Size: 84h (132d)
+
+/*---- D0 --------------------------------------------------------------------*/
+
+0x01, 0x00,                 //   [0] Key Code: 1h (M1) [D0-P0]
+0x00,                       //   [0] Key Type: None
+0x00, 0x00, 0x00, 0x00,     //   [0] Key Data: 0h
+
+0x02, 0x00,                 //   [1] Key Code: 2h (Esc) [D0-P1]
+0x01,                       //   [1] Key Type: HID
+0x29, 0x00, 0x00, 0x00,     //   [1] Key Data: 29h
+
+0x03, 0x00,                 //   [2] Key Code: 3h (F1) [D0-P2]
+0x01,                       //   [2] Key Type: HID
+0x3a, 0x00, 0x00, 0x00,     //   [2] Key Data: 3ah
+
+0x04, 0x00,                 //   [3] Key Code: 4h (F2) [D0-P3]
+0x01,                       //   [3] Key Type: HID
+0x3b, 0x00, 0x00, 0x00,     //   [3] Key Data: 3bh
+
+0x05, 0x00,                 //   [4] Key Code: 5h (F3) [D0-P4]
+0x01,                       //   [4] Key Type: HID
+0x3c, 0x00, 0x00, 0x00,     //   [4] Key Data: 3ch
+
+0x06, 0x00,                 //   [5] Key Code: 6h (F4) [D0-P5]
+0x01,                       //   [5] Key Type: HID
+0x3d, 0x00, 0x00, 0x00,     //   [5] Key Data: 3dh
+
+0x07, 0x00,                 //   [6] Key Code: 7h (F5) [D0-P6]
+0x01,                       //   [6] Key Type: HID
+0x3e, 0x00, 0x00, 0x00,     //   [6] Key Data: 3eh
+
+0x08, 0x00,                 //   [7] Key Code: 8h (F6) [D0-P7]
+0x01,                       //   [7] Key Type: HID
+0x3f, 0x00, 0x00, 0x00,     //   [7] Key Data: 3fh
+
+0x09, 0x00,                 //   [8] Key Code: 9h (F7) [D0-P8]
+0x01,                       //   [8] Key Type: HID
+0x40, 0x00, 0x00, 0x00,     //   [8] Key Data: 40h
+
+0x0a, 0x00,                 //   [9] Key Code: ah (F8) [D0-P9]
+0x01,                       //   [9] Key Type: HID
+0x41, 0x00, 0x00, 0x00,     //   [9] Key Data: 41h
+
+0x0b, 0x00,                 //   [10] Key Code: bh (F9) [D0-P10]
+0x01,                       //   [10] Key Type: HID
+0x42, 0x00, 0x00, 0x00,     //   [10] Key Data: 42h
+
+0x0c, 0x00,                 //   [11] Key Code: ch (F10) [D0-P11]
+0x01,                       //   [11] Key Type: HID
+0x43, 0x00, 0x00, 0x00,     //   [11] Key Data: 43h
+
+0x0d, 0x00,                 //   [12] Key Code: dh (F11) [D0-P12]
+0x01,                       //   [12] Key Type: HID
+0x44, 0x00, 0x00, 0x00,     //   [12] Key Data: 44h
+
+0x0e, 0x00,                 //   [13] Key Code: eh (F12) [D0-P13]
+0x01,                       //   [13] Key Type: HID
+0x45, 0x00, 0x00, 0x00,     //   [13] Key Data: 45h
+
+0x0f, 0x00,                 //   [14] Key Code: fh (F13) [D0-P14]
+0x01,                       //   [14] Key Type: HID
+0x68, 0x00, 0x00, 0x00,     //   [14] Key Data: 68h
+
+0x10, 0x00,                 //   [15] Key Code: 10h (F14) [D0-P15]
+0x01,                       //   [15] Key Type: HID
+0x69, 0x00, 0x00, 0x00,     //   [15] Key Data: 69h
+
+0x11, 0x00,                 //   [16] Key Code: 11h (Print-Scr) [D0-P16]
+0x01,                       //   [16] Key Type: HID
+0x46, 0x00, 0x00, 0x00,     //   [16] Key Data: 46h
+
+0x12, 0x00,                 //   [17] Key Code: 12h (Scroll-Lock) [D0-P17]
+0x01,                       //   [17] Key Type: HID
+0x47, 0x00, 0x00, 0x00,     //   [17] Key Data: 47h
+
+0x14, 0x00,                 //   [18] Key Code: 14h (Num-Lock) [D0-P19]
+0x01,                       //   [18] Key Type: HID
+0x53, 0x00, 0x00, 0x00,     //   [18] Key Data: 53h
+
+0x15, 0x00,                 //   [19] Key Code: 15h (Num-Divide) [D0-P20]
+0x01,                       //   [19] Key Type: HID
+0x54, 0x00, 0x00, 0x00,     //   [19] Key Data: 54h
+
+0x16, 0x00,                 //   [20] Key Code: 16h (Num-Multiply) [D0-P21]
+0x01,                       //   [20] Key Type: HID
+0x55, 0x00, 0x00, 0x00,     //   [20] Key Data: 55h
+
+/*---- D1 --------------------------------------------------------------------*/
+
+0x17, 0x00,                 //   [21] Key Code: 17h (M2) [D1-P0]
+0x00,                       //   [21] Key Type: None
+0x00, 0x00, 0x00, 0x00,     //   [21] Key Data: 0h
+
+0x18, 0x00,                 //   [22] Key Code: 18h (*) [D1-P1]
+0x01,                       //   [22] Key Type: HID
+0x55, 0x00, 0x00, 0x00,     //   [22] Key Data: 55h
+
+0x19, 0x00,                 //   [23] Key Code: 19h (") [D1-P2]
+0x00,                       //   [23] Key Type: None
+0x00, 0x00, 0x00, 0x00,     //   [23] Key Data: 0h
+
+0x1a, 0x00,                 //   [24] Key Code: 1ah (=) [D1-P3]
+0x01,                       //   [24] Key Type: HID
+0x67, 0x00, 0x00, 0x00,     //   [24] Key Data: 67h
+
+0x1b, 0x00,                 //   [25] Key Code: 1bh (!) [D1-P4]
+0x01,                       //   [25] Key Type: HID
+0xcf, 0x00, 0x00, 0x00,     //   [25] Key Data: cfh
+
+0x1c, 0x00,                 //   [26] Key Code: 1ch (|) [D1-P5]
+0x01,                       //   [26] Key Type: HID
+0xc9, 0x00, 0x00, 0x00,     //   [26] Key Data: c9h
+
+0x1d, 0x00,                 //   [27] Key Code: 1dh (&) [D1-P6]
+0x01,                       //   [27] Key Type: HID
+0xc7, 0x00, 0x00, 0x00,     //   [27] Key Data: c7h
+
+0x1e, 0x00,                 //   [28] Key Code: 1eh ([) [D1-P7]
+0x00,                       //   [28] Key Type: None
+0x00, 0x00, 0x00, 0x00,     //   [28] Key Data: 0h
+
+0x1f, 0x00,                 //   [29] Key Code: 1fh ({) [D1-P8]
+0x01,                       //   [29] Key Type: HID
+0xb8, 0x00, 0x00, 0x00,     //   [29] Key Data: b8h
+
+0x20, 0x00,                 //   [30] Key Code: 20h (() [D1-P9]
+0x01,                       //   [30] Key Type: HID
+0xb6, 0x00, 0x00, 0x00,     //   [30] Key Data: b6h
+
+0x21, 0x00,                 //   [31] Key Code: 21h ()) [D1-P10]
+0x01,                       //   [31] Key Type: HID
+0xb7, 0x00, 0x00, 0x00,     //   [31] Key Data: b7h
+
+0x22, 0x00,                 //   [32] Key Code: 22h (}) [D1-P11]
+0x01,                       //   [32] Key Type: HID
+0xb9, 0x00, 0x00, 0x00,     //   [32] Key Data: b9h
+
+0x23, 0x00,                 //   [33] Key Code: 23h (]) [D1-P12]
+0x00,                       //   [33] Key Type: None
+0x00, 0x00, 0x00, 0x00,     //   [33] Key Data: 0h
+
+0x24, 0x00,                 //   [34] Key Code: 24h (?) [D1-P13]
+0x00,                       //   [34] Key Type: None
+0x00, 0x00, 0x00, 0x00,     //   [34] Key Data: 0h
+
+0x25, 0x00,                 //   [35] Key Code: 25h (<) [D1-P14]
+0x01,                       //   [35] Key Type: HID
+0xc5, 0x00, 0x00, 0x00,     //   [35] Key Data: c5h
+
+0x26, 0x00,                 //   [36] Key Code: 26h (>) [D1-P15]
+0x01,                       //   [36] Key Type: HID
+0xc6, 0x00, 0x00, 0x00,     //   [36] Key Data: c6h
+
+0x27, 0x00,                 //   [37] Key Code: 27h (Undo) [D1-P16]
+0x01,                       //   [37] Key Type: HID
+0x7a, 0x00, 0x00, 0x00,     //   [37] Key Data: 7ah
+
+0x28, 0x00,                 //   [38] Key Code: 28h (Volume-Up) [D1-P17]
+0x01,                       //   [38] Key Type: HID
+0x80, 0x00, 0x00, 0x00,     //   [38] Key Data: 80h
+
+0x2a, 0x00,                 //   [39] Key Code: 2ah (Numpad-7) [D1-P19]
+0x01,                       //   [39] Key Type: HID
+0x5f, 0x00, 0x00, 0x00,     //   [39] Key Data: 5fh
+
+0x2b, 0x00,                 //   [40] Key Code: 2bh (Numpad-8) [D1-P20]
+0x01,                       //   [40] Key Type: HID
+0x60, 0x00, 0x00, 0x00,     //   [40] Key Data: 60h
+
+0x2c, 0x00,                 //   [41] Key Code: 2ch (Numpad-9) [D1-P21]
+0x01,                       //   [41] Key Type: HID
+0x61, 0x00, 0x00, 0x00,     //   [41] Key Data: 61h
+
+/*---- D2 --------------------------------------------------------------------*/
+
+0x2d, 0x00,                 //   [42] Key Code: 2dh (M3) [D2-P0]
+0x00,                       //   [42] Key Type: None
+0x00, 0x00, 0x00, 0x00,     //   [42] Key Data: 0h
+
+0x2e, 0x00,                 //   [43] Key Code: 2eh (^°) [D2-P1]
+0x01,                       //   [43] Key Type: HID
+0x35, 0x00, 0x00, 0x00,     //   [43] Key Data: 35h
+
+0x2f, 0x00,                 //   [44] Key Code: 2fh (1) [D2-P2]
+0x01,                       //   [44] Key Type: HID
+0x1e, 0x00, 0x00, 0x00,     //   [44] Key Data: 1eh
+
+0x30, 0x00,                 //   [45] Key Code: 30h (2) [D2-P3]
+0x01,                       //   [45] Key Type: HID
+0x1f, 0x00, 0x00, 0x00,     //   [45] Key Data: 1fh
+
+0x31, 0x00,                 //   [46] Key Code: 31h (3) [D2-P4]
+0x01,                       //   [46] Key Type: HID
+0x20, 0x00, 0x00, 0x00,     //   [46] Key Data: 20h
+
+0x32, 0x00,                 //   [47] Key Code: 32h (4) [D2-P5]
+0x01,                       //   [47] Key Type: HID
+0x21, 0x00, 0x00, 0x00,     //   [47] Key Data: 21h
+
+0x33, 0x00,                 //   [48] Key Code: 33h (5) [D2-P6]
+0x01,                       //   [48] Key Type: HID
+0x22, 0x00, 0x00, 0x00,     //   [48] Key Data: 22h
+
+0x34, 0x00,                 //   [49] Key Code: 34h (6) [D2-P7]
+0x01,                       //   [49] Key Type: HID
+0x23, 0x00, 0x00, 0x00,     //   [49] Key Data: 23h
+
+0x35, 0x00,                 //   [50] Key Code: 35h (7) [D2-P8]
+0x01,                       //   [50] Key Type: HID
+0x24, 0x00, 0x00, 0x00,     //   [50] Key Data: 24h
+
+0x36, 0x00,                 //   [51] Key Code: 36h (8) [D2-P9]
+0x01,                       //   [51] Key Type: HID
+0x25, 0x00, 0x00, 0x00,     //   [51] Key Data: 25h
+
+0x37, 0x00,                 //   [52] Key Code: 37h (9) [D2-P10]
+0x01,                       //   [52] Key Type: HID
+0x26, 0x00, 0x00, 0x00,     //   [52] Key Data: 26h
+
+0x38, 0x00,                 //   [53] Key Code: 38h (0) [D2-P11]
+0x01,                       //   [53] Key Type: HID
+0x27, 0x00, 0x00, 0x00,     //   [53] Key Data: 27h
+
+0x39, 0x00,                 //   [54] Key Code: 39h (ß) [D2-P12]
+0x01,                       //   [54] Key Type: HID
+0x2d, 0x00, 0x00, 0x00,     //   [54] Key Data: 2dh
+
+0x3a, 0x00,                 //   [55] Key Code: 3ah (´`) [D2-P13]
+0x01,                       //   [55] Key Type: HID
+0x2e, 0x00, 0x00, 0x00,     //   [55] Key Data: 2eh
+
+0x3b, 0x00,                 //   [56] Key Code: 3bh (Backspace) [D2-P14]
+0x01,                       //   [56] Key Type: HID
+0x2a, 0x00, 0x00, 0x00,     //   [56] Key Data: 2ah
+
+0x3d, 0x00,                 //   [57] Key Code: 3dh (Insert) [D2-P16]
+0x01,                       //   [57] Key Type: HID
+0x49, 0x00, 0x00, 0x00,     //   [57] Key Data: 49h
+
+0x3e, 0x00,                 //   [58] Key Code: 3eh (Pause) [D2-P17]
+0x01,                       //   [58] Key Type: HID
+0x48, 0x00, 0x00, 0x00,     //   [58] Key Data: 48h
+
+0x40, 0x00,                 //   [59] Key Code: 40h (Numpad-4) [D2-P19]
+0x01,                       //   [59] Key Type: HID
+0x5c, 0x00, 0x00, 0x00,     //   [59] Key Data: 5ch
+
+0x41, 0x00,                 //   [60] Key Code: 41h (Numpad-5) [D2-P20]
+0x01,                       //   [60] Key Type: HID
+0x5d, 0x00, 0x00, 0x00,     //   [60] Key Data: 5dh
+
+0x42, 0x00,                 //   [61] Key Code: 42h (Numpad-6) [D2-P21]
+0x01,                       //   [61] Key Type: HID
+0x5e, 0x00, 0x00, 0x00,     //   [61] Key Data: 5eh
+
+/*---- D3 --------------------------------------------------------------------*/
+
+0x43, 0x00,                 //   [62] Key Code: 43h (M4) [D3-P0]
+0x00,                       //   [62] Key Type: None
+0x00, 0x00, 0x00, 0x00,     //   [62] Key Data: 0h
+
+0x44, 0x00,                 //   [63] Key Code: 44h (Tab) [D3-P1]
+0x01,                       //   [63] Key Type: HID
+0x2b, 0x00, 0x00, 0x00,     //   [63] Key Data: 2bh
+
+0x45, 0x00,                 //   [64] Key Code: 45h (Q) [D3-P2]
+0x01,                       //   [64] Key Type: HID
+0x14, 0x00, 0x00, 0x00,     //   [64] Key Data: 14h
+
+0x46, 0x00,                 //   [65] Key Code: 46h (W) [D3-P3]
+0x01,                       //   [65] Key Type: HID
+0x1a, 0x00, 0x00, 0x00,     //   [65] Key Data: 1ah
+
+0x47, 0x00,                 //   [66] Key Code: 47h (E) [D3-P4]
+0x01,                       //   [66] Key Type: HID
+0x08, 0x00, 0x00, 0x00,     //   [66] Key Data: 8h
+
+0x48, 0x00,                 //   [67] Key Code: 48h (R) [D3-P5]
+0x01,                       //   [67] Key Type: HID
+0x15, 0x00, 0x00, 0x00,     //   [67] Key Data: 15h
+
+0x49, 0x00,                 //   [68] Key Code: 49h (T) [D3-P6]
+0x01,                       //   [68] Key Type: HID
+0x17, 0x00, 0x00, 0x00,     //   [68] Key Data: 17h
+
+0x4a, 0x00,                 //   [69] Key Code: 4ah (Z) [D3-P7]
+0x01,                       //   [69] Key Type: HID
+0x1c, 0x00, 0x00, 0x00,     //   [69] Key Data: 1ch
+
+0x4b, 0x00,                 //   [70] Key Code: 4bh (U) [D3-P8]
+0x01,                       //   [70] Key Type: HID
+0x18, 0x00, 0x00, 0x00,     //   [70] Key Data: 18h
+
+0x4c, 0x00,                 //   [71] Key Code: 4ch (I) [D3-P9]
+0x01,                       //   [71] Key Type: HID
+0x0c, 0x00, 0x00, 0x00,     //   [71] Key Data: 0ch
+
+0x4d, 0x00,                 //   [72] Key Code: 4dh (O) [D3-P10]
+0x01,                       //   [72] Key Type: HID
+0x12, 0x00, 0x00, 0x00,     //   [72] Key Data: 12h
+
+0x4e, 0x00,                 //   [73] Key Code: 4eh (P) [D3-P11]
+0x01,                       //   [73] Key Type: HID
+0x13, 0x00, 0x00, 0x00,     //   [73] Key Data: 13h
+
+0x4f, 0x00,                 //   [74] Key Code: 4fh (Ü) [D3-P12]
+0x01,                       //   [74] Key Type: HID
+0x2f, 0x00, 0x00, 0x00,     //   [74] Key Data: 2fh
+
+0x50, 0x00,                 //   [75] Key Code: 50h (+) [D3-P13]
+0x01,                       //   [75] Key Type: HID
+0x30, 0x00, 0x00, 0x00,     //   [75] Key Data: 30h
+
+0x51, 0x00,                 //   [76] Key Code: 51h (Enter) [D3-P14]
+0x01,                       //   [76] Key Type: HID
+0x28, 0x00, 0x00, 0x00,     //   [76] Key Data: 28h
+
+0x53, 0x00,                 //   [77] Key Code: 53h (Delete) [D3-P16]
+0x01,                       //   [77] Key Type: HID
+0x4c, 0x00, 0x00, 0x00,     //   [77] Key Data: 4ch
+
+0x54, 0x00,                 //   [78] Key Code: 54h (Volume-Down) [D3-P17]
+0x01,                       //   [78] Key Type: HID
+0x81, 0x00, 0x00, 0x00,     //   [78] Key Data: 81h
+
+0x55, 0x00,                 //   [79] Key Code: 55h (Right-Arrow) [D3-P18]
+0x01,                       //   [79] Key Type: HID
+0x4f, 0x00, 0x00, 0x00,     //   [79] Key Data: 4fh
+
+0x56, 0x00,                 //   [80] Key Code: 56h (Numpad-1) [D3-P19]
+0x01,                       //   [80] Key Type: HID
+0x59, 0x00, 0x00, 0x00,     //   [80] Key Data: 59h
+
+0x57, 0x00,                 //   [81] Key Code: 57h (Numpad-2) [D3-P20]
+0x01,                       //   [81] Key Type: HID
+0x5a, 0x00, 0x00, 0x00,     //   [81] Key Data: 5ah
+
+0x58, 0x00,                 //   [82] Key Code: 58h (Numpad-3) [D3-P21]
+0x01,                       //   [82] Key Type: HID
+0x5b, 0x00, 0x00, 0x00,     //   [82] Key Data: 5bh
+
+/*---- D4 --------------------------------------------------------------------*/
+
+0x59, 0x00,                 //   [83] Key Code: 59h (M5) [D4-P0]
+0x00,                       //   [83] Key Type: None
+0x00, 0x00, 0x00, 0x00,     //   [83] Key Data: 0h
+
+0x5a, 0x00,                 //   [84] Key Code: 5ah (Capslock) [D4-P1]
+0x01,                       //   [84] Key Type: HID
+0x39, 0x00, 0x00, 0x00,     //   [84] Key Data: 39h
+
+0x5b, 0x00,                 //   [85] Key Code: 5bh (A) [D4-P2]
+0x01,                       //   [85] Key Type: HID
+0x04, 0x00, 0x00, 0x00,     //   [85] Key Data: 04h
+
+0x5c, 0x00,                 //   [86] Key Code: 5ch (S) [D4-P3]
+0x01,                       //   [86] Key Type: HID
+0x16, 0x00, 0x00, 0x00,     //   [86] Key Data: 16h
+
+0x5d, 0x00,                 //   [87] Key Code: 5dh (D) [D4-P4]
+0x01,                       //   [87] Key Type: HID
+0x07, 0x00, 0x00, 0x00,     //   [87] Key Data: 07h
+
+0x5e, 0x00,                 //   [88] Key Code: 5eh (F) [D4-P5]
+0x01,                       //   [88] Key Type: HID
+0x09, 0x00, 0x00, 0x00,     //   [88] Key Data: 09h
+
+0x5f, 0x00,                 //   [89] Key Code: 5fh (G) [D4-P6]
+0x01,                       //   [89] Key Type: HID
+0x0a, 0x00, 0x00, 0x00,     //   [89] Key Data: 0ah
+
+0x60, 0x00,                 //   [90] Key Code: 60h (H) [D4-P7]
+0x01,                       //   [90] Key Type: HID
+0x0b, 0x00, 0x00, 0x00,     //   [90] Key Data: 0bh
+
+0x61, 0x00,                 //   [91] Key Code: 61h (J) [D4-P8]
+0x01,                       //   [91] Key Type: HID
+0x0d, 0x00, 0x00, 0x00,     //   [91] Key Data: 0dh
+
+0x62, 0x00,                 //   [92] Key Code: 62h (K) [D4-P9]
+0x01,                       //   [92] Key Type: HID
+0x0e, 0x00, 0x00, 0x00,     //   [92] Key Data: 0eh
+
+0x63, 0x00,                 //   [93] Key Code: 63h (L) [D4-P10]
+0x01,                       //   [93] Key Type: HID
+0x0f, 0x00, 0x00, 0x00,     //   [93] Key Data: 0fh
+
+0x64, 0x00,                 //   [94] Key Code: 64h (Ö) [D4-P11]
+0x01,                       //   [94] Key Type: HID
+0x33, 0x00, 0x00, 0x00,     //   [94] Key Data: 33h
+
+0x65, 0x00,                 //   [95] Key Code: 65h (Ä) [D4-P12]
+0x01,                       //   [95] Key Type: HID
+0x34, 0x00, 0x00, 0x00,     //   [95] Key Data: 34h
+
+0x66, 0x00,                 //   [96] Key Code: 66h (#) [D4-P13]
+0x01,                       //   [96] Key Type: HID
+0x31, 0x00, 0x00, 0x00,     //   [96] Key Data: 31h
+
+0x69, 0x00,                 //   [97] Key Code: 69h (Home/Pos-1) [D4-P16]
+0x01,                       //   [97] Key Type: HID
+0x4a, 0x00, 0x00, 0x00,     //   [97] Key Data: 4ah
+
+0x6a, 0x00,                 //   [98] Key Code: 6ah (Page-Up) [D4-P17]
+0x01,                       //   [98] Key Type: HID
+0x4b, 0x00, 0x00, 0x00,     //   [98] Key Data: 4bh
+
+0x6b, 0x00,                 //   [99] Key Code: 6bh (Up-Arrow) [D4-P18]
+0x01,                       //   [99] Key Type: HID
+0x52, 0x00, 0x00, 0x00,     //   [99] Key Data: 52h
+
+0x6c, 0x00,                 //   [100] Key Code: 6ch (Numpad-0) [D4-P19]
+0x01,                       //   [100] Key Type: HID
+0x62, 0x00, 0x00, 0x00,     //   [100] Key Data: 62h
+
+0x6e, 0x00,                 //   [101] Key Code: 6eh (Numpad-Subtract) [D4-P21]
+0x01,                       //   [101] Key Type: HID
+0x56, 0x00, 0x00, 0x00,     //   [101] Key Data: 56h
+
+/*---- D5 --------------------------------------------------------------------*/
+
+0x6f, 0x00,                 //   [102] Key Code: 6fh (M6) [D5-P0]
+0x00,                       //   [102] Key Type: None
+0x00, 0x00, 0x00, 0x00,     //   [102] Key Data: 0h
+
+0x70, 0x00,                 //   [103] Key Code: 70h (Left-Shift) [D5-P1]
+0x01,                       //   [103] Key Type: HID-Modifier
+0x02, 0x00, 0x00, 0x00,     //   [103] Key Data: 02h
+
+0x71, 0x00,                 //   [104] Key Code: 71h (<>|) [D5-P2]
+0x01,                       //   [104] Key Type: HID
+0x64, 0x00, 0x00, 0x00,     //   [104] Key Data: 64h
+
+0x72, 0x00,                 //   [105] Key Code: 72h (Y) [D5-P3]
+0x01,                       //   [105] Key Type: HID
+0x1d, 0x00, 0x00, 0x00,     //   [105] Key Data: 1dh
+
+0x73, 0x00,                 //   [106] Key Code: 73h (X) [D5-P4]
+0x01,                       //   [106] Key Type: HID
+0x1b, 0x00, 0x00, 0x00,     //   [106] Key Data: 1bh
+
+0x74, 0x00,                 //   [107] Key Code: 74h (C) [D5-P5]
+0x01,                       //   [107] Key Type: HID
+0x06, 0x00, 0x00, 0x00,     //   [107] Key Data: 06h
+
+0x75, 0x00,                 //   [108] Key Code: 75h (V) [D5-P6]
+0x01,                       //   [108] Key Type: HID
+0x19, 0x00, 0x00, 0x00,     //   [108] Key Data: 19h
+
+0x76, 0x00,                 //   [109] Key Code: 76h (B) [D5-P7]
+0x01,                       //   [109] Key Type: HID
+0x05, 0x00, 0x00, 0x00,     //   [109] Key Data: 05h
+
+0x77, 0x00,                 //   [110] Key Code: 77h (N) [D5-P8]
+0x01,                       //   [110] Key Type: HID
+0x11, 0x00, 0x00, 0x00,     //   [110] Key Data: 11h
+
+0x78, 0x00,                 //   [111] Key Code: 78h (M) [D5-P9]
+0x01,                       //   [111] Key Type: HID
+0x10, 0x00, 0x00, 0x00,     //   [111] Key Data: 10h
+
+0x79, 0x00,                 //   [112] Key Code: 79h (,;) [D5-P10]
+0x01,                       //   [112] Key Type: HID
+0x36, 0x00, 0x00, 0x00,     //   [112] Key Data: 36h
+
+0x7a, 0x00,                 //   [113] Key Code: 7ah (.:) [D5-P11]
+0x01,                       //   [113] Key Type: HID
+0x37, 0x00, 0x00, 0x00,     //   [113] Key Data: 37h
+
+0x7b, 0x00,                 //   [114] Key Code: 7bh (-_) [D5-P12]
+0x01,                       //   [114] Key Type: HID
+0x38, 0x00, 0x00, 0x00,     //   [114] Key Data: 38h
+
+0x7d, 0x00,                 //   [115] Key Code: 7dh (Right-Shift) [D5-P14]
+0x02,                       //   [115] Key Type: HID-Modifier
+0x05, 0x00, 0x00, 0x00,     //   [115] Key Data: 05h
+
+0x7f, 0x00,                 //   [116] Key Code: 7fh (End) [D5-P16]
+0x01,                       //   [116] Key Type: HID
+0x4d, 0x00, 0x00, 0x00,     //   [116] Key Data: 4dh
+
+0x80, 0x00,                 //   [117] Key Code: 80h (Page-Down) [D5-P17]
+0x01,                       //   [117] Key Type: HID
+0x4e, 0x00, 0x00, 0x00,     //   [117] Key Data: 4eh
+
+0x81, 0x00,                 //   [118] Key Code: 81h (Down-Arrow) [D5-P18]
+0x01,                       //   [118] Key Type: HID
+0x51, 0x00, 0x00, 0x00,     //   [118] Key Data: 51h
+
+0x82, 0x00,                 //   [119] Key Code: 82h (Numpad-Comma) [D5-P19]
+0x01,                       //   [119] Key Type: HID
+0x63, 0x00, 0x00, 0x00,     //   [119] Key Data: 63h
+
+0x84, 0x00,                 //   [120] Key Code: 84h (Numpad-Add) [D5-P21]
+0x01,                       //   [120] Key Type: HID
+0x57, 0x00, 0x00, 0x00,     //   [120] Key Data: 57h
+
+/*---- D6 --------------------------------------------------------------------*/
+
+0x85, 0x00,                 //   [121] Key Code: 85h (M7) [D6-P0]
+0x00,                       //   [121] Key Type: None
+0x00, 0x00, 0x00, 0x00,     //   [121] Key Data: 0h
+
+0x86, 0x00,                 //   [122] Key Code: 86h (Left-Control) [D6-P1]
+0x02,                       //   [122] Key Type: HID-Modifier
+0x00, 0x00, 0x00, 0x00,     //   [122] Key Data: 00h
+
+0x87, 0x00,                 //   [123] Key Code: 87h (Left-GUI) [D6-P2]
+0x02,                       //   [123] Key Type: HID-Modifier
+0x03, 0x00, 0x00, 0x00,     //   [123] Key Data: 03h
+
+0x88, 0x00,                 //   [124] Key Code: 88h (Left-Alt) [D6-P3]
+0x02,                       //   [124] Key Type: HID-Modifier
+0x02, 0x00, 0x00, 0x00,     //   [124] Key Data: 02h
+
+0x8c, 0x00,                 //   [125] Key Code: 8ch (Space) [D6-P7]
+0x01,                       //   [125] Key Type: HID
+0x2c, 0x00, 0x00, 0x00,     //   [125] Key Data: 2ch
+
+0x90, 0x00,                 //   [126] Key Code: 90h (Right-Alt [Alt Gr Substitute]) [D6-P11]
+0x02,                       //   [126] Key Type: HID-Modifier
+0x06, 0x00, 0x00, 0x00,     //   [126] Key Data: 06h
+
+0x91, 0x00,                 //   [127] Key Code: 91h (Right-GUI) [D6-P12]
+0x02,                       //   [127] Key Type: HID-Modifier
+0x07, 0x00, 0x00, 0x00,     //   [127] Key Data: 07h
+
+0x92, 0x00,                 //   [128] Key Code: 92h (Fn) [D6-P13]
+0x00,                       //   [128] Key Type: None
+0x00, 0x00, 0x00, 0x00,     //   [128] Key Data: 0h
+
+0x93, 0x00,                 //   [129] Key Code: 93h (Right-Control) [D6-P14]
+0x02,                       //   [129] Key Type: HID-Modifier
+0x04, 0x00, 0x00, 0x00,     //   [129] Key Data: 04h
+
+0x97, 0x00,                 //   [130] Key Code: 97h (Left-Arrow) [D6-P18]
+0x01,                       //   [130] Key Type: HID
+0x50, 0x00, 0x00, 0x00,     //   [130] Key Data: 50h
+
+0x9a, 0x00,                 //   [131] Key Code: 9ah (Numpad-Enter) [D6-P21]
+0x01,                       //   [131] Key Type: HID
+0x58, 0x00, 0x00, 0x00      //   [131] Key Data: 58h

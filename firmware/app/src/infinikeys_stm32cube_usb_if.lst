@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccwJArrw.s 			page 1
+ARM GAS  /tmp/cc0stq2z.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -57,8 +57,8 @@ ARM GAS  /tmp/ccwJArrw.s 			page 1
   57 0034 8DF80630 		strb	r3, [sp, #6]
   58 0038 2868     		ldr	r0, [r5]
   59 003a 019A     		ldr	r2, [sp, #4]
-  60 003c 0021     		movs	r1, #0
-ARM GAS  /tmp/ccwJArrw.s 			page 2
+  60 003c 0221     		movs	r1, #2
+ARM GAS  /tmp/cc0stq2z.s 			page 2
 
 
   61 003e FFF7FEFF 		bl	NP32_SetLED_RGB
@@ -72,7 +72,7 @@ ARM GAS  /tmp/ccwJArrw.s 			page 1
   69              	.L12:
   70 0056 8DF80A30 		strb	r3, [sp, #10]
   71 005a 029A     		ldr	r2, [sp, #8]
-  72 005c 0121     		movs	r1, #1
+  72 005c 0321     		movs	r1, #3
   73 005e C4F38004 		ubfx	r4, r4, #2, #1
   74 0062 FFF7FEFF 		bl	NP32_SetLED_RGB
   75 0066 2868     		ldr	r0, [r5]
@@ -84,7 +84,7 @@ ARM GAS  /tmp/ccwJArrw.s 			page 1
   81 0076 8DF80E30 		strb	r3, [sp, #14]
   82              	.L10:
   83 007a 039A     		ldr	r2, [sp, #12]
-  84 007c 0221     		movs	r1, #2
+  84 007c 0421     		movs	r1, #4
   85 007e FFF7FEFF 		bl	NP32_SetLED_RGB
   86 0082 2868     		ldr	r0, [r5]
   87 0084 FFF7FEFF 		bl	NP32_Update
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccwJArrw.s 			page 1
  117              		@ frame_needed = 0, uses_anonymous_args = 0
  118              		@ link register save eliminated.
  119 0000 0020     		movs	r0, #0
-ARM GAS  /tmp/ccwJArrw.s 			page 3
+ARM GAS  /tmp/cc0stq2z.s 			page 3
 
 
  120 0002 7047     		bx	lr
@@ -131,20 +131,20 @@ ARM GAS  /tmp/ccwJArrw.s 			page 1
  130 0008 00000000 		.word	IK_USBD_HID_DeInit
  131 000c 00000000 		.word	IK_USBD_HID_OutEvent
  132              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
-ARM GAS  /tmp/ccwJArrw.s 			page 4
+ARM GAS  /tmp/cc0stq2z.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 infinikeys_stm32cube_usb_if.c
-     /tmp/ccwJArrw.s:13     .text.IK_USBD_HID_DeInit:0000000000000000 $t
-     /tmp/ccwJArrw.s:19     .text.IK_USBD_HID_DeInit:0000000000000000 IK_USBD_HID_DeInit
-     /tmp/ccwJArrw.s:27     .text.IK_USBD_HID_OutEvent:0000000000000000 $t
-     /tmp/ccwJArrw.s:33     .text.IK_USBD_HID_OutEvent:0000000000000000 IK_USBD_HID_OutEvent
-     /tmp/ccwJArrw.s:105    .text.IK_USBD_HID_OutEvent:00000000000000a8 $d
-     /tmp/ccwJArrw.s:109    .text.IK_USBD_HID_Init:0000000000000000 $t
-     /tmp/ccwJArrw.s:115    .text.IK_USBD_HID_Init:0000000000000000 IK_USBD_HID_Init
-     /tmp/ccwJArrw.s:127    .data.IK_USBD_HID_Itf:0000000000000000 IK_USBD_HID_Itf
-     /tmp/ccwJArrw.s:124    .data.IK_USBD_HID_Itf:0000000000000000 $d
+     /tmp/cc0stq2z.s:13     .text.IK_USBD_HID_DeInit:0000000000000000 $t
+     /tmp/cc0stq2z.s:19     .text.IK_USBD_HID_DeInit:0000000000000000 IK_USBD_HID_DeInit
+     /tmp/cc0stq2z.s:27     .text.IK_USBD_HID_OutEvent:0000000000000000 $t
+     /tmp/cc0stq2z.s:33     .text.IK_USBD_HID_OutEvent:0000000000000000 IK_USBD_HID_OutEvent
+     /tmp/cc0stq2z.s:105    .text.IK_USBD_HID_OutEvent:00000000000000a8 $d
+     /tmp/cc0stq2z.s:109    .text.IK_USBD_HID_Init:0000000000000000 $t
+     /tmp/cc0stq2z.s:115    .text.IK_USBD_HID_Init:0000000000000000 IK_USBD_HID_Init
+     /tmp/cc0stq2z.s:127    .data.IK_USBD_HID_Itf:0000000000000000 IK_USBD_HID_Itf
+     /tmp/cc0stq2z.s:124    .data.IK_USBD_HID_Itf:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 NP32_SetLED_RGB

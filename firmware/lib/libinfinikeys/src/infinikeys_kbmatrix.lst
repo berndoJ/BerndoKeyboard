@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccLFL8TC.s 			page 1
+ARM GAS  /tmp/cckNMM36.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccLFL8TC.s 			page 1
   60 0000 2DE9FF47 		push	{r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, lr}
   61 0004 0446     		mov	r4, r0
   62 0006 9046     		mov	r8, r2
-ARM GAS  /tmp/ccLFL8TC.s 			page 2
+ARM GAS  /tmp/cckNMM36.s 			page 2
 
 
   63 0008 0D46     		mov	r5, r1
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccLFL8TC.s 			page 1
  117 0078 581C     		adds	r0, r3, #1
  118 007a 80B2     		uxth	r0, r0
  119 007c 1EF800A0 		ldrb	r10, [lr, r0]	@ zero_extendqisi2
-ARM GAS  /tmp/ccLFL8TC.s 			page 3
+ARM GAS  /tmp/cckNMM36.s 			page 3
 
 
  120 0080 1EF80300 		ldrb	r0, [lr, r3]	@ zero_extendqisi2
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccLFL8TC.s 			page 1
  176 000e 3146     		mov	r1, r6
  177 0010 3048     		ldr	r0, .L43+4
  178 0012 FFF7FEFF 		bl	IK_DEBUG_PrintMessage
-ARM GAS  /tmp/ccLFL8TC.s 			page 4
+ARM GAS  /tmp/cckNMM36.s 			page 4
 
 
  179 0016 3146     		mov	r1, r6
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccLFL8TC.s 			page 1
  233 0084 04FA03F3 		lsl	r3, r4, r3
  234 0088 22EA0303 		bic	r3, r2, r3
  235 008c F0E7     		b	.L42
-ARM GAS  /tmp/ccLFL8TC.s 			page 5
+ARM GAS  /tmp/cckNMM36.s 			page 5
 
 
  236              	.L30:
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccLFL8TC.s 			page 1
  292 0008 0546     		mov	r5, r0
  293 000a 22D1     		bne	.L66
  294 000c 2120     		movs	r0, #33
-ARM GAS  /tmp/ccLFL8TC.s 			page 6
+ARM GAS  /tmp/cckNMM36.s 			page 6
 
 
  295 000e FFF7FEFF 		bl	malloc
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccLFL8TC.s 			page 1
  349 0082 2244     		add	r2, r2, r4
  350 0084 82F802E0 		strb	lr, [r2, #2]
  351 0088 FAB2     		uxtb	r2, r7
-ARM GAS  /tmp/ccLFL8TC.s 			page 7
+ARM GAS  /tmp/cckNMM36.s 			page 7
 
 
  352              	.L51:
@@ -416,42 +416,42 @@ ARM GAS  /tmp/ccLFL8TC.s 			page 1
  405              		.set	.LANCHOR0,. + 0
  408              	_kbm_cfg_keyboardmatrix_kltitem:
  409 0000 010000FF 		.word	-16777215
- 410 0004 8000     		.short	128
+ 410 0004 0004     		.short	1024
  411 0006 03       		.byte	3
-ARM GAS  /tmp/ccLFL8TC.s 			page 8
+ARM GAS  /tmp/cckNMM36.s 			page 8
 
 
  412 0007 00       		.space	1
  413              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
-ARM GAS  /tmp/ccLFL8TC.s 			page 9
+ARM GAS  /tmp/cckNMM36.s 			page 9
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 infinikeys_kbmatrix.c
-     /tmp/ccLFL8TC.s:13     .text.IK_KBM_Init:0000000000000000 $t
-     /tmp/ccLFL8TC.s:20     .text.IK_KBM_Init:0000000000000000 IK_KBM_Init
-     /tmp/ccLFL8TC.s:32     .text.IK_KBM_Init:0000000000000010 $d
-     /tmp/ccLFL8TC.s:35     .text.IK_KBM_DeInit:0000000000000000 $t
-     /tmp/ccLFL8TC.s:42     .text.IK_KBM_DeInit:0000000000000000 IK_KBM_DeInit
-     /tmp/ccLFL8TC.s:50     .text.IK_KBM_RetrieveKeyInfo:0000000000000000 $t
-     /tmp/ccLFL8TC.s:57     .text.IK_KBM_RetrieveKeyInfo:0000000000000000 IK_KBM_RetrieveKeyInfo
-     /tmp/ccLFL8TC.s:157    .text.IK_KBM_RetrieveKeyInfo:00000000000000d4 $d
-     /tmp/ccLFL8TC.s:160    .text.IK_KBM_KeystrokeEvent:0000000000000000 $t
-     /tmp/ccLFL8TC.s:167    .text.IK_KBM_KeystrokeEvent:0000000000000000 IK_KBM_KeystrokeEvent
-     /tmp/ccLFL8TC.s:272    .text.IK_KBM_KeystrokeEvent:00000000000000d0 $d
-     /tmp/ccLFL8TC.s:279    .text.IK_KBM_SendHIDReport:0000000000000000 $t
-     /tmp/ccLFL8TC.s:286    .text.IK_KBM_SendHIDReport:0000000000000000 IK_KBM_SendHIDReport
-     /tmp/ccLFL8TC.s:372    .text.IK_KBM_SendHIDReport:00000000000000ac $d
-     /tmp/ccLFL8TC.s:379    .bss._cur_keylayer:0000000000000000 _cur_keylayer
-     /tmp/ccLFL8TC.s:380    .bss._cur_keylayer:0000000000000000 $d
-     /tmp/ccLFL8TC.s:385    .bss._hid_modifier_byte:0000000000000000 _hid_modifier_byte
-     /tmp/ccLFL8TC.s:386    .bss._hid_modifier_byte:0000000000000000 $d
-     /tmp/ccLFL8TC.s:391    .bss._hid_pressed_bitmap:0000000000000000 _hid_pressed_bitmap
-     /tmp/ccLFL8TC.s:392    .bss._hid_pressed_bitmap:0000000000000000 $d
-     /tmp/ccLFL8TC.s:394    .bss._klsw_keycode:0000000000000000 $d
-     /tmp/ccLFL8TC.s:398    .bss._klsw_keycode:0000000000000000 _klsw_keycode
-     /tmp/ccLFL8TC.s:404    .rodata._kbm_cfg_keyboardmatrix_kltitem:0000000000000000 $d
-     /tmp/ccLFL8TC.s:408    .rodata._kbm_cfg_keyboardmatrix_kltitem:0000000000000000 _kbm_cfg_keyboardmatrix_kltitem
+     /tmp/cckNMM36.s:13     .text.IK_KBM_Init:0000000000000000 $t
+     /tmp/cckNMM36.s:20     .text.IK_KBM_Init:0000000000000000 IK_KBM_Init
+     /tmp/cckNMM36.s:32     .text.IK_KBM_Init:0000000000000010 $d
+     /tmp/cckNMM36.s:35     .text.IK_KBM_DeInit:0000000000000000 $t
+     /tmp/cckNMM36.s:42     .text.IK_KBM_DeInit:0000000000000000 IK_KBM_DeInit
+     /tmp/cckNMM36.s:50     .text.IK_KBM_RetrieveKeyInfo:0000000000000000 $t
+     /tmp/cckNMM36.s:57     .text.IK_KBM_RetrieveKeyInfo:0000000000000000 IK_KBM_RetrieveKeyInfo
+     /tmp/cckNMM36.s:157    .text.IK_KBM_RetrieveKeyInfo:00000000000000d4 $d
+     /tmp/cckNMM36.s:160    .text.IK_KBM_KeystrokeEvent:0000000000000000 $t
+     /tmp/cckNMM36.s:167    .text.IK_KBM_KeystrokeEvent:0000000000000000 IK_KBM_KeystrokeEvent
+     /tmp/cckNMM36.s:272    .text.IK_KBM_KeystrokeEvent:00000000000000d0 $d
+     /tmp/cckNMM36.s:279    .text.IK_KBM_SendHIDReport:0000000000000000 $t
+     /tmp/cckNMM36.s:286    .text.IK_KBM_SendHIDReport:0000000000000000 IK_KBM_SendHIDReport
+     /tmp/cckNMM36.s:372    .text.IK_KBM_SendHIDReport:00000000000000ac $d
+     /tmp/cckNMM36.s:379    .bss._cur_keylayer:0000000000000000 _cur_keylayer
+     /tmp/cckNMM36.s:380    .bss._cur_keylayer:0000000000000000 $d
+     /tmp/cckNMM36.s:385    .bss._hid_modifier_byte:0000000000000000 _hid_modifier_byte
+     /tmp/cckNMM36.s:386    .bss._hid_modifier_byte:0000000000000000 $d
+     /tmp/cckNMM36.s:391    .bss._hid_pressed_bitmap:0000000000000000 _hid_pressed_bitmap
+     /tmp/cckNMM36.s:392    .bss._hid_pressed_bitmap:0000000000000000 $d
+     /tmp/cckNMM36.s:394    .bss._klsw_keycode:0000000000000000 $d
+     /tmp/cckNMM36.s:398    .bss._klsw_keycode:0000000000000000 _klsw_keycode
+     /tmp/cckNMM36.s:404    .rodata._kbm_cfg_keyboardmatrix_kltitem:0000000000000000 $d
+     /tmp/cckNMM36.s:408    .rodata._kbm_cfg_keyboardmatrix_kltitem:0000000000000000 _kbm_cfg_keyboardmatrix_kltitem
 
 UNDEFINED SYMBOLS
 IK_CFG_KLT_AddItem

@@ -20,7 +20,7 @@
 #endif // IK_CFG_DEFAULT_CFG_BUF_SIZE
 
 #if !defined(IK_CFG_MAX_CFG_BUF_SIZE)
-#define IK_CFG_MAX_CFG_BUF_SIZE                             512U
+#define IK_CFG_MAX_CFG_BUF_SIZE                             2048U
 #endif // IK_CFG_MAX_CFG_BUF_SIZE
 
 #if !defined(IK_CFG_DEFAULT_REALLOC_CFG_BUF_SIZE)
@@ -32,7 +32,7 @@
 #endif // IK_CFG_DEFAULT_KEY_LOOKUP_BUF_SIZE
 
 #if !defined(IK_CFG_MAX_KEY_LOOKUP_BUF_SIZE)
-#define IK_CFG_MAX_KEY_LOOKUP_BUF_SIZE                      512U
+#define IK_CFG_MAX_KEY_LOOKUP_BUF_SIZE                      2048U
 #endif // IK_CFG_MAX_KEY_LOOKUP_BUF_SIZE
 
 #if !defined(IK_CFG_DEFAULT_REALLOC_KEY_LOOKUP_BUF_SIZE)
@@ -44,7 +44,7 @@
 #endif // IK_CFG_BUFFER_FRACTURING_FC_THRES
 
 #if !defined(IK_CFG_MAX_CFG_VALUE_SIZE)
-#define IK_CFG_MAX_CFG_VALUE_SIZE                           128U
+#define IK_CFG_MAX_CFG_VALUE_SIZE                           1024U
 #endif // IK_CFG_MAX_CFG_VALUE_SIZE
 
 /*----------------------------------------------------------------------------*/

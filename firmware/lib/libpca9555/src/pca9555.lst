@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccreXQWw.s 			page 1
+ARM GAS  /tmp/cczQpsL6.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccreXQWw.s 			page 1
   58              		@ frame_needed = 0, uses_anonymous_args = 0
   59 0000 13B5     		push	{r0, r1, r4, lr}
   60 0002 8DF80530 		strb	r3, [sp, #5]
-ARM GAS  /tmp/ccreXQWw.s 			page 2
+ARM GAS  /tmp/cczQpsL6.s 			page 2
 
 
   61 0006 064B     		ldr	r3, .L5
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccreXQWw.s 			page 1
  119              	.L15:
  120 0008 0422     		movs	r2, #4
  121 000a C378     		ldrb	r3, [r0, #3]	@ zero_extendqisi2
-ARM GAS  /tmp/ccreXQWw.s 			page 3
+ARM GAS  /tmp/cczQpsL6.s 			page 3
 
 
  122              	.L18:
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccreXQWw.s 			page 1
  181              		.global	PCA9555_WritePin
  182              		.syntax unified
  183              		.thumb
-ARM GAS  /tmp/ccreXQWw.s 			page 4
+ARM GAS  /tmp/cczQpsL6.s 			page 4
 
 
  184              		.thumb_func
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccreXQWw.s 			page 1
  240              		.thumb_func
  241              		.fpu softvfp
  243              	PCA9555_WritePort:
-ARM GAS  /tmp/ccreXQWw.s 			page 5
+ARM GAS  /tmp/cczQpsL6.s 			page 5
 
 
  244              		@ args = 0, pretend = 0, frame = 0
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccreXQWw.s 			page 1
  302 0008 7047     		bx	lr
  303              	.L56:
  304 000a FFF7FEBF 		b	_PCA9555_ReadRegister
-ARM GAS  /tmp/ccreXQWw.s 			page 6
+ARM GAS  /tmp/cczQpsL6.s 			page 6
 
 
  306              		.section	.text.PCA9555_ConfigPinMode,"ax",%progbits
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccreXQWw.s 			page 1
  362              		.section	.text.PCA9555_ConfigPortPinMode,"ax",%progbits
  363              		.align	1
  364              		.global	PCA9555_ConfigPortPinMode
-ARM GAS  /tmp/ccreXQWw.s 			page 7
+ARM GAS  /tmp/cczQpsL6.s 			page 7
 
 
  365              		.syntax unified
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccreXQWw.s 			page 1
  422              	.L78:
  423 002e 13B1     		cbz	r3, .L82
  424 0030 012B     		cmp	r3, #1
-ARM GAS  /tmp/ccreXQWw.s 			page 8
+ARM GAS  /tmp/cczQpsL6.s 			page 8
 
 
  425 0032 07D0     		beq	.L83
@@ -466,43 +466,43 @@ ARM GAS  /tmp/ccreXQWw.s 			page 1
  472 0000 00000000 		.space	8
  472      00000000 
  473              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
-ARM GAS  /tmp/ccreXQWw.s 			page 9
+ARM GAS  /tmp/cczQpsL6.s 			page 9
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 pca9555.c
-     /tmp/ccreXQWw.s:13     .text._PCA9555_ReadRegister:0000000000000000 $t
-     /tmp/ccreXQWw.s:19     .text._PCA9555_ReadRegister:0000000000000000 _PCA9555_ReadRegister
-     /tmp/ccreXQWw.s:47     .text._PCA9555_ReadRegister:000000000000002c $d
-     /tmp/ccreXQWw.s:50     .text._PCA9555_WriteRegister.isra.0:0000000000000000 $t
-     /tmp/ccreXQWw.s:56     .text._PCA9555_WriteRegister.isra.0:0000000000000000 _PCA9555_WriteRegister.isra.0
-     /tmp/ccreXQWw.s:75     .text._PCA9555_WriteRegister.isra.0:0000000000000020 $d
-     /tmp/ccreXQWw.s:78     .text._PCA9555_UpdateCfgRegisterFromBuf:0000000000000000 $t
-     /tmp/ccreXQWw.s:84     .text._PCA9555_UpdateCfgRegisterFromBuf:0000000000000000 _PCA9555_UpdateCfgRegisterFromBuf
-     /tmp/ccreXQWw.s:105    .text._PCA9555_UpdateInvRegisterFromBuf:0000000000000000 $t
-     /tmp/ccreXQWw.s:111    .text._PCA9555_UpdateInvRegisterFromBuf:0000000000000000 _PCA9555_UpdateInvRegisterFromBuf
-     /tmp/ccreXQWw.s:132    .text._PCA9555_UpdateStateRegisterFromBuf:0000000000000000 $t
-     /tmp/ccreXQWw.s:138    .text._PCA9555_UpdateStateRegisterFromBuf:0000000000000000 _PCA9555_UpdateStateRegisterFromBuf
-     /tmp/ccreXQWw.s:159    .text.PCA9555_LibInit:0000000000000000 $t
-     /tmp/ccreXQWw.s:166    .text.PCA9555_LibInit:0000000000000000 PCA9555_LibInit
-     /tmp/ccreXQWw.s:177    .text.PCA9555_LibInit:000000000000000c $d
-     /tmp/ccreXQWw.s:180    .text.PCA9555_WritePin:0000000000000000 $t
-     /tmp/ccreXQWw.s:187    .text.PCA9555_WritePin:0000000000000000 PCA9555_WritePin
-     /tmp/ccreXQWw.s:236    .text.PCA9555_WritePort:0000000000000000 $t
-     /tmp/ccreXQWw.s:243    .text.PCA9555_WritePort:0000000000000000 PCA9555_WritePort
-     /tmp/ccreXQWw.s:260    .text.PCA9555_ReadPin:0000000000000000 $t
-     /tmp/ccreXQWw.s:267    .text.PCA9555_ReadPin:0000000000000000 PCA9555_ReadPin
-     /tmp/ccreXQWw.s:287    .text.PCA9555_ReadPort:0000000000000000 $t
-     /tmp/ccreXQWw.s:294    .text.PCA9555_ReadPort:0000000000000000 PCA9555_ReadPort
-     /tmp/ccreXQWw.s:307    .text.PCA9555_ConfigPinMode:0000000000000000 $t
-     /tmp/ccreXQWw.s:314    .text.PCA9555_ConfigPinMode:0000000000000000 PCA9555_ConfigPinMode
-     /tmp/ccreXQWw.s:363    .text.PCA9555_ConfigPortPinMode:0000000000000000 $t
-     /tmp/ccreXQWw.s:370    .text.PCA9555_ConfigPortPinMode:0000000000000000 PCA9555_ConfigPortPinMode
-     /tmp/ccreXQWw.s:387    .text.PCA9555_ConfigPinInputInversion:0000000000000000 $t
-     /tmp/ccreXQWw.s:394    .text.PCA9555_ConfigPinInputInversion:0000000000000000 PCA9555_ConfigPinInputInversion
-     /tmp/ccreXQWw.s:443    .text.PCA9555_ConfigPortPinInputInversion:0000000000000000 $t
-     /tmp/ccreXQWw.s:450    .text.PCA9555_ConfigPortPinInputInversion:0000000000000000 PCA9555_ConfigPortPinInputInversion
-     /tmp/ccreXQWw.s:467    .bss._lib_cfg:0000000000000000 $d
-     /tmp/ccreXQWw.s:471    .bss._lib_cfg:0000000000000000 _lib_cfg
+     /tmp/cczQpsL6.s:13     .text._PCA9555_ReadRegister:0000000000000000 $t
+     /tmp/cczQpsL6.s:19     .text._PCA9555_ReadRegister:0000000000000000 _PCA9555_ReadRegister
+     /tmp/cczQpsL6.s:47     .text._PCA9555_ReadRegister:000000000000002c $d
+     /tmp/cczQpsL6.s:50     .text._PCA9555_WriteRegister.isra.0:0000000000000000 $t
+     /tmp/cczQpsL6.s:56     .text._PCA9555_WriteRegister.isra.0:0000000000000000 _PCA9555_WriteRegister.isra.0
+     /tmp/cczQpsL6.s:75     .text._PCA9555_WriteRegister.isra.0:0000000000000020 $d
+     /tmp/cczQpsL6.s:78     .text._PCA9555_UpdateCfgRegisterFromBuf:0000000000000000 $t
+     /tmp/cczQpsL6.s:84     .text._PCA9555_UpdateCfgRegisterFromBuf:0000000000000000 _PCA9555_UpdateCfgRegisterFromBuf
+     /tmp/cczQpsL6.s:105    .text._PCA9555_UpdateInvRegisterFromBuf:0000000000000000 $t
+     /tmp/cczQpsL6.s:111    .text._PCA9555_UpdateInvRegisterFromBuf:0000000000000000 _PCA9555_UpdateInvRegisterFromBuf
+     /tmp/cczQpsL6.s:132    .text._PCA9555_UpdateStateRegisterFromBuf:0000000000000000 $t
+     /tmp/cczQpsL6.s:138    .text._PCA9555_UpdateStateRegisterFromBuf:0000000000000000 _PCA9555_UpdateStateRegisterFromBuf
+     /tmp/cczQpsL6.s:159    .text.PCA9555_LibInit:0000000000000000 $t
+     /tmp/cczQpsL6.s:166    .text.PCA9555_LibInit:0000000000000000 PCA9555_LibInit
+     /tmp/cczQpsL6.s:177    .text.PCA9555_LibInit:000000000000000c $d
+     /tmp/cczQpsL6.s:180    .text.PCA9555_WritePin:0000000000000000 $t
+     /tmp/cczQpsL6.s:187    .text.PCA9555_WritePin:0000000000000000 PCA9555_WritePin
+     /tmp/cczQpsL6.s:236    .text.PCA9555_WritePort:0000000000000000 $t
+     /tmp/cczQpsL6.s:243    .text.PCA9555_WritePort:0000000000000000 PCA9555_WritePort
+     /tmp/cczQpsL6.s:260    .text.PCA9555_ReadPin:0000000000000000 $t
+     /tmp/cczQpsL6.s:267    .text.PCA9555_ReadPin:0000000000000000 PCA9555_ReadPin
+     /tmp/cczQpsL6.s:287    .text.PCA9555_ReadPort:0000000000000000 $t
+     /tmp/cczQpsL6.s:294    .text.PCA9555_ReadPort:0000000000000000 PCA9555_ReadPort
+     /tmp/cczQpsL6.s:307    .text.PCA9555_ConfigPinMode:0000000000000000 $t
+     /tmp/cczQpsL6.s:314    .text.PCA9555_ConfigPinMode:0000000000000000 PCA9555_ConfigPinMode
+     /tmp/cczQpsL6.s:363    .text.PCA9555_ConfigPortPinMode:0000000000000000 $t
+     /tmp/cczQpsL6.s:370    .text.PCA9555_ConfigPortPinMode:0000000000000000 PCA9555_ConfigPortPinMode
+     /tmp/cczQpsL6.s:387    .text.PCA9555_ConfigPinInputInversion:0000000000000000 $t
+     /tmp/cczQpsL6.s:394    .text.PCA9555_ConfigPinInputInversion:0000000000000000 PCA9555_ConfigPinInputInversion
+     /tmp/cczQpsL6.s:443    .text.PCA9555_ConfigPortPinInputInversion:0000000000000000 $t
+     /tmp/cczQpsL6.s:450    .text.PCA9555_ConfigPortPinInputInversion:0000000000000000 PCA9555_ConfigPortPinInputInversion
+     /tmp/cczQpsL6.s:467    .bss._lib_cfg:0000000000000000 $d
+     /tmp/cczQpsL6.s:471    .bss._lib_cfg:0000000000000000 _lib_cfg
 
 NO UNDEFINED SYMBOLS
