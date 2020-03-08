@@ -1,0 +1,230 @@
+ARM GAS  /tmp/ccZox30Q.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 4
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"usbd_custom_hid_if.c"
+  12              		.section	.text.CUSTOM_HID_DeInit_FS,"ax",%progbits
+  13              		.align	1
+  14              		.syntax unified
+  15              		.thumb
+  16              		.thumb_func
+  17              		.fpu softvfp
+  19              	CUSTOM_HID_DeInit_FS:
+  20              		@ args = 0, pretend = 0, frame = 0
+  21              		@ frame_needed = 0, uses_anonymous_args = 0
+  22              		@ link register save eliminated.
+  23 0000 0020     		movs	r0, #0
+  24 0002 7047     		bx	lr
+  26              		.section	.text.CUSTOM_HID_OutEvent_FS,"ax",%progbits
+  27              		.align	1
+  28              		.syntax unified
+  29              		.thumb
+  30              		.thumb_func
+  31              		.fpu softvfp
+  33              	CUSTOM_HID_OutEvent_FS:
+  34              		@ args = 0, pretend = 0, frame = 0
+  35              		@ frame_needed = 0, uses_anonymous_args = 0
+  36              		@ link register save eliminated.
+  37 0000 0020     		movs	r0, #0
+  38 0002 7047     		bx	lr
+  40              		.section	.text.CUSTOM_HID_Init_FS,"ax",%progbits
+  41              		.align	1
+  42              		.syntax unified
+  43              		.thumb
+  44              		.thumb_func
+  45              		.fpu softvfp
+  47              	CUSTOM_HID_Init_FS:
+  48              		@ args = 0, pretend = 0, frame = 0
+  49              		@ frame_needed = 0, uses_anonymous_args = 0
+  50              		@ link register save eliminated.
+  51 0000 0020     		movs	r0, #0
+  52 0002 7047     		bx	lr
+  54              		.global	USBD_CustomHID_fops_FS
+  55              		.section	.data.CUSTOM_HID_ReportDesc_FS,"aw",%progbits
+  56              		.align	2
+  59              	CUSTOM_HID_ReportDesc_FS:
+  60 0000 05       		.byte	5
+  61 0001 01       		.byte	1
+  62 0002 09       		.byte	9
+  63 0003 06       		.byte	6
+  64 0004 A1       		.byte	-95
+  65 0005 01       		.byte	1
+ARM GAS  /tmp/ccZox30Q.s 			page 2
+
+
+  66 0006 85       		.byte	-123
+  67 0007 01       		.byte	1
+  68 0008 75       		.byte	117
+  69 0009 01       		.byte	1
+  70 000a 95       		.byte	-107
+  71 000b 08       		.byte	8
+  72 000c 05       		.byte	5
+  73 000d 07       		.byte	7
+  74 000e 19       		.byte	25
+  75 000f E0       		.byte	-32
+  76 0010 29       		.byte	41
+  77 0011 E7       		.byte	-25
+  78 0012 15       		.byte	21
+  79 0013 00       		.byte	0
+  80 0014 25       		.byte	37
+  81 0015 01       		.byte	1
+  82 0016 81       		.byte	-127
+  83 0017 02       		.byte	2
+  84 0018 75       		.byte	117
+  85 0019 08       		.byte	8
+  86 001a 95       		.byte	-107
+  87 001b 01       		.byte	1
+  88 001c 81       		.byte	-127
+  89 001d 03       		.byte	3
+  90 001e 75       		.byte	117
+  91 001f 01       		.byte	1
+  92 0020 95       		.byte	-107
+  93 0021 05       		.byte	5
+  94 0022 05       		.byte	5
+  95 0023 08       		.byte	8
+  96 0024 19       		.byte	25
+  97 0025 01       		.byte	1
+  98 0026 29       		.byte	41
+  99 0027 05       		.byte	5
+ 100 0028 91       		.byte	-111
+ 101 0029 02       		.byte	2
+ 102 002a 75       		.byte	117
+ 103 002b 03       		.byte	3
+ 104 002c 95       		.byte	-107
+ 105 002d 01       		.byte	1
+ 106 002e 91       		.byte	-111
+ 107 002f 03       		.byte	3
+ 108 0030 75       		.byte	117
+ 109 0031 08       		.byte	8
+ 110 0032 95       		.byte	-107
+ 111 0033 06       		.byte	6
+ 112 0034 05       		.byte	5
+ 113 0035 07       		.byte	7
+ 114 0036 19       		.byte	25
+ 115 0037 00       		.byte	0
+ 116 0038 29       		.byte	41
+ 117 0039 FF       		.byte	-1
+ 118 003a 15       		.byte	21
+ 119 003b 00       		.byte	0
+ 120 003c 25       		.byte	37
+ 121 003d FF       		.byte	-1
+ 122 003e 81       		.byte	-127
+ARM GAS  /tmp/ccZox30Q.s 			page 3
+
+
+ 123 003f 00       		.byte	0
+ 124 0040 85       		.byte	-123
+ 125 0041 02       		.byte	2
+ 126 0042 75       		.byte	117
+ 127 0043 01       		.byte	1
+ 128 0044 95       		.byte	-107
+ 129 0045 08       		.byte	8
+ 130 0046 05       		.byte	5
+ 131 0047 07       		.byte	7
+ 132 0048 19       		.byte	25
+ 133 0049 E0       		.byte	-32
+ 134 004a 29       		.byte	41
+ 135 004b E7       		.byte	-25
+ 136 004c 15       		.byte	21
+ 137 004d 00       		.byte	0
+ 138 004e 25       		.byte	37
+ 139 004f 01       		.byte	1
+ 140 0050 81       		.byte	-127
+ 141 0051 02       		.byte	2
+ 142 0052 75       		.byte	117
+ 143 0053 01       		.byte	1
+ 144 0054 95       		.byte	-107
+ 145 0055 05       		.byte	5
+ 146 0056 05       		.byte	5
+ 147 0057 08       		.byte	8
+ 148 0058 19       		.byte	25
+ 149 0059 01       		.byte	1
+ 150 005a 29       		.byte	41
+ 151 005b 05       		.byte	5
+ 152 005c 91       		.byte	-111
+ 153 005d 02       		.byte	2
+ 154 005e 75       		.byte	117
+ 155 005f 03       		.byte	3
+ 156 0060 95       		.byte	-107
+ 157 0061 01       		.byte	1
+ 158 0062 91       		.byte	-111
+ 159 0063 03       		.byte	3
+ 160 0064 75       		.byte	117
+ 161 0065 01       		.byte	1
+ 162 0066 95       		.byte	-107
+ 163 0067 FF       		.byte	-1
+ 164 0068 05       		.byte	5
+ 165 0069 07       		.byte	7
+ 166 006a 19       		.byte	25
+ 167 006b 00       		.byte	0
+ 168 006c 29       		.byte	41
+ 169 006d FF       		.byte	-1
+ 170 006e 15       		.byte	21
+ 171 006f 00       		.byte	0
+ 172 0070 25       		.byte	37
+ 173 0071 01       		.byte	1
+ 174 0072 81       		.byte	-127
+ 175 0073 02       		.byte	2
+ 176 0074 C0       		.byte	-64
+ 177 0075 06       		.byte	6
+ 178 0076 00       		.byte	0
+ 179 0077 FF       		.byte	-1
+ARM GAS  /tmp/ccZox30Q.s 			page 4
+
+
+ 180 0078 09       		.byte	9
+ 181 0079 01       		.byte	1
+ 182 007a A1       		.byte	-95
+ 183 007b 01       		.byte	1
+ 184 007c 85       		.byte	-123
+ 185 007d 03       		.byte	3
+ 186 007e 06       		.byte	6
+ 187 007f 00       		.byte	0
+ 188 0080 FF       		.byte	-1
+ 189 0081 09       		.byte	9
+ 190 0082 01       		.byte	1
+ 191 0083 15       		.byte	21
+ 192 0084 00       		.byte	0
+ 193 0085 25       		.byte	37
+ 194 0086 FF       		.byte	-1
+ 195 0087 75       		.byte	117
+ 196 0088 08       		.byte	8
+ 197 0089 95       		.byte	-107
+ 198 008a 40       		.byte	64
+ 199 008b 91       		.byte	-111
+ 200 008c 02       		.byte	2
+ 201 008d C0       		.byte	-64
+ 202              		.section	.data.USBD_CustomHID_fops_FS,"aw",%progbits
+ 203              		.align	2
+ 206              	USBD_CustomHID_fops_FS:
+ 207 0000 00000000 		.word	CUSTOM_HID_ReportDesc_FS
+ 208 0004 00000000 		.word	CUSTOM_HID_Init_FS
+ 209 0008 00000000 		.word	CUSTOM_HID_DeInit_FS
+ 210 000c 00000000 		.word	CUSTOM_HID_OutEvent_FS
+ 211              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
+ARM GAS  /tmp/ccZox30Q.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 usbd_custom_hid_if.c
+     /tmp/ccZox30Q.s:13     .text.CUSTOM_HID_DeInit_FS:0000000000000000 $t
+     /tmp/ccZox30Q.s:19     .text.CUSTOM_HID_DeInit_FS:0000000000000000 CUSTOM_HID_DeInit_FS
+     /tmp/ccZox30Q.s:27     .text.CUSTOM_HID_OutEvent_FS:0000000000000000 $t
+     /tmp/ccZox30Q.s:33     .text.CUSTOM_HID_OutEvent_FS:0000000000000000 CUSTOM_HID_OutEvent_FS
+     /tmp/ccZox30Q.s:41     .text.CUSTOM_HID_Init_FS:0000000000000000 $t
+     /tmp/ccZox30Q.s:47     .text.CUSTOM_HID_Init_FS:0000000000000000 CUSTOM_HID_Init_FS
+     /tmp/ccZox30Q.s:206    .data.USBD_CustomHID_fops_FS:0000000000000000 USBD_CustomHID_fops_FS
+     /tmp/ccZox30Q.s:56     .data.CUSTOM_HID_ReportDesc_FS:0000000000000000 $d
+     /tmp/ccZox30Q.s:59     .data.CUSTOM_HID_ReportDesc_FS:0000000000000000 CUSTOM_HID_ReportDesc_FS
+     /tmp/ccZox30Q.s:203    .data.USBD_CustomHID_fops_FS:0000000000000000 $d
+
+NO UNDEFINED SYMBOLS

@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cciDGoHk.s 			page 1
+ARM GAS  /tmp/ccGwj2ra.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cciDGoHk.s 			page 1
   62              		@ frame_needed = 0, uses_anonymous_args = 0
   63              		@ link register save eliminated.
   64 0000 0020     		movs	r0, #0
-ARM GAS  /tmp/cciDGoHk.s 			page 2
+ARM GAS  /tmp/ccGwj2ra.s 			page 2
 
 
   65 0002 82B0     		sub	sp, sp, #8
@@ -102,375 +102,301 @@ ARM GAS  /tmp/cciDGoHk.s 			page 1
  109              	_ikhwif_berndokb_usb_transmitusb:
  110              		@ args = 0, pretend = 0, frame = 8
  111              		@ frame_needed = 0, uses_anonymous_args = 0
- 112 0000 2DE9F347 		push	{r0, r1, r4, r5, r6, r7, r8, r9, r10, lr}
- 113 0004 02AB     		add	r3, sp, #8
- 114 0006 03E90300 		stmdb	r3, {r0, r1}
- 115 000a 6120     		movs	r0, #97
- 116 000c 1446     		mov	r4, r2
- 117 000e FFF7FEFF 		bl	malloc
- 118 0012 0546     		mov	r5, r0
- 119 0014 0420     		movs	r0, #4
- 120 0016 FFF7FEFF 		bl	malloc
- 121 001a 2146     		mov	r1, r4
- 122 001c 0024     		movs	r4, #0
- 123 001e 0646     		mov	r6, r0
- 124 0020 1C48     		ldr	r0, .L15
- 125 0022 FFF7FEFF 		bl	IK_DEBUG_PrintMessage
- 126 0026 2746     		mov	r7, r4
- 127 0028 A146     		mov	r9, r4
-ARM GAS  /tmp/cciDGoHk.s 			page 3
+ 112 0000 07B5     		push	{r0, r1, r2, lr}
+ 113 0002 012A     		cmp	r2, #1
+ 114 0004 02AB     		add	r3, sp, #8
+ 115 0006 03E90300 		stmdb	r3, {r0, r1}
+ 116 000a 06D1     		bne	.L8
+ 117 000c 054B     		ldr	r3, .L9
+ 118 000e BDF80420 		ldrh	r2, [sp, #4]
+ 119 0012 0099     		ldr	r1, [sp]
+ 120 0014 1868     		ldr	r0, [r3]
+ 121 0016 FFF7FEFF 		bl	IK_STM32CUBE_USBD_HID_SendReport
+ 122              	.L8:
+ 123 001a 0020     		movs	r0, #0
+ 124 001c 03B0     		add	sp, sp, #12
+ 125              		@ sp needed
+ 126 001e 5DF804FB 		ldr	pc, [sp], #4
+ 127              	.L10:
+ARM GAS  /tmp/ccGwj2ra.s 			page 3
 
 
- 128 002a DFF87480 		ldr	r8, .L15+12
- 129 002e DFF868A0 		ldr	r10, .L15+4
- 130              	.L8:
- 131 0032 019B     		ldr	r3, [sp, #4]
- 132 0034 9F42     		cmp	r7, r3
- 133 0036 13D3     		bcc	.L10
- 134 0038 2CB1     		cbz	r4, .L11
- 135 003a 0023     		movs	r3, #0
- 136 003c 2946     		mov	r1, r5
- 137 003e 1648     		ldr	r0, .L15+4
- 138 0040 2B55     		strb	r3, [r5, r4]
- 139 0042 FFF7FEFF 		bl	IK_DEBUG_PrintMessage
- 140              	.L11:
- 141 0046 1548     		ldr	r0, .L15+8
- 142 0048 FFF7FEFF 		bl	IK_DEBUG_PrintMessage
- 143 004c 3046     		mov	r0, r6
- 144 004e FFF7FEFF 		bl	free
- 145 0052 2846     		mov	r0, r5
- 146 0054 FFF7FEFF 		bl	free
- 147 0058 0020     		movs	r0, #0
- 148 005a 02B0     		add	sp, sp, #8
- 149              		@ sp needed
- 150 005c BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
- 151              	.L10:
- 152 0060 009B     		ldr	r3, [sp]
- 153 0062 4146     		mov	r1, r8
- 154 0064 DA5D     		ldrb	r2, [r3, r7]	@ zero_extendqisi2
- 155 0066 3046     		mov	r0, r6
- 156 0068 FFF7FEFF 		bl	sprintf
- 157 006c 3378     		ldrb	r3, [r6]	@ zero_extendqisi2
- 158 006e 7178     		ldrb	r1, [r6, #1]	@ zero_extendqisi2
- 159 0070 2A19     		adds	r2, r5, r4
- 160 0072 2B55     		strb	r3, [r5, r4]
- 161 0074 A31C     		adds	r3, r4, #2
- 162 0076 5170     		strb	r1, [r2, #1]
- 163 0078 0334     		adds	r4, r4, #3
- 164 007a B278     		ldrb	r2, [r6, #2]	@ zero_extendqisi2
- 165 007c 602C     		cmp	r4, #96
- 166 007e EA54     		strb	r2, [r5, r3]
- 167 0080 06D1     		bne	.L9
- 168 0082 2946     		mov	r1, r5
- 169 0084 5046     		mov	r0, r10
- 170 0086 85F86090 		strb	r9, [r5, #96]
- 171 008a 0024     		movs	r4, #0
- 172 008c FFF7FEFF 		bl	IK_DEBUG_PrintMessage
- 173              	.L9:
- 174 0090 0137     		adds	r7, r7, #1
- 175 0092 CEE7     		b	.L8
- 176              	.L16:
- 177              		.align	2
- 178              	.L15:
- 179 0094 00000000 		.word	.LC0
- 180 0098 22000000 		.word	.LC2
- 181 009c 26000000 		.word	.LC3
- 182 00a0 1C000000 		.word	.LC1
- 184              		.section	.text._ikhwif_berndokb_debug_printmsg,"ax",%progbits
- 185              		.align	1
-ARM GAS  /tmp/cciDGoHk.s 			page 4
+ 128 0022 00BF     		.align	2
+ 129              	.L9:
+ 130 0024 00000000 		.word	hw_usbd_handle
+ 132              		.section	.text._ikhwif_berndokb_debug_printmsg,"ax",%progbits
+ 133              		.align	1
+ 134              		.syntax unified
+ 135              		.thumb
+ 136              		.thumb_func
+ 137              		.fpu softvfp
+ 139              	_ikhwif_berndokb_debug_printmsg:
+ 140              		@ args = 0, pretend = 0, frame = 0
+ 141              		@ frame_needed = 0, uses_anonymous_args = 0
+ 142 0000 08B5     		push	{r3, lr}
+ 143 0002 074B     		ldr	r3, .L14
+ 144 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 145 0006 012B     		cmp	r3, #1
+ 146 0008 08D1     		bne	.L13
+ 147 000a 8AB2     		uxth	r2, r1
+ 148 000c 0146     		mov	r1, r0
+ 149 000e 0548     		ldr	r0, .L14+4
+ 150 0010 0A23     		movs	r3, #10
+ 151 0012 0068     		ldr	r0, [r0]
+ 152 0014 FFF7FEFF 		bl	HAL_UART_Transmit
+ 153 0018 0020     		movs	r0, #0
+ 154 001a 08BD     		pop	{r3, pc}
+ 155              	.L13:
+ 156 001c 0120     		movs	r0, #1
+ 157 001e 08BD     		pop	{r3, pc}
+ 158              	.L15:
+ 159              		.align	2
+ 160              	.L14:
+ 161 0020 00000000 		.word	hw_uart1_init_status
+ 162 0024 00000000 		.word	hw_uart1_handle
+ 164              		.section	.text._ikhwif_berndokb_kbm_pollmatrix,"ax",%progbits
+ 165              		.align	1
+ 166              		.syntax unified
+ 167              		.thumb
+ 168              		.thumb_func
+ 169              		.fpu softvfp
+ 171              	_ikhwif_berndokb_kbm_pollmatrix:
+ 172              		@ args = 0, pretend = 0, frame = 32
+ 173              		@ frame_needed = 0, uses_anonymous_args = 0
+ 174 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+ 175 0004 5A4B     		ldr	r3, .L22
+ 176 0006 89B0     		sub	sp, sp, #36
+ 177 0008 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 178 000a 0128     		cmp	r0, #1
+ 179 000c 40F0AD80 		bne	.L19
+ 180 0010 584B     		ldr	r3, .L22+4
+ 181 0012 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 182 0014 012B     		cmp	r3, #1
+ 183 0016 40F0A580 		bne	.L17
+ 184 001a 0026     		movs	r6, #0
+ 185 001c DFF85C91 		ldr	r9, .L22+12
+ 186 0020 554D     		ldr	r5, .L22+8
+ 187              	.L18:
+ 188 0022 0124     		movs	r4, #1
+ARM GAS  /tmp/ccGwj2ra.s 			page 4
 
 
- 186              		.syntax unified
- 187              		.thumb
- 188              		.thumb_func
- 189              		.fpu softvfp
- 191              	_ikhwif_berndokb_debug_printmsg:
- 192              		@ args = 0, pretend = 0, frame = 0
- 193              		@ frame_needed = 0, uses_anonymous_args = 0
- 194 0000 08B5     		push	{r3, lr}
- 195 0002 074B     		ldr	r3, .L20
- 196 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 197 0006 012B     		cmp	r3, #1
- 198 0008 08D1     		bne	.L19
- 199 000a 8AB2     		uxth	r2, r1
- 200 000c 0146     		mov	r1, r0
- 201 000e 0548     		ldr	r0, .L20+4
- 202 0010 0A23     		movs	r3, #10
- 203 0012 0068     		ldr	r0, [r0]
- 204 0014 FFF7FEFF 		bl	HAL_UART_Transmit
- 205 0018 0020     		movs	r0, #0
- 206 001a 08BD     		pop	{r3, pc}
- 207              	.L19:
- 208 001c 0120     		movs	r0, #1
- 209 001e 08BD     		pop	{r3, pc}
- 210              	.L21:
- 211              		.align	2
- 212              	.L20:
- 213 0020 00000000 		.word	hw_uart1_init_status
- 214 0024 00000000 		.word	hw_uart1_handle
- 216              		.section	.text._ikhwif_berndokb_kbm_pollmatrix,"ax",%progbits
- 217              		.align	1
- 218              		.syntax unified
- 219              		.thumb
- 220              		.thumb_func
- 221              		.fpu softvfp
- 223              	_ikhwif_berndokb_kbm_pollmatrix:
- 224              		@ args = 0, pretend = 0, frame = 32
- 225              		@ frame_needed = 0, uses_anonymous_args = 0
- 226 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
- 227 0004 5A4B     		ldr	r3, .L28
- 228 0006 89B0     		sub	sp, sp, #36
- 229 0008 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
- 230 000a 0128     		cmp	r0, #1
- 231 000c 40F0AD80 		bne	.L25
- 232 0010 584B     		ldr	r3, .L28+4
- 233 0012 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 234 0014 012B     		cmp	r3, #1
- 235 0016 40F0A580 		bne	.L23
- 236 001a 0026     		movs	r6, #0
- 237 001c DFF85C91 		ldr	r9, .L28+12
- 238 0020 554D     		ldr	r5, .L28+8
- 239              	.L24:
- 240 0022 0124     		movs	r4, #1
- 241 0024 04FA06F7 		lsl	r7, r4, r6
- 242 0028 FAB2     		uxtb	r2, r7
- 243 002a DFF85481 		ldr	r8, .L28+16
- 244 002e 0021     		movs	r1, #0
- 245 0030 D9F80000 		ldr	r0, [r9]
-ARM GAS  /tmp/cciDGoHk.s 			page 5
+ 189 0024 04FA06F7 		lsl	r7, r4, r6
+ 190 0028 FAB2     		uxtb	r2, r7
+ 191 002a DFF85481 		ldr	r8, .L22+16
+ 192 002e 0021     		movs	r1, #0
+ 193 0030 D9F80000 		ldr	r0, [r9]
+ 194 0034 FFF7FEFF 		bl	PCA9555_WritePort
+ 195 0038 C7F30722 		ubfx	r2, r7, #8, #8
+ 196 003c 2146     		mov	r1, r4
+ 197 003e D9F80000 		ldr	r0, [r9]
+ 198 0042 FFF7FEFF 		bl	PCA9555_WritePort
+ 199 0046 C7F30742 		ubfx	r2, r7, #16, #8
+ 200 004a D8F80000 		ldr	r0, [r8]
+ 201 004e 0021     		movs	r1, #0
+ 202 0050 FFF7FEFF 		bl	PCA9555_WritePort
+ 203 0054 0022     		movs	r2, #0
+ 204 0056 2146     		mov	r1, r4
+ 205 0058 D8F80000 		ldr	r0, [r8]
+ 206 005c B4B2     		uxth	r4, r6
+ 207 005e FFF7FEFF 		bl	PCA9555_WritePort
+ 208 0062 631C     		adds	r3, r4, #1
+ 209 0064 4FF48051 		mov	r1, #4096
+ 210 0068 2846     		mov	r0, r5
+ 211 006a ADF80430 		strh	r3, [sp, #4]	@ movhi
+ 212 006e FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 213 0072 431E     		subs	r3, r0, #1
+ 214 0074 5842     		rsbs	r0, r3, #0
+ 215 0076 5841     		adcs	r0, r0, r3
+ 216 0078 8DF80600 		strb	r0, [sp, #6]
+ 217 007c 0198     		ldr	r0, [sp, #4]
+ 218 007e FFF7FEFF 		bl	IK_SWACQ_PollStatusReportCallback
+ 219 0082 04F11703 		add	r3, r4, #23
+ 220 0086 4FF40061 		mov	r1, #2048
+ 221 008a 2846     		mov	r0, r5
+ 222 008c ADF80830 		strh	r3, [sp, #8]	@ movhi
+ 223 0090 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 224 0094 421E     		subs	r2, r0, #1
+ 225 0096 5042     		rsbs	r0, r2, #0
+ 226 0098 5041     		adcs	r0, r0, r2
+ 227 009a 8DF80A00 		strb	r0, [sp, #10]
+ 228 009e 0298     		ldr	r0, [sp, #8]
+ 229 00a0 FFF7FEFF 		bl	IK_SWACQ_PollStatusReportCallback
+ 230 00a4 04F12D03 		add	r3, r4, #45
+ 231 00a8 4FF48061 		mov	r1, #1024
+ 232 00ac 2846     		mov	r0, r5
+ 233 00ae ADF80C30 		strh	r3, [sp, #12]	@ movhi
+ 234 00b2 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 235 00b6 411E     		subs	r1, r0, #1
+ 236 00b8 4842     		rsbs	r0, r1, #0
+ 237 00ba 4841     		adcs	r0, r0, r1
+ 238 00bc 8DF80E00 		strb	r0, [sp, #14]
+ 239 00c0 0398     		ldr	r0, [sp, #12]
+ 240 00c2 FFF7FEFF 		bl	IK_SWACQ_PollStatusReportCallback
+ 241 00c6 04F14303 		add	r3, r4, #67
+ 242 00ca 4FF40071 		mov	r1, #512
+ 243 00ce 2846     		mov	r0, r5
+ 244 00d0 ADF81030 		strh	r3, [sp, #16]	@ movhi
+ 245 00d4 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ARM GAS  /tmp/ccGwj2ra.s 			page 5
 
 
- 246 0034 FFF7FEFF 		bl	PCA9555_WritePort
- 247 0038 C7F30722 		ubfx	r2, r7, #8, #8
- 248 003c 2146     		mov	r1, r4
- 249 003e D9F80000 		ldr	r0, [r9]
- 250 0042 FFF7FEFF 		bl	PCA9555_WritePort
- 251 0046 C7F30742 		ubfx	r2, r7, #16, #8
- 252 004a D8F80000 		ldr	r0, [r8]
- 253 004e 0021     		movs	r1, #0
- 254 0050 FFF7FEFF 		bl	PCA9555_WritePort
- 255 0054 0022     		movs	r2, #0
- 256 0056 2146     		mov	r1, r4
- 257 0058 D8F80000 		ldr	r0, [r8]
- 258 005c B4B2     		uxth	r4, r6
- 259 005e FFF7FEFF 		bl	PCA9555_WritePort
- 260 0062 631C     		adds	r3, r4, #1
- 261 0064 4FF48051 		mov	r1, #4096
- 262 0068 2846     		mov	r0, r5
- 263 006a ADF80430 		strh	r3, [sp, #4]	@ movhi
- 264 006e FFF7FEFF 		bl	HAL_GPIO_ReadPin
- 265 0072 431E     		subs	r3, r0, #1
- 266 0074 5842     		rsbs	r0, r3, #0
- 267 0076 5841     		adcs	r0, r0, r3
- 268 0078 8DF80600 		strb	r0, [sp, #6]
- 269 007c 0198     		ldr	r0, [sp, #4]
- 270 007e FFF7FEFF 		bl	IK_SWACQ_PollStatusReportCallback
- 271 0082 04F11703 		add	r3, r4, #23
- 272 0086 4FF40061 		mov	r1, #2048
- 273 008a 2846     		mov	r0, r5
- 274 008c ADF80830 		strh	r3, [sp, #8]	@ movhi
- 275 0090 FFF7FEFF 		bl	HAL_GPIO_ReadPin
- 276 0094 421E     		subs	r2, r0, #1
- 277 0096 5042     		rsbs	r0, r2, #0
- 278 0098 5041     		adcs	r0, r0, r2
- 279 009a 8DF80A00 		strb	r0, [sp, #10]
- 280 009e 0298     		ldr	r0, [sp, #8]
- 281 00a0 FFF7FEFF 		bl	IK_SWACQ_PollStatusReportCallback
- 282 00a4 04F12D03 		add	r3, r4, #45
- 283 00a8 4FF48061 		mov	r1, #1024
- 284 00ac 2846     		mov	r0, r5
- 285 00ae ADF80C30 		strh	r3, [sp, #12]	@ movhi
- 286 00b2 FFF7FEFF 		bl	HAL_GPIO_ReadPin
- 287 00b6 411E     		subs	r1, r0, #1
- 288 00b8 4842     		rsbs	r0, r1, #0
- 289 00ba 4841     		adcs	r0, r0, r1
- 290 00bc 8DF80E00 		strb	r0, [sp, #14]
- 291 00c0 0398     		ldr	r0, [sp, #12]
- 292 00c2 FFF7FEFF 		bl	IK_SWACQ_PollStatusReportCallback
- 293 00c6 04F14303 		add	r3, r4, #67
- 294 00ca 4FF40071 		mov	r1, #512
- 295 00ce 2846     		mov	r0, r5
- 296 00d0 ADF81030 		strh	r3, [sp, #16]	@ movhi
- 297 00d4 FFF7FEFF 		bl	HAL_GPIO_ReadPin
- 298 00d8 471E     		subs	r7, r0, #1
- 299 00da 7842     		rsbs	r0, r7, #0
- 300 00dc 7841     		adcs	r0, r0, r7
- 301 00de 8DF81200 		strb	r0, [sp, #18]
- 302 00e2 0498     		ldr	r0, [sp, #16]
-ARM GAS  /tmp/cciDGoHk.s 			page 6
+ 246 00d8 471E     		subs	r7, r0, #1
+ 247 00da 7842     		rsbs	r0, r7, #0
+ 248 00dc 7841     		adcs	r0, r0, r7
+ 249 00de 8DF81200 		strb	r0, [sp, #18]
+ 250 00e2 0498     		ldr	r0, [sp, #16]
+ 251 00e4 FFF7FEFF 		bl	IK_SWACQ_PollStatusReportCallback
+ 252 00e8 04F15903 		add	r3, r4, #89
+ 253 00ec 4FF48071 		mov	r1, #256
+ 254 00f0 2846     		mov	r0, r5
+ 255 00f2 ADF81430 		strh	r3, [sp, #20]	@ movhi
+ 256 00f6 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 257 00fa 00F1FF3E 		add	lr, r0, #-1
+ 258 00fe DEF10000 		rsbs	r0, lr, #0
+ 259 0102 40EB0E00 		adc	r0, r0, lr
+ 260 0106 8DF81600 		strb	r0, [sp, #22]
+ 261 010a 0598     		ldr	r0, [sp, #20]
+ 262 010c FFF7FEFF 		bl	IK_SWACQ_PollStatusReportCallback
+ 263 0110 04F16F03 		add	r3, r4, #111
+ 264 0114 1021     		movs	r1, #16
+ 265 0116 2846     		mov	r0, r5
+ 266 0118 ADF81830 		strh	r3, [sp, #24]	@ movhi
+ 267 011c FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 268 0120 00F1FF3C 		add	ip, r0, #-1
+ 269 0124 DCF10000 		rsbs	r0, ip, #0
+ 270 0128 40EB0C00 		adc	r0, r0, ip
+ 271 012c 8DF81A00 		strb	r0, [sp, #26]
+ 272 0130 0698     		ldr	r0, [sp, #24]
+ 273 0132 FFF7FEFF 		bl	IK_SWACQ_PollStatusReportCallback
+ 274 0136 8534     		adds	r4, r4, #133
+ 275 0138 2021     		movs	r1, #32
+ 276 013a 2846     		mov	r0, r5
+ 277 013c ADF81C40 		strh	r4, [sp, #28]	@ movhi
+ 278 0140 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 279 0144 00F1FF38 		add	r8, r0, #-1
+ 280 0148 D8F10000 		rsbs	r0, r8, #0
+ 281 014c 40EB0800 		adc	r0, r0, r8
+ 282 0150 8DF81E00 		strb	r0, [sp, #30]
+ 283 0154 0798     		ldr	r0, [sp, #28]
+ 284 0156 0136     		adds	r6, r6, #1
+ 285 0158 FFF7FEFF 		bl	IK_SWACQ_PollStatusReportCallback
+ 286 015c 162E     		cmp	r6, #22
+ 287 015e 7FF460AF 		bne	.L18
+ 288 0162 0020     		movs	r0, #0
+ 289              	.L17:
+ 290 0164 09B0     		add	sp, sp, #36
+ 291              		@ sp needed
+ 292 0166 BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 293              	.L19:
+ 294 016a 0120     		movs	r0, #1
+ 295 016c FAE7     		b	.L17
+ 296              	.L23:
+ 297 016e 00BF     		.align	2
+ 298              	.L22:
+ 299 0170 00000000 		.word	hw_portex0_init_status
+ 300 0174 00000000 		.word	hw_portex1_init_status
+ 301 0178 00100140 		.word	1073811456
+ 302 017c 00000000 		.word	hw_portex0_handle
+ARM GAS  /tmp/ccGwj2ra.s 			page 6
 
 
- 303 00e4 FFF7FEFF 		bl	IK_SWACQ_PollStatusReportCallback
- 304 00e8 04F15903 		add	r3, r4, #89
- 305 00ec 4FF48071 		mov	r1, #256
- 306 00f0 2846     		mov	r0, r5
- 307 00f2 ADF81430 		strh	r3, [sp, #20]	@ movhi
- 308 00f6 FFF7FEFF 		bl	HAL_GPIO_ReadPin
- 309 00fa 00F1FF3E 		add	lr, r0, #-1
- 310 00fe DEF10000 		rsbs	r0, lr, #0
- 311 0102 40EB0E00 		adc	r0, r0, lr
- 312 0106 8DF81600 		strb	r0, [sp, #22]
- 313 010a 0598     		ldr	r0, [sp, #20]
- 314 010c FFF7FEFF 		bl	IK_SWACQ_PollStatusReportCallback
- 315 0110 04F16F03 		add	r3, r4, #111
- 316 0114 1021     		movs	r1, #16
- 317 0116 2846     		mov	r0, r5
- 318 0118 ADF81830 		strh	r3, [sp, #24]	@ movhi
- 319 011c FFF7FEFF 		bl	HAL_GPIO_ReadPin
- 320 0120 00F1FF3C 		add	ip, r0, #-1
- 321 0124 DCF10000 		rsbs	r0, ip, #0
- 322 0128 40EB0C00 		adc	r0, r0, ip
- 323 012c 8DF81A00 		strb	r0, [sp, #26]
- 324 0130 0698     		ldr	r0, [sp, #24]
- 325 0132 FFF7FEFF 		bl	IK_SWACQ_PollStatusReportCallback
- 326 0136 8534     		adds	r4, r4, #133
- 327 0138 2021     		movs	r1, #32
- 328 013a 2846     		mov	r0, r5
- 329 013c ADF81C40 		strh	r4, [sp, #28]	@ movhi
- 330 0140 FFF7FEFF 		bl	HAL_GPIO_ReadPin
- 331 0144 00F1FF38 		add	r8, r0, #-1
- 332 0148 D8F10000 		rsbs	r0, r8, #0
- 333 014c 40EB0800 		adc	r0, r0, r8
- 334 0150 8DF81E00 		strb	r0, [sp, #30]
- 335 0154 0798     		ldr	r0, [sp, #28]
- 336 0156 0136     		adds	r6, r6, #1
- 337 0158 FFF7FEFF 		bl	IK_SWACQ_PollStatusReportCallback
- 338 015c 162E     		cmp	r6, #22
- 339 015e 7FF460AF 		bne	.L24
- 340 0162 0020     		movs	r0, #0
- 341              	.L23:
- 342 0164 09B0     		add	sp, sp, #36
- 343              		@ sp needed
- 344 0166 BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
- 345              	.L25:
- 346 016a 0120     		movs	r0, #1
- 347 016c FAE7     		b	.L23
- 348              	.L29:
- 349 016e 00BF     		.align	2
- 350              	.L28:
- 351 0170 00000000 		.word	hw_portex0_init_status
- 352 0174 00000000 		.word	hw_portex1_init_status
- 353 0178 00100140 		.word	1073811456
- 354 017c 00000000 		.word	hw_portex0_handle
- 355 0180 00000000 		.word	hw_portex1_handle
- 357              		.section	.text._ikhwif_berndokb_cfgmem_init,"ax",%progbits
- 358              		.align	1
- 359              		.syntax unified
- 360              		.thumb
-ARM GAS  /tmp/cciDGoHk.s 			page 7
-
-
- 361              		.thumb_func
- 362              		.fpu softvfp
- 364              	_ikhwif_berndokb_cfgmem_init:
- 365              		@ args = 0, pretend = 0, frame = 0
- 366              		@ frame_needed = 0, uses_anonymous_args = 0
- 367              		@ link register save eliminated.
- 368 0000 0020     		movs	r0, #0
- 369 0002 7047     		bx	lr
- 371              		.section	.text._ikhwif_berndokb_usb_init,"ax",%progbits
- 372              		.align	1
- 373              		.syntax unified
- 374              		.thumb
- 375              		.thumb_func
- 376              		.fpu softvfp
- 378              	_ikhwif_berndokb_usb_init:
- 379              		@ args = 0, pretend = 0, frame = 0
- 380              		@ frame_needed = 0, uses_anonymous_args = 0
- 381              		@ link register save eliminated.
- 382 0000 0020     		movs	r0, #0
- 383 0002 7047     		bx	lr
- 385              		.global	infinikeys_hwif_berndokb_kbmatrix
- 386              		.global	infinikeys_hwif_berndokb_cfgmem
- 387              		.global	infinikeys_hwif_berndokb_debug
- 388              		.global	infinikeys_hwif_berndokb_usb
- 389              		.section	.data.infinikeys_hwif_berndokb_cfgmem,"aw",%progbits
- 390              		.align	2
- 393              	infinikeys_hwif_berndokb_cfgmem:
- 394 0000 00000000 		.word	_ikhwif_berndokb_cfgmem_init
- 395 0004 00000000 		.word	_ikhwif_berndokb_cfgmem_deinit
- 396 0008 00000000 		.word	_ikhwif_berndokb_cfgmem_wbyte
- 397 000c 00000000 		.word	_ikhwif_berndokb_cfgmem_wbuf
- 398 0010 00000000 		.word	_ikhwif_berndokb_cfgmem_rbyte
- 399 0014 00000000 		.word	_ikhwif_berndokb_cfgmem_rbuf
- 400 0018 00000000 		.word	0
- 401              		.section	.data.infinikeys_hwif_berndokb_debug,"aw",%progbits
- 402              		.align	2
- 405              	infinikeys_hwif_berndokb_debug:
- 406 0000 00000000 		.word	_ikhwif_berndokb_debug_printmsg
- 407              		.section	.data.infinikeys_hwif_berndokb_kbmatrix,"aw",%progbits
- 408              		.align	2
- 411              	infinikeys_hwif_berndokb_kbmatrix:
- 412 0000 00000000 		.word	_ikhwif_berndokb_kbm_pollmatrix
- 413              		.section	.data.infinikeys_hwif_berndokb_usb,"aw",%progbits
- 414              		.align	2
- 417              	infinikeys_hwif_berndokb_usb:
- 418 0000 00000000 		.word	_ikhwif_berndokb_usb_init
- 419 0004 00000000 		.word	_ikhwif_berndokb_usb_deinit
- 420 0008 00000000 		.word	_ikhwif_berndokb_usb_transmitusb
- 421              		.section	.rodata._ikhwif_berndokb_usb_transmitusb.str1.1,"aMS",%progbits,1
- 422              	.LC0:
- 423 0000 55534220 		.ascii	"USB Transmission to EP%i {\012\000"
- 423      5472616E 
- 423      736D6973 
- 423      73696F6E 
- 423      20746F20 
- 424              	.LC1:
- 425 001c 25303258 		.ascii	"%02X \000"
-ARM GAS  /tmp/cciDGoHk.s 			page 8
-
-
- 425      2000
- 426              	.LC2:
- 427 0022 25730A00 		.ascii	"%s\012\000"
- 428              	.LC3:
- 429 0026 7D0A00   		.ascii	"}\012\000"
- 430              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
-ARM GAS  /tmp/cciDGoHk.s 			page 9
+ 303 0180 00000000 		.word	hw_portex1_handle
+ 305              		.section	.text._ikhwif_berndokb_cfgmem_init,"ax",%progbits
+ 306              		.align	1
+ 307              		.syntax unified
+ 308              		.thumb
+ 309              		.thumb_func
+ 310              		.fpu softvfp
+ 312              	_ikhwif_berndokb_cfgmem_init:
+ 313              		@ args = 0, pretend = 0, frame = 0
+ 314              		@ frame_needed = 0, uses_anonymous_args = 0
+ 315              		@ link register save eliminated.
+ 316 0000 0020     		movs	r0, #0
+ 317 0002 7047     		bx	lr
+ 319              		.section	.text._ikhwif_berndokb_usb_init,"ax",%progbits
+ 320              		.align	1
+ 321              		.syntax unified
+ 322              		.thumb
+ 323              		.thumb_func
+ 324              		.fpu softvfp
+ 326              	_ikhwif_berndokb_usb_init:
+ 327              		@ args = 0, pretend = 0, frame = 0
+ 328              		@ frame_needed = 0, uses_anonymous_args = 0
+ 329              		@ link register save eliminated.
+ 330 0000 0020     		movs	r0, #0
+ 331 0002 7047     		bx	lr
+ 333              		.global	infinikeys_hwif_berndokb_kbmatrix
+ 334              		.global	infinikeys_hwif_berndokb_cfgmem
+ 335              		.global	infinikeys_hwif_berndokb_debug
+ 336              		.global	infinikeys_hwif_berndokb_usb
+ 337              		.section	.data.infinikeys_hwif_berndokb_cfgmem,"aw",%progbits
+ 338              		.align	2
+ 341              	infinikeys_hwif_berndokb_cfgmem:
+ 342 0000 00000000 		.word	_ikhwif_berndokb_cfgmem_init
+ 343 0004 00000000 		.word	_ikhwif_berndokb_cfgmem_deinit
+ 344 0008 00000000 		.word	_ikhwif_berndokb_cfgmem_wbyte
+ 345 000c 00000000 		.word	_ikhwif_berndokb_cfgmem_wbuf
+ 346 0010 00000000 		.word	_ikhwif_berndokb_cfgmem_rbyte
+ 347 0014 00000000 		.word	_ikhwif_berndokb_cfgmem_rbuf
+ 348 0018 00000000 		.word	0
+ 349              		.section	.data.infinikeys_hwif_berndokb_debug,"aw",%progbits
+ 350              		.align	2
+ 353              	infinikeys_hwif_berndokb_debug:
+ 354 0000 00000000 		.word	_ikhwif_berndokb_debug_printmsg
+ 355              		.section	.data.infinikeys_hwif_berndokb_kbmatrix,"aw",%progbits
+ 356              		.align	2
+ 359              	infinikeys_hwif_berndokb_kbmatrix:
+ 360 0000 00000000 		.word	_ikhwif_berndokb_kbm_pollmatrix
+ 361              		.section	.data.infinikeys_hwif_berndokb_usb,"aw",%progbits
+ 362              		.align	2
+ 365              	infinikeys_hwif_berndokb_usb:
+ 366 0000 00000000 		.word	_ikhwif_berndokb_usb_init
+ 367 0004 00000000 		.word	_ikhwif_berndokb_usb_deinit
+ 368 0008 00000000 		.word	_ikhwif_berndokb_usb_transmitusb
+ 369              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
+ARM GAS  /tmp/ccGwj2ra.s 			page 7
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 infinikeys_hwif_berndokb.c
-     /tmp/cciDGoHk.s:13     .text._ikhwif_berndokb_usb_deinit:0000000000000000 $t
-     /tmp/cciDGoHk.s:19     .text._ikhwif_berndokb_usb_deinit:0000000000000000 _ikhwif_berndokb_usb_deinit
-     /tmp/cciDGoHk.s:26     .text._ikhwif_berndokb_cfgmem_deinit:0000000000000000 $t
-     /tmp/cciDGoHk.s:32     .text._ikhwif_berndokb_cfgmem_deinit:0000000000000000 _ikhwif_berndokb_cfgmem_deinit
-     /tmp/cciDGoHk.s:40     .text._ikhwif_berndokb_cfgmem_wbyte:0000000000000000 $t
-     /tmp/cciDGoHk.s:46     .text._ikhwif_berndokb_cfgmem_wbyte:0000000000000000 _ikhwif_berndokb_cfgmem_wbyte
-     /tmp/cciDGoHk.s:54     .text._ikhwif_berndokb_cfgmem_wbuf:0000000000000000 $t
-     /tmp/cciDGoHk.s:60     .text._ikhwif_berndokb_cfgmem_wbuf:0000000000000000 _ikhwif_berndokb_cfgmem_wbuf
-     /tmp/cciDGoHk.s:73     .text._ikhwif_berndokb_cfgmem_rbyte:0000000000000000 $t
-     /tmp/cciDGoHk.s:79     .text._ikhwif_berndokb_cfgmem_rbyte:0000000000000000 _ikhwif_berndokb_cfgmem_rbyte
-     /tmp/cciDGoHk.s:87     .text._ikhwif_berndokb_cfgmem_rbuf:0000000000000000 $t
-     /tmp/cciDGoHk.s:93     .text._ikhwif_berndokb_cfgmem_rbuf:0000000000000000 _ikhwif_berndokb_cfgmem_rbuf
-     /tmp/cciDGoHk.s:103    .text._ikhwif_berndokb_usb_transmitusb:0000000000000000 $t
-     /tmp/cciDGoHk.s:109    .text._ikhwif_berndokb_usb_transmitusb:0000000000000000 _ikhwif_berndokb_usb_transmitusb
-     /tmp/cciDGoHk.s:179    .text._ikhwif_berndokb_usb_transmitusb:0000000000000094 $d
-     /tmp/cciDGoHk.s:185    .text._ikhwif_berndokb_debug_printmsg:0000000000000000 $t
-     /tmp/cciDGoHk.s:191    .text._ikhwif_berndokb_debug_printmsg:0000000000000000 _ikhwif_berndokb_debug_printmsg
-     /tmp/cciDGoHk.s:213    .text._ikhwif_berndokb_debug_printmsg:0000000000000020 $d
-     /tmp/cciDGoHk.s:217    .text._ikhwif_berndokb_kbm_pollmatrix:0000000000000000 $t
-     /tmp/cciDGoHk.s:223    .text._ikhwif_berndokb_kbm_pollmatrix:0000000000000000 _ikhwif_berndokb_kbm_pollmatrix
-     /tmp/cciDGoHk.s:351    .text._ikhwif_berndokb_kbm_pollmatrix:0000000000000170 $d
-     /tmp/cciDGoHk.s:358    .text._ikhwif_berndokb_cfgmem_init:0000000000000000 $t
-     /tmp/cciDGoHk.s:364    .text._ikhwif_berndokb_cfgmem_init:0000000000000000 _ikhwif_berndokb_cfgmem_init
-     /tmp/cciDGoHk.s:372    .text._ikhwif_berndokb_usb_init:0000000000000000 $t
-     /tmp/cciDGoHk.s:378    .text._ikhwif_berndokb_usb_init:0000000000000000 _ikhwif_berndokb_usb_init
-     /tmp/cciDGoHk.s:411    .data.infinikeys_hwif_berndokb_kbmatrix:0000000000000000 infinikeys_hwif_berndokb_kbmatrix
-     /tmp/cciDGoHk.s:393    .data.infinikeys_hwif_berndokb_cfgmem:0000000000000000 infinikeys_hwif_berndokb_cfgmem
-     /tmp/cciDGoHk.s:405    .data.infinikeys_hwif_berndokb_debug:0000000000000000 infinikeys_hwif_berndokb_debug
-     /tmp/cciDGoHk.s:417    .data.infinikeys_hwif_berndokb_usb:0000000000000000 infinikeys_hwif_berndokb_usb
-     /tmp/cciDGoHk.s:390    .data.infinikeys_hwif_berndokb_cfgmem:0000000000000000 $d
-     /tmp/cciDGoHk.s:402    .data.infinikeys_hwif_berndokb_debug:0000000000000000 $d
-     /tmp/cciDGoHk.s:408    .data.infinikeys_hwif_berndokb_kbmatrix:0000000000000000 $d
-     /tmp/cciDGoHk.s:414    .data.infinikeys_hwif_berndokb_usb:0000000000000000 $d
+     /tmp/ccGwj2ra.s:13     .text._ikhwif_berndokb_usb_deinit:0000000000000000 $t
+     /tmp/ccGwj2ra.s:19     .text._ikhwif_berndokb_usb_deinit:0000000000000000 _ikhwif_berndokb_usb_deinit
+     /tmp/ccGwj2ra.s:26     .text._ikhwif_berndokb_cfgmem_deinit:0000000000000000 $t
+     /tmp/ccGwj2ra.s:32     .text._ikhwif_berndokb_cfgmem_deinit:0000000000000000 _ikhwif_berndokb_cfgmem_deinit
+     /tmp/ccGwj2ra.s:40     .text._ikhwif_berndokb_cfgmem_wbyte:0000000000000000 $t
+     /tmp/ccGwj2ra.s:46     .text._ikhwif_berndokb_cfgmem_wbyte:0000000000000000 _ikhwif_berndokb_cfgmem_wbyte
+     /tmp/ccGwj2ra.s:54     .text._ikhwif_berndokb_cfgmem_wbuf:0000000000000000 $t
+     /tmp/ccGwj2ra.s:60     .text._ikhwif_berndokb_cfgmem_wbuf:0000000000000000 _ikhwif_berndokb_cfgmem_wbuf
+     /tmp/ccGwj2ra.s:73     .text._ikhwif_berndokb_cfgmem_rbyte:0000000000000000 $t
+     /tmp/ccGwj2ra.s:79     .text._ikhwif_berndokb_cfgmem_rbyte:0000000000000000 _ikhwif_berndokb_cfgmem_rbyte
+     /tmp/ccGwj2ra.s:87     .text._ikhwif_berndokb_cfgmem_rbuf:0000000000000000 $t
+     /tmp/ccGwj2ra.s:93     .text._ikhwif_berndokb_cfgmem_rbuf:0000000000000000 _ikhwif_berndokb_cfgmem_rbuf
+     /tmp/ccGwj2ra.s:103    .text._ikhwif_berndokb_usb_transmitusb:0000000000000000 $t
+     /tmp/ccGwj2ra.s:109    .text._ikhwif_berndokb_usb_transmitusb:0000000000000000 _ikhwif_berndokb_usb_transmitusb
+     /tmp/ccGwj2ra.s:130    .text._ikhwif_berndokb_usb_transmitusb:0000000000000024 $d
+     /tmp/ccGwj2ra.s:133    .text._ikhwif_berndokb_debug_printmsg:0000000000000000 $t
+     /tmp/ccGwj2ra.s:139    .text._ikhwif_berndokb_debug_printmsg:0000000000000000 _ikhwif_berndokb_debug_printmsg
+     /tmp/ccGwj2ra.s:161    .text._ikhwif_berndokb_debug_printmsg:0000000000000020 $d
+     /tmp/ccGwj2ra.s:165    .text._ikhwif_berndokb_kbm_pollmatrix:0000000000000000 $t
+     /tmp/ccGwj2ra.s:171    .text._ikhwif_berndokb_kbm_pollmatrix:0000000000000000 _ikhwif_berndokb_kbm_pollmatrix
+     /tmp/ccGwj2ra.s:299    .text._ikhwif_berndokb_kbm_pollmatrix:0000000000000170 $d
+     /tmp/ccGwj2ra.s:306    .text._ikhwif_berndokb_cfgmem_init:0000000000000000 $t
+     /tmp/ccGwj2ra.s:312    .text._ikhwif_berndokb_cfgmem_init:0000000000000000 _ikhwif_berndokb_cfgmem_init
+     /tmp/ccGwj2ra.s:320    .text._ikhwif_berndokb_usb_init:0000000000000000 $t
+     /tmp/ccGwj2ra.s:326    .text._ikhwif_berndokb_usb_init:0000000000000000 _ikhwif_berndokb_usb_init
+     /tmp/ccGwj2ra.s:359    .data.infinikeys_hwif_berndokb_kbmatrix:0000000000000000 infinikeys_hwif_berndokb_kbmatrix
+     /tmp/ccGwj2ra.s:341    .data.infinikeys_hwif_berndokb_cfgmem:0000000000000000 infinikeys_hwif_berndokb_cfgmem
+     /tmp/ccGwj2ra.s:353    .data.infinikeys_hwif_berndokb_debug:0000000000000000 infinikeys_hwif_berndokb_debug
+     /tmp/ccGwj2ra.s:365    .data.infinikeys_hwif_berndokb_usb:0000000000000000 infinikeys_hwif_berndokb_usb
+     /tmp/ccGwj2ra.s:338    .data.infinikeys_hwif_berndokb_cfgmem:0000000000000000 $d
+     /tmp/ccGwj2ra.s:350    .data.infinikeys_hwif_berndokb_debug:0000000000000000 $d
+     /tmp/ccGwj2ra.s:356    .data.infinikeys_hwif_berndokb_kbmatrix:0000000000000000 $d
+     /tmp/ccGwj2ra.s:362    .data.infinikeys_hwif_berndokb_usb:0000000000000000 $d
 
 UNDEFINED SYMBOLS
-malloc
-IK_DEBUG_PrintMessage
-free
-sprintf
+IK_STM32CUBE_USBD_HID_SendReport
+hw_usbd_handle
 HAL_UART_Transmit
 hw_uart1_init_status
 hw_uart1_handle

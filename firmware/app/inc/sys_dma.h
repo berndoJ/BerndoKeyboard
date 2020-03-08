@@ -11,6 +11,8 @@
 #if !defined(__SYS_DMA_H)
 #define __SYS_DMA_H
 
+#include "sys_def.h"
+
 /**
  * \brief Initialises the systems DMA streams/channels.
  */

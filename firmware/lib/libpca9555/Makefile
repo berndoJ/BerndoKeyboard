@@ -80,7 +80,7 @@ $(BINDIR)/%.a: $(addprefix $(BINDIR)/, $(OBJ)) | $(BINDIR)
 	@echo "[$(LIBNAME)] Archiving library $@..."
 	@if ! test -d $(dir $@); then mkdir -p $(dir $@); fi
 	@if test -f $@; then rm $@; fi
-	@$(AR) -rcs $@ $(addprefix $(BINDIR)/, $(OBJ))
+	@$(GCC_AR) -rcs $@ $(addprefix $(BINDIR)/, $(OBJ))
 	@echo "[$(LIBNAME)] Archived."
 
 $(BINDIR):

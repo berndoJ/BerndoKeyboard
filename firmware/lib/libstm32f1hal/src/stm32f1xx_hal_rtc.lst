@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccJNePT2.s 			page 1
+ARM GAS  /tmp/ccJov7u3.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccJNePT2.s 			page 1
   59              		.syntax unified
   60              		.thumb
   61              		.thumb_func
-ARM GAS  /tmp/ccJNePT2.s 			page 2
+ARM GAS  /tmp/ccJov7u3.s 			page 2
 
 
   62              		.fpu softvfp
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccJNePT2.s 			page 1
  121 0026 2A44     		add	r2, r2, r5
  122 0028 1044     		add	r0, r0, r2
  123 002a 00EB9400 		add	r0, r0, r4, lsr #2
-ARM GAS  /tmp/ccJNePT2.s 			page 3
+ARM GAS  /tmp/ccJov7u3.s 			page 3
 
 
  124 002e 1844     		add	r0, r0, r3
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccJNePT2.s 			page 1
  180 002c 38BD     		pop	{r3, r4, r5, pc}
  182              		.section	.text.RTC_ExitInitMode,"ax",%progbits
  183              		.align	1
-ARM GAS  /tmp/ccJNePT2.s 			page 4
+ARM GAS  /tmp/ccJov7u3.s 			page 4
 
 
  184              		.syntax unified
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccJNePT2.s 			page 1
  241              	.L25:
  242 0024 0120     		movs	r0, #1
  243 0026 38BD     		pop	{r3, r4, r5, pc}
-ARM GAS  /tmp/ccJNePT2.s 			page 5
+ARM GAS  /tmp/ccJov7u3.s 			page 5
 
 
  245              		.section	.text.RTC_WriteAlarmCounter,"ax",%progbits
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccJNePT2.s 			page 1
  305              		.global	HAL_RTC_SetTime
  306              		.syntax unified
  307              		.thumb
-ARM GAS  /tmp/ccJNePT2.s 			page 6
+ARM GAS  /tmp/ccJov7u3.s 			page 6
 
 
  308              		.thumb_func
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccJNePT2.s 			page 1
  363 006a 5368     		ldr	r3, [r2, #4]
  364 006c 23F00503 		bic	r3, r3, #5
  365 0070 5360     		str	r3, [r2, #4]
-ARM GAS  /tmp/ccJNePT2.s 			page 7
+ARM GAS  /tmp/ccJov7u3.s 			page 7
 
 
  366 0072 FFF7FEFF 		bl	RTC_ReadAlarmCounter
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccJNePT2.s 			page 1
  422 0036 00FB1122 		mls	r2, r0, r1, r2
  423 003a 172B     		cmp	r3, #23
  424 003c 6970     		strb	r1, [r5, #1]
-ARM GAS  /tmp/ccJNePT2.s 			page 8
+ARM GAS  /tmp/ccJov7u3.s 			page 8
 
 
  425 003e AA70     		strb	r2, [r5, #2]
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccJNePT2.s 			page 1
  479 00c2 2878     		ldrb	r0, [r5]	@ zero_extendqisi2
  480 00c4 FFF7FEFF 		bl	RTC_ByteToBcd2
  481 00c8 2870     		strb	r0, [r5]
-ARM GAS  /tmp/ccJNePT2.s 			page 9
+ARM GAS  /tmp/ccJov7u3.s 			page 9
 
 
  482 00ca 6878     		ldrb	r0, [r5, #1]	@ zero_extendqisi2
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccJNePT2.s 			page 1
  536 0136 16BF     		itet	ne
  537 0138 0122     		movne	r2, #1
  538 013a 1D22     		moveq	r2, #29
-ARM GAS  /tmp/ccJNePT2.s 			page 10
+ARM GAS  /tmp/ccJov7u3.s 			page 10
 
 
  539 013c 0321     		movne	r1, #3
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccJNePT2.s 			page 1
  595 0016 2374     		strb	r3, [r4, #16]
  596 0018 C878     		ldrb	r0, [r1, #3]	@ zero_extendqisi2
  597 001a 1ABB     		cbnz	r2, .L97
-ARM GAS  /tmp/ccJNePT2.s 			page 11
+ARM GAS  /tmp/ccJov7u3.s 			page 11
 
 
  598 001c E073     		strb	r0, [r4, #15]
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccJNePT2.s 			page 1
  652 0098 18B1     		cbz	r0, .L99
  653 009a 0423     		movs	r3, #4
  654 009c 2674     		strb	r6, [r4, #16]
-ARM GAS  /tmp/ccJNePT2.s 			page 12
+ARM GAS  /tmp/ccJov7u3.s 			page 12
 
 
  655 009e 6374     		strb	r3, [r4, #17]
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccJNePT2.s 			page 1
  711 003e EAD0     		beq	.L114
  712 0040 FFF7FEFF 		bl	RTC_ByteToBcd2
  713 0044 E070     		strb	r0, [r4, #3]
-ARM GAS  /tmp/ccJNePT2.s 			page 13
+ARM GAS  /tmp/ccJov7u3.s 			page 13
 
 
  714 0046 3046     		mov	r0, r6
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccJNePT2.s 			page 1
  770 005c 1D44     		add	r5, r5, r3
  771 005e 98F80280 		ldrb	r8, [r8, #2]	@ zero_extendqisi2
  772 0062 BAF1000F 		cmp	r10, #0
-ARM GAS  /tmp/ccJNePT2.s 			page 14
+ARM GAS  /tmp/ccJov7u3.s 			page 14
 
 
  773 0066 13D1     		bne	.L126
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccJNePT2.s 			page 1
  829              	.L147:
  830 0016 0120     		movs	r0, #1
  831              	.L137:
-ARM GAS  /tmp/ccJNePT2.s 			page 15
+ARM GAS  /tmp/ccJov7u3.s 			page 15
 
 
  832 0018 02B0     		add	sp, sp, #8
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccJNePT2.s 			page 1
  886 00a4 FFF7FEFF 		bl	RTC_Bcd2ToByte
  887 00a8 0144     		add	r1, r1, r0
  888 00aa E2E7     		b	.L140
-ARM GAS  /tmp/ccJNePT2.s 			page 16
+ARM GAS  /tmp/ccJov7u3.s 			page 16
 
 
  889              	.L142:
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccJNePT2.s 			page 1
  945 0036 8C70     		strb	r4, [r1, #2]
  946 0038 5AB1     		cbz	r2, .L155
  947 003a 1846     		mov	r0, r3
-ARM GAS  /tmp/ccJNePT2.s 			page 17
+ARM GAS  /tmp/ccJov7u3.s 			page 17
 
 
  948 003c FFF7FEFF 		bl	RTC_ByteToBcd2
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccJNePT2.s 			page 1
  1004 0042 1A62     		str	r2, [r3, #32]
  1005 0044 5A62     		str	r2, [r3, #36]
  1006 0046 02F18042 		add	r2, r2, #1073741824
-ARM GAS  /tmp/ccJNePT2.s 			page 18
+ARM GAS  /tmp/ccJov7u3.s 			page 18
 
 
  1007 004a 02F20142 		addw	r2, r2, #1025
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccJNePT2.s 			page 1
  1065 0022 024B     		ldr	r3, .L171
  1066 0024 5A61     		str	r2, [r3, #20]
  1067 0026 0123     		movs	r3, #1
-ARM GAS  /tmp/ccJNePT2.s 			page 19
+ARM GAS  /tmp/ccJov7u3.s 			page 19
 
 
  1068 0028 6374     		strb	r3, [r4, #17]
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccJNePT2.s 			page 1
  1125              		.thumb_func
  1126              		.fpu softvfp
  1128              	HAL_RTC_GetState:
-ARM GAS  /tmp/ccJNePT2.s 			page 20
+ARM GAS  /tmp/ccJov7u3.s 			page 20
 
 
  1129              		@ args = 0, pretend = 0, frame = 0
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccJNePT2.s 			page 1
  1187 0006 437C     		ldrb	r3, [r0, #17]	@ zero_extendqisi2
  1188 0008 03F0FF02 		and	r2, r3, #255
  1189 000c 13B9     		cbnz	r3, .L192
-ARM GAS  /tmp/ccJNePT2.s 			page 21
+ARM GAS  /tmp/ccJov7u3.s 			page 21
 
 
  1190 000e 0274     		strb	r2, [r0, #16]
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccJNePT2.s 			page 1
  1244 0080 2046     		mov	r0, r4
  1245 0082 FFF7FEFF 		bl	RTC_ExitInitMode
  1246 0086 0123     		movs	r3, #1
-ARM GAS  /tmp/ccJNePT2.s 			page 22
+ARM GAS  /tmp/ccJov7u3.s 			page 22
 
 
  1247 0088 10B1     		cbz	r0, .L198
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccJNePT2.s 			page 1
  1303 003e 6374     		strb	r3, [r4, #17]
  1304 0040 EBE7     		b	.L210
  1305              	.L209:
-ARM GAS  /tmp/ccJNePT2.s 			page 23
+ARM GAS  /tmp/ccJov7u3.s 			page 23
 
 
  1306 0042 2046     		mov	r0, r4
@@ -1335,71 +1335,71 @@ ARM GAS  /tmp/ccJNePT2.s 			page 1
  1317 005c 2846     		mov	r0, r5
  1318 005e 70BD     		pop	{r4, r5, r6, pc}
  1320              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
-ARM GAS  /tmp/ccJNePT2.s 			page 24
+ARM GAS  /tmp/ccJov7u3.s 			page 24
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f1xx_hal_rtc.c
-     /tmp/ccJNePT2.s:13     .text.RTC_ReadTimeCounter:0000000000000000 $t
-     /tmp/ccJNePT2.s:19     .text.RTC_ReadTimeCounter:0000000000000000 RTC_ReadTimeCounter
-     /tmp/ccJNePT2.s:40     .text.RTC_ReadAlarmCounter:0000000000000000 $t
-     /tmp/ccJNePT2.s:46     .text.RTC_ReadAlarmCounter:0000000000000000 RTC_ReadAlarmCounter
-     /tmp/ccJNePT2.s:58     .text.RTC_ByteToBcd2:0000000000000000 $t
-     /tmp/ccJNePT2.s:64     .text.RTC_ByteToBcd2:0000000000000000 RTC_ByteToBcd2
-     /tmp/ccJNePT2.s:82     .text.RTC_Bcd2ToByte:0000000000000000 $t
-     /tmp/ccJNePT2.s:88     .text.RTC_Bcd2ToByte:0000000000000000 RTC_Bcd2ToByte
-     /tmp/ccJNePT2.s:100    .text.RTC_WeekDayNum:0000000000000000 $t
-     /tmp/ccJNePT2.s:106    .text.RTC_WeekDayNum:0000000000000000 RTC_WeekDayNum
-     /tmp/ccJNePT2.s:151    .text.RTC_EnterInitMode:0000000000000000 $t
-     /tmp/ccJNePT2.s:157    .text.RTC_EnterInitMode:0000000000000000 RTC_EnterInitMode
-     /tmp/ccJNePT2.s:183    .text.RTC_ExitInitMode:0000000000000000 $t
-     /tmp/ccJNePT2.s:189    .text.RTC_ExitInitMode:0000000000000000 RTC_ExitInitMode
-     /tmp/ccJNePT2.s:216    .text.RTC_WriteTimeCounter:0000000000000000 $t
-     /tmp/ccJNePT2.s:222    .text.RTC_WriteTimeCounter:0000000000000000 RTC_WriteTimeCounter
-     /tmp/ccJNePT2.s:246    .text.RTC_WriteAlarmCounter:0000000000000000 $t
-     /tmp/ccJNePT2.s:252    .text.RTC_WriteAlarmCounter:0000000000000000 RTC_WriteAlarmCounter
-     /tmp/ccJNePT2.s:276    .text.HAL_RTC_MspInit:0000000000000000 $t
-     /tmp/ccJNePT2.s:283    .text.HAL_RTC_MspInit:0000000000000000 HAL_RTC_MspInit
-     /tmp/ccJNePT2.s:290    .text.HAL_RTC_MspDeInit:0000000000000000 $t
-     /tmp/ccJNePT2.s:297    .text.HAL_RTC_MspDeInit:0000000000000000 HAL_RTC_MspDeInit
-     /tmp/ccJNePT2.s:304    .text.HAL_RTC_SetTime:0000000000000000 $t
-     /tmp/ccJNePT2.s:311    .text.HAL_RTC_SetTime:0000000000000000 HAL_RTC_SetTime
-     /tmp/ccJNePT2.s:390    .text.HAL_RTC_GetTime:0000000000000000 $t
-     /tmp/ccJNePT2.s:397    .text.HAL_RTC_GetTime:0000000000000000 HAL_RTC_GetTime
-     /tmp/ccJNePT2.s:571    .text.HAL_RTC_GetTime:0000000000000168 $d
-     /tmp/ccJNePT2.s:574    .text.HAL_RTC_SetDate:0000000000000000 $t
-     /tmp/ccJNePT2.s:581    .text.HAL_RTC_SetDate:0000000000000000 HAL_RTC_SetDate
-     /tmp/ccJNePT2.s:666    .text.HAL_RTC_SetDate:00000000000000ac $d
-     /tmp/ccJNePT2.s:669    .text.HAL_RTC_GetDate:0000000000000000 $t
-     /tmp/ccJNePT2.s:676    .text.HAL_RTC_GetDate:0000000000000000 HAL_RTC_GetDate
-     /tmp/ccJNePT2.s:723    .text.HAL_RTC_SetAlarm:0000000000000000 $t
-     /tmp/ccJNePT2.s:730    .text.HAL_RTC_SetAlarm:0000000000000000 HAL_RTC_SetAlarm
-     /tmp/ccJNePT2.s:811    .text.HAL_RTC_SetAlarm_IT:0000000000000000 $t
-     /tmp/ccJNePT2.s:818    .text.HAL_RTC_SetAlarm_IT:0000000000000000 HAL_RTC_SetAlarm_IT
-     /tmp/ccJNePT2.s:913    .text.HAL_RTC_SetAlarm_IT:00000000000000dc $d
-     /tmp/ccJNePT2.s:916    .text.HAL_RTC_GetAlarm:0000000000000000 $t
-     /tmp/ccJNePT2.s:923    .text.HAL_RTC_GetAlarm:0000000000000000 HAL_RTC_GetAlarm
-     /tmp/ccJNePT2.s:964    .text.HAL_RTC_DeactivateAlarm:0000000000000000 $t
-     /tmp/ccJNePT2.s:971    .text.HAL_RTC_DeactivateAlarm:0000000000000000 HAL_RTC_DeactivateAlarm
-     /tmp/ccJNePT2.s:1026   .text.HAL_RTC_AlarmAEventCallback:0000000000000000 $t
-     /tmp/ccJNePT2.s:1033   .text.HAL_RTC_AlarmAEventCallback:0000000000000000 HAL_RTC_AlarmAEventCallback
-     /tmp/ccJNePT2.s:1040   .text.HAL_RTC_AlarmIRQHandler:0000000000000000 $t
-     /tmp/ccJNePT2.s:1047   .text.HAL_RTC_AlarmIRQHandler:0000000000000000 HAL_RTC_AlarmIRQHandler
-     /tmp/ccJNePT2.s:1073   .text.HAL_RTC_AlarmIRQHandler:000000000000002c $d
-     /tmp/ccJNePT2.s:1076   .text.HAL_RTC_PollForAlarmAEvent:0000000000000000 $t
-     /tmp/ccJNePT2.s:1083   .text.HAL_RTC_PollForAlarmAEvent:0000000000000000 HAL_RTC_PollForAlarmAEvent
-     /tmp/ccJNePT2.s:1121   .text.HAL_RTC_GetState:0000000000000000 $t
-     /tmp/ccJNePT2.s:1128   .text.HAL_RTC_GetState:0000000000000000 HAL_RTC_GetState
-     /tmp/ccJNePT2.s:1136   .text.HAL_RTC_WaitForSynchro:0000000000000000 $t
-     /tmp/ccJNePT2.s:1143   .text.HAL_RTC_WaitForSynchro:0000000000000000 HAL_RTC_WaitForSynchro
-     /tmp/ccJNePT2.s:1174   .text.HAL_RTC_Init:0000000000000000 $t
-     /tmp/ccJNePT2.s:1181   .text.HAL_RTC_Init:0000000000000000 HAL_RTC_Init
-     /tmp/ccJNePT2.s:1260   .text.HAL_RTC_Init:000000000000009c $d
-ARM GAS  /tmp/ccJNePT2.s 			page 25
+     /tmp/ccJov7u3.s:13     .text.RTC_ReadTimeCounter:0000000000000000 $t
+     /tmp/ccJov7u3.s:19     .text.RTC_ReadTimeCounter:0000000000000000 RTC_ReadTimeCounter
+     /tmp/ccJov7u3.s:40     .text.RTC_ReadAlarmCounter:0000000000000000 $t
+     /tmp/ccJov7u3.s:46     .text.RTC_ReadAlarmCounter:0000000000000000 RTC_ReadAlarmCounter
+     /tmp/ccJov7u3.s:58     .text.RTC_ByteToBcd2:0000000000000000 $t
+     /tmp/ccJov7u3.s:64     .text.RTC_ByteToBcd2:0000000000000000 RTC_ByteToBcd2
+     /tmp/ccJov7u3.s:82     .text.RTC_Bcd2ToByte:0000000000000000 $t
+     /tmp/ccJov7u3.s:88     .text.RTC_Bcd2ToByte:0000000000000000 RTC_Bcd2ToByte
+     /tmp/ccJov7u3.s:100    .text.RTC_WeekDayNum:0000000000000000 $t
+     /tmp/ccJov7u3.s:106    .text.RTC_WeekDayNum:0000000000000000 RTC_WeekDayNum
+     /tmp/ccJov7u3.s:151    .text.RTC_EnterInitMode:0000000000000000 $t
+     /tmp/ccJov7u3.s:157    .text.RTC_EnterInitMode:0000000000000000 RTC_EnterInitMode
+     /tmp/ccJov7u3.s:183    .text.RTC_ExitInitMode:0000000000000000 $t
+     /tmp/ccJov7u3.s:189    .text.RTC_ExitInitMode:0000000000000000 RTC_ExitInitMode
+     /tmp/ccJov7u3.s:216    .text.RTC_WriteTimeCounter:0000000000000000 $t
+     /tmp/ccJov7u3.s:222    .text.RTC_WriteTimeCounter:0000000000000000 RTC_WriteTimeCounter
+     /tmp/ccJov7u3.s:246    .text.RTC_WriteAlarmCounter:0000000000000000 $t
+     /tmp/ccJov7u3.s:252    .text.RTC_WriteAlarmCounter:0000000000000000 RTC_WriteAlarmCounter
+     /tmp/ccJov7u3.s:276    .text.HAL_RTC_MspInit:0000000000000000 $t
+     /tmp/ccJov7u3.s:283    .text.HAL_RTC_MspInit:0000000000000000 HAL_RTC_MspInit
+     /tmp/ccJov7u3.s:290    .text.HAL_RTC_MspDeInit:0000000000000000 $t
+     /tmp/ccJov7u3.s:297    .text.HAL_RTC_MspDeInit:0000000000000000 HAL_RTC_MspDeInit
+     /tmp/ccJov7u3.s:304    .text.HAL_RTC_SetTime:0000000000000000 $t
+     /tmp/ccJov7u3.s:311    .text.HAL_RTC_SetTime:0000000000000000 HAL_RTC_SetTime
+     /tmp/ccJov7u3.s:390    .text.HAL_RTC_GetTime:0000000000000000 $t
+     /tmp/ccJov7u3.s:397    .text.HAL_RTC_GetTime:0000000000000000 HAL_RTC_GetTime
+     /tmp/ccJov7u3.s:571    .text.HAL_RTC_GetTime:0000000000000168 $d
+     /tmp/ccJov7u3.s:574    .text.HAL_RTC_SetDate:0000000000000000 $t
+     /tmp/ccJov7u3.s:581    .text.HAL_RTC_SetDate:0000000000000000 HAL_RTC_SetDate
+     /tmp/ccJov7u3.s:666    .text.HAL_RTC_SetDate:00000000000000ac $d
+     /tmp/ccJov7u3.s:669    .text.HAL_RTC_GetDate:0000000000000000 $t
+     /tmp/ccJov7u3.s:676    .text.HAL_RTC_GetDate:0000000000000000 HAL_RTC_GetDate
+     /tmp/ccJov7u3.s:723    .text.HAL_RTC_SetAlarm:0000000000000000 $t
+     /tmp/ccJov7u3.s:730    .text.HAL_RTC_SetAlarm:0000000000000000 HAL_RTC_SetAlarm
+     /tmp/ccJov7u3.s:811    .text.HAL_RTC_SetAlarm_IT:0000000000000000 $t
+     /tmp/ccJov7u3.s:818    .text.HAL_RTC_SetAlarm_IT:0000000000000000 HAL_RTC_SetAlarm_IT
+     /tmp/ccJov7u3.s:913    .text.HAL_RTC_SetAlarm_IT:00000000000000dc $d
+     /tmp/ccJov7u3.s:916    .text.HAL_RTC_GetAlarm:0000000000000000 $t
+     /tmp/ccJov7u3.s:923    .text.HAL_RTC_GetAlarm:0000000000000000 HAL_RTC_GetAlarm
+     /tmp/ccJov7u3.s:964    .text.HAL_RTC_DeactivateAlarm:0000000000000000 $t
+     /tmp/ccJov7u3.s:971    .text.HAL_RTC_DeactivateAlarm:0000000000000000 HAL_RTC_DeactivateAlarm
+     /tmp/ccJov7u3.s:1026   .text.HAL_RTC_AlarmAEventCallback:0000000000000000 $t
+     /tmp/ccJov7u3.s:1033   .text.HAL_RTC_AlarmAEventCallback:0000000000000000 HAL_RTC_AlarmAEventCallback
+     /tmp/ccJov7u3.s:1040   .text.HAL_RTC_AlarmIRQHandler:0000000000000000 $t
+     /tmp/ccJov7u3.s:1047   .text.HAL_RTC_AlarmIRQHandler:0000000000000000 HAL_RTC_AlarmIRQHandler
+     /tmp/ccJov7u3.s:1073   .text.HAL_RTC_AlarmIRQHandler:000000000000002c $d
+     /tmp/ccJov7u3.s:1076   .text.HAL_RTC_PollForAlarmAEvent:0000000000000000 $t
+     /tmp/ccJov7u3.s:1083   .text.HAL_RTC_PollForAlarmAEvent:0000000000000000 HAL_RTC_PollForAlarmAEvent
+     /tmp/ccJov7u3.s:1121   .text.HAL_RTC_GetState:0000000000000000 $t
+     /tmp/ccJov7u3.s:1128   .text.HAL_RTC_GetState:0000000000000000 HAL_RTC_GetState
+     /tmp/ccJov7u3.s:1136   .text.HAL_RTC_WaitForSynchro:0000000000000000 $t
+     /tmp/ccJov7u3.s:1143   .text.HAL_RTC_WaitForSynchro:0000000000000000 HAL_RTC_WaitForSynchro
+     /tmp/ccJov7u3.s:1174   .text.HAL_RTC_Init:0000000000000000 $t
+     /tmp/ccJov7u3.s:1181   .text.HAL_RTC_Init:0000000000000000 HAL_RTC_Init
+     /tmp/ccJov7u3.s:1260   .text.HAL_RTC_Init:000000000000009c $d
+ARM GAS  /tmp/ccJov7u3.s 			page 25
 
 
-     /tmp/ccJNePT2.s:1263   .text.HAL_RTC_DeInit:0000000000000000 $t
-     /tmp/ccJNePT2.s:1270   .text.HAL_RTC_DeInit:0000000000000000 HAL_RTC_DeInit
+     /tmp/ccJov7u3.s:1263   .text.HAL_RTC_DeInit:0000000000000000 $t
+     /tmp/ccJov7u3.s:1270   .text.HAL_RTC_DeInit:0000000000000000 HAL_RTC_DeInit
 
 UNDEFINED SYMBOLS
 HAL_GetTick

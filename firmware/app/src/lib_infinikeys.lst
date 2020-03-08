@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccfiz2Jf.s 			page 1
+ARM GAS  /tmp/cczYXlI6.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccfiz2Jf.s 			page 1
   59              		.section	.data._ikmatrix_cfg_tmp,"aw",%progbits
   60              		.set	.LANCHOR1,. + 0
   63              	_ikmatrix_cfg_tmp:
-ARM GAS  /tmp/ccfiz2Jf.s 			page 2
+ARM GAS  /tmp/cczYXlI6.s 			page 2
 
 
   64 0000 00       		.byte	0
@@ -77,12 +77,12 @@ ARM GAS  /tmp/ccfiz2Jf.s 			page 1
   79              	lib_infinikeys_init_struct:
   80 0000 00000000 		.word	infinikeys_hwif_berndokb_usb
   81 0004 8304     		.short	1155
-  82 0006 0104     		.short	1025
+  82 0006 0400     		.short	4
   83 0008 0904     		.short	1033
   84 000a 0000     		.space	2
   85 000c 00000000 		.word	.LC0
   86 0010 17000000 		.word	.LC1
-  87 0014 26000000 		.word	.LC2
+  87 0014 39000000 		.word	.LC2
   88 0018 00000000 		.word	infinikeys_hwif_berndokb_cfgmem
   89 001c 00000000 		.word	infinikeys_hwif_berndokb_kbmatrix
   90 0020 00000000 		.word	infinikeys_hwif_berndokb_debug
@@ -94,28 +94,29 @@ ARM GAS  /tmp/ccfiz2Jf.s 			page 1
   93      6C656374 
   93      726F6E69 
   94              	.LC1:
-  95 0017 4265726E 		.ascii	"BerndoKeyboard\000"
+  95 0017 4265726E 		.ascii	"BerndoKeyboard-TESTFW-08-03-B0005\000"
   95      646F4B65 
   95      79626F61 
-  95      726400
+  95      72642D54 
+  95      45535446 
   96              	.LC2:
-  97 0026 534E2D30 		.ascii	"SN-000001\000"
+  97 0039 534E2D30 		.ascii	"SN-000001\000"
   97      30303030 
   97      3100
   98              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
-ARM GAS  /tmp/ccfiz2Jf.s 			page 3
+ARM GAS  /tmp/cczYXlI6.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 lib_infinikeys.c
-     /tmp/ccfiz2Jf.s:13     .text.LIB_Infinikeys_Init:0000000000000000 $t
-     /tmp/ccfiz2Jf.s:20     .text.LIB_Infinikeys_Init:0000000000000000 LIB_Infinikeys_Init
-     /tmp/ccfiz2Jf.s:46     .text.LIB_Infinikeys_Init:0000000000000030 $d
-     /tmp/ccfiz2Jf.s:79     .data.lib_infinikeys_init_struct:0000000000000000 lib_infinikeys_init_struct
-     /tmp/ccfiz2Jf.s:57     .bss.lib_infinikeys_init_status:0000000000000000 lib_infinikeys_init_status
-     /tmp/ccfiz2Jf.s:58     .bss.lib_infinikeys_init_status:0000000000000000 $d
-     /tmp/ccfiz2Jf.s:63     .data._ikmatrix_cfg_tmp:0000000000000000 _ikmatrix_cfg_tmp
-     /tmp/ccfiz2Jf.s:75     .data.lib_infinikeys_init_struct:0000000000000000 $d
+     /tmp/cczYXlI6.s:13     .text.LIB_Infinikeys_Init:0000000000000000 $t
+     /tmp/cczYXlI6.s:20     .text.LIB_Infinikeys_Init:0000000000000000 LIB_Infinikeys_Init
+     /tmp/cczYXlI6.s:46     .text.LIB_Infinikeys_Init:0000000000000030 $d
+     /tmp/cczYXlI6.s:79     .data.lib_infinikeys_init_struct:0000000000000000 lib_infinikeys_init_struct
+     /tmp/cczYXlI6.s:57     .bss.lib_infinikeys_init_status:0000000000000000 lib_infinikeys_init_status
+     /tmp/cczYXlI6.s:58     .bss.lib_infinikeys_init_status:0000000000000000 $d
+     /tmp/cczYXlI6.s:63     .data._ikmatrix_cfg_tmp:0000000000000000 _ikmatrix_cfg_tmp
+     /tmp/cczYXlI6.s:75     .data.lib_infinikeys_init_struct:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 IK_Init

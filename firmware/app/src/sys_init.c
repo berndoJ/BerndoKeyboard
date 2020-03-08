@@ -20,7 +20,7 @@ void SYS_Init(void)
 
 void SYS_PostPortInit(void)
 {
-    HAL_UART_Transmit(hw_uart1_handle, (uint8_t*)"[BKF] System HW-Init complete.\n", 31, 10);
+    
 }
 
 void SYS_PostLibInit(void)

@@ -11,6 +11,8 @@
 #if !defined(__MAIN_H)
 #define __MAIN_H
 
+#include "sys_def.h"
+
 #define WELCOMEMSG_LINE_0 "   ___                     _                       _                         _ "
 #define WELCOMEMSG_LINE_1 "  / __\\ ___ _ __ _ __   __| | ___   /\\ /\\___ _   _| |__   ___   __ _ _ __ __| |"
 #define WELCOMEMSG_LINE_2 " /__\\/// _ \\ '__| '_ \\ / _` |/ _ \\ / //_/ _ \\ | | | '_ \\ / _ \\ / _` | '__/ _` |"

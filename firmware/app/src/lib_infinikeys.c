@@ -8,10 +8,10 @@ IK_Init_t lib_infinikeys_init_struct =
     {
         .USB_HW_Interface = &infinikeys_hwif_berndokb_usb,
         .USB_VID = 1155U,
-        .USB_PID = 1025U,
+        .USB_PID = 4U, //1025U,
         .USB_LangID = 1033U,
         .Manufacturer_Name = "Berndorfer Electronics",
-        .Product_Name = "BerndoKeyboard",
+        .Product_Name = "BerndoKeyboard-TESTFW-08-03-B0005",
         .Serial_Number_String = "SN-000001"
     },
     .Config_Init = (IK_CFG_Init_t)

@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccWYlbdQ.s 			page 1
+ARM GAS  /tmp/cch7I0MU.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccWYlbdQ.s 			page 1
   56 0046 FFF7FEFF 		bl	IK_DEBUG_PrintMessage
   57 004a DCE7     		b	.L3
   58              	.L6:
-ARM GAS  /tmp/ccWYlbdQ.s 			page 2
+ARM GAS  /tmp/cch7I0MU.s 			page 2
 
 
   59              		.align	2
@@ -99,60 +99,47 @@ ARM GAS  /tmp/ccWYlbdQ.s 			page 1
   98              		@ args = 0, pretend = 0, frame = 0
   99              		@ frame_needed = 0, uses_anonymous_args = 0
  100 0000 08B5     		push	{r3, lr}
- 101 0002 0448     		ldr	r0, .L11
- 102 0004 FFF7FEFF 		bl	IK_DEBUG_PrintMessage
- 103 0008 FFF7FEFF 		bl	IK_CFG_Tick
- 104 000c BDE80840 		pop	{r3, lr}
- 105 0010 FFF7FEBF 		b	IK_SWACQ_PollTick
- 106              	.L12:
- 107              		.align	2
- 108              	.L11:
- 109 0014 00000000 		.word	.LC2
- 111              		.section	.bss._init,"aw",%nobits
- 112              		.align	2
- 113              		.set	.LANCHOR0,. + 0
- 116              	_init:
- 117 0000 00000000 		.space	4
- 118              		.section	.rodata.IK_DeInit.str1.1,"aMS",%progbits,1
- 119              	.LC1:
- 120 0000 44652D69 		.ascii	"De-initialising Infini-Keys...\012\000"
- 120      6E697469 
- 120      616C6973 
-ARM GAS  /tmp/ccWYlbdQ.s 			page 3
+ 101 0002 FFF7FEFF 		bl	IK_CFG_Tick
+ 102 0006 BDE80840 		pop	{r3, lr}
+ 103 000a FFF7FEBF 		b	IK_SWACQ_PollTick
+ 105              		.section	.bss._init,"aw",%nobits
+ 106              		.align	2
+ 107              		.set	.LANCHOR0,. + 0
+ 110              	_init:
+ 111 0000 00000000 		.space	4
+ 112              		.section	.rodata.IK_DeInit.str1.1,"aMS",%progbits,1
+ 113              	.LC1:
+ 114 0000 44652D69 		.ascii	"De-initialising Infini-Keys...\012\000"
+ 114      6E697469 
+ 114      616C6973 
+ 114      696E6720 
+ 114      496E6669 
+ 115              		.section	.rodata.IK_Init.str1.1,"aMS",%progbits,1
+ 116              	.LC0:
+ 117 0000 496E6974 		.ascii	"Initialised Infini-Keys.\012\000"
+ 117      69616C69 
+ARM GAS  /tmp/cch7I0MU.s 			page 3
 
 
- 120      696E6720 
- 120      496E6669 
- 121              		.section	.rodata.IK_Init.str1.1,"aMS",%progbits,1
- 122              	.LC0:
- 123 0000 496E6974 		.ascii	"Initialised Infini-Keys.\012\000"
- 123      69616C69 
- 123      73656420 
- 123      496E6669 
- 123      6E692D4B 
- 124              		.section	.rodata.IK_Tick.str1.1,"aMS",%progbits,1
- 125              	.LC2:
- 126 0000 496E766F 		.ascii	"Invoked TICK.\012\000"
- 126      6B656420 
- 126      5449434B 
- 126      2E0A00
- 127              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
-ARM GAS  /tmp/ccWYlbdQ.s 			page 4
+ 117      73656420 
+ 117      496E6669 
+ 117      6E692D4B 
+ 118              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
+ARM GAS  /tmp/cch7I0MU.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 infinikeys.c
-     /tmp/ccWYlbdQ.s:13     .text.IK_Init:0000000000000000 $t
-     /tmp/ccWYlbdQ.s:20     .text.IK_Init:0000000000000000 IK_Init
-     /tmp/ccWYlbdQ.s:61     .text.IK_Init:000000000000004c $d
-     /tmp/ccWYlbdQ.s:65     .text.IK_DeInit:0000000000000000 $t
-     /tmp/ccWYlbdQ.s:72     .text.IK_DeInit:0000000000000000 IK_DeInit
-     /tmp/ccWYlbdQ.s:87     .text.IK_DeInit:0000000000000020 $d
-     /tmp/ccWYlbdQ.s:90     .text.IK_Tick:0000000000000000 $t
-     /tmp/ccWYlbdQ.s:97     .text.IK_Tick:0000000000000000 IK_Tick
-     /tmp/ccWYlbdQ.s:109    .text.IK_Tick:0000000000000014 $d
-     /tmp/ccWYlbdQ.s:112    .bss._init:0000000000000000 $d
-     /tmp/ccWYlbdQ.s:116    .bss._init:0000000000000000 _init
+     /tmp/cch7I0MU.s:13     .text.IK_Init:0000000000000000 $t
+     /tmp/cch7I0MU.s:20     .text.IK_Init:0000000000000000 IK_Init
+     /tmp/cch7I0MU.s:61     .text.IK_Init:000000000000004c $d
+     /tmp/cch7I0MU.s:65     .text.IK_DeInit:0000000000000000 $t
+     /tmp/cch7I0MU.s:72     .text.IK_DeInit:0000000000000000 IK_DeInit
+     /tmp/cch7I0MU.s:87     .text.IK_DeInit:0000000000000020 $d
+     /tmp/cch7I0MU.s:90     .text.IK_Tick:0000000000000000 $t
+     /tmp/cch7I0MU.s:97     .text.IK_Tick:0000000000000000 IK_Tick
+     /tmp/cch7I0MU.s:106    .bss._init:0000000000000000 $d
+     /tmp/cch7I0MU.s:110    .bss._init:0000000000000000 _init
 
 UNDEFINED SYMBOLS
 IK_USB_Init

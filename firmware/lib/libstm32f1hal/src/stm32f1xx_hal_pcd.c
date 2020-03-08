@@ -55,7 +55,6 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f1xx_hal.h"
-#include "console.h"
 
 /** @addtogroup STM32F1xx_HAL_Driver
   * @{
@@ -136,8 +135,6 @@ HAL_StatusTypeDef HAL_PCD_Init(PCD_HandleTypeDef *hpcd)
   {
     return HAL_ERROR;
   }
-  
-  CONSOLE_PrintLn("Trace-1-0-0");
 
   /* Check the parameters */
   assert_param(IS_PCD_ALL_INSTANCE(hpcd->Instance));
@@ -177,8 +174,6 @@ HAL_StatusTypeDef HAL_PCD_Init(PCD_HandleTypeDef *hpcd)
 #endif /* (USE_HAL_PCD_REGISTER_CALLBACKS) */
   }
 
-  CONSOLE_PrintLn("Trace-1-0-1");
-
   hpcd->State = HAL_PCD_STATE_BUSY;
 
 #if defined (USB_OTG_FS)
@@ -198,8 +193,6 @@ HAL_StatusTypeDef HAL_PCD_Init(PCD_HandleTypeDef *hpcd)
     hpcd->State = HAL_PCD_STATE_ERROR;
     return HAL_ERROR;
   }
-
-  CONSOLE_PrintLn("Trace-1-0-2");
 
   /* Force Device Mode*/
   (void)USB_SetCurrentMode(hpcd->Instance, USB_DEVICE_MODE);
@@ -229,23 +222,16 @@ HAL_StatusTypeDef HAL_PCD_Init(PCD_HandleTypeDef *hpcd)
     hpcd->OUT_ep[i].xfer_len = 0U;
   }
 
-  CONSOLE_PrintLn("Trace-1-0-3");
-
   /* Init Device */
   if (USB_DevInit(hpcd->Instance, hpcd->Init) != HAL_OK)
   {
     hpcd->State = HAL_PCD_STATE_ERROR;
-    CONSOLE_PrintLn("Trace-1-0-3-0");
     return HAL_ERROR;
   }
-
-  CONSOLE_PrintLn("Trace-1-0-4");
 
   hpcd->USB_Address = 0U;
   hpcd->State = HAL_PCD_STATE_READY;
   (void)USB_DevDisconnect(hpcd->Instance);
-
-  CONSOLE_PrintLn("Trace-1-0-5");
 
   return HAL_OK;
 }

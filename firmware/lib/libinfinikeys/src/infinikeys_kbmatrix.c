@@ -177,27 +177,71 @@ IK_Status_t IK_KBM_SendHIDReport(void)
 {
     IK_Buffer_t buf;
     IK_Status_t rstat;
+    uint8_t i, j, k = 0;
 
-    // => Assemble buffer containing the right data.
+    switch (IK_USB_GetHIDProtocol())
+    {
+        case IK_USB_HID_REPORT_PROTOCOL_NKRO:
+            // Init the buffer to the size of 33 bytes.
+            buf.Size = 33; // 1 for modifier byte, 32 for key bytes.
+            buf.DataPtr = (uint8_t *) malloc(buf.Size);
 
-    // Init the buffer to the size of 34 bytes.
-    buf.Size = 34; // 1 for modifier byte, 1 for reserved byte, 32 for key bytes.
-    buf.DataPtr = (uint8_t *) malloc(buf.Size);
+            // Check for successful allocation of memory for the buffer.
+            if (buf.DataPtr == NULL)
+                return IK_ERROR;
 
-    // Check for successful allocation of memory for the buffer.
-    if (buf.DataPtr == NULL)
-        return IK_ERROR;
+            // Fill the buffer with data.
+            buf.DataPtr[0] = _hid_modifier_byte;
+            memcpy(buf.DataPtr + 1, _hid_pressed_bitmap, 32);
 
-    // Fill the buffer with data.
-    buf.DataPtr[0] = _hid_modifier_byte;
-    buf.DataPtr[1] = 0x00;
-    memcpy(buf.DataPtr + 2, _hid_pressed_bitmap, 32);
+            // Transmit report.
+            rstat = IK_USB_SendHIDReport(2U, buf);
 
-    // => Transmit report.
-    rstat = IK_USB_SendHIDReport(1U, buf);
+            // Free the memory of the buffer.
+            free(buf.DataPtr);
+            break;
+        case IK_USB_HID_REPORT_PROTOCOL_BOOT:
+        default:
+            // Init the buffer to the size of 8 bytes.
+            buf.Size = 8; // 1 modifier byte, 1 reserved byte, 6 HID key-code bytes.
+            buf.DataPtr = (uint8_t *) malloc(buf.Size);
+            memset(buf.DataPtr, 0x00, buf.Size);
 
-    // Free the memory of the buffer.
-    free(buf.DataPtr);
+            // Check for successful allocation of memory for the buffer.
+            if (buf.DataPtr == NULL)
+                return IK_ERROR;
+            
+            // Fill the modifier and reserved byte.
+            buf.DataPtr[0] = _hid_modifier_byte;
+            buf.DataPtr[1] = 0x00; // Reserved byte -> set to 0x00
+
+            // Fill the 6 HID key-code bytes.
+            for (i = 0; i < 32; i++)
+            {
+                for (j = 0; j < 8; j++)
+                {
+                    if (((_hid_pressed_bitmap[i] >> j) & 0x01) == 1U)
+                    {
+                        buf.DataPtr[2 + (k++)] = (i * 8) + j;
+                    }
+
+                    if (k == 6)
+                    {
+                        goto __loop_exit;
+                    }
+                }
+            }
+
+            __loop_exit:
+
+            // Transmit report.
+            rstat = IK_USB_SendHIDReport(1U, buf);
+
+            // Free the buffer.
+            free(buf.DataPtr);
+
+            break;
+    }
 
     return rstat;
 }

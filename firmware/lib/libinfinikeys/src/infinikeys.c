@@ -41,7 +41,7 @@ void IK_DeInit(void)
 
 void IK_Tick(void)
 {
-    #if defined(IK_DEBUG_VERBOSE)
+    #if defined(IK_DEBUG_TICK_VERBOSE)
     IK_DEBUG_PrintMessage("Invoked TICK.\n");
     #endif // IK_DEBUG_VERBOSE
     // Invoke tick functions of the submodules.

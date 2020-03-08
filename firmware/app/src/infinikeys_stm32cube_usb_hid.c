@@ -25,6 +25,7 @@
 #include "usbd_ctlreq.h"
 #include "infinikeys_usb_desc.h"
 #include "sys_usb.h"
+#include "console.h"
 
 /* --------------------------------------------------------------
  * PRIVATE FUNCTION DECLARATIONS
@@ -210,8 +211,10 @@ static uint8_t IK_STM32CUBE_USBD_HID_Setup(USBD_HandleTypeDef* device, USBD_Setu
 		{
 		case IK_HID_REQUEST_SET_PROTOCOL:
 			ikdev_handle->Protocol = (uint8_t)(request->wValue);
+            CONSOLE_PrintLn("[USB] SET_PROTOCOL: %i", ikdev_handle->Protocol);
 			break;
 		case IK_HID_REQUEST_GET_PROTOCOL:
+            CONSOLE_PrintLn("[USB] SET_PROTOCOL: %i", ikdev_handle->Protocol);
 			USBD_CtlSendData(device, (uint8_t*)&(ikdev_handle->Protocol), 1);
 			break;
 		case IK_HID_REQUEST_SET_IDLE:

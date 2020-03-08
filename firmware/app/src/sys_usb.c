@@ -3,13 +3,20 @@
 #include "console.h"
 #include "stm32f1xx_hal.h"
 #include "infinikeys.h"
+
 #include "infinikeys_stm32cube_usb_hid.h"
 #include "infinikeys_stm32cube_usb_if.h"
+
+#include "usbd_custom_hid_if.h"
+#include "usbd_customhid.h"
+
 #include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
 
 USBD_HandleTypeDef *hw_usbd_handle = NULL;
 
-uint8_t _IK_USB_DESCRIPTOR_DEV_QUALIF[_IK_USB_DESCRIPTOR_DEV_QUALIF_SIZE] =
+uint8_t _IK_USB_DESCRIPTOR_DEV_QUALIF[_IK_USB_DESCRIPTOR_DEV_QUALIF_SIZE] __attribute__((aligned(4))) =
 {
     _IK_USB_DESCRIPTOR_DEV_QUALIF_SIZE,             // bLength => 18 bytes
     IK_USB_DESCRIPTOR_TYPE_DEVICE_QUALIFIER,        // bDescriptorType => Device descriptor
@@ -50,6 +57,7 @@ void SYS_USB_Init(void)
     }
 
     hw_usbd_handle = (USBD_HandleTypeDef *) malloc(sizeof(USBD_HandleTypeDef));
+    memset(hw_usbd_handle, 0x00, sizeof(USBD_HandleTypeDef));
 
     if (hw_usbd_handle == NULL)
         SYS_ThrowError(SYSERR_FATAL_ERROR, __LINE__, __FILE__, "USBD-handle allocation failed.");

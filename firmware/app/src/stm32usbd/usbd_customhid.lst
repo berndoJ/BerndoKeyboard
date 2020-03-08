@@ -1,0 +1,689 @@
+ARM GAS  /tmp/ccW9pWhd.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 4
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"usbd_customhid.c"
+  12              		.section	.text.USBD_CUSTOM_HID_GetFSCfgDesc,"ax",%progbits
+  13              		.align	1
+  14              		.syntax unified
+  15              		.thumb
+  16              		.thumb_func
+  17              		.fpu softvfp
+  19              	USBD_CUSTOM_HID_GetFSCfgDesc:
+  20              		@ args = 0, pretend = 0, frame = 0
+  21              		@ frame_needed = 0, uses_anonymous_args = 0
+  22              		@ link register save eliminated.
+  23 0000 2923     		movs	r3, #41
+  24 0002 0380     		strh	r3, [r0]	@ movhi
+  25 0004 0048     		ldr	r0, .L2
+  26 0006 7047     		bx	lr
+  27              	.L3:
+  28              		.align	2
+  29              	.L2:
+  30 0008 00000000 		.word	.LANCHOR0
+  32              		.section	.text.USBD_CUSTOM_HID_GetHSCfgDesc,"ax",%progbits
+  33              		.align	1
+  34              		.syntax unified
+  35              		.thumb
+  36              		.thumb_func
+  37              		.fpu softvfp
+  39              	USBD_CUSTOM_HID_GetHSCfgDesc:
+  40              		@ args = 0, pretend = 0, frame = 0
+  41              		@ frame_needed = 0, uses_anonymous_args = 0
+  42              		@ link register save eliminated.
+  43 0000 2923     		movs	r3, #41
+  44 0002 0380     		strh	r3, [r0]	@ movhi
+  45 0004 0048     		ldr	r0, .L5
+  46 0006 7047     		bx	lr
+  47              	.L6:
+  48              		.align	2
+  49              	.L5:
+  50 0008 00000000 		.word	.LANCHOR1
+  52              		.section	.text.USBD_CUSTOM_HID_GetOtherSpeedCfgDesc,"ax",%progbits
+  53              		.align	1
+  54              		.syntax unified
+  55              		.thumb
+  56              		.thumb_func
+  57              		.fpu softvfp
+  59              	USBD_CUSTOM_HID_GetOtherSpeedCfgDesc:
+  60              		@ args = 0, pretend = 0, frame = 0
+  61              		@ frame_needed = 0, uses_anonymous_args = 0
+  62              		@ link register save eliminated.
+ARM GAS  /tmp/ccW9pWhd.s 			page 2
+
+
+  63 0000 2923     		movs	r3, #41
+  64 0002 0380     		strh	r3, [r0]	@ movhi
+  65 0004 0048     		ldr	r0, .L8
+  66 0006 7047     		bx	lr
+  67              	.L9:
+  68              		.align	2
+  69              	.L8:
+  70 0008 00000000 		.word	.LANCHOR2
+  72              		.section	.text.USBD_CUSTOM_HID_DataIn,"ax",%progbits
+  73              		.align	1
+  74              		.syntax unified
+  75              		.thumb
+  76              		.thumb_func
+  77              		.fpu softvfp
+  79              	USBD_CUSTOM_HID_DataIn:
+  80              		@ args = 0, pretend = 0, frame = 0
+  81              		@ frame_needed = 0, uses_anonymous_args = 0
+  82              		@ link register save eliminated.
+  83 0000 D0F8B832 		ldr	r3, [r0, #696]
+  84 0004 0020     		movs	r0, #0
+  85 0006 83F81001 		strb	r0, [r3, #272]
+  86 000a 7047     		bx	lr
+  88              		.section	.text.USBD_CUSTOM_HID_EP0_RxReady,"ax",%progbits
+  89              		.align	1
+  90              		.syntax unified
+  91              		.thumb
+  92              		.thumb_func
+  93              		.fpu softvfp
+  95              	USBD_CUSTOM_HID_EP0_RxReady:
+  96              		@ args = 0, pretend = 0, frame = 0
+  97              		@ frame_needed = 0, uses_anonymous_args = 0
+  98 0000 10B5     		push	{r4, lr}
+  99 0002 D0F8B842 		ldr	r4, [r0, #696]
+ 100 0006 D4F80C31 		ldr	r3, [r4, #268]
+ 101 000a 012B     		cmp	r3, #1
+ 102 000c 08D1     		bne	.L12
+ 103 000e D0F8BC32 		ldr	r3, [r0, #700]
+ 104 0012 6178     		ldrb	r1, [r4, #1]	@ zero_extendqisi2
+ 105 0014 DB68     		ldr	r3, [r3, #12]
+ 106 0016 2078     		ldrb	r0, [r4]	@ zero_extendqisi2
+ 107 0018 9847     		blx	r3
+ 108 001a 0023     		movs	r3, #0
+ 109 001c C4F80C31 		str	r3, [r4, #268]
+ 110              	.L12:
+ 111 0020 0020     		movs	r0, #0
+ 112 0022 10BD     		pop	{r4, pc}
+ 114              		.section	.text.USBD_CUSTOM_HID_GetDeviceQualifierDesc,"ax",%progbits
+ 115              		.align	1
+ 116              		.syntax unified
+ 117              		.thumb
+ 118              		.thumb_func
+ 119              		.fpu softvfp
+ 121              	USBD_CUSTOM_HID_GetDeviceQualifierDesc:
+ 122              		@ args = 0, pretend = 0, frame = 0
+ 123              		@ frame_needed = 0, uses_anonymous_args = 0
+ 124              		@ link register save eliminated.
+ 125 0000 0A23     		movs	r3, #10
+ARM GAS  /tmp/ccW9pWhd.s 			page 3
+
+
+ 126 0002 0380     		strh	r3, [r0]	@ movhi
+ 127 0004 0048     		ldr	r0, .L14
+ 128 0006 7047     		bx	lr
+ 129              	.L15:
+ 130              		.align	2
+ 131              	.L14:
+ 132 0008 00000000 		.word	.LANCHOR3
+ 134              		.section	.text.USBD_CUSTOM_HID_DataOut,"ax",%progbits
+ 135              		.align	1
+ 136              		.syntax unified
+ 137              		.thumb
+ 138              		.thumb_func
+ 139              		.fpu softvfp
+ 141              	USBD_CUSTOM_HID_DataOut:
+ 142              		@ args = 0, pretend = 0, frame = 0
+ 143              		@ frame_needed = 0, uses_anonymous_args = 0
+ 144 0000 38B5     		push	{r3, r4, r5, lr}
+ 145 0002 0446     		mov	r4, r0
+ 146 0004 D0F8B852 		ldr	r5, [r0, #696]
+ 147 0008 D0F8BC32 		ldr	r3, [r0, #700]
+ 148 000c 6978     		ldrb	r1, [r5, #1]	@ zero_extendqisi2
+ 149 000e DB68     		ldr	r3, [r3, #12]
+ 150 0010 2878     		ldrb	r0, [r5]	@ zero_extendqisi2
+ 151 0012 9847     		blx	r3
+ 152 0014 4FF48073 		mov	r3, #256
+ 153 0018 2A46     		mov	r2, r5
+ 154 001a 0121     		movs	r1, #1
+ 155 001c 2046     		mov	r0, r4
+ 156 001e FFF7FEFF 		bl	USBD_LL_PrepareReceive
+ 157 0022 0020     		movs	r0, #0
+ 158 0024 38BD     		pop	{r3, r4, r5, pc}
+ 160              		.section	.text.USBD_CUSTOM_HID_Setup,"ax",%progbits
+ 161              		.align	1
+ 162              		.syntax unified
+ 163              		.thumb
+ 164              		.thumb_func
+ 165              		.fpu softvfp
+ 167              	USBD_CUSTOM_HID_Setup:
+ 168              		@ args = 0, pretend = 0, frame = 8
+ 169              		@ frame_needed = 0, uses_anonymous_args = 0
+ 170 0000 37B5     		push	{r0, r1, r2, r4, r5, lr}
+ 171 0002 0025     		movs	r5, #0
+ 172 0004 ADF80650 		strh	r5, [sp, #6]	@ movhi
+ 173 0008 0D78     		ldrb	r5, [r1]	@ zero_extendqisi2
+ 174 000a 0346     		mov	r3, r0
+ 175 000c 15F06005 		ands	r5, r5, #96
+ 176 0010 0A46     		mov	r2, r1
+ 177 0012 D0F8B842 		ldr	r4, [r0, #696]
+ 178 0016 2BD0     		beq	.L19
+ 179 0018 202D     		cmp	r5, #32
+ 180 001a 65D1     		bne	.L39
+ 181 001c 4978     		ldrb	r1, [r1, #1]	@ zero_extendqisi2
+ 182 001e 0239     		subs	r1, r1, #2
+ 183 0020 0929     		cmp	r1, #9
+ 184 0022 5FD8     		bhi	.L29
+ 185 0024 DFE801F0 		tbb	[pc, r1]
+ 186              	.L23:
+ARM GAS  /tmp/ccW9pWhd.s 			page 4
+
+
+ 187 0028 17       		.byte	(.L22-.L23)/2
+ 188 0029 0B       		.byte	(.L24-.L23)/2
+ 189 002a 5E       		.byte	(.L29-.L23)/2
+ 190 002b 5E       		.byte	(.L29-.L23)/2
+ 191 002c 5E       		.byte	(.L29-.L23)/2
+ 192 002d 5E       		.byte	(.L29-.L23)/2
+ 193 002e 5E       		.byte	(.L29-.L23)/2
+ 194 002f 1B       		.byte	(.L25-.L23)/2
+ 195 0030 12       		.byte	(.L26-.L23)/2
+ 196 0031 05       		.byte	(.L27-.L23)/2
+ 197              		.p2align 1
+ 198              	.L27:
+ 199 0032 9378     		ldrb	r3, [r2, #2]	@ zero_extendqisi2
+ 200 0034 C4F80031 		str	r3, [r4, #256]
+ 201              	.L40:
+ 202 0038 0020     		movs	r0, #0
+ 203              	.L28:
+ 204 003a 03B0     		add	sp, sp, #12
+ 205              		@ sp needed
+ 206 003c 30BD     		pop	{r4, r5, pc}
+ 207              	.L24:
+ 208 003e 0122     		movs	r2, #1
+ 209 0040 04F58071 		add	r1, r4, #256
+ 210              	.L41:
+ 211 0044 1846     		mov	r0, r3
+ 212 0046 FFF7FEFF 		bl	USBD_CtlSendData
+ 213 004a F5E7     		b	.L40
+ 214              	.L26:
+ 215 004c 5388     		ldrh	r3, [r2, #2]
+ 216 004e 1B0A     		lsrs	r3, r3, #8
+ 217 0050 C4F80431 		str	r3, [r4, #260]
+ 218 0054 F0E7     		b	.L40
+ 219              	.L22:
+ 220 0056 0122     		movs	r2, #1
+ 221 0058 04F58271 		add	r1, r4, #260
+ 222 005c F2E7     		b	.L41
+ 223              	.L25:
+ 224 005e 0121     		movs	r1, #1
+ 225 0060 D288     		ldrh	r2, [r2, #6]
+ 226 0062 C4F80C11 		str	r1, [r4, #268]
+ 227 0066 1846     		mov	r0, r3
+ 228 0068 2146     		mov	r1, r4
+ 229 006a FFF7FEFF 		bl	USBD_CtlPrepareRx
+ 230 006e E3E7     		b	.L40
+ 231              	.L19:
+ 232 0070 4978     		ldrb	r1, [r1, #1]	@ zero_extendqisi2
+ 233 0072 0B29     		cmp	r1, #11
+ 234 0074 36D8     		bhi	.L29
+ 235 0076 DFE801F0 		tbb	[pc, r1]
+ 236              	.L31:
+ 237 007a 06       		.byte	(.L30-.L31)/2
+ 238 007b 35       		.byte	(.L29-.L31)/2
+ 239 007c 35       		.byte	(.L29-.L31)/2
+ 240 007d 35       		.byte	(.L29-.L31)/2
+ 241 007e 35       		.byte	(.L29-.L31)/2
+ 242 007f 35       		.byte	(.L29-.L31)/2
+ 243 0080 0E       		.byte	(.L32-.L31)/2
+ARM GAS  /tmp/ccW9pWhd.s 			page 5
+
+
+ 244 0081 35       		.byte	(.L29-.L31)/2
+ 245 0082 35       		.byte	(.L29-.L31)/2
+ 246 0083 35       		.byte	(.L29-.L31)/2
+ 247 0084 25       		.byte	(.L33-.L31)/2
+ 248 0085 2D       		.byte	(.L34-.L31)/2
+ 249              		.p2align 1
+ 250              	.L30:
+ 251 0086 93F89C12 		ldrb	r1, [r3, #668]	@ zero_extendqisi2
+ 252 008a 0329     		cmp	r1, #3
+ 253 008c 2AD1     		bne	.L29
+ 254 008e 0222     		movs	r2, #2
+ 255 0090 0DF10601 		add	r1, sp, #6
+ 256 0094 D6E7     		b	.L41
+ 257              	.L32:
+ 258 0096 5188     		ldrh	r1, [r2, #2]
+ 259 0098 090A     		lsrs	r1, r1, #8
+ 260 009a 2229     		cmp	r1, #34
+ 261 009c 07D1     		bne	.L36
+ 262 009e D288     		ldrh	r2, [r2, #6]
+ 263 00a0 D3F8BC12 		ldr	r1, [r3, #700]
+ 264 00a4 8E2A     		cmp	r2, #142
+ 265 00a6 28BF     		it	cs
+ 266 00a8 8E22     		movcs	r2, #142
+ 267 00aa 0968     		ldr	r1, [r1]
+ 268 00ac CAE7     		b	.L41
+ 269              	.L36:
+ 270 00ae 2129     		cmp	r1, #33
+ 271 00b0 05D1     		bne	.L38
+ 272 00b2 D288     		ldrh	r2, [r2, #6]
+ 273 00b4 0E49     		ldr	r1, .L42
+ 274 00b6 092A     		cmp	r2, #9
+ 275 00b8 28BF     		it	cs
+ 276 00ba 0922     		movcs	r2, #9
+ 277 00bc C2E7     		b	.L41
+ 278              	.L38:
+ 279 00be 0021     		movs	r1, #0
+ 280 00c0 0A46     		mov	r2, r1
+ 281 00c2 BFE7     		b	.L41
+ 282              	.L33:
+ 283 00c4 93F89C12 		ldrb	r1, [r3, #668]	@ zero_extendqisi2
+ 284 00c8 0329     		cmp	r1, #3
+ 285 00ca 0BD1     		bne	.L29
+ 286 00cc 0122     		movs	r2, #1
+ 287 00ce 04F58471 		add	r1, r4, #264
+ 288 00d2 B7E7     		b	.L41
+ 289              	.L34:
+ 290 00d4 93F89C12 		ldrb	r1, [r3, #668]	@ zero_extendqisi2
+ 291 00d8 0329     		cmp	r1, #3
+ 292 00da 03D1     		bne	.L29
+ 293 00dc 9378     		ldrb	r3, [r2, #2]	@ zero_extendqisi2
+ 294 00de C4F80831 		str	r3, [r4, #264]
+ 295 00e2 A9E7     		b	.L40
+ 296              	.L29:
+ 297 00e4 1146     		mov	r1, r2
+ 298 00e6 1846     		mov	r0, r3
+ 299              	.L39:
+ 300 00e8 FFF7FEFF 		bl	USBD_CtlError
+ARM GAS  /tmp/ccW9pWhd.s 			page 6
+
+
+ 301 00ec 0220     		movs	r0, #2
+ 302 00ee A4E7     		b	.L28
+ 303              	.L43:
+ 304              		.align	2
+ 305              	.L42:
+ 306 00f0 00000000 		.word	.LANCHOR4
+ 308              		.section	.text.USBD_CUSTOM_HID_DeInit,"ax",%progbits
+ 309              		.align	1
+ 310              		.syntax unified
+ 311              		.thumb
+ 312              		.thumb_func
+ 313              		.fpu softvfp
+ 315              	USBD_CUSTOM_HID_DeInit:
+ 316              		@ args = 0, pretend = 0, frame = 0
+ 317              		@ frame_needed = 0, uses_anonymous_args = 0
+ 318 0000 38B5     		push	{r3, r4, r5, lr}
+ 319 0002 0446     		mov	r4, r0
+ 320 0004 0025     		movs	r5, #0
+ 321 0006 8121     		movs	r1, #129
+ 322 0008 FFF7FEFF 		bl	USBD_LL_CloseEP
+ 323 000c E562     		str	r5, [r4, #44]
+ 324 000e 0121     		movs	r1, #1
+ 325 0010 2046     		mov	r0, r4
+ 326 0012 FFF7FEFF 		bl	USBD_LL_CloseEP
+ 327 0016 D4F8B832 		ldr	r3, [r4, #696]
+ 328 001a C4F86C51 		str	r5, [r4, #364]
+ 329 001e 4BB1     		cbz	r3, .L45
+ 330 0020 D4F8BC32 		ldr	r3, [r4, #700]
+ 331 0024 9B68     		ldr	r3, [r3, #8]
+ 332 0026 9847     		blx	r3
+ 333 0028 D4F8B802 		ldr	r0, [r4, #696]
+ 334 002c FFF7FEFF 		bl	USBD_static_free
+ 335 0030 C4F8B852 		str	r5, [r4, #696]
+ 336              	.L45:
+ 337 0034 0020     		movs	r0, #0
+ 338 0036 38BD     		pop	{r3, r4, r5, pc}
+ 340              		.section	.text.USBD_CUSTOM_HID_Init,"ax",%progbits
+ 341              		.align	1
+ 342              		.syntax unified
+ 343              		.thumb
+ 344              		.thumb_func
+ 345              		.fpu softvfp
+ 347              	USBD_CUSTOM_HID_Init:
+ 348              		@ args = 0, pretend = 0, frame = 0
+ 349              		@ frame_needed = 0, uses_anonymous_args = 0
+ 350 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 351 0002 0546     		mov	r5, r0
+ 352 0004 0124     		movs	r4, #1
+ 353 0006 0223     		movs	r3, #2
+ 354 0008 0322     		movs	r2, #3
+ 355 000a 8121     		movs	r1, #129
+ 356 000c FFF7FEFF 		bl	USBD_LL_OpenEP
+ 357 0010 0223     		movs	r3, #2
+ 358 0012 0322     		movs	r2, #3
+ 359 0014 2146     		mov	r1, r4
+ 360 0016 EC62     		str	r4, [r5, #44]
+ 361 0018 2846     		mov	r0, r5
+ARM GAS  /tmp/ccW9pWhd.s 			page 7
+
+
+ 362 001a FFF7FEFF 		bl	USBD_LL_OpenEP
+ 363 001e C5F86C41 		str	r4, [r5, #364]
+ 364 0022 4FF48A70 		mov	r0, #276
+ 365 0026 FFF7FEFF 		bl	USBD_static_malloc
+ 366 002a 0646     		mov	r6, r0
+ 367 002c C5F8B802 		str	r0, [r5, #696]
+ 368 0030 78B1     		cbz	r0, .L51
+ 369 0032 0027     		movs	r7, #0
+ 370 0034 D5F8BC32 		ldr	r3, [r5, #700]
+ 371 0038 80F81071 		strb	r7, [r0, #272]
+ 372 003c 5B68     		ldr	r3, [r3, #4]
+ 373 003e 9847     		blx	r3
+ 374 0040 4FF48073 		mov	r3, #256
+ 375 0044 3246     		mov	r2, r6
+ 376 0046 2146     		mov	r1, r4
+ 377 0048 2846     		mov	r0, r5
+ 378 004a FFF7FEFF 		bl	USBD_LL_PrepareReceive
+ 379 004e 3846     		mov	r0, r7
+ 380 0050 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 381              	.L51:
+ 382 0052 2046     		mov	r0, r4
+ 383 0054 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 385              		.section	.text.USBD_CUSTOM_HID_SendReport,"ax",%progbits
+ 386              		.align	1
+ 387              		.global	USBD_CUSTOM_HID_SendReport
+ 388              		.syntax unified
+ 389              		.thumb
+ 390              		.thumb_func
+ 391              		.fpu softvfp
+ 393              	USBD_CUSTOM_HID_SendReport:
+ 394              		@ args = 0, pretend = 0, frame = 0
+ 395              		@ frame_needed = 0, uses_anonymous_args = 0
+ 396 0000 70B5     		push	{r4, r5, r6, lr}
+ 397 0002 1346     		mov	r3, r2
+ 398 0004 90F89C22 		ldrb	r2, [r0, #668]	@ zero_extendqisi2
+ 399 0008 032A     		cmp	r2, #3
+ 400 000a 0BD1     		bne	.L54
+ 401 000c D0F8B862 		ldr	r6, [r0, #696]
+ 402 0010 0124     		movs	r4, #1
+ 403 0012 96F81051 		ldrb	r5, [r6, #272]	@ zero_extendqisi2
+ 404 0016 3DB9     		cbnz	r5, .L55
+ 405 0018 0A46     		mov	r2, r1
+ 406 001a 86F81041 		strb	r4, [r6, #272]
+ 407 001e 8121     		movs	r1, #129
+ 408 0020 FFF7FEFF 		bl	USBD_LL_Transmit
+ 409              	.L54:
+ 410 0024 0020     		movs	r0, #0
+ 411 0026 70BD     		pop	{r4, r5, r6, pc}
+ 412              	.L55:
+ 413 0028 2046     		mov	r0, r4
+ 414 002a 70BD     		pop	{r4, r5, r6, pc}
+ 416              		.section	.text.USBD_CUSTOM_HID_RegisterInterface,"ax",%progbits
+ 417              		.align	1
+ 418              		.global	USBD_CUSTOM_HID_RegisterInterface
+ 419              		.syntax unified
+ 420              		.thumb
+ 421              		.thumb_func
+ARM GAS  /tmp/ccW9pWhd.s 			page 8
+
+
+ 422              		.fpu softvfp
+ 424              	USBD_CUSTOM_HID_RegisterInterface:
+ 425              		@ args = 0, pretend = 0, frame = 0
+ 426              		@ frame_needed = 0, uses_anonymous_args = 0
+ 427              		@ link register save eliminated.
+ 428 0000 19B1     		cbz	r1, .L58
+ 429 0002 C0F8BC12 		str	r1, [r0, #700]
+ 430 0006 0020     		movs	r0, #0
+ 431 0008 7047     		bx	lr
+ 432              	.L58:
+ 433 000a 0220     		movs	r0, #2
+ 434 000c 7047     		bx	lr
+ 436              		.global	USBD_CUSTOM_HID
+ 437              		.section	.data.USBD_CUSTOM_HID,"aw",%progbits
+ 438              		.align	2
+ 441              	USBD_CUSTOM_HID:
+ 442 0000 00000000 		.word	USBD_CUSTOM_HID_Init
+ 443 0004 00000000 		.word	USBD_CUSTOM_HID_DeInit
+ 444 0008 00000000 		.word	USBD_CUSTOM_HID_Setup
+ 445 000c 00000000 		.word	0
+ 446 0010 00000000 		.word	USBD_CUSTOM_HID_EP0_RxReady
+ 447 0014 00000000 		.word	USBD_CUSTOM_HID_DataIn
+ 448 0018 00000000 		.word	USBD_CUSTOM_HID_DataOut
+ 449 001c 00000000 		.word	0
+ 450 0020 00000000 		.word	0
+ 451 0024 00000000 		.word	0
+ 452 0028 00000000 		.word	USBD_CUSTOM_HID_GetHSCfgDesc
+ 453 002c 00000000 		.word	USBD_CUSTOM_HID_GetFSCfgDesc
+ 454 0030 00000000 		.word	USBD_CUSTOM_HID_GetOtherSpeedCfgDesc
+ 455 0034 00000000 		.word	USBD_CUSTOM_HID_GetDeviceQualifierDesc
+ 456              		.section	.data.USBD_CUSTOM_HID_CfgFSDesc,"aw",%progbits
+ 457              		.align	2
+ 458              		.set	.LANCHOR0,. + 0
+ 461              	USBD_CUSTOM_HID_CfgFSDesc:
+ 462 0000 09       		.byte	9
+ 463 0001 02       		.byte	2
+ 464 0002 29       		.byte	41
+ 465 0003 00       		.byte	0
+ 466 0004 01       		.byte	1
+ 467 0005 01       		.byte	1
+ 468 0006 00       		.byte	0
+ 469 0007 80       		.byte	-128
+ 470 0008 FA       		.byte	-6
+ 471 0009 09       		.byte	9
+ 472 000a 04       		.byte	4
+ 473 000b 00       		.byte	0
+ 474 000c 00       		.byte	0
+ 475 000d 02       		.byte	2
+ 476 000e 03       		.byte	3
+ 477 000f 00       		.byte	0
+ 478 0010 00       		.byte	0
+ 479 0011 00       		.byte	0
+ 480 0012 09       		.byte	9
+ 481 0013 21       		.byte	33
+ 482 0014 11       		.byte	17
+ 483 0015 01       		.byte	1
+ 484 0016 00       		.byte	0
+ARM GAS  /tmp/ccW9pWhd.s 			page 9
+
+
+ 485 0017 01       		.byte	1
+ 486 0018 22       		.byte	34
+ 487 0019 8E       		.byte	-114
+ 488 001a 00       		.byte	0
+ 489 001b 07       		.byte	7
+ 490 001c 05       		.byte	5
+ 491 001d 81       		.byte	-127
+ 492 001e 03       		.byte	3
+ 493 001f 02       		.byte	2
+ 494 0020 00       		.byte	0
+ 495 0021 05       		.byte	5
+ 496 0022 07       		.byte	7
+ 497 0023 05       		.byte	5
+ 498 0024 01       		.byte	1
+ 499 0025 03       		.byte	3
+ 500 0026 02       		.byte	2
+ 501 0027 00       		.byte	0
+ 502 0028 05       		.byte	5
+ 503              		.section	.data.USBD_CUSTOM_HID_CfgHSDesc,"aw",%progbits
+ 504              		.align	2
+ 505              		.set	.LANCHOR1,. + 0
+ 508              	USBD_CUSTOM_HID_CfgHSDesc:
+ 509 0000 09       		.byte	9
+ 510 0001 02       		.byte	2
+ 511 0002 29       		.byte	41
+ 512 0003 00       		.byte	0
+ 513 0004 01       		.byte	1
+ 514 0005 01       		.byte	1
+ 515 0006 00       		.byte	0
+ 516 0007 80       		.byte	-128
+ 517 0008 FA       		.byte	-6
+ 518 0009 09       		.byte	9
+ 519 000a 04       		.byte	4
+ 520 000b 00       		.byte	0
+ 521 000c 00       		.byte	0
+ 522 000d 02       		.byte	2
+ 523 000e 03       		.byte	3
+ 524 000f 00       		.byte	0
+ 525 0010 00       		.byte	0
+ 526 0011 00       		.byte	0
+ 527 0012 09       		.byte	9
+ 528 0013 21       		.byte	33
+ 529 0014 11       		.byte	17
+ 530 0015 01       		.byte	1
+ 531 0016 00       		.byte	0
+ 532 0017 01       		.byte	1
+ 533 0018 22       		.byte	34
+ 534 0019 8E       		.byte	-114
+ 535 001a 00       		.byte	0
+ 536 001b 07       		.byte	7
+ 537 001c 05       		.byte	5
+ 538 001d 81       		.byte	-127
+ 539 001e 03       		.byte	3
+ 540 001f 02       		.byte	2
+ 541 0020 00       		.byte	0
+ 542 0021 05       		.byte	5
+ 543 0022 07       		.byte	7
+ARM GAS  /tmp/ccW9pWhd.s 			page 10
+
+
+ 544 0023 05       		.byte	5
+ 545 0024 01       		.byte	1
+ 546 0025 03       		.byte	3
+ 547 0026 02       		.byte	2
+ 548 0027 00       		.byte	0
+ 549 0028 05       		.byte	5
+ 550              		.section	.data.USBD_CUSTOM_HID_Desc,"aw",%progbits
+ 551              		.align	2
+ 552              		.set	.LANCHOR4,. + 0
+ 555              	USBD_CUSTOM_HID_Desc:
+ 556 0000 09       		.byte	9
+ 557 0001 21       		.byte	33
+ 558 0002 11       		.byte	17
+ 559 0003 01       		.byte	1
+ 560 0004 00       		.byte	0
+ 561 0005 01       		.byte	1
+ 562 0006 22       		.byte	34
+ 563 0007 8E       		.byte	-114
+ 564 0008 00       		.byte	0
+ 565              		.section	.data.USBD_CUSTOM_HID_DeviceQualifierDesc,"aw",%progbits
+ 566              		.align	2
+ 567              		.set	.LANCHOR3,. + 0
+ 570              	USBD_CUSTOM_HID_DeviceQualifierDesc:
+ 571 0000 0A       		.byte	10
+ 572 0001 06       		.byte	6
+ 573 0002 00       		.byte	0
+ 574 0003 02       		.byte	2
+ 575 0004 00       		.byte	0
+ 576 0005 00       		.byte	0
+ 577 0006 00       		.byte	0
+ 578 0007 40       		.byte	64
+ 579 0008 01       		.byte	1
+ 580 0009 00       		.byte	0
+ 581              		.section	.data.USBD_CUSTOM_HID_OtherSpeedCfgDesc,"aw",%progbits
+ 582              		.align	2
+ 583              		.set	.LANCHOR2,. + 0
+ 586              	USBD_CUSTOM_HID_OtherSpeedCfgDesc:
+ 587 0000 09       		.byte	9
+ 588 0001 02       		.byte	2
+ 589 0002 29       		.byte	41
+ 590 0003 00       		.byte	0
+ 591 0004 01       		.byte	1
+ 592 0005 01       		.byte	1
+ 593 0006 00       		.byte	0
+ 594 0007 80       		.byte	-128
+ 595 0008 FA       		.byte	-6
+ 596 0009 09       		.byte	9
+ 597 000a 04       		.byte	4
+ 598 000b 00       		.byte	0
+ 599 000c 00       		.byte	0
+ 600 000d 02       		.byte	2
+ 601 000e 03       		.byte	3
+ 602 000f 00       		.byte	0
+ 603 0010 00       		.byte	0
+ 604 0011 00       		.byte	0
+ 605 0012 09       		.byte	9
+ 606 0013 21       		.byte	33
+ARM GAS  /tmp/ccW9pWhd.s 			page 11
+
+
+ 607 0014 11       		.byte	17
+ 608 0015 01       		.byte	1
+ 609 0016 00       		.byte	0
+ 610 0017 01       		.byte	1
+ 611 0018 22       		.byte	34
+ 612 0019 8E       		.byte	-114
+ 613 001a 00       		.byte	0
+ 614 001b 07       		.byte	7
+ 615 001c 05       		.byte	5
+ 616 001d 81       		.byte	-127
+ 617 001e 03       		.byte	3
+ 618 001f 02       		.byte	2
+ 619 0020 00       		.byte	0
+ 620 0021 05       		.byte	5
+ 621 0022 07       		.byte	7
+ 622 0023 05       		.byte	5
+ 623 0024 01       		.byte	1
+ 624 0025 03       		.byte	3
+ 625 0026 02       		.byte	2
+ 626 0027 00       		.byte	0
+ 627 0028 05       		.byte	5
+ 628              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
+ARM GAS  /tmp/ccW9pWhd.s 			page 12
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 usbd_customhid.c
+     /tmp/ccW9pWhd.s:13     .text.USBD_CUSTOM_HID_GetFSCfgDesc:0000000000000000 $t
+     /tmp/ccW9pWhd.s:19     .text.USBD_CUSTOM_HID_GetFSCfgDesc:0000000000000000 USBD_CUSTOM_HID_GetFSCfgDesc
+     /tmp/ccW9pWhd.s:30     .text.USBD_CUSTOM_HID_GetFSCfgDesc:0000000000000008 $d
+     /tmp/ccW9pWhd.s:33     .text.USBD_CUSTOM_HID_GetHSCfgDesc:0000000000000000 $t
+     /tmp/ccW9pWhd.s:39     .text.USBD_CUSTOM_HID_GetHSCfgDesc:0000000000000000 USBD_CUSTOM_HID_GetHSCfgDesc
+     /tmp/ccW9pWhd.s:50     .text.USBD_CUSTOM_HID_GetHSCfgDesc:0000000000000008 $d
+     /tmp/ccW9pWhd.s:53     .text.USBD_CUSTOM_HID_GetOtherSpeedCfgDesc:0000000000000000 $t
+     /tmp/ccW9pWhd.s:59     .text.USBD_CUSTOM_HID_GetOtherSpeedCfgDesc:0000000000000000 USBD_CUSTOM_HID_GetOtherSpeedCfgDesc
+     /tmp/ccW9pWhd.s:70     .text.USBD_CUSTOM_HID_GetOtherSpeedCfgDesc:0000000000000008 $d
+     /tmp/ccW9pWhd.s:73     .text.USBD_CUSTOM_HID_DataIn:0000000000000000 $t
+     /tmp/ccW9pWhd.s:79     .text.USBD_CUSTOM_HID_DataIn:0000000000000000 USBD_CUSTOM_HID_DataIn
+     /tmp/ccW9pWhd.s:89     .text.USBD_CUSTOM_HID_EP0_RxReady:0000000000000000 $t
+     /tmp/ccW9pWhd.s:95     .text.USBD_CUSTOM_HID_EP0_RxReady:0000000000000000 USBD_CUSTOM_HID_EP0_RxReady
+     /tmp/ccW9pWhd.s:115    .text.USBD_CUSTOM_HID_GetDeviceQualifierDesc:0000000000000000 $t
+     /tmp/ccW9pWhd.s:121    .text.USBD_CUSTOM_HID_GetDeviceQualifierDesc:0000000000000000 USBD_CUSTOM_HID_GetDeviceQualifierDesc
+     /tmp/ccW9pWhd.s:132    .text.USBD_CUSTOM_HID_GetDeviceQualifierDesc:0000000000000008 $d
+     /tmp/ccW9pWhd.s:135    .text.USBD_CUSTOM_HID_DataOut:0000000000000000 $t
+     /tmp/ccW9pWhd.s:141    .text.USBD_CUSTOM_HID_DataOut:0000000000000000 USBD_CUSTOM_HID_DataOut
+     /tmp/ccW9pWhd.s:161    .text.USBD_CUSTOM_HID_Setup:0000000000000000 $t
+     /tmp/ccW9pWhd.s:167    .text.USBD_CUSTOM_HID_Setup:0000000000000000 USBD_CUSTOM_HID_Setup
+     /tmp/ccW9pWhd.s:187    .text.USBD_CUSTOM_HID_Setup:0000000000000028 $d
+     /tmp/ccW9pWhd.s:197    .text.USBD_CUSTOM_HID_Setup:0000000000000032 $t
+     /tmp/ccW9pWhd.s:237    .text.USBD_CUSTOM_HID_Setup:000000000000007a $d
+     /tmp/ccW9pWhd.s:249    .text.USBD_CUSTOM_HID_Setup:0000000000000086 $t
+     /tmp/ccW9pWhd.s:306    .text.USBD_CUSTOM_HID_Setup:00000000000000f0 $d
+     /tmp/ccW9pWhd.s:309    .text.USBD_CUSTOM_HID_DeInit:0000000000000000 $t
+     /tmp/ccW9pWhd.s:315    .text.USBD_CUSTOM_HID_DeInit:0000000000000000 USBD_CUSTOM_HID_DeInit
+     /tmp/ccW9pWhd.s:341    .text.USBD_CUSTOM_HID_Init:0000000000000000 $t
+     /tmp/ccW9pWhd.s:347    .text.USBD_CUSTOM_HID_Init:0000000000000000 USBD_CUSTOM_HID_Init
+     /tmp/ccW9pWhd.s:386    .text.USBD_CUSTOM_HID_SendReport:0000000000000000 $t
+     /tmp/ccW9pWhd.s:393    .text.USBD_CUSTOM_HID_SendReport:0000000000000000 USBD_CUSTOM_HID_SendReport
+     /tmp/ccW9pWhd.s:417    .text.USBD_CUSTOM_HID_RegisterInterface:0000000000000000 $t
+     /tmp/ccW9pWhd.s:424    .text.USBD_CUSTOM_HID_RegisterInterface:0000000000000000 USBD_CUSTOM_HID_RegisterInterface
+     /tmp/ccW9pWhd.s:441    .data.USBD_CUSTOM_HID:0000000000000000 USBD_CUSTOM_HID
+     /tmp/ccW9pWhd.s:438    .data.USBD_CUSTOM_HID:0000000000000000 $d
+     /tmp/ccW9pWhd.s:457    .data.USBD_CUSTOM_HID_CfgFSDesc:0000000000000000 $d
+     /tmp/ccW9pWhd.s:461    .data.USBD_CUSTOM_HID_CfgFSDesc:0000000000000000 USBD_CUSTOM_HID_CfgFSDesc
+     /tmp/ccW9pWhd.s:504    .data.USBD_CUSTOM_HID_CfgHSDesc:0000000000000000 $d
+     /tmp/ccW9pWhd.s:508    .data.USBD_CUSTOM_HID_CfgHSDesc:0000000000000000 USBD_CUSTOM_HID_CfgHSDesc
+     /tmp/ccW9pWhd.s:551    .data.USBD_CUSTOM_HID_Desc:0000000000000000 $d
+     /tmp/ccW9pWhd.s:555    .data.USBD_CUSTOM_HID_Desc:0000000000000000 USBD_CUSTOM_HID_Desc
+     /tmp/ccW9pWhd.s:566    .data.USBD_CUSTOM_HID_DeviceQualifierDesc:0000000000000000 $d
+     /tmp/ccW9pWhd.s:570    .data.USBD_CUSTOM_HID_DeviceQualifierDesc:0000000000000000 USBD_CUSTOM_HID_DeviceQualifierDesc
+     /tmp/ccW9pWhd.s:582    .data.USBD_CUSTOM_HID_OtherSpeedCfgDesc:0000000000000000 $d
+     /tmp/ccW9pWhd.s:586    .data.USBD_CUSTOM_HID_OtherSpeedCfgDesc:0000000000000000 USBD_CUSTOM_HID_OtherSpeedCfgDesc
+
+UNDEFINED SYMBOLS
+USBD_LL_PrepareReceive
+USBD_CtlSendData
+USBD_CtlPrepareRx
+USBD_CtlError
+USBD_LL_CloseEP
+USBD_static_free
+USBD_LL_OpenEP
+USBD_static_malloc
+ARM GAS  /tmp/ccW9pWhd.s 			page 13
+
+
+USBD_LL_Transmit

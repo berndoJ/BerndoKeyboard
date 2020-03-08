@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccHJs0yG.s 			page 1
+ARM GAS  /tmp/ccTFnAHb.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -25,10 +25,10 @@ ARM GAS  /tmp/ccHJs0yG.s 			page 1
   23 0000 1346     		mov	r3, r2
   24 0002 0222     		movs	r2, #2
   25 0004 10B5     		push	{r4, lr}
-  26 0006 C0F8F421 		str	r2, [r0, #500]
-  27 000a 8361     		str	r3, [r0, #24]
+  26 0006 C0F89422 		str	r2, [r0, #660]
+  27 000a C361     		str	r3, [r0, #28]
   28 000c 0A46     		mov	r2, r1
-  29 000e C361     		str	r3, [r0, #28]
+  29 000e 0362     		str	r3, [r0, #32]
   30 0010 0021     		movs	r1, #0
   31 0012 FFF7FEFF 		bl	USBD_LL_Transmit
   32 0016 0020     		movs	r0, #0
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccHJs0yG.s 			page 1
   59              		.thumb_func
   60              		.fpu softvfp
   62              	USBD_CtlPrepareRx:
-ARM GAS  /tmp/ccHJs0yG.s 			page 2
+ARM GAS  /tmp/ccTFnAHb.s 			page 2
 
 
   63              		@ args = 0, pretend = 0, frame = 0
@@ -66,10 +66,10 @@ ARM GAS  /tmp/ccHJs0yG.s 			page 1
   65 0000 1346     		mov	r3, r2
   66 0002 0322     		movs	r2, #3
   67 0004 10B5     		push	{r4, lr}
-  68 0006 C0F8F421 		str	r2, [r0, #500]
-  69 000a C0F80831 		str	r3, [r0, #264]
+  68 0006 C0F89422 		str	r2, [r0, #660]
+  69 000a C0F85C31 		str	r3, [r0, #348]
   70 000e 0A46     		mov	r2, r1
-  71 0010 C0F80C31 		str	r3, [r0, #268]
+  71 0010 C0F86031 		str	r3, [r0, #352]
   72 0014 0021     		movs	r1, #0
   73 0016 FFF7FEFF 		bl	USBD_LL_PrepareReceive
   74 001a 0020     		movs	r0, #0
@@ -103,7 +103,7 @@ ARM GAS  /tmp/ccHJs0yG.s 			page 1
  106              		@ frame_needed = 0, uses_anonymous_args = 0
  107 0000 08B5     		push	{r3, lr}
  108 0002 0423     		movs	r3, #4
- 109 0004 C0F8F431 		str	r3, [r0, #500]
+ 109 0004 C0F89432 		str	r3, [r0, #660]
  110 0008 0023     		movs	r3, #0
  111 000a 1A46     		mov	r2, r3
  112 000c 1946     		mov	r1, r3
@@ -118,14 +118,14 @@ ARM GAS  /tmp/ccHJs0yG.s 			page 1
  122              		.thumb_func
  123              		.fpu softvfp
  125              	USBD_CtlReceiveStatus:
-ARM GAS  /tmp/ccHJs0yG.s 			page 3
+ARM GAS  /tmp/ccTFnAHb.s 			page 3
 
 
  126              		@ args = 0, pretend = 0, frame = 0
  127              		@ frame_needed = 0, uses_anonymous_args = 0
  128 0000 08B5     		push	{r3, lr}
  129 0002 0523     		movs	r3, #5
- 130 0004 C0F8F431 		str	r3, [r0, #500]
+ 130 0004 C0F89432 		str	r3, [r0, #660]
  131 0008 0023     		movs	r3, #0
  132 000a 1A46     		mov	r2, r3
  133 000c 1946     		mov	r1, r3
@@ -142,30 +142,28 @@ ARM GAS  /tmp/ccHJs0yG.s 			page 1
  146              	USBD_GetRxCount:
  147              		@ args = 0, pretend = 0, frame = 0
  148              		@ frame_needed = 0, uses_anonymous_args = 0
- 149 0000 08B5     		push	{r3, lr}
- 150 0002 FFF7FEFF 		bl	USBD_LL_GetRxDataSize
- 151 0006 80B2     		uxth	r0, r0
- 152 0008 08BD     		pop	{r3, pc}
- 154              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
-ARM GAS  /tmp/ccHJs0yG.s 			page 4
+ 149              		@ link register save eliminated.
+ 150 0000 FFF7FEBF 		b	USBD_LL_GetRxDataSize
+ 152              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
+ARM GAS  /tmp/ccTFnAHb.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 usbd_ioreq.c
-     /tmp/ccHJs0yG.s:13     .text.USBD_CtlSendData:0000000000000000 $t
-     /tmp/ccHJs0yG.s:20     .text.USBD_CtlSendData:0000000000000000 USBD_CtlSendData
-     /tmp/ccHJs0yG.s:36     .text.USBD_CtlContinueSendData:0000000000000000 $t
-     /tmp/ccHJs0yG.s:43     .text.USBD_CtlContinueSendData:0000000000000000 USBD_CtlContinueSendData
-     /tmp/ccHJs0yG.s:55     .text.USBD_CtlPrepareRx:0000000000000000 $t
-     /tmp/ccHJs0yG.s:62     .text.USBD_CtlPrepareRx:0000000000000000 USBD_CtlPrepareRx
-     /tmp/ccHJs0yG.s:78     .text.USBD_CtlContinueRx:0000000000000000 $t
-     /tmp/ccHJs0yG.s:85     .text.USBD_CtlContinueRx:0000000000000000 USBD_CtlContinueRx
-     /tmp/ccHJs0yG.s:97     .text.USBD_CtlSendStatus:0000000000000000 $t
-     /tmp/ccHJs0yG.s:104    .text.USBD_CtlSendStatus:0000000000000000 USBD_CtlSendStatus
-     /tmp/ccHJs0yG.s:118    .text.USBD_CtlReceiveStatus:0000000000000000 $t
-     /tmp/ccHJs0yG.s:125    .text.USBD_CtlReceiveStatus:0000000000000000 USBD_CtlReceiveStatus
-     /tmp/ccHJs0yG.s:139    .text.USBD_GetRxCount:0000000000000000 $t
-     /tmp/ccHJs0yG.s:146    .text.USBD_GetRxCount:0000000000000000 USBD_GetRxCount
+     /tmp/ccTFnAHb.s:13     .text.USBD_CtlSendData:0000000000000000 $t
+     /tmp/ccTFnAHb.s:20     .text.USBD_CtlSendData:0000000000000000 USBD_CtlSendData
+     /tmp/ccTFnAHb.s:36     .text.USBD_CtlContinueSendData:0000000000000000 $t
+     /tmp/ccTFnAHb.s:43     .text.USBD_CtlContinueSendData:0000000000000000 USBD_CtlContinueSendData
+     /tmp/ccTFnAHb.s:55     .text.USBD_CtlPrepareRx:0000000000000000 $t
+     /tmp/ccTFnAHb.s:62     .text.USBD_CtlPrepareRx:0000000000000000 USBD_CtlPrepareRx
+     /tmp/ccTFnAHb.s:78     .text.USBD_CtlContinueRx:0000000000000000 $t
+     /tmp/ccTFnAHb.s:85     .text.USBD_CtlContinueRx:0000000000000000 USBD_CtlContinueRx
+     /tmp/ccTFnAHb.s:97     .text.USBD_CtlSendStatus:0000000000000000 $t
+     /tmp/ccTFnAHb.s:104    .text.USBD_CtlSendStatus:0000000000000000 USBD_CtlSendStatus
+     /tmp/ccTFnAHb.s:118    .text.USBD_CtlReceiveStatus:0000000000000000 $t
+     /tmp/ccTFnAHb.s:125    .text.USBD_CtlReceiveStatus:0000000000000000 USBD_CtlReceiveStatus
+     /tmp/ccTFnAHb.s:139    .text.USBD_GetRxCount:0000000000000000 $t
+     /tmp/ccTFnAHb.s:146    .text.USBD_GetRxCount:0000000000000000 USBD_GetRxCount
 
 UNDEFINED SYMBOLS
 USBD_LL_Transmit

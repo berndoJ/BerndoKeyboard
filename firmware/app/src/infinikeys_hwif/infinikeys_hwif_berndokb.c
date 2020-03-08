@@ -7,6 +7,9 @@
 #include "sys_usart.h"
 #include "sys_pca9555.h"
 
+#include "sys_usb.h"
+#include "infinikeys_stm32cube_usb_hid.h"
+
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -66,38 +69,45 @@ static void _ikhwif_berndokb_usb_deinit(void)
 
 static IK_Status_t _ikhwif_berndokb_usb_transmitusb(IK_Buffer_t buf, uint8_t ep_addr)
 {
-    uint32_t i, c = 0;
-    char *vbuf, *cbuf;
-
-    vbuf = malloc(3 * 32 + 1);
-    cbuf = malloc(4);
-
-    IK_DEBUG_PrintMessage("USB Transmission to EP%i {\n", ep_addr);
-    for (i = 0; i < buf.Size; i++)
+    if (ep_addr == 1)
     {
-        sprintf(cbuf, "%02X ", buf.DataPtr[i]);
-        vbuf[c++] = cbuf[0];
-        vbuf[c++] = cbuf[1];
-        vbuf[c++] = cbuf[2];
+        IK_STM32CUBE_USBD_HID_SendReport(hw_usbd_handle, buf.DataPtr, buf.Size);
 
-        if (c == 3 * 32)
+        #if (0)
+        uint32_t i, c = 0;
+        char *vbuf, *cbuf;
+
+        vbuf = malloc(3 * 32 + 1);
+        cbuf = malloc(4);
+
+        IK_DEBUG_PrintMessage("USB Transmission to EP%i {\n", ep_addr);
+        for (i = 0; i < buf.Size; i++)
+        {
+            sprintf(cbuf, "%02X ", buf.DataPtr[i]);
+            vbuf[c++] = cbuf[0];
+            vbuf[c++] = cbuf[1];
+            vbuf[c++] = cbuf[2];
+
+            if (c == 3 * 32)
+            {
+                vbuf[c] = '\0';
+                IK_DEBUG_PrintMessage("%s\n", vbuf);
+                c = 0;
+            }
+        }
+
+        if (c != 0)
         {
             vbuf[c] = '\0';
             IK_DEBUG_PrintMessage("%s\n", vbuf);
-            c = 0;
         }
+
+        IK_DEBUG_PrintMessage("}\n");
+
+        free(cbuf);
+        free(vbuf);
+        #endif
     }
-
-    if (c != 0)
-    {
-        vbuf[c] = '\0';
-        IK_DEBUG_PrintMessage("%s\n", vbuf);
-    }
-
-    IK_DEBUG_PrintMessage("}\n");
-
-    free(cbuf);
-    free(vbuf);
 
     return IK_OK;
 }

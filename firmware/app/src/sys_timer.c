@@ -21,6 +21,8 @@ void SYS_Timer_Init(void)
     TIM_OC_InitTypeDef oc_cfg = {0};
     GPIO_InitTypeDef gpio = {0};
 
+    #if (__SYS_ENABLE_LIGHTING_DRIVER == 1)
+
     // Init Timer 2.
     hw_timer2_handle = &_hw_timer2_handle;
     hw_timer2_ch3_dma_handle = &_hw_timer2_ch3_dma_handle;
@@ -70,6 +72,8 @@ void SYS_Timer_Init(void)
     HAL_GPIO_Init(GPIO_LED_DATA_PORT, &gpio);
 
     hw_timer2_init_status = SYS_INIT_STATUS_INITIALISED;
+
+    #endif // (__SYS_ENABLE_LIGHTING_DRIVER == 1)
 }
 
 static void _SYS_Timer2_PWM_MspInit_Callback(TIM_HandleTypeDef *handle)

@@ -20,14 +20,11 @@
 #define IK_USB_DEFAULT_VID                          1155U
 #define IK_USB_DEFAULT_PID                          1024U
 
-#define IK_USB_HID_EPIN_SIZE                        0x08
-#define IK_USB_HID_EPIN_INTERVAL                    5U
-#define IK_USB_HID_EPOUT_SIZE                       0x08
-#define IK_USB_HID_EPOUT_INTERVAL                   5U
+#define IK_USB_HID_EPIN_SIZE                        0x40
+#define IK_USB_HID_EPIN_INTERVAL                    1U
+#define IK_USB_HID_EPOUT_SIZE                       0x40
+#define IK_USB_HID_EPOUT_INTERVAL                   1U
 #define IK_USB_HID_EP_NUM                           1U
-#define IK_USB_HID_KEY_ROLLOVER                     8U
-#define IK_USB_HID_REPORT_ID_KEYBOARD               0x01
-#define IK_USB_HID_REPORT_ID_DATA                   0x02
 
 #define IK_USB_STR_DESC_LANGID                      0x00
 #define IK_USB_STR_DESC_MFC                         0x01
@@ -59,6 +56,12 @@ typedef enum _IK_USB_HW_Descriptors
     IK_USB_HW_SERIAL_NUMBER_STRING_DESCRIPTOR
 } IK_USB_HW_Descriptors_t;
 
+typedef enum _IK_USB_HID_Report_Protocol
+{
+    IK_USB_HID_REPORT_PROTOCOL_BOOT,
+    IK_USB_HID_REPORT_PROTOCOL_NKRO
+} IK_USB_HID_Report_Protocol_t;
+
 /**
  * \brief Initialisation structure for providing initialisation info.
  */
@@ -85,6 +88,19 @@ IK_Status_t IK_USB_Init(IK_USB_Init_t *init_struct);
  * \return The return status of the function.
  */
 IK_Status_t IK_USB_DeInit(void);
+
+/**
+ * \brief Sets the current HID report protocol to the given protocol.
+ * \param protocol The new protocol that should be used for HID reports.
+ * \return The return status of the function.
+ */ 
+IK_Status_t IK_USB_SetHIDProtocol(IK_USB_HID_Report_Protocol_t protocol);
+
+/**
+ * \brief Retrieves the currently used HID keyboard report protocol.
+ * \return The enum value of the currently used HID report protocol.
+ */
+IK_USB_HID_Report_Protocol_t IK_USB_GetHIDProtocol(void);
 
 /**
  * \brief Transmits the given report (buffer) to the USB host as a HID-report

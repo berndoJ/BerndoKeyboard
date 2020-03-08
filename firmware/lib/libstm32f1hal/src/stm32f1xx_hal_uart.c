@@ -339,6 +339,7 @@ HAL_StatusTypeDef HAL_UART_Init(UART_HandleTypeDef *huart)
   {
     /* Allocate lock resource and initialize it */
     huart->Lock = HAL_UNLOCKED;
+
 #if (USE_HAL_UART_REGISTER_CALLBACKS == 1)
     UART_InitCallbacksToDefault(huart);
 

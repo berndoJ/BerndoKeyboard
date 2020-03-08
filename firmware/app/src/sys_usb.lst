@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccx2FAua.s 			page 1
+ARM GAS  /tmp/ccniWqH9.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccx2FAua.s 			page 1
   61              		.align	1
   62              		.syntax unified
   63              		.thumb
-ARM GAS  /tmp/ccx2FAua.s 			page 2
+ARM GAS  /tmp/ccniWqH9.s 			page 2
 
 
   64              		.thumb_func
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccx2FAua.s 			page 1
  123              		@ sp needed
  124 0014 10BD     		pop	{r4, pc}
  126              		.section	.text.GetDeviceDescriptor,"ax",%progbits
-ARM GAS  /tmp/ccx2FAua.s 			page 3
+ARM GAS  /tmp/ccniWqH9.s 			page 3
 
 
  127              		.align	1
@@ -151,259 +151,248 @@ ARM GAS  /tmp/ccx2FAua.s 			page 1
  157              		@ args = 0, pretend = 0, frame = 0
  158              		@ frame_needed = 0, uses_anonymous_args = 0
  159 0000 10B5     		push	{r4, lr}
- 160 0002 274C     		ldr	r4, .L30
+ 160 0002 264C     		ldr	r4, .L29
  161 0004 2068     		ldr	r0, [r4]
  162 0006 08B1     		cbz	r0, .L9
  163 0008 FFF7FEFF 		bl	free
  164              	.L9:
- 165 000c 4FF40970 		mov	r0, #548
+ 165 000c 4FF43170 		mov	r0, #708
  166 0010 FFF7FEFF 		bl	malloc
- 167 0014 2060     		str	r0, [r4]
- 168 0016 28B9     		cbnz	r0, .L10
- 169 0018 224B     		ldr	r3, .L30+4
- 170 001a 234A     		ldr	r2, .L30+8
- 171 001c 3721     		movs	r1, #55
- 172 001e 0220     		movs	r0, #2
- 173 0020 FFF7FEFF 		bl	SYS_ThrowError
- 174              	.L10:
- 175 0024 2148     		ldr	r0, .L30+12
- 176 0026 FFF7FEFF 		bl	CONSOLE_PrintLn
- 177 002a 0022     		movs	r2, #0
- 178 002c 2049     		ldr	r1, .L30+16
- 179 002e 2068     		ldr	r0, [r4]
- 180 0030 FFF7FEFF 		bl	USBD_Init
- 181 0034 28B1     		cbz	r0, .L11
- 182 0036 1F4B     		ldr	r3, .L30+20
- 183 0038 1B4A     		ldr	r2, .L30+8
- 184 003a 3C21     		movs	r1, #60
- 185 003c 0220     		movs	r0, #2
- 186 003e FFF7FEFF 		bl	SYS_ThrowError
-ARM GAS  /tmp/ccx2FAua.s 			page 4
+ 167 0014 4FF43172 		mov	r2, #708
+ 168 0018 0021     		movs	r1, #0
+ 169 001a 2060     		str	r0, [r4]
+ 170 001c FFF7FEFF 		bl	memset
+ 171 0020 1F48     		ldr	r0, .L29+4
+ 172 0022 FFF7FEFF 		bl	CONSOLE_PrintLn
+ 173 0026 0022     		movs	r2, #0
+ 174 0028 1E49     		ldr	r1, .L29+8
+ 175 002a 2068     		ldr	r0, [r4]
+ 176 002c FFF7FEFF 		bl	USBD_Init
+ 177 0030 28B1     		cbz	r0, .L10
+ 178 0032 1D4B     		ldr	r3, .L29+12
+ 179 0034 1D4A     		ldr	r2, .L29+16
+ 180 0036 4421     		movs	r1, #68
+ 181 0038 0220     		movs	r0, #2
+ 182 003a FFF7FEFF 		bl	SYS_ThrowError
+ 183              	.L10:
+ 184 003e 1C48     		ldr	r0, .L29+20
+ 185 0040 FFF7FEFF 		bl	CONSOLE_PrintLn
+ 186 0044 1B49     		ldr	r1, .L29+24
+ARM GAS  /tmp/ccniWqH9.s 			page 4
 
 
- 187              	.L11:
- 188 0042 1D48     		ldr	r0, .L30+24
- 189 0044 FFF7FEFF 		bl	CONSOLE_PrintLn
- 190 0048 1C49     		ldr	r1, .L30+28
- 191 004a 2068     		ldr	r0, [r4]
- 192 004c FFF7FEFF 		bl	USBD_RegisterClass
- 193 0050 28B1     		cbz	r0, .L12
- 194 0052 1B4B     		ldr	r3, .L30+32
- 195 0054 144A     		ldr	r2, .L30+8
- 196 0056 4121     		movs	r1, #65
- 197 0058 0220     		movs	r0, #2
- 198 005a FFF7FEFF 		bl	SYS_ThrowError
- 199              	.L12:
- 200 005e 1948     		ldr	r0, .L30+36
- 201 0060 FFF7FEFF 		bl	CONSOLE_PrintLn
- 202 0064 1849     		ldr	r1, .L30+40
- 203 0066 2068     		ldr	r0, [r4]
- 204 0068 FFF7FEFF 		bl	IK_STM32CUBE_USBD_HID_RegisterInterface
- 205 006c 28B1     		cbz	r0, .L13
- 206 006e 174B     		ldr	r3, .L30+44
- 207 0070 0D4A     		ldr	r2, .L30+8
- 208 0072 4621     		movs	r1, #70
- 209 0074 0220     		movs	r0, #2
- 210 0076 FFF7FEFF 		bl	SYS_ThrowError
- 211              	.L13:
- 212 007a 1548     		ldr	r0, .L30+48
- 213 007c FFF7FEFF 		bl	CONSOLE_PrintLn
- 214 0080 2068     		ldr	r0, [r4]
- 215 0082 FFF7FEFF 		bl	USBD_Start
- 216 0086 28B1     		cbz	r0, .L14
- 217 0088 124B     		ldr	r3, .L30+52
- 218 008a 074A     		ldr	r2, .L30+8
- 219 008c 4B21     		movs	r1, #75
- 220 008e 0220     		movs	r0, #2
- 221 0090 FFF7FEFF 		bl	SYS_ThrowError
- 222              	.L14:
- 223 0094 BDE81040 		pop	{r4, lr}
- 224 0098 0F48     		ldr	r0, .L30+56
- 225 009a FFF7FEBF 		b	CONSOLE_PrintLn
- 226              	.L31:
- 227 009e 00BF     		.align	2
- 228              	.L30:
- 229 00a0 00000000 		.word	.LANCHOR0
- 230 00a4 00000000 		.word	.LC0
- 231 00a8 1F000000 		.word	.LC1
- 232 00ac 2D000000 		.word	.LC2
- 233 00b0 00000000 		.word	.LANCHOR1
- 234 00b4 55000000 		.word	.LC3
- 235 00b8 67000000 		.word	.LC4
- 236 00bc 00000000 		.word	IK_HID_Class
- 237 00c0 8A000000 		.word	.LC5
- 238 00c4 AA000000 		.word	.LC6
- 239 00c8 00000000 		.word	IK_USBD_HID_Itf
- 240 00cc D6000000 		.word	.LC7
- 241 00d0 FA000000 		.word	.LC8
- 242 00d4 2A010000 		.word	.LC9
- 243 00d8 42010000 		.word	.LC10
-ARM GAS  /tmp/ccx2FAua.s 			page 5
+ 187 0046 2068     		ldr	r0, [r4]
+ 188 0048 FFF7FEFF 		bl	USBD_RegisterClass
+ 189 004c 28B1     		cbz	r0, .L11
+ 190 004e 1A4B     		ldr	r3, .L29+28
+ 191 0050 164A     		ldr	r2, .L29+16
+ 192 0052 4921     		movs	r1, #73
+ 193 0054 0220     		movs	r0, #2
+ 194 0056 FFF7FEFF 		bl	SYS_ThrowError
+ 195              	.L11:
+ 196 005a 1848     		ldr	r0, .L29+32
+ 197 005c FFF7FEFF 		bl	CONSOLE_PrintLn
+ 198 0060 1749     		ldr	r1, .L29+36
+ 199 0062 2068     		ldr	r0, [r4]
+ 200 0064 FFF7FEFF 		bl	IK_STM32CUBE_USBD_HID_RegisterInterface
+ 201 0068 28B1     		cbz	r0, .L12
+ 202 006a 164B     		ldr	r3, .L29+40
+ 203 006c 0F4A     		ldr	r2, .L29+16
+ 204 006e 4E21     		movs	r1, #78
+ 205 0070 0220     		movs	r0, #2
+ 206 0072 FFF7FEFF 		bl	SYS_ThrowError
+ 207              	.L12:
+ 208 0076 1448     		ldr	r0, .L29+44
+ 209 0078 FFF7FEFF 		bl	CONSOLE_PrintLn
+ 210 007c 2068     		ldr	r0, [r4]
+ 211 007e FFF7FEFF 		bl	USBD_Start
+ 212 0082 28B1     		cbz	r0, .L13
+ 213 0084 114B     		ldr	r3, .L29+48
+ 214 0086 094A     		ldr	r2, .L29+16
+ 215 0088 5321     		movs	r1, #83
+ 216 008a 0220     		movs	r0, #2
+ 217 008c FFF7FEFF 		bl	SYS_ThrowError
+ 218              	.L13:
+ 219 0090 BDE81040 		pop	{r4, lr}
+ 220 0094 0E48     		ldr	r0, .L29+52
+ 221 0096 FFF7FEBF 		b	CONSOLE_PrintLn
+ 222              	.L30:
+ 223 009a 00BF     		.align	2
+ 224              	.L29:
+ 225 009c 00000000 		.word	.LANCHOR0
+ 226 00a0 00000000 		.word	.LC0
+ 227 00a4 00000000 		.word	.LANCHOR1
+ 228 00a8 28000000 		.word	.LC1
+ 229 00ac 3A000000 		.word	.LC2
+ 230 00b0 48000000 		.word	.LC3
+ 231 00b4 00000000 		.word	IK_HID_Class
+ 232 00b8 6B000000 		.word	.LC4
+ 233 00bc 8B000000 		.word	.LC5
+ 234 00c0 00000000 		.word	IK_USBD_HID_Itf
+ 235 00c4 B7000000 		.word	.LC6
+ 236 00c8 DB000000 		.word	.LC7
+ 237 00cc 0B010000 		.word	.LC8
+ 238 00d0 23010000 		.word	.LC9
+ 240              		.section	.text.SYS_USB_DeInit,"ax",%progbits
+ 241              		.align	1
+ 242              		.global	SYS_USB_DeInit
+ 243              		.syntax unified
+ 244              		.thumb
+ARM GAS  /tmp/ccniWqH9.s 			page 5
 
 
- 245              		.section	.text.SYS_USB_DeInit,"ax",%progbits
- 246              		.align	1
- 247              		.global	SYS_USB_DeInit
- 248              		.syntax unified
- 249              		.thumb
- 250              		.thumb_func
- 251              		.fpu softvfp
- 253              	SYS_USB_DeInit:
- 254              		@ args = 0, pretend = 0, frame = 0
- 255              		@ frame_needed = 0, uses_anonymous_args = 0
- 256 0000 10B5     		push	{r4, lr}
- 257 0002 034C     		ldr	r4, .L33
- 258 0004 2068     		ldr	r0, [r4]
- 259 0006 FFF7FEFF 		bl	free
- 260 000a 0023     		movs	r3, #0
- 261 000c 2360     		str	r3, [r4]
- 262 000e 10BD     		pop	{r4, pc}
- 263              	.L34:
- 264              		.align	2
- 265              	.L33:
- 266 0010 00000000 		.word	.LANCHOR0
- 268              		.global	_IK_USB_DESCRIPTOR_DEV_QUALIF
- 269              		.global	hw_usbd_handle
- 270              		.section	.bss.hw_usbd_handle,"aw",%nobits
- 271              		.align	2
- 272              		.set	.LANCHOR0,. + 0
- 275              	hw_usbd_handle:
- 276 0000 00000000 		.space	4
- 277              		.section	.data._IK_USB_DESCRIPTOR_DEV_QUALIF,"aw",%progbits
- 280              	_IK_USB_DESCRIPTOR_DEV_QUALIF:
- 281 0000 0A       		.byte	10
- 282 0001 06       		.byte	6
- 283 0002 00       		.byte	0
- 284 0003 02       		.byte	2
- 285 0004 00       		.byte	0
- 286 0005 00       		.byte	0
- 287 0006 00       		.byte	0
- 288 0007 40       		.byte	64
- 289 0008 01       		.byte	1
- 290 0009 00       		.byte	0
- 291              		.section	.data._usbd_desc,"aw",%progbits
- 292              		.align	2
- 293              		.set	.LANCHOR1,. + 0
- 296              	_usbd_desc:
- 297 0000 00000000 		.word	GetDeviceDescriptor
- 298 0004 00000000 		.word	GetLangIDStrDescriptor
- 299 0008 00000000 		.word	GetManufacturerStrDescriptor
- 300 000c 00000000 		.word	GetProductStrDescriptor
- 301 0010 00000000 		.word	GetSerialStrDescriptor
- 302 0014 00000000 		.word	GetConfigurationStrDescriptor
- 303 0018 00000000 		.word	GetInterfaceStrDescriptor
- 304              		.section	.rodata.SYS_USB_Init.str1.1,"aMS",%progbits,1
- 305              	.LC0:
- 306 0000 55534244 		.ascii	"USBD-handle allocation failed.\000"
- 306      2D68616E 
- 306      646C6520 
- 306      616C6C6F 
-ARM GAS  /tmp/ccx2FAua.s 			page 6
+ 245              		.thumb_func
+ 246              		.fpu softvfp
+ 248              	SYS_USB_DeInit:
+ 249              		@ args = 0, pretend = 0, frame = 0
+ 250              		@ frame_needed = 0, uses_anonymous_args = 0
+ 251 0000 10B5     		push	{r4, lr}
+ 252 0002 034C     		ldr	r4, .L32
+ 253 0004 2068     		ldr	r0, [r4]
+ 254 0006 FFF7FEFF 		bl	free
+ 255 000a 0023     		movs	r3, #0
+ 256 000c 2360     		str	r3, [r4]
+ 257 000e 10BD     		pop	{r4, pc}
+ 258              	.L33:
+ 259              		.align	2
+ 260              	.L32:
+ 261 0010 00000000 		.word	.LANCHOR0
+ 263              		.global	_IK_USB_DESCRIPTOR_DEV_QUALIF
+ 264              		.global	hw_usbd_handle
+ 265              		.section	.bss.hw_usbd_handle,"aw",%nobits
+ 266              		.align	2
+ 267              		.set	.LANCHOR0,. + 0
+ 270              	hw_usbd_handle:
+ 271 0000 00000000 		.space	4
+ 272              		.section	.data._IK_USB_DESCRIPTOR_DEV_QUALIF,"aw",%progbits
+ 273              		.align	2
+ 276              	_IK_USB_DESCRIPTOR_DEV_QUALIF:
+ 277 0000 0A       		.byte	10
+ 278 0001 06       		.byte	6
+ 279 0002 00       		.byte	0
+ 280 0003 02       		.byte	2
+ 281 0004 00       		.byte	0
+ 282 0005 00       		.byte	0
+ 283 0006 00       		.byte	0
+ 284 0007 40       		.byte	64
+ 285 0008 01       		.byte	1
+ 286 0009 00       		.byte	0
+ 287              		.section	.data._usbd_desc,"aw",%progbits
+ 288              		.align	2
+ 289              		.set	.LANCHOR1,. + 0
+ 292              	_usbd_desc:
+ 293 0000 00000000 		.word	GetDeviceDescriptor
+ 294 0004 00000000 		.word	GetLangIDStrDescriptor
+ 295 0008 00000000 		.word	GetManufacturerStrDescriptor
+ 296 000c 00000000 		.word	GetProductStrDescriptor
+ 297 0010 00000000 		.word	GetSerialStrDescriptor
+ 298 0014 00000000 		.word	GetConfigurationStrDescriptor
+ 299 0018 00000000 		.word	GetInterfaceStrDescriptor
+ 300              		.section	.rodata.SYS_USB_Init.str1.1,"aMS",%progbits,1
+ 301              	.LC0:
+ 302 0000 5B535953 		.ascii	"[SYS-USB] Allocated USBD-handle memory.\000"
+ 302      2D555342 
+ 302      5D20416C 
+ 302      6C6F6361 
+ 302      74656420 
+ 303              	.LC1:
+ 304 0028 55534244 		.ascii	"USBD-init failed.\000"
+ 304      2D696E69 
+ARM GAS  /tmp/ccniWqH9.s 			page 6
 
 
- 306      63617469 
- 307              	.LC1:
- 308 001f 7372632F 		.ascii	"src/sys_usb.c\000"
- 308      7379735F 
- 308      7573622E 
- 308      6300
- 309              	.LC2:
- 310 002d 5B535953 		.ascii	"[SYS-USB] Allocated USBD-handle memory.\000"
- 310      2D555342 
- 310      5D20416C 
- 310      6C6F6361 
- 310      74656420 
- 311              	.LC3:
- 312 0055 55534244 		.ascii	"USBD-init failed.\000"
- 312      2D696E69 
- 312      74206661 
- 312      696C6564 
- 312      2E00
- 313              	.LC4:
- 314 0067 5B535953 		.ascii	"[SYS-USB] Initialised USBD handle.\000"
- 314      2D555342 
- 314      5D20496E 
- 314      69746961 
- 314      6C697365 
- 315              	.LC5:
- 316 008a 55534244 		.ascii	"USBD class registration failed.\000"
- 316      20636C61 
- 316      73732072 
- 316      65676973 
- 316      74726174 
- 317              	.LC6:
- 318 00aa 5B535953 		.ascii	"[SYS-USB] Registered InfiniKeys USBD class.\000"
- 318      2D555342 
- 318      5D205265 
- 318      67697374 
- 318      65726564 
- 319              	.LC7:
- 320 00d6 55534244 		.ascii	"USBD interface registration failed.\000"
- 320      20696E74 
- 320      65726661 
- 320      63652072 
- 320      65676973 
- 321              	.LC8:
- 322 00fa 5B535953 		.ascii	"[SYS-USB] Registered InfiniKeys USBD interface.\000"
- 322      2D555342 
- 322      5D205265 
- 322      67697374 
- 322      65726564 
- 323              	.LC9:
- 324 012a 55534244 		.ascii	"USBD port-start failed.\000"
- 324      20706F72 
- 324      742D7374 
- 324      61727420 
- 324      6661696C 
- 325              	.LC10:
- 326 0142 5B535953 		.ascii	"[SYS-USB] Initialised USBD. Started USB connection."
- 326      2D555342 
-ARM GAS  /tmp/ccx2FAua.s 			page 7
-
-
- 326      5D20496E 
- 326      69746961 
- 326      6C697365 
- 327 0175 00       		.ascii	"\000"
- 328              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
-ARM GAS  /tmp/ccx2FAua.s 			page 8
+ 304      74206661 
+ 304      696C6564 
+ 304      2E00
+ 305              	.LC2:
+ 306 003a 7372632F 		.ascii	"src/sys_usb.c\000"
+ 306      7379735F 
+ 306      7573622E 
+ 306      6300
+ 307              	.LC3:
+ 308 0048 5B535953 		.ascii	"[SYS-USB] Initialised USBD handle.\000"
+ 308      2D555342 
+ 308      5D20496E 
+ 308      69746961 
+ 308      6C697365 
+ 309              	.LC4:
+ 310 006b 55534244 		.ascii	"USBD class registration failed.\000"
+ 310      20636C61 
+ 310      73732072 
+ 310      65676973 
+ 310      74726174 
+ 311              	.LC5:
+ 312 008b 5B535953 		.ascii	"[SYS-USB] Registered InfiniKeys USBD class.\000"
+ 312      2D555342 
+ 312      5D205265 
+ 312      67697374 
+ 312      65726564 
+ 313              	.LC6:
+ 314 00b7 55534244 		.ascii	"USBD interface registration failed.\000"
+ 314      20696E74 
+ 314      65726661 
+ 314      63652072 
+ 314      65676973 
+ 315              	.LC7:
+ 316 00db 5B535953 		.ascii	"[SYS-USB] Registered InfiniKeys USBD interface.\000"
+ 316      2D555342 
+ 316      5D205265 
+ 316      67697374 
+ 316      65726564 
+ 317              	.LC8:
+ 318 010b 55534244 		.ascii	"USBD port-start failed.\000"
+ 318      20706F72 
+ 318      742D7374 
+ 318      61727420 
+ 318      6661696C 
+ 319              	.LC9:
+ 320 0123 5B535953 		.ascii	"[SYS-USB] Initialised USBD. Started USB connection."
+ 320      2D555342 
+ 320      5D20496E 
+ 320      69746961 
+ 320      6C697365 
+ 321 0156 00       		.ascii	"\000"
+ 322              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
+ARM GAS  /tmp/ccniWqH9.s 			page 7
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 sys_usb.c
-     /tmp/ccx2FAua.s:13     .text.GetInterfaceStrDescriptor:0000000000000000 $t
-     /tmp/ccx2FAua.s:19     .text.GetInterfaceStrDescriptor:0000000000000000 GetInterfaceStrDescriptor
-     /tmp/ccx2FAua.s:35     .text.GetConfigurationStrDescriptor:0000000000000000 $t
-     /tmp/ccx2FAua.s:41     .text.GetConfigurationStrDescriptor:0000000000000000 GetConfigurationStrDescriptor
-     /tmp/ccx2FAua.s:48     .text.GetSerialStrDescriptor:0000000000000000 $t
-     /tmp/ccx2FAua.s:54     .text.GetSerialStrDescriptor:0000000000000000 GetSerialStrDescriptor
-     /tmp/ccx2FAua.s:61     .text.GetProductStrDescriptor:0000000000000000 $t
-     /tmp/ccx2FAua.s:67     .text.GetProductStrDescriptor:0000000000000000 GetProductStrDescriptor
-     /tmp/ccx2FAua.s:83     .text.GetManufacturerStrDescriptor:0000000000000000 $t
-     /tmp/ccx2FAua.s:89     .text.GetManufacturerStrDescriptor:0000000000000000 GetManufacturerStrDescriptor
-     /tmp/ccx2FAua.s:105    .text.GetLangIDStrDescriptor:0000000000000000 $t
-     /tmp/ccx2FAua.s:111    .text.GetLangIDStrDescriptor:0000000000000000 GetLangIDStrDescriptor
-     /tmp/ccx2FAua.s:127    .text.GetDeviceDescriptor:0000000000000000 $t
-     /tmp/ccx2FAua.s:133    .text.GetDeviceDescriptor:0000000000000000 GetDeviceDescriptor
-     /tmp/ccx2FAua.s:149    .text.SYS_USB_Init:0000000000000000 $t
-     /tmp/ccx2FAua.s:156    .text.SYS_USB_Init:0000000000000000 SYS_USB_Init
-     /tmp/ccx2FAua.s:229    .text.SYS_USB_Init:00000000000000a0 $d
-     /tmp/ccx2FAua.s:246    .text.SYS_USB_DeInit:0000000000000000 $t
-     /tmp/ccx2FAua.s:253    .text.SYS_USB_DeInit:0000000000000000 SYS_USB_DeInit
-     /tmp/ccx2FAua.s:266    .text.SYS_USB_DeInit:0000000000000010 $d
-     /tmp/ccx2FAua.s:280    .data._IK_USB_DESCRIPTOR_DEV_QUALIF:0000000000000000 _IK_USB_DESCRIPTOR_DEV_QUALIF
-     /tmp/ccx2FAua.s:275    .bss.hw_usbd_handle:0000000000000000 hw_usbd_handle
-     /tmp/ccx2FAua.s:271    .bss.hw_usbd_handle:0000000000000000 $d
-     /tmp/ccx2FAua.s:292    .data._usbd_desc:0000000000000000 $d
-     /tmp/ccx2FAua.s:296    .data._usbd_desc:0000000000000000 _usbd_desc
+     /tmp/ccniWqH9.s:13     .text.GetInterfaceStrDescriptor:0000000000000000 $t
+     /tmp/ccniWqH9.s:19     .text.GetInterfaceStrDescriptor:0000000000000000 GetInterfaceStrDescriptor
+     /tmp/ccniWqH9.s:35     .text.GetConfigurationStrDescriptor:0000000000000000 $t
+     /tmp/ccniWqH9.s:41     .text.GetConfigurationStrDescriptor:0000000000000000 GetConfigurationStrDescriptor
+     /tmp/ccniWqH9.s:48     .text.GetSerialStrDescriptor:0000000000000000 $t
+     /tmp/ccniWqH9.s:54     .text.GetSerialStrDescriptor:0000000000000000 GetSerialStrDescriptor
+     /tmp/ccniWqH9.s:61     .text.GetProductStrDescriptor:0000000000000000 $t
+     /tmp/ccniWqH9.s:67     .text.GetProductStrDescriptor:0000000000000000 GetProductStrDescriptor
+     /tmp/ccniWqH9.s:83     .text.GetManufacturerStrDescriptor:0000000000000000 $t
+     /tmp/ccniWqH9.s:89     .text.GetManufacturerStrDescriptor:0000000000000000 GetManufacturerStrDescriptor
+     /tmp/ccniWqH9.s:105    .text.GetLangIDStrDescriptor:0000000000000000 $t
+     /tmp/ccniWqH9.s:111    .text.GetLangIDStrDescriptor:0000000000000000 GetLangIDStrDescriptor
+     /tmp/ccniWqH9.s:127    .text.GetDeviceDescriptor:0000000000000000 $t
+     /tmp/ccniWqH9.s:133    .text.GetDeviceDescriptor:0000000000000000 GetDeviceDescriptor
+     /tmp/ccniWqH9.s:149    .text.SYS_USB_Init:0000000000000000 $t
+     /tmp/ccniWqH9.s:156    .text.SYS_USB_Init:0000000000000000 SYS_USB_Init
+     /tmp/ccniWqH9.s:225    .text.SYS_USB_Init:000000000000009c $d
+     /tmp/ccniWqH9.s:241    .text.SYS_USB_DeInit:0000000000000000 $t
+     /tmp/ccniWqH9.s:248    .text.SYS_USB_DeInit:0000000000000000 SYS_USB_DeInit
+     /tmp/ccniWqH9.s:261    .text.SYS_USB_DeInit:0000000000000010 $d
+     /tmp/ccniWqH9.s:276    .data._IK_USB_DESCRIPTOR_DEV_QUALIF:0000000000000000 _IK_USB_DESCRIPTOR_DEV_QUALIF
+     /tmp/ccniWqH9.s:270    .bss.hw_usbd_handle:0000000000000000 hw_usbd_handle
+     /tmp/ccniWqH9.s:266    .bss.hw_usbd_handle:0000000000000000 $d
+     /tmp/ccniWqH9.s:273    .data._IK_USB_DESCRIPTOR_DEV_QUALIF:0000000000000000 $d
+     /tmp/ccniWqH9.s:288    .data._usbd_desc:0000000000000000 $d
+     /tmp/ccniWqH9.s:292    .data._usbd_desc:0000000000000000 _usbd_desc
 
 UNDEFINED SYMBOLS
 IK_USB_HW_GetUSBDescriptor
 free
 malloc
-SYS_ThrowError
+memset
 CONSOLE_PrintLn
 USBD_Init
+SYS_ThrowError
 USBD_RegisterClass
 IK_STM32CUBE_USBD_HID_RegisterInterface
 USBD_Start

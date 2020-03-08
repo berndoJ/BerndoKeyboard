@@ -12,6 +12,22 @@
 #define __SYS_DEF_H
 
 /**
+ * \defgroup ModulesActived Activated firmware modules.
+ * @{
+ */
+
+#define __SYS_ENABLE_LIGHTING_DRIVER        1
+#define __SYS_ENABLE_USB_DRIVER             1
+#define __SYS_ENABLE_PORTEX_DRIVER          1
+#define __SYS_ENABLE_INFINIKEYS             1
+
+/**@}*/
+
+#if (__SYS_ENABLE_INFINIKEYS == 1 && __SYS_ENABLE_PORTEX_DRIVER != 1)
+#error Infinikeys requires the PCA9555 port-expander driver to function.
+#endif
+
+/**
  * \brief Represents the intialisation status of some kind of structure.
  */
 typedef enum

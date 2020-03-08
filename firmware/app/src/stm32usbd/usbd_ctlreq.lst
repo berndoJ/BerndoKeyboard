@@ -1,0 +1,677 @@
+ARM GAS  /tmp/ccWdQrWI.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 4
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"usbd_ctlreq.c"
+  12              		.section	.text.USBD_CtlError.constprop.1,"ax",%progbits
+  13              		.align	1
+  14              		.syntax unified
+  15              		.thumb
+  16              		.thumb_func
+  17              		.fpu softvfp
+  19              	USBD_CtlError.constprop.1:
+  20              		@ args = 0, pretend = 0, frame = 0
+  21              		@ frame_needed = 0, uses_anonymous_args = 0
+  22 0000 10B5     		push	{r4, lr}
+  23 0002 0446     		mov	r4, r0
+  24 0004 8021     		movs	r1, #128
+  25 0006 FFF7FEFF 		bl	USBD_LL_StallEP
+  26 000a 2046     		mov	r0, r4
+  27 000c BDE81040 		pop	{r4, lr}
+  28 0010 0021     		movs	r1, #0
+  29 0012 FFF7FEBF 		b	USBD_LL_StallEP
+  31              		.section	.text.USBD_StdDevReq,"ax",%progbits
+  32              		.align	1
+  33              		.global	USBD_StdDevReq
+  34              		.syntax unified
+  35              		.thumb
+  36              		.thumb_func
+  37              		.fpu softvfp
+  39              	USBD_StdDevReq:
+  40              		@ args = 0, pretend = 0, frame = 8
+  41              		@ frame_needed = 0, uses_anonymous_args = 0
+  42 0000 37B5     		push	{r0, r1, r2, r4, r5, lr}
+  43 0002 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+  44 0004 0446     		mov	r4, r0
+  45 0006 03F06003 		and	r3, r3, #96
+  46 000a 202B     		cmp	r3, #32
+  47 000c 0D46     		mov	r5, r1
+  48 000e 12D0     		beq	.L4
+  49 0010 402B     		cmp	r3, #64
+  50 0012 10D0     		beq	.L4
+  51 0014 002B     		cmp	r3, #0
+  52 0016 5CD1     		bne	.L96
+  53 0018 4B78     		ldrb	r3, [r1, #1]	@ zero_extendqisi2
+  54 001a 092B     		cmp	r3, #9
+  55 001c 58D8     		bhi	.L7
+  56 001e DFE813F0 		tbh	[pc, r3, lsl #1]
+  57              	.L9:
+  58 0022 E900     		.2byte	(.L8-.L9)/2
+  59 0024 0501     		.2byte	(.L10-.L9)/2
+  60 0026 5700     		.2byte	(.L7-.L9)/2
+ARM GAS  /tmp/ccWdQrWI.s 			page 2
+
+
+  61 0028 FE00     		.2byte	(.L11-.L9)/2
+  62 002a 5700     		.2byte	(.L7-.L9)/2
+  63 002c 8400     		.2byte	(.L12-.L9)/2
+  64 002e 1300     		.2byte	(.L13-.L9)/2
+  65 0030 5700     		.2byte	(.L7-.L9)/2
+  66 0032 D200     		.2byte	(.L14-.L9)/2
+  67 0034 A000     		.2byte	(.L15-.L9)/2
+  68              		.p2align 1
+  69              	.L4:
+  70 0036 D4F8B432 		ldr	r3, [r4, #692]
+  71 003a 2946     		mov	r1, r5
+  72 003c 9B68     		ldr	r3, [r3, #8]
+  73 003e 2046     		mov	r0, r4
+  74 0040 9847     		blx	r3
+  75              	.L81:
+  76 0042 0020     		movs	r0, #0
+  77 0044 03B0     		add	sp, sp, #12
+  78              		@ sp needed
+  79 0046 30BD     		pop	{r4, r5, pc}
+  80              	.L13:
+  81 0048 0023     		movs	r3, #0
+  82 004a ADF80630 		strh	r3, [sp, #6]	@ movhi
+  83 004e 4B88     		ldrh	r3, [r1, #2]
+  84 0050 1A0A     		lsrs	r2, r3, #8
+  85 0052 013A     		subs	r2, r2, #1
+  86 0054 062A     		cmp	r2, #6
+  87 0056 3BD8     		bhi	.L7
+  88 0058 DFE802F0 		tbb	[pc, r2]
+  89              	.L18:
+  90 005c 04       		.byte	(.L17-.L18)/2
+  91 005d 20       		.byte	(.L19-.L18)/2
+  92 005e 2D       		.byte	(.L20-.L18)/2
+  93 005f 3A       		.byte	(.L7-.L18)/2
+  94 0060 3A       		.byte	(.L7-.L18)/2
+  95 0061 52       		.byte	(.L21-.L18)/2
+  96 0062 5C       		.byte	(.L22-.L18)/2
+  97 0063 00       		.p2align 1
+  98              	.L17:
+  99 0064 D0F8B032 		ldr	r3, [r0, #688]
+ 100 0068 1B68     		ldr	r3, [r3]
+ 101              	.L99:
+ 102 006a 0DF10601 		add	r1, sp, #6
+ 103 006e 207C     		ldrb	r0, [r4, #16]	@ zero_extendqisi2
+ 104 0070 9847     		blx	r3
+ 105              	.L23:
+ 106 0072 BDF80620 		ldrh	r2, [sp, #6]
+ 107 0076 52B1     		cbz	r2, .L35
+ 108 0078 EB88     		ldrh	r3, [r5, #6]
+ 109 007a 43B1     		cbz	r3, .L35
+ 110 007c 9A42     		cmp	r2, r3
+ 111 007e 28BF     		it	cs
+ 112 0080 1A46     		movcs	r2, r3
+ 113 0082 0146     		mov	r1, r0
+ 114 0084 2046     		mov	r0, r4
+ 115 0086 ADF80620 		strh	r2, [sp, #6]	@ movhi
+ 116 008a FFF7FEFF 		bl	USBD_CtlSendData
+ 117              	.L35:
+ARM GAS  /tmp/ccWdQrWI.s 			page 3
+
+
+ 118 008e EB88     		ldrh	r3, [r5, #6]
+ 119 0090 002B     		cmp	r3, #0
+ 120 0092 D6D1     		bne	.L81
+ 121              	.L102:
+ 122 0094 2046     		mov	r0, r4
+ 123 0096 FFF7FEFF 		bl	USBD_CtlSendStatus
+ 124 009a D2E7     		b	.L81
+ 125              	.L19:
+ 126 009c 027C     		ldrb	r2, [r0, #16]	@ zero_extendqisi2
+ 127 009e D0F8B432 		ldr	r3, [r0, #692]
+ 128 00a2 32B9     		cbnz	r2, .L24
+ 129 00a4 9B6A     		ldr	r3, [r3, #40]
+ 130              	.L111:
+ 131 00a6 0DF10600 		add	r0, sp, #6
+ 132 00aa 9847     		blx	r3
+ 133 00ac 0223     		movs	r3, #2
+ 134              	.L100:
+ 135 00ae 4370     		strb	r3, [r0, #1]
+ 136 00b0 DFE7     		b	.L23
+ 137              	.L24:
+ 138 00b2 DB6A     		ldr	r3, [r3, #44]
+ 139 00b4 F7E7     		b	.L111
+ 140              	.L20:
+ 141 00b6 DBB2     		uxtb	r3, r3
+ 142 00b8 052B     		cmp	r3, #5
+ 143 00ba 09D8     		bhi	.L7
+ 144 00bc DFE803F0 		tbb	[pc, r3]
+ 145              	.L27:
+ 146 00c0 03       		.byte	(.L26-.L27)/2
+ 147 00c1 0C       		.byte	(.L28-.L27)/2
+ 148 00c2 10       		.byte	(.L29-.L27)/2
+ 149 00c3 14       		.byte	(.L30-.L27)/2
+ 150 00c4 18       		.byte	(.L31-.L27)/2
+ 151 00c5 1C       		.byte	(.L32-.L27)/2
+ 152              		.p2align 1
+ 153              	.L26:
+ 154 00c6 D0F8B032 		ldr	r3, [r0, #688]
+ 155 00ca 5B68     		ldr	r3, [r3, #4]
+ 156              	.L106:
+ 157 00cc 002B     		cmp	r3, #0
+ 158 00ce CCD1     		bne	.L99
+ 159              	.L7:
+ 160 00d0 2046     		mov	r0, r4
+ 161              	.L96:
+ 162 00d2 FFF7FEFF 		bl	USBD_CtlError.constprop.1
+ 163 00d6 B4E7     		b	.L81
+ 164              	.L28:
+ 165 00d8 D0F8B032 		ldr	r3, [r0, #688]
+ 166 00dc 9B68     		ldr	r3, [r3, #8]
+ 167 00de F5E7     		b	.L106
+ 168              	.L29:
+ 169 00e0 D0F8B032 		ldr	r3, [r0, #688]
+ 170 00e4 DB68     		ldr	r3, [r3, #12]
+ 171 00e6 F1E7     		b	.L106
+ 172              	.L30:
+ 173 00e8 D0F8B032 		ldr	r3, [r0, #688]
+ 174 00ec 1B69     		ldr	r3, [r3, #16]
+ARM GAS  /tmp/ccWdQrWI.s 			page 4
+
+
+ 175 00ee EDE7     		b	.L106
+ 176              	.L31:
+ 177 00f0 D0F8B032 		ldr	r3, [r0, #688]
+ 178 00f4 5B69     		ldr	r3, [r3, #20]
+ 179 00f6 E9E7     		b	.L106
+ 180              	.L32:
+ 181 00f8 D0F8B032 		ldr	r3, [r0, #688]
+ 182 00fc 9B69     		ldr	r3, [r3, #24]
+ 183 00fe E5E7     		b	.L106
+ 184              	.L21:
+ 185 0100 037C     		ldrb	r3, [r0, #16]	@ zero_extendqisi2
+ 186 0102 002B     		cmp	r3, #0
+ 187 0104 E4D1     		bne	.L7
+ 188 0106 D0F8B432 		ldr	r3, [r0, #692]
+ 189 010a 0DF10600 		add	r0, sp, #6
+ 190 010e 5B6B     		ldr	r3, [r3, #52]
+ 191 0110 9847     		blx	r3
+ 192 0112 AEE7     		b	.L23
+ 193              	.L22:
+ 194 0114 037C     		ldrb	r3, [r0, #16]	@ zero_extendqisi2
+ 195 0116 002B     		cmp	r3, #0
+ 196 0118 DAD1     		bne	.L7
+ 197 011a D0F8B432 		ldr	r3, [r0, #692]
+ 198 011e 0DF10600 		add	r0, sp, #6
+ 199 0122 1B6B     		ldr	r3, [r3, #48]
+ 200 0124 9847     		blx	r3
+ 201 0126 0723     		movs	r3, #7
+ 202 0128 C1E7     		b	.L100
+ 203              	.L12:
+ 204 012a 8B88     		ldrh	r3, [r1, #4]
+ 205 012c 002B     		cmp	r3, #0
+ 206 012e CFD1     		bne	.L7
+ 207 0130 CB88     		ldrh	r3, [r1, #6]
+ 208 0132 002B     		cmp	r3, #0
+ 209 0134 CCD1     		bne	.L7
+ 210 0136 4D88     		ldrh	r5, [r1, #2]
+ 211 0138 7F2D     		cmp	r5, #127
+ 212 013a C9D8     		bhi	.L7
+ 213 013c 90F89C32 		ldrb	r3, [r0, #668]	@ zero_extendqisi2
+ 214 0140 E9B2     		uxtb	r1, r5
+ 215 0142 032B     		cmp	r3, #3
+ 216 0144 C4D0     		beq	.L7
+ 217 0146 80F89E12 		strb	r1, [r0, #670]
+ 218 014a FFF7FEFF 		bl	USBD_LL_SetUSBAddress
+ 219 014e 2046     		mov	r0, r4
+ 220 0150 FFF7FEFF 		bl	USBD_CtlSendStatus
+ 221 0154 1DB1     		cbz	r5, .L38
+ 222 0156 0223     		movs	r3, #2
+ 223              	.L104:
+ 224 0158 84F89C32 		strb	r3, [r4, #668]
+ 225 015c 71E7     		b	.L81
+ 226              	.L38:
+ 227 015e 0123     		movs	r3, #1
+ 228 0160 FAE7     		b	.L104
+ 229              	.L15:
+ 230 0162 8978     		ldrb	r1, [r1, #2]	@ zero_extendqisi2
+ 231 0164 374D     		ldr	r5, .L112
+ARM GAS  /tmp/ccWdQrWI.s 			page 5
+
+
+ 232 0166 0129     		cmp	r1, #1
+ 233 0168 2970     		strb	r1, [r5]
+ 234 016a B1D8     		bhi	.L7
+ 235 016c 90F89C32 		ldrb	r3, [r0, #668]	@ zero_extendqisi2
+ 236 0170 022B     		cmp	r3, #2
+ 237 0172 08D0     		beq	.L40
+ 238 0174 032B     		cmp	r3, #3
+ 239 0176 14D0     		beq	.L41
+ 240 0178 FFF7FEFF 		bl	USBD_CtlError.constprop.1
+ 241 017c 2978     		ldrb	r1, [r5]	@ zero_extendqisi2
+ 242 017e 2046     		mov	r0, r4
+ 243 0180 FFF7FEFF 		bl	USBD_ClrClassConfig
+ 244 0184 5DE7     		b	.L81
+ 245              	.L40:
+ 246 0186 0029     		cmp	r1, #0
+ 247 0188 84D0     		beq	.L102
+ 248 018a 0121     		movs	r1, #1
+ 249 018c 0323     		movs	r3, #3
+ 250 018e 4160     		str	r1, [r0, #4]
+ 251 0190 80F89C32 		strb	r3, [r0, #668]
+ 252              	.L98:
+ 253 0194 2046     		mov	r0, r4
+ 254 0196 FFF7FEFF 		bl	USBD_SetClassConfig
+ 255 019a 0228     		cmp	r0, #2
+ 256 019c 7FF47AAF 		bne	.L102
+ 257 01a0 96E7     		b	.L7
+ 258              	.L41:
+ 259 01a2 31B9     		cbnz	r1, .L43
+ 260 01a4 0223     		movs	r3, #2
+ 261 01a6 4160     		str	r1, [r0, #4]
+ 262 01a8 80F89C32 		strb	r3, [r0, #668]
+ 263 01ac FFF7FEFF 		bl	USBD_ClrClassConfig
+ 264 01b0 70E7     		b	.L102
+ 265              	.L43:
+ 266 01b2 4168     		ldr	r1, [r0, #4]
+ 267 01b4 0129     		cmp	r1, #1
+ 268 01b6 3FF46DAF 		beq	.L102
+ 269 01ba C9B2     		uxtb	r1, r1
+ 270 01bc FFF7FEFF 		bl	USBD_ClrClassConfig
+ 271 01c0 2978     		ldrb	r1, [r5]	@ zero_extendqisi2
+ 272 01c2 6160     		str	r1, [r4, #4]
+ 273 01c4 E6E7     		b	.L98
+ 274              	.L14:
+ 275 01c6 CA88     		ldrh	r2, [r1, #6]
+ 276 01c8 012A     		cmp	r2, #1
+ 277 01ca 81D1     		bne	.L7
+ 278 01cc 90F89C32 		ldrb	r3, [r0, #668]	@ zero_extendqisi2
+ 279 01d0 002B     		cmp	r3, #0
+ 280 01d2 3FF47DAF 		beq	.L7
+ 281 01d6 022B     		cmp	r3, #2
+ 282 01d8 04D9     		bls	.L45
+ 283 01da 032B     		cmp	r3, #3
+ 284 01dc 7FF478AF 		bne	.L7
+ 285 01e0 011D     		adds	r1, r0, #4
+ 286 01e2 03E0     		b	.L103
+ 287              	.L45:
+ 288 01e4 0146     		mov	r1, r0
+ARM GAS  /tmp/ccWdQrWI.s 			page 6
+
+
+ 289 01e6 0023     		movs	r3, #0
+ 290 01e8 41F8083F 		str	r3, [r1, #8]!
+ 291              	.L103:
+ 292 01ec 2046     		mov	r0, r4
+ 293 01ee FFF7FEFF 		bl	USBD_CtlSendData
+ 294 01f2 26E7     		b	.L81
+ 295              	.L8:
+ 296 01f4 90F89C32 		ldrb	r3, [r0, #668]	@ zero_extendqisi2
+ 297 01f8 013B     		subs	r3, r3, #1
+ 298 01fa 022B     		cmp	r3, #2
+ 299 01fc 3FF668AF 		bhi	.L7
+ 300 0200 CB88     		ldrh	r3, [r1, #6]
+ 301 0202 022B     		cmp	r3, #2
+ 302 0204 7FF464AF 		bne	.L7
+ 303 0208 0123     		movs	r3, #1
+ 304 020a C360     		str	r3, [r0, #12]
+ 305 020c D0F8A432 		ldr	r3, [r0, #676]
+ 306 0210 0BB1     		cbz	r3, .L49
+ 307 0212 0323     		movs	r3, #3
+ 308 0214 C360     		str	r3, [r0, #12]
+ 309              	.L49:
+ 310 0216 0222     		movs	r2, #2
+ 311 0218 04F10C01 		add	r1, r4, #12
+ 312 021c E6E7     		b	.L103
+ 313              	.L11:
+ 314 021e 4B88     		ldrh	r3, [r1, #2]
+ 315 0220 012B     		cmp	r3, #1
+ 316 0222 7FF40EAF 		bne	.L81
+ 317              	.L101:
+ 318 0226 C4F8A432 		str	r3, [r4, #676]
+ 319 022a 33E7     		b	.L102
+ 320              	.L10:
+ 321 022c 90F89C32 		ldrb	r3, [r0, #668]	@ zero_extendqisi2
+ 322 0230 013B     		subs	r3, r3, #1
+ 323 0232 022B     		cmp	r3, #2
+ 324 0234 3FF64CAF 		bhi	.L7
+ 325 0238 4B88     		ldrh	r3, [r1, #2]
+ 326 023a 012B     		cmp	r3, #1
+ 327 023c 7FF401AF 		bne	.L81
+ 328 0240 0023     		movs	r3, #0
+ 329 0242 F0E7     		b	.L101
+ 330              	.L113:
+ 331              		.align	2
+ 332              	.L112:
+ 333 0244 00000000 		.word	.LANCHOR0
+ 335              		.section	.text.USBD_StdItfReq,"ax",%progbits
+ 336              		.align	1
+ 337              		.global	USBD_StdItfReq
+ 338              		.syntax unified
+ 339              		.thumb
+ 340              		.thumb_func
+ 341              		.fpu softvfp
+ 343              	USBD_StdItfReq:
+ 344              		@ args = 0, pretend = 0, frame = 0
+ 345              		@ frame_needed = 0, uses_anonymous_args = 0
+ 346 0000 38B5     		push	{r3, r4, r5, lr}
+ 347 0002 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ARM GAS  /tmp/ccWdQrWI.s 			page 7
+
+
+ 348 0004 0446     		mov	r4, r0
+ 349 0006 03F06003 		and	r3, r3, #96
+ 350 000a 202B     		cmp	r3, #32
+ 351 000c 0D46     		mov	r5, r1
+ 352 000e 02D0     		beq	.L116
+ 353 0010 402B     		cmp	r3, #64
+ 354 0012 00D0     		beq	.L116
+ 355 0014 B3B9     		cbnz	r3, .L130
+ 356              	.L116:
+ 357 0016 94F89C32 		ldrb	r3, [r4, #668]	@ zero_extendqisi2
+ 358 001a 013B     		subs	r3, r3, #1
+ 359 001c 022B     		cmp	r3, #2
+ 360 001e 10D8     		bhi	.L117
+ 361 0020 2B79     		ldrb	r3, [r5, #4]	@ zero_extendqisi2
+ 362 0022 012B     		cmp	r3, #1
+ 363 0024 0DD8     		bhi	.L117
+ 364 0026 D4F8B432 		ldr	r3, [r4, #692]
+ 365 002a 2946     		mov	r1, r5
+ 366 002c 9B68     		ldr	r3, [r3, #8]
+ 367 002e 2046     		mov	r0, r4
+ 368 0030 9847     		blx	r3
+ 369 0032 EB88     		ldrh	r3, [r5, #6]
+ 370 0034 1BB9     		cbnz	r3, .L120
+ 371 0036 10B9     		cbnz	r0, .L120
+ 372 0038 2046     		mov	r0, r4
+ 373 003a FFF7FEFF 		bl	USBD_CtlSendStatus
+ 374              	.L120:
+ 375 003e 0020     		movs	r0, #0
+ 376 0040 38BD     		pop	{r3, r4, r5, pc}
+ 377              	.L117:
+ 378 0042 2046     		mov	r0, r4
+ 379              	.L130:
+ 380 0044 FFF7FEFF 		bl	USBD_CtlError.constprop.1
+ 381 0048 F9E7     		b	.L120
+ 383              		.section	.text.USBD_StdEPReq,"ax",%progbits
+ 384              		.align	1
+ 385              		.global	USBD_StdEPReq
+ 386              		.syntax unified
+ 387              		.thumb
+ 388              		.thumb_func
+ 389              		.fpu softvfp
+ 391              	USBD_StdEPReq:
+ 392              		@ args = 0, pretend = 0, frame = 0
+ 393              		@ frame_needed = 0, uses_anonymous_args = 0
+ 394 0000 38B5     		push	{r3, r4, r5, lr}
+ 395 0002 0A78     		ldrb	r2, [r1]	@ zero_extendqisi2
+ 396 0004 0446     		mov	r4, r0
+ 397 0006 02F06002 		and	r2, r2, #96
+ 398 000a 202A     		cmp	r2, #32
+ 399 000c 0B46     		mov	r3, r1
+ 400 000e 13D0     		beq	.L133
+ 401 0010 402A     		cmp	r2, #64
+ 402 0012 11D0     		beq	.L133
+ 403 0014 6AB9     		cbnz	r2, .L184
+ 404 0016 5D78     		ldrb	r5, [r3, #1]	@ zero_extendqisi2
+ 405 0018 8A88     		ldrh	r2, [r1, #4]
+ 406 001a 012D     		cmp	r5, #1
+ARM GAS  /tmp/ccWdQrWI.s 			page 8
+
+
+ 407 001c D1B2     		uxtb	r1, r2
+ 408 001e 1FD0     		beq	.L137
+ 409 0020 35D3     		bcc	.L138
+ 410 0022 032D     		cmp	r5, #3
+ 411 0024 05D1     		bne	.L184
+ 412 0026 90F89C22 		ldrb	r2, [r0, #668]	@ zero_extendqisi2
+ 413 002a 022A     		cmp	r2, #2
+ 414 002c 26D0     		beq	.L146
+ 415 002e 032A     		cmp	r2, #3
+ 416 0030 0AD0     		beq	.L142
+ 417              	.L184:
+ 418 0032 FFF7FEFF 		bl	USBD_CtlError.constprop.1
+ 419 0036 05E0     		b	.L135
+ 420              	.L133:
+ 421 0038 D4F8B422 		ldr	r2, [r4, #692]
+ 422 003c 1946     		mov	r1, r3
+ 423 003e 9268     		ldr	r2, [r2, #8]
+ 424 0040 2046     		mov	r0, r4
+ 425 0042 9047     		blx	r2
+ 426              	.L135:
+ 427 0044 0020     		movs	r0, #0
+ 428 0046 38BD     		pop	{r3, r4, r5, pc}
+ 429              	.L142:
+ 430 0048 5A88     		ldrh	r2, [r3, #2]
+ 431 004a 2AB9     		cbnz	r2, .L144
+ 432 004c 4A06     		lsls	r2, r1, #25
+ 433 004e 03D0     		beq	.L144
+ 434 0050 DB88     		ldrh	r3, [r3, #6]
+ 435 0052 0BB9     		cbnz	r3, .L144
+ 436 0054 FFF7FEFF 		bl	USBD_LL_StallEP
+ 437              	.L144:
+ 438 0058 2046     		mov	r0, r4
+ 439 005a FFF7FEFF 		bl	USBD_CtlSendStatus
+ 440 005e F1E7     		b	.L135
+ 441              	.L137:
+ 442 0060 90F89C22 		ldrb	r2, [r0, #668]	@ zero_extendqisi2
+ 443 0064 022A     		cmp	r2, #2
+ 444 0066 09D0     		beq	.L146
+ 445 0068 032A     		cmp	r2, #3
+ 446 006a E2D1     		bne	.L184
+ 447 006c 5B88     		ldrh	r3, [r3, #2]
+ 448 006e 002B     		cmp	r3, #0
+ 449 0070 E8D1     		bne	.L135
+ 450 0072 4D06     		lsls	r5, r1, #25
+ 451 0074 F0D0     		beq	.L144
+ 452 0076 FFF7FEFF 		bl	USBD_LL_ClearStallEP
+ 453 007a EDE7     		b	.L144
+ 454              	.L146:
+ 455 007c 4B06     		lsls	r3, r1, #25
+ 456 007e 16D0     		beq	.L143
+ 457 0080 FFF7FEFF 		bl	USBD_LL_StallEP
+ 458 0084 8021     		movs	r1, #128
+ 459 0086 2046     		mov	r0, r4
+ 460 0088 FFF7FEFF 		bl	USBD_LL_StallEP
+ 461 008c DAE7     		b	.L135
+ 462              	.L138:
+ 463 008e 90F89C32 		ldrb	r3, [r0, #668]	@ zero_extendqisi2
+ARM GAS  /tmp/ccWdQrWI.s 			page 9
+
+
+ 464 0092 022B     		cmp	r3, #2
+ 465 0094 0DD0     		beq	.L149
+ 466 0096 032B     		cmp	r3, #3
+ 467 0098 CBD1     		bne	.L184
+ 468 009a 1423     		movs	r3, #20
+ 469 009c 12F0800F 		tst	r2, #128
+ 470 00a0 01F00F02 		and	r2, r1, #15
+ 471 00a4 03FB0202 		mla	r2, r3, r2, r0
+ 472 00a8 14D0     		beq	.L153
+ 473 00aa 9269     		ldr	r2, [r2, #24]
+ 474 00ac EAB9     		cbnz	r2, .L189
+ 475              	.L143:
+ 476 00ae 2046     		mov	r0, r4
+ 477 00b0 BFE7     		b	.L184
+ 478              	.L149:
+ 479 00b2 4906     		lsls	r1, r1, #25
+ 480 00b4 FBD1     		bne	.L143
+ 481 00b6 1306     		lsls	r3, r2, #24
+ 482 00b8 4FF00003 		mov	r3, #0
+ 483 00bc 4FF00202 		mov	r2, #2
+ 484 00c0 4CBF     		ite	mi
+ 485 00c2 00F11401 		addmi	r1, r0, #20
+ 486 00c6 00F5AA71 		addpl	r1, r0, #340
+ 487 00ca 0B60     		str	r3, [r1]
+ 488              	.L192:
+ 489 00cc 2046     		mov	r0, r4
+ 490 00ce FFF7FEFF 		bl	USBD_CtlSendData
+ 491 00d2 B7E7     		b	.L135
+ 492              	.L153:
+ 493 00d4 D2F85821 		ldr	r2, [r2, #344]
+ 494 00d8 002A     		cmp	r2, #0
+ 495 00da E8D0     		beq	.L143
+ 496 00dc 01F07F05 		and	r5, r1, #127
+ 497 00e0 03FB0505 		mla	r5, r3, r5, r0
+ 498 00e4 05F5AA75 		add	r5, r5, #340
+ 499 00e8 04E0     		b	.L156
+ 500              	.L189:
+ 501 00ea 01F07F05 		and	r5, r1, #127
+ 502 00ee 05FB0335 		mla	r5, r5, r3, r3
+ 503 00f2 0544     		add	r5, r5, r0
+ 504              	.L156:
+ 505 00f4 11F07F03 		ands	r3, r1, #127
+ 506 00f8 03D1     		bne	.L157
+ 507              	.L191:
+ 508 00fa 2B60     		str	r3, [r5]
+ 509              	.L158:
+ 510 00fc 0222     		movs	r2, #2
+ 511 00fe 2946     		mov	r1, r5
+ 512 0100 E4E7     		b	.L192
+ 513              	.L157:
+ 514 0102 2046     		mov	r0, r4
+ 515 0104 FFF7FEFF 		bl	USBD_LL_IsStallEP
+ 516 0108 08B1     		cbz	r0, .L159
+ 517 010a 0123     		movs	r3, #1
+ 518 010c F5E7     		b	.L191
+ 519              	.L159:
+ 520 010e 2860     		str	r0, [r5]
+ARM GAS  /tmp/ccWdQrWI.s 			page 10
+
+
+ 521 0110 F4E7     		b	.L158
+ 523              		.section	.text.USBD_ParseSetupRequest,"ax",%progbits
+ 524              		.align	1
+ 525              		.global	USBD_ParseSetupRequest
+ 526              		.syntax unified
+ 527              		.thumb
+ 528              		.thumb_func
+ 529              		.fpu softvfp
+ 531              	USBD_ParseSetupRequest:
+ 532              		@ args = 0, pretend = 0, frame = 0
+ 533              		@ frame_needed = 0, uses_anonymous_args = 0
+ 534              		@ link register save eliminated.
+ 535 0000 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 536 0002 0370     		strb	r3, [r0]
+ 537 0004 4B78     		ldrb	r3, [r1, #1]	@ zero_extendqisi2
+ 538 0006 4370     		strb	r3, [r0, #1]
+ 539 0008 CA78     		ldrb	r2, [r1, #3]	@ zero_extendqisi2
+ 540 000a 8B78     		ldrb	r3, [r1, #2]	@ zero_extendqisi2
+ 541 000c 03EB0223 		add	r3, r3, r2, lsl #8
+ 542 0010 4380     		strh	r3, [r0, #2]	@ movhi
+ 543 0012 4A79     		ldrb	r2, [r1, #5]	@ zero_extendqisi2
+ 544 0014 0B79     		ldrb	r3, [r1, #4]	@ zero_extendqisi2
+ 545 0016 03EB0223 		add	r3, r3, r2, lsl #8
+ 546 001a 8380     		strh	r3, [r0, #4]	@ movhi
+ 547 001c CA79     		ldrb	r2, [r1, #7]	@ zero_extendqisi2
+ 548 001e 8B79     		ldrb	r3, [r1, #6]	@ zero_extendqisi2
+ 549 0020 03EB0223 		add	r3, r3, r2, lsl #8
+ 550 0024 C380     		strh	r3, [r0, #6]	@ movhi
+ 551 0026 7047     		bx	lr
+ 553              		.section	.text.USBD_CtlError,"ax",%progbits
+ 554              		.align	1
+ 555              		.global	USBD_CtlError
+ 556              		.syntax unified
+ 557              		.thumb
+ 558              		.thumb_func
+ 559              		.fpu softvfp
+ 561              	USBD_CtlError:
+ 562              		@ args = 0, pretend = 0, frame = 0
+ 563              		@ frame_needed = 0, uses_anonymous_args = 0
+ 564 0000 10B5     		push	{r4, lr}
+ 565 0002 0446     		mov	r4, r0
+ 566 0004 8021     		movs	r1, #128
+ 567 0006 FFF7FEFF 		bl	USBD_LL_StallEP
+ 568 000a 2046     		mov	r0, r4
+ 569 000c BDE81040 		pop	{r4, lr}
+ 570 0010 0021     		movs	r1, #0
+ 571 0012 FFF7FEBF 		b	USBD_LL_StallEP
+ 573              		.section	.text.USBD_GetString,"ax",%progbits
+ 574              		.align	1
+ 575              		.global	USBD_GetString
+ 576              		.syntax unified
+ 577              		.thumb
+ 578              		.thumb_func
+ 579              		.fpu softvfp
+ 581              	USBD_GetString:
+ 582              		@ args = 0, pretend = 0, frame = 0
+ 583              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /tmp/ccWdQrWI.s 			page 11
+
+
+ 584 0000 30B5     		push	{r4, r5, lr}
+ 585 0002 88B1     		cbz	r0, .L197
+ 586 0004 0546     		mov	r5, r0
+ 587              	.L199:
+ 588 0006 2B1A     		subs	r3, r5, r0
+ 589 0008 15F8014B 		ldrb	r4, [r5], #1	@ zero_extendqisi2
+ 590 000c DBB2     		uxtb	r3, r3
+ 591 000e 002C     		cmp	r4, #0
+ 592 0010 F9D1     		bne	.L199
+ 593 0012 0133     		adds	r3, r3, #1
+ 594 0014 5B00     		lsls	r3, r3, #1
+ 595 0016 1380     		strh	r3, [r2]	@ movhi
+ 596 0018 0B70     		strb	r3, [r1]
+ 597 001a 0323     		movs	r3, #3
+ 598 001c 4B70     		strb	r3, [r1, #1]
+ 599 001e 0223     		movs	r3, #2
+ 600 0020 0138     		subs	r0, r0, #1
+ 601              	.L200:
+ 602 0022 10F8015F 		ldrb	r5, [r0, #1]!	@ zero_extendqisi2
+ 603 0026 05B9     		cbnz	r5, .L201
+ 604              	.L197:
+ 605 0028 30BD     		pop	{r4, r5, pc}
+ 606              	.L201:
+ 607 002a 5A1C     		adds	r2, r3, #1
+ 608 002c CD54     		strb	r5, [r1, r3]
+ 609 002e D2B2     		uxtb	r2, r2
+ 610 0030 0233     		adds	r3, r3, #2
+ 611 0032 DBB2     		uxtb	r3, r3
+ 612 0034 8C54     		strb	r4, [r1, r2]
+ 613 0036 F4E7     		b	.L200
+ 615              		.section	.bss.cfgidx.10766,"aw",%nobits
+ 616              		.set	.LANCHOR0,. + 0
+ 619              	cfgidx.10766:
+ 620 0000 00       		.space	1
+ 621              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
+ARM GAS  /tmp/ccWdQrWI.s 			page 12
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 usbd_ctlreq.c
+     /tmp/ccWdQrWI.s:13     .text.USBD_CtlError.constprop.1:0000000000000000 $t
+     /tmp/ccWdQrWI.s:19     .text.USBD_CtlError.constprop.1:0000000000000000 USBD_CtlError.constprop.1
+     /tmp/ccWdQrWI.s:32     .text.USBD_StdDevReq:0000000000000000 $t
+     /tmp/ccWdQrWI.s:39     .text.USBD_StdDevReq:0000000000000000 USBD_StdDevReq
+     /tmp/ccWdQrWI.s:58     .text.USBD_StdDevReq:0000000000000022 $d
+     /tmp/ccWdQrWI.s:68     .text.USBD_StdDevReq:0000000000000036 $t
+     /tmp/ccWdQrWI.s:90     .text.USBD_StdDevReq:000000000000005c $d
+     /tmp/ccWdQrWI.s:146    .text.USBD_StdDevReq:00000000000000c0 $d
+     /tmp/ccWdQrWI.s:152    .text.USBD_StdDevReq:00000000000000c6 $t
+     /tmp/ccWdQrWI.s:333    .text.USBD_StdDevReq:0000000000000244 $d
+     /tmp/ccWdQrWI.s:336    .text.USBD_StdItfReq:0000000000000000 $t
+     /tmp/ccWdQrWI.s:343    .text.USBD_StdItfReq:0000000000000000 USBD_StdItfReq
+     /tmp/ccWdQrWI.s:384    .text.USBD_StdEPReq:0000000000000000 $t
+     /tmp/ccWdQrWI.s:391    .text.USBD_StdEPReq:0000000000000000 USBD_StdEPReq
+     /tmp/ccWdQrWI.s:524    .text.USBD_ParseSetupRequest:0000000000000000 $t
+     /tmp/ccWdQrWI.s:531    .text.USBD_ParseSetupRequest:0000000000000000 USBD_ParseSetupRequest
+     /tmp/ccWdQrWI.s:554    .text.USBD_CtlError:0000000000000000 $t
+     /tmp/ccWdQrWI.s:561    .text.USBD_CtlError:0000000000000000 USBD_CtlError
+     /tmp/ccWdQrWI.s:574    .text.USBD_GetString:0000000000000000 $t
+     /tmp/ccWdQrWI.s:581    .text.USBD_GetString:0000000000000000 USBD_GetString
+     /tmp/ccWdQrWI.s:619    .bss.cfgidx.10766:0000000000000000 cfgidx.10766
+     /tmp/ccWdQrWI.s:620    .bss.cfgidx.10766:0000000000000000 $d
+     /tmp/ccWdQrWI.s:97     .text.USBD_StdDevReq:0000000000000063 $d
+     /tmp/ccWdQrWI.s:97     .text.USBD_StdDevReq:0000000000000064 $t
+
+UNDEFINED SYMBOLS
+USBD_LL_StallEP
+USBD_CtlSendData
+USBD_CtlSendStatus
+USBD_LL_SetUSBAddress
+USBD_ClrClassConfig
+USBD_SetClassConfig
+USBD_LL_ClearStallEP
+USBD_LL_IsStallEP

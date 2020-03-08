@@ -7,7 +7,7 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2019 STMicroelectronics.
+  * <h2><center>&copy; Copyright (c) 2020 STMicroelectronics.
   * All rights reserved.</center></h2>
   *
   * This software component is licensed by ST under Ultimate Liberty license
@@ -65,9 +65,9 @@
 
 #define USBD_VID     1155
 #define USBD_LANGID_STRING     1033
-#define USBD_MANUFACTURER_STRING     "Johannes Berndorfer"
-#define USBD_PID_FS     1024
-#define USBD_PRODUCT_STRING_FS     "JKP Programmer Keyboard"
+#define USBD_MANUFACTURER_STRING     "Berndorfer Electronics"
+#define USBD_PID_FS     0
+#define USBD_PRODUCT_STRING_FS     "BerndoKeyboard-TEST-20.03"
 #define USBD_CONFIGURATION_STRING_FS     "Custom HID Config"
 #define USBD_INTERFACE_STRING_FS     "Custom HID Interface"
 
@@ -152,24 +152,22 @@ USBD_DescriptorsTypeDef FS_Desc =
 /** USB standard device descriptor. */
 __ALIGN_BEGIN uint8_t USBD_FS_DeviceDesc[USB_LEN_DEV_DESC] __ALIGN_END =
 {
-  0x12,                       /*bLength */
-  USB_DESC_TYPE_DEVICE,       /*bDescriptorType*/
-  0x00,                       /*bcdUSB */
-  0x02,
-  0x00,                       /*bDeviceClass*/
-  0x00,                       /*bDeviceSubClass*/
-  0x00,                       /*bDeviceProtocol*/
-  USB_MAX_EP0_SIZE,           /*bMaxPacketSize*/
-  LOBYTE(USBD_VID),           /*idVendor*/
-  HIBYTE(USBD_VID),           /*idVendor*/
-  LOBYTE(USBD_PID_FS),        /*idProduct*/
-  HIBYTE(USBD_PID_FS),        /*idProduct*/
-  0x00,                       /*bcdDevice rel. 2.00*/
-  0x02,
-  USBD_IDX_MFC_STR,           /*Index of manufacturer  string*/
-  USBD_IDX_PRODUCT_STR,       /*Index of product string*/
-  USBD_IDX_SERIAL_STR,        /*Index of serial number string*/
-  USBD_MAX_NUM_CONFIGURATION  /*bNumConfigurations*/
+    USB_LEN_DEV_DESC,                  // bLength => 18 bytes
+    USB_DESC_TYPE_DEVICE,                  // bDescriptorType => Device descriptor
+    0x00, 0x02,                                     // bcdUSB => USB 2.0
+    0x00,                                           // bDeviceClass
+    0x00,                                           // bDeviceSubClass
+    0x00,                                           // bDeviceProtocol
+    USB_MAX_EP0_SIZE,                     // bMaxPacketSize0 (EP0 MaxPacketSize)
+    LOBYTE(USBD_VID),           /*idVendor*/
+    HIBYTE(USBD_VID),           /*idVendor*/
+    LOBYTE(USBD_PID_FS),        /*idProduct*/
+    HIBYTE(USBD_PID_FS),        /*idProduct*/
+    0x00, 0x02,                                     // bcdDevice => USB 2.0
+    USBD_IDX_MFC_STR,           /*Index of manufacturer  string*/
+    USBD_IDX_PRODUCT_STR,       /*Index of product string*/
+    USBD_IDX_SERIAL_STR,        /*Index of serial number string*/
+    USBD_MAX_NUM_CONFIGURATION  /*bNumConfigurations*/
 };
 
 /* USB_DeviceDescriptor */

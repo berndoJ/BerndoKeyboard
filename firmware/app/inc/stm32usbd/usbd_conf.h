@@ -1,13 +1,12 @@
 /* USER CODE BEGIN Header */
-/**
-  ******************************************************************************
+/*******************************************************************************
   * @file           : usbd_conf.h
   * @version        : v2.0_Cube
   * @brief          : Header for usbd_conf.c file.
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2019 STMicroelectronics.
+  * <h2><center>&copy; Copyright (c) 2020 STMicroelectronics.
   * All rights reserved.</center></h2>
   *
   * This software component is licensed by ST under Ultimate Liberty license
@@ -34,7 +33,6 @@
 #include "main.h"
 #include "stm32f1xx.h"
 #include "stm32f1xx_hal.h"
-#include "console.h"
 
 /* USER CODE BEGIN INCLUDE */
 
@@ -74,9 +72,9 @@
 /*---------- -----------*/
 #define USBD_SELF_POWERED     1
 /*---------- -----------*/
-#define USBD_CUSTOMHID_OUTREPORT_BUF_SIZE     2
+#define USBD_CUSTOMHID_OUTREPORT_BUF_SIZE     256
 /*---------- -----------*/
-#define USBD_CUSTOM_HID_REPORT_DESC_SIZE     2
+#define USBD_CUSTOM_HID_REPORT_DESC_SIZE     142
 
 /****************************************/
 /* #define for FS and HS identification */
@@ -116,25 +114,25 @@ void USBD_static_free(void *p);
 /* DEBUG macros */
 
 #if (USBD_DEBUG_LEVEL > 0)
-#define USBD_UsrLog(...)    CONSOLE_PrintLn(__VA_ARGS__);\
-                            CONSOLE_PrintLn("\n");
+#define USBD_UsrLog(...)    printf(__VA_ARGS__);\
+                            printf("\n");
 #else
 #define USBD_UsrLog(...)
 #endif
 
 #if (USBD_DEBUG_LEVEL > 1)
 
-#define USBD_ErrLog(...)    CONSOLE_PrintLn("ERROR: ") ;\
-                            CONSOLE_PrintLn(__VA_ARGS__);\
-                            CONSOLE_PrintLn("\n");
+#define USBD_ErrLog(...)    printf("ERROR: ") ;\
+                            printf(__VA_ARGS__);\
+                            printf("\n");
 #else
 #define USBD_ErrLog(...)
 #endif
 
 #if (USBD_DEBUG_LEVEL > 2)
-#define USBD_DbgLog(...)    CONSOLE_PrintLn("DEBUG : ") ;\
-                            CONSOLE_PrintLn(__VA_ARGS__);\
-                            CONSOLE_PrintLn("\n");
+#define USBD_DbgLog(...)    printf("DEBUG : ") ;\
+                            printf(__VA_ARGS__);\
+                            printf("\n");
 #else
 #define USBD_DbgLog(...)
 #endif

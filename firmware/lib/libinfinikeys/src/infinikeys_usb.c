@@ -11,6 +11,8 @@ static IK_USB_Init_t *_usb_init = NULL;
 
 static uint8_t _usb_str_desc_buf[128];
 
+static IK_USB_HID_Report_Protocol_t _usb_hid_protocol;
+
 static uint8_t _IK_USB_CharToStrDescBuf(char *str);
 static uint8_t _IK_USB_Strlen(char *str);
 
@@ -32,6 +34,9 @@ IK_Status_t IK_USB_Init(IK_USB_Init_t *init_struct)
     IK_USB_DESCRIPTOR_LANGID[2] = IK_LOWBYTE(_usb_init->USB_LangID); // Update language ID string
     IK_USB_DESCRIPTOR_LANGID[3] = IK_HIGHBYTE(_usb_init->USB_LangID);
 
+    // Set the current HID report protocol to BOOT protocol.
+    IK_USB_SetHIDProtocol(IK_USB_HID_REPORT_PROTOCOL_BOOT);
+
     // Initialise the hardware interface.
     _usb_init->USB_HW_Interface->Init();
 
@@ -48,6 +53,17 @@ IK_Status_t IK_USB_DeInit(void)
     _usb_init = NULL;
 
     return IK_OK;
+}
+
+IK_Status_t IK_USB_SetHIDProtocol(IK_USB_HID_Report_Protocol_t protocol)
+{
+    _usb_hid_protocol = protocol;
+    return IK_OK;
+}
+
+IK_USB_HID_Report_Protocol_t IK_USB_GetHIDProtocol(void)
+{
+    return _usb_hid_protocol;
 }
 
 IK_Status_t IK_USB_SendHIDReport(uint8_t report_id, IK_Buffer_t report_buf)

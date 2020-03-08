@@ -36,6 +36,10 @@ int main(void)
     // Initialise interfaces and timers.
     SYS_I2C_Init();
     SYS_USART_Init();
+
+    if (hw_uart1_init_status != SYS_INIT_STATUS_INITIALISED)
+        SYS_ThrowError(SYSERR_FATAL_ERROR, __LINE__, __FILE__, "Failed to initialise HW-UART-1.");
+
     CONSOLE_Init(hw_uart1_handle);
     SYS_Timer_Init();
 
@@ -52,50 +56,58 @@ int main(void)
     CONSOLE_Print("\n");
 
     CONSOLE_PrintLn("[BKF] Initialising USB...");
-
+    
+    #if (__SYS_ENABLE_USB_DRIVER == 1)
+    
+    // TODO: Re-implement USB drivers.
     SYS_USB_Init();
+
+    #endif
 
     CONSOLE_PrintLn("[BKF] Initialising libraries...");
 
     // Initialise libraries.
+    #if (__SYS_ENABLE_PORTEX_DRIVER == 1)
     SYS_PCA9555_Init();
+    #endif
+    #if (__SYS_ENABLE_LIGHTING_DRIVER == 1)
     SYS_WS2812_Init();
+    #endif
+    #if (__SYS_ENABLE_INFINIKEYS == 1)
     LIB_Infinikeys_Init();
+    #endif
     
     SYS_PostLibInit();
 
     // Send init complete message.
-    HAL_UART_Transmit(hw_uart1_handle, (uint8_t *)"[BKF] System init complete. Starting firmware.\n", 47, 10);
+    CONSOLE_PrintLn("[BKF] System init complete. Starting firmware.");
 
     // Read HW-Bits.
     SYS_HWB_Read();
-    char *cbuf = malloc(40 * sizeof(char));
-    uint8_t len = (uint8_t) sprintf(cbuf, "[BKF] Read hwbits: [%d][%d][%d][%d][%d]\n", SYS_HWBIT(0), SYS_HWBIT(1), SYS_HWBIT(2), SYS_HWBIT(3), SYS_HWBIT(4));
-    HAL_UART_Transmit(hw_uart1_handle, (uint8_t *)cbuf, len, 10);
-    free(cbuf);
+    CONSOLE_PrintLn("[BKF] Read HW-Bits: [%d][%d][%d][%d][%d]", SYS_HWBIT(0), SYS_HWBIT(1), SYS_HWBIT(2), SYS_HWBIT(3), SYS_HWBIT(4));
 
     // Black out all LEDs.
-    NP32_ClearAllLEDs(hw_ws2812_handle);
-    NP32_Update(hw_ws2812_handle);
+    if (hw_ws2812_init_status == SYS_INIT_STATUS_INITIALISED)
+    {
+        NP32_ClearAllLEDs(hw_ws2812_handle);
+        NP32_Update(hw_ws2812_handle);
+    }
 
-    PCA9555_ConfigPortPinMode(hw_portex0_handle, 0, 0x00); // Config PORT0 as OUTPUT.
-    PCA9555_ConfigPortPinMode(hw_portex0_handle, 1, 0x00); // Config PORT1 as OUTPUT.
-    PCA9555_ConfigPortPinMode(hw_portex1_handle, 0, 0x00); // Config PORT0 as OUTPUT.
-    PCA9555_ConfigPortPinMode(hw_portex1_handle, 1, 0x00); // Config PORT1 as OUTPUT.
-
-    uint8_t l = 0;
+    if (hw_portex0_init_status == SYS_INIT_STATUS_INITIALISED && hw_portex1_init_status == SYS_INIT_STATUS_INITIALISED)
+    {
+        PCA9555_ConfigPortPinMode(hw_portex0_handle, 0, 0x00); // Config PORT0 as OUTPUT.
+        PCA9555_ConfigPortPinMode(hw_portex0_handle, 1, 0x00); // Config PORT1 as OUTPUT.
+        PCA9555_ConfigPortPinMode(hw_portex1_handle, 0, 0x00); // Config PORT0 as OUTPUT.
+        PCA9555_ConfigPortPinMode(hw_portex1_handle, 1, 0x00); // Config PORT1 as OUTPUT.
+    }
 
     while (1)
     {
-        HAL_Delay(100);
-
-        l = !l;
-        HAL_GPIO_WritePin(GPIO_USER_LED_0_PORT, GPIO_USER_LED_0_PIN, (GPIO_PinState) l);
-
         // Invoke InfiniKeys tick function.
+        #if (__SYS_ENABLE_INFINIKEYS == 1)
         IK_Tick();
-
-        IK_USB_HW_SOFCallback();
+        IK_KBM_SendHIDReport();
+        #endif
     }
 
     return 0;

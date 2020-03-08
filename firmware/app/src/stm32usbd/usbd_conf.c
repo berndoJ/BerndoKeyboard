@@ -7,7 +7,7 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2019 STMicroelectronics.
+  * <h2><center>&copy; Copyright (c) 2020 STMicroelectronics.
   * All rights reserved.</center></h2>
   *
   * This software component is licensed by ST under Ultimate Liberty license
@@ -24,9 +24,8 @@
 #include "stm32f1xx_hal.h"
 #include "usbd_def.h"
 #include "usbd_core.h"
-#include "infinikeys_stm32cube_usb_hid.h"
-
-#include "console.h"
+#include "usbd_customhid.h"
+#include "infinikeys.h"
 
 /* USER CODE BEGIN Includes */
 
@@ -311,15 +310,10 @@ USBD_StatusTypeDef USBD_LL_Init(USBD_HandleTypeDef *pdev)
   hpcd_USB_FS.Init.low_power_enable = DISABLE;
   hpcd_USB_FS.Init.lpm_enable = DISABLE;
   hpcd_USB_FS.Init.battery_charging_enable = DISABLE;
-
-  CONSOLE_PrintLn("Trace 1-0");
-
   if (HAL_PCD_Init(&hpcd_USB_FS) != HAL_OK)
   {
     Error_Handler( );
   }
-
-  CONSOLE_PrintLn("Trace 1-1");
 
 #if (USE_HAL_PCD_REGISTER_CALLBACKS == 1U)
   /* Register USB PCD CallBacks */
@@ -341,9 +335,8 @@ USBD_StatusTypeDef USBD_LL_Init(USBD_HandleTypeDef *pdev)
   HAL_PCDEx_PMAConfig((PCD_HandleTypeDef*)pdev->pData , 0x80 , PCD_SNG_BUF, 0x58);
   /* USER CODE END EndPoint_Configuration */
   /* USER CODE BEGIN EndPoint_Configuration_CUSTOM_HID */
-  CONSOLE_PrintLn("Trace 1-2");
-  HAL_PCDEx_PMAConfig((PCD_HandleTypeDef*)pdev->pData , IK_HID_EPIN_ADDR , PCD_SNG_BUF, 0x98);
-  HAL_PCDEx_PMAConfig((PCD_HandleTypeDef*)pdev->pData , IK_HID_EPOUT_ADDR , PCD_SNG_BUF, 0xD8);
+  HAL_PCDEx_PMAConfig((PCD_HandleTypeDef*)pdev->pData , CUSTOM_HID_EPIN_ADDR , PCD_SNG_BUF, 0x98);
+  HAL_PCDEx_PMAConfig((PCD_HandleTypeDef*)pdev->pData , CUSTOM_HID_EPOUT_ADDR , PCD_SNG_BUF, 0xD8);
   /* USER CODE END EndPoint_Configuration_CUSTOM_HID */
   return USBD_OK;
 }
@@ -597,7 +590,7 @@ void USBD_LL_Delay(uint32_t Delay)
   */
 void *USBD_static_malloc(uint32_t size)
 {
-  static uint32_t mem[(sizeof(IK_HID_DeviceHandle_t)/4+1)];/* On 32-bit boundary */
+  static uint32_t mem[(sizeof(USBD_CUSTOM_HID_HandleTypeDef)/4+1)];/* On 32-bit boundary */
   return mem;
 }
 

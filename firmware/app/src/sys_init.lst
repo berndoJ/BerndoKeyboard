@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccFi3aAB.s 			page 1
+ARM GAS  /tmp/ccxBj2ws.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccFi3aAB.s 			page 1
   56 0052 2846     		mov	r0, r5
   57 0054 BDE83840 		pop	{r3, r4, r5, lr}
   58 0058 0022     		movs	r2, #0
-ARM GAS  /tmp/ccFi3aAB.s 			page 2
+ARM GAS  /tmp/ccxBj2ws.s 			page 2
 
 
   59 005a 1021     		movs	r1, #16
@@ -79,53 +79,33 @@ ARM GAS  /tmp/ccFi3aAB.s 			page 1
   76              		@ args = 0, pretend = 0, frame = 0
   77              		@ frame_needed = 0, uses_anonymous_args = 0
   78              		@ link register save eliminated.
-  79 0000 0348     		ldr	r0, .L5
-  80 0002 0A23     		movs	r3, #10
-  81 0004 1F22     		movs	r2, #31
-  82 0006 0349     		ldr	r1, .L5+4
-  83 0008 0068     		ldr	r0, [r0]
-  84 000a FFF7FEBF 		b	HAL_UART_Transmit
-  85              	.L6:
-  86 000e 00BF     		.align	2
-  87              	.L5:
-  88 0010 00000000 		.word	hw_uart1_handle
-  89 0014 00000000 		.word	.LC0
-  91              		.section	.text.SYS_PostLibInit,"ax",%progbits
-  92              		.align	1
-  93              		.global	SYS_PostLibInit
-  94              		.syntax unified
-  95              		.thumb
-  96              		.thumb_func
-  97              		.fpu softvfp
-  99              	SYS_PostLibInit:
- 100              		@ args = 0, pretend = 0, frame = 0
- 101              		@ frame_needed = 0, uses_anonymous_args = 0
- 102              		@ link register save eliminated.
- 103 0000 7047     		bx	lr
- 105              		.section	.rodata.SYS_PostPortInit.str1.1,"aMS",%progbits,1
- 106              	.LC0:
- 107 0000 5B424B46 		.ascii	"[BKF] System HW-Init complete.\012\000"
- 107      5D205379 
- 107      7374656D 
- 107      2048572D 
- 107      496E6974 
- 108              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
-ARM GAS  /tmp/ccFi3aAB.s 			page 3
+  79 0000 7047     		bx	lr
+  81              		.section	.text.SYS_PostLibInit,"ax",%progbits
+  82              		.align	1
+  83              		.global	SYS_PostLibInit
+  84              		.syntax unified
+  85              		.thumb
+  86              		.thumb_func
+  87              		.fpu softvfp
+  89              	SYS_PostLibInit:
+  90              		@ args = 0, pretend = 0, frame = 0
+  91              		@ frame_needed = 0, uses_anonymous_args = 0
+  92              		@ link register save eliminated.
+  93 0000 7047     		bx	lr
+  95              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
+ARM GAS  /tmp/ccxBj2ws.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 sys_init.c
-     /tmp/ccFi3aAB.s:13     .text.SYS_Init:0000000000000000 $t
-     /tmp/ccFi3aAB.s:20     .text.SYS_Init:0000000000000000 SYS_Init
-     /tmp/ccFi3aAB.s:64     .text.SYS_Init:0000000000000060 $d
-     /tmp/ccFi3aAB.s:68     .text.SYS_PostPortInit:0000000000000000 $t
-     /tmp/ccFi3aAB.s:75     .text.SYS_PostPortInit:0000000000000000 SYS_PostPortInit
-     /tmp/ccFi3aAB.s:88     .text.SYS_PostPortInit:0000000000000010 $d
-     /tmp/ccFi3aAB.s:92     .text.SYS_PostLibInit:0000000000000000 $t
-     /tmp/ccFi3aAB.s:99     .text.SYS_PostLibInit:0000000000000000 SYS_PostLibInit
+     /tmp/ccxBj2ws.s:13     .text.SYS_Init:0000000000000000 $t
+     /tmp/ccxBj2ws.s:20     .text.SYS_Init:0000000000000000 SYS_Init
+     /tmp/ccxBj2ws.s:64     .text.SYS_Init:0000000000000060 $d
+     /tmp/ccxBj2ws.s:68     .text.SYS_PostPortInit:0000000000000000 $t
+     /tmp/ccxBj2ws.s:75     .text.SYS_PostPortInit:0000000000000000 SYS_PostPortInit
+     /tmp/ccxBj2ws.s:82     .text.SYS_PostLibInit:0000000000000000 $t
+     /tmp/ccxBj2ws.s:89     .text.SYS_PostLibInit:0000000000000000 SYS_PostLibInit
 
 UNDEFINED SYMBOLS
 HAL_GPIO_WritePin
 HAL_Delay
-HAL_UART_Transmit
-hw_uart1_handle
