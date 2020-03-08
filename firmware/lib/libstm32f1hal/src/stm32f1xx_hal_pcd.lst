@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccioYLtA.s 			page 1
+ARM GAS  /tmp/cc0wMgQO.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccioYLtA.s 			page 1
   58 0036 271D     		adds	r7, r4, #4
   59 0038 97E80E00 		ldm	r7, {r1, r2, r3}
   60 003c 55F8100B 		ldr	r0, [r5], #16
-ARM GAS  /tmp/ccioYLtA.s 			page 2
+ARM GAS  /tmp/cc0wMgQO.s 			page 2
 
 
   61 0040 FFF7FEFF 		bl	USB_CoreInit
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccioYLtA.s 			page 1
  115 00be 0A33     		adds	r3, r3, #10
  116 00c0 5B01     		lsls	r3, r3, #5
  117 00c2 86F82901 		strb	r0, [r6, #297]
-ARM GAS  /tmp/ccioYLtA.s 			page 3
+ARM GAS  /tmp/cc0wMgQO.s 			page 3
 
 
  118 00c6 86F82B01 		strb	r0, [r6, #299]
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccioYLtA.s 			page 1
  176 002c 10BD     		pop	{r4, pc}
  178              		.section	.text.HAL_PCD_Stop,"ax",%progbits
  179              		.align	1
-ARM GAS  /tmp/ccioYLtA.s 			page 4
+ARM GAS  /tmp/cc0wMgQO.s 			page 4
 
 
  180              		.global	HAL_PCD_Stop
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccioYLtA.s 			page 1
  237 0018 84F82902 		strb	r0, [r4, #553]
  238 001c 10BD     		pop	{r4, pc}
  239              	.L22:
-ARM GAS  /tmp/ccioYLtA.s 			page 5
+ARM GAS  /tmp/cc0wMgQO.s 			page 5
 
 
  240 001e 0120     		movs	r0, #1
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccioYLtA.s 			page 1
  303              		.thumb
  304              		.thumb_func
  305              		.fpu softvfp
-ARM GAS  /tmp/ccioYLtA.s 			page 6
+ARM GAS  /tmp/cc0wMgQO.s 			page 6
 
 
  307              	HAL_PCD_ResetCallback:
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccioYLtA.s 			page 1
  370              		.align	1
  371              		.weak	HAL_PCD_ConnectCallback
  372              		.syntax unified
-ARM GAS  /tmp/ccioYLtA.s 			page 7
+ARM GAS  /tmp/cc0wMgQO.s 			page 7
 
 
  373              		.thumb
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccioYLtA.s 			page 1
  434              		@ args = 0, pretend = 0, frame = 0
  435              		@ frame_needed = 0, uses_anonymous_args = 0
  436 0000 90F82832 		ldrb	r3, [r0, #552]	@ zero_extendqisi2
-ARM GAS  /tmp/ccioYLtA.s 			page 8
+ARM GAS  /tmp/cc0wMgQO.s 			page 8
 
 
  437 0004 10B5     		push	{r4, lr}
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccioYLtA.s 			page 1
  495 0006 0446     		mov	r4, r0
  496 0008 01F00700 		and	r0, r1, #7
  497 000c 4FEA4015 		lsl	r5, r0, #5
-ARM GAS  /tmp/ccioYLtA.s 			page 9
+ARM GAS  /tmp/cc0wMgQO.s 			page 9
 
 
  498 0010 1FD0     		beq	.L44
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccioYLtA.s 			page 1
  554 0010 15D0     		beq	.L54
  555 0012 02F12801 		add	r1, r2, #40
  556 0016 0144     		add	r1, r1, r0
-ARM GAS  /tmp/ccioYLtA.s 			page 10
+ARM GAS  /tmp/cc0wMgQO.s 			page 10
 
 
  557 0018 0244     		add	r2, r2, r0
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccioYLtA.s 			page 1
  614              		.syntax unified
  615              		.thumb
  616              		.thumb_func
-ARM GAS  /tmp/ccioYLtA.s 			page 11
+ARM GAS  /tmp/cc0wMgQO.s 			page 11
 
 
  617              		.fpu softvfp
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccioYLtA.s 			page 1
  676 0014 FFF7FEFF 		bl	USB_ReadInterrupts
  677 0018 4305     		lsls	r3, r0, #21
  678 001a 0FD5     		bpl	.L64
-ARM GAS  /tmp/ccioYLtA.s 			page 12
+ARM GAS  /tmp/cc0wMgQO.s 			page 12
 
 
  679 001c 2268     		ldr	r2, [r4]
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccioYLtA.s 			page 1
  733 00b0 1B04     		lsls	r3, r3, #16
  734 00b2 1B0C     		lsrs	r3, r3, #16
  735 00b4 A2F84430 		strh	r3, [r2, #68]	@ movhi
-ARM GAS  /tmp/ccioYLtA.s 			page 13
+ARM GAS  /tmp/cc0wMgQO.s 			page 13
 
 
  736              	.L89:
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccioYLtA.s 			page 1
  790 014a A2F84430 		strh	r3, [r2, #68]	@ movhi
  791              	.L61:
  792 014e BDE8F88F 		pop	{r3, r4, r5, r6, r7, r8, r9, r10, fp, pc}
-ARM GAS  /tmp/ccioYLtA.s 			page 14
+ARM GAS  /tmp/cc0wMgQO.s 			page 14
 
 
  793              	.L85:
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccioYLtA.s 			page 1
  847 01f4 2268     		ldr	r2, [r4]
  848 01f6 2046     		mov	r0, r4
  849 01f8 1388     		ldrh	r3, [r2]
-ARM GAS  /tmp/ccioYLtA.s 			page 15
+ARM GAS  /tmp/cc0wMgQO.s 			page 15
 
 
  850 01fa 23F07003 		bic	r3, r3, #112
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccioYLtA.s 			page 1
  904 0290 23F48043 		bic	r3, r3, #16384
  905 0294 23F07003 		bic	r3, r3, #112
  906 0298 1B04     		lsls	r3, r3, #16
-ARM GAS  /tmp/ccioYLtA.s 			page 16
+ARM GAS  /tmp/cc0wMgQO.s 			page 16
 
 
  907 029a 1B0C     		lsrs	r3, r3, #16
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccioYLtA.s 			page 1
  961 0328 E119     		adds	r1, r4, r7
  962 032a D1F84431 		ldr	r3, [r1, #324]
  963 032e D1F83C21 		ldr	r2, [r1, #316]
-ARM GAS  /tmp/ccioYLtA.s 			page 17
+ARM GAS  /tmp/cc0wMgQO.s 			page 17
 
 
  964 0332 2B44     		add	r3, r3, r5
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccioYLtA.s 			page 1
  1018 03cc B3F80054 		ldrh	r5, [r3, #1024]
  1019 03d0 C5F30905 		ubfx	r5, r5, #0, #10
  1020 03d4 35B1     		cbz	r5, .L81
-ARM GAS  /tmp/ccioYLtA.s 			page 18
+ARM GAS  /tmp/cc0wMgQO.s 			page 18
 
 
  1021 03d6 2B46     		mov	r3, r5
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccioYLtA.s 			page 1
  1077              		@ args = 0, pretend = 0, frame = 0
  1078              		@ frame_needed = 0, uses_anonymous_args = 0
  1079 0000 38B5     		push	{r3, r4, r5, lr}
-ARM GAS  /tmp/ccioYLtA.s 			page 19
+ARM GAS  /tmp/cc0wMgQO.s 			page 19
 
 
  1080 0002 4368     		ldr	r3, [r0, #4]
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccioYLtA.s 			page 1
  1136              		@ frame_needed = 0, uses_anonymous_args = 0
  1137 0000 38B5     		push	{r3, r4, r5, lr}
  1138 0002 4368     		ldr	r3, [r0, #4]
-ARM GAS  /tmp/ccioYLtA.s 			page 20
+ARM GAS  /tmp/cc0wMgQO.s 			page 20
 
 
  1139 0004 01F00F02 		and	r2, r1, #15
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccioYLtA.s 			page 1
  1195 000a 11D0     		beq	.L162
  1196 000c 0123     		movs	r3, #1
  1197 000e 80F82832 		strb	r3, [r0, #552]
-ARM GAS  /tmp/ccioYLtA.s 			page 21
+ARM GAS  /tmp/cc0wMgQO.s 			page 21
 
 
  1198 0012 0B06     		lsls	r3, r1, #24
@@ -1257,79 +1257,79 @@ ARM GAS  /tmp/ccioYLtA.s 			page 1
  1257 0000 90F82902 		ldrb	r0, [r0, #553]	@ zero_extendqisi2
  1258 0004 7047     		bx	lr
  1260              		.ident	"GCC: (15:6.3.1+svn253039-1build1) 6.3.1 20170620"
-ARM GAS  /tmp/ccioYLtA.s 			page 22
+ARM GAS  /tmp/cc0wMgQO.s 			page 22
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f1xx_hal_pcd.c
-     /tmp/ccioYLtA.s:13     .text.HAL_PCD_MspInit:0000000000000000 $t
-     /tmp/ccioYLtA.s:20     .text.HAL_PCD_MspInit:0000000000000000 HAL_PCD_MspInit
-     /tmp/ccioYLtA.s:27     .text.HAL_PCD_Init:0000000000000000 $t
-     /tmp/ccioYLtA.s:34     .text.HAL_PCD_Init:0000000000000000 HAL_PCD_Init
-     /tmp/ccioYLtA.s:135    .text.HAL_PCD_MspDeInit:0000000000000000 $t
-     /tmp/ccioYLtA.s:142    .text.HAL_PCD_MspDeInit:0000000000000000 HAL_PCD_MspDeInit
-     /tmp/ccioYLtA.s:149    .text.HAL_PCD_Start:0000000000000000 $t
-     /tmp/ccioYLtA.s:156    .text.HAL_PCD_Start:0000000000000000 HAL_PCD_Start
-     /tmp/ccioYLtA.s:179    .text.HAL_PCD_Stop:0000000000000000 $t
-     /tmp/ccioYLtA.s:186    .text.HAL_PCD_Stop:0000000000000000 HAL_PCD_Stop
-     /tmp/ccioYLtA.s:218    .text.HAL_PCD_DeInit:0000000000000000 $t
-     /tmp/ccioYLtA.s:225    .text.HAL_PCD_DeInit:0000000000000000 HAL_PCD_DeInit
-     /tmp/ccioYLtA.s:244    .text.HAL_PCD_DataOutStageCallback:0000000000000000 $t
-     /tmp/ccioYLtA.s:251    .text.HAL_PCD_DataOutStageCallback:0000000000000000 HAL_PCD_DataOutStageCallback
-     /tmp/ccioYLtA.s:258    .text.HAL_PCD_DataInStageCallback:0000000000000000 $t
-     /tmp/ccioYLtA.s:265    .text.HAL_PCD_DataInStageCallback:0000000000000000 HAL_PCD_DataInStageCallback
-     /tmp/ccioYLtA.s:272    .text.HAL_PCD_SetupStageCallback:0000000000000000 $t
-     /tmp/ccioYLtA.s:279    .text.HAL_PCD_SetupStageCallback:0000000000000000 HAL_PCD_SetupStageCallback
-     /tmp/ccioYLtA.s:286    .text.HAL_PCD_SOFCallback:0000000000000000 $t
-     /tmp/ccioYLtA.s:293    .text.HAL_PCD_SOFCallback:0000000000000000 HAL_PCD_SOFCallback
-     /tmp/ccioYLtA.s:300    .text.HAL_PCD_ResetCallback:0000000000000000 $t
-     /tmp/ccioYLtA.s:307    .text.HAL_PCD_ResetCallback:0000000000000000 HAL_PCD_ResetCallback
-     /tmp/ccioYLtA.s:314    .text.HAL_PCD_SuspendCallback:0000000000000000 $t
-     /tmp/ccioYLtA.s:321    .text.HAL_PCD_SuspendCallback:0000000000000000 HAL_PCD_SuspendCallback
-     /tmp/ccioYLtA.s:328    .text.HAL_PCD_ResumeCallback:0000000000000000 $t
-     /tmp/ccioYLtA.s:335    .text.HAL_PCD_ResumeCallback:0000000000000000 HAL_PCD_ResumeCallback
-     /tmp/ccioYLtA.s:342    .text.HAL_PCD_ISOOUTIncompleteCallback:0000000000000000 $t
-     /tmp/ccioYLtA.s:349    .text.HAL_PCD_ISOOUTIncompleteCallback:0000000000000000 HAL_PCD_ISOOUTIncompleteCallback
-     /tmp/ccioYLtA.s:356    .text.HAL_PCD_ISOINIncompleteCallback:0000000000000000 $t
-     /tmp/ccioYLtA.s:363    .text.HAL_PCD_ISOINIncompleteCallback:0000000000000000 HAL_PCD_ISOINIncompleteCallback
-     /tmp/ccioYLtA.s:370    .text.HAL_PCD_ConnectCallback:0000000000000000 $t
-     /tmp/ccioYLtA.s:377    .text.HAL_PCD_ConnectCallback:0000000000000000 HAL_PCD_ConnectCallback
-     /tmp/ccioYLtA.s:384    .text.HAL_PCD_DisconnectCallback:0000000000000000 $t
-     /tmp/ccioYLtA.s:391    .text.HAL_PCD_DisconnectCallback:0000000000000000 HAL_PCD_DisconnectCallback
-     /tmp/ccioYLtA.s:398    .text.HAL_PCD_DevConnect:0000000000000000 $t
-     /tmp/ccioYLtA.s:405    .text.HAL_PCD_DevConnect:0000000000000000 HAL_PCD_DevConnect
-     /tmp/ccioYLtA.s:426    .text.HAL_PCD_DevDisconnect:0000000000000000 $t
-     /tmp/ccioYLtA.s:433    .text.HAL_PCD_DevDisconnect:0000000000000000 HAL_PCD_DevDisconnect
-     /tmp/ccioYLtA.s:455    .text.HAL_PCD_SetAddress:0000000000000000 $t
-     /tmp/ccioYLtA.s:462    .text.HAL_PCD_SetAddress:0000000000000000 HAL_PCD_SetAddress
-     /tmp/ccioYLtA.s:483    .text.HAL_PCD_EP_Open:0000000000000000 $t
-     /tmp/ccioYLtA.s:490    .text.HAL_PCD_EP_Open:0000000000000000 HAL_PCD_EP_Open
-     /tmp/ccioYLtA.s:539    .text.HAL_PCD_EP_Close:0000000000000000 $t
-     /tmp/ccioYLtA.s:546    .text.HAL_PCD_EP_Close:0000000000000000 HAL_PCD_EP_Close
-     /tmp/ccioYLtA.s:584    .text.HAL_PCD_EP_Receive:0000000000000000 $t
-     /tmp/ccioYLtA.s:591    .text.HAL_PCD_EP_Receive:0000000000000000 HAL_PCD_EP_Receive
-     /tmp/ccioYLtA.s:612    .text.HAL_PCD_EP_GetRxCount:0000000000000000 $t
-     /tmp/ccioYLtA.s:619    .text.HAL_PCD_EP_GetRxCount:0000000000000000 HAL_PCD_EP_GetRxCount
-     /tmp/ccioYLtA.s:629    .text.HAL_PCD_EP_Transmit:0000000000000000 $t
-     /tmp/ccioYLtA.s:636    .text.HAL_PCD_EP_Transmit:0000000000000000 HAL_PCD_EP_Transmit
-     /tmp/ccioYLtA.s:658    .text.HAL_PCD_IRQHandler:0000000000000000 $t
-     /tmp/ccioYLtA.s:665    .text.HAL_PCD_IRQHandler:0000000000000000 HAL_PCD_IRQHandler
-     /tmp/ccioYLtA.s:1064   .text.HAL_PCD_IRQHandler:0000000000000440 $d
-     /tmp/ccioYLtA.s:1069   .text.HAL_PCD_EP_SetStall:0000000000000000 $t
-     /tmp/ccioYLtA.s:1076   .text.HAL_PCD_EP_SetStall:0000000000000000 HAL_PCD_EP_SetStall
-ARM GAS  /tmp/ccioYLtA.s 			page 23
+     /tmp/cc0wMgQO.s:13     .text.HAL_PCD_MspInit:0000000000000000 $t
+     /tmp/cc0wMgQO.s:20     .text.HAL_PCD_MspInit:0000000000000000 HAL_PCD_MspInit
+     /tmp/cc0wMgQO.s:27     .text.HAL_PCD_Init:0000000000000000 $t
+     /tmp/cc0wMgQO.s:34     .text.HAL_PCD_Init:0000000000000000 HAL_PCD_Init
+     /tmp/cc0wMgQO.s:135    .text.HAL_PCD_MspDeInit:0000000000000000 $t
+     /tmp/cc0wMgQO.s:142    .text.HAL_PCD_MspDeInit:0000000000000000 HAL_PCD_MspDeInit
+     /tmp/cc0wMgQO.s:149    .text.HAL_PCD_Start:0000000000000000 $t
+     /tmp/cc0wMgQO.s:156    .text.HAL_PCD_Start:0000000000000000 HAL_PCD_Start
+     /tmp/cc0wMgQO.s:179    .text.HAL_PCD_Stop:0000000000000000 $t
+     /tmp/cc0wMgQO.s:186    .text.HAL_PCD_Stop:0000000000000000 HAL_PCD_Stop
+     /tmp/cc0wMgQO.s:218    .text.HAL_PCD_DeInit:0000000000000000 $t
+     /tmp/cc0wMgQO.s:225    .text.HAL_PCD_DeInit:0000000000000000 HAL_PCD_DeInit
+     /tmp/cc0wMgQO.s:244    .text.HAL_PCD_DataOutStageCallback:0000000000000000 $t
+     /tmp/cc0wMgQO.s:251    .text.HAL_PCD_DataOutStageCallback:0000000000000000 HAL_PCD_DataOutStageCallback
+     /tmp/cc0wMgQO.s:258    .text.HAL_PCD_DataInStageCallback:0000000000000000 $t
+     /tmp/cc0wMgQO.s:265    .text.HAL_PCD_DataInStageCallback:0000000000000000 HAL_PCD_DataInStageCallback
+     /tmp/cc0wMgQO.s:272    .text.HAL_PCD_SetupStageCallback:0000000000000000 $t
+     /tmp/cc0wMgQO.s:279    .text.HAL_PCD_SetupStageCallback:0000000000000000 HAL_PCD_SetupStageCallback
+     /tmp/cc0wMgQO.s:286    .text.HAL_PCD_SOFCallback:0000000000000000 $t
+     /tmp/cc0wMgQO.s:293    .text.HAL_PCD_SOFCallback:0000000000000000 HAL_PCD_SOFCallback
+     /tmp/cc0wMgQO.s:300    .text.HAL_PCD_ResetCallback:0000000000000000 $t
+     /tmp/cc0wMgQO.s:307    .text.HAL_PCD_ResetCallback:0000000000000000 HAL_PCD_ResetCallback
+     /tmp/cc0wMgQO.s:314    .text.HAL_PCD_SuspendCallback:0000000000000000 $t
+     /tmp/cc0wMgQO.s:321    .text.HAL_PCD_SuspendCallback:0000000000000000 HAL_PCD_SuspendCallback
+     /tmp/cc0wMgQO.s:328    .text.HAL_PCD_ResumeCallback:0000000000000000 $t
+     /tmp/cc0wMgQO.s:335    .text.HAL_PCD_ResumeCallback:0000000000000000 HAL_PCD_ResumeCallback
+     /tmp/cc0wMgQO.s:342    .text.HAL_PCD_ISOOUTIncompleteCallback:0000000000000000 $t
+     /tmp/cc0wMgQO.s:349    .text.HAL_PCD_ISOOUTIncompleteCallback:0000000000000000 HAL_PCD_ISOOUTIncompleteCallback
+     /tmp/cc0wMgQO.s:356    .text.HAL_PCD_ISOINIncompleteCallback:0000000000000000 $t
+     /tmp/cc0wMgQO.s:363    .text.HAL_PCD_ISOINIncompleteCallback:0000000000000000 HAL_PCD_ISOINIncompleteCallback
+     /tmp/cc0wMgQO.s:370    .text.HAL_PCD_ConnectCallback:0000000000000000 $t
+     /tmp/cc0wMgQO.s:377    .text.HAL_PCD_ConnectCallback:0000000000000000 HAL_PCD_ConnectCallback
+     /tmp/cc0wMgQO.s:384    .text.HAL_PCD_DisconnectCallback:0000000000000000 $t
+     /tmp/cc0wMgQO.s:391    .text.HAL_PCD_DisconnectCallback:0000000000000000 HAL_PCD_DisconnectCallback
+     /tmp/cc0wMgQO.s:398    .text.HAL_PCD_DevConnect:0000000000000000 $t
+     /tmp/cc0wMgQO.s:405    .text.HAL_PCD_DevConnect:0000000000000000 HAL_PCD_DevConnect
+     /tmp/cc0wMgQO.s:426    .text.HAL_PCD_DevDisconnect:0000000000000000 $t
+     /tmp/cc0wMgQO.s:433    .text.HAL_PCD_DevDisconnect:0000000000000000 HAL_PCD_DevDisconnect
+     /tmp/cc0wMgQO.s:455    .text.HAL_PCD_SetAddress:0000000000000000 $t
+     /tmp/cc0wMgQO.s:462    .text.HAL_PCD_SetAddress:0000000000000000 HAL_PCD_SetAddress
+     /tmp/cc0wMgQO.s:483    .text.HAL_PCD_EP_Open:0000000000000000 $t
+     /tmp/cc0wMgQO.s:490    .text.HAL_PCD_EP_Open:0000000000000000 HAL_PCD_EP_Open
+     /tmp/cc0wMgQO.s:539    .text.HAL_PCD_EP_Close:0000000000000000 $t
+     /tmp/cc0wMgQO.s:546    .text.HAL_PCD_EP_Close:0000000000000000 HAL_PCD_EP_Close
+     /tmp/cc0wMgQO.s:584    .text.HAL_PCD_EP_Receive:0000000000000000 $t
+     /tmp/cc0wMgQO.s:591    .text.HAL_PCD_EP_Receive:0000000000000000 HAL_PCD_EP_Receive
+     /tmp/cc0wMgQO.s:612    .text.HAL_PCD_EP_GetRxCount:0000000000000000 $t
+     /tmp/cc0wMgQO.s:619    .text.HAL_PCD_EP_GetRxCount:0000000000000000 HAL_PCD_EP_GetRxCount
+     /tmp/cc0wMgQO.s:629    .text.HAL_PCD_EP_Transmit:0000000000000000 $t
+     /tmp/cc0wMgQO.s:636    .text.HAL_PCD_EP_Transmit:0000000000000000 HAL_PCD_EP_Transmit
+     /tmp/cc0wMgQO.s:658    .text.HAL_PCD_IRQHandler:0000000000000000 $t
+     /tmp/cc0wMgQO.s:665    .text.HAL_PCD_IRQHandler:0000000000000000 HAL_PCD_IRQHandler
+     /tmp/cc0wMgQO.s:1064   .text.HAL_PCD_IRQHandler:0000000000000440 $d
+     /tmp/cc0wMgQO.s:1069   .text.HAL_PCD_EP_SetStall:0000000000000000 $t
+     /tmp/cc0wMgQO.s:1076   .text.HAL_PCD_EP_SetStall:0000000000000000 HAL_PCD_EP_SetStall
+ARM GAS  /tmp/cc0wMgQO.s 			page 23
 
 
-     /tmp/ccioYLtA.s:1127   .text.HAL_PCD_EP_ClrStall:0000000000000000 $t
-     /tmp/ccioYLtA.s:1134   .text.HAL_PCD_EP_ClrStall:0000000000000000 HAL_PCD_EP_ClrStall
-     /tmp/ccioYLtA.s:1181   .text.HAL_PCD_EP_Flush:0000000000000000 $t
-     /tmp/ccioYLtA.s:1188   .text.HAL_PCD_EP_Flush:0000000000000000 HAL_PCD_EP_Flush
-     /tmp/ccioYLtA.s:1216   .text.HAL_PCD_ActivateRemoteWakeup:0000000000000000 $t
-     /tmp/ccioYLtA.s:1223   .text.HAL_PCD_ActivateRemoteWakeup:0000000000000000 HAL_PCD_ActivateRemoteWakeup
-     /tmp/ccioYLtA.s:1231   .text.HAL_PCD_DeActivateRemoteWakeup:0000000000000000 $t
-     /tmp/ccioYLtA.s:1238   .text.HAL_PCD_DeActivateRemoteWakeup:0000000000000000 HAL_PCD_DeActivateRemoteWakeup
-     /tmp/ccioYLtA.s:1246   .text.HAL_PCD_GetState:0000000000000000 $t
-     /tmp/ccioYLtA.s:1253   .text.HAL_PCD_GetState:0000000000000000 HAL_PCD_GetState
+     /tmp/cc0wMgQO.s:1127   .text.HAL_PCD_EP_ClrStall:0000000000000000 $t
+     /tmp/cc0wMgQO.s:1134   .text.HAL_PCD_EP_ClrStall:0000000000000000 HAL_PCD_EP_ClrStall
+     /tmp/cc0wMgQO.s:1181   .text.HAL_PCD_EP_Flush:0000000000000000 $t
+     /tmp/cc0wMgQO.s:1188   .text.HAL_PCD_EP_Flush:0000000000000000 HAL_PCD_EP_Flush
+     /tmp/cc0wMgQO.s:1216   .text.HAL_PCD_ActivateRemoteWakeup:0000000000000000 $t
+     /tmp/cc0wMgQO.s:1223   .text.HAL_PCD_ActivateRemoteWakeup:0000000000000000 HAL_PCD_ActivateRemoteWakeup
+     /tmp/cc0wMgQO.s:1231   .text.HAL_PCD_DeActivateRemoteWakeup:0000000000000000 $t
+     /tmp/cc0wMgQO.s:1238   .text.HAL_PCD_DeActivateRemoteWakeup:0000000000000000 HAL_PCD_DeActivateRemoteWakeup
+     /tmp/cc0wMgQO.s:1246   .text.HAL_PCD_GetState:0000000000000000 $t
+     /tmp/cc0wMgQO.s:1253   .text.HAL_PCD_GetState:0000000000000000 HAL_PCD_GetState
 
 UNDEFINED SYMBOLS
 USB_DisableGlobalInt

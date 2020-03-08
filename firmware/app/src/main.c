@@ -58,10 +58,7 @@ int main(void)
     CONSOLE_PrintLn("[BKF] Initialising USB...");
     
     #if (__SYS_ENABLE_USB_DRIVER == 1)
-    
-    // TODO: Re-implement USB drivers.
     SYS_USB_Init();
-
     #endif
 
     CONSOLE_PrintLn("[BKF] Initialising libraries...");

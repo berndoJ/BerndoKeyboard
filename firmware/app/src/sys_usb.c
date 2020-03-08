@@ -7,9 +7,6 @@
 #include "infinikeys_stm32cube_usb_hid.h"
 #include "infinikeys_stm32cube_usb_if.h"
 
-#include "usbd_custom_hid_if.h"
-#include "usbd_customhid.h"
-
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>

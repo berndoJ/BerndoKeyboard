@@ -21,6 +21,8 @@
 
 #include "infinikeys_usb_desc.h"
 
+#include "sys_ws2812.h"
+
 /* --------------------------------------------------------------
  * FUNCTION DECLARATIONS
  * ------------------------------------------------------------*/
@@ -69,6 +71,28 @@ static int8_t IK_USBD_HID_DeInit(void)
  */
 static int8_t IK_USBD_HID_OutEvent(uint8_t* report_buffer)
 {
+    uint8_t report_id, kleds;
+
+    report_id = report_buffer[0];
+
+    switch (report_id)
+    {
+        case 1:
+        case 2:
+            // Keyboard HID LED-status report.
+            kleds = report_buffer[1];
+            if (hw_ws2812_init_status == SYS_INIT_STATUS_INITIALISED)
+            {
+                NP32_SetLED_RGB(hw_ws2812_handle, KBLED_NUMLOCK_INDEX, ((kleds & 0x01) == 1 ? KBLED_DEFAULT_COLOR_RGB : KBLED_COLOR_BLACK));
+                NP32_SetLED_RGB(hw_ws2812_handle, KBLED_CAPSLOCK_INDEX, (((kleds >> 1) & 0x01) == 1 ? KBLED_DEFAULT_COLOR_RGB : KBLED_COLOR_BLACK));
+                NP32_SetLED_RGB(hw_ws2812_handle, KBLED_SCROLLLOCK_INDEX, (((kleds >> 2) & 0x01) == 1 ? KBLED_DEFAULT_COLOR_RGB : KBLED_COLOR_BLACK));
+                NP32_Update(hw_ws2812_handle);
+            }
+            break;
+        default:
+            break;
+    }
+
 	//IK_USBIF_RecieveHIDReportCB(report_buffer, IK_HID_OUT_REPORT_BUFFER_SIZE);
 	return USBD_OK;
 }

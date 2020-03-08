@@ -64,15 +64,11 @@ C_SOURCES += sys_dma.c
 C_SOURCES += sys_usb.c
 C_SOURCES += lib_infinikeys.c
 C_SOURCES += infinikeys_hwif/infinikeys_hwif_berndokb.c
-
 C_SOURCES += infinikeys_stm32cube_usb_hid.c
 C_SOURCES += infinikeys_stm32cube_usb_if.c
-
 C_SOURCES += stm32usbd/usbd_conf.c
 C_SOURCES += stm32usbd/usbd_core.c
 C_SOURCES += stm32usbd/usbd_ctlreq.c
-C_SOURCES += stm32usbd/usbd_custom_hid_if.c
-C_SOURCES += stm32usbd/usbd_customhid.c
 C_SOURCES += stm32usbd/usbd_desc.c
 C_SOURCES += stm32usbd/usbd_ioreq.c
 
